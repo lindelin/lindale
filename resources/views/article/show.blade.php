@@ -24,7 +24,7 @@
 		        <h1 style="text-align: center; margin-top: 50px;">{{ $article->title }}</h1>
 		        <hr>
 		        <div id="date" style="text-align: right;">
-		            {{ $article->updated_at }}
+		            Writer: {{ $article->hasOneUser->name }}　 Date: {{ $article->updated_at }}
 		        </div>
 		        <div id="content" style="margin: 20px;">
 		            <p>
@@ -89,7 +89,7 @@
 		                        </div>
 		                        <div class="content">
 		                            <p style="padding: 20px;">
-		                                {{ $comment->content }}
+		                                {!! nl2br($comment->content) !!}
 		                            </p>
 		                        </div>
 		                        <div class="reply" style="text-align: right; padding: 5px;">
