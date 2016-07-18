@@ -1,3 +1,18 @@
+<?php 
+    function cut_str($str,$len,$suffix="..."){
+        if(function_exists('mb_substr')){
+            if(strlen($str) > $len){
+                $str= mb_substr($str,0,$len).$suffix;
+            }
+            return $str;
+        }else{
+            if(strlen($str) > $len){
+                $str= substr($str,0,$len).$suffix;
+            }
+            return $str;
+        }         
+    }
+?>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,11 +42,11 @@
 		            <li style="margin: 50px 0;">
 		                <div class="title">
 		                    <a href="{{ url('article/'.$article->id) }}">
-		                        <h4>{{ $article->title }}</h4>
+		                        <h2>{{ $article->title }}</h2>
 		                    </a>
 		                </div>
 		                <div class="body">
-		                    <p>{{ $article->body }}</p>
+		                    <p>{!! cut_str(nl2br(e($article->body)),300) !!}</p>
 		                </div>
 		            </li>
 		            @endforeach

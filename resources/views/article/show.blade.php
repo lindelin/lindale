@@ -28,7 +28,7 @@
 		        </div>
 		        <div id="content" style="margin: 20px;">
 		            <p>
-		                {{ $article->body }}
+		                {!! nl2br($article->body) !!}
 		            </p>
 		        </div>
 		        
