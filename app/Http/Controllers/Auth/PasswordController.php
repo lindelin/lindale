@@ -27,6 +27,6 @@ class PasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware());
+        $this->middleware('guest');
     }
 }
