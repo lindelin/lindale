@@ -47,15 +47,15 @@
 		                    <input type="hidden" name="article_id" value="{{ $article->id }}">
 		                    <div class="form-group">
 		                        <label>Nickname</label>
-		                        <input type="text" name="nickname" class="form-control" style="width: 300px;" required="required">
+		                        <input type="text" name="nickname" class="form-control" required="required">
 		                    </div>
 		                    <div class="form-group">
 		                        <label>Email address</label>
-		                        <input type="email" name="email" class="form-control" style="width: 300px;">
+		                        <input type="email" name="email" class="form-control">
 		                    </div>
 		                    <div class="form-group">
 		                        <label>Home page</label>
-		                        <input type="text" name="website" class="form-control" style="width: 300px;">
+		                        <input type="text" name="website" class="form-control">
 		                    </div>
 		                    <div class="form-group">
 		                        <label>Content</label>
