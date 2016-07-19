@@ -93,7 +93,7 @@
 		                            </p>
 		                        </div>
 		                        <div class="reply" style="text-align: right; padding: 5px;">
-		                            <a href="#new" onclick="reply(this);">回复</a>
+		                            <a href="#new" onclick="reply(this);">Reply</a>
 		                        </div>
 		                    </div>
 		
