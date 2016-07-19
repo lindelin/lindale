@@ -46,7 +46,7 @@
 		                    </a>
 		                </div>
 		                <div class="body">
-		                    <p>{!! cut_str(nl2br(e($article->body)),300) !!}</p>
+		                    <p>{!! cut_str(nl2br($article->body),300) !!}</p>
 		                </div>
 		            </li>
 		            @endforeach
