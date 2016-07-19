@@ -21,7 +21,7 @@
                             <h4>{{ $article->title }}</h4>
                             <div class="content">
                                 <p>
-                                    {!! nl2br($article->body) !!}
+                                    {!! nl2br(e($article->body)) !!}
                                 </p>
                             </div>
                         </div>
