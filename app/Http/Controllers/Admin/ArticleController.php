@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Article;
+use App\Comment;
 
 class ArticleController extends Controller
 {
@@ -69,6 +70,7 @@ class ArticleController extends Controller
 
     public function destroy($id)
     {
+        Comment::where('article_id', '=', $id)->delete();
         Article::find($id)->delete();
         return redirect()->back()->withInput()->withErrors('删除成功！');
     }
