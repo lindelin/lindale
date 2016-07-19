@@ -23,7 +23,7 @@
                                 	主页：{{ $comment->website }}
                                 </p>
                                 <p>
-                                	内容：{!! nl2br($comment->content) !!}
+                                	内容：{!! nl2br(e($comment->content)) !!}
                                 </p>
                                 <p>
                                 	文章：<a href="{{ url('/article/'.$comment->hasOneArticle->id) }}">
