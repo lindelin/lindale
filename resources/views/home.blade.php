@@ -54,19 +54,6 @@
 		    </div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div id="footer" class="container">
-				<nav class="navbar navbar-default navbar-fixed-bottom">
-				   <div class="navbar-inner navbar-content-center" align="center">
-				      <p class="text-muted credit">
-	        			 Power by Lindalë
-				      </p>
-			           </div>
-			        </nav>
-			</div> 
-		</div>
-	</div>
 </div>	
 </body>
 </html>
