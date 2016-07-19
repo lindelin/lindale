@@ -89,7 +89,7 @@
 		                        </div>
 		                        <div class="content">
 		                            <p style="padding: 20px;">
-		                                {!! nl2br($comment->content) !!}
+		                                {!! nl2br(e($comment->content)) !!}
 		                            </p>
 		                        </div>
 		                        <div class="reply" style="text-align: right; padding: 5px;">
