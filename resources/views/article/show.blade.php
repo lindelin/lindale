@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 		    <div id="content" style="padding: 50px;">
-		        <div align="left"><img alt="Bootstrap Image Preview" src="{{ asset('/img/logosub.png') }}" width="15%"/></div>
+		        <div align="right"><img alt="Bootstrap Image Preview" src="{{ asset('/img/logosub.png') }}" width="15%"/></div>
 		        <h4>
 		            <a href="/"><< Home</a>
 		        </h4>
