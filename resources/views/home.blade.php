@@ -36,6 +36,12 @@
 		        <div style="padding: 5px; font-size: 16px;">...is a word from J.R.R. Tolkien's elvish language named Quenya and <br>means "to sing" or "to make music."</div>
 		    </div>
 		    <hr>
+		    @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <strong>操作失败：</strong> 文章不存在！<br><br>
+                    {!! implode('<br>', $errors->all()) !!}
+                </div>
+            @endif
 		    <div id="content">
 		        <ul>
 		            @foreach ($articles as $article)
