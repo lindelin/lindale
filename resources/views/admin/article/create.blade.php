@@ -16,7 +16,7 @@
 				{!! csrf_field() !!}
 				<input type="text" name="title" class="form-control" required="required" placeholder="请输入标题">
 				<br>
-				<textarea name="body" rows="10" class="form-control" required="required" placeholder="请输入内容"></textarea>
+				<textarea id="TextArea1" cols="20" rows="2" class="ckeditor" name="body"  class="form-control" required="required" placeholder="请输入内容"></textarea>
 				<br>
 				<button class="btn btn-lg btn-info">新增文章</button>
 			</form>
