@@ -11,7 +11,7 @@ Lindalë
 		    <div id="title" style="text-align: center;">
 		    	<br>
 		        <img alt="Bootstrap Image Preview" src="{{ asset('/img/logomin.png') }}" width="50%"/>
-		        <div style="padding: 5px; font-size: 16px;"><h2>{{ Inspiring::quote() }}</h2></div>
+		        <div style="padding: 5px; font-size: 16px;"><h3>{{ Inspiring::quote() }}</h3></div>
 		    </div>
 		    <hr>
 		    @if (count($errors) > 0)
