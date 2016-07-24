@@ -1,23 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Menu</div>
-
-                <div class="panel-body">
-                    
-                    <a href="{{ url('admin/article') }}" class="btn btn-lg btn-success col-xs-12">管理文章</a>
-                    <br />
-                    <br />
-                    <br />
-                    <a href="{{ url('admin/comment') }}" class="btn btn-lg btn-success col-xs-12">管理评论</a>
-
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="panel panel-default">
+	<div class="panel-heading">
+	Information
+	</div>
+	<div class="panel-body">
+		<div align="center">
+			<h1>Lindale Information Center</h1>
+			<h3>{{ Inspiring::quote() }}</h3>
+		</div>
+	</div>
 </div>
 @endsection
