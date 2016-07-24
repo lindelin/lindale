@@ -1,0 +1,14 @@
+@CHARSET "UTF-8";
+@font-face { 
+	font-family: ヒラギノ角ゴシック;
+	src: url(' {{ asset('/fonts/ヒラギノ角ゴシック W0.ttc') }} ');
+}
+@font-face { 
+	font-family: YuppySC-Regular;
+	src: url(' {{ asset('/fonts/YuppySC-Regular.otf') }} ');
+}
+body{
+	word-wrap: break-word;
+	font-family: 'Lato','Microsoft YaHei','YuppySC-Regular';
+	
+}
