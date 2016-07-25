@@ -1,9 +1,5 @@
 @CHARSET "UTF-8";
-@font-face {
-	font-family: SIMYOU;
-	src: url('/fonts/SIMYOU.TTF');
-}
 body{
 	word-wrap: break-word;
-	font-family: 'Lato','SIMYOU';
+	font-family: 'Poiret One', cursive;
 }
