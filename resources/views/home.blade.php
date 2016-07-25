@@ -23,14 +23,14 @@ Lindalë
 		    <div id="content">
 		        <ul>
 		            @foreach ($articles as $article)
-		            <li style="margin: 50px 0;">
+		            <li>
 		                <div class="title">
 		                    <a href="{{ url('article/'.$article->id) }}">
-		                        <h3>{{ $article->title }}</h3>
+		                        <h4>{{ $article->title }}</h4>
 		                    </a>
 		                </div>
 		                <div class="body">
-		                    <p>{!! cut_str(nl2br($article->body),300) !!}</p>
+		                    <p>{!! cut_str(nl2br(e($article->body)),300) !!}</p>
 		                </div>
 		            </li>
 		            @endforeach

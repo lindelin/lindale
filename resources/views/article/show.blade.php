@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-Lindalë
+Lindalë-Show
 @endsection
 
 @section('content')
