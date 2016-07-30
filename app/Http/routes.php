@@ -11,8 +11,6 @@
 |
 */
 
-Route::auth();
-
 Route::get('/', 'HomeController@index');
 Route::get('article/{id}', 'ArticleController@show');
 Route::post('comment', 'CommentController@store');
@@ -22,3 +20,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::resource('article', 'ArticleController');
     Route::resource('comment', 'CommentController');
 });
+
+/*
+|--------------------------------------------------------------------------
+| Logging In/Out Routes
+|--------------------------------------------------------------------------
+*/
+Route::get('login', 'Auth\AuthController@showLoginForm');
+Route::post('login', 'Auth\AuthController@login');
+Route::get('logout', 'Auth\AuthController@logout');
+
