@@ -4,9 +4,11 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "doctrine/dbal": "~2.3",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "laravel/framework": "5.2.*",
+        "barryvdh/laravel-ide-helper":"dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -28,6 +30,11 @@
             "tests/TestCase.php"
         ]
     },
+    "post-update-cmd": [
+        "php artisan clear-compiled",
+        "php artisan ide-helper:generate",
+        "php artisan optimize"
+    ],
     "scripts": {
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""
