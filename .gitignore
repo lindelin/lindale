@@ -18,4 +18,15 @@ Homestead.json
 
 .idea/vcs.xml
 .idea/workspace.xml
-.idea/workspace.xml
+.DS_Store
+.idea/copyright/
+app/.DS_Store
+public/.DS_Store
+resources/.DS_Store
+resources/assets/.DS_Store
+resources/assets/sass/.DS_Store
+resources/views/.DS_Store
+resources/views/admin/.DS_Store
+resources/views/admin/comment/.DS_Store
+resources/views/layouts/.DS_Store
+resources/views/layouts/admin/.DS_Store
