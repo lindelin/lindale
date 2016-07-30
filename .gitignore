@@ -4,3 +4,17 @@
 Homestead.yaml
 Homestead.json
 .env
+
+.idea/blade.xml
+
+.idea/copyright/profiles_settings.xml
+
+.idea/lindale.iml
+
+.idea/misc.xml
+
+.idea/modules.xml
+
+.idea/vcs.xml
+
+.idea/workspace.xml
