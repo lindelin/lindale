@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::resource('article', 'ArticleController');
     Route::resource('comment', 'CommentController');
     Route::get('user', 'UserController@index');
-    Route::post('add', 'UserController@add');
+    Route::post('adduser', 'UserController@add');
 });
 
 /*

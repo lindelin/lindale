@@ -32,7 +32,7 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle"></span></button>
                                     <h4 class="modal-title" id="myModalLabel">添加新用户</h4>
                                 </div>
-                                <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/add') }}">
+                                <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/adduser') }}">
                                 {!! csrf_field() !!}
                                 <div class="modal-body">
                                     <div class="row">

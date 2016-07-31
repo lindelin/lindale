@@ -14,19 +14,12 @@ class UserController extends Controller
     {
         return view('admin.user.index')->withUsers(User::all());
     }
-    public function add(Request $request)
-    {
-        $validator = $this->validator($request->all());
 
-        if ($validator->fails()) {
-            $this->throwValidationException(
-                $request, $validator
-            );
-        }
-        User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => bcrypt($data['password']),
+    public function add()
+    {
+        $this->validate($request, [
+            'title' => 'required|unique:articles,title,'.$id.'|max:255',
+            'body' => 'required',
         ]);
     }
 }
