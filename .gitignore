@@ -30,3 +30,6 @@ resources/views/admin/.DS_Store
 resources/views/admin/comment/.DS_Store
 resources/views/layouts/.DS_Store
 resources/views/layouts/admin/.DS_Store
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/workspace.xml

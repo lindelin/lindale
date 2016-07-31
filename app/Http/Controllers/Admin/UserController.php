@@ -15,11 +15,22 @@ class UserController extends Controller
         return view('admin.user.index')->withUsers(User::all());
     }
 
-    public function add()
+    public function add(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|unique:articles,title,'.$id.'|max:255',
-            'body' => 'required',
+            'name' => 'required|unique:users|max:30',
+            'email' => 'required|unique:users|max:200|email',
+            'password' => 'required|between:6,30|alpha_num|confirmed',
         ]);
+        $user = new User();
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->password = bcrypt($request->get('password'));
+
+        if ($user->save()) {
+            return redirect('admin/user');
+        } else {
+            return redirect()->back()->withInput()->withErrors('保存失败！');
+        }
     }
 }
