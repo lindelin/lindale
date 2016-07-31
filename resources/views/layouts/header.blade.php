@@ -14,7 +14,7 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="active">
-					<a href="{{ url('/admin') }}">Top</a>
+					<a href="{{ url('/admin') }}"><span class="glyphicon glyphicon-home"></span></a>
 				</li>
 				@if (Auth::guest())
 				@else
