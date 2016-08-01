@@ -33,6 +33,6 @@ resources/views/layouts/admin/.DS_Store
 .idea/dataSources.ids
 .idea/dataSources.xml
 
+/.idea
 .idea
-
 .idea/dataSources.local.xml
