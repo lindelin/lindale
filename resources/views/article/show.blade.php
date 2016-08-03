@@ -21,7 +21,7 @@ Lindalë-Show
 		        </div>
 		        <div id="content" style="margin: 20px;">
 		            <p>
-		                {!! nl2br($article->body) !!}
+		                {!! $article->body !!}
 		            </p>
 		        </div>
 		        
