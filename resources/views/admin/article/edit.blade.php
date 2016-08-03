@@ -17,7 +17,7 @@
 			{{ csrf_field() }}
 			<input type="text" name="title" class="form-control" required="required" placeholder="请输入标题" value="{{ $article->title }}">
 			<br>
-			<textarea name="body" rows="10" class="form-control" required="required" placeholder="请输入内容">{{ $article->body }}</textarea>
+			<textarea name="body" rows="10" class="form-control ckeditor" required="required" placeholder="请输入内容">{{ $article->body }}</textarea>
 			<br>
 			<button class="btn btn-lg btn-info">提交修改</button>
 		</form>
