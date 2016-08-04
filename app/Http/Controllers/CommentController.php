@@ -17,7 +17,7 @@ class CommentController extends Controller
             'content'  => 'required|max:255',
         ]);
 
-        if (!Article::find($request->article_id)) {
+        if (! Article::find($request->article_id)) {
             return redirect()->to('/')->withInput()->withErrors('评论发表失败！');
         } elseif (Comment::create($request->all())) {
             return redirect()->back();
