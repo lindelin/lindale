@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class FrontRoutesTest extends TestCase
 {
@@ -39,5 +36,4 @@ class FrontRoutesTest extends TestCase
 
         $this->assertEquals(302, $response->status());
     }
-
 }
