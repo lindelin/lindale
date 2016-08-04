@@ -13,7 +13,7 @@ class ArticleSeeder extends Seeder
     {
         DB::table('articles')->delete();
 
-        for ($i=0; $i < 10; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             \App\Article::create([
                 'title'   => 'Title '.$i,
                 'body'    => 'Body '.$i,
