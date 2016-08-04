@@ -5,8 +5,15 @@ php:
   - hhvm
 
 before_script:
+  - mysql -e 'create database lindale;'
   - composer self-update
   - composer install
+  - cp .env.travis .env
+  - php artisan key:generate
+  - php artisan migrate
+
+script:
+  - phpunit
 
 notifications:
   emails:
