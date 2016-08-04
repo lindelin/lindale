@@ -1,8 +1,11 @@
 <?php
+
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+
 trait InteractsWithDatabase
 {
     use DatabaseTransactions;
+
     /**
      * Setup the test environment.
      *
@@ -14,6 +17,7 @@ trait InteractsWithDatabase
         $this->runDatabaseMigrations();
         $this->seed(TestDatabaseSeeder::class);
     }
+
     /**
      * Define hooks to migrate the database before and after each test.
      *
