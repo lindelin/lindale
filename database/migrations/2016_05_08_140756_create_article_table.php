@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateArticleTable extends Migration
 {
@@ -12,8 +12,7 @@ class CreateArticleTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function(Blueprint $table)
-        {
+        Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->text('body')->nullable();
