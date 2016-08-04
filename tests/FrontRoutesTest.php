@@ -37,7 +37,7 @@ class FrontRoutesTest extends TestCase
     {
         $response = $this->call('GET', '/admin');
 
-        $this->assertEquals(200, $response->status());
+        $this->assertEquals(302, $response->status());
     }
 
 }
