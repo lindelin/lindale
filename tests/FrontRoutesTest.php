@@ -35,7 +35,7 @@ class FrontRoutesTest extends TestCase
      */
     public function testAritcle()
     {
-        $response = $this->call('GET', 'article/{id}');
+        $response = $this->call('GET', '/article/{id}');
 
         $this->assertEquals(200, $response->status());
     }
