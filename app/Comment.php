@@ -5,18 +5,20 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Comment
+ * App\Comment.
  *
  * @property-read \App\Article $hasOneArticle
  * @mixin \Eloquent
- * @property integer $id
+ *
+ * @property int $id
  * @property string $nickname
  * @property string $email
  * @property string $website
  * @property string $content
- * @property integer $article_id
+ * @property int $article_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Comment whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Comment whereNickname($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Comment whereEmail($value)
@@ -29,8 +31,9 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     protected $fillable = ['nickname', 'email', 'website', 'content', 'article_id'];
+
     public function hasOneArticle()
     {
-    	return $this->hasOne('App\Article','id','article_id');
+        return $this->hasOne('App\Article', 'id', 'article_id');
     }
 }
