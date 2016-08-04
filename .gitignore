@@ -36,3 +36,4 @@ resources/views/layouts/admin/.DS_Store
 /.idea
 .idea
 .idea/dataSources.local.xml
+_ide_helper.php
