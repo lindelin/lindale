@@ -33,9 +33,9 @@ class FrontRoutesTest extends TestCase
      *
      * @return void
      */
-    public function testAritcle()
+    public function testAdmin()
     {
-        $response = $this->call('GET', '/article/7');
+        $response = $this->call('GET', '/admin');
 
         $this->assertEquals(200, $response->status());
     }
