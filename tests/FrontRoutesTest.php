@@ -78,9 +78,21 @@ class FrontRoutesTest extends TestCase
      *
      * @return void
      */
-    public function testAdminAddUser()
+    public function testAdminAddUserPost()
     {
         $response = $this->call('POST', '/admin/adduser');
+
+        $this->assertEquals(302, $response->status());
+    }
+
+    /**
+     * Test the response code for the Admin's AddUser page.
+     *
+     * @return void
+     */
+    public function testAdminAddUserGet()
+    {
+        $response = $this->call('GET', '/admin/adduser');
 
         $this->assertEquals(405, $response->status());
     }
