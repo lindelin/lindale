@@ -26,7 +26,7 @@ class FrontRoutesTest extends TestCase
     }
 
     /**
-     * Test the response code for the Posts page.
+     * Test the response code for the Admin page.
      *
      * @return void
      */
@@ -35,5 +35,53 @@ class FrontRoutesTest extends TestCase
         $response = $this->call('GET', '/admin');
 
         $this->assertEquals(302, $response->status());
+    }
+
+    /**
+     * Test the response code for the Admin's Article page.
+     *
+     * @return void
+     */
+    public function testAdminArticle()
+    {
+        $response = $this->call('GET', '/admin/article');
+
+        $this->assertEquals(302, $response->status());
+    }
+
+    /**
+     * Test the response code for the Admin's Comment page.
+     *
+     * @return void
+     */
+    public function testAdminComment()
+    {
+        $response = $this->call('GET', '/admin/comment');
+
+        $this->assertEquals(302, $response->status());
+    }
+
+    /**
+     * Test the response code for the Admin's User page.
+     *
+     * @return void
+     */
+    public function testAdminUser()
+    {
+        $response = $this->call('GET', '/admin/user');
+
+        $this->assertEquals(302, $response->status());
+    }
+
+    /**
+     * Test the response code for the Admin's AddUser page.
+     *
+     * @return void
+     */
+    public function testAdminAddUser()
+    {
+        $response = $this->call('POST', '/admin/adduser');
+
+        $this->assertEquals(405, $response->status());
     }
 }
