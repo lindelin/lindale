@@ -4,3 +4,4 @@
 [![StyleCI](https://styleci.io/repos/63577917/shield)](https://styleci.io/repos/63577917)
 
 ##About Lindale
+####...is a word from J.R.R. Tolkien's elvish language named Quenya and means "to sing" or "to make music."
