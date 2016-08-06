@@ -6,6 +6,11 @@
 ##About Lindalë
 ####...is a word from J.R.R. Tolkien's elvish language named Quenya and means "to sing" or "to make music."
 
+
 ##About this Project
 It will be a simple blog system.
+
+
+##Install
+`git clone `
 
