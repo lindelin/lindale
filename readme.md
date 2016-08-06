@@ -13,7 +13,10 @@ It will be a simple blog system.
 
 ##Install
 step.1
+
 `git clone https://github.com/kudouyoichi/lindale.git`
+
 step.2
+
 `composer install`
 
