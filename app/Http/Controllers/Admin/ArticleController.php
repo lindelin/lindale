@@ -13,7 +13,7 @@ class ArticleController extends Controller
      * @param $order
      * @return mixed
      */
-    public function index($order=0)
+    public function index($order = 0)
     {
         switch ($order) {
             case 0:
@@ -51,7 +51,7 @@ class ArticleController extends Controller
         // 数据验证
         $this->validate($request, [
             'title' => 'required|unique:articles|max:255', // 必填、在 articles 表中唯一、最大长度 255
-            'body'  => 'required', // 必填
+            'body' => 'required', // 必填
         ]);
 
         // 通过 Article Model 插入一条数据进 articles 表
@@ -78,7 +78,7 @@ class ArticleController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|unique:articles,title,'.$id.'|max:255',
-            'body'  => 'required',
+            'body' => 'required',
         ]);
 
         $article = Article::find($id);
