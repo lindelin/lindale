@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * App\Article.
  *
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Comment[] $hasManyComments
- * @property-read \App\User $hasOneUser
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Comment[] $Comments
+ * @property-read \App\User $User
  * @mixin \Eloquent
  *
  * @property int $id
@@ -27,12 +27,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Article extends Model
 {
-    public function hasManyComments()
+    public function Comments()
     {
         return $this->hasMany('App\Comment', 'article_id', 'id');
     }
 
-    public function hasOneUser()
+    public function User()
     {
         return $this->hasOne('App\User', 'id', 'user_id');
     }

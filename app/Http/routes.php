@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/{order}', 'HomeController@index');
 Route::get('article/{id}', 'ArticleController@show');
 Route::post('comment', 'CommentController@store');
 
@@ -29,6 +30,7 @@ Route::post('comment', 'CommentController@store');
 Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/', 'HomeController@index');
     Route::resource('article', 'ArticleController');
+    Route::get('article/index/{order}', 'ArticleController@index');
     Route::resource('comment', 'CommentController');
     Route::get('user', 'UserController@index');
     Route::post('adduser', 'UserController@add');

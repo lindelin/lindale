@@ -14,6 +14,7 @@ Lindalë
 		        <div style="padding: 5px; font-size: 16px;"><h3>{{ Inspiring::quote() }}</h3></div>
 		    </div>
 		    <hr>
+			@include('layouts.orderbtn',['url1' => '/0', 'url2' => '/1' ])
 		    @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <strong>操作失败：</strong> 文章不存在！<br><br>
@@ -29,9 +30,7 @@ Lindalë
 		                        <h4>{{ $article->title }}</h4>
 		                    </a>
 		                </div>
-		                <div class="body">
-		                    <p>{!! cut_str($article->body,300) !!}</p>
-		                </div>
+						@include('layouts.markdown',['id' => $article->id, 'body' => cut_str($article->body,400)])
 		            </li>
 		            @endforeach
 		        </ul>

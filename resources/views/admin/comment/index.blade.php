@@ -25,8 +25,8 @@
 							内容：{!! nl2br(e($comment->content)) !!}
 						</p>
 						<p>
-							文章：<a href="{{ url('/article/'.$comment->hasOneArticle->id) }}">
-							{{ $comment->hasOneArticle->title }}
+							文章：<a href="{{ url('/article/'.$comment->Article->id) }}">
+							{{ $comment->Article->title }}
 							</a>
 						</p>
 					</div>

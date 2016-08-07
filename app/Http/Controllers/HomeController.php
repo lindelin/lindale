@@ -5,12 +5,19 @@ namespace App\Http\Controllers;
 class HomeController extends Controller
 {
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
+     * @param int $order
+     * @return mixed
      */
-    public function index()
+    public function index($order=0)
     {
-        return view('home')->withArticles(\App\Article::all());
+
+        switch ($order) {
+            case 0:
+                return view('home')->withArticles(\App\Article::latest()->get());
+                break;
+            case 1:
+                return view('home')->withArticles(\App\Article::oldest()->get());
+                break;
+        }
     }
 }

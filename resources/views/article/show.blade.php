@@ -9,20 +9,27 @@ Lindalë-Show
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 		    <div id="content" style="padding: 50px;">
-		        <div align="right"><img alt="Bootstrap Image Preview" src="{{ asset('/img/logosub.png') }}" width="15%"/></div>
+
+		        <div align="right">
+					@if(Auth::guest())
+					<img alt="Bootstrap Image Preview" src="{{ asset('/img/logosub.png') }}" width="15%"/>
+					@else
+					<a href="{{ url('admin/article') }}" >
+						<img alt="Bootstrap Image Preview" src="{{ asset('/img/logosub.png') }}" width="15%"/>
+					</a>
+					@endif
+				</div>
 		        <h4>
-		            <a href="/"><< Home</a>
+		            <a href="/"><h3 style="color: #ff65a3;"><span class="glyphicon glyphicon-arrow-left"></span> HOME</h3></a>
 		        </h4>
 		
-		        <h1 style="text-align: center; margin-top: 50px;">{{ $article->title }}</h1>
+		        <h2 style="text-align: center; margin-top: 50px;">{{ $article->title }}</h2>
 		        <hr>
 		        <div id="date" style="text-align: right;">
-		            Writer: {{ $article->hasOneUser->name }}　 Date: {{ $article->updated_at }}
+		            Writer: {{ $article->User->name }}　 Date: {{ $article->updated_at }}
 		        </div>
 		        <div id="content" style="margin: 20px;">
-		            <p>
-		                {!! $article->body !!}
-		            </p>
+					@include('layouts.markdown',['id' => $article->id, 'body' => $article->body])
 		        </div>
 		        
 		        <div id="comments" style="margin-top: 50px;">
@@ -67,7 +74,7 @@ Lindalë-Show
 		            </script>
 		
 		            <div class="conmments" style="margin-top: 100px;">
-		                @foreach ($article->hasManyComments as $comment)
+		                @foreach ($article->Comments as $comment)
 		
 		                    <div class="one" style="border-top: solid 20px #efefef; padding: 5px 20px;">
 		                        <div class="nickname" data="{{ $comment->nickname }}">
@@ -76,9 +83,9 @@ Lindalë-Show
 		                                    <h3>{{ $comment->nickname }}</h3>
 		                                </a>
 		                            @else
-		                                <h3>{{ $comment->nickname }}</h3>
+		                                <h4>{{ $comment->nickname }}</h4>
 		                            @endif
-		                            <h6>{{ $comment->created_at }}</h6>
+		                            <h6>Date: {{ $comment->created_at }}</h6>
 		                        </div>
 		                        <div class="content">
 		                            <p style="padding: 20px;">

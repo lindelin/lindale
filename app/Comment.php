@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * App\Comment.
  *
- * @property-read \App\Article $hasOneArticle
+ * @property-read \App\Article $Article
  * @mixin \Eloquent
  *
  * @property int $id
@@ -32,7 +32,7 @@ class Comment extends Model
 {
     protected $fillable = ['nickname', 'email', 'website', 'content', 'article_id'];
 
-    public function hasOneArticle()
+    public function Article()
     {
         return $this->hasOne('App\Article', 'id', 'article_id');
     }

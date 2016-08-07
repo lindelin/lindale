@@ -9,21 +9,43 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function index()
+    /**
+     * @param $order
+     * @return mixed
+     */
+    public function index($order=0)
     {
-        return view('admin/article/index')->withArticles(Article::all());
+        switch ($order) {
+            case 0:
+                return view('admin/article/index')->withArticles(\App\Article::latest()->get());
+                break;
+            case 1:
+                return view('admin/article/index')->withArticles(\App\Article::oldest()->get());
+                break;
+        }
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         return view('admin/article/create');
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function edit($id)
     {
         return view('admin/article/edit')->withArticle(Article::find($id));
     }
 
+    /**
+     * @param Request $request
+     * @return $this|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function store(Request $request) // Laravel 的依赖注入系统会自动初始化我们需要的 Request 类
     {
         // 数据验证
@@ -47,6 +69,11 @@ class ArticleController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return $this|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
@@ -65,6 +92,10 @@ class ArticleController extends Controller
         }
     }
 
+    /**
+     * @param $id
+     * @return $this
+     */
     public function destroy($id)
     {
         Comment::where('article_id', '=', $id)->delete();
