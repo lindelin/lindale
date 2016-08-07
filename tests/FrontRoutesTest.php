@@ -32,7 +32,7 @@ class FrontRoutesTest extends TestCase
      */
     public function testAdmin()
     {
-        $response = $this->call('GET', '/admin');
+        $response = $this->call('GET', '/admin/index');
 
         $this->assertEquals(302, $response->status());
     }
