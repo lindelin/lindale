@@ -39,7 +39,8 @@ class UserController extends Controller
         }
     }
 
-    public function password(){
+    public function password()
+    {
         return view('auth.password');
     }
 }

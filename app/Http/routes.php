@@ -54,7 +54,7 @@ Route::group(['middleware' => 'https', 'prefix' => 'admin'], function () {
     Route::get('password', 'Admin\UserController@password');
 });
 
-Route::group(['middleware' => 'https'],function (){
+Route::group(['middleware' => 'https'], function () {
     Route::get('password/email', 'Auth\PasswordController@getEmail');
     Route::post('password/email', 'Auth\PasswordController@postEmail');
     Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
