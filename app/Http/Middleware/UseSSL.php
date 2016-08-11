@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
+use App;
 class UseSSL
 {
     /**
@@ -16,7 +16,7 @@ class UseSSL
      */
     public function handle($request, Closure $next)
     {
-        if (! $request->secure() && env('APP_ENV') === 'production') {
+        if (! $request->secure() and App::environment('production')) {
             return redirect()->secure($request->getRequestUri());
         }
 
