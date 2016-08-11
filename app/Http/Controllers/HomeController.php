@@ -12,10 +12,10 @@ class HomeController extends Controller
     {
         switch ($order) {
             case 0:
-                return view('home')->withArticles(\App\Article::latest()->get());
+                return view('home')->withArticles(\App\Article::latest()->paginate(5));
                 break;
             case 1:
-                return view('home')->withArticles(\App\Article::oldest()->get());
+                return view('home')->withArticles(\App\Article::oldest()->paginate(5));
                 break;
         }
     }

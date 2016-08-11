@@ -17,10 +17,10 @@ class ArticleController extends Controller
     {
         switch ($order) {
             case 0:
-                return view('admin/article/index')->withArticles(\App\Article::latest()->get());
+                return view('admin/article/index')->withArticles(\App\Article::latest()->paginate(5));
                 break;
             case 1:
-                return view('admin/article/index')->withArticles(\App\Article::oldest()->get());
+                return view('admin/article/index')->withArticles(\App\Article::oldest()->paginate(5));
                 break;
         }
     }
@@ -39,7 +39,7 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
-        return view('admin/article/edit')->withArticle(Article::find($id));
+        return view('admin/article/edit')->withArticle(Article::findOrFail($id));
     }
 
     /**
