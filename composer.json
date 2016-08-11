@@ -1,9 +1,16 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "kudouyoichi/lindale",
+    "description": "A simple blog system.",
+    "keywords": ["laravel", "Lindale", "application", "markdown"],
     "license": "MIT",
     "type": "project",
+    "authors": [
+        {
+            "name": "Wu Jie",
+            "email": "kudouyoichi@gmail.com",
+            "role": "Developer"
+        }
+    ],
     "doctrine/dbal": "~2.3",
     "require": {
         "php": ">=5.5.9",
