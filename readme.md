@@ -51,5 +51,6 @@ step.7 make test data
 `php artisan db:seed`
 
 ##License
-Lindalë is open-sourced software.  
-Powered by Fourmix inc. - http://www.fourmix.co.jp
+Lindalë is open-sourced software licensed under the [MIT license](https://github.com/kudouyoichi/lindale/blob/master/LICENSE)
+
+Fourmix inc. - http://www.fourmix.co.jp
