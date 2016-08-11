@@ -27,7 +27,7 @@ Route::post('comment', 'CommentController@store');
 |
 */
 
-Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['https', 'auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('index', 'HomeController@index');
     Route::resource('article', 'ArticleController');
     Route::get('article/index/{order}', 'ArticleController@index');
@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
 |
 */
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['middleware' => 'https', 'prefix' => 'admin'], function () {
     Route::get('login', 'Auth\AuthController@showLoginForm');
     Route::post('login', 'Auth\AuthController@login');
     Route::get('logout', 'Auth\AuthController@logout');
