@@ -1,6 +1,6 @@
 #Lindalë Project
 
-[![Build Status](https://travis-ci.org/kudouyoichi/lindale.svg?branch=master)](https://travis-ci.org/kudouyoichi/lindale)
+[![Build Status](https://travis-ci.org/lindelea/lindale.svg?branch=master)](https://travis-ci.org/lindelea/lindale)
 [![StyleCI](https://styleci.io/repos/63577917/shield)](https://styleci.io/repos/63577917)
 [![License](https://poser.pugx.org/kudouyoichi/lindale/license)](https://packagist.org/packages/kudouyoichi/lindale)
 

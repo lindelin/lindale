@@ -1,7 +1,7 @@
 {
-    "name": "kudouyoichi/lindale",
+    "name": "lindelea/lindale",
     "description": "A simple blog system.",
-    "keywords": ["laravel", "Lindale", "application", "markdown"],
+    "keywords": ["laravel", "Lindale", "application", "markdown", "blog"],
     "license": "MIT",
     "type": "project",
     "authors": [
