@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property-read \App\Article $Article
  * @mixin \Eloquent
- *
  * @property int $id
  * @property string $nickname
  * @property string $email
@@ -18,7 +17,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $article_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Comment whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Comment whereNickname($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Comment whereEmail($value)

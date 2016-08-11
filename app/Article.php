@@ -10,14 +10,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Comment[] $Comments
  * @property-read \App\User $User
  * @mixin \Eloquent
- *
  * @property int $id
  * @property string $title
  * @property string $body
  * @property int $user_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Article whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Article whereTitle($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Article whereBody($value)

@@ -8,11 +8,18 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    /**
+     * @return mixed
+     */
     public function index()
     {
         return view('admin.user.index')->withUsers(User::all());
     }
 
+    /**
+     * @param Request $request
+     * @return $this|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function add(Request $request)
     {
         $this->validate($request, [
@@ -30,5 +37,9 @@ class UserController extends Controller
         } else {
             return redirect()->back()->withInput()->withErrors('保存失败！');
         }
+    }
+
+    public function password(){
+        return view('auth.password');
     }
 }

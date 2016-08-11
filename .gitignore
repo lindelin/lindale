@@ -5,17 +5,11 @@ Homestead.yaml
 Homestead.json
 .env
 .idea/codeStyleSettings.xml
-
 .idea/blade.xml
-
 .idea/copyright/profiles_settings.xml
-
 .idea/lindale.iml
-
 .idea/misc.xml
-
 .idea/modules.xml
-
 .idea/vcs.xml
 .idea/workspace.xml
 .DS_Store
@@ -32,8 +26,8 @@ resources/views/layouts/.DS_Store
 resources/views/layouts/admin/.DS_Store
 .idea/dataSources.ids
 .idea/dataSources.xml
-
 /.idea
 .idea
 .idea/dataSources.local.xml
 _ide_helper.php
+.phpstorm.meta.php

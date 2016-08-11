@@ -14,7 +14,7 @@ Lindalë
 		        <div style="padding: 5px; font-size: 16px;"><h3>{{ Inspiring::quote() }}</h3></div>
 		    </div>
 		    <hr>
-			@include('layouts.orderbtn',['url1' => '/0', 'url2' => '/1' ])
+			@include('layouts.orderbtn',['url1' => '/order/0', 'url2' => '/order/1' ])
 		    @if (count($errors) > 0)
                 <div class="alert alert-danger">
                     <strong>操作失败：</strong> 文章不存在！<br><br>
