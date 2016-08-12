@@ -12,6 +12,8 @@
 </head>
 <body>
 
+    @include('layouts.pageloader')
+
 	@include('layouts.header')
 
 	        @yield('content')

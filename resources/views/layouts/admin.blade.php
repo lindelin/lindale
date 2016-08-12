@@ -11,7 +11,7 @@
 
 </head>
 <body>
-
+	@include('layouts.pageloader')
 	@include('layouts.header')
 
 	<div class="container">

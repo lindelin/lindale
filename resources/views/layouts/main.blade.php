@@ -12,7 +12,9 @@
 </head>
 <body>
 
-@yield('content')
+    @include('layouts.pageloader')
+
+    @yield('content')
 
 </body>
 </html>
