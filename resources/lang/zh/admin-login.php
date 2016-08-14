@@ -12,6 +12,6 @@ return [
     'password' => '密码',
     'remember' => '记住我',
     'email'    => '电子邮件',
-    'forgot' => '忘记密码?',
-    'sent' => '发送密码重置链接',
+    'forgot'   => '忘记密码?',
+    'sent'     => '发送密码重置链接',
 ];

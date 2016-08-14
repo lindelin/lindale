@@ -13,15 +13,15 @@ return [
     |
     */
 
-    'accepted'   => ':attributeを承認してください。',
-    'active_url' => ':attributeは、有効なURLではありません。',
-    'after'      => ':attributeには、:date以降の日付を指定してください。',
-    'alpha'      => ':attributeには、アルファベッドのみ使用できます。',
-    'alpha_dash' => ":attributeには、英数字('A-Z','a-z','0-9')とハイフンと下線('-','_')が使用できます。",
-    'alpha_num'  => ":attributeには、英数字('A-Z','a-z','0-9')が使用できます。",
-    'array'      => ':attributeには、配列を指定してください。',
-    'before'     => ':attributeには、:date以前の日付を指定してください。',
-    'between'    => [
+    'accepted'             => ':attributeを承認してください。',
+    'active_url'           => ':attributeは、有効なURLではありません。',
+    'after'                => ':attributeには、:date以降の日付を指定してください。',
+    'alpha'                => ':attributeには、アルファベッドのみ使用できます。',
+    'alpha_dash'           => ":attributeには、英数字('A-Z','a-z','0-9')とハイフンと下線('-','_')が使用できます。",
+    'alpha_num'            => ":attributeには、英数字('A-Z','a-z','0-9')が使用できます。",
+    'array'                => ':attributeには、配列を指定してください。',
+    'before'               => ':attributeには、:date以前の日付を指定してください。',
+    'between'              => [
         'numeric' => ':attributeには、:minから、:maxまでの数字を指定してください。',
         'file'    => ':attributeには、:min KBから:max KBまでのサイズのファイルを指定してください。',
         'string'  => ':attributeは、:min文字から:max文字にしてください。',
@@ -52,8 +52,8 @@ return [
         'string'  => ':attributeは、:max文字以下にしてください。',
         'array'   => ':attributeの項目は、:max個以下にしてください。',
     ],
-    'mimes' => ':attributeには、:valuesタイプのファイルを指定してください。',
-    'min'   => [
+    'mimes'                => ':attributeには、:valuesタイプのファイルを指定してください。',
+    'min'                  => [
         'numeric' => ':attributeには、:min以上の数字を指定してください。',
         'file'    => ':attributeには、:min KB以上のファイルを指定してください。',
         'string'  => ':attributeは、:min文字以上にしてください。',
@@ -77,10 +77,10 @@ return [
         'string'  => ':attributeは、:size文字にしてください。',
         'array'   => ':attributeの項目は、:size個にしてください。',
     ],
-    'string'   => ':attributeには、文字を指定してください。',
-    'timezone' => ':attributeには、有効なタイムゾーンを指定してください。',
-    'unique'   => '指定の:attributeは既に使用されています。',
-    'url'      => ':attributeは、有効なURL形式で指定してください。',
+    'string'               => ':attributeには、文字を指定してください。',
+    'timezone'             => ':attributeには、有効なタイムゾーンを指定してください。',
+    'unique'               => '指定の:attributeは既に使用されています。',
+    'url'                  => ':attributeは、有効なURL形式で指定してください。',
 
     /*
     |--------------------------------------------------------------------------

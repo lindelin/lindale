@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'custom'               => [
+    'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
@@ -110,7 +110,7 @@ return [
     |
     */
 
-    'attributes'           => [
+    'attributes' => [
         'name'                  => '用户名',
         'username'              => '用户名',
         'email'                 => '邮箱',

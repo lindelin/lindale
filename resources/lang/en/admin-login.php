@@ -8,10 +8,10 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'login' => 'Login',
+    'login'    => 'Login',
     'password' => 'Password',
     'remember' => 'Remember Me',
-    'email' => 'E-Mail Address',
-    'forgot' => 'Forgot Your Password? ',
-    'sent' => 'Send me an email to reset my password',
+    'email'    => 'E-Mail Address',
+    'forgot'   => 'Forgot Your Password? ',
+    'sent'     => 'Send me an email to reset my password',
 ];
