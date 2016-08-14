@@ -15,15 +15,15 @@ class UseLang
      */
     public function handle($request, Closure $next)
     {
-
-        if($request->session()->has('lang')){
+        if ($request->session()->has('lang')) {
             $locale = $request->session()->get('lang');
             \App::setLocale($locale);
-        }else{
+        } else {
             $locale = 'en';
             $request->session()->put('lang', $locale);
             \App::setLocale($locale);
         }
+
         return $next($request);
     }
 }

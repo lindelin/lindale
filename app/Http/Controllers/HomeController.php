@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use \Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use Config;
 
 class HomeController extends Controller
@@ -33,6 +33,7 @@ class HomeController extends Controller
         if (in_array($locale, Config::get('app.available_locales'))) {
             $request->session()->put('lang', $locale);
         }
+
         return redirect()->back();
     }
 }
