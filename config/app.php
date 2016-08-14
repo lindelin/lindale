@@ -66,7 +66,7 @@ return [
     */
 
     'locale' => 'zh',
-    'available_locales' => array('zh', 'ja', 'en'),
+    'available_locales' => ['zh', 'ja', 'en'],
 
     /*
     |--------------------------------------------------------------------------
