@@ -6,7 +6,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Login
+                        {{ trans('admin-login.forgot') }}
                     </div>
                     <div class="panel-body">
                         <form role="form" method="POST" action="/password/email">
@@ -18,7 +18,7 @@
                                     </div>
                                 @endif
                                 <label for="exampleInputEmail1">
-                                    Email address
+                                    {{ trans('admin-login.email') }}
                                 </label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" name="email" value="{{ old('email') }}"/>
                                 @if ($errors->has('email'))
@@ -28,7 +28,7 @@
                                 @endif
                             </div>
                             <button type="submit" class="btn btn-block btn-primary">
-                                Submit
+                                {{ trans('admin-login.sent') }}
                             </button>
                         </form>
                     </div>

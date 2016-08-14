@@ -11,6 +11,7 @@
 |
 */
 
+Route::get('lang/{locale}', 'HomeController@lang')->name('lang');
 Route::get('/', 'HomeController@index');
 Route::get('/order/{order}', 'HomeController@index');
 Route::get('article/{id}', 'ArticleController@show');

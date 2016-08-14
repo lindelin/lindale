@@ -108,6 +108,18 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name'                  => 'Name',
+        'username'              => 'User Name',
+        'email'                 => 'E-Mail',
+        'password'              => 'Password',
+        'password_confirmation' => 'Password Confirmation',
+        'title'                 => 'Title',
+        'content'               => 'Content',
+        'date'                  => 'Date',
+        'time'                  => 'Time',
+        'nickname'              => 'Nickname',
+        'body'                  => 'Body',
+    ],
 
 ];

@@ -18,11 +18,11 @@
 				</li>
 				@if (Auth::guest())
 				@else
-				<li>
+				{{--<li>
 					<a href="#">建设中</a>
-				</li>
+				</li>--}}
 				<li class="dropdown">
-					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+					 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('header.tool') }}<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
 							<a href="#">Action</a>
@@ -51,32 +51,57 @@
 					<input type="text" class="form-control" />
 				</div>
 				<button type="submit" class="btn btn-default">
-					Submit
+					<span class="glyphicon glyphicon-search"></span> {{ trans('header.search') }}
 				</button>
 			</form>
 			@endif
 			<ul class="nav navbar-nav navbar-right">
 				@if (Auth::guest())
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('header.'.Config::get('app.locale')) }}<strong class="caret"></strong></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="{{ route('lang', ['locale' => 'zh']) }}">中文</a>
+							</li>
+							<li>
+								<a href="{{ route('lang', ['locale' => 'ja']) }}">日本語</a>
+							</li>
+							<li>
+								<a href="{{ route('lang', ['locale' => 'en']) }}">English</a>
+							</li>
+						</ul>
+					</li>
 				@else
-					<li>
-						<a href="#">建设中</a>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ trans('header.'.Config::get('app.locale')) }}<strong class="caret"></strong></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="{{ route('lang', ['locale' => 'zh']) }}">中文</a>
+							</li>
+							<li>
+								<a href="{{ route('lang', ['locale' => 'ja']) }}">日本語</a>
+							</li>
+							<li>
+								<a href="{{ route('lang', ['locale' => 'en']) }}">English</a>
+							</li>
+						</ul>
 					</li>
 					<li class="dropdown">
 						 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->name }}<strong class="caret"></strong></a>
 						<ul class="dropdown-menu">
-							<li>
+							{{--<li>
 								<a href="#">Action</a>
 							</li>
 							<li>
 								<a href="#">Another action</a>
-							</li>
+							</li>--}}
 							<li>
 								<a href="#">Something else here</a>
 							</li>
 							<li class="divider">
 							</li>
 							<li>
-								<a href="{{ url('/admin/logout') }}">Logout</a>
+								<a href="{{ url('/admin/logout') }}">{{ trans('header.logout') }}</a>
 							</li>
 						</ul>
 					</li>

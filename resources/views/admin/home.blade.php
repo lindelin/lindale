@@ -3,7 +3,7 @@
 @section('content')
 <div class="panel panel-default">
 	<div class="panel-heading">
-	Information
+	{{ trans('admin.information') }}
 	</div>
 	<div class="panel-body">
 		<div align="center">

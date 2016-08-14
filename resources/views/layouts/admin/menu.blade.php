@@ -1,16 +1,16 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
-	Menu
+		{{ trans('admin.menu') }}
 	</div>
 	<div class="panel-body">
-		<a href="{{ url('admin/article') }}" class="btn btn-lg btn-success col-xs-12">管理文章</a>
+		<a href="{{ url('admin/article') }}" class="btn btn-lg btn-success col-xs-12"><span class="glyphicon glyphicon-file"></span> {{ trans('admin.articles') }}</a>
         <br />
 		<br />
 		<br />
-		<a href="{{ url('admin/comment') }}" class="btn btn-lg btn-success col-xs-12">管理评论</a>
+		<a href="{{ url('admin/comment') }}" class="btn btn-lg btn-success col-xs-12"><span class="glyphicon glyphicon-thumbs-up"></span> {{ trans('admin.comments') }}</a>
 		<br />
 		<br />
 		<br />
-		<a href="{{ url('admin/user') }}" class="btn btn-lg btn-success col-xs-12">管理用户</a>
+		<a href="{{ url('admin/user') }}" class="btn btn-lg btn-success col-xs-12"><span class="glyphicon glyphicon-user"></span> {{ trans('admin.users') }}</a>
 	</div>
 </div>

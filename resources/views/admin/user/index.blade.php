@@ -4,7 +4,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
 
-        用户管理
+        {{ trans('admin.users') }}
 
     </div>
     <div class="panel-body">
@@ -19,7 +19,7 @@
                     <div align="right">
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                             <span class="glyphicon glyphicon-plus-sign"></span>
-                             添加新用户
+                             {{ trans('admin.new-user') }}
                         </button>
                     </div>
                     <hr>
@@ -30,7 +30,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="glyphicon glyphicon-remove-circle"></span></button>
-                                    <h4 class="modal-title" id="myModalLabel">添加新用户</h4>
+                                    <h4 class="modal-title" id="myModalLabel">{{ trans('admin.new-user') }}</h4>
                                 </div>
                                 <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/adduser') }}">
                                 {!! csrf_field() !!}
@@ -38,7 +38,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                                <label class="col-md-4 control-label">Name</label>
+                                                <label class="col-md-4 control-label">{{ trans('admin.name') }}</label>
 
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name="name" value="{{ old('name') }}">
@@ -52,7 +52,7 @@
                                             </div>
 
                                             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                                <label class="col-md-4 control-label">E-Mail Address</label>
+                                                <label class="col-md-4 control-label">{{ trans('admin.email') }}</label>
 
                                                 <div class="col-md-6">
                                                     <input type="email" class="form-control" name="email" value="{{ old('email') }}">
@@ -66,7 +66,7 @@
                                             </div>
 
                                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                                <label class="col-md-4 control-label">Password</label>
+                                                <label class="col-md-4 control-label">{{ trans('admin.password') }}</label>
 
                                                 <div class="col-md-6">
                                                     <input type="password" class="form-control" name="password">
@@ -80,7 +80,7 @@
                                             </div>
 
                                             <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                                                <label class="col-md-4 control-label">Confirm Password</label>
+                                                <label class="col-md-4 control-label">{{ trans('admin.confirm_password') }}</label>
 
                                                 <div class="col-md-6">
                                                     <input type="password" class="form-control" name="password_confirmation">
@@ -98,12 +98,12 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                         <span class="glyphicon glyphicon-remove"></span>
-                                         关闭
+                                        {{ trans('admin.close') }}
                                     </button>
                                     <button type="submit" class="btn btn-primary">
                                         <i class="fa fa-btn fa-user"></i>
                                         <span class="glyphicon glyphicon-ok"></span>
-                                         添加
+                                        {{ trans('admin.add') }}
                                     </button>
                                 </div>
                                 </form>
@@ -122,16 +122,16 @@
                             ID
                         </th>
                         <th>
-                            Name
+                            {{ trans('admin.name') }}
                         </th>
                         <th>
-                            E-Mail
+                            {{ trans('admin.email') }}
                         </th>
                         <th>
-                            最后登陆时间
+                            {{ trans('admin.updated_at') }}
                         </th>
                         <th>
-                            创建时间
+                            {{ trans('admin.created_at') }}
                         </th>
                     </tr>
                     </thead>

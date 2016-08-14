@@ -12,21 +12,21 @@ Lindalë-Show
 
 		        <div align="right">
 					@if(Auth::guest())
-					<img alt="Bootstrap Image Preview" src="{{ asset('/img/logosub.png') }}" width="15%"/>
+					<img alt="Logo" src="{{ asset('/img/logosub.png') }}" width="15%"/>
 					@else
 					<a href="{{ url('admin/article') }}" >
-						<img alt="Bootstrap Image Preview" src="{{ asset('/img/logosub.png') }}" width="15%"/>
+						<img alt="Logo" src="{{ asset('/img/logosub.png') }}" width="15%"/>
 					</a>
 					@endif
 				</div>
 		        <h4>
-		            <a href="/"><h3 style="color: #ff65a3;"><span class="glyphicon glyphicon-arrow-left"></span> HOME</h3></a>
+		            <a href="/"><h3 style="color: #ff65a3;"><span class="glyphicon glyphicon-arrow-left"></span> {{ trans('article-show.home') }}</h3></a>
 		        </h4>
 		
 		        <h2 style="text-align: center; margin-top: 50px;">{{ $article->title }}</h2>
 		        <hr>
 		        <div id="date" style="text-align: right;">
-		            Writer: {{ $article->User->name }}　 Date: {{ $article->updated_at }}
+		            {{ trans('article-show.writer') }}: {{ $article->User->name }}　 {{ trans('article-show.date') }}: {{ $article->updated_at }}
 		        </div>
 		        <div id="content" style="margin: 20px;">
 					@include('layouts.markdown',['id' => $article->id, 'body' => $article->body])
@@ -36,7 +36,7 @@ Lindalë-Show
 		
 		            @if (count($errors) > 0)
 		                <div class="alert alert-danger">
-		                    <strong>操作失败</strong> 输入不符合要求<br><br>
+		                    <strong>{{ trans('article-show.error') }}</strong> {{ trans('article-show.input-error') }}<br><br>
 		                    {!! implode('<br>', $errors->all()) !!}
 		                </div>
 		            @endif
@@ -46,22 +46,22 @@ Lindalë-Show
 		                    {!! csrf_field() !!}
 		                    <input type="hidden" name="article_id" value="{{ $article->id }}">
 		                    <div class="form-group">
-		                        <label>Nickname</label>
+		                        <label>{{ trans('article-show.nickname') }}</label>
 		                        <input type="text" name="nickname" class="form-control" required="required">
 		                    </div>
 		                    <div class="form-group">
-		                        <label>Email address</label>
+		                        <label>{{ trans('article-show.email') }}</label>
 		                        <input type="email" name="email" class="form-control">
 		                    </div>
 		                    <div class="form-group">
-		                        <label>Home page</label>
+		                        <label>{{ trans('article-show.home-page') }}</label>
 		                        <input type="text" name="website" class="form-control">
 		                    </div>
 		                    <div class="form-group">
-		                        <label>Content</label>
+		                        <label>{{ trans('article-show.content') }}</label>
 		                        <textarea name="content" id="newFormContent" class="form-control" rows="10" required="required"></textarea>
 		                    </div>
-		                    <button type="submit" class="btn btn-lg btn-success col-lg-12">Submit</button>
+		                    <button type="submit" class="btn btn-lg btn-success col-lg-12">{{ trans('article-show.submit') }}</button>
 		                </form>
 		            </div>
 		
@@ -85,7 +85,7 @@ Lindalë-Show
 		                            @else
 		                                <h4>{{ $comment->nickname }}</h4>
 		                            @endif
-		                            <h6>Date: {{ $comment->created_at }}</h6>
+		                            <h6>{{ trans('article-show.date') }}: {{ $comment->created_at }}</h6>
 		                        </div>
 		                        <div class="content">
 		                            <p style="padding: 20px;">
@@ -93,7 +93,7 @@ Lindalë-Show
 		                            </p>
 		                        </div>
 		                        <div class="reply" style="text-align: right; padding: 5px;">
-		                            <a href="#new" onclick="reply(this);">Reply</a>
+		                            <a href="#new" onclick="reply(this);">{{ trans('article-show.reply') }}</a>
 		                        </div>
 		                    </div>
 		
