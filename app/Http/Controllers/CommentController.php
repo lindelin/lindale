@@ -18,11 +18,11 @@ class CommentController extends Controller
         ]);
 
         if (! Article::find($request->article_id)) {
-            return redirect()->to('/')->withInput()->withErrors('评论发表失败！');
+            return redirect()->to('/')->withInput()->withErrors(trans('errors.comment-fail'));
         } elseif (Comment::create($request->all())) {
             return redirect()->back();
         } else {
-            return redirect()->back()->withInput()->withErrors('评论发表失败！');
+            return redirect()->back()->withInput()->withErrors(trans('errors.comment-fail'));
         }
     }
 }

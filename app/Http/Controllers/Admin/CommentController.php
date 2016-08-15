@@ -16,6 +16,6 @@ class CommentController extends Controller
     {
         Comment::find($id)->delete();
 
-        return redirect()->back()->withInput()->withErrors('删除成功！');
+        return redirect()->back()->withInput()->withErrors(trans('errors.delete-success'));
     }
 }

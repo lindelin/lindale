@@ -45,7 +45,6 @@ Lindalë
 			<div class="row">
 				@if (count($errors) > 0)
 					<div class="alert alert-danger">
-						<strong>操作失败：</strong> 文章不存在！<br><br>
 						{!! implode('<br>', $errors->all()) !!}
 					</div>
 				@endif

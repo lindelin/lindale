@@ -35,7 +35,7 @@ class UserController extends Controller
         if ($user->save()) {
             return redirect('admin/user');
         } else {
-            return redirect()->back()->withInput()->withErrors('保存失败！');
+            return redirect()->back()->withInput()->withErrors(trans('errors.save-fail'));
         }
     }
 
