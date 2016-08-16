@@ -15,7 +15,7 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "barryvdh/laravel-ide-helper":"dev-master",
+        "barryvdh/laravel-ide-helper": "v2.2.1",
         "laravelcollective/html": "^5.2",
         "doctrine/dbal": "~2.3"
     },
