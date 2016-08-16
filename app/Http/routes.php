@@ -37,7 +37,6 @@ Route::group(['middleware' => ['https', 'auth'], 'namespace' => 'Admin', 'prefix
     Route::post('adduser', 'UserController@add');
     Route::resource('task', 'TaskController');
     Route::post('task/comment', 'TaskController@comment');
-
 });
 
 /*
