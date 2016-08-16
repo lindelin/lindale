@@ -5,12 +5,12 @@ namespace App\Task;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Task\TaskComment
+ * App\Task\TaskComment.
  *
- * @property integer $id
+ * @property int $id
  * @property string $content
- * @property integer $task_id
- * @property integer $user_id
+ * @property int $task_id
+ * @property int $user_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Query\Builder|\App\Task\TaskComment whereId($value)
@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TaskComment extends Model
 {
-    protected $fillable = [ 'content', 'task_id', 'user_id'];
+    protected $fillable = ['content', 'task_id', 'user_id'];
 
     public function User()
     {

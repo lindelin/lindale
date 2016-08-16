@@ -1,20 +1,20 @@
 <?php
 
 namespace App\Task;
-use App;
 
+use App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Task\Task
+ * App\Task\Task.
  *
- * @property integer $id
- * @property integer $task_type_id
- * @property integer $user_id
- * @property integer $task_status_id
+ * @property int $id
+ * @property int $task_type_id
+ * @property int $user_id
+ * @property int $task_status_id
  * @property string $name
  * @property string $content
- * @property integer $progress
+ * @property int $progress
  * @property string $deadline
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -42,17 +42,19 @@ class Task extends Model
     {
         return $this->hasOne('App\Task\TaskType', 'id', 'task_type_id');
     }
+
     public function Status()
     {
         return $this->hasOne('App\Task\TaskStatus', 'id', 'task_status_id');
     }
+
     public function User()
     {
         return $this->hasOne('App\User', 'id', 'user_id');
     }
+
     public function Comments()
     {
         return $this->hasMany('App\Task\TaskComment', 'task_id', 'id');
     }
-
 }

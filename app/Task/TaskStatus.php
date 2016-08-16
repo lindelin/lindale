@@ -5,9 +5,9 @@ namespace App\Task;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Task\TaskStatus
+ * App\Task\TaskStatus.
  *
- * @property integer $id
+ * @property int $id
  * @property string $name
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -20,8 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TaskStatus extends Model
 {
-
-    protected $fillable = [ 'name'];
+    protected $fillable = ['name'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
