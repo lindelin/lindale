@@ -9,8 +9,8 @@ return [
     */
 
     'delete-success' => '删除成功！',
-    'update-fail' => '更新失败！',
-    'save-fail' => '保存失败！',
-    'comment-fail' => '评论发表失败！',
+    'update-fail'    => '更新失败！',
+    'save-fail'      => '保存失败！',
+    'comment-fail'   => '评论发表失败！',
 
 ];

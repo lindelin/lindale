@@ -35,7 +35,9 @@ Route::group(['middleware' => ['https', 'auth'], 'namespace' => 'Admin', 'prefix
     Route::resource('comment', 'CommentController');
     Route::get('user', 'UserController@index');
     Route::post('adduser', 'UserController@add');
-    Route::get('task', 'TaskController@index');
+    Route::resource('task', 'TaskController');
+    Route::post('task/comment', 'TaskController@comment');
+
 });
 
 /*

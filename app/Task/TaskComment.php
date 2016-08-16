@@ -24,4 +24,9 @@ use Illuminate\Database\Eloquent\Model;
 class TaskComment extends Model
 {
     protected $fillable = [ 'content', 'task_id', 'user_id'];
+
+    public function User()
+    {
+        return $this->hasOne('App\User', 'id', 'user_id');
+    }
 }

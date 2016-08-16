@@ -36,6 +36,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Task extends Model
 {
+    /*protected $fillable = [ 'name', 'content', 'task_type_id', 'user_id', 'deadline'];*/
+
     public function Type()
     {
         return $this->hasOne('App\Task\TaskType', 'id', 'task_type_id');

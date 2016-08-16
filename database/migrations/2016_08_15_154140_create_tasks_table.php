@@ -20,7 +20,7 @@ class CreateTasksTable extends Migration
             $table->string('name');
             $table->text('content')->nullable();
             $table->integer('progress')->default(0);
-            $table->date('deadline')->nullable();
+            $table->dateTime('deadline')->nullable();
             $table->timestamps();
         });
     }
