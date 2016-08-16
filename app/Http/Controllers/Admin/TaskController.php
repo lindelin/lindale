@@ -8,8 +8,6 @@ use App\Task\TaskStatus;
 use App\Task\TaskType;
 use App\User;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class TaskController extends Controller
@@ -22,6 +20,7 @@ class TaskController extends Controller
         $tasks = Task::all();
         $users = User::all();
         $types = TaskType::all();
+
         return view('admin.task.index', [
 
             'tasks' => $tasks,
@@ -67,7 +66,7 @@ class TaskController extends Controller
         $types = TaskType::all();
         $status = TaskStatus::all();
 
-        return view('admin.task.show',[
+        return view('admin.task.show', [
 
             'users' => $users,
             'types' => $types,
@@ -103,6 +102,7 @@ class TaskController extends Controller
     {
         TaskComment::where('task_id', '=', $id)->delete();
         Task::findOrFail($id)->delete();
+
         return redirect()->to('admin/task')->withInput()->withErrors(trans('errors.delete-success'));
     }
 

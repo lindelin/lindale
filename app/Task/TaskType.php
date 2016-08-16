@@ -5,9 +5,9 @@ namespace App\Task;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Task\TaskType
+ * App\Task\TaskType.
  *
- * @property integer $id
+ * @property int $id
  * @property string $name
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at

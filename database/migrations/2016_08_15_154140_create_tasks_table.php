@@ -16,7 +16,7 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             $table->integer('task_type_id')->default(1);
             $table->integer('user_id');
-            $table->integer('task_status_id')->default(1);;
+            $table->integer('task_status_id')->default(1);
             $table->string('name');
             $table->text('content')->nullable();
             $table->integer('progress')->default(0);
