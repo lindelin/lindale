@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Lindalë-Admin</title>
 
@@ -12,18 +9,19 @@
 </head>
 <body>
 	@include('layouts.pageloader')
+
 	@include('layouts.header')
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2">
+			<div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
 
-	        @include('layouts.admin.menu')
+				@include('layouts.admin.menu')
 
 			</div>
-	        <div class="col-md-10">
+	        <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
 
-	        @yield('content')
+				@yield('content')
 
 	        </div>
 			</div>
