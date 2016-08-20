@@ -7,7 +7,6 @@ use App\User;
 
 class TaskMailer
 {
-
     /**
      * @param User $user
      * @param $task

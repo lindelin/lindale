@@ -9,7 +9,7 @@ class TaskRepository
 {
     /**
      * 获取指定用户的所有任务。
-     * ユーザのタスクを取り出すロジック
+     * ユーザのタスクを取り出すロジック.
      *
      * @param  User  $user
      * @return Collection
@@ -18,5 +18,4 @@ class TaskRepository
     {
         return Task::where('user_id', $user->id)->latest()->paginate(10);
     }
-
 }
