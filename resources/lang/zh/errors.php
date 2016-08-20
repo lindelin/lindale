@@ -12,5 +12,6 @@ return [
     'update-fail'    => '更新失败！',
     'save-fail'      => '保存失败！',
     'comment-fail'   => '评论发表失败！',
+    'unauthorized'   => '对不起,您的操作未经授权。',
 
 ];

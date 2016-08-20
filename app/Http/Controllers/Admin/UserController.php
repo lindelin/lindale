@@ -22,11 +22,14 @@ class UserController extends Controller
      */
     public function add(Request $request)
     {
+        $this->authorize('insert');
+
         $this->validate($request, [
             'name'     => 'required|unique:users|max:30',
             'email'    => 'required|unique:users|max:200|email',
             'password' => 'required|between:6,30|alpha_num|confirmed',
         ]);
+
         $user = new User();
         $user->name = $request->get('name');
         $user->email = $request->get('email');
@@ -39,6 +42,9 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function password()
     {
         return view('auth.password');

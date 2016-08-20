@@ -12,7 +12,7 @@ Lindalë
         <div class="col-md-8">
 		    <div id="title" style="text-align: center;">
 		    	<br>
-		        <img alt="Bootstrap Image Preview" src="{{ asset('/img/logomin.png') }}" width="50%"/>
+		        <img alt="Logo" src="{{ asset('/img/logomin.png') }}" width="50%"/>
 		        <div style="padding: 5px; font-size: 16px;"><h3>{{ Inspiring::quote() }}</h3></div>
 		    </div>
 		    <hr>

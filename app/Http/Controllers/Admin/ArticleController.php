@@ -77,7 +77,9 @@ class ArticleController extends Controller
             'body' => 'required',
         ]);
 
-        $article = Article::find($id);
+        $article = Article::findOrFail($id);
+        $this->authorize('update', $article);
+
         $article->title = $request->get('title');
         $article->body = $request->get('body');
 
@@ -94,8 +96,10 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
+        $article = Article::findOrFail($id);
+        $this->authorize('delete', $article);
         Comment::where('article_id', '=', $id)->delete();
-        Article::find($id)->delete();
+        $article->delete();
 
         return redirect()->back()->withInput()->withErrors(trans('errors.delete-success'));
     }

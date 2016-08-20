@@ -12,5 +12,6 @@ return [
     'update-fail'    => '更新失敗しました。',
     'save-fail'      => '保存失敗しました。',
     'comment-fail'   => 'コメント失敗しました。',
+    'unauthorized'   => '権利がありません。',
 
 ];

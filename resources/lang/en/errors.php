@@ -12,5 +12,6 @@ return [
     'update-fail'    => 'Update failed!',
     'save-fail'      => 'Save failed!',
     'comment-fail'   => 'Publish failed',
+    'unauthorized'   => 'This action is unauthorized.',
 
 ];
