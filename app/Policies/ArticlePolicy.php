@@ -31,14 +31,14 @@ class ArticlePolicy
     }
 
     /**
-     * Super Admin
+     * Super Admin.
      *
      * @param User $user
      * @return bool
      */
     public function before(User $user)
     {
-        if($user->id === 1 and $user->name == 'Admin' and $user->email == 'admin@lindale.tk'){
+        if ($user->id === 1 and $user->name == 'Admin' and $user->email == 'admin@lindale.tk') {
             return true;
         }
     }
