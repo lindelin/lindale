@@ -25,18 +25,18 @@ class TaskPolicy
      */
     public function update(User $user, Task $task)
     {
-        return $user->id === $task->user_id;
+        return true;
     }
 
     /**
-     * Super Admin
+     * Super Admin.
      *
      * @param User $user
      * @return bool
      */
     public function before(User $user)
     {
-        if($user->id === 1 and $user->name == 'Admin' and $user->email == 'admin@lindale.tk'){
+        if ($user->id === 1 and $user->name == 'Admin' and $user->email == 'admin@lindale.tk') {
             return true;
         }
     }
