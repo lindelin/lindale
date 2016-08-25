@@ -16,7 +16,7 @@ class TaskController extends Controller
 {
     /**
      * 任务资源库的实例。
-     * タスクリポジトリのインスタント作成
+     * タスクリポジトリのインスタント作成.
      *
      * @var TaskRepository
      */
@@ -24,7 +24,7 @@ class TaskController extends Controller
 
     /**
      * 邮件服务实例。
-     * メーラーのインスタント作成
+     * メーラーのインスタント作成.
      *
      * @var TaskMailer
      */
@@ -32,7 +32,7 @@ class TaskController extends Controller
 
     /**
      * 创建新的控制器实例。
-     * タスクコントローラのインスタンス作成
+     * タスクコントローラのインスタンス作成.
      *
      * TaskController constructor.
      * @param TaskRepository $taskRepository
@@ -77,14 +77,13 @@ class TaskController extends Controller
 
         $task = new Task();
 
-        $task->name         = $request->get('name');
-        $task->content      = $request->get('content');
-        $task->user_id      = $request->get('user');
+        $task->name = $request->get('name');
+        $task->content = $request->get('content');
+        $task->user_id = $request->get('user');
         $task->task_type_id = $request->get('type');
-        $task->deadline     = $request->get('deadline');
+        $task->deadline = $request->get('deadline');
 
         if ($task->save()) {
-
             $task = Task::findOrFail($task->id);
             $user = User::findOrFail($task->user_id);
             $this->mailer->SentNewTaskInfo($user, $task);
@@ -101,8 +100,8 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        $users  = User::all();
-        $types  = TaskType::all();
+        $users = User::all();
+        $types = TaskType::all();
         $status = TaskStatus::all();
 
         return view('admin.task.show', [
@@ -127,9 +126,8 @@ class TaskController extends Controller
         if (! Task::findOrFail($request->task_id)) {
             return redirect()->back()->withInput()->withErrors(trans('errors.comment-fail'));
         } elseif (TaskComment::create($request->all())) {
-
-            $task   = Task::findOrFail($request->task_id);
-            $user   = User::findOrFail($task->user_id);
+            $task = Task::findOrFail($request->task_id);
+            $user = User::findOrFail($task->user_id);
             $sender = $request->user();
             $this->mailer->SentTaskChangeInfo($user, $task, $sender);
 
@@ -153,7 +151,6 @@ class TaskController extends Controller
         return redirect()->to('admin/task')->withInput()->withErrors(trans('errors.delete-success'));
     }
 
-
     /**
      * @param Request $request
      * @param $id
@@ -168,17 +165,18 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
         $this->authorize('update', $task);
 
-        $task->task_type_id   = $request->get('type');
-        $task->user_id        = $request->get('user');
+        $task->task_type_id = $request->get('type');
+        $task->user_id = $request->get('user');
         $task->task_status_id = $request->get('status');
-        $task->content        = $request->get('content');
-        $task->progress       = $request->get('progress');
+        $task->content = $request->get('content');
+        $task->progress = $request->get('progress');
 
         if ($task->save()) {
             $task = Task::findOrFail($task->id);
             $user = User::findOrFail($task->user_id);
             $sender = $request->user();
             $this->mailer->SentTaskChangeInfo($user, $task, $sender);
+
             return redirect()->back();
         } else {
             return redirect()->back()->withInput()->withErrors(trans('errors.update-fail'));
