@@ -26,7 +26,7 @@ jQuery(window).load(function() {
 	setTimeout(function(){
 	/* fade out the loading icon */
 	jQuery(".bonfire-pageloader-icon").addClass('bonfire-pageloader-icon-hide');
-	},1500);
+	},500);
 
 	/* after 250ms delay, restore browser scroll + fade out loader background + slide down page */
 	setTimeout(function(){
@@ -46,7 +46,7 @@ jQuery(window).load(function() {
 		/* slide down html */
 		jQuery("html").removeClass('bonfire-html-onload');
 
-	},1750);
+	},750);
 	
 	/* after 1000ms delay, hide (not fade out) loader*/
 	setTimeout(function(){
@@ -54,7 +54,7 @@ jQuery(window).load(function() {
 	/* hide loader after fading out*/
 		jQuery("#bonfire-pageloader").addClass('bonfire-pageloader-hide');
 
-	},2500);
+	},1500);
 	
 });
 <!-- END LOADER FADE-OUT AND HTML SLIDE-DOWN -->
