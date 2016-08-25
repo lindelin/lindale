@@ -25,7 +25,7 @@ class TaskPolicy
      */
     public function update(User $user, Task $task)
     {
-        return $user->id === $task->user_id;
+        return true;
     }
 
     /**
