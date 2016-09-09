@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'log'),
+    'driver' => env('MAIL_DRIVER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,10 @@ return [
     |
     */
 
-    'from' => ['address' => 'info-center@lindale.tk', 'name' => 'Lindalë Information Center'],
+    'from' => [
+        'address' => 'hello@example.com',
+        'name' => 'Example',
+    ],
 
     /*
     |--------------------------------------------------------------------------

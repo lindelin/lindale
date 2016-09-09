@@ -1,58 +1,27 @@
-#Lindalë Project
+# Laravel PHP Framework
 
-[![Build Status](https://travis-ci.org/lindelea/lindale.svg?branch=master)](https://travis-ci.org/lindelea/lindale)
-[![StyleCI](https://styleci.io/repos/63577917/shield)](https://styleci.io/repos/63577917)
-[![License](https://poser.pugx.org/lindelea/lindale/license)](https://github.com/kudouyoichi/lindale/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
+[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
+[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
+[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
+[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
-##About Lindalë
-####...is a word from J.R.R. Tolkien's elvish language named Quenya and means "to sing" or "to make music."
+Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
+## Official Documentation
 
-##About this Project
-It will be a simple blog system.
+Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
-##Requirements
-Since Lindalë is built on Laravel 5.2.*, there are a few system requirements:
+## Contributing
 
-- PHP >= 5.6
-- OpenSSL PHP Extension
-- PDO PHP Extension
-- PDO compliant database (SQL, MySQL, PostgreSQL, SQLite)
-- Mbstring PHP Extension
-- Tokenizer PHP Extension
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
+## Security Vulnerabilities
 
-##Download&Install
-step.1 Download
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
-`git clone https://github.com/kudouyoichi/lindale.git`
+## License
 
-step.2 Install
-
-`composer install`
-
-step.3 Application Configuration
-
-`$ sudo cp .env.example .env`
-
-step.4 Set the application key
-
-`php artisan key:generate`
-
-step.5 set up the basic configuration
-
-`$ sudo vim .env`
-
-step.6 set database
-
-`php artisan migrate`
-
-step.7 make test data
-
-`php artisan db:seed`
-
-##License
-Lindalë is open-sourced software licensed under the [MIT license](https://github.com/kudouyoichi/lindale/blob/master/LICENSE)
-
-Fourmix inc. - http://www.fourmix.co.jp
+The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
