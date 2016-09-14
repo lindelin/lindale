@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+body{
+	word-wrap: break-word;
+	font-family: 'Raleway', sans-serif;
+	padding-bottom: 70px;
+	padding-top: 70px;
+}
+
+.project-panel{
+	height: 200px;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	overflow: scroll;
+}
+
+.project-panel-img{
+	height: 200px;
+	overflow: scroll;
+}
+

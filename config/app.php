@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'My Application',
+    'name' => 'Lindalë',
 
     /*
     |--------------------------------------------------------------------------
@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Tokyo',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,6 +78,7 @@ return [
     */
 
     'locale' => 'en',
+    'available_locales' => ['zh', 'ja', 'en'],
 
     /*
     |--------------------------------------------------------------------------
@@ -224,6 +225,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Inspiring' => Illuminate\Foundation\Inspiring::class,
+        'Colorable' => App\Repositories\ColorableRepository::class,
+        'Markdown' => App\Repositories\MarkdownRepository::class,
 
     ],
 

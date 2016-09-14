@@ -19,6 +19,11 @@ class User extends Authenticatable
     ];
 
     /**
+     * @var array
+     */
+    protected $touches = ['Projects'];
+
+    /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
@@ -26,4 +31,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function Projects()
+    {
+        return $this->belongsToMany('App\Project\Project')->withPivot('is_admin')->withTimestamps();
+    }
+
+    public function MyProjects()
+    {
+        return $this->hasMany('App\Project\Project', 'user_id', 'id');
+    }
 }

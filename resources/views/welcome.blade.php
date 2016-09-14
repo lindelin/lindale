@@ -66,16 +66,19 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            @if (Auth::guest())
                 <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
+                    <a href="{{ url('/login') }}">{{ trans('auth.login') }}</a>
+                </div>
+            @else
+                <div class="top-right links">
+                    <a href="{{ url('/project') }}">{{ trans('auth.home') }}</a>
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <img alt="Logo" src="{{ asset('/img/logo.png') }}" width="40%"/>
                 </div>
 
                 <div class="links">
