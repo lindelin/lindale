@@ -23,6 +23,7 @@ class UseLang
             $request->session()->put('lang', $locale);
             \App::setLocale($locale);
         }
+
         return $next($request);
     }
 }

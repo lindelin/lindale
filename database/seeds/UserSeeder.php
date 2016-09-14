@@ -18,6 +18,5 @@ class UserSeeder extends Seeder
             'email'    => 'admin@lindale.tk',
             'password' => bcrypt('123456'),
         ]);
-
     }
 }

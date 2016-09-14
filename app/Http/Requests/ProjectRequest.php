@@ -23,7 +23,7 @@ class ProjectRequest extends FormRequest
      */
     public function rules()
     {
-        $create =  [
+        $create = [
             'title' => 'required|unique:projects|max:100',
             'start_at' => 'date|date_format:Y-m-d',
             'end_at' => 'date|after:start_at|date_format:Y-m-d',
@@ -47,11 +47,11 @@ class ProjectRequest extends FormRequest
             'project-pass' => 'required',
         ];
 
-        if($this->getMethod() == 'DELETE'){
+        if ($this->getMethod() == 'DELETE') {
             return $delete;
-        }else if($this->getMethod() == 'PATCH'){
+        } elseif ($this->getMethod() == 'PATCH') {
             return $update;
-        }else{
+        } else {
             return $create;
         }
     }

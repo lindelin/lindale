@@ -10,5 +10,4 @@ class MarkdownRepository
     {
         return (new ParsedownExtra)->text($text);
     }
-
 }

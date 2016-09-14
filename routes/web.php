@@ -15,10 +15,8 @@ Route::get('/', 'HomeController@index');
 Route::get('/lang/{lang}', 'HomeController@lang')->name('lang');
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
-
     Route::resource('project', 'ProjectController');
     Route::get('project/{project}/wiki', 'projectController@wiki');
-
 });
 
 

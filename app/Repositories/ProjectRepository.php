@@ -8,7 +8,6 @@ use App\Project\ProjectType;
 use App\Project\Project;
 use Illuminate\Support\Facades\Storage;
 
-
 class ProjectRepository
 {
     /**
@@ -32,14 +31,14 @@ class ProjectRepository
     {
         $input = $request->only(['title', 'content', 'start_at', 'end_at', 'type_id', 'sl_id']);
 
-        foreach ($input as $key => $value){
-            if($value == ""){
+        foreach ($input as $key => $value) {
+            if ($value == '') {
                 continue;
             }
             $project->$key = $value;
         }
 
-        if($request->file('image')){
+        if ($request->file('image')) {
             $path = $request->file('image')->store('projects/'.$project->title, 'public');
             $project->image = $path;
         }
@@ -60,26 +59,25 @@ class ProjectRepository
     {
         $input = $request->only(['title', 'content', 'start_at', 'end_at', 'type_id', 'sl_id', 'status_id']);
 
-        if($request->file('image')){
+        if ($request->file('image')) {
             $path = $request->file('image')->store('projects/'.$project->title, 'public');
-            if($project->image != ""){
+            if ($project->image != '') {
                 Storage::delete('public/'.$project->image);
             }
             $project->image = $path;
         }
 
-        foreach ($input as $key => $value){
-            if($value == ""){
+        foreach ($input as $key => $value) {
+            if ($value == '') {
                 continue;
             }
             $project->$key = $value;
         }
 
-        if($request->get('password') != ""){
+        if ($request->get('password') != '') {
             $project->password = bcrypt($request->get('password'));
         }
 
         return $project;
-
     }
 }
