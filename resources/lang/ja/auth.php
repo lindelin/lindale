@@ -24,6 +24,6 @@ return [
     'logout'   => 'ログアウト',
     'home'     => 'トップページ',
     'reset'    => 'パスワードリセット',
-    'confirm_password' => 'パスワード確認'
+    'confirm_password' => 'パスワード確認',
 
 ];

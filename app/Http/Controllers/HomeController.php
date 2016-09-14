@@ -7,7 +7,6 @@ use Config;
 
 class HomeController extends Controller
 {
-
     /**
      * Show the application dashboard.
      *
@@ -31,5 +30,4 @@ class HomeController extends Controller
 
         return redirect()->back();
     }
-
 }

@@ -18,9 +18,8 @@ class ProjectSeeder extends Seeder
                 'content' => 'content'.$i,
                 'user_id' => 1,
                 'type_id' => 1,
-                'password'=> bcrypt('123456'),
+                'password' => bcrypt('123456'),
             ]);
         }
-
     }
 }

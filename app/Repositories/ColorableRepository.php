@@ -1,11 +1,11 @@
 <?php
+
 namespace App\Repositories;
 
 use Illuminate\Support\Collection;
 
 class ColorableRepository
 {
-
     public static function panel()
     {
         return Collection::make([
@@ -38,5 +38,4 @@ class ColorableRepository
             'background-color: #000000;color: #FFFFFF;',
         ])->random();
     }
-
 }

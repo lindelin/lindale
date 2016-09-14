@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Project;
 
 use App\Project\Project;
 use App\Repositories\ProjectRepository;
-use Illuminate\Http\Request;
 use App\Http\Requests\ProjectRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -57,9 +56,9 @@ class ProjectController extends Controller
             ->CreateProject($request, $project)
             ->save();
 
-        if($result){
-            return redirect()->to('/project')->with('status',trans('errors.save-succeed'));
-        }else{
+        if ($result) {
+            return redirect()->to('/project')->with('status', trans('errors.save-succeed'));
+        } else {
             return redirect()->back()->withErrors(trans('errors.save-fail'));
         }
     }
@@ -97,9 +96,9 @@ class ProjectController extends Controller
             ->UpdateProject($request, $project)
             ->update();
 
-        if($result){
-            return redirect()->to('/project/'.$project->id)->with('status',trans('errors.update-succeed'));
-        }else{
+        if ($result) {
+            return redirect()->to('/project/'.$project->id)->with('status', trans('errors.update-succeed'));
+        } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
         }
     }
@@ -111,18 +110,16 @@ class ProjectController extends Controller
      */
     public function destroy(ProjectRequest $request, Project $project)
     {
-
         $this->authorize('delete', [$project, $request]);
 
-        if($project->image != ""){
+        if ($project->image != '') {
             Storage::deleteDirectory('public/projects/'.$project->title);
         }
 
-        if($project->delete()){
-            return redirect()->to('/project')->with('status',trans('errors.delete-succeed'));
-        }else{
+        if ($project->delete()) {
+            return redirect()->to('/project')->with('status', trans('errors.delete-succeed'));
+        } else {
             return redirect()->back()->withErrors(trans('errors.delete-failed'));
         }
-
     }
 }
