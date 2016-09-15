@@ -120,6 +120,9 @@ return [
         'time'                  => 'Time',
         'nickname'              => 'Nickname',
         'body'                  => 'Body',
+        'start_at'              => 'Starting time',
+        'end_at'                => 'End Time',
+        'image'                 => 'Image',
     ],
 
 ];

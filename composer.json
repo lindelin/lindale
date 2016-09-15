@@ -1,9 +1,16 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "lindelea/lindale",
+    "description": "Project Manager",
+    "keywords": ["laravel", "Lindale", "application", "markdown", "Project", "Project Manager"],
     "license": "MIT",
     "type": "project",
+    "authors": [
+        {
+            "name": "Wu Jie",
+            "email": "kudouyoichi@gmail.com",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",

@@ -2,23 +2,35 @@
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Welcome Routes
 |--------------------------------------------------------------------------
 |
-| Webルート
+| 歓迎画面ルート
 |
-| Web路由
+| 欢迎界面路由
 |
 */
 
 Route::get('/', 'HomeController@index');
 Route::get('/lang/{lang}', 'HomeController@lang')->name('lang');
 
+/*
+|--------------------------------------------------------------------------
+| Main Routes
+|--------------------------------------------------------------------------
+|
+| メインルート
+|
+| 主要路由
+|
+*/
+
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     Route::resource('project', 'ProjectController');
-    Route::get('project/{project}/wiki', 'projectController@wiki');
+    Route::group(['prefix' => 'project/{project}'], function () {
+        Route::resource('wiki', 'WikiController');
+    });
 });
-
 
 /*
 |--------------------------------------------------------------------------
