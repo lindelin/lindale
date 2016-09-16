@@ -25,13 +25,27 @@
 <script src="//cdn.bootcss.com/bootstrap-select/2.0.0-beta1/js/i18n/defaults-en_US.min.js"></script>
 <script src="//cdn.bootcss.com/moment.js/2.14.1/moment.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-datetimepicker/4.17.42/js/bootstrap-datetimepicker.min.js"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 {{-- local --}}
 <link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css">
 <script src="{{ asset('js/main.js') }}"></script>
 <!-- Scripts -->
 <script>
-    $(function () { $("[data-toggle='tooltip']").tooltip(); });
-    $(document).ready(function(){ $('.my-tooltip').tooltip(); });
+    //時間
+    $(function(){
+        setInterval(function(){
+            $("#currentTime").text(new Date().toLocaleString());
+        },100);
+    });
+    //工具提示
+    $(function (){
+        $("[data-toggle='tooltip']").tooltip();
+    });
+    //工具提示
+    $(document).ready(function(){
+        $('.my-tooltip').tooltip();
+    });
+    //令牌
     window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
     ]); ?>

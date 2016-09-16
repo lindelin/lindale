@@ -69,7 +69,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('project.show', ['mode' => 'home'])->with('project', $project);
+        return view('project.show', ['selected' => 'top'])->with('project', $project);
     }
 
     /**

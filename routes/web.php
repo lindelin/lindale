@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     Route::resource('project', 'ProjectController');
     Route::group(['prefix' => 'project/{project}'], function () {
         Route::resource('wiki', 'WikiController');
+        Route::post('wiki/first', 'WikiController@first');
     });
 });
 

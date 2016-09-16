@@ -42,4 +42,14 @@ class Project extends Model
     {
         return $this->hasOne('App\Project\ProjectType', 'id', 'type_id');
     }
+
+    public function Wikis()
+    {
+        return $this->hasMany('App\Wiki\Wiki', 'project_id', 'id');
+    }
+
+    public function WikiTypes()
+    {
+        return $this->hasMany('App\Wiki\WikiType', 'project_id', 'id');
+    }
 }

@@ -30,6 +30,7 @@ class ProjectRequest extends FormRequest
             'type_id' => 'required|integer|max:10',
             'sl_id' => 'max:10',
             'password' => 'required|min:6|max:15|confirmed',
+            'image' => 'image',
         ];
 
         $delete = [
@@ -45,6 +46,7 @@ class ProjectRequest extends FormRequest
             'sl_id' => 'integer|max:10',
             'password' => 'min:6|max:15|confirmed',
             'project-pass' => 'required',
+            'image' => 'image',
         ];
 
         if ($this->getMethod() == 'DELETE') {

@@ -17,8 +17,12 @@
         </div>
     </div>
 
-
     @include('layouts.common.footer')
+
+    <script>
+        $(document).ready($("code").addClass("prettyprint"));
+        $(document).ready($("pre").addClass("prettyprint"));
+    </script>
 
 </body>
 </html>
