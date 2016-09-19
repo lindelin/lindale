@@ -7,5 +7,6 @@ Homestead.json
 Homestead.yaml
 .env
 .D
-
 .DS_Store
+_ide_helper.php
+.phpstorm.meta.php
