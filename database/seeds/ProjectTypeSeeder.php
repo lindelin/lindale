@@ -14,7 +14,7 @@ class ProjectTypeSeeder extends Seeder
         DB::table('project_types')->delete();
         \App\Project\ProjectType::create([
             'id' => 1,
-            'name' => '家族計画',
+            'name' => 'Default',
         ]);
     }
 }

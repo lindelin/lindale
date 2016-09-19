@@ -28,8 +28,16 @@ Route::get('/lang/{lang}', 'HomeController@lang')->name('lang');
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     Route::resource('project', 'ProjectController');
     Route::group(['prefix' => 'project/{project}'], function () {
+
+        //Wiki路由
         Route::resource('wiki', 'WikiController');
         Route::post('wiki/first', 'WikiController@first');
+        Route::group(['namespace' => 'Wiki'], function (){
+            Route::resource('wiki-index', 'WikiTypeController');
+        });
+
+        //
+
     });
 });
 

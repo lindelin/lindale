@@ -45,6 +45,7 @@ class ProjectController extends Controller
     }
 
     /**
+     * TODO: 项目创建时同时创建项目目录
      * @param ProjectRequest $request
      * @return $this|\Illuminate\Http\RedirectResponse
      */
@@ -112,9 +113,7 @@ class ProjectController extends Controller
     {
         $this->authorize('delete', [$project, $request]);
 
-        if ($project->image != '') {
-            Storage::deleteDirectory('public/projects/'.$project->title);
-        }
+        $this->projectRepository->DeleteProject($project);
 
         if ($project->delete()) {
             return redirect()->to('/project')->with('status', trans('errors.delete-succeed'));

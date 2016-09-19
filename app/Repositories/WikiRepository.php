@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 
+use App\Http\Requests\TypeRequest;
 use App\Http\Requests\WikiRequest;
 use App\Project\Project;
 use App\Wiki\Wiki;
@@ -30,7 +31,7 @@ class WikiRepository
     {
         $HomeWiki = $project->Wikis()->oldest()->first();
         $wikis = $project->Wikis()->paginate(5);
-        $types = $project->WikiTypes();
+        $types = $project->WikiTypes()->get();
         $DefaultType = WikiType::findOrFail(1);
 
         return compact('wikis', 'HomeWiki', 'types', 'DefaultType');
@@ -85,5 +86,15 @@ class WikiRepository
         }
 
         return $wiki;
+    }
+
+    public function CreateWikiType(TypeRequest $request, Project $project)
+    {
+        $wikiType = new WikiType;
+
+        $wikiType->name = $request->get('type_name');
+        $wikiType->project_id = $project->id;
+
+        return $wikiType;
     }
 }

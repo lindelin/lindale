@@ -6,6 +6,8 @@ use App\Project\ProjectStatus;
 use App\User;
 use App\Project\ProjectType;
 use App\Project\Project;
+use App\Wiki\Wiki;
+use App\Wiki\WikiType;
 use Illuminate\Support\Facades\Storage;
 
 class ProjectRepository
@@ -79,5 +81,22 @@ class ProjectRepository
         }
 
         return $project;
+    }
+
+    /**
+     * 删除项目相关内容
+     *
+     * @param Project $project
+     */
+    public function DeleteProject(Project $project)
+    {
+        //删除项目目录
+        if ($project->image != '') {
+            Storage::deleteDirectory('public/projects/'.$project->title);
+        }
+        //删除项目WIKI
+        Wiki::where('project_id', $project->id)->delete();
+        //删除项目WIKI索引
+        WikiType::where('project_id', $project->id)->delete();
     }
 }

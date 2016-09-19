@@ -38,4 +38,13 @@ class ColorableRepository
             'background-color: #000000;color: #FFFFFF;',
         ])->random();
     }
+
+    public static function listGroup()
+    {
+        return Collection::make([
+            'list-group-item-success',
+            'list-group-item-info',
+            'list-group-item-warning',
+        ])->random();
+    }
 }

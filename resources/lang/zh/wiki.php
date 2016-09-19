@@ -28,6 +28,7 @@ return [
     'delete'       => '删除',
     'edit'         => '修改',
     'edit-title'   => '编辑词条',
+    'add-index'   => '添加新的索引',
 
 
 ];

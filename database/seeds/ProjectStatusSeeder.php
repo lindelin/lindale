@@ -14,7 +14,7 @@ class ProjectStatusSeeder extends Seeder
         DB::table('project_statuses')->delete();
         \App\Project\ProjectStatus::create([
             'id' => 1,
-            'name' => '新規',
+            'name' => 'New',
         ]);
     }
 }
