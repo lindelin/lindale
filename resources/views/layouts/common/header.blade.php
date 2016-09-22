@@ -69,7 +69,10 @@
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            <span>
+                                <img alt="Brand" src="{{ asset('img/20166214.png') }}" style="padding: 0px;width: 22px;height: 22px;">
+                            </span>
+                             <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">

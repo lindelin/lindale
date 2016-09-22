@@ -24,6 +24,9 @@ Route::get('/lang/{lang}', 'HomeController@lang')->name('lang');
 | 主要路由
 |
 */
+Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
+    Route::get('home', 'HomeController@home');
+});
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     Route::resource('project', 'ProjectController');
