@@ -24,8 +24,10 @@ Route::get('/lang/{lang}', 'HomeController@lang')->name('lang');
 | 主要路由
 |
 */
+
 Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
-    Route::get('home', 'HomeController@home');
+    Route::get('home', 'HomeController@index');
+    Route::get('home/profile', 'ProfileController@index');
 });
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
@@ -39,7 +41,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
             Route::resource('wiki-index', 'WikiTypeController');
         });
 
-        //
+        //成员路由
+        Route::resource('member', 'MemberController');
 
     });
 });
