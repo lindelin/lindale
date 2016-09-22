@@ -20,9 +20,16 @@ return [
     'member'      => '成员',
     'achievement' => '成果',
     'budget'      => '预算',
-    'bbs'         => '论坛',
+    'bbs'         => '讨论组',
     'concept'     => '设想',
     'config'      => '设定',
     'other'       => '更多',
+    'home'         => '首页',
+    'project'         => '项目',
+    'time-sheet'         => '日报',
+    'message'         => '消息',
+    'schedule'         => '日程',
+    'admin'         => '超级管理员',
+
 
 ];

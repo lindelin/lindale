@@ -28,7 +28,9 @@
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 {{-- local --}}
 <link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('/css/bootstrap-off-canvas-nav.css') }}" rel="stylesheet" type="text/css">
 <script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('js/bootstrap-off-canvas-nav.js') }}"></script>
 <!-- Scripts -->
 <script>
     //時間
