@@ -42,7 +42,7 @@
                 </a>
                 <ul class="dropdown-menu" role="menu">
                     <li role="presentation">
-                        <a href="#">
+                        <a href="{{ url("project/$project->id/member") }}">
                             <span class="glyphicon glyphicon-user"></span> {{ trans('header.member') }}
                         </a>
                     </li>

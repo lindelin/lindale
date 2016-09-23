@@ -88,3 +88,12 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 | 测试路由
 |
 */
+
+Route::get('test', function (){
+    $project = \App\Project\Project::findOrFail(21);
+    $users = $project->Users()->wherePivot('is_admin', 1000)->get();
+    foreach ($users as $user){
+        echo $user->name;
+    }
+
+});

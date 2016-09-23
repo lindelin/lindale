@@ -41,7 +41,7 @@ class WikiTypeController extends Controller
      */
     public function create(Project $project)
     {
-        return view('wiki.index', $this->wikiRepository->WikiResources($project))
+        return view('project.wiki.index', $this->wikiRepository->WikiResources($project))
             ->with(['project' => $project, 'selected' => 'wiki', 'add_wiki_index' => 'on']);
     }
 

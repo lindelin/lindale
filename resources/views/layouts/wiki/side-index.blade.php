@@ -17,7 +17,6 @@
                         </a>
                     @endif
                 @endforeach
-                    <li class="list-group-item"><div align="center">{{ $wikis->links() }}</div></li>
             </ul>
 
         </div>

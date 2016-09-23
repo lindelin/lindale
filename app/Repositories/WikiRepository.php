@@ -30,7 +30,7 @@ class WikiRepository
     public function WikiResources(Project $project)
     {
         $HomeWiki = $project->Wikis()->oldest()->first();
-        $wikis = $project->Wikis()->paginate(5);
+        $wikis = $project->Wikis()->get();
         $types = $project->WikiTypes()->get();
         $DefaultType = WikiType::findOrFail(1);
 

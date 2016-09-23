@@ -11,7 +11,8 @@ class MemberRepository
     {
         $pl = $project->ProjectLeader;
         $sl = $project->SubLeader;
+        $pms = $project->Users->all();
 
-        return compact('pl', 'sl');
+        return compact('pl', 'sl', 'pms');
     }
 }

@@ -33,7 +33,7 @@ class WikiController extends Controller
     public function index(Project $project)
     {
 
-        return view('wiki.index', $this->wikiRepository->WikiResources($project))
+        return view('project.wiki.index', $this->wikiRepository->WikiResources($project))
             ->with(['project' => $project, 'selected' => 'wiki']);
     }
 
@@ -43,7 +43,7 @@ class WikiController extends Controller
      */
     public function create(Project $project)
     {
-        return view('wiki.create', $this->wikiRepository->WikiResources($project))
+        return view('project.wiki.create', $this->wikiRepository->WikiResources($project))
             ->with(['project' => $project, 'selected' => 'wiki']);
     }
 
@@ -66,7 +66,7 @@ class WikiController extends Controller
      */
     public function show(Project $project, Wiki $wiki)
     {
-        return view('wiki.show', $this->wikiRepository->WikiResources($project))
+        return view('project.wiki.show', $this->wikiRepository->WikiResources($project))
             ->with(['project' => $project, 'wiki' => $wiki, 'selected' => 'wiki']);
     }
 
@@ -77,7 +77,7 @@ class WikiController extends Controller
      */
     public function edit(Project $project, Wiki $wiki)
     {
-        return view('wiki.edit', $this->wikiRepository->WikiResources($project))
+        return view('project.wiki.edit', $this->wikiRepository->WikiResources($project))
             ->with(['project' => $project, 'wiki' => $wiki, 'selected' => 'wiki']);
     }
 

@@ -27,7 +27,7 @@
                 </a>
             </li>
             <li role="presentation" @if($selected == "member") class="active" @endif>
-                <a href="#">
+                <a href="{{ url("project/$project->id/member") }}">
                     <span class="glyphicon glyphicon-user"></span> {{ trans('header.member') }}
                 </a>
             </li>
