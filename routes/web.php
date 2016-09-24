@@ -37,13 +37,12 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         //Wiki路由
         Route::resource('wiki', 'WikiController');
         Route::post('wiki/first', 'WikiController@first');
-        Route::group(['namespace' => 'Wiki'], function (){
+        Route::group(['namespace' => 'Wiki'], function () {
             Route::resource('wiki-index', 'WikiTypeController');
         });
 
         //成员路由
         Route::resource('member', 'MemberController');
-
     });
 });
 
@@ -89,11 +88,10 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 |
 */
 
-Route::get('test', function (){
+Route::get('test', function () {
     $project = \App\Project\Project::findOrFail(21);
     $users = $project->Users()->wherePivot('is_admin', 1000)->get();
-    foreach ($users as $user){
+    foreach ($users as $user) {
         echo $user->name;
     }
-
 });

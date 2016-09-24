@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-
 use App\Http\Requests\TypeRequest;
 use App\Http\Requests\WikiRequest;
 use App\Project\Project;
@@ -25,7 +24,6 @@ class WikiRepository
 
         return $wiki;
     }
-
 
     public function WikiResources(Project $project)
     {
@@ -67,7 +65,6 @@ class WikiRepository
 
     public function UpdateWiki(WikiRequest $request, Project $project, Wiki $wiki)
     {
-
         $input = $request->only(['title', 'content', 'type_id']);
 
         if ($request->file('image')) {

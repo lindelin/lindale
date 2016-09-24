@@ -5,19 +5,15 @@ namespace App\Http\Controllers\Project;
 use App\Repositories\MemberRepository;
 use Illuminate\Http\Request;
 use App\Project\Project;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class MemberController extends Controller
 {
-
     protected $memberRepository;
 
     public function __construct(MemberRepository $memberRepository)
     {
-
         $this->memberRepository = $memberRepository;
-
     }
 
     /**

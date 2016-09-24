@@ -13,8 +13,8 @@ class WikiTypeSeeder extends Seeder
     {
         DB::table('wiki_types')->delete();
         \App\Wiki\WikiType::create([
-            "id" => "1",
-            "name" => "wiki",
+            'id' => '1',
+            'name' => 'wiki',
         ]);
     }
 }

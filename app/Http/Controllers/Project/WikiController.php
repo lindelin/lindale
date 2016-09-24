@@ -4,14 +4,12 @@ namespace App\Http\Controllers\Project;
 
 use App\Project\Project;
 use App\Repositories\WikiRepository;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\WikiRequest;
 use App\Wiki\Wiki;
 
 class WikiController extends Controller
 {
-
     /**
      * @var
      */
@@ -32,7 +30,6 @@ class WikiController extends Controller
      */
     public function index(Project $project)
     {
-
         return view('project.wiki.index', $this->wikiRepository->WikiResources($project))
             ->with(['project' => $project, 'selected' => 'wiki']);
     }
@@ -46,7 +43,6 @@ class WikiController extends Controller
         return view('project.wiki.create', $this->wikiRepository->WikiResources($project))
             ->with(['project' => $project, 'selected' => 'wiki']);
     }
-
 
     public function store(WikiRequest $request, Project $project)
     {
@@ -98,7 +94,6 @@ class WikiController extends Controller
         }
     }
 
-
     /**
      * @param Project $project
      * @param Wiki $wiki
@@ -124,6 +119,7 @@ class WikiController extends Controller
     public function first(Project $project)
     {
         $this->wikiRepository->FirstWiki($project)->save();
+
         return redirect()->back();
     }
 }

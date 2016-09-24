@@ -84,7 +84,7 @@ class ProjectRepository
     }
 
     /**
-     * 删除项目相关内容
+     * 删除项目相关内容.
      *
      * @param Project $project
      */

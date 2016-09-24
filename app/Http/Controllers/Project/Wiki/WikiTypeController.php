@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Project\Wiki;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests\TypeRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\WikiRepository;
