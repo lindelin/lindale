@@ -6,7 +6,6 @@ use App\Project\Project;
 use App\Repositories\ProjectRepository;
 use App\Http\Requests\ProjectRequest;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -45,7 +44,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * TODO: 项目创建时同时创建项目目录
+     * TODO: 项目创建时同时创建项目目录.
      * @param ProjectRequest $request
      * @return $this|\Illuminate\Http\RedirectResponse
      */

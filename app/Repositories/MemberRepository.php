@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-
 use App\Project\Project;
 
 class MemberRepository
