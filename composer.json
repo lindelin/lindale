@@ -1,7 +1,7 @@
 {
     "name": "lindelea/lindale",
-    "description": "A simple blog system.",
-    "keywords": ["laravel", "Lindale", "application", "markdown", "blog"],
+    "description": "Project Manager",
+    "keywords": ["laravel", "Lindale", "application", "markdown", "Project", "Project Manager"],
     "license": "MIT",
     "type": "project",
     "authors": [
@@ -11,20 +11,17 @@
             "role": "Developer"
         }
     ],
-    "doctrine/dbal": "~2.3",
     "require": {
-        "php": ">=5.5.9",
-        "laravel/framework": "5.2.*",
-        "barryvdh/laravel-ide-helper": "v2.2.1",
-        "laravelcollective/html": "^5.2",
-        "doctrine/dbal": "~2.3"
+        "php": ">=5.6.4",
+        "laravel/framework": "5.3.*",
+        "erusev/parsedown-extra": "^0.7.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~4.0",
-        "symfony/css-selector": "2.8.*|3.0.*",
-        "symfony/dom-crawler": "2.8.*|3.0.*"
+        "phpunit/phpunit": "~5.0",
+        "symfony/css-selector": "3.1.*",
+        "symfony/dom-crawler": "3.1.*"
     },
     "autoload": {
         "classmap": [
@@ -39,14 +36,9 @@
             "tests/TestCase.php"
         ]
     },
-    "post-update-cmd": [
-        "php artisan clear-compiled",
-        "php artisan ide-helper:generate",
-        "php artisan optimize"
-    ],
     "scripts": {
         "post-root-package-install": [
-            "php -r \"copy('.env.example', '.env');\""
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
             "php artisan key:generate"

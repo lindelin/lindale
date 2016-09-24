@@ -8,19 +8,13 @@ use Config;
 class HomeController extends Controller
 {
     /**
-     * @param int $order
-     * @return mixed
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
      */
-    public function index($order = 0)
+    public function index()
     {
-        switch ($order) {
-            case 0:
-                return view('home')->withArticles(\App\Article::latest()->paginate(5));
-                break;
-            case 1:
-                return view('home')->withArticles(\App\Article::oldest()->paginate(5));
-                break;
-        }
+        return view('welcome');
     }
 
     /**

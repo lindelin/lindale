@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Lindalë-Admin</title>
-
-    @include('layouts.link')
-
+    @include('layouts.common.link')
+    <title>@yield('title')</title>
+    @yield('head')
 </head>
 <body>
 
-    @include('layouts.pageloader')
+    @include('layouts.common.header')
 
-	@include('layouts.header')
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                @yield('content')
+            </div>
+        </div>
+    </div>
 
-	        @yield('content')
+    @include('layouts.common.footer')
+
+    <script>
+        $(document).ready($("code").addClass("prettyprint"));
+        $(document).ready($("pre").addClass("prettyprint"));
+    </script>
+
 
 </body>
 </html>

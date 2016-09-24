@@ -8,7 +8,6 @@ class UseLang
 {
     /**
      * Handle an incoming request.
-     * Change Language to $locale.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

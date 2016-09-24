@@ -122,6 +122,9 @@ return [
         'time'                  => '時間',
         'nickname'              => 'ニックネーム',
         'body'                  => '内容',
+        'start_at'              => '開始時間',
+        'end_at'                => '期限',
+        'image'                 => '画像',
     ],
 
 ];

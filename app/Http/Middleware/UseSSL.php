@@ -9,7 +9,6 @@ class UseSSL
 {
     /**
      * Handle an incoming request.
-     * Redirect HTTP to HTTPS.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
