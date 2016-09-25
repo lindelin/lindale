@@ -28,7 +28,7 @@
             <div class="row">
 
                 {{-- 项目总监 --}}
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="row">
@@ -73,7 +73,7 @@
 
                 @if($sl)
                     {{-- 项目副总监 --}}
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="row">
@@ -118,7 +118,7 @@
                 @endif
 
             	@foreach($pms as $pm)
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="row">
