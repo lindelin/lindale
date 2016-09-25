@@ -125,6 +125,7 @@ return [
         'start_at'              => '開始時間',
         'end_at'                => '期限',
         'image'                 => '画像',
+        'type_name'             => '名称',
     ],
 
 ];

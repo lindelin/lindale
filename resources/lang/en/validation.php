@@ -123,6 +123,7 @@ return [
         'start_at'              => 'Starting time',
         'end_at'                => 'End Time',
         'image'                 => 'Image',
+        'type_name'             => 'Name',
     ],
 
 ];

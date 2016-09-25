@@ -27,7 +27,7 @@ class WikiRequest extends FormRequest
             'title' => 'required|max:100',
             'content' => 'required',
             'type_id' => 'integer',
-            'image' => 'image',
+            /*'image' => 'image',*/
         ];
     }
 }

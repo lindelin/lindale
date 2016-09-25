@@ -2,11 +2,11 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         @if(Auth::user()->photo != '')
             <a href="#" class="thumbnail">
-                <img src="{{ asset('storage/'.Auth::user()->photo) }}" alt="个人资料">
+                <img src="{{ asset('storage/'.Auth::user()->photo) }}">
             </a>
         @else
             <a href="#" class="thumbnail">
-                <img src="{{ asset('img/admin.png') }}" alt="个人资料">
+                <img src="{{ asset('img/admin.png') }}">
             </a>
         @endif
     </div>

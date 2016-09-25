@@ -13,15 +13,27 @@
       </div>
       {{-- 框架 --}}
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 hidden-xs">
-          @include('layouts.home.nav')
-          {{--<div class="panel panel-default">
-              <div class="panel-heading">
-                  <h3 class="panel-title">Panel title</h3>
-              </div>
-              <div class="panel-body">
-                  Panel body
-              </div>
-          </div>--}}
+          <div class="row">
+          	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                @include('layouts.home.nav')
+          	</div>
+          </div>
+          <br>
+          <br>
+          <div class="row">
+          	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">My Project</div>
+                    <!-- List group -->
+                    <ul class="list-group">
+                        @foreach($userProjects as $project)
+                        <a href="{{ url("project/$project->id") }}" class="list-group-item">{{ $project->title }}</a>
+                        @endforeach
+                    </ul>
+                </div>
+          	</div>
+          </div>
       </div>
 
       {{-- 手机对应视图 --}}

@@ -27,6 +27,22 @@
                             <span class="glyphicon glyphicon-home"></span> {{ trans('auth.home') }}
                         </a>
                     </li>
+                    <li class="dropdown visible-xs-block">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-globe"></span> {{ trans('header.'.Config::get('app.locale')) }} <strong class="caret"></strong>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{ route('lang', ['lang' => 'en']) }}">English</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('lang', ['lang' => 'ja']) }}">日本語</a>
+                            </li>
+                            <li>
+                                <a href="{{ route('lang', ['lang' => 'zh']) }}">中文</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             @else
                 <!-- Left Side Of Navbar -->

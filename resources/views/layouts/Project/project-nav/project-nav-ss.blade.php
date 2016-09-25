@@ -19,6 +19,11 @@
                     </li>
                     <li role="presentation">
                         <a href="#">
+                            <span class="glyphicon glyphicon-comment"></span> {{ trans('header.bbs') }}
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#">
                             <span class="glyphicon glyphicon-stats"></span> {{ trans('header.achievement') }}
                         </a>
                     </li>
@@ -61,12 +66,6 @@
             <li role="presentation" @if($selected == "progress") class="active" @endif>
                 <a href="#">
                     <span class="glyphicon glyphicon-dashboard"></span>
-                </a>
-            </li>
-
-            <li role="presentation" @if($selected == "bbs") class="active" @endif>
-                <a href="#">
-                    <span class="glyphicon glyphicon-comment"></span>
                 </a>
             </li>
 

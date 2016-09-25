@@ -24,4 +24,10 @@ return [
     'concept'     => '創意',
     'config'      => '設定',
     'other'       => 'その他',
+    'home'        => 'ホーム',
+    'project'     => 'プロジェクト',
+    'time-sheet'  => '日報',
+    'message'     => 'メッセージ',
+    'schedule'    => 'スケージュール',
+    'admin'       => 'スーパー管理人',
 ];

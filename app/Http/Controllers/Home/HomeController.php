@@ -3,11 +3,20 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\ProjectRepository;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index()
+    protected $projectRepository;
+
+    public function __construct(ProjectRepository $projectRepository)
     {
-        return view('home.home')->with('mode', 'home');
+        $this->projectRepository = $projectRepository;
+    }
+
+    public function index(Request $request)
+    {
+        return view('home.home',$this->projectRepository->UserProjects($request->user()))->with('mode', 'home');
     }
 }

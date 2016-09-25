@@ -26,11 +26,16 @@
         </div>
     @else
         <div class="row">
+            {{-- 框架 --}}
         	<div class="col-xs-12 col-sm-6 col-md-8 col-lg-9">
                 <div class="row">
                     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                         <h2>{{ $HomeWiki->title }}
-                            <br><small>{{ $HomeWiki->User->name }}</small>
+                            <br>
+                            <small>
+                                {{ trans('wiki.writer') }}: {{ $HomeWiki->User->name }}　
+                                {{ trans('wiki.created') }}: {{ $HomeWiki->created_at }}　
+                            </small>
                         </h2>
                     </div>
                     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="right">
@@ -49,7 +54,11 @@
                 	</div>
                 </div>
         	</div>
+            {{-- 框架 --}}
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                <br class="visible-xs-block">
+                <br class="visible-xs-block">
+                <br class="visible-xs-block">
                 @include('layouts.wiki.side-index')
             </div>
         </div>

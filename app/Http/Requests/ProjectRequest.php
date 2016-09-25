@@ -30,7 +30,7 @@ class ProjectRequest extends FormRequest
             'type_id' => 'required|integer|max:10',
             'sl_id' => 'max:10',
             'password' => 'required|min:6|max:15|confirmed',
-            'image' => 'image',
+            /*'image' => 'image',*/
         ];
 
         $delete = [

@@ -46,7 +46,7 @@
                         </div>
 
                         {{-- 开始时间 --}}
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group{{ $errors->has('start_at') ? ' has-error' : '' }}">
                                 <label class="control-label">
                                     {{ trans('project.start_at') }}
@@ -71,7 +71,7 @@
                         </div>
 
                         {{-- 结束时间 --}}
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                             <div class="form-group{{ $errors->has('end_at') ? ' has-error' : '' }}">
                                 <label class="control-label">{{ trans('project.end_at') }}</label>
                                 <div>
@@ -121,7 +121,7 @@
                                     <select class="selectpicker form-control" data-live-search="true" name="sl_id">
                                         <option value="">{{ trans('project.none') }}</option>
                                         @foreach( $users as $user)
-                                            <option value="{{ $user->id }}" @if(old('sl_id') == $user->id) selected @endif>{{ $user->name }}</option>
+                                            <option value="{{ $user->id }}" @if(old('sl_id') == $user->id) selected @endif>{{ $user->name }}（{{ $user->email }}）</option>
                                         @endforeach
                                     </select>
                                     @include('layouts.common.error-one', ['field' => 'sl_id'])

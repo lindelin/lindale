@@ -21,7 +21,15 @@ class ProjectRepository
         $users = User::all();
         $statuses = ProjectStatus::all();
 
-        return ['types' => $types, 'users' => $users, 'statuses' => $statuses];
+        return compact('types', 'users', 'statuses');
+    }
+
+    public function UserProjects(User $user)
+    {
+        $userProjects = Project::where('user_id',$user->id)->get();
+        $userProjectCont = Project::where('user_id',$user->id)->count();
+
+        return compact('userProjects', 'userProjectCont');
     }
 
     /**

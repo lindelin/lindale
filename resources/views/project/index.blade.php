@@ -66,15 +66,15 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         {{ $project->Type->name }}#{{ sprintf("%02d", $project->type_id).$project->user_id.$project->id }}
-                                        　<span class="label label-danger">Danger</span>
+                                        　<span class="label label-danger">{{ $project->Status->name }}</span>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <div class="progress" style="margin-bottom: 0px;">
-                                            <div class="progress-bar progress-bar-success" role="progressbar" style="width: {{ $project->progress }}%;">
-                                                {{ $project->progress }}%
+                                            <div class="progress-bar progress-bar-success" role="progressbar" style="width: {{ $project->progress + 30 }}%;">
+                                                {{ $project->progress + 30 }}%
                                             </div>
                                         </div>
                                     </div>

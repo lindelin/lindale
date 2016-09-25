@@ -4,13 +4,8 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Project Language Lines
+    | WIKI Language Lines
     |--------------------------------------------------------------------------
-    |
-    | The following language lines are used during authentication for various
-    | messages that we need to display to the user. You are free to modify
-    | these language lines according to your application's requirements.
-    |
     */
 
     'first-wiki'   => '创建第一个Wiki',
@@ -29,6 +24,10 @@ return [
     'edit'         => '修改',
     'edit-title'   => '编辑词条',
     'add-index'   => '添加新的索引',
+    'writer'   => '撰稿',
+    'created'   => '创建时间',
+    'updated'   => '更新时间',
+
 
 
 ];

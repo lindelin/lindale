@@ -24,4 +24,10 @@ return [
     'concept'     => 'Idea',
     'config'      => 'Config',
     'other'       => 'Other',
+    'home'        => 'Home',
+    'project'     => 'Project',
+    'time-sheet'  => 'Time-Sheet',
+    'message'     => 'Message',
+    'schedule'    => 'Schedule',
+    'admin'       => 'Super Admin',
 ];
