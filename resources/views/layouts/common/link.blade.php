@@ -17,18 +17,17 @@
 <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/transition.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-markdown/2.10.0/js/bootstrap-markdown.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-markdown/2.10.0/js/bootstrap-markdown.min.js"></script>
-<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js"></script>
+{{--<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js"></script>--}}
 <script src="//cdn.bootcss.com/markdown.js/0.5.0/markdown.min.js"></script>
-<script src="//cdn.bootcss.com/to-markdown/3.0.1/to-markdown.min.js"></script>
-<script src="//cdn.bootcss.com/markdown.js/0.6.0-beta1/markdown.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-select/2.0.0-beta1/js/bootstrap-select.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-select/2.0.0-beta1/js/i18n/defaults-en_US.min.js"></script>
 <script src="//cdn.bootcss.com/moment.js/2.14.1/moment.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-datetimepicker/4.17.42/js/bootstrap-datetimepicker.min.js"></script>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-{{-- local --}}
+{{-- local css --}}
 <link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('/css/bootstrap-off-canvas-nav.css') }}" rel="stylesheet" type="text/css">
+{{-- local js --}}
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/bootstrap-off-canvas-nav.js') }}"></script>
 <!-- Scripts -->

@@ -5,7 +5,7 @@
                 <div class="row">
                 	<div class="col-xs-9 col-sm-6 col-md-6 col-lg-6">
                         <button type="button" class="btn  btn-xs btn-success">All</button>
-                        <button type="button" class="btn  btn-xs btn-success">Success</button>
+                        <button type="button" class="btn  btn-xs btn-success">My Project</button>
                         <button type="button" class="btn  btn-xs btn-success">Time</button>
                 	</div>
                     <div class="col-xs-3 col-sm-6 col-md-6 col-lg-6" align="right">

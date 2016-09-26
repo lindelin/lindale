@@ -21,10 +21,10 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" id="colorable-{{ $project->id }}">
                         <div class="row">
-                        	<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                                <h5 class="panel-title"><a href="{{ url('project/'.$project->id) }}">{{ $project->title }}</a></h5>
+                        	<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10" style="overflow: hidden; height: 20px; ">
+                                <h7 class="panel-title"><a href="{{ url('project/'.$project->id) }}">{{ $project->title }}</a></h7>
                         	</div>
-                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="right">
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" align="right">
                                 <div class="dropdown">
                                         <a href="#" class="dropdown-toggle panel-title" data-toggle="dropdown">
                                             <span class="glyphicon glyphicon-cog"></span>
@@ -51,13 +51,13 @@
                                 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         @if($project->image)
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 project-panel-img">
-                                                <a href="#" class="thumbnail">
+                                                <a href="{{ url('project/'.$project->id) }}" class="thumbnail">
                                                     <img src="{{ asset('storage/'.$project->image) }}" alt="...">
                                                 </a>
                                             </div>
                                         @else
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 project-panel" id="colorable-{{ $project->id }}">
-                                                <h4>{{ $project->title }}</h4>
+                                                <h4 class="panel-title"><a href="{{ url('project/'.$project->id) }}">{{ $project->title }}</a></h4>
                                             </div>
                                         @endif
                                 	</div>
