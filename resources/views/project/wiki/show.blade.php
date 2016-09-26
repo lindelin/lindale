@@ -49,4 +49,8 @@
         </div>
     </div>
 
+    <script>
+        $(document).ready($("table").addClass("table"));
+    </script>
+
 @endsection

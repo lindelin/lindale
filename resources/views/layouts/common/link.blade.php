@@ -17,8 +17,8 @@
 <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/transition.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-markdown/2.10.0/js/bootstrap-markdown.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-markdown/2.10.0/js/bootstrap-markdown.min.js"></script>
-{{--<script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js"></script>--}}
-<script src="//cdn.bootcss.com/markdown.js/0.5.0/markdown.min.js"></script>
+<script src="//cdn.bootcss.com/marked/0.3.6/marked.js"></script>
+{{--<script src="//cdn.bootcss.com/markdown.js/0.5.0/markdown.min.js"></script>--}}
 <script src="//cdn.bootcss.com/bootstrap-select/2.0.0-beta1/js/bootstrap-select.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-select/2.0.0-beta1/js/i18n/defaults-en_US.min.js"></script>
 <script src="//cdn.bootcss.com/moment.js/2.14.1/moment.min.js"></script>

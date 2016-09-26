@@ -64,4 +64,8 @@
         </div>
     @endif
 
+    <script>
+        $(document).ready($("table").addClass("table"));
+    </script>
+
 @endsection
