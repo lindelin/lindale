@@ -50,7 +50,9 @@
                                 <img src="{{ asset('storage/'.$HomeWiki->image) }}">
                             </a>
                         @endif
-                        {!! Markdown::toHtml($HomeWiki->content) !!}
+                        <div class="table-responsive-div">
+                            {!! Markdown::toHtml($HomeWiki->content) !!}
+                        </div>
                 	</div>
                 </div>
         	</div>
@@ -65,7 +67,7 @@
     @endif
 
     <script>
-        $(document).ready($("table").addClass("table"));
+        $(document).ready($("table").addClass("table table-bordered"));
     </script>
 
 @endsection

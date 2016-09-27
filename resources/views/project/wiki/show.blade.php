@@ -36,7 +36,9 @@
                             <img src="{{ asset('storage/'.$wiki->image) }}">
                         </a>
                     @endif
-                    {!! Markdown::toHtml($wiki->content) !!}
+                    <div class="table-responsive-div">
+                        {!! Markdown::toHtml($wiki->content) !!}
+                    </div>
                 </div>
             </div>
         </div>
@@ -50,7 +52,7 @@
     </div>
 
     <script>
-        $(document).ready($("table").addClass("table"));
+        $(document).ready($("table").addClass("table table-bordered"));
     </script>
 
 @endsection

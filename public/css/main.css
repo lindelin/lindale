@@ -19,3 +19,6 @@ body{
 	overflow: scroll;
 }
 
+.table-responsive-div{
+	overflow-y: hidden;
+}
