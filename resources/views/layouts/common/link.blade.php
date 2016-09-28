@@ -35,7 +35,7 @@
     //時間
     $(function(){
         setInterval(function(){
-            $("#currentTime").text(new Date().toLocaleString());
+            $(".currentTime").text(new Date().toLocaleString());
         },100);
     });
     //工具提示
