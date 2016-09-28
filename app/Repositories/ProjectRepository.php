@@ -26,8 +26,8 @@ class ProjectRepository
 
     public function UserProjects(User $user)
     {
-        $userProjects = Project::where('user_id',$user->id)->get();
-        $userProjectCont = Project::where('user_id',$user->id)->count();
+        $userProjects = Project::where('user_id', $user->id)->get();
+        $userProjectCont = Project::where('user_id', $user->id)->count();
 
         return compact('userProjects', 'userProjectCont');
     }
