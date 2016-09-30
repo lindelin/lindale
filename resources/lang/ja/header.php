@@ -21,7 +21,7 @@ return [
     'achievement' => '実績',
     'budget'      => '予算',
     'bbs'         => '掲示板',
-    'concept'     => '創意',
+    'concept'     => '付箋',
     'config'      => '設定',
     'other'       => 'その他',
     'home'        => 'ホーム',

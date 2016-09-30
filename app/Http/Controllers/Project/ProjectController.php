@@ -30,7 +30,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('project.index')->withProjects(Project::all());
+        return view('project.index')->withProjects(Project::latest()->get());
     }
 
     /**

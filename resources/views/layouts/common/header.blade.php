@@ -165,16 +165,23 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right hidden-xs">
-                <li>
-                    <a href="{{ url('/config') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('header.config') }}">
-                        <span class="glyphicon glyphicon-cog"></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('/admin') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('header.admin') }}">
-                        <span class="glyphicon glyphicon-wrench"></span>
-                    </a>
-                </li>
+                @if(Auth::guest())
+                @else
+
+                    <li>
+                        <a href="{{ url('/config') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('header.config') }}">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </a>
+                    </li>
+
+                    @if(Admin::is_super_admin(Auth::user()))
+                        <li>
+                            <a href="{{ url('/admin') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('header.admin') }}">
+                                <span class="glyphicon glyphicon-wrench"></span>
+                            </a>
+                        </li>
+                    @endif
+                @endif
                 <!-- 言語切り替え -->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">

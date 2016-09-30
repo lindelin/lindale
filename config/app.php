@@ -228,6 +228,7 @@ return [
         'Inspiring' => Illuminate\Foundation\Inspiring::class,
         'Colorable' => App\Repositories\ColorableRepository::class,
         'Markdown' => App\Repositories\MarkdownRepository::class,
+        'Admin' => App\Policies\AdminPolicy::class,
 
     ],
 

@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     Route::resource('project', 'ProjectController');
-    Route::group(['prefix' => 'project/{project}'], function () {
+    Route::group(['middleware' => 'ProjectAuth', 'prefix' => 'project/{project}'], function () {
 
         //Wiki路由
         Route::resource('wiki', 'WikiController');
@@ -44,6 +44,14 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         //成员路由
         Route::resource('member', 'MemberController');
     });
+});
+
+Route::group(['middleware' => ['auth', 'AdminAuth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    Route::get('/', 'HomeController@index');
+    Route::get('user', 'UserController@index');
+    Route::get('user/create', 'UserController@create');
+    Route::post('user', 'UserController@store');
+    Route::delete('user/{user}', 'UserController@destroy');
 });
 
 /*

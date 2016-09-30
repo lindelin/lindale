@@ -3,11 +3,20 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\ProjectRepository;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function index()
+    protected $projectRepository;
+
+    public function __construct(ProjectRepository $projectRepository)
     {
-        return view('home.profile')->with('mode', 'profile');
+        $this->projectRepository = $projectRepository;
+    }
+
+    public function index(Request $request)
+    {
+        return view('home.profile', $this->projectRepository->UserProjects($request->user()))->with('mode', 'profile');
     }
 }
