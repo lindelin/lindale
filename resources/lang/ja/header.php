@@ -23,6 +23,7 @@ return [
     'bbs'         => '掲示板',
     'concept'     => '付箋',
     'config'      => '設定',
+    'settings'    => '設定',
     'other'       => 'その他',
     'home'        => 'ホーム',
     'project'     => 'プロジェクト',

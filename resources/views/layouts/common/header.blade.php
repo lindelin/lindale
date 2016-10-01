@@ -149,15 +149,17 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="{{ url('/config') }}" class="visible-xs-block">
-                            <span class="glyphicon glyphicon-cog"></span> {{ trans('header.config') }}
+                        <a href="{{ url('/settings/profile') }}" class="visible-xs-block">
+                            <span class="glyphicon glyphicon-cog"></span> {{ trans('header.settings') }}
                         </a>
                     </li>
-                    <li>
-                        <a href="{{ url('/admin') }}" class="visible-xs-block">
-                            <span class="glyphicon glyphicon-wrench"></span> {{ trans('header.admin') }}
-                        </a>
-                    </li>
+                    @if(Admin::is_super_admin(Auth::user()))
+                        <li>
+                            <a href="{{ url('/admin') }}" class="visible-xs-block">
+                                <span class="glyphicon glyphicon-wrench"></span> {{ trans('header.admin') }}
+                            </a>
+                        </li>
+                    @endif
                     <br class="visible-xs-block">
                     <br class="visible-xs-block">
                 </ul>
@@ -169,7 +171,7 @@
                 @else
 
                     <li>
-                        <a href="{{ url('/config') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('header.config') }}">
+                        <a href="{{ url('/settings/profile') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('header.settings') }}">
                             <span class="glyphicon glyphicon-cog"></span>
                         </a>
                     </li>

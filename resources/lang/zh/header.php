@@ -23,6 +23,7 @@ return [
     'bbs'         => '讨论组',
     'concept'     => '设想',
     'config'      => '设定',
+    'settings'    => '个人设定',
     'other'       => '更多',
     'home'        => '首页',
     'project'     => '项目',

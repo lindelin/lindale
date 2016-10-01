@@ -23,6 +23,7 @@ return [
     'bbs'         => 'Issues',
     'concept'     => 'Idea',
     'config'      => 'Config',
+    'settings'    => 'Settings',
     'other'       => 'Other',
     'home'        => 'Home',
     'project'     => 'Project',

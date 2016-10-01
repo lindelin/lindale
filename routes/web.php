@@ -16,12 +16,12 @@ Route::get('/lang/{lang}', 'HomeController@lang')->name('lang');
 
 /*
 |--------------------------------------------------------------------------
-| Main Routes
+| Home Routes
 |--------------------------------------------------------------------------
 |
-| メインルート
+| ホーム画面ルート
 |
-| 主要路由
+| 个人首页路由
 |
 */
 
@@ -29,6 +29,17 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
     Route::get('home', 'HomeController@index');
     Route::get('home/profile', 'ProfileController@index');
 });
+
+/*
+|--------------------------------------------------------------------------
+| Project Routes
+|--------------------------------------------------------------------------
+|
+| プロジェクトルート
+|
+| 项目路由
+|
+*/
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     Route::resource('project', 'ProjectController');
@@ -46,8 +57,35 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     });
 });
 
+/*
+|--------------------------------------------------------------------------
+| Config Routes
+|--------------------------------------------------------------------------
+|
+| 個人設定ルート
+|
+| 设定路由
+|
+*/
+
+Route::group(['middleware' => 'auth', 'namespace' => 'Settings', 'prefix' => 'settings'], function () {
+    Route::get('profile', 'ProfileController@index');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Super Admin Routes
+|--------------------------------------------------------------------------
+|
+| スーパー管理人ルート
+|
+| 超级管理员路由
+|
+*/
+
 Route::group(['middleware' => ['auth', 'AdminAuth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/', 'HomeController@index');
+    //用户管理路由
     Route::get('user', 'UserController@index');
     Route::get('user/create', 'UserController@create');
     Route::post('user', 'UserController@store');
