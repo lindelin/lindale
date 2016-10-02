@@ -23,12 +23,10 @@
           <div class="row">
           	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="panel panel-default">
-                    <!-- Default panel contents -->
                     <div class="panel-heading">My Project</div>
-                    <!-- List group -->
                     <ul class="list-group">
                         @foreach($userProjects as $project)
-                        <a href="{{ url("project/$project->id") }}" class="list-group-item">{{ $project->title }}</a>
+                            <a href="{{ url("project/$project->id") }}" class="list-group-item">{{ $project->title }}</a>
                         @endforeach
                     </ul>
                 </div>

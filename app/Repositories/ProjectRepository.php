@@ -27,7 +27,7 @@ class ProjectRepository
     public function UserProjects(User $user)
     {
         $userProjects = Project::where('user_id', $user->id)->get();
-        $userProjectCont = Project::where('user_id', $user->id)->count();
+        $userProjectCont = $this->UserProjectCont($user);
 
         return compact('userProjects', 'userProjectCont');
     }
@@ -106,5 +106,14 @@ class ProjectRepository
         Wiki::where('project_id', $project->id)->delete();
         //删除项目WIKI索引
         WikiType::where('project_id', $project->id)->delete();
+    }
+
+    /**
+     * @param User $user
+     * @return mixed
+     */
+    private function UserProjectCont(User $user)
+    {
+        return (Project::where('user_id', $user->id)->count()) + (Project::where('sl_id', $user->id)->count());
     }
 }

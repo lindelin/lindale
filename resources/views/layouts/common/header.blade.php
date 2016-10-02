@@ -51,8 +51,13 @@
                     <li class="dropdown visible-xs-block">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span>
-                                <img alt="Brand" src="{{ asset('img/admin.png') }}" style="width: 50px;height: 50px;">
-                            </span> <h3 style="color: #9e9e9e">{{ Auth::user()->name }}</h3>
+                                @if(Auth::user()->photo != '')
+                                    <img src="{{ asset('storage/'.Auth::user()->photo) }}" style="width: 50px;height: 50px;">
+                                @else
+                                    <img src="{{ asset(Colorable::lindaleProfileImg(Auth::user()->email)) }}" style="width: 50px;height: 50px;">
+                                @endif
+                            </span>
+                            <h3 style="color: #9e9e9e">{{ Auth::user()->name }}</h3>
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
@@ -208,7 +213,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <span>
-                                <img alt="Brand" src="{{ asset('img/admin.png') }}" style="padding: 0px;width: 22px;height: 22px;">
+                                @if(Auth::user()->photo != '')
+                                    <img src="{{ asset('storage/'.Auth::user()->photo) }}" style="padding: 0px;width: 22px;height: 22px;">
+                                @else
+                                    <img src="{{ asset(Colorable::lindaleProfileImg(Auth::user()->email)) }}" style="padding: 0px;width: 22px;height: 22px;">
+                                @endif
                             </span>
                              <span class="caret"></span>
                         </a>
