@@ -9,9 +9,7 @@
     @include('layouts.common.succeed')
 
     <div class="row">
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-            @include('layouts.admin.menu')
-        </div>
+        @include('layouts.admin.header')
         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
             <div class="panel panel-default">
                 <div class="panel-heading">
