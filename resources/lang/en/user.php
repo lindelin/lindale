@@ -4,29 +4,37 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Admin Language Lines
+    | User Language Lines
     |--------------------------------------------------------------------------
     */
 
-    'user'   => '管理用户',
-    'center'    => '信息中心',
-    'title'        => '词条',
-    'content'      => '内容',
-    'type'         => '标签',
-    'add-image'    => '添加图片',
-    'cancel'       => '取消',
-    'submit'       => '添加词条',
-    'index'        => '索引',
-    'default'      => '默认',
-    'delete-title' => '删除词条',
-    'delete-input' => '词条将被删除, 确定吗?',
-    'delete'       => '删除',
-    'edit'         => '修改',
-    'edit-title'   => '编辑词条',
-    'add-index'    => '添加新的索引',
-    'writer'       => '撰稿',
-    'created'      => '创建时间',
-    'updated'      => '更新时间',
+    'user-list'      => 'User List',
+    'email'          => 'E-mail address',
+    'name'           => 'Name',
+    'content'        => 'Bio',
+    'created'        => 'Created',
+    'updated'        => 'Updated',
+    'add-image'      => 'Add Photo',
+    'cancel'         => 'Cancel',
+    'delete'         => 'Delete',
+    'delete-user'    => 'Delete User：',
+    'delete-input'   => 'You want to delete this user, you sure?',
+    'add-user'       => 'Add User',
+    'submit'         => 'Submit',
+    'profile-img'    => 'Profile Image',
+    'company'        => 'company/Organization',
+    'location'       => 'Country / Area',
+    'update'         => 'Profile update',
+    'phone'          => 'Phone',
+    'mobile'         => 'Mobile Phone',
+    'fax'            => 'FAX',
+    'public-profile' => 'Public Profile',
+    'contact'        => 'Contact Information',
+    'update-contact' => 'Contact information update',
+    'edit-profile'   => 'Edit Profile',
+    'add-content'    => 'Add a bio',
+    'settings'       => 'Personal settings',
+    'account'        => 'Account',
 
 
 ];

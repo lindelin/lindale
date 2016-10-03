@@ -26,7 +26,7 @@
                         {{ csrf_field() }}
                         <div class="row">
                             {{-- 框架 --}}
-                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                            <div class="col-xs-12 col-sm-10 col-md-9 col-lg-7">
                                 {{-- 图片 --}}
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -36,10 +36,10 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                                            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
                                                 @include('layouts.common.profile-img')
                                             </div>
-                                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                            <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
                                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                     <div class="form-group{{ $errors->has('photo') ? ' has-error' : '' }}">
                                                         <label class="control-label">{{ trans('user.add-image') }}</label>
@@ -146,7 +146,7 @@
 
                             </div>
                             {{-- 框架 --}}
-                            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                            <div class="col-xs-0 col-sm-2 col-md-3 col-lg-5">
 
                             </div>
                         </div>
@@ -156,7 +156,7 @@
             {{-- 联系方式 --}}
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('user.contact') }}{{--Contact Information--}}
+                    {{ trans('user.contact') }}
                 </div>
                 <div class="panel-body">
                     <form action="{{ url('settings/profile/'.$user->id) }}" method="post" role="form" enctype="multipart/form-data">
@@ -164,7 +164,7 @@
                         {{ csrf_field() }}
                         <div class="row">
                             {{-- 框架 --}}
-                            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                            <div class="col-xs-12 col-sm-10 col-md-9 col-lg-7">
                                 {{-- 电子邮件 --}}
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -334,7 +334,7 @@
 
                             </div>
                             {{-- 框架 --}}
-                            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                            <div class="col-xs-0 col-sm-2 col-md-3 col-lg-5">
 
                             </div>
                         </div>

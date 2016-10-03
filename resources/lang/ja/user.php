@@ -33,6 +33,8 @@ return [
     'update-contact' => '連絡方式更新',
     'edit-profile'   => 'プロフィール編集',
     'add-content'    => '自己紹介追加',
+    'settings'       => '個人設定',
+    'account'        => 'アカウント設定',
 
 
 ];
