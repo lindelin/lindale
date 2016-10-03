@@ -26,8 +26,8 @@
                         	</div>
                             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" align="right">
                                 <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle panel-title" data-toggle="dropdown">
-                                            <span class="glyphicon glyphicon-cog"></span>
+                                        <a href="#" class="dropdown-toggle panel-title my-tooltip" title="進行中..." data-toggle="dropdown">
+                                            <i class="fa fa-cog fa-spin fa-lg fa-fw"></i>
                                         </a>
                                     <ul class="dropdown-menu">
                                         <li>

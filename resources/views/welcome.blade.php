@@ -72,7 +72,7 @@
                 </div>
             @else
                 <div class="top-right links">
-                    <a href="{{ url('/project') }}">{{ trans('auth.home') }}</a>
+                    <a href="{{ url('/home') }}">{{ trans('auth.home') }}</a>
                 </div>
             @endif
 

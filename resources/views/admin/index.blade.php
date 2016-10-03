@@ -10,9 +10,7 @@
 
     <div class="row">
         {{-- 框架 --}}
-    	<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-            @include('layouts.admin.menu')
-    	</div>
+        @include('layouts.admin.header')
         {{-- 框架 --}}
         <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
             <div class="panel panel-default">
