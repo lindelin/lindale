@@ -31,6 +31,7 @@ return [
     'message'     => '消息',
     'schedule'    => '日程',
     'admin'       => '超级管理员',
+    'my'          => '我的',
 
 
 ];

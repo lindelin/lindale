@@ -26,9 +26,10 @@ return [
     'settings'    => 'Settings',
     'other'       => 'Other',
     'home'        => 'Home',
-    'project'     => 'Project',
+    'project'     => 'Projects',
     'time-sheet'  => 'Time-Sheet',
     'message'     => 'Message',
     'schedule'    => 'Schedule',
     'admin'       => 'Super Admin',
+    'my'          => 'My ',
 ];

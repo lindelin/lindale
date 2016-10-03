@@ -4,29 +4,35 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Admin Language Lines
+    | User Language Lines
     |--------------------------------------------------------------------------
     */
 
-    'user'   => '管理用户',
-    'center'    => '信息中心',
-    'title'        => '词条',
-    'content'      => '内容',
-    'type'         => '标签',
-    'add-image'    => '添加图片',
-    'cancel'       => '取消',
-    'submit'       => '添加词条',
-    'index'        => '索引',
-    'default'      => '默认',
-    'delete-title' => '删除词条',
-    'delete-input' => '词条将被删除, 确定吗?',
-    'delete'       => '删除',
-    'edit'         => '修改',
-    'edit-title'   => '编辑词条',
-    'add-index'    => '添加新的索引',
-    'writer'       => '撰稿',
-    'created'      => '创建时间',
-    'updated'      => '更新时间',
+    'user-list'      => 'ユーザ一覧',
+    'email'          => 'メールアドレス',
+    'name'           => '名前',
+    'content'        => '自己紹介',
+    'created'        => '作成日時',
+    'updated'        => '更新日時',
+    'add-image'      => 'アイコン追加',
+    'cancel'         => '取消',
+    'delete'         => '削除',
+    'delete-user'    => 'ユーザ削除：',
+    'delete-input'   => 'このユーザを削除します, よろしいですか?',
+    'add-user'       => 'ユーザ作成',
+    'submit'         => '作成',
+    'profile-img'    => 'アイコン',
+    'company'        => '会社/組織',
+    'location'       => '国家／地域',
+    'update'         => 'プロフィール更新',
+    'phone'          => '電話番号',
+    'mobile'         => '携帯電話',
+    'fax'            => 'FAX',
+    'public-profile' => 'プロフィール',
+    'contact'        => '連絡方式',
+    'update-contact' => '連絡方式更新',
+    'edit-profile'   => 'プロフィール編集',
+    'add-content'    => '自己紹介追加',
 
 
 ];

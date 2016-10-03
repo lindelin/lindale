@@ -56,7 +56,7 @@
                                                     {{ trans('user.content') }}
                                                 </label>
                                                 <div>
-                                                    <textarea class="form-control" rows="8" name="content" value=""ß>{{ old('content') }}</textarea>
+                                                    <textarea class="form-control" rows="8" name="content" value="">{{ old('content') }}</textarea>
                                                     @include('layouts.common.error-one', ['field' => 'content'])
                                                 </div>
                                             </div>

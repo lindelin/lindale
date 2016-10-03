@@ -229,6 +229,7 @@ return [
         'Colorable' => App\Repositories\ColorableRepository::class,
         'Markdown' => App\Repositories\MarkdownRepository::class,
         'Admin' => App\Policies\AdminPolicy::class,
+        'Definer' => \App\Definer::class,
 
     ],
 

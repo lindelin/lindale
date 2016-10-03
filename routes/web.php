@@ -27,7 +27,6 @@ Route::get('/lang/{lang}', 'HomeController@lang')->name('lang');
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
     Route::get('home', 'HomeController@index');
-    Route::get('home/profile', 'ProfileController@index');
 });
 
 /*
@@ -59,7 +58,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Config Routes
+| Settings Routes
 |--------------------------------------------------------------------------
 |
 | 個人設定ルート
@@ -70,6 +69,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Settings', 'prefix' => 'settings'], function () {
     Route::get('profile', 'ProfileController@index');
+    Route::patch('profile/{user}', 'ProfileController@update');
 });
 
 /*

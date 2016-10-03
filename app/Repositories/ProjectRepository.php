@@ -49,7 +49,7 @@ class ProjectRepository
         }
 
         if ($request->file('image')) {
-            $path = $request->file('image')->store('projects/'.$project->title, 'public');
+            $path = $request->file('image')->store('projects/'.$project->id, 'public');
             $project->image = $path;
         }
 
@@ -70,7 +70,7 @@ class ProjectRepository
         $input = $request->only(['title', 'content', 'start_at', 'end_at', 'type_id', 'sl_id', 'status_id']);
 
         if ($request->file('image')) {
-            $path = $request->file('image')->store('projects/'.$project->title, 'public');
+            $path = $request->file('image')->store('projects/'.$project->id, 'public');
             if ($project->image != '') {
                 Storage::delete('public/'.$project->image);
             }
@@ -100,7 +100,7 @@ class ProjectRepository
     {
         //删除项目目录
         if ($project->image != '') {
-            Storage::deleteDirectory('public/projects/'.$project->title);
+            Storage::deleteDirectory('public/projects/'.$project->id);
         }
         //删除项目WIKI
         Wiki::where('project_id', $project->id)->delete();

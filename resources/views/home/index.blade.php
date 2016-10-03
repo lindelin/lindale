@@ -23,6 +23,19 @@
           <div class="row">
           	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="panel panel-default">
+                	<div class="panel-body">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
+                            <h4><strong>{{ $userProjectCont }}</strong><br> <small>Projects</small></h4>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
+                            <h4><strong>0</strong><br> <small>Tasks</small></h4>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
+                            <h4><strong>0</strong><br> <small>To-Do</small></h4>
+                        </div>
+                	</div>
+                </div>
+                <div class="panel panel-default">
                     <div class="panel-heading">My Project</div>
                     <ul class="list-group">
                         @foreach($userProjects as $project)

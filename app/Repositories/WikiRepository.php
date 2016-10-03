@@ -56,7 +56,7 @@ class WikiRepository
         $wiki->project_id = $project->id;
 
         if ($request->file('image')) {
-            $path = $request->file('image')->store("projects/$project->title/wiki", 'public');
+            $path = $request->file('image')->store("projects/$project->id/wiki", 'public');
             $wiki->image = $path;
         }
 
@@ -68,7 +68,7 @@ class WikiRepository
         $input = $request->only(['title', 'content', 'type_id']);
 
         if ($request->file('image')) {
-            $path = $request->file('image')->store("projects/$project->title/wiki", 'public');
+            $path = $request->file('image')->store("projects/$project->id/wiki", 'public');
             if ($wiki->image != '') {
                 Storage::delete('public/'.$wiki->image);
             }
