@@ -16,13 +16,13 @@ class MemberRepository
         $pms = $project->Users->all();
         $pmCount = $project->Users->count();
         $allCount = $pmCount;
-        if($pl){
+        if ($pl) {
             $allCount += 1;
         }
-        if($sl){
+        if ($sl) {
             $allCount += 1;
             $slCount = 1;
-        }else{
+        } else {
             $slCount = 0;
         }
         $users = User::all();
@@ -34,16 +34,17 @@ class MemberRepository
     {
         $user = User::findOrFail($request->get('id'));
 
-        if($project->Users()->find($user->id) != null){
+        if ($project->Users()->find($user->id) != null) {
             return false;
-        }else if($user->id === $project->user_id){
+        } elseif ($user->id === $project->user_id) {
             return false;
-        }else if($user->id === $project->sl_id) {
+        } elseif ($user->id === $project->sl_id) {
             return false;
-        }else if($user->id === Definer::getSuperAdminId()){
-                return false;
-        }else{
+        } elseif ($user->id === Definer::getSuperAdminId()) {
+            return false;
+        } else {
             $project->Users()->attach($user);
+
             return true;
         }
     }

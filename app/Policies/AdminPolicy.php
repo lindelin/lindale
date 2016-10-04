@@ -11,9 +11,9 @@ class AdminPolicy
 
     public static function is_super_admin(User $user)
     {
-        if($user->id === 1 and $user->name == 'Admin' and $user->email == 'admin@lindale.tk'){
+        if ($user->id === 1 and $user->name == 'Admin' and $user->email == 'admin@lindale.tk') {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

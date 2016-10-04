@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-
 use App\Http\Requests\UserRequest;
 use App\User;
 use Illuminate\Http\Request;
@@ -13,6 +12,7 @@ class UserRepository
     public function AllUser()
     {
         $users = User::all();
+
         return compact('users');
     }
 
@@ -40,6 +40,7 @@ class UserRepository
     public function MyInfo(Request $request)
     {
         $user = User::findOrFail($request->user()->id);
+
         return compact('user');
     }
 
