@@ -43,7 +43,7 @@ class ProjectRequest extends FormRequest
             'end_at' => 'date|after:start_at|date_format:Y-m-d',
             'type_id' => 'required|integer|max:10',
             'status_id' => 'required|integer|max:10',
-            'sl_id' => 'integer|max:10',
+            'sl_id' => 'integer|max:30',
             'password' => 'min:6|max:15|confirmed',
             'project-pass' => 'required',
             'image' => 'image',

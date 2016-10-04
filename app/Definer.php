@@ -14,6 +14,19 @@ class Definer
         return self::country();
     }
 
+    public static function getSuperAdminId()
+    {
+        return self::SuperAdminId();
+    }
+
+    /**
+     * @return int
+     */
+    private static function SuperAdminId()
+    {
+        return 1;
+    }
+
     /**
      * @return array
      */

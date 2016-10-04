@@ -14,6 +14,8 @@ return [
     'update-failed'  => '更新できませんでした。',
     'save-succeed'   => '作成しました。',
     'save-failed'    => '作成できませんでした。',
+    'add-succeed'    => '追加しました。',
+    'add-failed'     => '追加できませんでした。',
 
 
     'unauthorized' => '権利がありません',

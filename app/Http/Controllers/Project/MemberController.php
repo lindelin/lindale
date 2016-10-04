@@ -42,9 +42,21 @@ class MemberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Project $project)
     {
-        //
+        $this->validate($request, [
+            'id' => 'required',
+        ]);
+
+        $this->authorize('addMember', [$project]);
+
+        $result = $this->memberRepository->AddMember($request, $project);
+
+        if ($result) {
+            return redirect()->to('/project/'.$project->id.'/member')->with('status', trans('errors.add-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.add-failed'));
+        }
     }
 
     /**

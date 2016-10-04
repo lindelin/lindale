@@ -26,4 +26,15 @@ class ProjectPolicy
             return false;
         }
     }
+
+    public function addMember(User $user, Project $project)
+    {
+        if ($user->id === $project->user_id) {
+            return true;
+        } elseif ($user->id === $project->sl_id) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
