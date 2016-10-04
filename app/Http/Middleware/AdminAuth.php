@@ -16,10 +16,9 @@ class AdminAuth
      */
     public function handle($request, Closure $next)
     {
-
-        if(Admin::is_super_admin($request->user())){
+        if (Admin::is_super_admin($request->user())) {
             return $next($request);
-        }else{
+        } else {
             abort(403, 'Unauthorized action.');
         }
     }

@@ -23,14 +23,14 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        $create =  [
+        $create = [
             'name' => 'required|max:20',
             'email' => 'required|unique:users|max:30',
             'content' => 'max:40',
             'password' => 'required|min:6|max:15|confirmed',
         ];
 
-        $update =  [
+        $update = [
             'name' => 'max:20',
             'content' => 'max:40',
             'company' => 'max:40',

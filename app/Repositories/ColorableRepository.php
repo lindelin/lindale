@@ -91,7 +91,7 @@ class ColorableRepository
 
     public static function lindaleProfileImg($email)
     {
-        switch ($email[0]){
+        switch ($email[0]) {
             case 'a':
                 return 'img/profile/a.jpg';
                 break;
