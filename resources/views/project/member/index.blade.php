@@ -63,10 +63,10 @@
                         </div>
                         <div class="panel-footer" style="{{ Colorable::lindale() }}">
                             <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                     <span class="glyphicon glyphicon-king"></span> 项目总监
                                 </div>
-                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 panel-title" align="right">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 panel-title" align="right">
                                     <a href="#"><span class="glyphicon glyphicon-envelope"></span></a>
                                 </div>
                             </div>
@@ -111,10 +111,10 @@
                             </div>
                             <div class="panel-footer" style="{{ Colorable::lindale() }}">
                                 <div class="row">
-                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                         <span class="glyphicon glyphicon-queen"></span> 项目副总监
                                     </div>
-                                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 panel-title" align="right">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 panel-title" align="right">
                                         <a href="#"><span class="glyphicon glyphicon-envelope"></span></a>
                                     </div>
                                 </div>
@@ -159,14 +159,14 @@
                             </div>
                             <div class="panel-footer" style="{{ Colorable::lindale() }}">
                                 <div class="row">
-                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                         @if($pm->pivot->is_admin === 1000)
                                             <span class="glyphicon glyphicon-bishop"></span> 项目主管
                                         @else
                                             <span class="glyphicon glyphicon-pawn"></span> 项目成员
                                         @endif
                                     </div>
-                                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 panel-title" align="right">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 panel-title" align="right">
                                         <a href="#"><span class="glyphicon glyphicon-flag"></span></a>　
                                         <a href="#"><span class="glyphicon glyphicon-envelope"></span></a>　
                                         <a href="#"><span class="glyphicon glyphicon-log-out"></span></a>
