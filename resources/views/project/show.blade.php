@@ -5,12 +5,8 @@
 @endsection
 
 @section('content')
-    <h1>{{ $project->title }} <small>{{ $project->Type->name }}#{{ sprintf("%02d", $project->type_id).$project->user_id.$project->id }}</small></h1>
-    <br>
-    @include('layouts.Project.project-nav')
-    @include('layouts.Project.delete-edit')
-    @include('layouts.common.errors-all')
-    @include('layouts.common.succeed')
+
+    @include('layouts.Project.common.project-header')
 
     <div class="row">
     	<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">

@@ -26,10 +26,10 @@
                         	</div>
                             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" align="right">
                                 <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle panel-title my-tooltip" title="進行中..." data-toggle="dropdown">
-                                            <i class="fa fa-cog fa-spin fa-lg fa-fw"></i>
+                                        <a href="#" class="dropdown-toggle panel-title my-tooltip" title="進行中" data-toggle="dropdown">
+                                            <i class="fa fa-circle-o-notch fa-spin fa-lg fa-fw"></i>
                                         </a>
-                                    <ul class="dropdown-menu">
+                                    {{--<ul class="dropdown-menu">
                                         <li>
                                             <a href="{{ route('lang', ['lang' => 'en']) }}">English</a>
                                         </li>
@@ -39,7 +39,7 @@
                                         <li>
                                             <a href="{{ route('lang', ['lang' => 'zh']) }}">中文</a>
                                         </li>
-                                    </ul>
+                                    </ul>--}}
                                 </div>
                             </div>
                         </div>
@@ -82,12 +82,12 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <p><span class="glyphicon glyphicon-user"></span> PL {{ $project->ProjectLeader->name }}</p>
+                                        <p><span class="glyphicon glyphicon-king"></span> PL {{ $project->ProjectLeader->name }}</p>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                         <p>
                                             @if($project->SubLeader)
-                                                <span class="glyphicon glyphicon-user"></span> SL {{ $project->SubLeader->name }}
+                                                <span class="glyphicon glyphicon-queen"></span> SL {{ $project->SubLeader->name }}
                                             @endif
                                         </p>
                                     </div>

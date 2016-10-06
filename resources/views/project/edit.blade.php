@@ -189,7 +189,7 @@
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
-                        <a href="{{ url('project/'.$project->id) }}" class="btn btn-success">{{ trans('project.cancel') }}</a>
+                        <a href="{{ url('project/'.$project->id.'/info') }}" class="btn btn-success">{{ trans('project.cancel') }}</a>
                         <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#projectEdit">
                             {{ trans('project.edit-project') }}
                         </button>

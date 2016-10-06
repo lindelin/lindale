@@ -54,6 +54,9 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         //成员路由
         Route::get('member', 'MemberController@index');
         Route::post('member', 'MemberController@store');
+
+        //概要
+        Route::get('info', 'InfoController@index');
     });
 });
 

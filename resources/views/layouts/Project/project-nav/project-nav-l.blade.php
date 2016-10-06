@@ -7,7 +7,7 @@
                 </a>
             </li>
             <li role="presentation" @if($selected == "info") class="active" @endif>
-                <a href="#">
+                <a href="{{ url("project/$project->id/info") }}">
                     <span class="glyphicon glyphicon-info-sign"></span> {{ trans('header.info') }}
                 </a>
             </li>

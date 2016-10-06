@@ -25,7 +25,7 @@ return [
     'delete-input'          => 'Please enter the project password.',
     'delete'                => 'Delete',
     'status'                => 'Status',
-    'edit-project'          => 'Edit',
+    'edit-project'          => 'Edit Project',
     'edit-title'            => 'This project and the related content will be modified, sure?',
 
 
