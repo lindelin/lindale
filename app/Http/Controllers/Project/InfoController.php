@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Project;
 
 use App\Project\Project;
 use App\Repositories\MemberRepository;
-use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class InfoController extends Controller
