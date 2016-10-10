@@ -38,16 +38,25 @@ class Project extends Model
         return $this->hasOne('App\Project\ProjectStatus', 'id', 'status_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function Type()
     {
         return $this->hasOne('App\Project\ProjectType', 'id', 'type_id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function Wikis()
     {
         return $this->hasMany('App\Wiki\Wiki', 'project_id', 'id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function WikiTypes()
     {
         return $this->hasMany('App\Wiki\WikiType', 'project_id', 'id');

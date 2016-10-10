@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="right">
         <!-- 模态窗按钮 -->
-        <button type="button" class="btn btn-link my-tooltip" title="添加成员" data-toggle="modal" data-target="#addMember">
+        <button type="button" class="btn btn-link my-tooltip" title="{{ trans('member.add-member') }}" data-toggle="modal" data-target="#addMember">
             <h4 class="text-success"><span class="glyphicon glyphicon-plus"></span></h4>
         </button>
 
@@ -13,13 +13,13 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel" align="left">请选择要添加的成员</h4>
+                        <h4 class="modal-title" id="myModalLabel" align="left">{{ trans('member.add-input') }}</h4>
                     </div>
                     <form action="{{ url("project/$project->id/member") }}" method="POST" style="display: inline;">
                         <div class="modal-body" align="left">
                             <div class="form-group{{ $errors->has('id') ? ' has-error' : '' }}">
                                 <label class="control-label">
-                                    用户列表
+                                    {{ trans('member.user-list') }}
                                 </label>
                                 <div>
                                     <select class="selectpicker form-control" data-live-search="true" name="id">
@@ -34,11 +34,11 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">
-                                <span class="glyphicon glyphicon-remove"></span> {{ trans('project.cancel') }}
+                                <span class="glyphicon glyphicon-remove"></span> {{ trans('member.cancel') }}
                             </button>
                             {{ csrf_field() }}
                             <button type="submit" class="btn btn-success">
-                                <span class="glyphicon glyphicon-plus"></span> 添加成员
+                                <span class="glyphicon glyphicon-plus"></span> {{ trans('member.add-member') }}
                             </button>
                         </div>
                     </form>

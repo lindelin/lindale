@@ -23,11 +23,10 @@ return [
     'delete'       => '删除',
     'edit'         => '修改',
     'edit-title'   => '编辑词条',
-    'add-index'   => '添加新的索引',
-    'writer'   => '撰稿',
-    'created'   => '创建时间',
-    'updated'   => '更新时间',
-
+    'add-index'    => '添加新的索引',
+    'writer'       => '撰稿',
+    'created'      => '创建时间',
+    'updated'      => '更新时间',
 
 
 ];

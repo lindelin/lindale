@@ -5,30 +5,61 @@ namespace App;
 class Definer
 {
     /**
+     * 获取国家和地区
+     *
      * @return array
      */
     public static function arrCountry()
     {
-        return self::country();
-    }
-
-    public static function getSuperAdminId()
-    {
-        return self::SuperAdminId();
+        return self::_country();
     }
 
     /**
+     * 获取超级管理员
+     *
      * @return int
      */
-    private static function SuperAdminId()
+    public static function getSuperAdminId()
+    {
+        return self::_superAdminId();
+    }
+
+    /**
+     * 获取项目主管
+     *
+     * @return int
+     */
+    public static function projectAdmin()
+    {
+        return self::_projectAdmin();
+    }
+
+    /**
+     * 项目主管
+     *
+     * @return int
+     */
+    private static function _projectAdmin()
+    {
+        return 777;
+    }
+
+    /**
+     * 超级管理员
+     *
+     * @return int
+     */
+    private static function _superAdminId()
     {
         return 1;
     }
 
     /**
+     * 国家/地域
+     *
      * @return array
      */
-    private static function country()
+    private static function _country()
     {
         $country = [];
         $country['AL'] = '阿尔巴尼亚 (Shqipëria)';

@@ -54,6 +54,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         //成员路由
         Route::get('member', 'MemberController@index');
         Route::post('member', 'MemberController@store');
+        Route::delete('member/{user}', 'MemberController@destroy');
+        Route::patch('member/{user}', 'MemberController@policy');
 
         //概要路由
         Route::get('info', 'InfoController@index');

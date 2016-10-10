@@ -8,10 +8,10 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'user'   => 'Users',
-    'center'    => 'Information Center',
-    'user-center'        => 'Information Center',
-    'content'      => '内容',
+    'user'         => 'Users',
+    'center'       => 'Information Center',
+    'user-center'  => 'Information Center',
+    'content'      => 'Content',
     'type'         => '标签',
     'add-image'    => '添加图片',
     'cancel'       => '取消',

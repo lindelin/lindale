@@ -16,6 +16,8 @@ return [
     'save-failed'    => '创建失败！',
     'add-succeed'    => '添加成功！',
     'add-failed'     => '添加失败！',
+    'remove-succeed' => '移除成功！',
+    'remove-failed'  => '移除失败！',
 
     /*'add-super-admin-failed'     => '禁止添加超级管理员！',
     'has-member-failed'     => '禁止添加超级管理员！',

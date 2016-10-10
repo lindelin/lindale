@@ -23,10 +23,10 @@ return [
     'delete'       => 'Delete',
     'edit'         => 'Edit',
     'edit-title'   => 'Edit',
-    'add-index'   => 'Add a new index',
-    'writer'   => 'Writer',
-    'created'   => 'Created',
-    'updated'   => 'Updated',
+    'add-index'    => 'Add a new index',
+    'writer'       => 'Writer',
+    'created'      => 'Created',
+    'updated'      => 'Updated',
 
 
 ];

@@ -10,13 +10,24 @@ use App\User;
 
 class UserController extends Controller
 {
+    /**
+     * @var UserRepository
+     */
     protected $userRepository;
 
+    /**
+     * UserController constructor.
+     * @param UserRepository $userRepository
+     */
     public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
     }
 
+    /**
+     * @param Request $request
+     * @return $this
+     */
     public function index(Request $request)
     {
         $this->authorize('admin', [$request->user()]);
@@ -24,11 +35,18 @@ class UserController extends Controller
         return view('admin.user.index', $this->userRepository->AllUser())->with('mode', 'user');
     }
 
+    /**
+     * @return $this
+     */
     public function create()
     {
         return view('admin.user.create')->with('mode', 'user');
     }
 
+    /**
+     * @param UserRequest $request
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function store(UserRequest $request)
     {
         $this->authorize('admin', [$request->user()]);
@@ -46,6 +64,11 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @param User $user
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function destroy(Request $request, User $user)
     {
         $this->authorize('admin', [$request->user()]);

@@ -81,14 +81,9 @@ class ProjectController extends Controller
         return view('project.edit', $this->projectRepository->ProjectResources())->with('project', $project);
     }
 
-    /**
-     * @param ProjectRequest $request
-     * @param $id
-     * @return $this|\Illuminate\Http\RedirectResponse
-     */
-    public function update(ProjectRequest $request, $id)
+
+    public function update(ProjectRequest $request, Project $project)
     {
-        $project = Project::findOrFail($id);
 
         $this->authorize('update', [$project, $request]);
 

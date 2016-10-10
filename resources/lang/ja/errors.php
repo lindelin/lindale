@@ -16,6 +16,8 @@ return [
     'save-failed'    => '作成できませんでした。',
     'add-succeed'    => '追加しました。',
     'add-failed'     => '追加できませんでした。',
+    'remove-succeed' => '削除しました。',
+    'remove-failed'  => '削除できませんでした。',
 
 
     'unauthorized' => '権利がありません',

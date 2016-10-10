@@ -13,17 +13,17 @@ return [
     |
     */
 
-    'failed'   => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'login'    => 'Login',
-    'password' => 'Password',
-    'remember' => 'Remember Me',
-    'email'    => 'E-Mail Address',
-    'forgot'   => 'Forgot Your Password? ',
-    'sent'     => 'Send me an email to reset my password',
-    'logout'   => 'Logout',
-    'home'     => 'HOME',
-    'reset'    => 'Reset Password',
+    'failed'           => 'These credentials do not match our records.',
+    'throttle'         => 'Too many login attempts. Please try again in :seconds seconds.',
+    'login'            => 'Login',
+    'password'         => 'Password',
+    'remember'         => 'Remember Me',
+    'email'            => 'E-Mail Address',
+    'forgot'           => 'Forgot Your Password? ',
+    'sent'             => 'Send me an email to reset my password',
+    'logout'           => 'Logout',
+    'home'             => 'HOME',
+    'reset'            => 'Reset Password',
     'confirm_password' => 'Confirm Password',
 
 ];

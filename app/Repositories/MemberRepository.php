@@ -14,8 +14,9 @@ class MemberRepository
         $pl = $project->ProjectLeader;
         $sl = $project->SubLeader;
         $pms = $project->Users->all();
-        $pmCount = $project->Users->count();
-        $allCount = $pmCount;
+        $paCount = $project->Users()->where('is_admin', Definer::projectAdmin())->count();
+        $pmCount = $project->Users->count() - $paCount;
+        $allCount = $pmCount + $paCount;
         if ($pl) {
             $allCount += 1;
         }
@@ -27,7 +28,7 @@ class MemberRepository
         }
         $users = User::all();
 
-        return compact('pl', 'sl', 'pms', 'pmCount', 'allCount', 'slCount', 'users');
+        return compact('pl', 'sl', 'pms', 'pmCount', 'allCount', 'slCount', 'users', 'paCount');
     }
 
     public function AddMember(Request $request, Project $project)
@@ -45,6 +46,41 @@ class MemberRepository
         } else {
             $project->Users()->attach($user);
 
+            return true;
+        }
+    }
+
+    public function RemoveMember(Project $project, User $user)
+    {
+        if ($project->Users()->find($user->id) == null) {
+            return false;
+        } elseif ($user->id === $project->user_id) {
+            return false;
+        } elseif ($user->id === $project->sl_id) {
+            return false;
+        } elseif ($user->id === Definer::getSuperAdminId()) {
+            return false;
+        } else {
+            $project->Users()->detach($user);
+
+            return true;
+        }
+    }
+
+    public function Policy(Project $project, User $user, Request $request)
+    {
+        if ($project->Users()->find($user->id) == null) {
+            return false;
+        } elseif ($user->id === $project->user_id) {
+            return false;
+        } elseif ($user->id === $project->sl_id) {
+            return false;
+        } elseif ($user->id === Definer::getSuperAdminId()) {
+            return false;
+        } else {
+            $pa = $project->Users()->findOrFail($user->id);
+            $pa->pivot->is_admin = $request->get('policy');
+            $pa->pivot->update();
             return true;
         }
     }

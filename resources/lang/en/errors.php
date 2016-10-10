@@ -8,12 +8,14 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'delete-succeed' => 'Successfully deleted',
+    'delete-succeed' => 'Successfully deleted.',
     'delete-failed'  => 'Delete failed!',
-    'update-succeed' => 'Successfully updated',
+    'update-succeed' => 'Successfully updated.',
     'update-failed'  => 'Update failed!',
-    'save-succeed'   => 'Successfully saved',
+    'save-succeed'   => 'Successfully saved.',
     'save-failed'    => 'Save failed!',
+    'remove-succeed' => 'Successfully removed.',
+    'remove-failed'  => 'Remove failed!',
 
 
     'unauthorized' => 'This action is unauthorized.',

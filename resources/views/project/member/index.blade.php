@@ -61,10 +61,12 @@
                         <div class="panel-footer" style="{{ Colorable::lindale() }}">
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <span class="glyphicon glyphicon-king"></span> 项目总监
+                                    <span class="glyphicon glyphicon-king"></span> {{ trans('member.pl') }}
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 panel-title" align="right">
-                                    <a href="#"><span class="glyphicon glyphicon-envelope"></span></a>
+                                    <a href="#" class="my-tooltip" title="{{ trans('member.message') }}">
+                                        <span class="glyphicon glyphicon-envelope"></span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -109,10 +111,12 @@
                             <div class="panel-footer" style="{{ Colorable::lindale() }}">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <span class="glyphicon glyphicon-queen"></span> 项目副总监
+                                        <span class="glyphicon glyphicon-queen"></span> {{ trans('member.sl') }}
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 panel-title" align="right">
-                                        <a href="#"><span class="glyphicon glyphicon-envelope"></span></a>
+                                        <a href="#" class="my-tooltip" title="{{ trans('member.message') }}">
+                                            <span class="glyphicon glyphicon-envelope"></span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -157,16 +161,18 @@
                             <div class="panel-footer" style="{{ Colorable::lindale() }}">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        @if($pm->pivot->is_admin === 1000)
-                                            <span class="glyphicon glyphicon-bishop"></span> 项目主管
+                                        @if($pm->pivot->is_admin === Definer::projectAdmin())
+                                            <span class="glyphicon glyphicon-bishop"></span> {{ trans('member.pa') }}
                                         @else
-                                            <span class="glyphicon glyphicon-pawn"></span> 项目成员
+                                            <span class="glyphicon glyphicon-pawn"></span> {{ trans('member.pm') }}
                                         @endif
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 panel-title" align="right">
-                                        <a href="#"><span class="glyphicon glyphicon-flag"></span></a>　
-                                        <a href="#"><span class="glyphicon glyphicon-envelope"></span></a>　
-                                        <a href="#"><span class="glyphicon glyphicon-log-out"></span></a>
+                                        @include('layouts.member.policy', ['member' => $pm])　
+                                        <a href="#" class="my-tooltip" title="{{ trans('member.message') }}">
+                                            <span class="glyphicon glyphicon-envelope"></span>
+                                        </a>　
+                                        @include('layouts.member.delete', ['remove_member' => $pm])
                                     </div>
                                 </div>
                             </div>
@@ -181,11 +187,11 @@
         {{-- 框架 --}}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <div class="list-group">
-                <a href="#" class="list-group-item"><span class="badge">{{ $allCount }}</span> 全部成员</a>
-                <a href="#" class="list-group-item"><span class="badge">1</span> 项目总监</a>
-                <a href="#" class="list-group-item"><span class="badge">{{ $slCount }}</span> 项目副总监</a>
-                <a href="#" class="list-group-item"><span class="badge">0</span> 项目主管</a>
-                <a href="#" class="list-group-item"><span class="badge">{{ $pmCount }}</span> 项目成员</a>
+                <a href="#" class="list-group-item"><span class="badge">{{ $allCount }}</span> {{ trans('member.all-members') }}</a>
+                <a href="#" class="list-group-item"><span class="badge">1</span> {{ trans('member.pl') }}</a>
+                <a href="#" class="list-group-item"><span class="badge">{{ $slCount }}</span> {{ trans('member.sl') }}</a>
+                <a href="#" class="list-group-item"><span class="badge">{{ $paCount }}</span> {{ trans('member.pa') }}</a>
+                <a href="#" class="list-group-item"><span class="badge">{{ $pmCount }}</span> {{ trans('member.pm') }}</a>
             </div>
         </div>
     </div>

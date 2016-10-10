@@ -27,7 +27,7 @@ class ProjectPolicy
         }
     }
 
-    public function addMember(User $user, Project $project)
+    public function member(User $user, Project $project)
     {
         if ($user->id === $project->user_id) {
             return true;

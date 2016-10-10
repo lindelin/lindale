@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Project;
 
 use App\Repositories\MemberRepository;
+use App\User;
 use Illuminate\Http\Request;
 use App\Project\Project;
 use App\Http\Controllers\Controller;
@@ -27,16 +28,6 @@ class MemberController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -48,7 +39,7 @@ class MemberController extends Controller
             'id' => 'required',
         ]);
 
-        $this->authorize('addMember', [$project]);
+        $this->authorize('member', [$project]);
 
         $result = $this->memberRepository->AddMember($request, $project);
 
@@ -60,47 +51,40 @@ class MemberController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Project $project
+     * @param User $user
+     * @return $this|\Illuminate\Http\RedirectResponse
      */
-    public function show($id)
+    public function destroy(Request $request, Project $project, User $user)
     {
-        //
+        $this->validate($request, [
+            'project-pass' => 'required',
+        ]);
+
+        $this->authorize('update', [$project, $request]);
+
+        $result = $this->memberRepository->RemoveMember($project, $user);
+
+        if ($result) {
+            return redirect()->to('/project/'.$project->id.'/member')->with('status', trans('errors.remove-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.remove-failed'));
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function policy(Request $request, Project $project, User $user)
     {
-        //
+        $this->authorize('member', [$project]);
+
+        $result = $this->memberRepository->Policy($project, $user, $request);
+
+        if ($result) {
+            return redirect()->to('/project/'.$project->id.'/member')->with('status', trans('errors.update-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.update-failed'));
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
