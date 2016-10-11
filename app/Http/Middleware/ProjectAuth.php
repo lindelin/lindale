@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Admin;
 
 class ProjectAuth
 {
@@ -21,6 +22,8 @@ class ProjectAuth
         } elseif ($project->sl_id === $request->user()->id) {
             return $next($request);
         } elseif ($project->Users()->find($request->user()->id)) {
+            return $next($request);
+        } elseif (Admin::is_super_admin($request->user())) {
             return $next($request);
         } else {
             return redirect()->back()->withErrors(trans('errors.unauthorized'));

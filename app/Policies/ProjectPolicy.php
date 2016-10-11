@@ -7,6 +7,7 @@ use App\Project\Project;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Hash;
+use Admin;
 
 class ProjectPolicy
 {
