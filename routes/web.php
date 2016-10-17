@@ -52,10 +52,23 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         });
 
         //成员路由
-        Route::get('member', 'MemberController@index');
-        Route::post('member', 'MemberController@store');
-        Route::delete('member/{user}', 'MemberController@destroy');
-        Route::patch('member/{user}', 'MemberController@policy');
+        Route::group(['prefix' => 'member'], function () {
+            Route::get('/', 'MemberController@index');
+            Route::post('/', 'MemberController@store');
+            Route::delete('{user}', 'MemberController@destroy');
+            Route::patch('{user}', 'MemberController@policy');
+        });
+
+        //待办路由
+        Route::group(['prefix' => 'todo'], function () {
+            Route::get('/', 'TodoController@index');
+            Route::post('/', 'TodoController@store');
+            Route::get('list/show/{list}', 'TodoController@show');
+            Route::group(['namespace' => 'Todo'], function () {
+                Route::get('list/create', 'TodoListController@create');
+                Route::post('list', 'TodoListController@store');
+            });
+        });
 
         //概要路由
         Route::get('info', 'InfoController@index');

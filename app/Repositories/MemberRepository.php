@@ -14,7 +14,7 @@ class MemberRepository
         $pl = $project->ProjectLeader;
         $sl = $project->SubLeader;
         $pms = $project->Users->all();
-        $paCount = $project->Users()->where('is_admin', Definer::projectAdmin())->count();
+        $paCount = $project->Users()->where('is_admin', Definer::PROJECT_ADMIN)->count();
         $pmCount = $project->Users->count() - $paCount;
         $allCount = $pmCount + $paCount;
         if ($pl) {
@@ -41,7 +41,7 @@ class MemberRepository
             return false;
         } elseif ($user->id === $project->sl_id) {
             return false;
-        } elseif ($user->id === Definer::getSuperAdminId()) {
+        } elseif ($user->id === Definer::SUPER_ADMIN_ID) {
             return false;
         } else {
             $project->Users()->attach($user);
@@ -58,7 +58,7 @@ class MemberRepository
             return false;
         } elseif ($user->id === $project->sl_id) {
             return false;
-        } elseif ($user->id === Definer::getSuperAdminId()) {
+        } elseif ($user->id === Definer::SUPER_ADMIN_ID) {
             return false;
         } else {
             $project->Users()->detach($user);
@@ -75,7 +75,7 @@ class MemberRepository
             return false;
         } elseif ($user->id === $project->sl_id) {
             return false;
-        } elseif ($user->id === Definer::getSuperAdminId()) {
+        } elseif ($user->id === Definer::SUPER_ADMIN_ID) {
             return false;
         } else {
             $pa = $project->Users()->findOrFail($user->id);

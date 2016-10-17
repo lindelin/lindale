@@ -5,6 +5,31 @@ namespace App;
 class Definer
 {
     /**
+     * 超级管理员
+     */
+    const SUPER_ADMIN_ID = 1;
+    const SUPER_ADMIN_EMAIL = 'admin@lindale.tk';
+    const SUPER_ADMIN_NAME = 'Admin';
+
+    /**
+     * 项目主管
+     */
+    const PROJECT_ADMIN = 777;
+
+    /**
+     * To-do Type
+     */
+    const PUBLIC_TODO = 1;
+    const PRIVATE_TODO = 2;
+
+    /**
+     * 默认状态ID
+     */
+    const DEFAULT_STATUS_ID = 1;
+
+    /******************************************************************************************************************/
+
+    /**
      * 获取国家和地区
      *
      * @return array
@@ -15,43 +40,33 @@ class Definer
     }
 
     /**
-     * 获取超级管理员
+     * 获取To-do配色ID
      *
-     * @return int
+     * @return array
      */
-    public static function getSuperAdminId()
+    public static function todoColor()
     {
-        return self::_superAdminId();
+        return self::_commonColor();
     }
 
-    /**
-     * 获取项目主管
-     *
-     * @return int
-     */
-    public static function projectAdmin()
-    {
-        return self::_projectAdmin();
-    }
+    /******************************************************************************************************************/
 
     /**
-     * 项目主管
+     * 共通配色
      *
-     * @return int
+     * @return array
      */
-    private static function _projectAdmin()
+    private static function _commonColor()
     {
-        return 777;
-    }
+        $color = [];
+        $color[1]= trans('color.default');
+        $color[2]= trans('color.primary');
+        $color[3]= trans('color.success');
+        $color[4]= trans('color.info');
+        $color[5]= trans('color.warning');
+        $color[6]= trans('color.danger');
 
-    /**
-     * 超级管理员
-     *
-     * @return int
-     */
-    private static function _superAdminId()
-    {
-        return 1;
+        return $color;
     }
 
     /**

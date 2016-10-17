@@ -161,7 +161,7 @@
                             <div class="panel-footer" style="{{ Colorable::lindale() }}">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        @if($pm->pivot->is_admin === Definer::projectAdmin())
+                                        @if($pm->pivot->is_admin === Definer::PROJECT_ADMIN)
                                             <span class="glyphicon glyphicon-bishop"></span> {{ trans('member.pa') }}
                                         @else
                                             <span class="glyphicon glyphicon-pawn"></span> {{ trans('member.pm') }}

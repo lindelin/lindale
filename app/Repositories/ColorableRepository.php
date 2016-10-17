@@ -6,22 +6,10 @@ use Illuminate\Support\Collection;
 
 class ColorableRepository
 {
-    /**
-     * @return mixed
-     */
-    public static function panel()
-    {
-        return Collection::make([
-            'panel-primary',
-            'panel-success',
-            'panel-info',
-            'panel-warning',
-            'panel-danger',
-            'panel-default',
-        ])->random();
-    }
 
     /**
+     * 随机lindale颜色属性
+     *
      * @return mixed
      */
     public static function lindale()
@@ -46,6 +34,8 @@ class ColorableRepository
     }
 
     /**
+     * 随机列表组颜色属性
+     *
      * @return mixed
      */
     public static function listGroup()
@@ -57,6 +47,11 @@ class ColorableRepository
         ])->random();
     }
 
+    /**
+     * 随机lindale字母图标
+     *
+     * @return mixed
+     */
     public static function lindaleImage()
     {
         return Collection::make([
@@ -89,6 +84,12 @@ class ColorableRepository
         ])->random();
     }
 
+    /**
+     * 通过email首字母获取lindale字母图标
+     *
+     * @param $email
+     * @return mixed|string
+     */
     public static function lindaleProfileImg($email)
     {
         switch ($email[0]) {
@@ -172,6 +173,108 @@ class ColorableRepository
                 break;
             default:
                 return self::lindaleImage();
+        }
+    }
+
+    /**
+     * 共通面板颜色属性
+     *
+     * @param $id
+     * @return mixed
+     */
+    private static function _commonPanelColorClass($id)
+    {
+        $class = [];
+        $class[1] = 'panel-default';
+        $class[2] = 'panel-primary';
+        $class[3] = 'panel-success';
+        $class[4] = 'panel-info';
+        $class[5] = 'panel-warning';
+        $class[6] = 'panel-danger';
+
+        return $class[$id];
+    }
+
+    /**
+     * 随机面板颜色属性
+     *
+     * @return mixed
+     */
+    public static function randomPanelColor()
+    {
+        return Collection::make([
+            'panel-primary',
+            'panel-success',
+            'panel-info',
+            'panel-warning',
+            'panel-danger',
+            'panel-default',
+        ])->random();
+    }
+
+    /**
+     * 通过id获取面板颜色
+     *
+     * @param $id
+     * @return mixed
+     */
+    public static function panelColorClass($id)
+    {
+        if($id <= 6 and $id >0){
+            return self::_commonPanelColorClass($id);
+        }else{
+            return self::randomPanelColor();
+        }
+    }
+
+    /**
+     * 共通文本颜色属性
+     *
+     * @param $id
+     * @return mixed
+     */
+    private static function _commonTextColorClass($id)
+    {
+        $class = [];
+        $class[1] = 'text-muted';
+        $class[2] = 'text-primary';
+        $class[3] = 'text-success';
+        $class[4] = 'text-info';
+        $class[5] = 'text-warning';
+        $class[6] = 'text-danger';
+
+        return $class[$id];
+    }
+
+    /**
+     * 随机文本颜色属性
+     *
+     * @return mixed
+     */
+    public static function randomTextColor()
+    {
+        return Collection::make([
+            'text-primary',
+            'text-success',
+            'text-info',
+            'text-warning',
+            'text-danger',
+            'text-muted',
+        ])->random();
+    }
+
+    /**
+     * 通过id获取文本颜色
+     *
+     * @param $id
+     * @return mixed
+     */
+    public static function textColorClass($id)
+    {
+        if($id <= 6 and $id >0){
+            return self::_commonTextColorClass($id);
+        }else{
+            return self::randomTextColor();
         }
     }
 }
