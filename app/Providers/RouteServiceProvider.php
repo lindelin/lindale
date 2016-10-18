@@ -29,6 +29,7 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::model('user', \App\User::class);
         Route::model('project', \App\Project\Project::class);
+        Route::model('todo', \App\Todo\Todo::class);
     }
 
     /**

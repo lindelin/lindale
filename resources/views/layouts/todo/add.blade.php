@@ -43,6 +43,13 @@
                                         <div>
                                             <select class="selectpicker form-control" data-live-search="true" name="user_id">
                                                 <option value="">{{ trans('project.none') }}</option>
+                                                <option value="{{ $pl->id }}" @if(old('user_id') === $pl->id) selected @endif>PL: {{ $pl->name }}({{ $pl->email }})</option>
+                                                @if($sl != null)
+                                                <option value="{{ $sl->id }}" @if(old('user_id') === $sl->id) selected @endif>SL: {{ $sl->name }}({{ $sl->email }})</option>
+                                                @endif
+                                                @foreach($pms as $pm)
+                                                    <option value="{{ $pm->id }}" @if(old('user_id') === $pm->id) selected @endif>PM: {{ $pm->name }}({{ $pm->email }})</option>
+                                                @endforeach
                                             </select>
                                             @include('layouts.common.error-one', ['field' => 'user_id'])
                                         </div>

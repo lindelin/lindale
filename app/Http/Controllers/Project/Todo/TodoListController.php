@@ -20,6 +20,7 @@ class TodoListController extends Controller
     public function create(Project $project)
     {
         return view('project.todo.index', $this->todoRepository->TodoResources($project))
+            ->with($this->memberRepository->AllMember($project))
             ->with(['project' => $project, 'selected' => 'todo', 'add_todo_list' => 'on']);
     }
 

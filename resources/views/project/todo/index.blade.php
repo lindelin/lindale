@@ -31,11 +31,15 @@
                                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                                     <h4 class="panel-title">
                                         <a href="#">
-                                            <i class="fa fa-circle-o-notch fa-spin fa-lg fa-fw"></i>
+                                            @if($todo->status_id === 2)
+                                                <span class="glyphicon glyphicon-ok"></span>
+                                            @else
+                                                <i class="fa fa-circle-o-notch fa-spin fa-lg fa-fw"></i>
+                                            @endif
                                         </a>
                                     </h4>
                                 </div>
-                                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                <div class="col-xs-8 col-sm-9 col-md-9 col-lg-10">
                                     <h4 class="panel-title">
                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $todo->id }}" aria-expanded="false" aria-controls="collapse{{ $todo->id }}">
                                         <div style="width:100%;height:17px;overflow: hidden">
@@ -44,11 +48,55 @@
                                     </a>
                                     </h4>
                                 </div>
+                                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                                    @include('layouts.todo.edit')
+                                </div>
                             </div>
                         </div>
                         <div id="collapse{{ $todo->id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ $todo->id }}">
                             <div class="panel-body">
-                                {{ $todo->content }}
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th><span class="glyphicon glyphicon-user"></span> {{ trans('todo.user') }}</th>
+                                            <th><span class="glyphicon glyphicon-tag"></span> {{ trans('todo.type') }}</th>
+                                            <th><span class="glyphicon glyphicon-dashboard"></span> {{ trans('todo.status') }}</th>
+                                            <th><span class="glyphicon glyphicon-list-alt"></span> {{ trans('todo.todo-list') }}</th>
+                                            <th><i class="fa fa-refresh fa-spin fa-fw"></i> {{trans('todo.updated')}}</th>
+                                            <th><span class="glyphicon glyphicon-time"></span> {{trans('todo.created')}}</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @if($todo->User != null){{ $todo->User->name }}@else{{ trans('project.none') }}@endif
+                                                </td>
+                                                <td>
+                                                    <span class="label label-primary">{{ $todo->Type->name }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="label label-success">{{ $todo->Status->name }}</span>
+                                                </td>
+                                                <td>
+                                                    @if($todo->TodoList != null){{ $todo->TodoList->title }}@else{{ trans('project.none') }}@endif
+                                                </td>
+                                                <td>
+                                                    {{ $todo->updated_at }}
+                                                </td>
+                                                <td>
+                                                    {{ $todo->created_at }}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        {{ $todo->content }}
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

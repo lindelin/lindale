@@ -50,6 +50,25 @@ class TodoRepository
         return $todo;
     }
 
+    public function UpdateTodo(Request $request, Project $project, Todo $todo)
+    {
+        if($todo->project_id !== $project->id){
+            return false;
+        }else{
+
+            $input = $request->only(['content', 'user_id', 'color_id', 'list_id', 'status_id']);
+
+            foreach ($input as $key => $value) {
+                if ($value == '') {
+                    continue;
+                }
+                $todo->$key = $value;
+            }
+
+            return $todo;
+        }
+    }
+
     public function CreateTodoList(TypeRequest $request, Project $project)
     {
         $todoList = new TodoList();

@@ -21,12 +21,14 @@ return [
     'all-todos'       => '全部',
     'add-todo-list'        => '创建新列表',
     'todo-list'      => 'Todo 列表',
+    'edit'         => '变更',
+    'edit-title'   => 'TODO变更',
+    'delete-title' => '删除这条TODO',
+    'type'       => '类型',
+    'status'       => '状态',
 
-    'delete-title' => '删除词条',
     'delete-input' => '词条将被删除, 确定吗?',
     'delete'       => '删除',
-    'edit'         => '修改',
-    'edit-title'   => '编辑词条',
     'add-index'    => '添加新的索引',
     'writer'       => '撰稿',
 

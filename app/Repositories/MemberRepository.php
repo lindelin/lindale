@@ -31,6 +31,15 @@ class MemberRepository
         return compact('pl', 'sl', 'pms', 'pmCount', 'allCount', 'slCount', 'users', 'paCount');
     }
 
+    public function AllMember(Project $project)
+    {
+        $pl = $project->ProjectLeader;
+        $sl = $project->SubLeader;
+        $pms = $project->Users->all();
+
+        return compact('pl', 'sl', 'pms');
+    }
+
     public function AddMember(Request $request, Project $project)
     {
         $user = User::findOrFail($request->get('id'));
