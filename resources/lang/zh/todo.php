@@ -11,7 +11,7 @@ return [
     'new-todo'   => '创建一个TODO',
     'add-title'    => '创建TODO',
     'add'        => '创建',
-    'title'        => '词条',
+    'list-title'        => '列表名',
     'cancel'       => '取消',
     'created'      => '创建时间',
     'updated'      => '更新时间',

@@ -68,8 +68,9 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
             Route::get('list/show/{list}', 'TodoController@show');
             //待办列表路由
             Route::group(['namespace' => 'Todo'], function () {
-                Route::get('list/create', 'TodoListController@create');
                 Route::post('list', 'TodoListController@store');
+                Route::get('list/create', 'TodoListController@create');
+                Route::delete('list/delete/{list}', 'TodoListController@destroy');
             });
         });
 

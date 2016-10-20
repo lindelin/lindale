@@ -29,15 +29,7 @@
                         <div class="panel-heading" role="tab" id="heading{{ $todo->id }}">
                             <div class="row">
                                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                                    <h4 class="panel-title">
-                                        <a href="#">
-                                            @if($todo->status_id === 2)
-                                                <span class="glyphicon glyphicon-ok"></span>
-                                            @else
-                                                <i class="fa fa-circle-o-notch fa-spin fa-lg fa-fw"></i>
-                                            @endif
-                                        </a>
-                                    </h4>
+                                    @include('layouts.todo.status-edit')
                                 </div>
                                 <div class="col-xs-8 col-sm-9 col-md-9 col-lg-10">
                                     <h4 class="panel-title">
@@ -111,14 +103,23 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <div class="panel panel-default">
                 <!-- Default panel contents -->
-                <div class="panel-heading" style="{{ Colorable::lindale() }}">{{ trans('todo.todo-list') }}</div>
+                <div class="panel-heading" style="{{ Colorable::lindale() }}">
+                    <div class="row">
+                    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            {{ trans('todo.todo-list') }}
+                    	</div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="right">
+                            @include('layouts.todo.list-edit')
+                        </div>
+                    </div>
+                </div>
 
                 <!-- List group -->
                 <ul class="list-group">
                     <a href="{{ url("/project/$project->id/todo") }}" class="list-group-item"><span class="badge">{{ $allTodos }}</span> {{ trans('todo.all-todos') }}</a>
                     @if($lists->count() > 0)
                         @foreach($lists as $list)
-                            <a href="{{ url("/project/$project->id/todo/list/show/$list->id") }}" class="list-group-item"><span class="badge">{{ $list->Todos()->count() }}</span> {{ $list->title }}</a>
+                            <a href="{{ url("/project/$project->id/todo/list/show/$list->id") }}" class="list-group-item"><span class="badge">{{ $list->Todos()->where('status_id', 2)->count() }}/{{ $list->Todos()->count() }}</span> {{ $list->title }}</a>
                         @endforeach
                     @endif
                 </ul>

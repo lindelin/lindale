@@ -7,7 +7,7 @@ use App\Repositories\MemberRepository;
 use App\Repositories\TodoRepository;
 use App\Todo\Todo;
 use Illuminate\Http\Request;
-
+use App\Todo\TodoList;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -46,6 +46,8 @@ class TodoController extends Controller
 
     public function show(Project $project, $list)
     {
+        $list = TodoList::findOrFail($list);
+
         return view('project.todo.index', $this->todoRepository->TodoListResources($project, $list))
             ->with($this->memberRepository->AllMember($project))
             ->with(['project' => $project, 'selected' => 'todo']);

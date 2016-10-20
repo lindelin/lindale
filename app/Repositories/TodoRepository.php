@@ -21,9 +21,9 @@ class TodoRepository
         return compact('todos', 'allTodos', 'lists');
     }
 
-    public function TodoListResources(Project $project, $list)
+    public function TodoListResources(Project $project, TodoList $list)
     {
-        $todos = $project->Todos()->where('type_id', Definer::PUBLIC_TODO)->where('list_id', $list)->paginate(10);
+        $todos = $project->Todos()->where('type_id', Definer::PUBLIC_TODO)->where('list_id', $list->id)->paginate(10);
         $allTodos = $project->Todos()->where('type_id', Definer::PUBLIC_TODO)->count();
         $lists = $project->TodoLists()->get();
 

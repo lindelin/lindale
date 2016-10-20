@@ -1,6 +1,6 @@
 <!-- 模态窗按钮 -->
 <h4 class="panel-title">
-    <a class="my-tooltip" title="{{ trans('todo.new-todo') }}" data-toggle="modal" data-target="#editTodo{{ $todo->id }}">
+    <a class="my-tooltip" title="{{ trans('todo.edit-title') }}" data-toggle="modal" data-target="#editTodo{{ $todo->id }}">
         <span class="glyphicon glyphicon-cog"></span>
     </a>
 </h4>
@@ -9,7 +9,7 @@
 <div class="modal fade" id="editTodo{{ $todo->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header" style="color: #000000">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span>
                 </button>
@@ -19,7 +19,7 @@
                 {{ method_field('PATCH') }}
                 {{ csrf_field() }}
 
-                <div class="modal-body" align="left">
+                <div class="modal-body" align="left" style="color: #000000">
 
                     {{-- To-do内容 --}}
                     <div class="row">
@@ -100,18 +100,21 @@
 
                     <div class="row">
                     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">
-                                <span class="glyphicon glyphicon-remove"></span> {{ trans('todo.cancel') }}
-                            </button>
-                            <button type="submit" class="btn btn-success">
-                                <span class="glyphicon glyphicon-plus"></span> {{ trans('todo.edit') }}
-                            </button>
+                            @if($todo->status_id === 2)
+                            @else
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                    <span class="glyphicon glyphicon-remove"></span> {{ trans('todo.cancel') }}
+                                </button>
+                                <button type="submit" class="btn btn-success">
+                                    <span class="glyphicon glyphicon-plus"></span> {{ trans('todo.edit') }}
+                                </button>
+                            @endif
                     	</div>
                     </div>
 
                 </div>
             </form>
-            <div class="modal-footer">
+            <div class="modal-footer" style="color: #000000">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <form action="{{ url("project/$project->id/todo/todo/$todo->id") }}" method="post" role="form">
