@@ -8,11 +8,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'default' => '默认',
-    'primary' => '蓝色',
-    'success' => '绿色',
-    'info'    => '青色',
-    'warning' => '黄色',
-    'danger'  => '红色',
+    'default' => 'Default',
+    'primary' => 'Primary',
+    'success' => 'Success',
+    'info'    => 'Info',
+    'warning' => 'Warning',
+    'danger'  => 'Danger',
 
 ];
