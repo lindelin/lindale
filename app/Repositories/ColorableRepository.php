@@ -7,9 +7,8 @@ use Illuminate\Support\Collection;
 
 class ColorableRepository
 {
-
     /**
-     * 随机lindale颜色属性
+     * 随机lindale颜色属性.
      *
      * @return mixed
      */
@@ -35,7 +34,7 @@ class ColorableRepository
     }
 
     /**
-     * 随机列表组颜色属性
+     * 随机列表组颜色属性.
      *
      * @return mixed
      */
@@ -49,7 +48,7 @@ class ColorableRepository
     }
 
     /**
-     * 随机lindale字母图标
+     * 随机lindale字母图标.
      *
      * @return mixed
      */
@@ -86,7 +85,7 @@ class ColorableRepository
     }
 
     /**
-     * 通过email首字母获取lindale字母图标
+     * 通过email首字母获取lindale字母图标.
      *
      * @param $email
      * @return mixed|string
@@ -178,7 +177,7 @@ class ColorableRepository
     }
 
     /**
-     * 共通面板颜色属性
+     * 共通面板颜色属性.
      *
      * @param $id
      * @return mixed
@@ -197,7 +196,7 @@ class ColorableRepository
     }
 
     /**
-     * 随机面板颜色属性
+     * 随机面板颜色属性.
      *
      * @return mixed
      */
@@ -214,22 +213,22 @@ class ColorableRepository
     }
 
     /**
-     * 通过id获取面板颜色
+     * 通过id获取面板颜色.
      *
      * @param $id
      * @return mixed
      */
     public static function panelColorClass($id)
     {
-        if($id <= 6 and $id >0){
+        if ($id <= 6 and $id > 0) {
             return self::_commonPanelColorClass($id);
-        }else{
+        } else {
             return self::randomPanelColor();
         }
     }
 
     /**
-     * 共通文本颜色属性
+     * 共通文本颜色属性.
      *
      * @param $id
      * @return mixed
@@ -248,7 +247,7 @@ class ColorableRepository
     }
 
     /**
-     * 随机文本颜色属性
+     * 随机文本颜色属性.
      *
      * @return mixed
      */
@@ -265,22 +264,22 @@ class ColorableRepository
     }
 
     /**
-     * 通过id获取文本颜色
+     * 通过id获取文本颜色.
      *
      * @param $id
      * @return mixed
      */
     public static function textColorClass($id)
     {
-        if($id <= 6 and $id >0){
+        if ($id <= 6 and $id > 0) {
             return self::_commonTextColorClass($id);
-        }else{
+        } else {
             return self::randomTextColor();
         }
     }
 
     /**
-     * 标签样式
+     * 标签样式.
      *
      * @param $id
      * @param $text

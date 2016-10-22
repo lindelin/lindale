@@ -14,7 +14,7 @@ class ProjectPolicy
     use HandlesAuthorization;
 
     /**
-     * プロジェクトリーダーのみ（パスワード必要）
+     * プロジェクトリーダーのみ（パスワード必要）.
      *
      * @param User $user
      * @param Project $project
@@ -27,7 +27,7 @@ class ProjectPolicy
     }
 
     /**
-     * プロジェクトリーダーとサブリーダーのみ（パスワード必要）
+     * プロジェクトリーダーとサブリーダーのみ（パスワード必要）.
      *
      * @param User $user
      * @param Project $project
@@ -68,7 +68,7 @@ class ProjectPolicy
     }
 
     /**
-     * Super Admin
+     * Super Admin.
      *
      * @param User $user
      * @return bool

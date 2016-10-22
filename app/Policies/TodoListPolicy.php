@@ -12,7 +12,7 @@ class TodoListPolicy
     use HandlesAuthorization;
 
     /**
-     * 删除To-do列表的授权策略
+     * 删除To-do列表的授权策略.
      *
      * @param User $user
      * @param TodoList $list
@@ -21,11 +21,11 @@ class TodoListPolicy
      */
     public function delete(User $user, TodoList $list, Project $project)
     {
-        if((int)$user->id === (int)$list->user_id){
+        if ((int) $user->id === (int) $list->user_id) {
             return true;
-        }else if((int)$project->id === (int)$list->project_id){
+        } elseif ((int) $project->id === (int) $list->project_id) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

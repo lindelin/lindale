@@ -27,7 +27,6 @@ class MemberController extends Controller
             ->with(['project' => $project, 'selected' => 'member']);
     }
 
-
     /**
      * @param Request $request
      * @param Project $project
@@ -85,6 +84,4 @@ class MemberController extends Controller
             return redirect()->back()->withErrors(trans('errors.update-failed'));
         }
     }
-
-
 }

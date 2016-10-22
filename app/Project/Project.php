@@ -14,7 +14,7 @@ class Project extends Model
 
     /**
      * 多个项目属于过个用户
-     * 多对多
+     * 多对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -81,7 +81,7 @@ class Project extends Model
 
     /**
      * 一个项目有多个WIKI
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -92,7 +92,7 @@ class Project extends Model
 
     /**
      * 一个项目有多个WIKI索引
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -103,7 +103,7 @@ class Project extends Model
 
     /**
      * 一个项目有多个To-do
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -114,7 +114,7 @@ class Project extends Model
 
     /**
      * 一个项目有多个To-do列表
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

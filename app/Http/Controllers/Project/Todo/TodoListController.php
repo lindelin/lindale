@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Project\Todo;
 use App\Http\Requests\TypeRequest;
 use App\Project\Project;
 use App\Todo\TodoList;
-use Illuminate\Http\Request;
 use App\Repositories\TodoRepository;
 use App\Http\Controllers\Controller;
 use App\Repositories\MemberRepository;
@@ -13,19 +12,19 @@ use App\Repositories\MemberRepository;
 class TodoListController extends Controller
 {
     /**
-     * To-do资源库
+     * To-do资源库.
      * @var TodoRepository
      */
     protected $todoRepository;
     /**
-     * 项目成员资源库
+     * 项目成员资源库.
      * @var MemberRepository
      */
     protected $memberRepository;
 
     /**
      * 构造器
-     * 通过DI注入资源库
+     * 通过DI注入资源库.
      *
      * TodoListController constructor.
      * @param TodoRepository $todoRepository
@@ -38,7 +37,7 @@ class TodoListController extends Controller
     }
 
     /**
-     * 显示创建To-do列表表单
+     * 显示创建To-do列表表单.
      *
      * @param Project $project
      * @return mixed
@@ -51,7 +50,7 @@ class TodoListController extends Controller
     }
 
     /**
-     * 创建To-do列表
+     * 创建To-do列表.
      *
      * @param Project $project
      * @param TypeRequest $request
@@ -69,7 +68,7 @@ class TodoListController extends Controller
     }
 
     /**
-     * 删除To-do列表
+     * 删除To-do列表.
      *
      * @param Project $project
      * @param $list

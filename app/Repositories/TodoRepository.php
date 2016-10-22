@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-
 use App\Definer;
 use App\Http\Requests\TodoRequest;
 use App\Http\Requests\TypeRequest;
@@ -14,7 +13,7 @@ use App\Todo\TodoStatus;
 class TodoRepository
 {
     /**
-     * 获取项目To-do资源
+     * 获取项目To-do资源.
      *
      * @param Project $project
      * @return array
@@ -30,7 +29,7 @@ class TodoRepository
     }
 
     /**
-     * 获取项目To-do列表资源
+     * 获取项目To-do列表资源.
      *
      * @param Project $project
      * @param TodoList $list
@@ -47,7 +46,7 @@ class TodoRepository
     }
 
     /**
-     * 创建To-do方法
+     * 创建To-do方法.
      *
      * @param TodoRequest $request
      * @param Project $project
@@ -74,7 +73,7 @@ class TodoRepository
     }
 
     /**
-     * 更新To-do方法
+     * 更新To-do方法.
      *
      * @param TodoRequest $request
      * @param Project $project
@@ -96,7 +95,7 @@ class TodoRepository
     }
 
     /**
-     * 创建To-do列表方法
+     * 创建To-do列表方法.
      *
      * @param TypeRequest $request
      * @param Project $project
@@ -112,5 +111,4 @@ class TodoRepository
 
         return $todoList;
     }
-
 }
