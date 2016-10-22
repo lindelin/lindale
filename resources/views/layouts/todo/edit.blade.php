@@ -82,7 +82,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group{{ $errors->has('list_id') ? ' has-error' : '' }}">
                                     <label class="control-label">
-                                        {{ trans('List') }}
+                                        {{ trans('todo.todo-list') }}
                                     </label>
                                     <div>
                                         <select class="selectpicker form-control" data-live-search="true" name="list_id">
@@ -106,7 +106,7 @@
                                     <span class="glyphicon glyphicon-remove"></span> {{ trans('todo.cancel') }}
                                 </button>
                                 <button type="submit" class="btn btn-success">
-                                    <span class="glyphicon glyphicon-plus"></span> {{ trans('todo.edit') }}
+                                    <span class="glyphicon glyphicon-edit"></span> {{ trans('todo.edit') }}
                                 </button>
                             @endif
                     	</div>
