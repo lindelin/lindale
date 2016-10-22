@@ -23,7 +23,7 @@
             </li>
             <li role="presentation" @if($selected == "todo") class="active" @endif>
                 <a href="{{ $todo_url }}">
-                    <span class="glyphicon glyphicon-check"></span> To-Do
+                    <span class="glyphicon glyphicon-check"></span> TODO
                 </a>
             </li>
             <li role="presentation" @if($selected == "member") class="active" @endif>

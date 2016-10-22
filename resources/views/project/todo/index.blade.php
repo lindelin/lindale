@@ -15,7 +15,7 @@
 
             <div class="row">
                 <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                    <h2>To-dos</h2>
+                    <h2>TODO</h2>
                 </div>
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="right">
                     @include('layouts.todo.add')
@@ -65,10 +65,10 @@
                                                     @if($todo->User != null){{ $todo->User->name }}@else{{ trans('project.none') }}@endif
                                                 </td>
                                                 <td>
-                                                    <span class="label label-primary">{{ $todo->Type->name }}</span>
+                                                   {!! Colorable::label($todo->Type->color_id, trans($todo->Type->name)) !!}
                                                 </td>
                                                 <td>
-                                                    <span class="label label-success">{{ $todo->Status->name }}</span>
+                                                    {!! Colorable::label($todo->Status->color_id, trans($todo->Status->name)) !!}
                                                 </td>
                                                 <td>
                                                     @if($todo->TodoList != null){{ $todo->TodoList->title }}@else{{ trans('project.none') }}@endif
@@ -116,7 +116,7 @@
 
                 <!-- List group -->
                 <ul class="list-group">
-                    <a href="{{ url("/project/$project->id/todo") }}" class="list-group-item"><span class="badge">{{ $allTodos }}</span> {{ trans('todo.all-todos') }}</a>
+                    <a href="{{ url("/project/$project->id/todo") }}" class="list-group-item"><span class="badge">{{ $todoCount }}</span> {{ trans('todo.all-todos') }}</a>
                     @if($lists->count() > 0)
                         @foreach($lists as $list)
                             <a href="{{ url("/project/$project->id/todo/list/show/$list->id") }}" class="list-group-item"><span class="badge">{{ $list->Todos()->where('status_id', 2)->count() }}/{{ $list->Todos()->count() }}</span> {{ $list->title }}</a>

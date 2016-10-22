@@ -18,6 +18,8 @@ class CreateTodoStatusesTable extends Migration
             $table->string('name', 100);
             $table->integer('project_id')->nullable();
             $table->integer('user_id')->nullable();
+            $table->integer('color_id');
+            $table->integer('action_id');
             $table->timestamps();
         });
     }

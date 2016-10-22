@@ -23,9 +23,23 @@ class Definer
     const PRIVATE_TODO = 2;
 
     /**
-     * 默认状态ID
+     * 状态ID
      */
     const DEFAULT_STATUS_ID = 1;
+    const FINISH_STATUS_ID = 2;
+    const UNDERWAY_STATUS_ID = 3;
+
+
+    /**
+     * 颜色设定
+     */
+    const DEFAULT_COLOR_ID = 1;
+    const PRIMARY_COLOR_ID = 2;
+    const SUCCESS_COLOR_ID = 3;
+    const INFO_COLOR_ID = 4;
+    const WARNING_COLOR_ID = 5;
+    const DANGER_COLOR_ID = 6;
+
 
     /******************************************************************************************************************/
 
@@ -49,7 +63,41 @@ class Definer
         return self::_commonColor();
     }
 
+    /**
+     * 获取状态动作
+     *
+     * @param $id
+     * @param string $size
+     * @return array|mixed
+     */
+    public static function getStatusAction($id, $size = 'fa-lg')
+    {
+        $action = self::_statusAction($size);
+
+        if($id != '' or (int)$id === 0){
+            return $action[$id];
+        }else{
+            return $action;
+        }
+    }
+
     /******************************************************************************************************************/
+
+    /**
+     * 状态动作(根据大小)
+     *
+     * @param $size
+     * @return array
+     */
+    private static function _statusAction($size)
+    {
+        $action = [];
+        $action[self::DEFAULT_STATUS_ID] = '<i class="fa fa-spinner fa-pulse '.$size.' fa-fw"></i>';
+        $action[self::FINISH_STATUS_ID] = '<i class="fa fa-check '.$size.'" aria-hidden="true"></i>';
+        $action[self::UNDERWAY_STATUS_ID] = '<i class="fa fa-circle-o-notch fa-spin '.$size.' fa-fw"></i>';
+
+        return $action;
+    }
 
     /**
      * 共通配色
@@ -59,12 +107,12 @@ class Definer
     private static function _commonColor()
     {
         $color = [];
-        $color[1]= trans('color.default');
-        $color[2]= trans('color.primary');
-        $color[3]= trans('color.success');
-        $color[4]= trans('color.info');
-        $color[5]= trans('color.warning');
-        $color[6]= trans('color.danger');
+        $color[self::DEFAULT_COLOR_ID]= trans('color.default');
+        $color[self::PRIMARY_COLOR_ID]= trans('color.primary');
+        $color[self::SUCCESS_COLOR_ID]= trans('color.success');
+        $color[self::INFO_COLOR_ID]= trans('color.info');
+        $color[self::WARNING_COLOR_ID]= trans('color.warning');
+        $color[self::DANGER_COLOR_ID]= trans('color.danger');
 
         return $color;
     }

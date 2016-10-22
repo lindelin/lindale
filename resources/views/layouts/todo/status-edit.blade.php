@@ -1,11 +1,7 @@
 <!-- 模态窗按钮 -->
 <h4 class="panel-title">
-    <a class="my-tooltip" title="{{ trans('todo.edit-title') }}" data-toggle="modal" data-target="#editTodoStatus{{ $todo->id }}">
-        @if($todo->status_id === 2)
-            <span class="glyphicon glyphicon-ok"></span>
-        @else
-            <i class="fa fa-circle-o-notch fa-spin fa-lg fa-fw"></i>
-        @endif
+    <a class="my-tooltip" title="{{ trans('todo.status-now') }}:{{ trans($todo->Status->name) }}" data-toggle="modal" data-target="#editTodoStatus{{ $todo->id }}">
+        {!! Definer::getStatusAction($todo->Status->action_id) !!}
     </a>
 </h4>
 
@@ -28,24 +24,21 @@
                     <div class="row">
                     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     		<h4>
-                                现在状态：{{ $todo->Status->name }}
-                                @if($todo->status_id === 2)
-                                    <span class="glyphicon glyphicon-ok"></span>
-                                @else
-                                    <i class="fa fa-circle-o-notch fa-spin fa-lg fa-fw"></i>
-                                @endif
+                                {{ trans('todo.status-now') }}：{{ trans($todo->Status->name) }}
+                                {!! Definer::getStatusAction($todo->Status->action_id) !!}
                             </h4>
                     	</div>
                     </div>
 
-                    {{-- 颜色 --}}
+                    {{-- 状态 --}}
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group{{ $errors->has('status_id') ? ' has-error' : '' }}">
                                 <div>
                                     <select class="selectpicker form-control" name="status_id">
-                                        <option value="1" {{--@if($todo->color_id === $id) selected @endif--}}>进行中</option>
-                                        <option value="2" {{--@if($todo->color_id === $id) selected @endif--}}>完成</option>
+                                        @foreach($statuses as $status)
+                                            <option value="{{ $status->id }}" @if($todo->status_id === $status->id) selected @endif>{{ trans($status->name) }}</option>
+                                        @endforeach
                                     </select>
                                     @include('layouts.common.error-one', ['field' => 'status_id'])
                                 </div>

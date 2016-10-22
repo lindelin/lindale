@@ -27,11 +27,11 @@ class MemberController extends Controller
             ->with(['project' => $project, 'selected' => 'member']);
     }
 
+
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Project $project
+     * @return $this|\Illuminate\Http\RedirectResponse
      */
     public function store(Request $request, Project $project)
     {

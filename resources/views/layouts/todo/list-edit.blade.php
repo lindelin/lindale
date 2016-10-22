@@ -19,16 +19,17 @@
 
                 <div class="row">
                 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                		<div class="table-responsive">
-                			<table class="table table-hover" style="color: #000000">
-                				<thead>
-                					<tr>
-                						<th>#</th>
+                		@if($lists->count() !== 0)
+                            <div class="table-responsive">
+                                <table class="table table-hover" style="color: #000000">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
                                         <th>{{ trans('todo.list-title') }}</th>
                                         <th>{{ trans('todo.delete') }}</th>
-                					</tr>
-                				</thead>
-                				<tbody>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
                                     @foreach($lists as $list)
                                         <tr>
@@ -38,15 +39,18 @@
                                                 <form action="{{ url("project/$project->id/todo/list/delete/$list->id") }}" method="post" role="form">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
-                                                	<button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+                                                    <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
                                                 </form>
                                             </td>
                                         </tr>
                                     @endforeach
 
-                				</tbody>
-                			</table>
-                		</div>
+                                    </tbody>
+                                </table>
+                            </div>
+                        @else
+                            <h4 style="color: #ff0000">{{ trans('todo.none-list') }}</h4>
+                        @endif
                 	</div>
                 </div>
 

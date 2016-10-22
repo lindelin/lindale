@@ -16,6 +16,7 @@ class CreateTodoTypesTable extends Migration
         Schema::create('todo_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
+            $table->integer('color_id');
             $table->timestamps();
         });
     }

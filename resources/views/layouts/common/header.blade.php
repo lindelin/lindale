@@ -102,7 +102,7 @@
                             <span class="glyphicon glyphicon-check"></span>
                         </a>
                         <a href="{{ url('/todo') }}" class="visible-xs-block">
-                            <span class="glyphicon glyphicon-check"></span> To-Do
+                            <span class="glyphicon glyphicon-check"></span> TODO
                         </a>
                     </li>
                     <li>

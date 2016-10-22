@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Definer;
 use Illuminate\Support\Collection;
 
 class ColorableRepository
@@ -276,5 +277,26 @@ class ColorableRepository
         }else{
             return self::randomTextColor();
         }
+    }
+
+    /**
+     * 标签样式
+     *
+     * @param $id
+     * @param $text
+     * @return string
+     */
+    public static function label($id, $text)
+    {
+        $label = [];
+
+        $label[Definer::DEFAULT_COLOR_ID] = 'label-default';
+        $label[Definer::PRIMARY_COLOR_ID] = 'label-primary';
+        $label[Definer::SUCCESS_COLOR_ID] = 'label-success';
+        $label[Definer::INFO_COLOR_ID] = 'label-info';
+        $label[Definer::WARNING_COLOR_ID] = 'label-warning';
+        $label[Definer::DANGER_COLOR_ID] = 'label-danger';
+
+        return '<span class="label '.$label[$id].'">'.$text.'</span>';
     }
 }

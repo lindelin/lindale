@@ -6,22 +6,43 @@ use App\Project\Project;
 use App\Repositories\MemberRepository;
 use App\Repositories\TodoRepository;
 use App\Todo\Todo;
-use Illuminate\Http\Request;
 use App\Todo\TodoList;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TodoRequest;
 
 class TodoController extends Controller
 {
+    /**
+     * To-do资源库
+     * @var TodoRepository
+     */
     protected $todoRepository;
+    /**
+     * 项目成员资源库
+     * @var MemberRepository
+     */
     protected $memberRepository;
 
+    /**
+     * 构造器
+     * 通过DI注入资源库
+     *
+     * TodoController constructor.
+     * @param TodoRepository $todoRepository
+     * @param MemberRepository $memberRepository
+     */
     public function __construct(TodoRepository $todoRepository, MemberRepository $memberRepository)
     {
         $this->todoRepository = $todoRepository;
         $this->memberRepository = $memberRepository;
     }
 
+    /**
+     * Index
+     *
+     * @param Project $project
+     * @return mixed
+     */
     public function index(Project $project)
     {
         return view('project.todo.index', $this->todoRepository->TodoResources($project))
@@ -29,11 +50,15 @@ class TodoController extends Controller
             ->with(['project' => $project, 'selected' => 'todo']);
     }
 
-    public function store(Request $request, Project $project)
+    /**
+     * 创建To-do
+     *
+     * @param TodoRequest $request
+     * @param Project $project
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
+    public function store(TodoRequest $request, Project $project)
     {
-        $this->validate($request, [
-            'content' => 'required|max:100',
-        ]);
 
         $result = $this->todoRepository->CreateTodo($request,$project)->save();
 
@@ -44,6 +69,13 @@ class TodoController extends Controller
         }
     }
 
+    /**
+     * 展示To-do(列表)
+     *
+     * @param Project $project
+     * @param $list
+     * @return mixed
+     */
     public function show(Project $project, $list)
     {
         $list = TodoList::findOrFail($list);
@@ -53,8 +85,18 @@ class TodoController extends Controller
             ->with(['project' => $project, 'selected' => 'todo']);
     }
 
-    public function update(Request $request, Project $project, Todo $todo)
+    /**
+     * 更新To-do
+     *
+     * @param TodoRequest $request
+     * @param Project $project
+     * @param Todo $todo
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
+    public function update(TodoRequest $request, Project $project, Todo $todo)
     {
+        $this->authorize('update', [$todo, $project]);
+
         $result = $this->todoRepository->UpdateTodo($request, $project, $todo)->update();
 
         if ($result) {
@@ -64,8 +106,17 @@ class TodoController extends Controller
         }
     }
 
+    /**
+     * 删除To-do
+     *
+     * @param Project $project
+     * @param Todo $todo
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function destroy(Project $project, Todo $todo)
     {
+        $this->authorize('delete', [$todo, $project]);
+
         if ($todo->delete()) {
             return redirect()->back()->with('status', trans('errors.delete-succeed'));
         } else {

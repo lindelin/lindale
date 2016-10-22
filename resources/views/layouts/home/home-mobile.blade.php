@@ -56,7 +56,7 @@
                             <h4><strong>0</strong><br> <small>Tasks</small></h4>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                            <h4><strong>0</strong><br> <small>To-Do</small></h4>
+                            <h4><strong>0</strong><br> <small>TODO</small></h4>
                         </div>
                     </div>
                 </div>
