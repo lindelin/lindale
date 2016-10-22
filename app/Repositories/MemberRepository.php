@@ -90,6 +90,7 @@ class MemberRepository
             $pa = $project->Users()->findOrFail($user->id);
             $pa->pivot->is_admin = $request->get('policy');
             $pa->pivot->update();
+
             return true;
         }
     }

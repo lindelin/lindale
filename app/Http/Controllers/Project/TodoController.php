@@ -13,19 +13,19 @@ use App\Http\Requests\TodoRequest;
 class TodoController extends Controller
 {
     /**
-     * To-do资源库
+     * To-do资源库.
      * @var TodoRepository
      */
     protected $todoRepository;
     /**
-     * 项目成员资源库
+     * 项目成员资源库.
      * @var MemberRepository
      */
     protected $memberRepository;
 
     /**
      * 构造器
-     * 通过DI注入资源库
+     * 通过DI注入资源库.
      *
      * TodoController constructor.
      * @param TodoRepository $todoRepository
@@ -38,7 +38,7 @@ class TodoController extends Controller
     }
 
     /**
-     * Index
+     * Index.
      *
      * @param Project $project
      * @return mixed
@@ -51,7 +51,7 @@ class TodoController extends Controller
     }
 
     /**
-     * 创建To-do
+     * 创建To-do.
      *
      * @param TodoRequest $request
      * @param Project $project
@@ -59,8 +59,7 @@ class TodoController extends Controller
      */
     public function store(TodoRequest $request, Project $project)
     {
-
-        $result = $this->todoRepository->CreateTodo($request,$project)->save();
+        $result = $this->todoRepository->CreateTodo($request, $project)->save();
 
         if ($result) {
             return redirect()->back()->with('status', trans('errors.save-succeed'));
@@ -70,7 +69,7 @@ class TodoController extends Controller
     }
 
     /**
-     * 展示To-do(列表)
+     * 展示To-do(列表).
      *
      * @param Project $project
      * @param $list
@@ -86,7 +85,7 @@ class TodoController extends Controller
     }
 
     /**
-     * 更新To-do
+     * 更新To-do.
      *
      * @param TodoRequest $request
      * @param Project $project
@@ -107,7 +106,7 @@ class TodoController extends Controller
     }
 
     /**
-     * 删除To-do
+     * 删除To-do.
      *
      * @param Project $project
      * @param Todo $todo

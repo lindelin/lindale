@@ -81,10 +81,8 @@ class ProjectController extends Controller
         return view('project.edit', $this->projectRepository->ProjectResources())->with('project', $project);
     }
 
-
     public function update(ProjectRequest $request, Project $project)
     {
-
         $this->authorize('update', [$project, $request]);
 
         $result = $this->projectRepository

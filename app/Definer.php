@@ -5,7 +5,7 @@ namespace App;
 class Definer
 {
     /**
-     * 超级管理员
+     * 超级管理员.
      */
     const SUPER_ADMIN_ID = 1;
     const SUPER_ADMIN_EMAIL = 'admin@lindale.tk';
@@ -17,13 +17,13 @@ class Definer
     const PROJECT_ADMIN = 777;
 
     /**
-     * To-do Type
+     * To-do Type.
      */
     const PUBLIC_TODO = 1;
     const PRIVATE_TODO = 2;
 
     /**
-     * 状态ID
+     * 状态ID.
      */
     const DEFAULT_STATUS_ID = 1;
     const FINISH_STATUS_ID = 2;
@@ -31,7 +31,7 @@ class Definer
 
 
     /**
-     * 颜色设定
+     * 颜色设定.
      */
     const DEFAULT_COLOR_ID = 1;
     const PRIMARY_COLOR_ID = 2;
@@ -44,7 +44,7 @@ class Definer
     /******************************************************************************************************************/
 
     /**
-     * 获取国家和地区
+     * 获取国家和地区.
      *
      * @return array
      */
@@ -54,7 +54,7 @@ class Definer
     }
 
     /**
-     * 获取To-do配色ID
+     * 获取To-do配色ID.
      *
      * @return array
      */
@@ -64,7 +64,7 @@ class Definer
     }
 
     /**
-     * 获取状态动作
+     * 获取状态动作.
      *
      * @param $id
      * @param string $size
@@ -74,9 +74,9 @@ class Definer
     {
         $action = self::_statusAction($size);
 
-        if($id != '' or (int)$id === 0){
+        if ($id != '' or (int) $id === 0) {
             return $action[$id];
-        }else{
+        } else {
             return $action;
         }
     }
@@ -84,7 +84,7 @@ class Definer
     /******************************************************************************************************************/
 
     /**
-     * 状态动作(根据大小)
+     * 状态动作(根据大小).
      *
      * @param $size
      * @return array
@@ -100,19 +100,19 @@ class Definer
     }
 
     /**
-     * 共通配色
+     * 共通配色.
      *
      * @return array
      */
     private static function _commonColor()
     {
         $color = [];
-        $color[self::DEFAULT_COLOR_ID]= trans('color.default');
-        $color[self::PRIMARY_COLOR_ID]= trans('color.primary');
-        $color[self::SUCCESS_COLOR_ID]= trans('color.success');
-        $color[self::INFO_COLOR_ID]= trans('color.info');
-        $color[self::WARNING_COLOR_ID]= trans('color.warning');
-        $color[self::DANGER_COLOR_ID]= trans('color.danger');
+        $color[self::DEFAULT_COLOR_ID] = trans('color.default');
+        $color[self::PRIMARY_COLOR_ID] = trans('color.primary');
+        $color[self::SUCCESS_COLOR_ID] = trans('color.success');
+        $color[self::INFO_COLOR_ID] = trans('color.info');
+        $color[self::WARNING_COLOR_ID] = trans('color.warning');
+        $color[self::DANGER_COLOR_ID] = trans('color.danger');
 
         return $color;
     }

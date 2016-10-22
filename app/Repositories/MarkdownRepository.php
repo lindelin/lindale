@@ -7,7 +7,7 @@ use ParsedownExtra;
 class MarkdownRepository
 {
     /**
-     * 将Markdown编译为HTML
+     * 将Markdown编译为HTML.
      *
      * @param $text
      * @return mixed|string

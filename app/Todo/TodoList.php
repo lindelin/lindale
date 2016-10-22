@@ -8,7 +8,7 @@ class TodoList extends Model
 {
     /**
      * 一个To-do列表有多个To-do
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

@@ -12,7 +12,7 @@ class TodoPolicy
     use HandlesAuthorization;
 
     /**
-     * 删除To-do的授权策略
+     * 删除To-do的授权策略.
      *
      * @param User $user
      * @param Todo $todo
@@ -21,17 +21,17 @@ class TodoPolicy
      */
     public function delete(User $user, Todo $todo, Project $project)
     {
-        if((int)$user->id === (int)$todo->user_id){
+        if ((int) $user->id === (int) $todo->user_id) {
             return true;
-        }else if((int)$project->id === (int)$todo->project_id){
+        } elseif ((int) $project->id === (int) $todo->project_id) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
     /**
-     * 更新To-do的授权策略
+     * 更新To-do的授权策略.
      *
      * @param User $user
      * @param Todo $todo
