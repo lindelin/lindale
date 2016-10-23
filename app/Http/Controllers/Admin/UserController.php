@@ -11,7 +11,7 @@ use App\User;
 class UserController extends Controller
 {
     /**
-     * 用户资源库
+     * 用户资源库.
      *
      * @var UserRepository
      */
@@ -19,7 +19,7 @@ class UserController extends Controller
 
     /**
      * 构造器
-     * 通过DI获取资源库
+     * 通过DI获取资源库.
      *
      * UserController constructor.
      * @param UserRepository $userRepository
@@ -30,7 +30,7 @@ class UserController extends Controller
     }
 
     /**
-     * 超级用户控制台->用户控制台主页
+     * 超级用户控制台->用户控制台主页.
      *
      * @param Request $request
      * @return $this
@@ -43,7 +43,7 @@ class UserController extends Controller
     }
 
     /**
-     * 超级用户控制台->用户创建表单
+     * 超级用户控制台->用户创建表单.
      *
      * @return $this
      */
@@ -53,7 +53,7 @@ class UserController extends Controller
     }
 
     /**
-     * 超级用户控制台->创建用户
+     * 超级用户控制台->创建用户.
      *
      * @param UserRequest $request
      * @return $this|\Illuminate\Http\RedirectResponse
@@ -76,7 +76,7 @@ class UserController extends Controller
     }
 
     /**
-     * 超级用户控制台->删除用户
+     * 超级用户控制台->删除用户.
      *
      * @param Request $request
      * @param User $user

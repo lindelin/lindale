@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Storage;
 class WikiRepository
 {
     /**
-     * 创建默认WIKI方法
+     * 创建默认WIKI方法.
      *
      * @param Project $project
      * @return Wiki
@@ -28,7 +28,7 @@ class WikiRepository
     }
 
     /**
-     * WIKI资源
+     * WIKI资源.
      *
      * @param Project $project
      * @return array
@@ -44,7 +44,7 @@ class WikiRepository
     }
 
     /**
-     * 创建WIKI方法
+     * 创建WIKI方法.
      *
      * @param WikiRequest $request
      * @param Project $project
@@ -74,7 +74,7 @@ class WikiRepository
     }
 
     /**
-     * 更新WIKI方法
+     * 更新WIKI方法.
      *
      * @param WikiRequest $request
      * @param Project $project
@@ -104,7 +104,7 @@ class WikiRepository
     }
 
     /**
-     * 创建WIKI索引方法
+     * 创建WIKI索引方法.
      *
      * @param TypeRequest $request
      * @param Project $project

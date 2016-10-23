@@ -7,9 +7,8 @@ use Config;
 
 class HomeController extends Controller
 {
-
     /**
-     * 歓迎画面
+     * 歓迎画面.
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -17,7 +16,6 @@ class HomeController extends Controller
     {
         return view('welcome');
     }
-
 
     /**
      * 言語変更スイッチ

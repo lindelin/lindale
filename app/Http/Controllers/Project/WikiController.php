@@ -11,7 +11,7 @@ use App\Wiki\Wiki;
 class WikiController extends Controller
 {
     /**
-     * WIKI资源库
+     * WIKI资源库.
      *
      * @var
      */
@@ -19,7 +19,7 @@ class WikiController extends Controller
 
     /**
      * 构造器
-     * 通过DI获取资源库
+     * 通过DI获取资源库.
      *
      * WikiController constructor.
      * @param WikiRepository $wikiRepository
@@ -30,7 +30,7 @@ class WikiController extends Controller
     }
 
     /**
-     * 项目一览
+     * 项目一览.
      *
      * @param Project $project
      * @return $this
@@ -42,7 +42,7 @@ class WikiController extends Controller
     }
 
     /**
-     * 创建项目的表单
+     * 创建项目的表单.
      *
      * @param Project $project
      * @return $this
@@ -54,7 +54,7 @@ class WikiController extends Controller
     }
 
     /**
-     * 创建项目
+     * 创建项目.
      *
      * @param WikiRequest $request
      * @param Project $project
@@ -72,7 +72,7 @@ class WikiController extends Controller
     }
 
     /**
-     * 项目主页
+     * 项目主页.
      *
      * @param Project $project
      * @param Wiki $wiki
@@ -85,7 +85,7 @@ class WikiController extends Controller
     }
 
     /**
-     * 编辑项目的表单
+     * 编辑项目的表单.
      *
      * @param Project $project
      * @param Wiki $wiki
@@ -98,7 +98,7 @@ class WikiController extends Controller
     }
 
     /**
-     * 更新项目
+     * 更新项目.
      *
      * @param WikiRequest $request
      * @param Project $project
@@ -117,7 +117,7 @@ class WikiController extends Controller
     }
 
     /**
-     * 删除WIKI
+     * 删除WIKI.
      *
      * @param Project $project
      * @param Wiki $wiki
@@ -137,7 +137,7 @@ class WikiController extends Controller
     }
 
     /**
-     * 创建默认WIKI
+     * 创建默认WIKI.
      *
      * @param Project $project
      * @return \Illuminate\Http\RedirectResponse

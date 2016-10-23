@@ -34,7 +34,7 @@ class User extends Authenticatable
 
     /**
      * 多个用户拥有多个项目
-     * 多对多
+     * 多对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     /**
      * 一个项目总监拥有多个项目
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
