@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Admin
+    {{ trans('header.admin') }} - {{ config('app.title') }}
 @endsection
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Settings
+    {{ trans('header.settings') }} - {{ config('app.title') }}
 @endsection
 
 @section('content')

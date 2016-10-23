@@ -13,6 +13,7 @@ return [
     */
 
     'name' => 'Lindalë',
+    'title' => 'Lindalë - The Project Manager For Everyone.',
 
     /*
     |--------------------------------------------------------------------------

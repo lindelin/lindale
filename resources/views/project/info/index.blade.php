@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Info
+    {{ trans('header.info') }} - {{ $project->title }} - {{ config('app.title') }}
 @endsection
 
 @section('content')

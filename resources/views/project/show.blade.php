@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    SHOW
+    {{ $project->title }} - {{ config('app.title') }}
 @endsection
 
 @section('content')

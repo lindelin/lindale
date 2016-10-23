@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    WIKI
+    {{ $wiki->title }} - {{ $project->title }} - {{ config('app.title') }}
 @endsection
 
 @section('content')
