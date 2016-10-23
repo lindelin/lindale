@@ -11,11 +11,16 @@ use App\Http\Controllers\Controller;
 class ProfileController extends Controller
 {
     /**
+     * 用户资源库
+     *
      * @var UserRepository
      */
     protected $userRepository;
 
     /**
+     * 构造器
+     * 通过DI获取资源库
+     *
      * ProfileController constructor.
      * @param UserRepository $userRepository
      */
@@ -25,6 +30,8 @@ class ProfileController extends Controller
     }
 
     /**
+     * 个人资料设置
+     *
      * @param Request $request
      * @return $this
      */
@@ -34,6 +41,8 @@ class ProfileController extends Controller
     }
 
     /**
+     * 个人资料更新
+     *
      * @param UserRequest $request
      * @param User $user
      * @return $this|\Illuminate\Http\RedirectResponse

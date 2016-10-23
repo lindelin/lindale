@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Storage;
 class WikiRepository
 {
     /**
+     * 创建默认WIKI方法
+     *
      * @param Project $project
      * @return Wiki
      */
@@ -25,6 +27,12 @@ class WikiRepository
         return $wiki;
     }
 
+    /**
+     * WIKI资源
+     *
+     * @param Project $project
+     * @return array
+     */
     public function WikiResources(Project $project)
     {
         $HomeWiki = $project->Wikis()->oldest()->first();
@@ -36,6 +44,8 @@ class WikiRepository
     }
 
     /**
+     * 创建WIKI方法
+     *
      * @param WikiRequest $request
      * @param Project $project
      * @return Wiki
@@ -63,6 +73,14 @@ class WikiRepository
         return $wiki;
     }
 
+    /**
+     * 更新WIKI方法
+     *
+     * @param WikiRequest $request
+     * @param Project $project
+     * @param Wiki $wiki
+     * @return Wiki
+     */
     public function UpdateWiki(WikiRequest $request, Project $project, Wiki $wiki)
     {
         $input = $request->only(['title', 'content', 'type_id']);
@@ -85,6 +103,13 @@ class WikiRepository
         return $wiki;
     }
 
+    /**
+     * 创建WIKI索引方法
+     *
+     * @param TypeRequest $request
+     * @param Project $project
+     * @return WikiType
+     */
     public function CreateWikiType(TypeRequest $request, Project $project)
     {
         $wikiType = new WikiType;

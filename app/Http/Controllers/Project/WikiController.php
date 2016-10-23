@@ -11,11 +11,16 @@ use App\Wiki\Wiki;
 class WikiController extends Controller
 {
     /**
+     * WIKI资源库
+     *
      * @var
      */
     protected $wikiRepository;
 
     /**
+     * 构造器
+     * 通过DI获取资源库
+     *
      * WikiController constructor.
      * @param WikiRepository $wikiRepository
      */
@@ -25,6 +30,8 @@ class WikiController extends Controller
     }
 
     /**
+     * 项目一览
+     *
      * @param Project $project
      * @return $this
      */
@@ -35,6 +42,8 @@ class WikiController extends Controller
     }
 
     /**
+     * 创建项目的表单
+     *
      * @param Project $project
      * @return $this
      */
@@ -44,6 +53,13 @@ class WikiController extends Controller
             ->with(['project' => $project, 'selected' => 'wiki']);
     }
 
+    /**
+     * 创建项目
+     *
+     * @param WikiRequest $request
+     * @param Project $project
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function store(WikiRequest $request, Project $project)
     {
         $result = $this->wikiRepository->CreateWiki($request, $project)->save();
@@ -56,6 +72,8 @@ class WikiController extends Controller
     }
 
     /**
+     * 项目主页
+     *
      * @param Project $project
      * @param Wiki $wiki
      * @return $this
@@ -67,6 +85,8 @@ class WikiController extends Controller
     }
 
     /**
+     * 编辑项目的表单
+     *
      * @param Project $project
      * @param Wiki $wiki
      * @return $this
@@ -78,6 +98,8 @@ class WikiController extends Controller
     }
 
     /**
+     * 更新项目
+     *
      * @param WikiRequest $request
      * @param Project $project
      * @param Wiki $wiki
@@ -95,13 +117,15 @@ class WikiController extends Controller
     }
 
     /**
+     * 删除WIKI
+     *
      * @param Project $project
      * @param Wiki $wiki
      * @return $this|\Illuminate\Http\RedirectResponse
      */
     public function destroy(Project $project, Wiki $wiki)
     {
-        /*if ($wiki->image != '') { TODO
+        /*if ($wiki->image != '') { TODO: 删除WIKI图片
             Storage::deleteDirectory('public/projects/'.$project->title);
         }*/
 
@@ -113,6 +137,8 @@ class WikiController extends Controller
     }
 
     /**
+     * 创建默认WIKI
+     *
      * @param Project $project
      * @return \Illuminate\Http\RedirectResponse
      */

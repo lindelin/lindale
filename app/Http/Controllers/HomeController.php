@@ -7,17 +7,21 @@ use Config;
 
 class HomeController extends Controller
 {
+
     /**
-     * Show the application dashboard.
+     * 歓迎画面
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
         return view('welcome');
     }
 
+
     /**
+     * 言語変更スイッチ
+     *
      * @param Request $request
      * @param $locale
      * @return \Illuminate\Http\RedirectResponse

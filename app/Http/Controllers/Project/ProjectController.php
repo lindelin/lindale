@@ -10,11 +10,16 @@ use App\Http\Controllers\Controller;
 class ProjectController extends Controller
 {
     /**
+     * 项目资源库
+     *
      * @var ProjectRepository
      */
     protected $projectRepository;
 
     /**
+     * 构造器
+     * 通过DI获取项目资源库
+     *
      * ProjectController constructor.
      * @param ProjectRepository $projectRepository
      */
@@ -24,7 +29,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * 项目一览
      *
      * @return \Illuminate\Http\Response
      */
@@ -34,7 +39,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * 创建项目的表单
      *
      * @return \Illuminate\Http\Response
      */
@@ -44,6 +49,8 @@ class ProjectController extends Controller
     }
 
     /**
+     * 创建项目
+     *
      * TODO: 项目创建时同时创建项目目录.
      * @param ProjectRequest $request
      * @return $this|\Illuminate\Http\RedirectResponse
@@ -64,6 +71,8 @@ class ProjectController extends Controller
     }
 
     /**
+     * 项目首页
+     *
      * @param Project $project
      * @return $this
      */
@@ -73,6 +82,8 @@ class ProjectController extends Controller
     }
 
     /**
+     * 编辑项目的表单
+     *
      * @param Project $project
      * @return mixed
      */
@@ -81,6 +92,13 @@ class ProjectController extends Controller
         return view('project.edit', $this->projectRepository->ProjectResources())->with('project', $project);
     }
 
+    /**
+     * 更新项目
+     *
+     * @param ProjectRequest $request
+     * @param Project $project
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function update(ProjectRequest $request, Project $project)
     {
         $this->authorize('update', [$project, $request]);
@@ -97,6 +115,8 @@ class ProjectController extends Controller
     }
 
     /**
+     * 删除项目
+     *
      * @param ProjectRequest $request
      * @param Project $project
      * @return $this|\Illuminate\Http\RedirectResponse

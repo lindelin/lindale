@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 class HomeController extends Controller
 {
     /**
+     * 超级用户控制台
+     *
      * @return $this
      */
     public function index()

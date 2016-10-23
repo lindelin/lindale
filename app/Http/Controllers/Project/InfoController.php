@@ -9,11 +9,16 @@ use App\Http\Controllers\Controller;
 class InfoController extends Controller
 {
     /**
+     * 项目成员资源库
+     *
      * @var MemberRepository
      */
     protected $memberRepository;
 
     /**
+     * 构造器
+     * 通过DI获取资源库
+     *
      * InfoController constructor.
      * @param MemberRepository $memberRepository
      */
@@ -23,6 +28,8 @@ class InfoController extends Controller
     }
 
     /**
+     * 个人主页
+     *
      * @param Project $project
      * @return mixed
      */

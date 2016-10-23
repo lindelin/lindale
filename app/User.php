@@ -32,11 +32,23 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * 多个用户拥有多个项目
+     * 多对多
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function Projects()
     {
         return $this->belongsToMany('App\Project\Project')->withPivot('is_admin')->withTimestamps();
     }
 
+    /**
+     * 一个项目总监拥有多个项目
+     * 一对多
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function MyProjects()
     {
         return $this->hasMany('App\Project\Project', 'user_id', 'id');

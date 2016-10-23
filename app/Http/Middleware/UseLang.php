@@ -7,7 +7,7 @@ use Closure;
 class UseLang
 {
     /**
-     * Handle an incoming request.
+     * 初始化／设置语言的中间件
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

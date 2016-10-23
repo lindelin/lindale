@@ -9,11 +9,16 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     /**
+     * 项目资源库
+     *
      * @var ProjectRepository
      */
     protected $projectRepository;
 
     /**
+     * 构造器
+     * 通过DI获取资源库
+     *
      * HomeController constructor.
      * @param ProjectRepository $projectRepository
      */
@@ -23,6 +28,8 @@ class HomeController extends Controller
     }
 
     /**
+     * 个人主页
+     *
      * @param Request $request
      * @return $this
      */

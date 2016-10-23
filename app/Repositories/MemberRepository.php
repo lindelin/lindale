@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class MemberRepository
 {
+    /**
+     * 项目成员资源
+     *
+     * @param Project $project
+     * @return array
+     */
     public function MemberResources(Project $project)
     {
         $pl = $project->ProjectLeader;
@@ -31,6 +37,12 @@ class MemberRepository
         return compact('pl', 'sl', 'pms', 'pmCount', 'allCount', 'slCount', 'users', 'paCount');
     }
 
+    /**
+     * 获取所有成员
+     *
+     * @param Project $project
+     * @return array
+     */
     public function AllMember(Project $project)
     {
         $pl = $project->ProjectLeader;
@@ -40,6 +52,13 @@ class MemberRepository
         return compact('pl', 'sl', 'pms');
     }
 
+    /**
+     * 添加成员方法
+     *
+     * @param Request $request
+     * @param Project $project
+     * @return bool
+     */
     public function AddMember(Request $request, Project $project)
     {
         $user = User::findOrFail($request->get('id'));
@@ -59,6 +78,13 @@ class MemberRepository
         }
     }
 
+    /**
+     * 移除成员方法
+     *
+     * @param Project $project
+     * @param User $user
+     * @return bool
+     */
     public function RemoveMember(Project $project, User $user)
     {
         if ($project->Users()->find($user->id) == null) {
@@ -76,6 +102,14 @@ class MemberRepository
         }
     }
 
+    /**
+     * 成员认证方法
+     *
+     * @param Project $project
+     * @param User $user
+     * @param Request $request
+     * @return bool
+     */
     public function Policy(Project $project, User $user, Request $request)
     {
         if ($project->Users()->find($user->id) == null) {

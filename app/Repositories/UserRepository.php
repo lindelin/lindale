@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 class UserRepository
 {
+    /**
+     * 获得全部用户
+     *
+     * @return array
+     */
     public function AllUser()
     {
         $users = User::all();
@@ -16,6 +21,13 @@ class UserRepository
         return compact('users');
     }
 
+    /**
+     * 创建用户方法
+     *
+     * @param UserRequest $request
+     * @param User $user
+     * @return User
+     */
     public function CreateUser(UserRequest $request, User $user)
     {
         $input = $request->only(['email', 'content', 'name']);
@@ -32,11 +44,22 @@ class UserRepository
         return $user;
     }
 
+    /**
+     * 删除用户的相关内容
+     *
+     * @param User $user
+     */
     public function DeleteUser(User $user)
     {
         $user->MyProjects()->delete();
     }
 
+    /**
+     * 获取本人信息
+     *
+     * @param Request $request
+     * @return array
+     */
     public function MyInfo(Request $request)
     {
         $user = User::findOrFail($request->user()->id);
@@ -44,6 +67,13 @@ class UserRepository
         return compact('user');
     }
 
+    /**
+     * 更新用户信息
+     *
+     * @param UserRequest $request
+     * @param User $user
+     * @return User
+     */
     public function UpdateUser(UserRequest $request, User $user)
     {
         $input = $request->only([

@@ -8,7 +8,7 @@ use Admin;
 class AdminAuth
 {
     /**
-     * Handle an incoming request.
+     * 用于验证超级用户的中间件
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

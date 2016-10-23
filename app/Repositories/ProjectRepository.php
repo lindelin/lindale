@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Storage;
 
 class ProjectRepository
 {
+
     /**
+     * 项目资源
+     *
      * @return array
      */
     public function ProjectResources()
@@ -24,15 +27,23 @@ class ProjectRepository
         return compact('types', 'users', 'statuses');
     }
 
+    /**
+     * 获取用户的项目
+     *
+     * @param User $user
+     * @return array
+     */
     public function UserProjects(User $user)
     {
-        $userProjects = Project::where('user_id', $user->id)->get();
+        $userProjects = Project::where('user_id', $user->id)->orWhere('sl_id', $user->id)->get();
         $userProjectCont = $this->UserProjectCont($user);
 
         return compact('userProjects', 'userProjectCont');
     }
 
     /**
+     * 创建项目方法
+     *
      * @param $request
      * @param Project $project
      * @return Project
@@ -61,6 +72,8 @@ class ProjectRepository
     }
 
     /**
+     * 更新项目方法
+     *
      * @param $request
      * @param Project $project
      * @return Project
@@ -98,6 +111,7 @@ class ProjectRepository
      */
     public function DeleteProject(Project $project)
     {
+        //TODO: 删除项目相关内容
         //删除项目目录
         if ($project->image != '') {
             Storage::deleteDirectory('public/projects/'.$project->id);
@@ -109,6 +123,8 @@ class ProjectRepository
     }
 
     /**
+     * 获取用户项目的数量
+     *
      * @param User $user
      * @return mixed
      */

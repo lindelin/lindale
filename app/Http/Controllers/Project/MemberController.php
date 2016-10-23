@@ -10,14 +10,28 @@ use App\Http\Controllers\Controller;
 
 class MemberController extends Controller
 {
+    /**
+     * 项目成员资源库
+     *
+     * @var MemberRepository
+     */
     protected $memberRepository;
 
+    /**
+     * 构造器
+     * 通过DI获取资源库
+     *
+     * MemberController constructor.
+     * @param MemberRepository $memberRepository
+     */
     public function __construct(MemberRepository $memberRepository)
     {
         $this->memberRepository = $memberRepository;
     }
 
     /**
+     * 项目成员页
+     *
      * @param Project $project
      * @return $this
      */
@@ -28,6 +42,8 @@ class MemberController extends Controller
     }
 
     /**
+     * 添加成员
+     *
      * @param Request $request
      * @param Project $project
      * @return $this|\Illuminate\Http\RedirectResponse
@@ -50,6 +66,8 @@ class MemberController extends Controller
     }
 
     /**
+     * 移除成员
+     *
      * @param Request $request
      * @param Project $project
      * @param User $user
@@ -57,6 +75,7 @@ class MemberController extends Controller
      */
     public function destroy(Request $request, Project $project, User $user)
     {
+        //TODO: 成员专用Request
         $this->validate($request, [
             'project-pass' => 'required',
         ]);
@@ -72,6 +91,14 @@ class MemberController extends Controller
         }
     }
 
+    /**
+     * 变更成员权限
+     *
+     * @param Request $request
+     * @param Project $project
+     * @param User $user
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function policy(Request $request, Project $project, User $user)
     {
         $this->authorize('member', [$project]);

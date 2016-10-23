@@ -48,7 +48,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         Route::resource('wiki', 'WikiController');
         Route::post('wiki/first', 'WikiController@first');
         Route::group(['namespace' => 'Wiki'], function () {
-            Route::resource('wiki-index', 'WikiTypeController');
+            Route::get('wiki-index/create', 'WikiTypeController@create');
+            Route::post('wiki-index', 'WikiTypeController@store');
         });
 
         //成员路由

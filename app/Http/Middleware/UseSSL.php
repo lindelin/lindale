@@ -8,7 +8,7 @@ use App;
 class UseSSL
 {
     /**
-     * Handle an incoming request.
+     * 强制用户以HTTPS访问系统
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

@@ -11,11 +11,16 @@ use App\Project\Project;
 class WikiTypeController extends Controller
 {
     /**
+     * WIKI资源库
+     *
      * @var
      */
     protected $wikiRepository;
 
     /**
+     * 构造器
+     * 通过DI获取资源库
+     *
      * WikiController constructor.
      * @param WikiRepository $wikiRepository
      */
@@ -25,16 +30,8 @@ class WikiTypeController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * 创建WIKI表单
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * @param Project $project
      * @return $this
      */
@@ -45,6 +42,8 @@ class WikiTypeController extends Controller
     }
 
     /**
+     * 创建WIKI
+     *
      * @param TypeRequest $request
      * @param Project $project
      * @return $this|\Illuminate\Http\RedirectResponse
@@ -58,50 +57,5 @@ class WikiTypeController extends Controller
         } else {
             return redirect()->back()->withErrors(trans('errors.save-failed'));
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
