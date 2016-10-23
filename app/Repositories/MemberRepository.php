@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class MemberRepository
 {
     /**
-     * 项目成员资源
+     * 项目成员资源.
      *
      * @param Project $project
      * @return array
@@ -38,7 +38,7 @@ class MemberRepository
     }
 
     /**
-     * 获取所有成员
+     * 获取所有成员.
      *
      * @param Project $project
      * @return array
@@ -53,7 +53,7 @@ class MemberRepository
     }
 
     /**
-     * 添加成员方法
+     * 添加成员方法.
      *
      * @param Request $request
      * @param Project $project
@@ -79,7 +79,7 @@ class MemberRepository
     }
 
     /**
-     * 移除成员方法
+     * 移除成员方法.
      *
      * @param Project $project
      * @param User $user
@@ -103,7 +103,7 @@ class MemberRepository
     }
 
     /**
-     * 成员认证方法
+     * 成员认证方法.
      *
      * @param Project $project
      * @param User $user
