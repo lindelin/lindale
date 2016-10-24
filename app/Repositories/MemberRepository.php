@@ -89,12 +89,6 @@ class MemberRepository
     {
         if ($project->Users()->find($user->id) == null) {
             return false;
-        } elseif ($user->id === $project->user_id) {
-            return false;
-        } elseif ($user->id === $project->sl_id) {
-            return false;
-        } elseif ($user->id === Definer::SUPER_ADMIN_ID) {
-            return false;
         } else {
             $project->Users()->detach($user);
 
