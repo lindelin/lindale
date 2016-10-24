@@ -11,7 +11,7 @@ class AdminPolicy
     use HandlesAuthorization;
 
     /**
-     * 超级用户的授权策略
+     * 超级用户的授权策略.
      *
      * @param User $user
      * @return bool

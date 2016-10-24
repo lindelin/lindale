@@ -12,9 +12,8 @@ use Illuminate\Support\Facades\Storage;
 
 class ProjectRepository
 {
-
     /**
-     * 项目资源
+     * 项目资源.
      *
      * @return array
      */
@@ -28,7 +27,7 @@ class ProjectRepository
     }
 
     /**
-     * 获取用户的项目
+     * 获取用户的项目.
      *
      * @param User $user
      * @return array
@@ -42,7 +41,7 @@ class ProjectRepository
     }
 
     /**
-     * 创建项目方法
+     * 创建项目方法.
      *
      * @param $request
      * @param Project $project
@@ -72,7 +71,7 @@ class ProjectRepository
     }
 
     /**
-     * 更新项目方法
+     * 更新项目方法.
      *
      * @param $request
      * @param Project $project
@@ -123,7 +122,7 @@ class ProjectRepository
     }
 
     /**
-     * 获取用户项目的数量
+     * 获取用户项目的数量.
      *
      * @param User $user
      * @return mixed

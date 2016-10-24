@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Project\Wiki;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\TypeRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\WikiRepository;
@@ -11,7 +10,7 @@ use App\Project\Project;
 class WikiTypeController extends Controller
 {
     /**
-     * WIKI资源库
+     * WIKI资源库.
      *
      * @var
      */
@@ -19,7 +18,7 @@ class WikiTypeController extends Controller
 
     /**
      * 构造器
-     * 通过DI获取资源库
+     * 通过DI获取资源库.
      *
      * WikiController constructor.
      * @param WikiRepository $wikiRepository
@@ -30,7 +29,7 @@ class WikiTypeController extends Controller
     }
 
     /**
-     * 创建WIKI表单
+     * 创建WIKI表单.
      *
      * @param Project $project
      * @return $this
@@ -42,7 +41,7 @@ class WikiTypeController extends Controller
     }
 
     /**
-     * 创建WIKI
+     * 创建WIKI.
      *
      * @param TypeRequest $request
      * @param Project $project

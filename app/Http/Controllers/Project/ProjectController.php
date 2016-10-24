@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class ProjectController extends Controller
 {
     /**
-     * 项目资源库
+     * 项目资源库.
      *
      * @var ProjectRepository
      */
@@ -18,7 +18,7 @@ class ProjectController extends Controller
 
     /**
      * 构造器
-     * 通过DI获取项目资源库
+     * 通过DI获取项目资源库.
      *
      * ProjectController constructor.
      * @param ProjectRepository $projectRepository
@@ -29,7 +29,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * 项目一览
+     * 项目一览.
      *
      * @return \Illuminate\Http\Response
      */
@@ -39,7 +39,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * 创建项目的表单
+     * 创建项目的表单.
      *
      * @return \Illuminate\Http\Response
      */
@@ -49,7 +49,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * 创建项目
+     * 创建项目.
      *
      * TODO: 项目创建时同时创建项目目录.
      * @param ProjectRequest $request
@@ -71,7 +71,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * 项目首页
+     * 项目首页.
      *
      * @param Project $project
      * @return $this
@@ -82,7 +82,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * 编辑项目的表单
+     * 编辑项目的表单.
      *
      * @param Project $project
      * @return mixed
@@ -93,7 +93,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * 更新项目
+     * 更新项目.
      *
      * @param ProjectRequest $request
      * @param Project $project
@@ -115,7 +115,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * 删除项目
+     * 删除项目.
      *
      * @param ProjectRequest $request
      * @param Project $project

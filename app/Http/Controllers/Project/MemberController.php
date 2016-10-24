@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class MemberController extends Controller
 {
     /**
-     * 项目成员资源库
+     * 项目成员资源库.
      *
      * @var MemberRepository
      */
@@ -19,7 +19,7 @@ class MemberController extends Controller
 
     /**
      * 构造器
-     * 通过DI获取资源库
+     * 通过DI获取资源库.
      *
      * MemberController constructor.
      * @param MemberRepository $memberRepository
@@ -30,7 +30,7 @@ class MemberController extends Controller
     }
 
     /**
-     * 项目成员页
+     * 项目成员页.
      *
      * @param Project $project
      * @return $this
@@ -42,7 +42,7 @@ class MemberController extends Controller
     }
 
     /**
-     * 添加成员
+     * 添加成员.
      *
      * @param Request $request
      * @param Project $project
@@ -66,7 +66,7 @@ class MemberController extends Controller
     }
 
     /**
-     * 移除成员
+     * 移除成员.
      *
      * @param Request $request
      * @param Project $project
@@ -92,7 +92,7 @@ class MemberController extends Controller
     }
 
     /**
-     * 变更成员权限
+     * 变更成员权限.
      *
      * @param Request $request
      * @param Project $project

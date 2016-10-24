@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class UserRepository
 {
     /**
-     * 获得全部用户
+     * 获得全部用户.
      *
      * @return array
      */
@@ -22,7 +22,7 @@ class UserRepository
     }
 
     /**
-     * 创建用户方法
+     * 创建用户方法.
      *
      * @param UserRequest $request
      * @param User $user
@@ -45,7 +45,7 @@ class UserRepository
     }
 
     /**
-     * 删除用户的相关内容
+     * 删除用户的相关内容.
      *
      * @param User $user
      */
@@ -55,7 +55,7 @@ class UserRepository
     }
 
     /**
-     * 获取本人信息
+     * 获取本人信息.
      *
      * @param Request $request
      * @return array
@@ -68,7 +68,7 @@ class UserRepository
     }
 
     /**
-     * 更新用户信息
+     * 更新用户信息.
      *
      * @param UserRequest $request
      * @param User $user
