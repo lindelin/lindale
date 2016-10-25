@@ -106,6 +106,18 @@ class ProjectRepository
     }
 
     /**
+     * 更新项目进度方法.
+     *
+     * @param $progress
+     * @param Project $project
+     */
+    public function UpdateProjectProgress($progress, Project $project)
+    {
+        $project->progress = $progress;
+        $project->update();
+    }
+
+    /**
      * 删除项目相关内容.
      *
      * @param Project $project

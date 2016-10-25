@@ -9,6 +9,7 @@ use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TodoRequest;
+use App\Events\TodoUpdated;
 
 class TodoController extends Controller
 {
@@ -59,9 +60,11 @@ class TodoController extends Controller
      */
     public function store(TodoRequest $request, Project $project)
     {
-        $result = $this->todoRepository->CreateTodo($request, $project)->save();
+        $todo = $this->todoRepository->CreateTodo($request, $project);
+        $result = $todo->save();
 
         if ($result) {
+            event(new TodoUpdated($todo));
             return redirect()->back()->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-failed'));
@@ -99,6 +102,7 @@ class TodoController extends Controller
         $result = $this->todoRepository->UpdateTodo($request, $project, $todo)->update();
 
         if ($result) {
+            event(new TodoUpdated($todo));
             return redirect()->back()->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));

@@ -13,9 +13,13 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\SomeEvent' => [
+        /*'App\Events\TodoUpdated' => [
             'App\Listeners\EventListener',
-        ],
+        ],*/
+    ];
+
+    protected $subscribe = [
+        'App\Listeners\ProjectProgressEventListener',
     ];
 
     /**
