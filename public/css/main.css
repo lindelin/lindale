@@ -22,3 +22,11 @@ body{
 .table-responsive-div{
 	overflow-y: hidden;
 }
+
+.member-card-body{
+	height: 170px;
+	overflow: scroll;
+}
+.member-card-footer{
+	height: 40px;
+}

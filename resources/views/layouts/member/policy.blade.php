@@ -37,7 +37,7 @@
                     {{ method_field('PATCH') }}
                     {{ csrf_field() }}
                     <button type="submit" class="btn btn-warning">
-                        <span class="glyphicon glyphicon-trash"></span> {{ trans('member.policy') }}
+                        <span class="glyphicon glyphicon-edit"></span> {{ trans('member.policy') }}
                     </button>
                 </div>
             </form>

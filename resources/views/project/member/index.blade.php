@@ -27,7 +27,7 @@
                 {{-- 项目总监 --}}
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="panel panel-default">
-                        <div class="panel-body">
+                        <div class="panel-body member-card-body">
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                     @include('layouts.common.user-img', ['user_img' => $pl])
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="panel-footer" style="{{ Colorable::lindale() }}">
+                        <div class="panel-footer member-card-footer" style="{{ Colorable::lindale() }}">
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                     <span class="glyphicon glyphicon-king"></span> {{ trans('member.pl') }}
@@ -77,7 +77,7 @@
                     {{-- 项目副总监 --}}
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="panel panel-default">
-                            <div class="panel-body">
+                            <div class="panel-body member-card-body">
                                 <div class="row">
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                         @include('layouts.common.user-img', ['user_img' => $sl])
@@ -108,7 +108,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-footer" style="{{ Colorable::lindale() }}">
+                            <div class="panel-footer member-card-footer" style="{{ Colorable::lindale() }}">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                         <span class="glyphicon glyphicon-queen"></span> {{ trans('member.sl') }}
@@ -127,7 +127,7 @@
             	@foreach($pms as $pm)
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="panel panel-default">
-                            <div class="panel-body">
+                            <div class="panel-body member-card-body">
                                 <div class="row">
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                         @include('layouts.common.user-img', ['user_img' => $pm])
@@ -158,13 +158,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="panel-footer" style="{{ Colorable::lindale() }}">
+                            <div class="panel-footer member-card-footer" style="{{ Colorable::lindale() }}">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                         @if($pm->pivot->is_admin === Definer::PROJECT_ADMIN)
-                                            <span class="glyphicon glyphicon-bishop"></span> {{ trans('member.pa') }}
+                                            <span class="glyphicon glyphicon-bishop"></span> {{ trans_choice('member.pa', 1) }}
                                         @else
-                                            <span class="glyphicon glyphicon-pawn"></span> {{ trans('member.pm') }}
+                                            <span class="glyphicon glyphicon-pawn"></span> {{ trans_choice('member.pm', 1) }}
                                         @endif
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 panel-title" align="right">
@@ -190,8 +190,8 @@
                 <a href="#" class="list-group-item"><span class="badge">{{ $allCount }}</span> {{ trans('member.all-members') }}</a>
                 <a href="#" class="list-group-item"><span class="badge">1</span> {{ trans('member.pl') }}</a>
                 <a href="#" class="list-group-item"><span class="badge">{{ $slCount }}</span> {{ trans('member.sl') }}</a>
-                <a href="#" class="list-group-item"><span class="badge">{{ $paCount }}</span> {{ trans('member.pa') }}</a>
-                <a href="#" class="list-group-item"><span class="badge">{{ $pmCount }}</span> {{ trans('member.pm') }}</a>
+                <a href="#" class="list-group-item"><span class="badge">{{ $paCount }}</span> {{ trans_choice('member.pa', $paCount) }}</a>
+                <a href="#" class="list-group-item"><span class="badge">{{ $pmCount }}</span> {{ trans_choice('member.pm', $pmCount) }}</a>
             </div>
         </div>
     </div>
