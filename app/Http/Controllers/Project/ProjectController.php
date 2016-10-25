@@ -57,11 +57,7 @@ class ProjectController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-        $project = new Project();
-
-        $result = $this->projectRepository
-            ->CreateProject($request, $project)
-            ->save();
+        $result = $this->projectRepository->CreateProject($request)->save();
 
         if ($result) {
             return redirect()->to('/project')->with('status', trans('errors.save-succeed'));
@@ -103,9 +99,7 @@ class ProjectController extends Controller
     {
         $this->authorize('update', [$project, $request]);
 
-        $result = $this->projectRepository
-            ->UpdateProject($request, $project)
-            ->update();
+        $result = $this->projectRepository->UpdateProject($request, $project)->update();
 
         if ($result) {
             return redirect()->to('/project/'.$project->id)->with('status', trans('errors.update-succeed'));

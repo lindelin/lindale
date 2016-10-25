@@ -62,11 +62,7 @@ class UserController extends Controller
     {
         $this->authorize('admin', [$request->user()]);
 
-        $user = new User();
-
-        $result = $this->userRepository
-            ->CreateUser($request, $user)
-            ->save();
+        $result = $this->userRepository->CreateUser($request)->save();
 
         if ($result) {
             return redirect()->to('/admin/user')->with('status', trans('errors.save-succeed'));

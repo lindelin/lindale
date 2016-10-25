@@ -38,7 +38,7 @@ class ProjectRequest extends FormRequest
         ];
 
         $update = [
-            'title' => 'required|unique:projects,title,'.$this->route('project')->id.'|max:100',
+            'title' => 'required|unique:projects,title,'.isset($this->route('project')->id).'|max:100',
             'start_at' => 'date|date_format:Y-m-d',
             'end_at' => 'date|after:start_at|date_format:Y-m-d',
             'type_id' => 'required|integer|max:10',

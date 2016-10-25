@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Http\Requests\ProjectRequest;
 use App\Project\ProjectStatus;
 use App\User;
 use App\Project\ProjectType;
@@ -43,12 +44,13 @@ class ProjectRepository
     /**
      * 创建项目方法.
      *
-     * @param $request
-     * @param Project $project
-     * @return Project
+     * @param ProjectRequest $request
+     * @return mixed
      */
-    public function CreateProject($request, Project $project)
+    public function CreateProject(ProjectRequest $request)
     {
+        $project = new Project();
+
         $input = $request->only(['title', 'content', 'start_at', 'end_at', 'type_id', 'sl_id']);
 
         foreach ($input as $key => $value) {

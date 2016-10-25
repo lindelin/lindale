@@ -25,11 +25,12 @@ class UserRepository
      * 创建用户方法.
      *
      * @param UserRequest $request
-     * @param User $user
      * @return User
      */
-    public function CreateUser(UserRequest $request, User $user)
+    public function CreateUser(UserRequest $request)
     {
+        $user = new User();
+
         $input = $request->only(['email', 'content', 'name']);
 
         foreach ($input as $key => $value) {
