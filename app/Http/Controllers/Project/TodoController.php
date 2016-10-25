@@ -121,6 +121,7 @@ class TodoController extends Controller
         $this->authorize('delete', [$todo, $project]);
 
         if ($todo->delete()) {
+            event(new TodoUpdated($todo));
             return redirect()->back()->with('status', trans('errors.delete-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.delete-failed'));
