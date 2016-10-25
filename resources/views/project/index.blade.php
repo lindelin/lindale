@@ -73,8 +73,8 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <div class="progress" style="margin-bottom: 0px;">
-                                            <div class="progress-bar progress-bar-success" role="progressbar" style="width: {{ $project->progress + 30 }}%;">
-                                                {{ $project->progress + 30 }}%
+                                            <div class="progress-bar progress-bar-success" role="progressbar" style="width: {{ $project->progress }}%;">
+                                                <span style="color: #000000">{{ $project->progress }}%</span>
                                             </div>
                                         </div>
                                     </div>
@@ -82,27 +82,30 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <p><span class="glyphicon glyphicon-king"></span> PL {{ $project->ProjectLeader->name }}</p>
+                                        <p><span class="glyphicon glyphicon-king"></span> {{ $project->ProjectLeader->name }}</p>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                         <p>
                                             @if($project->SubLeader)
-                                                <span class="glyphicon glyphicon-queen"></span> SL {{ $project->SubLeader->name }}
+                                                <span class="glyphicon glyphicon-queen"></span> {{ $project->SubLeader->name }}
                                             @endif
                                         </p>
                                     </div>
                                 </div>
                                 <div class="row">
                                 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <p><span class="glyphicon glyphicon-tasks"></span> 10/100 Taskes</p>
+                                        <p><span class="glyphicon glyphicon-tasks"></span> 10/100</p>
                                 	</div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <p><span class="glyphicon glyphicon-check"></span> 10 TODO</p>
+                                        <p>
+                                            <span class="glyphicon glyphicon-check"></span>
+                                            {{ $project->todos()->where('status_id', Definer::FINISH_STATUS_ID)->count() }}/{{ $project->todos()->count() }}
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="row">
                                 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <p><span class="glyphicon glyphicon-time"></span> {{ $project->updated_at }}</p>
+                                        <p><i class="fa fa-refresh fa-spin fa-lg fa-fw"></i> {{ $project->updated_at }}</p>
                                 	</div>
                                 </div>
                             </div>

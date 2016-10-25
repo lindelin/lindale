@@ -116,10 +116,10 @@
 
                 <!-- List group -->
                 <ul class="list-group">
-                    <a href="{{ url("/project/$project->id/todo") }}" class="list-group-item"><span class="badge">{{ $todos->where('status_id', 2)->count() }}/{{ $todoCount }}</span> {{ trans('todo.all-todos') }}</a>
+                    <a href="{{ url("/project/$project->id/todo") }}" class="list-group-item"><span class="badge">{{ $todos->where('status_id', Definer::FINISH_STATUS_ID)->count() }}/{{ $todoCount }}</span> {{ trans('todo.all-todos') }}</a>
                     @if($lists->count() > 0)
                         @foreach($lists as $list)
-                            <a href="{{ url("/project/$project->id/todo/list/show/$list->id") }}" class="list-group-item"><span class="badge">{{ $list->Todos()->where('status_id', 2)->count() }}/{{ $list->Todos()->count() }}</span> {{ $list->title }}</a>
+                            <a href="{{ url("/project/$project->id/todo/list/show/$list->id") }}" class="list-group-item"><span class="badge">{{ $list->Todos()->where('status_id', Definer::FINISH_STATUS_ID)->count() }}/{{ $list->Todos()->count() }}</span> {{ $list->title }}</a>
                         @endforeach
                     @endif
                 </ul>

@@ -38,14 +38,12 @@ class ProjectRequest extends FormRequest
         ];
 
         $update = [
-            'title' => 'required|unique:projects,title,'.isset($this->route('project')->id).'|max:100',
             'start_at' => 'date|date_format:Y-m-d',
             'end_at' => 'date|after:start_at|date_format:Y-m-d',
-            'type_id' => 'required|integer|max:10',
-            'status_id' => 'required|integer|max:10',
+            'type_id' => 'integer|max:10',
+            'status_id' => 'integer|max:10',
             'sl_id' => 'integer|max:30',
             'password' => 'min:6|max:15|confirmed',
-            'project-pass' => 'required',
             'image' => 'image',
         ];
 
