@@ -22,7 +22,7 @@ return [
     'add-user'       => 'Add User',
     'submit'         => 'Submit',
     'profile-img'    => 'Profile Image',
-    'company'        => 'Company/Organization',
+    'company'        => 'Company / Organization',
     'location'       => 'Country / Area',
     'update'         => 'Profile update',
     'phone'          => 'Phone',

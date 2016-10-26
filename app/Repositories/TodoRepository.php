@@ -16,29 +16,36 @@ class TodoRepository
      * 获取项目To-do资源.
      *
      * @param Project $project
+     * @param $type
+     * @param TodoList|null $list
+     * @param null $status
+     * @param int $size
      * @return array
      */
-    public function TodoResources(Project $project)
+    public function TodoResources(Project $project, $type, TodoList $list = null, $status = null, $size = Definer::TODO_PAGE_SIZE)
     {
-        $todos = $project->Todos()->where('type_id', Definer::PUBLIC_TODO)->latest()->paginate(10);
-        $todoCount = $project->Todos()->where('type_id', Definer::PUBLIC_TODO)->count();
-        $lists = $project->TodoLists()->get();
-        $statuses = TodoStatus::where('user_id', Definer::SUPER_ADMIN_ID)->get();
+        $todos = $project->Todos();
 
-        return compact('todos', 'todoCount', 'lists', 'statuses');
-    }
+        if($type === Definer::PUBLIC_TODO){
+            $todos = $todos->where('type_id', $type);
+            $todoCount = $todos->count();
+        }
 
-    /**
-     * 获取项目To-do列表资源.
-     *
-     * @param Project $project
-     * @param TodoList $list
-     * @return array
-     */
-    public function TodoListResources(Project $project, TodoList $list)
-    {
-        $todos = $project->Todos()->where('type_id', Definer::PUBLIC_TODO)->where('list_id', $list->id)->latest()->paginate(10);
-        $todoCount = $project->Todos()->where('type_id', Definer::PUBLIC_TODO)->count();
+        if($type === Definer::PRIVATE_TODO){
+            $todos = $todos->where('type_id', $type)->orderBy('status_id', 'desc')->oldest()->paginate(10);
+            $todoCount = $todos->count();
+        }
+
+        if($list != null){
+            $todos = $todos->where('list_id', $list->id);
+        }
+
+        if($status != null){
+            $todos = $todos->where('status_id', $status);
+        }
+
+        $todos = $todos->orderBy('status_id', 'desc')->oldest()->paginate($size);
+
         $lists = $project->TodoLists()->get();
         $statuses = TodoStatus::where('user_id', Definer::SUPER_ADMIN_ID)->get();
 

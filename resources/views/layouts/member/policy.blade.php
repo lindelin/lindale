@@ -24,7 +24,7 @@
                         <div>
                             <select class="selectpicker form-control" name="policy">
                                 <option value="0" @if($member->pivot->is_admin !== Definer::PROJECT_ADMIN) selected @endif>{{ trans('project.none') }}</option>
-                                <option value="{{ Definer::PROJECT_ADMIN }}" @if($member->pivot->is_admin === Definer::PROJECT_ADMIN) selected @endif>{{ trans('member.pa') }}</option>
+                                <option value="{{ Definer::PROJECT_ADMIN }}" @if($member->pivot->is_admin === Definer::PROJECT_ADMIN) selected @endif>{{ trans_choice('member.pa', 1) }}</option>
                             </select>
                             @include('layouts.common.error-one', ['field' => 'policy'])
                         </div>

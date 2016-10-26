@@ -63,6 +63,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         //待办路由
         Route::group(['prefix' => 'todo'], function () {
             Route::get('/', 'TodoController@index');
+            Route::get('status/{status?}', 'TodoController@index');
             Route::post('/', 'TodoController@store');
             Route::patch('todo/{todo}', 'TodoController@update');
             Route::delete('todo/{todo}', 'TodoController@destroy');

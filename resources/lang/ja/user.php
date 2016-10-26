@@ -22,7 +22,7 @@ return [
     'add-user'       => 'ユーザ作成',
     'submit'         => '作成',
     'profile-img'    => 'アイコン',
-    'company'        => '会社/組織',
+    'company'        => '会社／組織',
     'location'       => '国家／地域',
     'update'         => 'プロフィール更新',
     'phone'          => '電話番号',
