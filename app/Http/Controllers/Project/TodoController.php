@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Definer;
 use App\Project\Project;
 use App\Repositories\MemberRepository;
 use App\Repositories\TodoRepository;
@@ -42,11 +43,12 @@ class TodoController extends Controller
      * Index.
      *
      * @param Project $project
+     * @param null $status
      * @return mixed
      */
-    public function index(Project $project)
+    public function index(Project $project, $status = null)
     {
-        return view('project.todo.index', $this->todoRepository->TodoResources($project))
+        return view('project.todo.index', $this->todoRepository->TodoResources($project, Definer::PUBLIC_TODO, null, $status))
             ->with($this->memberRepository->AllMember($project))
             ->with(['project' => $project, 'selected' => 'todo']);
     }
@@ -82,7 +84,7 @@ class TodoController extends Controller
     {
         $list = TodoList::findOrFail($list);
 
-        return view('project.todo.index', $this->todoRepository->TodoListResources($project, $list))
+        return view('project.todo.index', $this->todoRepository->TodoResources($project, Definer::PUBLIC_TODO, $list))
             ->with($this->memberRepository->AllMember($project))
             ->with(['project' => $project, 'selected' => 'todo']);
     }
