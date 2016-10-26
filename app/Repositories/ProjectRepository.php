@@ -61,7 +61,7 @@ class ProjectRepository
         }
 
         if ($request->file('image')) {
-            $path = $request->file('image')->store('projects/'.$project->id, 'public');
+            $path = $request->file('image')->store('projects/tmp', 'public');
             $project->image = $path;
         }
 
@@ -84,11 +84,16 @@ class ProjectRepository
         $input = $request->only(['title', 'content', 'start_at', 'end_at', 'type_id', 'sl_id', 'status_id']);
 
         if ($request->file('image')) {
-            $path = $request->file('image')->store('projects/'.$project->id, 'public');
             if ($project->image != '') {
                 Storage::delete('public/'.$project->image);
             }
-            $project->image = $path;
+            $path = $request->file('image')->store('projects/'.$project->id, 'public');
+            $extension = pathinfo($path, PATHINFO_EXTENSION);
+            $result = Storage::move('public/'.$path, 'public/projects/'.$project->id.'/'.'icon'.'.'.$extension);
+            if($result){
+                $newPath = 'projects/'.$project->id.'/'.'icon'.'.'.$extension;
+                $project->image = $newPath;
+            }
         }
 
         foreach ($input as $key => $value) {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Events\ProjectCreated;
 use App\Project\Project;
 use App\Repositories\ProjectRepository;
 use App\Http\Requests\ProjectRequest;
@@ -51,15 +52,16 @@ class ProjectController extends Controller
     /**
      * 创建项目.
      *
-     * TODO: 项目创建时同时创建项目目录.
      * @param ProjectRequest $request
      * @return $this|\Illuminate\Http\RedirectResponse
      */
     public function store(ProjectRequest $request)
     {
-        $result = $this->projectRepository->CreateProject($request)->save();
+        $project = $this->projectRepository->CreateProject($request);
+        $result = $project->save();
 
         if ($result) {
+            event(new ProjectCreated($project));
             return redirect()->to('/project')->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-fail'));
