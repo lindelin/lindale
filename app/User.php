@@ -53,4 +53,26 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Project\Project', 'user_id', 'id');
     }
+
+    /**
+     * 一个项目副总监拥有多个项目
+     * 一对多.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function MySlProjects()
+    {
+        return $this->hasMany('App\Project\Project', 'sl_id', 'id');
+    }
+
+    /**
+     * 一个用户拥有多个To-do
+     * 一对多.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function Todos()
+    {
+        return $this->hasMany('App\Todo\Todo', 'user_id', 'id');
+    }
 }

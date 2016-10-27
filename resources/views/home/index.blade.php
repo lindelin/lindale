@@ -25,24 +25,17 @@
                 <div class="panel panel-default">
                 	<div class="panel-body">
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                            <h4><strong>{{ $userProjectCont }}</strong><br> <small>Projects</small></h4>
+                            <h4><strong>{{ $userProjectCount }}</strong><br> <small>Projects</small></h4>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
                             <h4><strong>0</strong><br> <small>Tasks</small></h4>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                            <h4><strong>0</strong><br> <small>TODO</small></h4>
+                            <h4><strong>{{ Auth::user()->Todos()->count() }}</strong><br> <small>TODO</small></h4>
                         </div>
                 	</div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">My Project</div>
-                    <ul class="list-group">
-                        @foreach($userProjects as $project)
-                            <a href="{{ url("project/$project->id") }}" class="list-group-item">{{ $project->title }}</a>
-                        @endforeach
-                    </ul>
-                </div>
+
           	</div>
           </div>
       </div>

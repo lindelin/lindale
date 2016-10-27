@@ -3,8 +3,8 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" @if($mode != 'project') class="active" @endif style="width: 50%;"><a href="#"><div align="center">Home</div></a></li>
-                <li role="presentation" style="width: 50%;"><a href="#"><div align="center">Project</div></a></li>
+                <li role="presentation" @if($mode != 'project') class="active" @endif style="width: 50%;"><a href="{{ url('/home') }}"><div align="center">Home</div></a></li>
+                <li role="presentation" @if($mode == 'project') class="active" @endif style="width: 50%;"><a href="{{ url('/home/project') }}"><div align="center">Project</div></a></li>
             </ul>
         </div>
     </div>
@@ -50,7 +50,7 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                            <h4><strong>{{ $userProjectCont }}</strong><br> <small>Projects</small></h4>
+                            <h4><strong>{{ $userProjectCount }}</strong><br> <small>Projects</small></h4>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
                             <h4><strong>0</strong><br> <small>Tasks</small></h4>
@@ -65,16 +65,16 @@
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="panel panel-default">
+                {{--<div class="panel panel-default">
                     <!-- Default panel contents -->
                     <div class="panel-heading">My Project</div>
                     <!-- List group -->
                     <ul class="list-group">
-                        @foreach($userProjects as $project)
+                        @foreach($myProjects as $project)
                             <a href="{{ url("project/$project->id") }}" class="list-group-item">{{ $project->title }}</a>
                         @endforeach
                     </ul>
-                </div>
+                </div>--}}
             </div>
         </div>
     @endif

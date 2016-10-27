@@ -65,7 +65,7 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        {{ $project->Type->name }}#{{ sprintf("%02d", $project->type_id).$project->user_id.$project->id }}
+                                        @include('layouts.common.number.project')
                                         　<span class="label label-danger">{{ $project->Status->name }}</span>
                                     </div>
                                 </div>

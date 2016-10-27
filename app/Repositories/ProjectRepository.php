@@ -33,12 +33,13 @@ class ProjectRepository
      * @param User $user
      * @return array
      */
-    public function UserProjects(User $user)
+    public function UserProjectResources(User $user)
     {
-        $userProjects = Project::where('user_id', $user->id)->orWhere('sl_id', $user->id)->get();
-        $userProjectCont = $this->UserProjectCont($user);
+        $myProjects = Project::where('user_id', $user->id)->orWhere('sl_id', $user->id)->latest()->simplePaginate(6,['*'],'mPage');
+        $userProjects = $user->Projects()->latest()->simplePaginate(10,['*'],'uPage');
+        $userProjectCount = $this->UserProjectCount($user);
 
-        return compact('userProjects', 'userProjectCont');
+        return compact('myProjects', 'userProjectCount', 'userProjects');
     }
 
     /**
@@ -146,8 +147,8 @@ class ProjectRepository
      * @param User $user
      * @return mixed
      */
-    private function UserProjectCont(User $user)
+    private function UserProjectCount(User $user)
     {
-        return (Project::where('user_id', $user->id)->count()) + (Project::where('sl_id', $user->id)->count());
+        return ($user->MyProjects()->count()) + ($user->MySlProjects()->count()) + ($user->Projects()->count());
     }
 }

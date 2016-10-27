@@ -35,6 +35,11 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        return view('home.index', $this->projectRepository->UserProjects($request->user()))->with('mode', 'home');
+        return view('home.index', $this->projectRepository->UserProjectResources($request->user()))->with('mode', 'home');
+    }
+
+    public function project(Request $request)
+    {
+        return view('home.project', $this->projectRepository->UserProjectResources($request->user()))->with('mode', 'project');
     }
 }

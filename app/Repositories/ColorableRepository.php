@@ -44,6 +44,7 @@ class ColorableRepository
             'list-group-item-success',
             'list-group-item-info',
             'list-group-item-warning',
+            'list-group-item-danger',
         ])->random();
     }
 

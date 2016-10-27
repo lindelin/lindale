@@ -30,3 +30,12 @@ body{
 .member-card-footer{
 	height: 40px;
 }
+
+.home-project-panel{
+	height: 115px;
+}
+
+.home-project-card{
+	overflow: scroll;
+	height: 110px;
+}
