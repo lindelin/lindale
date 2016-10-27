@@ -41,7 +41,7 @@
                 </div>
                 <hr>
                 <div class="row">
-                	<div class="col-xs-12 col-sm-10 col-md-6 col-lg-6">
+                	<div class="col-xs-12 col-sm-10 col-md-6 col-lg-6 col-lg-offset-6 col-md-offset-6 col-sm-offset-2">
                         @if($HomeWiki->image)
                             <a href="#" class="thumbnail">
                                 <img src="{{ asset('storage/'.$HomeWiki->image) }}">
