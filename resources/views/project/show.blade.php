@@ -15,7 +15,7 @@
                     <h5 class="panel-title">おしらせ</h5>
                 </div>
                 <div class="panel-body">
-                    dfdsfsdfsdf
+                    2016年10月27日　システムプレビュー版リリースしました！
                 </div>
             </div>
             <div class="panel panel-default" style="height: 300px;">
