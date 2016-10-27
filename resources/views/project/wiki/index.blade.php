@@ -43,13 +43,9 @@
                 <div class="row">
                 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         @if($HomeWiki->image)
-                            <div class="row">
-                            	<div class="col-xs-12 col-sm-offset-10 col-md-offset-6 col-lg-offset-6">
-                                    <a href="#" class="thumbnail">
-                                        <img src="{{ asset('storage/'.$HomeWiki->image) }}">
-                                    </a>
-                            	</div>
-                            </div>
+                            <a href="#" class="thumbnail">
+                                <img src="{{ asset('storage/'.$HomeWiki->image) }}">
+                            </a>
                         @endif
                         <div class="table-responsive-div">
                             {!! Markdown::toHtml($HomeWiki->content) !!}
