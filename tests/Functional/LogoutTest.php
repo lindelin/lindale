@@ -20,6 +20,7 @@ class LogoutTest extends TestCase
             ->seePageIs('/home')
             ->see('Logout')
             ->click('Logout')
+            ->click('Logout')
             ->seePageIs('/')
             ->see('Lindalë')
             ->see('The Project Manager For Everyone')

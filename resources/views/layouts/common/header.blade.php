@@ -211,7 +211,7 @@
                     <li><a href="{{ url('/login') }}">{{ trans('auth.login') }}</a></li>
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" title="{{ trans('auth.logout') }}">
                             <span>
                                 @if(Auth::user()->photo != '')
                                     <img src="{{ asset('storage/'.Auth::user()->photo) }}" style="padding: 0px;width: 22px;height: 22px;">
