@@ -29,7 +29,7 @@ class WelcomeTest extends TestCase
     {
         $this->visit('/')
             ->click('GitHub')
-            ->seePageIs('https://github.com/lindelea/lindale');
+            ->see('lindelea');
     }
 
     /**
