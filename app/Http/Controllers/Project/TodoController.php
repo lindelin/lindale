@@ -67,6 +67,7 @@ class TodoController extends Controller
 
         if ($result) {
             event(new TodoUpdated($todo));
+
             return redirect()->back()->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-failed'));
@@ -105,6 +106,7 @@ class TodoController extends Controller
 
         if ($result) {
             event(new TodoUpdated($todo));
+
             return redirect()->back()->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
@@ -124,6 +126,7 @@ class TodoController extends Controller
 
         if ($todo->delete()) {
             event(new TodoUpdated($todo));
+
             return redirect()->back()->with('status', trans('errors.delete-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.delete-failed'));

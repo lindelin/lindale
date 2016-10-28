@@ -62,6 +62,7 @@ class ProjectController extends Controller
 
         if ($result) {
             event(new ProjectCreated($project));
+
             return redirect()->to('/project')->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-fail'));
