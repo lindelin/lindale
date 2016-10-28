@@ -25,7 +25,7 @@ class LoginTest extends TestCase
     public function testHomeButton()
     {
         $this->visit('/login')
-            ->click('<span class="glyphicon glyphicon-home"></span>')
+            ->click('HOME')
             ->seePageIs('/');
     }
 
@@ -37,8 +37,13 @@ class LoginTest extends TestCase
             ->see('日本語')
             ->see('中文');
 
-         $this->click('日本語')
-             ->see('ログイン');
+        $this->click('日本語')
+            ->see('日本語')
+            ->see('ログイン');
+
+        $this->click('日本語')
+            ->click('中文')
+            ->see('登陆');
 
     }
 }
