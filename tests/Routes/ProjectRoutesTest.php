@@ -27,6 +27,7 @@ class ProjectRoutesTest extends TestCase
         $this->user = factory(App\User::class)->create();
         $this->project1 = factory(App\Project\Project::class)->create();
         $this->project2 = factory(App\Project\Project::class)->make([
+            'title' => 'UserTestProject',
             'user_id' => $this->user->id,
         ]);
     }
@@ -61,7 +62,55 @@ class ProjectRoutesTest extends TestCase
         $this->assertViewHasAll(['selected', 'project']);
     }
 
+    /**
+     * プライベートルートとしてアクセスできる
+     * 参与していないプロジェクトのため、リダイレクトされる
+     *
+     * @test
+     */
+    public function it_can_access_the_project_show_info_page()
+    {
+        $this->actingAs($this->user)->call('GET', '/project/'.$this->project1->id.'/info');
+        $this->assertSessionHasErrors();
 
+    }
+
+    /**
+     * プライベートルートとしてアクセスできる
+     * 参与していないプロジェクトのため、リダイレクトされる
+     *
+     * @test
+     */
+    public function it_can_access_the_project_show_todo_page()
+    {
+        $this->actingAs($this->user)->call('GET', '/project/'.$this->project1->id.'/todo');
+        $this->assertSessionHasErrors();
+    }
+
+
+    /**
+     * プライベートルートとしてアクセスできる
+     * 参与していないプロジェクトのため、リダイレクトされる
+     *
+     * @test
+     */
+    public function it_can_access_the_project_show_member_page()
+    {
+        $this->actingAs($this->user)->call('GET', '/project/'.$this->project1->id.'/member');
+        $this->assertSessionHasErrors();
+    }
+
+    /**
+     * プライベートルートとしてアクセスできる
+     * 参与していないプロジェクトのため、リダイレクトされる
+     *
+     * @test
+     */
+    public function it_can_access_the_project_show_wiki_page()
+    {
+        $this->actingAs($this->user)->call('GET', '/project/'.$this->project1->id.'/wiki');
+        $this->assertSessionHasErrors();
+    }
 
     /*
     |--------------------------------------------------------------------------
