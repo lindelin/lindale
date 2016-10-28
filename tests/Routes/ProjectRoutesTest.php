@@ -13,14 +13,14 @@ class ProjectRoutesTest extends TestCase
     /**
      * プロジェクトモデル（非参与）.
      *
-     * @var App\User
+     * @var App\Project\Project
      */
     private $project1;
 
     /**
      * プロジェクトモデル（参与）.
      *
-     * @var App\User
+     * @var App\Project\Project
      */
     private $project2;
 

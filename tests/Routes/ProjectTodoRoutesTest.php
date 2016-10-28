@@ -16,14 +16,14 @@ class ProjectTodoRoutesTest extends TestCase
     /**
      * プロジェクトモデル（参与）.
      *
-     * @var App\User
+     * @var App\Project\Project
      */
     private $project;
 
     /**
      * プロジェクトリストモデル
      *
-     * @var
+     * @var App\Todo\TodoList
      */
     private $list;
 
