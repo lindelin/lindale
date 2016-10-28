@@ -22,6 +22,9 @@ class LoginTest extends TestCase
             ->see('Forgot Your Password');
     }
 
+    /**
+     * HOMEボタン作動確認
+     */
     public function testHomeButton()
     {
         $this->visit('/login')
@@ -29,6 +32,9 @@ class LoginTest extends TestCase
             ->seePageIs('/');
     }
 
+    /**
+     * 言語切り替えスイッチ作動確認
+     */
     public function testLangButton()
     {
         $this->visit('/login')
@@ -44,9 +50,11 @@ class LoginTest extends TestCase
         $this->click('日本語')
             ->click('中文')
             ->see('登陆');
-
     }
 
+    /**
+     * パスワードを忘れた方？リンク作動確認
+     */
     public function testForgotYourPasswordLink()
     {
         $this->visit('/login')
@@ -56,6 +64,9 @@ class LoginTest extends TestCase
             ->seePageIs('/password/reset');
     }
 
+    /**
+     * ログイン機能確認
+     */
     public function testLoginAction()
     {
         $this->visit('/login')
@@ -65,5 +76,20 @@ class LoginTest extends TestCase
             ->type('123456', 'password')
             ->press('Login')
             ->seePageIs('/home');
+    }
+
+    /**
+     * ログイン失敗確認
+     */
+    public function testLoginActionError()
+    {
+        $this->visit('/login')
+            ->click('English')
+            ->click('English')
+            ->type('admin@lindale.tk', 'email')
+            ->type('654321', 'password')
+            ->press('Login')
+            ->seePageIs('/login')
+            ->see('These credentials do not match our records');
     }
 }
