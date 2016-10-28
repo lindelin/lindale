@@ -8,6 +8,8 @@ class PublicRoutesTest extends TestCase
 {
     /**
      * 公開ルートとしてアクセスできる
+     *
+     * @test
      */
     public function it_can_access_the_index_page()
     {
@@ -17,6 +19,8 @@ class PublicRoutesTest extends TestCase
 
     /**
      * 公開ルートとしてアクセスできる
+     *
+     * @test
      */
     public function it_can_access_the_login_page()
     {
@@ -26,6 +30,8 @@ class PublicRoutesTest extends TestCase
 
     /**
      * 公開ルートとしてアクセスできる
+     *
+     * @test
      */
     public function it_can_access_the_password_reset_page()
     {
@@ -36,6 +42,8 @@ class PublicRoutesTest extends TestCase
     /**
      * 公開ルートとしてアクセスできる
      * リダイレクトされる
+     *
+     * @test
      */
     public function it_can_change_language_to_ja()
     {
@@ -48,6 +56,8 @@ class PublicRoutesTest extends TestCase
     /**
      * 公開ルートとしてアクセスできる
      * リダイレクトされる
+     *
+     * @test
      */
     public function it_can_change_language_to_zh()
     {
@@ -60,6 +70,8 @@ class PublicRoutesTest extends TestCase
     /**
      * 公開ルートとしてアクセスできる
      * リダイレクトされる
+     *
+     * @test
      */
     public function it_can_change_language_to_en()
     {
@@ -72,6 +84,8 @@ class PublicRoutesTest extends TestCase
     /**
      * 公開ルートとしてアクセスできない
      * ログインページにリダイレクトされる
+     *
+     * @test
      */
     public function it_can_not_access_home_page()
     {
@@ -82,6 +96,8 @@ class PublicRoutesTest extends TestCase
     /**
      * 公開ルートとしてアクセスできる
      * リダイレクトされる
+     *
+     * @test
      */
     public function it_can_not_access_project_page()
     {
@@ -92,6 +108,8 @@ class PublicRoutesTest extends TestCase
     /**
      * 公開ルートとしてアクセスできる
      * リダイレクトされる
+     *
+     * @test
      */
     public function it_can_not_access_settings_page()
     {
@@ -102,6 +120,8 @@ class PublicRoutesTest extends TestCase
     /**
      * 公開ルートとしてアクセスできる
      * リダイレクトされる
+     *
+     * @test
      */
     public function it_can_not_access_admin_page()
     {
@@ -112,6 +132,8 @@ class PublicRoutesTest extends TestCase
     /**
      * ルートとしてアクセスできる
      * 404ページを見せる
+     *
+     * @test
      */
     public function it_can_access_404_page()
     {
