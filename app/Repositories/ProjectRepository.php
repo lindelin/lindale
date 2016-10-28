@@ -20,14 +20,16 @@ class ProjectRepository
      */
     public function ProjectResources($key = null)
     {
-        if($key == null){
+        if ($key == null) {
             $types = ProjectType::all();
             $users = User::all();
             $statuses = ProjectStatus::all();
+
             return compact('types', 'users', 'statuses');
         }
-        if($key == 'projects'){
+        if ($key == 'projects') {
             $projects = Project::latest()->get();
+
             return compact('projects');
         }
     }
@@ -40,8 +42,8 @@ class ProjectRepository
      */
     public function UserProjectResources(User $user)
     {
-        $myProjects = Project::where('user_id', $user->id)->orWhere('sl_id', $user->id)->latest()->simplePaginate(6,['*'],'mPage');
-        $userProjects = $user->Projects()->latest()->simplePaginate(10,['*'],'uPage');
+        $myProjects = Project::where('user_id', $user->id)->orWhere('sl_id', $user->id)->latest()->simplePaginate(6, ['*'], 'mPage');
+        $userProjects = $user->Projects()->latest()->simplePaginate(10, ['*'], 'uPage');
         $userProjectCount = $this->UserProjectCount($user);
 
         return compact('myProjects', 'userProjectCount', 'userProjects');
@@ -96,7 +98,7 @@ class ProjectRepository
             $path = $request->file('image')->store('projects/'.$project->id, 'public');
             $extension = pathinfo($path, PATHINFO_EXTENSION);
             $result = Storage::move('public/'.$path, 'public/projects/'.$project->id.'/'.'icon'.'.'.$extension);
-            if($result){
+            if ($result) {
                 $newPath = 'projects/'.$project->id.'/'.'icon'.'.'.$extension;
                 $project->image = $newPath;
             }

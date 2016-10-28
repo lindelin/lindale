@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProjectRoutesTest extends TestCase
 {
@@ -44,7 +41,7 @@ class ProjectRoutesTest extends TestCase
     }
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */
@@ -62,7 +59,7 @@ class ProjectRoutesTest extends TestCase
     */
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */
@@ -75,7 +72,7 @@ class ProjectRoutesTest extends TestCase
 
     /**
      * プライベートルートとしてアクセスできる
-     * 参与していないプロジェクトのため、リダイレクトされる
+     * 参与していないプロジェクトのため、リダイレクトされる.
      *
      * @test
      */
@@ -83,12 +80,11 @@ class ProjectRoutesTest extends TestCase
     {
         $this->actingAs($this->user)->call('GET', '/project/'.$this->project1->id.'/info');
         $this->assertSessionHasErrors();
-
     }
 
     /**
      * プライベートルートとしてアクセスできる
-     * 参与していないプロジェクトのため、リダイレクトされる
+     * 参与していないプロジェクトのため、リダイレクトされる.
      *
      * @test
      */
@@ -98,10 +94,9 @@ class ProjectRoutesTest extends TestCase
         $this->assertSessionHasErrors();
     }
 
-
     /**
      * プライベートルートとしてアクセスできる
-     * 参与していないプロジェクトのため、リダイレクトされる
+     * 参与していないプロジェクトのため、リダイレクトされる.
      *
      * @test
      */
@@ -113,7 +108,7 @@ class ProjectRoutesTest extends TestCase
 
     /**
      * プライベートルートとしてアクセスできる
-     * 参与していないプロジェクトのため、リダイレクトされる
+     * 参与していないプロジェクトのため、リダイレクトされる.
      *
      * @test
      */
@@ -130,7 +125,7 @@ class ProjectRoutesTest extends TestCase
     */
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */
@@ -142,7 +137,7 @@ class ProjectRoutesTest extends TestCase
     }
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */
@@ -154,7 +149,7 @@ class ProjectRoutesTest extends TestCase
     }
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */
@@ -166,7 +161,7 @@ class ProjectRoutesTest extends TestCase
     }
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */
@@ -178,7 +173,7 @@ class ProjectRoutesTest extends TestCase
     }
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */
@@ -190,7 +185,7 @@ class ProjectRoutesTest extends TestCase
     }
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */

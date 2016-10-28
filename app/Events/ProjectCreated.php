@@ -7,14 +7,13 @@ use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class ProjectCreated
 {
     use InteractsWithSockets, SerializesModels;
 
     /**
-     * 项目实例
+     * 项目实例.
      * @var Project
      */
     public $project;

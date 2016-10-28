@@ -41,7 +41,7 @@ class Definer
     const DANGER_COLOR_ID = 6;
 
     /**
-     * To-do默认一页表示个数
+     * To-do默认一页表示个数.
      */
     const TODO_PAGE_SIZE = 10;
 
