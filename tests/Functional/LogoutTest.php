@@ -20,9 +20,8 @@ class LogoutTest extends TestCase
             ->seePageIs('/home')
             ->see('Logout');
 
-        $this->call('POST', '/logout');
-
-        $this->seePageIs('/')
+        $this->click('Logout')
+            ->seePageIs('/')
             ->see('Lindalë')
             ->see('The Project Manager For Everyone')
             ->see('DOCUMENTATION')

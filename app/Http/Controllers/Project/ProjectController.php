@@ -36,7 +36,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('project.index')->withProjects(Project::latest()->get());
+        return view('project.index', $this->projectRepository->ProjectResources('projects'));
     }
 
     /**

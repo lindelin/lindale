@@ -18,13 +18,18 @@ class ProjectRepository
      *
      * @return array
      */
-    public function ProjectResources()
+    public function ProjectResources($key = null)
     {
-        $types = ProjectType::all();
-        $users = User::all();
-        $statuses = ProjectStatus::all();
-
-        return compact('types', 'users', 'statuses');
+        if($key == null){
+            $types = ProjectType::all();
+            $users = User::all();
+            $statuses = ProjectStatus::all();
+            return compact('types', 'users', 'statuses');
+        }
+        if($key == 'projects'){
+            $projects = Project::latest()->get();
+            return compact('projects');
+        }
     }
 
     /**
