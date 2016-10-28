@@ -23,12 +23,12 @@ class WelcomeTest extends TestCase
     }
 
     /**
-     * GITHUBリンクテスト
+     * GitHubリンクテスト
      */
     public function testGitHubLink()
     {
         $this->visit('/')
-            ->click('GITHUB')
+            ->click('GitHub')
             ->seePageIs('https://github.com/lindelea/lindale');
     }
 
@@ -38,7 +38,7 @@ class WelcomeTest extends TestCase
     public function testLoginLink()
     {
         $this->visit('/')
-            ->click('LOGIN')
+            ->click('Login')
             ->seePageIs('/login');
     }
 }
