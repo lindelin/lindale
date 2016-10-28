@@ -56,6 +56,18 @@ class PrivateRoutesTest extends TestCase
     {
         $response = $this->actingAs($this->user)->call('GET', '/settings/profile');
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['user', 'modo']);
+        $this->assertViewHasAll(['user', 'mode']);
+    }
+
+    /**
+     * プライベートルートとしてアクセスできる
+     * 権限不足で403ページへ遷移する
+     *
+     * @test
+     */
+    public function it_can_not_access_the_admin_page()
+    {
+        $response = $this->actingAs($this->user)->call('GET', '/admin');
+        $this->assertEquals(403, $response->status());
     }
 }
