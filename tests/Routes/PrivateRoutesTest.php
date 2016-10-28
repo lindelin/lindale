@@ -6,7 +6,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class PrivateRoutesTest extends TestCase
 {
-    use InteractsWithDatabase;
     /**
      * The user model.
      *
