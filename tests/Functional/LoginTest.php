@@ -59,6 +59,8 @@ class LoginTest extends TestCase
     public function testLoginAction()
     {
         $this->visit('/login')
+            ->click('English')
+            ->click('English')
             ->type('admin@lindale.tk', 'email')
             ->type('123456', 'password')
             ->press('Login')
