@@ -61,58 +61,7 @@ class ProjectRoutesTest extends TestCase
         $this->assertViewHasAll(['selected', 'project']);
     }
 
-    /**
-     * プライベートルートとしてアクセスできる
-     * 参与していないプロジェクトのため、リダイレクトされる
-     *
-     * @test
-     */
-    public function it_can_access_the_project_show_info_page()
-    {
-        $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project1->id.'/info');
-        $this->assertEquals(302, $response->status());
-        $this->assertViewHasAll(['selected', 'project']);
-    }
 
-    /**
-     * プライベートルートとしてアクセスできる
-     * 参与していないプロジェクトのため、リダイレクトされる
-     *
-     * @test
-     */
-    public function it_can_access_the_project_show_todo_page()
-    {
-        $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project1->id.'/todo');
-        $this->assertEquals(302, $response->status());
-        $this->assertViewHasAll(['selected', 'project']);
-    }
-
-
-    /**
-     * プライベートルートとしてアクセスできる
-     * 参与していないプロジェクトのため、リダイレクトされる
-     *
-     * @test
-     */
-    public function it_can_access_the_project_show_member_page()
-    {
-        $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project1->id.'/member');
-        $this->assertEquals(302, $response->status());
-        $this->assertViewHasAll(['selected', 'project']);
-    }
-
-    /**
-     * プライベートルートとしてアクセスできる
-     * 参与していないプロジェクトのため、リダイレクトされる
-     *
-     * @test
-     */
-    public function it_can_access_the_project_show_wiki_page()
-    {
-        $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project1->id.'/wiki');
-        $this->assertEquals(302, $response->status());
-        $this->assertViewHasAll(['selected', 'project']);
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -130,5 +79,29 @@ class ProjectRoutesTest extends TestCase
         $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project2->id);
         $this->assertEquals(200, $response->status());
         $this->assertViewHasAll(['selected', 'project']);
+    }
+
+    /**
+     * プライベートルートとしてアクセスできる
+     *
+     * @test
+     */
+    public function it_can_access_the_my_project_edit_page()
+    {
+        $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project2->id.'/edit');
+        $this->assertEquals(200, $response->status());
+        $this->assertViewHasAll(['project', 'types', 'users', 'statuses']);
+    }
+
+    /**
+     * プライベートルートとしてアクセスできる
+     *
+     * @test
+     */
+    public function it_can_access_the_my_project_show_info_page()
+    {
+        $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project2->id.'/info');
+        $this->assertEquals(200, $response->status());
+        $this->assertViewHasAll(['selected', 'project', 'pl', 'sl', 'pms', 'pmCount', 'allCount', 'slCount', 'users', 'paCount']);
     }
 }
