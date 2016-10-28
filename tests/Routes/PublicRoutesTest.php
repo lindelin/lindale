@@ -49,8 +49,6 @@ class PublicRoutesTest extends TestCase
     {
         $response = $this->call('GET', '/lang/ja');
         $this->assertEquals(302, $response->status());
-
-        $this->see('ログイン');
     }
 
     /**
@@ -63,8 +61,6 @@ class PublicRoutesTest extends TestCase
     {
         $response = $this->call('GET', '/lang/zh');
         $this->assertEquals(302, $response->status());
-
-        $this->see('登陆');
     }
 
     /**
@@ -77,8 +73,6 @@ class PublicRoutesTest extends TestCase
     {
         $response = $this->call('GET', '/lang/en');
         $this->assertEquals(302, $response->status());
-
-        $this->see('Login');
     }
 
     /**

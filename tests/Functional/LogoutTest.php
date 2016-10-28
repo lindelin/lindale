@@ -20,8 +20,7 @@ class LogoutTest extends TestCase
             ->seePageIs('/home')
             ->see('Logout');
 
-        $response = $this->call('POST', '/logout');
-        $this->assertEquals(302, $response->status());
+        $this->call('POST', '/logout');
 
         $this->seePageIs('/')
             ->see('Lindalë')
