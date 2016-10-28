@@ -1,13 +1,10 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class LoginTest extends TestCase
 {
     /**
-     * 歓迎画面の表示確認
+     * 歓迎画面の表示確認.
      */
     public function testWelcomeFunctional()
     {
@@ -23,7 +20,7 @@ class LoginTest extends TestCase
     }
 
     /**
-     * HOMEボタン作動確認
+     * HOMEボタン作動確認.
      */
     public function testHomeButton()
     {
@@ -33,7 +30,7 @@ class LoginTest extends TestCase
     }
 
     /**
-     * 言語切り替えスイッチ作動確認
+     * 言語切り替えスイッチ作動確認.
      */
     public function testLangButton()
     {
@@ -53,7 +50,7 @@ class LoginTest extends TestCase
     }
 
     /**
-     * パスワードを忘れた方？リンク作動確認
+     * パスワードを忘れた方？リンク作動確認.
      */
     public function testForgotYourPasswordLink()
     {
@@ -65,7 +62,7 @@ class LoginTest extends TestCase
     }
 
     /**
-     * ログイン機能確認
+     * ログイン機能確認.
      */
     public function testLoginAction()
     {
@@ -79,7 +76,7 @@ class LoginTest extends TestCase
     }
 
     /**
-     * ログイン失敗確認
+     * ログイン失敗確認.
      */
     public function testLoginActionError()
     {

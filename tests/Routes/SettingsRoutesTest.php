@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class SettingsRoutesTest extends TestCase
 {
@@ -12,6 +9,7 @@ class SettingsRoutesTest extends TestCase
      * @var App\User
      */
     private $user;
+
     /**
      * テストユーザ作成.
      *
@@ -26,7 +24,7 @@ class SettingsRoutesTest extends TestCase
     /**
      * プライベートルートとしてアクセスできない
      * ルート未定義
-     * 404
+     * 404.
      *
      * @test
      */
@@ -37,7 +35,7 @@ class SettingsRoutesTest extends TestCase
     }
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */

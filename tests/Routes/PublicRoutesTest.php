@@ -1,13 +1,10 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class PublicRoutesTest extends TestCase
 {
     /**
-     * 公開ルートとしてアクセスできる
+     * 公開ルートとしてアクセスできる.
      *
      * @test
      */
@@ -18,7 +15,7 @@ class PublicRoutesTest extends TestCase
     }
 
     /**
-     * 公開ルートとしてアクセスできる
+     * 公開ルートとしてアクセスできる.
      *
      * @test
      */
@@ -29,7 +26,7 @@ class PublicRoutesTest extends TestCase
     }
 
     /**
-     * 公開ルートとしてアクセスできる
+     * 公開ルートとしてアクセスできる.
      *
      * @test
      */
@@ -41,7 +38,7 @@ class PublicRoutesTest extends TestCase
 
     /**
      * 公開ルートとしてアクセスできる
-     * リダイレクトされる
+     * リダイレクトされる.
      *
      * @test
      */
@@ -54,7 +51,7 @@ class PublicRoutesTest extends TestCase
 
     /**
      * 公開ルートとしてアクセスできる
-     * リダイレクトされる
+     * リダイレクトされる.
      *
      * @test
      */
@@ -67,7 +64,7 @@ class PublicRoutesTest extends TestCase
 
     /**
      * 公開ルートとしてアクセスできる
-     * リダイレクトされる
+     * リダイレクトされる.
      *
      * @test
      */
@@ -80,7 +77,7 @@ class PublicRoutesTest extends TestCase
 
     /**
      * 公開ルートとしてアクセスできない
-     * ログインページにリダイレクトされる
+     * ログインページにリダイレクトされる.
      *
      * @test
      */
@@ -92,7 +89,7 @@ class PublicRoutesTest extends TestCase
 
     /**
      * 公開ルートとしてアクセスできる
-     * リダイレクトされる
+     * リダイレクトされる.
      *
      * @test
      */
@@ -104,7 +101,7 @@ class PublicRoutesTest extends TestCase
 
     /**
      * 公開ルートとしてアクセスでき
-     * 404ページを見せる
+     * 404ページを見せる.
      *
      * @test
      */
@@ -116,7 +113,7 @@ class PublicRoutesTest extends TestCase
 
     /**
      * 公開ルートとしてアクセスできる
-     * リダイレクトされる
+     * リダイレクトされる.
      *
      * @test
      */
@@ -128,7 +125,7 @@ class PublicRoutesTest extends TestCase
 
     /**
      * ルートとしてアクセスできる
-     * 404ページを見せる
+     * 404ページを見せる.
      *
      * @test
      */

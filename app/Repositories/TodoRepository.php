@@ -26,21 +26,21 @@ class TodoRepository
     {
         $todos = $project->Todos();
 
-        if($type === Definer::PUBLIC_TODO){
+        if ($type === Definer::PUBLIC_TODO) {
             $todos = $todos->where('type_id', $type);
             $todoCount = $todos->count();
         }
 
-        if($type === Definer::PRIVATE_TODO){
+        if ($type === Definer::PRIVATE_TODO) {
             $todos = $todos->where('type_id', $type)->orderBy('status_id', 'desc')->oldest()->paginate(10);
             $todoCount = $todos->count();
         }
 
-        if($list != null){
+        if ($list != null) {
             $todos = $todos->where('list_id', $list->id);
         }
 
-        if($status != null){
+        if ($status != null) {
             $todos = $todos->where('status_id', $status);
         }
 

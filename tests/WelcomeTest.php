@@ -1,13 +1,10 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class WelcomeTest extends TestCase
 {
     /**
-     * 歓迎画面の表示確認
+     * 歓迎画面の表示確認.
      */
     public function testWelcomeFunctional()
     {
@@ -23,7 +20,7 @@ class WelcomeTest extends TestCase
     }
 
     /**
-     * LOGINリンクテスト
+     * LOGINリンクテスト.
      */
     public function testLoginLink()
     {
