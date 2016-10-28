@@ -56,6 +56,6 @@ class PrivateRoutesTest extends TestCase
     {
         $response = $this->actingAs($this->user)->call('GET', '/settings/profile');
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['user', 'mode']);
+        $this->assertViewHasAll(['user', 'modo']);
     }
 }

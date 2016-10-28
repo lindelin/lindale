@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class LogoutTest extends TestCase
 {
     /**
-     * ログアウト機能確認
+     * ログアウト確認
      */
     public function testLogoutAction()
     {
@@ -19,16 +19,5 @@ class LogoutTest extends TestCase
             ->press('Login')
             ->seePageIs('/home')
             ->see('Logout');
-
-        $this->click('Logout')
-            ->seePageIs('/')
-            ->see('Lindalë')
-            ->see('The Project Manager For Everyone')
-            ->see('DOCUMENTATION')
-            ->see('BLOG')
-            ->see('NEWS')
-            ->see('ABOUT')
-            ->see('GITHUB')
-            ->see('LOGIN');
     }
 }
