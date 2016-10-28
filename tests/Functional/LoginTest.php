@@ -46,4 +46,22 @@ class LoginTest extends TestCase
             ->see('登陆');
 
     }
+
+    public function testForgotYourPasswordLink()
+    {
+        $this->visit('/login')
+            ->click('English')
+            ->click('English')
+            ->click('Forgot Your Password?')
+            ->seePageIs('/password/reset');
+    }
+
+    public function testLoginAction()
+    {
+        $this->visit('/login')
+            ->type('admin@lindale.tk', 'email')
+            ->type('123456', 'password')
+            ->press('Login')
+            ->seePageIs('/home');
+    }
 }
