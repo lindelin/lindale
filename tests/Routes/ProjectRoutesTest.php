@@ -26,7 +26,7 @@ class ProjectRoutesTest extends TestCase
     {
         $this->user = factory(App\User::class)->create();
         $this->project1 = factory(App\Project\Project::class)->create();
-        $this->project2 = factory(App\Project\Project::class)->make([
+        $this->project2 = factory(App\Project\Project::class)->create([
             'title' => 'UserTestProject',
             'user_id' => $this->user->id,
         ]);
