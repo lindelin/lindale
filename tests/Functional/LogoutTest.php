@@ -18,10 +18,12 @@ class LogoutTest extends TestCase
             ->type('123456', 'password')
             ->press('Login')
             ->seePageIs('/home')
-            ->see('Logout')
-            ->click('Logout')
-            ->click('Logout')
-            ->seePageIs('/')
+            ->see('Logout');
+
+        $response = $this->call('POST', '/logout');
+        $this->assertEquals(200, $response->status());
+
+        $this->seePageIs('/')
             ->see('Lindalë')
             ->see('The Project Manager For Everyone')
             ->see('DOCUMENTATION')
