@@ -23,16 +23,6 @@ class WelcomeTest extends TestCase
     }
 
     /**
-     * GitHubリンクテスト
-     */
-    public function testGitHubLink()
-    {
-        $this->visit('/')
-            ->click('GitHub')
-            ->see('lindelea');
-    }
-
-    /**
      * LOGINリンクテスト
      */
     public function testLoginLink()
