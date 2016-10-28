@@ -4,7 +4,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class PrivateRoutesTest extends TestCase
+class HomeRoutesTest extends TestCase
 {
     /**
      * ユーザモデル.
@@ -40,34 +40,10 @@ class PrivateRoutesTest extends TestCase
      *
      * @test
      */
-    public function it_can_access_the_project_page()
+    public function it_can_access_the_home_project_page()
     {
-        $response = $this->actingAs($this->user)->call('GET', '/project');
+        $response = $this->actingAs($this->user)->call('GET', '/home/project');
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['projects']);
-    }
-
-    /**
-     * プライベートルートとしてアクセスできる
-     *
-     * @test
-     */
-    public function it_can_access_the_settings_profile_page()
-    {
-        $response = $this->actingAs($this->user)->call('GET', '/settings/profile');
-        $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['user', 'mode']);
-    }
-
-    /**
-     * プライベートルートとしてアクセスできる
-     * 権限不足で403ページへ遷移する
-     *
-     * @test
-     */
-    public function it_can_not_access_the_admin_page()
-    {
-        $response = $this->actingAs($this->user)->call('GET', '/admin');
-        $this->assertEquals(403, $response->status());
+        $this->assertViewHasAll(['mode', 'myProjects', 'userProjectCount', 'userProjects']);
     }
 }
