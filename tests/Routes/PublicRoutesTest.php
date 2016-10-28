@@ -48,7 +48,7 @@ class PublicRoutesTest extends TestCase
     public function it_can_change_language_to_ja()
     {
         $response = $this->call('GET', '/lang/ja');
-        $this->assertEquals(304, $response->status());
+        $this->assertEquals(302, $response->status());
 
         $this->see('ログイン');
     }
@@ -62,7 +62,7 @@ class PublicRoutesTest extends TestCase
     public function it_can_change_language_to_zh()
     {
         $response = $this->call('GET', '/lang/zh');
-        $this->assertEquals(304, $response->status());
+        $this->assertEquals(302, $response->status());
 
         $this->see('登陆');
     }
@@ -76,7 +76,7 @@ class PublicRoutesTest extends TestCase
     public function it_can_change_language_to_en()
     {
         $response = $this->call('GET', '/lang/en');
-        $this->assertEquals(304, $response->status());
+        $this->assertEquals(302, $response->status());
 
         $this->see('Login');
     }
@@ -90,7 +90,7 @@ class PublicRoutesTest extends TestCase
     public function it_can_not_access_home_page()
     {
         $response = $this->call('GET', '/home');
-        $this->assertEquals(304, $response->status());
+        $this->assertEquals(302, $response->status());
     }
 
     /**
@@ -102,19 +102,19 @@ class PublicRoutesTest extends TestCase
     public function it_can_not_access_project_page()
     {
         $response = $this->call('GET', '/project');
-        $this->assertEquals(304, $response->status());
+        $this->assertEquals(302, $response->status());
     }
 
     /**
-     * 公開ルートとしてアクセスできる
-     * リダイレクトされる
+     * 公開ルートとしてアクセスでき
+     * 404ページを見せる
      *
      * @test
      */
     public function it_can_not_access_settings_page()
     {
         $response = $this->call('GET', '/settings');
-        $this->assertEquals(304, $response->status());
+        $this->assertEquals(404, $response->status());
     }
 
     /**
@@ -126,7 +126,7 @@ class PublicRoutesTest extends TestCase
     public function it_can_not_access_admin_page()
     {
         $response = $this->call('GET', '/admin');
-        $this->assertEquals(304, $response->status());
+        $this->assertEquals(302, $response->status());
     }
 
     /**
