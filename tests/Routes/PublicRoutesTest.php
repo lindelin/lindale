@@ -1,13 +1,8 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class PublicRoutesTest extends TestCase
 {
-    use DatabaseMigrations;
-
     /**
      * 公開ルートとしてアクセスできる.
      *

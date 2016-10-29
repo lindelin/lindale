@@ -6,8 +6,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class WikiTypeTableTest extends TestCase
 {
-    use DatabaseMigrations;
-
     /**
      * Wiki索引テーブルにデフォルトデータがある.
      *

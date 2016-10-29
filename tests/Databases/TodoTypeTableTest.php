@@ -6,8 +6,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TodoTypeTableTest extends TestCase
 {
-    use DatabaseMigrations;
-
     /**
      * To-doタイプテーブルにデフォルトデータがある.
      *

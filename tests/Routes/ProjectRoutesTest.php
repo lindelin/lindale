@@ -1,13 +1,8 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProjectRoutesTest extends TestCase
 {
-    use DatabaseMigrations;
-
     /**
      * ユーザモデル.
      *
@@ -18,14 +13,14 @@ class ProjectRoutesTest extends TestCase
     /**
      * プロジェクトモデル（非参与）.
      *
-     * @var App\Project\Project
+     * @var App\User
      */
     private $project1;
 
     /**
      * プロジェクトモデル（参与）.
      *
-     * @var App\Project\Project
+     * @var App\User
      */
     private $project2;
 
@@ -174,7 +169,7 @@ class ProjectRoutesTest extends TestCase
     {
         $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project2->id.'/todo');
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['selected', 'project', 'todos', 'lists', 'statuses', 'pl', 'sl', 'pms']);
+        $this->assertViewHasAll(['selected', 'project', 'todos', 'todoCount', 'lists', 'statuses', 'pl', 'sl', 'pms']);
     }
 
     /**

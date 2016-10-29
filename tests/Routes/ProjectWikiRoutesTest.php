@@ -6,8 +6,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProjectWikiRoutesTest extends TestCase
 {
-    use DatabaseMigrations;
-
     /**
      * ユーザモデル.
      *
@@ -90,10 +88,10 @@ class ProjectWikiRoutesTest extends TestCase
      *
      * @test
      */
-    public function it_can_access_the_my_project_wiki_index_create_page()
+    public function it_can_access_the_my_project_first_wiki_page()
     {
         $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project->id.'/wiki-index/create');
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['selected', 'project', 'wikis', 'HomeWiki', 'types', 'DefaultType', 'add_wiki_index']);
+        $this->assertViewHasAll(['selected', 'project', 'wikis', 'HomeWiki', 'types', 'DefaultType']);
     }
 }

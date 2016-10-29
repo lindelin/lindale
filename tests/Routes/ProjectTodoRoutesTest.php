@@ -6,8 +6,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProjectTodoRoutesTest extends TestCase
 {
-    use DatabaseMigrations;
-
     /**
      * ユーザモデル.
      *
@@ -56,7 +54,7 @@ class ProjectTodoRoutesTest extends TestCase
     {
         $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project->id.'/todo');
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['selected', 'project', 'todos', 'lists', 'statuses', 'pl', 'sl', 'pms']);
+        $this->assertViewHasAll(['selected', 'project', 'todos', 'todoCount', 'lists', 'statuses', 'pl', 'sl', 'pms']);
     }
 
     /**
@@ -68,7 +66,7 @@ class ProjectTodoRoutesTest extends TestCase
     {
         $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project->id.'/todo/status/1');
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['selected', 'project', 'todos', 'lists', 'statuses', 'pl', 'sl', 'pms']);
+        $this->assertViewHasAll(['selected', 'project', 'todos', 'todoCount', 'lists', 'statuses', 'pl', 'sl', 'pms']);
     }
 
     /**
@@ -80,7 +78,7 @@ class ProjectTodoRoutesTest extends TestCase
     {
         $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project->id.'/todo/status/2');
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['selected', 'project', 'todos', 'lists', 'statuses', 'pl', 'sl', 'pms']);
+        $this->assertViewHasAll(['selected', 'project', 'todos', 'todoCount', 'lists', 'statuses', 'pl', 'sl', 'pms']);
     }
 
     /**
@@ -92,7 +90,7 @@ class ProjectTodoRoutesTest extends TestCase
     {
         $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project->id.'/todo/status/3');
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['selected', 'project', 'todos', 'lists', 'statuses', 'pl', 'sl', 'pms']);
+        $this->assertViewHasAll(['selected', 'project', 'todos', 'todoCount', 'lists', 'statuses', 'pl', 'sl', 'pms']);
     }
 
     /**
@@ -104,6 +102,6 @@ class ProjectTodoRoutesTest extends TestCase
     {
         $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project->id.'/todo/list/show/'.$this->list->id);
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['selected', 'project', 'todos', 'lists', 'statuses', 'pl', 'sl', 'pms']);
+        $this->assertViewHasAll(['selected', 'project', 'todos', 'todoCount', 'lists', 'statuses', 'pl', 'sl', 'pms']);
     }
 }

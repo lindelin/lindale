@@ -6,8 +6,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProjectTypeTableTest extends TestCase
 {
-    use DatabaseMigrations;
-
     /**
      * Projectタイプテーブルにデフォルトデータがある.
      *

@@ -6,8 +6,6 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserTableTest extends TestCase
 {
-    use DatabaseMigrations;
-
     /**
      * ユーザテーブルにスーパー管理人のレコードがある.
      *
