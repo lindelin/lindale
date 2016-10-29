@@ -28,12 +28,10 @@ class TodoRepository
 
         if ($type === Definer::PUBLIC_TODO) {
             $todos = $todos->where('type_id', $type);
-            $todoCount = $todos->count();
         }
 
         if ($type === Definer::PRIVATE_TODO) {
             $todos = $todos->where('type_id', $type)->orderBy('status_id', 'desc')->oldest()->paginate(10);
-            $todoCount = $todos->count();
         }
 
         if ($list != null) {
@@ -49,7 +47,7 @@ class TodoRepository
         $lists = $project->TodoLists()->get();
         $statuses = TodoStatus::where('user_id', Definer::SUPER_ADMIN_ID)->get();
 
-        return compact('todos', 'todoCount', 'lists', 'statuses');
+        return compact('todos', 'lists', 'statuses');
     }
 
     /**
