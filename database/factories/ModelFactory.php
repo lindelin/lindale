@@ -36,7 +36,7 @@ $factory->define(App\Todo\Todo::class, function (Faker\Generator $faker) {
         'content' => $faker->name,
         'type_id' => 1,
         'status_id' => 1,
-        'color_id' =>1,
+        'color_id' => 1,
     ];
 });
 
