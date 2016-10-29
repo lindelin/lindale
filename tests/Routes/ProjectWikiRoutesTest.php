@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProjectWikiRoutesTest extends TestCase
 {
@@ -21,7 +18,7 @@ class ProjectWikiRoutesTest extends TestCase
     private $project;
 
     /**
-     * Wikiモデル
+     * Wikiモデル.
      *
      * @var App\Wiki\Wiki
      */

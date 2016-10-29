@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProjectTodoRoutesTest extends TestCase
 {
@@ -21,7 +18,7 @@ class ProjectTodoRoutesTest extends TestCase
     private $project;
 
     /**
-     * プロジェクトリストモデル
+     * プロジェクトリストモデル.
      *
      * @var App\Todo\TodoList
      */
@@ -46,7 +43,7 @@ class ProjectTodoRoutesTest extends TestCase
     }
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */
@@ -58,7 +55,7 @@ class ProjectTodoRoutesTest extends TestCase
     }
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */
@@ -70,7 +67,7 @@ class ProjectTodoRoutesTest extends TestCase
     }
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */
@@ -82,7 +79,7 @@ class ProjectTodoRoutesTest extends TestCase
     }
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */
@@ -94,7 +91,7 @@ class ProjectTodoRoutesTest extends TestCase
     }
 
     /**
-     * プライベートルートとしてアクセスできる
+     * プライベートルートとしてアクセスできる.
      *
      * @test
      */
