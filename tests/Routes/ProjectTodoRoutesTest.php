@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProjectTodoRoutesTest extends TestCase
 {
+    use DatabaseMigrations;
+
     /**
      * ユーザモデル.
      *

@@ -1,8 +1,13 @@
 <?php
 
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class AdminRoutesTest extends TestCase
 {
+    use DatabaseMigrations;
+
     /**
      * ユーザモデル.
      *
