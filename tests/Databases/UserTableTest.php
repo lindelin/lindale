@@ -17,7 +17,6 @@ class UserTableTest extends TestCase
             'id' => 1,
             'name'   => 'Admin',
             'email'    => 'admin@lindale.tk',
-            'password' => bcrypt('123456'),
         ]);
     }
 }
