@@ -16,7 +16,7 @@ class AdminRoutesTest extends TestCase
      * @before
      * @return void
      */
-    public function createUser()
+    public function createTestData()
     {
         $this->user = \App\User::find(1);
     }

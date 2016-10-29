@@ -30,7 +30,7 @@ class ProjectRoutesTest extends TestCase
      * @before
      * @return void
      */
-    public function createUser()
+    public function createTestData()
     {
         $this->user = factory(App\User::class)->create();
         $this->project1 = factory(App\Project\Project::class)->create();

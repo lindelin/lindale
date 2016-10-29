@@ -24,7 +24,7 @@ class AdminPolicyTest extends TestCase
      * @before
      * @return void
      */
-    public function createUser()
+    public function createTestData()
     {
         $this->admin = \App\User::find(1);
         $this->user = factory(App\User::class)->create();

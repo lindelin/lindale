@@ -31,6 +31,15 @@ $factory->define(App\Project\Project::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Todo\Todo::class, function (Faker\Generator $faker) {
+    return [
+        'content' => $faker->name,
+        'type_id' => 1,
+        'status_id' => 1,
+        'color_id' =>1,
+    ];
+});
+
 $factory->define(App\Todo\TodoList::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->name,

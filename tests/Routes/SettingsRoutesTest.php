@@ -16,7 +16,7 @@ class SettingsRoutesTest extends TestCase
      * @before
      * @return void
      */
-    public function createUser()
+    public function createTestData()
     {
         $this->user = factory(App\User::class)->create();
     }
