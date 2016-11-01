@@ -27,5 +27,7 @@ return [
     'status'                => 'ステータス',
     'edit-project'          => 'プロジェクト編集',
     'edit-title'            => 'プロジェクトを編集します, よろしいですか？',
+    'none-project'          => '参加しているプロジェクトがありません。',
+    'create-project'        => '新規プロジェクト作成',
 
 ];
