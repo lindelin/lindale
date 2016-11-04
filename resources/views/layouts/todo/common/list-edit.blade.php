@@ -36,7 +36,7 @@
                                             <td>{{ $list->id }}</td>
                                             <td>{{ $list->title }}</td>
                                             <td>
-                                                <form action="{{ url("project/$project->id/todo/list/delete/$list->id") }}" method="post" role="form">
+                                                <form action="{{ url("$list_edit_delete_url/$list->id") }}" method="post" role="form">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
                                                     <button type="submit" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-trash"></span></button>

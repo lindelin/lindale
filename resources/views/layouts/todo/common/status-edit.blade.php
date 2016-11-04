@@ -15,7 +15,7 @@
                 </button>
                 <h4 class="modal-title" id="myModalLabel" align="left" style="color: #000000">{{ trans('todo.status') }}</h4>
             </div>
-            <form action="{{ url("project/$project->id/todo/todo/$todo->id") }}" method="POST" style="display: inline;">
+            <form action="{{ $status_edit_url }}" method="POST" style="display: inline;">
                 {{ method_field('PATCH') }}
                 {{ csrf_field() }}
 

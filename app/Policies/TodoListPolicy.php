@@ -21,12 +21,48 @@ class TodoListPolicy
      */
     public function delete(User $user, TodoList $list, Project $project)
     {
-        if ((int) $user->id === (int) $list->user_id) {
+        if ($this->UserPolicy($user, $list)) {
             return true;
-        } elseif ((int) $project->id === (int) $list->project_id) {
+        } elseif ($this->ProjectPolicy($list, $project)) {
             return true;
         } else {
             return false;
         }
+    }
+
+    /**
+     * 用户更新To-do List的授权策略.
+     *
+     * @param User $user
+     * @param TodoList $list
+     * @return bool
+     */
+    public function user(User $user, TodoList $list)
+    {
+        return $this->UserPolicy($user, $list);
+    }
+
+    /**
+     * 用户授权策略.
+     *
+     * @param User $user
+     * @param TodoList $list
+     * @return bool
+     */
+    private function UserPolicy(User $user, TodoList $list)
+    {
+        return (int) $user->id === (int) $list->user_id;
+    }
+
+    /**
+     * 项目授权策略.
+     *
+     * @param TodoList $list
+     * @param Project $project
+     * @return bool
+     */
+    private function ProjectPolicy(TodoList $list, Project $project)
+    {
+        return (int) $project->id === (int) $list->project_id;
     }
 }

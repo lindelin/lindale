@@ -29,7 +29,7 @@
                         <div class="panel-heading" role="tab" id="heading{{ $todo->id }}">
                             <div class="row">
                                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                                    @include('layouts.todo.status-edit')
+                                    @include('layouts.todo.common.status-edit', ['status_edit_url' => url("project/$project->id/todo/todo/$todo->id")])
                                 </div>
                                 <div class="col-xs-8 col-sm-9 col-md-9 col-lg-10">
                                     <h4 class="panel-title">
@@ -109,7 +109,7 @@
                             {{ trans('todo.todo-list') }}
                     	</div>
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="right">
-                            @include('layouts.todo.list-edit')
+                            @include('layouts.todo.common.list-edit', ['list_edit_delete_url' => "project/$project->id/todo/list/delete"])
                         </div>
                     </div>
                 </div>
@@ -139,7 +139,10 @@
                 </ul>
             </div>
 
-            @include('layouts.todo.add-list')
+            @include('layouts.todo.common.add-list', [
+            'add_list_create_url' => url("project/$project->id/todo/list/create"),
+            'add_list_store_url'  => url("project/$project->id/todo/list"),
+            ])
 
         </div>
     </div>

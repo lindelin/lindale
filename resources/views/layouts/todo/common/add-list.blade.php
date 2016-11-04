@@ -5,7 +5,7 @@
                 <!-- Default panel contents -->
                 <div class="panel-heading" style="{{ Colorable::lindale() }}">{{ trans('todo.add-todo-list') }}</div>
                 <div class="panel-body">
-                    <form action="{{ url("project/$project->id/todo/list") }}" method="POST" role="form">
+                    <form action="{{ $add_list_store_url }}" method="POST" role="form">
                         {{ csrf_field() }}
 
                         {{-- 添加索引 --}}
@@ -33,7 +33,7 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="list-group">
-            <a href="{{ url("project/$project->id/todo/list/create") }}" class="list-group-item">
+            <a href="{{ $add_list_create_url }}" class="list-group-item">
                 <span class="glyphicon glyphicon-plus"></span> {{ trans('todo.add-todo-list') }}
             </a>
         </div>

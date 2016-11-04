@@ -84,6 +84,40 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
 
 /*
 |--------------------------------------------------------------------------
+| To-do Routes
+|--------------------------------------------------------------------------
+|
+| To-doルート
+|
+| To-do路由
+|
+*/
+
+Route::group(['middleware' => 'auth', 'namespace' => 'Todo', 'prefix' => 'todo'], function () {
+    Route::get('/', 'TodoController@index');
+    Route::get('status/{status?}', 'TodoController@index');
+    Route::patch('todo/{todo}', 'TodoController@update');
+    Route::group(['prefix' => 'type/{type}'], function () {
+        Route::get('/', 'TodoController@index');
+        Route::get('status/{status?}', 'TodoController@index');
+
+        Route::group(['middleware' => 'ProjectAuth'], function () {
+            Route::get('project/{project}', 'TodoController@index');
+        });
+        
+        //待办列表路由
+        Route::group(['prefix' => 'list'], function () {
+            Route::post('/', 'TodoListController@store');
+            Route::get('create', 'TodoListController@create');
+            Route::delete('delete/{list}', 'TodoListController@destroy');
+            Route::get('show/{list}', 'TodoController@index');
+        });
+    });
+
+});
+
+/*
+|--------------------------------------------------------------------------
 | Settings Routes
 |--------------------------------------------------------------------------
 |

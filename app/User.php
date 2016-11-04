@@ -75,4 +75,15 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Todo\Todo', 'user_id', 'id');
     }
+
+    /**
+     * 一个用户有多个To-do列表
+     * 一对多.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function TodoLists()
+    {
+        return $this->hasMany('App\Todo\TodoList', 'user_id', 'id');
+    }
 }

@@ -102,7 +102,7 @@ class TodoController extends Controller
     {
         $this->authorize('update', [$todo, $project]);
 
-        $result = $this->todoRepository->UpdateTodo($request, $project, $todo)->update();
+        $result = $this->todoRepository->UpdateTodo($request, $todo)->update();
 
         if ($result) {
             event(new TodoUpdated($todo));
