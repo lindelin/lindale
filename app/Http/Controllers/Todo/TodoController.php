@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Todo;
 
 use App\Project\Project;
+use App\Repositories\ProjectRepository;
 use App\Repositories\TodoRepository;
 use App\Todo\TodoList;
 use Illuminate\Http\Request;
@@ -22,15 +23,24 @@ class TodoController extends Controller
     protected $todoRepository;
 
     /**
+     * 项目资源库
+     *
+     * @var
+     */
+    protected $projectRepository;
+
+    /**
      * 构造器
      * 通过DI注入资源库
      *
      * TodoController constructor.
      * @param TodoRepository $todoRepository
+     * @param ProjectRepository $projectRepository
      */
-    public function __construct(TodoRepository $todoRepository)
+    public function __construct(TodoRepository $todoRepository, ProjectRepository $projectRepository)
     {
         $this->todoRepository = $todoRepository;
+        $this->projectRepository = $projectRepository;
     }
 
 
@@ -73,7 +83,9 @@ class TodoController extends Controller
             $prefix = 'todo';
         }
 
-        return view('todo.index', $this->todoRepository->TodoResources($project, $type, $list, $status, Definer::TODO_PAGE_SIZE, $request->user()))
+        return view('todo.index')
+            ->with($this->todoRepository->TodoResources($project, $type, $list, $status, Definer::TODO_PAGE_SIZE, $request->user()))
+            ->with($this->projectRepository->UserProjects($request->user()))
             ->with(['prefix' => $prefix, 'type' => $type]);
     }
 
@@ -91,11 +103,33 @@ class TodoController extends Controller
         $result = $this->todoRepository->UpdateTodo($request, $todo)->update();
 
         if ($result) {
+
             event(new TodoUpdated($todo));
 
             return redirect()->back()->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
+        }
+    }
+
+    /**
+     * 创建To-do.
+     *
+     * @param TodoRequest $request
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
+    public function store(TodoRequest $request)
+    {
+        $todo = $this->todoRepository->CreateTodo($request);
+        $result = $todo->save();
+
+        if ($result) {
+
+            event(new TodoUpdated($todo));
+
+            return redirect()->back()->with('status', trans('errors.save-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.save-failed'));
         }
     }
 }

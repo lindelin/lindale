@@ -32,10 +32,10 @@
                 <ul class="list-group">
                     <a href="{{ url("/$prefix") }}" class="list-group-item">
                         <span class="badge">
-                            @if($type != null)
-                                {{ Auth::user()->Todos()->where('type_id', $type)->where('status_id', Definer::FINISH_STATUS_ID)->count() }}/{{ Auth::user()->Todos()->where('type_id', $type)->count() }}
+                            @if($type !== null)
+                                @include('layouts.common.progress.todo.user-todo-type-progress')
                             @else
-                                {{ Auth::user()->Todos()->where('status_id', Definer::FINISH_STATUS_ID)->count() }}/{{ Auth::user()->Todos()->count() }}
+                                @include('layouts.common.progress.todo.user-todo-progress')
                             @endif
                         </span>
                         {{ trans('todo.all-todos') }}
@@ -43,10 +43,10 @@
                     @foreach($statuses as $status)
                         <a href="{{ url("$prefix/status/$status->id") }}" class="list-group-item">
                             <span class="badge">
-                                @if($type != null)
-                                    {{ Auth::user()->Todos()->where('type_id', $type)->where('status_id', $status->id)->count() }}
+                                @if($type !== null)
+                                    @include('layouts.common.progress.todo.user-todo-type-status-progress')
                                 @else
-                                    {{ Auth::user()->Todos()->where('status_id', $status->id)->count() }}
+                                    @include('layouts.common.progress.todo.user-todo-status-progress')
                                 @endif
                             </span>
                             {{ trans($status->name) }}
@@ -55,7 +55,7 @@
                     @if($lists->count() > 0)
                         @foreach($lists as $list)
                             <a href="{{ url("$prefix/list/show/$list->id") }}" class="list-group-item">
-                                <span class="badge">
+                                <span class="badge">{{-- TODO: 集計 --}}
                                     {{ $list->Todos()->where('status_id', Definer::FINISH_STATUS_ID)->count() }}/{{ $list->Todos()->count() }}
                                 </span>
                                 {{ $list->title }}
@@ -66,7 +66,7 @@
                         @foreach($projects as $project)
                             <a href="{{ url("$prefix/project/$project->id") }}" class="list-group-item">
                                 <span class="badge">
-                                    {{ $project->Todos()->where('user_id', Auth::user()->id)->where('status_id', Definer::FINISH_STATUS_ID)->count() }}/{{ $project->Todos()->where('user_id', Auth::user()->id)->count() }}
+                                    @include('layouts.common.progress.todo.user-project-todo-progress')
                                 </span>
                                 {{ $project->title }}
                             </a>
@@ -117,6 +117,7 @@
                                             <th><span class="glyphicon glyphicon-user"></span> {{ trans('todo.user') }}</th>
                                             <th><span class="glyphicon glyphicon-tag"></span> {{ trans('todo.type') }}</th>
                                             <th><span class="glyphicon glyphicon-dashboard"></span> {{ trans('todo.status') }}</th>
+                                            <th><span class="glyphicon glyphicon-briefcase"></span> {{ trans('header.project') }}</th>
                                             <th><span class="glyphicon glyphicon-list-alt"></span> {{ trans('todo.todo-list') }}</th>
                                             <th><i class="fa fa-refresh fa-spin fa-fw"></i> {{trans('todo.updated')}}</th>
                                             <th><span class="glyphicon glyphicon-time"></span> {{trans('todo.created')}}</th>
@@ -132,6 +133,9 @@
                                             </td>
                                             <td>
                                                 {!! Colorable::label($todo->Status->color_id, trans($todo->Status->name)) !!}
+                                            </td>
+                                            <td>
+                                                @if($todo->Project()->count() > 0){{ $todo->Project->title }}@else{{ trans('project.none') }}@endif
                                             </td>
                                             <td>
                                                 @if($todo->TodoList != null){{ $todo->TodoList->title }}@else{{ trans('project.none') }}@endif

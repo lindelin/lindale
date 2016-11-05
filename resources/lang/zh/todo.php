@@ -29,6 +29,7 @@ return [
     'status-now'    => '当前状态',
     'none-list'     => '还没有创建列表',
     'delete'        => '删除',
+    'can-not-add'   => '不能创建公开TODO',
 
 
 ];

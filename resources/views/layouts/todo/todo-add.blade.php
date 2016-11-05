@@ -15,88 +15,172 @@
                         </button>
                         <h4 class="modal-title" id="myModalLabel" align="left">{{ trans('todo.add-title') }}</h4>
                     </div>
-                    <form action="{{ url("/todo") }}" method="POST" style="display: inline;">
-                        {{ csrf_field() }}
-                        <div class="modal-body" align="left">
+                    <div class="modal-body" align="left">
 
-                            {{-- To-do内容 --}}
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
-                                        <label class="control-label">
-                                            {{ trans('todo.content') }}
-                                        </label>
-                                        <div>
-                                            <input type="text" class="form-control" name="content" value="{{ old('content') }}">
-                                            @include('layouts.common.error-one', ['field' => 'content'])
+                    <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#public-todo" role="tab" data-toggle="tab">{{ trans('type.public') }}</a></li>
+                            <li role="presentation"><a href="#private-todo" role="tab" data-toggle="tab">{{ trans('type.private') }}</a></li>
+                        </ul>
+                        <br>
+                        <!-- Tab panes -->
+                        {{-- 公开To-do FORM --}}
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="public-todo">
+                                @if($MProjects->count() > 0 or $JProjects->count() > 0)
+                                    <form action="{{ url("/todo") }}" method="POST" style="display: inline;">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="type_id" value="{{ Definer::PUBLIC_TODO }}" />
+                                        {{-- To-do内容 --}}
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
+                                                    <label class="control-label">
+                                                        {{ trans('todo.content') }}
+                                                    </label>
+                                                    <div>
+                                                        <input type="text" class="form-control" name="content" value="{{ old('content') }}">
+                                                        @include('layouts.common.error-one', ['field' => 'content'])
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- 颜色 --}}
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <div class="form-group{{ $errors->has('color_id') ? ' has-error' : '' }}">
-                                        <label class="control-label">
-                                            {{ trans('todo.color') }}
-                                        </label>
-                                        <div>
-                                            <select class="selectpicker form-control" name="color_id">
-                                                @foreach( Definer::todoColor() as $id => $color)
-                                                    <option value="{{ $id }}" @if(old('color_id') === $id) selected @endif>{{ $color }}</option>
-                                                @endforeach
-                                            </select>
-                                            @include('layouts.common.error-one', ['field' => 'color_id'])
+                                        {{-- 颜色 --}}
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="form-group{{ $errors->has('color_id') ? ' has-error' : '' }}">
+                                                    <label class="control-label">
+                                                        {{ trans('todo.color') }}
+                                                    </label>
+                                                    <div>
+                                                        <select class="selectpicker form-control" name="color_id">
+                                                            @foreach( Definer::todoColor() as $id => $color)
+                                                                <option value="{{ $id }}" @if(old('color_id') === $id) selected @endif>{{ $color }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @include('layouts.common.error-one', ['field' => 'color_id'])
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+                                        {{-- 所属项目 --}}
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="form-group{{ $errors->has('project_id') ? ' has-error' : '' }}">
+                                                    <label class="control-label">
+                                                        {{ trans('header.project') }}
+                                                    </label>
+                                                    <div>
+                                                        <select class="selectpicker form-control" data-live-search="true" name="project_id">
+                                                            @if($MProjects->count() > 0)
+                                                                @foreach($MProjects as $project)
+                                                                    <option value="{{ $project->id }}" @if(old('project_id') === $project->id) selected @endif>
+                                                                        {{ $project->title }}
+                                                                    </option>
+                                                                @endforeach
+                                                            @endif
+                                                            @if($JProjects->count() > 0)
+                                                                @foreach($JProjects as $project)
+                                                                    <option value="{{ $project->id }}" @if(old('project_id') === $project->id) selected @endif>
+                                                                        {{ $project->title }}
+                                                                    </option>
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                        @include('layouts.common.error-one', ['field' => 'project_id'])
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div align="center">
+                                            <button type="submit" class="btn btn-success">
+                                                <span class="glyphicon glyphicon-plus"></span> {{ trans('todo.add') }}
+                                            </button>
+                                        </div>
+                                    </form>
+                                @else
+                                    <div class="row">
+                                    	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
+                                    		<h2>{{ trans('todo.can-not-add') }}</h2>
+                                            <h2><small>{{ trans('project.none-project') }}</small></h2>
+                                    	</div>
                                     </div>
-                                </div>
+                                @endif
                             </div>
-                            {{--@if($lists->count() > 0)
-                                --}}{{-- List --}}{{--
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <div class="form-group{{ $errors->has('list_id') ? ' has-error' : '' }}">
-                                            <label class="control-label">
-                                                {{ trans('List') }}
-                                            </label>
-                                            <div>
-                                                <select class="selectpicker form-control" data-live-search="true" name="list_id">
-                                                    <option value="">{{ trans('project.none') }}</option>
-                                                    @foreach($lists as $list)
-                                                        <option value="{{ $list->id }}">{{ $list->title }}</option>
-                                                    @endforeach
-                                                </select>
-                                                @include('layouts.common.error-one', ['field' => 'list_id'])
+                            {{-- 私密To-do FORM --}}
+                            <div role="tabpanel" class="tab-pane" id="private-todo">
+                                <form action="{{ url("/todo") }}" method="POST" style="display: inline;">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="type_id" value="{{ Definer::PRIVATE_TODO }}" />
+                                    {{-- To-do内容 --}}
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
+                                                <label class="control-label">
+                                                    {{ trans('todo.content') }}
+                                                </label>
+                                                <div>
+                                                    <input type="text" class="form-control" name="content" value="{{ old('content') }}">
+                                                    @include('layouts.common.error-one', ['field' => 'content'])
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endif--}}
-
+                                    {{-- 颜色 --}}
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="form-group{{ $errors->has('color_id') ? ' has-error' : '' }}">
+                                                <label class="control-label">
+                                                    {{ trans('todo.color') }}
+                                                </label>
+                                                <div>
+                                                    <select class="selectpicker form-control" name="color_id">
+                                                        @foreach( Definer::todoColor() as $id => $color)
+                                                            <option value="{{ $id }}" @if(old('color_id') === $id) selected @endif>{{ $color }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    @include('layouts.common.error-one', ['field' => 'color_id'])
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if($lists->count() > 0)
+                                        {{-- List --}}
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="form-group{{ $errors->has('list_id') ? ' has-error' : '' }}">
+                                                    <label class="control-label">
+                                                        {{ trans('List') }}
+                                                    </label>
+                                                    <div>
+                                                        <select class="selectpicker form-control" data-live-search="true" name="list_id">
+                                                            <option value="">{{ trans('project.none') }}</option>
+                                                            @foreach($lists as $list)
+                                                                <option value="{{ $list->id }}">{{ $list->title }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @include('layouts.common.error-one', ['field' => 'list_id'])
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    <div align="center">
+                                        <button type="submit" class="btn btn-success">
+                                            <span class="glyphicon glyphicon-plus"></span> {{ trans('todo.add') }}
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">
-                                <span class="glyphicon glyphicon-remove"></span> {{ trans('todo.cancel') }}
-                            </button>
-                            <button type="submit" class="btn btn-success">
-                                <span class="glyphicon glyphicon-plus"></span> {{ trans('todo.add') }}
-                            </button>
-                        </div>
-                    </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-block" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-remove"></span> {{ trans('todo.cancel') }}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-{{--<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="right">
-        <a href="{{ url("project/$project->id/member/create") }}" class="btn btn-link my-tooltip" title="{{ trans('wiki.submit') }}">
-            <h4 class="text-success"><span class="glyphicon glyphicon-plus"></span></h4>
-        </a>
-        <a href="{{ url("project/$project->id/member/create") }}" class="btn btn-link my-tooltip" title="{{ trans('wiki.submit') }}">
-            <h4 class="text-success"><span class="glyphicon glyphicon-list"></span></h4>
-        </a>
-
-    </div>
-</div>--}}

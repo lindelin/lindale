@@ -9,6 +9,7 @@ use App\Project\Project;
 use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Todo\TodoStatus;
+use App\Todo\TodoType;
 use App\User;
 
 class TodoRepository
@@ -56,8 +57,6 @@ class TodoRepository
             $todos = $todos->where('status_id', $status);
         }
 
-        $todos = $todos->orderBy('status_id', 'desc')->oldest()->paginate($size);
-
         if($project != null){
             $lists = $project->TodoLists()->where('type_id', $type)->get();
         }
@@ -68,25 +67,37 @@ class TodoRepository
 
         if($user != null and (int)$type === Definer::PUBLIC_TODO){
             $projects = $this->UserTodoProjects($user);
+            if($project != null){
+                $todos = $todos->where('project_id', $project->id);
+            }
         }
+
+        $todos = $todos->orderBy('status_id', 'desc')->oldest()->paginate($size);
 
         $statuses = TodoStatus::where('user_id', Definer::SUPER_ADMIN_ID)->get();
 
         return compact('todos', 'lists', 'statuses', 'projects');
     }
 
+    public function AllTodoTypes()
+    {
+        $types = TodoType::all();
+
+        return compact('types');
+    }
+
     /**
      * 创建To-do方法.
      *
      * @param TodoRequest $request
-     * @param Project $project
+     * @param Project|null $project
      * @return Todo
      */
-    public function CreateTodo(TodoRequest $request, Project $project)
+    public function CreateTodo(TodoRequest $request, Project $project = null)
     {
         $todo = new Todo();
 
-        $input = $request->only(['content', 'user_id', 'color_id', 'list_id']);
+        $input = $request->only(['content', 'user_id', 'color_id', 'list_id', 'type_id', 'project_id']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {
@@ -95,9 +106,14 @@ class TodoRepository
             $todo->$key = $value;
         }
 
-        $todo->type_id = Definer::PUBLIC_TODO;
+        if($project !== null){
+            $todo->type_id = Definer::PUBLIC_TODO;
+            $todo->project_id = $project->id;
+        }else{
+            $todo->user_id = $request->user()->id;
+        }
+
         $todo->status_id = Definer::DEFAULT_STATUS_ID;
-        $todo->project_id = $project->id;
 
         return $todo;
     }
@@ -137,12 +153,12 @@ class TodoRepository
 
         $todoList->title = $request->get('type_name');
 
-        if($project != null){
+        if($project !== null){
             $todoList->project_id = $project->id;
             $todoList->type_id = Definer::PUBLIC_TODO;
         }
 
-        if($user != null){
+        if($user !== null){
             $todoList->user_id = $user->id;
             $todoList->type_id = Definer::PRIVATE_TODO;
         }

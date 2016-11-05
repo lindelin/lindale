@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Definer;
 use App\Http\Requests\TypeRequest;
 use App\Todo\TodoList;
+use App\Repositories\ProjectRepository;
 
 class TodoListController extends Controller
 {
@@ -19,15 +20,24 @@ class TodoListController extends Controller
     protected $todoRepository;
 
     /**
+     * 项目资源库
+     *
+     * @var
+     */
+    protected $projectRepository;
+
+    /**
      * 构造器
      * 通过DI注入资源库
      *
      * TodoController constructor.
      * @param TodoRepository $todoRepository
+     * @param ProjectRepository $projectRepository
      */
-    public function __construct(TodoRepository $todoRepository)
+    public function __construct(TodoRepository $todoRepository, ProjectRepository $projectRepository)
     {
         $this->todoRepository = $todoRepository;
+        $this->projectRepository = $projectRepository;
     }
 
     /**
@@ -50,7 +60,9 @@ class TodoListController extends Controller
             $prefix = 'todo';
         }
 
-        return view('todo.index', $this->todoRepository->TodoResources(null, $type, null, null, Definer::TODO_PAGE_SIZE, $request->user()))
+        return view('todo.index')
+            ->with($this->todoRepository->TodoResources(null, $type, null, null, Definer::TODO_PAGE_SIZE, $request->user()))
+            ->with($this->projectRepository->UserProjects($request->user()))
             ->with(['selected' => 'todo', 'add_todo_list' => 'on'])
             ->with(['prefix' => $prefix, 'type' => $type]);
     }
@@ -87,7 +99,7 @@ class TodoListController extends Controller
         $this->authorize('user', [$list]);
 
         if ($list->delete()) {
-            return redirect()->back()->with('status', trans('errors.delete-succeed'));
+            return redirect()->to('/todo/type/'.Definer::PRIVATE_TODO)->with('status', trans('errors.delete-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.delete-failed'));
         }

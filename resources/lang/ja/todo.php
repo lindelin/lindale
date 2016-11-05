@@ -29,6 +29,7 @@ return [
     'status-now'    => 'ステータス',
     'none-list'     => 'リストがありません。',
     'delete'        => '削除',
+    'can-not-add'   => '公開TODO作成できません',
 
 
 ];

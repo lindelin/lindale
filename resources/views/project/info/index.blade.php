@@ -112,7 +112,7 @@
                                     12
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    3
+                                    @include('layouts.common.progress.project-todo-progress')
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
                                     6

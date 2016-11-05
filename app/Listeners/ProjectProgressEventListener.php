@@ -33,8 +33,11 @@ class ProjectProgressEventListener
      */
     public function onTodoUpdated($event)
     {
-        $project = Project::findOrFail($event->todo->project_id);
-        $this->ProjectProgressUpdate($project);
+        $project = Project::find($event->todo->project_id);
+
+        if($project != null and (int)$event->todo->type_id !== Definer::PRIVATE_TODO){
+            $this->ProjectProgressUpdate($project);
+        }
     }
 
     /**
@@ -45,7 +48,11 @@ class ProjectProgressEventListener
     private function ProjectProgressUpdate(Project $project)
     {
         if ($project->Todos()->count() > 0) {
-            $progress = (int) ($project->Todos()->where('status_id', Definer::FINISH_STATUS_ID)->count() / $project->Todos()->count() * 100);
+            $progress = (int) ($project->Todos()
+                    ->where('type_id', Definer::PUBLIC_TODO)
+                    ->where('status_id', Definer::FINISH_STATUS_ID)->count() / $project->Todos()
+                    ->where('type_id', Definer::PUBLIC_TODO)
+                    ->count() * 100);
             $this->projectRepository->UpdateProjectProgress($progress, $project);
         } else {
             $progress = 0;

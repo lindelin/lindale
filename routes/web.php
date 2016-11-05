@@ -95,6 +95,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Todo', 'prefix' => 'todo'], function () {
     Route::get('/', 'TodoController@index');
+    Route::post('/', 'TodoController@store');
     Route::get('status/{status?}', 'TodoController@index');
     Route::patch('todo/{todo}', 'TodoController@update');
     Route::group(['prefix' => 'type/{type}'], function () {

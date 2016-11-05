@@ -99,7 +99,7 @@
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                         <p>
                                             <span class="glyphicon glyphicon-check"></span>
-                                            {{ $project->todos()->where('status_id', Definer::FINISH_STATUS_ID)->count() }}/{{ $project->todos()->count() }}
+                                            @include('layouts.common.progress.project-todo-progress')
                                         </p>
                                     </div>
                                 </div>

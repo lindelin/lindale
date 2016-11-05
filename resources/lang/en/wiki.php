@@ -9,7 +9,7 @@ return [
     */
 
     'first-wiki'   => 'Create the first Wiki',
-    'none-wiki'    => 'Wikis provide a place in your repository to lay out the roadmap of your project, show the current status, and document software better, together.',
+    'none-wiki'    => 'Wikis provide a place in your project to lay out the roadmap of your project, show the current status, and document software better, together.',
     'title'        => 'Title',
     'content'      => 'Content',
     'type'         => 'Tags',

@@ -29,6 +29,7 @@ return [
     'status-now'    => 'Status',
     'none-list'     => 'The list does not have.',
     'delete'        => 'Delete',
+    'can-not-add'   => 'You can\'t create public TODO.',
 
 
 ];

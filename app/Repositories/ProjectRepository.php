@@ -35,7 +35,7 @@ class ProjectRepository
     }
 
     /**
-     * 获取用户的项目.
+     * 获取用户的项目资源.
      *
      * @param User $user
      * @return array
@@ -43,10 +43,24 @@ class ProjectRepository
     public function UserProjectResources(User $user)
     {
         $myProjects = Project::where('user_id', $user->id)->orWhere('sl_id', $user->id)->latest()->simplePaginate(6, ['*'], 'mPage');
-        $userProjects = $user->Projects()->latest()->simplePaginate(10, ['*'], 'uPage');
+        $userProjects = $user->Projects()->latest()->simplePaginate(6, ['*'], 'uPage');
         $userProjectCount = $this->UserProjectCount($user);
 
         return compact('myProjects', 'userProjectCount', 'userProjects');
+    }
+
+    /**
+     * 获取用户项目.
+     *
+     * @param User $user
+     * @return array
+     */
+    public function UserProjects(User $user)
+    {
+        $MProjects = Project::where('user_id', $user->id)->orWhere('sl_id', $user->id)->get();
+        $JProjects = $user->Projects()->get();
+
+        return compact('MProjects', 'JProjects');
     }
 
     /**

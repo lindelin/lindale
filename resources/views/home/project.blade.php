@@ -55,7 +55,7 @@
                                               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                   <strong>
                                                       <span class="glyphicon glyphicon-tasks"></span> 0/0&nbsp;&nbsp;&nbsp;
-                                                      <span class="glyphicon glyphicon-check"></span> {{ $project->Todos()->where('status_id', Definer::FINISH_STATUS_ID)->count() }}/{{ $project->Todos()->count() }}&nbsp;&nbsp;&nbsp;
+                                                      <span class="glyphicon glyphicon-check"></span> @include('layouts.common.progress.project-todo-progress')&nbsp;&nbsp;&nbsp;
                                                       <span class="glyphicon glyphicon-calendar"></span> 0/0&nbsp;&nbsp;&nbsp;
                                                       <span class="glyphicon glyphicon-dashboard"></span> {{ $project->progress }}%&nbsp;&nbsp;&nbsp;
                                                   </strong>
@@ -106,7 +106,7 @@
                                               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                   <strong>
                                                       <span class="glyphicon glyphicon-tasks"></span> 0/0&nbsp;&nbsp;&nbsp;
-                                                      <span class="glyphicon glyphicon-check"></span> {{ $project->Todos()->where('status_id', Definer::FINISH_STATUS_ID)->count() }}/{{ $project->Todos()->count() }}&nbsp;&nbsp;&nbsp;
+                                                      <span class="glyphicon glyphicon-check"></span> @include('layouts.common.progress.project-todo-progress')&nbsp;&nbsp;&nbsp;
                                                       <span class="glyphicon glyphicon-calendar"></span> 0/0&nbsp;&nbsp;&nbsp;
                                                       <span class="glyphicon glyphicon-dashboard"></span> {{ $project->progress }}%&nbsp;&nbsp;&nbsp;
                                                   </strong>
