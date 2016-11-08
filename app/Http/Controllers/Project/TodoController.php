@@ -11,6 +11,7 @@ use App\Todo\TodoList;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TodoRequest;
 use App\Events\TodoUpdated;
+use App\Todo\TodoType;
 
 class TodoController extends Controller
 {
@@ -48,7 +49,9 @@ class TodoController extends Controller
      */
     public function index(Project $project, $status = null)
     {
-        return view('project.todo.index', $this->todoRepository->TodoResources($project, Definer::PUBLIC_TODO, null, $status))
+        $type = TodoType::find(Definer::PUBLIC_TODO);
+
+        return view('project.todo.index', $this->todoRepository->TodoResources($project, $type, null, $status))
             ->with($this->memberRepository->AllMember($project))
             ->with(['project' => $project, 'selected' => 'todo']);
     }
@@ -84,8 +87,9 @@ class TodoController extends Controller
     public function show(Project $project, $list)
     {
         $list = TodoList::findOrFail($list);
+        $type = TodoType::find(Definer::PUBLIC_TODO);
 
-        return view('project.todo.index', $this->todoRepository->TodoResources($project, Definer::PUBLIC_TODO, $list))
+        return view('project.todo.index', $this->todoRepository->TodoResources($project, $type, $list))
             ->with($this->memberRepository->AllMember($project))
             ->with(['project' => $project, 'selected' => 'todo']);
     }

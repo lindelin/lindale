@@ -231,6 +231,8 @@ return [
         'Markdown' => App\Repositories\MarkdownRepository::class,
         'Admin' => App\Policies\AdminPolicy::class,
         'Definer' => \App\Definer::class,
+        'Calculator' => \App\Calculator::class,
+        'Counter' => \App\Counter::class,
 
     ],
 

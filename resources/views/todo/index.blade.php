@@ -13,72 +13,109 @@
     <div class="row">
         {{-- 框架 --}}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="panel @if((int)$type === 1) panel-success @elseif((int)$type === 2) panel-warning @else panel-primary @endif">
-                <!-- Default panel contents -->
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                            {{ trans('todo.todo-list') }}
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="right">
-                            @if((int)$type === Definer::PRIVATE_TODO)
-                                @include('layouts.todo.common.list-edit', ['list_edit_delete_url' => 'todo/type/'.Definer::PRIVATE_TODO.'/list/delete'])
+
+            <div class="row">
+            	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="page-header">
+                        <h3><span class="glyphicon glyphicon-check"></span> TODO</h3>
+                        <h4>
+                            @if($type != null)
+                                @if((int)$type->id === Definer::PUBLIC_TODO)
+                                    <span class="label label-success">{{ trans('type.public') }}</span>
+                                @elseif((int)$type->id === Definer::PRIVATE_TODO)
+                                    <span class="label label-warning">{{ trans('type.private') }}</span>
+                                @endif
+                            @else
+                                <span class="label label-primary">{{ trans('todo.all-todos') }}</span>
                             @endif
+                        </h4>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+                             style="width: @if($type != null){{ Calculator::UserTodoTypeProgressCompute(Auth::user(), $type) }}@else{{ Calculator::UserTodoProgressCompute(Auth::user()) }}@endif%;">
+                            <span>
+                                @if($type != null)
+                                    {{ Calculator::UserTodoTypeProgressCompute(Auth::user(), $type) }}%
+                                @else
+                                    {{ Calculator::UserTodoProgressCompute(Auth::user()) }}%
+                                @endif
+                            </span>
                         </div>
                     </div>
-                </div>
+            	</div>
+            </div>
+            <div class="row">
+            	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="panel @if($type != null) @if((int)$type->id === Definer::PUBLIC_TODO) panel-success @elseif((int)$type->id === Definer::PRIVATE_TODO) panel-warning @endif @else panel-primary @endif">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    {{ trans('todo.todo-list') }}
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="right">
+                                    @if($type != null)
+                                        @if((int)$type->id === Definer::PRIVATE_TODO)
+                                            @include('layouts.todo.common.list-edit', ['list_edit_delete_url' => 'todo/type/'.Definer::PRIVATE_TODO.'/list/delete'])
+                                        @endif
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
 
-                <!-- List group -->
-                <ul class="list-group">
-                    <a href="{{ url("/$prefix") }}" class="list-group-item">
+                        <!-- List group -->
+                        <ul class="list-group">
+                            <a href="{{ url("/$prefix") }}" class="list-group-item">
                         <span class="badge">
-                            @if($type !== null)
+                            @if($type != null)
                                 @include('layouts.common.progress.todo.user-todo-type-progress')
                             @else
                                 @include('layouts.common.progress.todo.user-todo-progress')
                             @endif
                         </span>
-                        {{ trans('todo.all-todos') }}
-                    </a>
-                    @foreach($statuses as $status)
-                        <a href="{{ url("$prefix/status/$status->id") }}" class="list-group-item">
+                                {{ trans('todo.all-todos') }}
+                            </a>
+                            @foreach($statuses as $status)
+                                <a href="{{ url("$prefix/status/$status->id") }}" class="list-group-item">
                             <span class="badge">
-                                @if($type !== null)
+                                @if($type != null)
                                     @include('layouts.common.progress.todo.user-todo-type-status-progress')
                                 @else
                                     @include('layouts.common.progress.todo.user-todo-status-progress')
                                 @endif
                             </span>
-                            {{ trans($status->name) }}
-                        </a>
-                    @endforeach
-                    @if($lists->count() > 0)
-                        @foreach($lists as $list)
-                            <a href="{{ url("$prefix/list/show/$list->id") }}" class="list-group-item">
+                                    {{ trans($status->name) }}
+                                </a>
+                            @endforeach
+                            @if($lists->count() > 0)
+                                @foreach($lists as $list)
+                                    <a href="{{ url("$prefix/list/show/$list->id") }}" class="list-group-item">
                                 <span class="badge">{{-- TODO: 集計 --}}
                                     {{ $list->Todos()->where('status_id', Definer::FINISH_STATUS_ID)->count() }}/{{ $list->Todos()->count() }}
                                 </span>
-                                {{ $list->title }}
-                            </a>
-                        @endforeach
-                    @endif
-                    @if(isset($projects) != null)
-                        @foreach($projects as $project)
-                            <a href="{{ url("$prefix/project/$project->id") }}" class="list-group-item">
+                                        {{ $list->title }}
+                                    </a>
+                                @endforeach
+                            @endif
+                            @if(isset($projects) != null)
+                                @foreach($projects as $project)
+                                    <a href="{{ url("$prefix/project/$project->id") }}" class="list-group-item">
                                 <span class="badge">
                                     @include('layouts.common.progress.todo.user-project-todo-progress')
                                 </span>
-                                {{ $project->title }}
-                            </a>
-                        @endforeach
-                    @endif
-                </ul>
-            </div>
+                                        {{ $project->title }}
+                                    </a>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
 
-            @include('layouts.todo.common.add-list', [
-            'add_list_create_url' => url('todo/type/'.Definer::PRIVATE_TODO.'/list/create'),
-            'add_list_store_url'  => url('todo/type/'.Definer::PRIVATE_TODO.'/list'),
-            ])
+                    @include('layouts.todo.common.add-list', [
+                    'add_list_create_url' => url('todo/type/'.Definer::PRIVATE_TODO.'/list/create'),
+                    'add_list_store_url'  => url('todo/type/'.Definer::PRIVATE_TODO.'/list'),
+                    ])
+            	</div>
+            </div>
 
         </div>
 

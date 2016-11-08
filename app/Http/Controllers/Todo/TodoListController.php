@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Todo;
 
 use App\Repositories\TodoRepository;
+use App\Todo\TodoType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Definer;
@@ -50,12 +51,13 @@ class TodoListController extends Controller
     {
         if($request->route('type')){
             $type = $request->route('type');
+            $type = TodoType::findOrFail($type);
         }else{
             $type = null;
         }
 
         if($type != null){
-            $prefix = "todo/type/$type";
+            $prefix = "todo/type/$type->id";
         }else{
             $prefix = 'todo';
         }

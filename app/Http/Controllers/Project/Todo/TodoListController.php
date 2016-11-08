@@ -9,6 +9,7 @@ use App\Repositories\TodoRepository;
 use App\Http\Controllers\Controller;
 use App\Repositories\MemberRepository;
 use App\Definer;
+use App\Todo\TodoType;
 
 class TodoListController extends Controller
 {
@@ -45,7 +46,8 @@ class TodoListController extends Controller
      */
     public function create(Project $project)
     {
-        return view('project.todo.index', $this->todoRepository->TodoResources($project, Definer::PUBLIC_TODO))
+        $type = TodoType::findOrFail(Definer::PUBLIC_TODO);
+        return view('project.todo.index', $this->todoRepository->TodoResources($project, $type))
             ->with($this->memberRepository->AllMember($project))
             ->with(['project' => $project, 'selected' => 'todo', 'add_todo_list' => 'on']);
     }

@@ -25,7 +25,7 @@ class TodoRepository
      * @param User|null $user
      * @return array
      */
-    public function TodoResources(Project $project = null, $type = null, TodoList $list = null, $status = null, $size = Definer::TODO_PAGE_SIZE, User $user = null)
+    public function TodoResources(Project $project = null, TodoType $type = null, TodoList $list = null, $status = null, $size = Definer::TODO_PAGE_SIZE, User $user = null)
     {
         $todos = null;
 
@@ -41,12 +41,14 @@ class TodoRepository
             $todos = $user->Todos();
         }
 
-        if ((int)$type === Definer::PUBLIC_TODO) {
-            $todos = $todos->where('type_id', $type);
-        }
+        if($type != null){
+            if ((int)$type->id === Definer::PUBLIC_TODO) {
+                $todos = $todos->where('type_id', $type->id);
+            }
 
-        if ((int)$type === Definer::PRIVATE_TODO) {
-            $todos = $todos->where('type_id', $type);
+            if ((int)$type->id === Definer::PRIVATE_TODO) {
+                $todos = $todos->where('type_id', $type->id);
+            }
         }
 
         if ($list != null) {
@@ -58,17 +60,19 @@ class TodoRepository
         }
 
         if($project != null){
-            $lists = $project->TodoLists()->where('type_id', $type)->get();
+            $lists = $project->TodoLists()->where('type_id', Definer::PUBLIC_TODO)->get();
         }
 
         if($user != null){
-            $lists = $user->TodoLists()->where('type_id', $type)->get();
+            $lists = $user->TodoLists()->where('type_id', Definer::PRIVATE_TODO)->get();
         }
 
-        if($user != null and (int)$type === Definer::PUBLIC_TODO){
-            $projects = $this->UserTodoProjects($user);
-            if($project != null){
-                $todos = $todos->where('project_id', $project->id);
+        if($user != null and $type != null){
+            if((int)$type->id === Definer::PUBLIC_TODO){
+                $projects = $this->UserTodoProjects($user);
+                if($project != null){
+                    $todos = $todos->where('project_id', $project->id);
+                }
             }
         }
 
