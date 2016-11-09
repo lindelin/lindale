@@ -1,9 +1,5 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="right">
-        <a href="{{ url('project/'.$project->id.'/edit') }}" class="btn btn-link my-tooltip" title="{{ trans('project.edit-project') }}">
-            <h4 class="text-info"><span class="glyphicon glyphicon-edit"></span></h4>
-        </a>
-
         <!-- 模态窗按钮 -->
         <button type="button" class="btn btn-link my-tooltip" title="{{ trans('project.delete') }}" data-toggle="modal" data-target="#projectDelete">
             <h4 class="text-danger"><span class="glyphicon glyphicon-trash"></span></h4>

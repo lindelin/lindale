@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Events\ProjectDeleted;
 use App\Http\Requests\ProjectRequest;
 use App\Project\ProjectStatus;
 use App\User;
@@ -151,15 +152,7 @@ class ProjectRepository
      */
     public function DeleteProject(Project $project)
     {
-        //TODO: 删除项目相关内容
-        //删除项目目录
-        if ($project->image != '') {
-            Storage::deleteDirectory('public/projects/'.$project->id);
-        }
-        //删除项目WIKI
-        Wiki::where('project_id', $project->id)->delete();
-        //删除项目WIKI索引
-        WikiType::where('project_id', $project->id)->delete();
+        event(new ProjectDeleted($project));
     }
 
     /**

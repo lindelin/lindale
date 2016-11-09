@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\ProjectCreated' => [
             'App\Listeners\MakeProjectDirectory',
         ],
+        'App\Events\ProjectDeleted' => [
+            'App\Listeners\DeleteProjectInfo',
+        ],
     ];
 
     protected $subscribe = [
