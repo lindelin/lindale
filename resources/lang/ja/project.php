@@ -29,5 +29,7 @@ return [
     'edit-title'            => 'プロジェクトを編集します, よろしいですか？',
     'none-project'          => '参加しているプロジェクトがありません。',
     'create-project'        => '新規プロジェクト作成',
+    'projects-manage'       => '管理しているプロジェクト',
+    'projects-join'         => '参与しているプロジェクト',
 
 ];

@@ -29,6 +29,8 @@ return [
     'edit-title'            => 'This project and the related content will be modified, sure?',
     'none-project'          => 'You don\'t have any projects yet.',
     'create-project'        => 'Create a project',
+    'projects-manage'       => 'Projects you manage',
+    'projects-join'         => 'Projects you join',
 
 
 ];

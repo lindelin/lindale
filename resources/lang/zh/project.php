@@ -29,6 +29,8 @@ return [
     'edit-title'            => '此项目以及相关内容将被修改, 确定吗?',
     'none-project'          => '您还没有参与或创建项目。',
     'create-project'        => '创建新项目',
+    'projects-manage'       => '我管理的项目',
+    'projects-join'         => '我参与的项目',
 
 
 ];

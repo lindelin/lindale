@@ -21,7 +21,7 @@
           @if($myProjects->count() > 0)
               <div class="row">
                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                      <h3><small> Management of the projects</small></h3>
+                      <h3><small> {{ trans('project.projects-manage') }}</small></h3>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="right">
                       <h3>
@@ -72,7 +72,7 @@
           @if($userProjects->count() > 0)
               <div class="row">
                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                      <h3><small> Participated Projects</small></h3>
+                      <h3><small> {{ trans('project.projects-join') }}</small></h3>
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="right">
                       <h3>
