@@ -69,6 +69,7 @@ class TodoController extends Controller
         $result = $todo->save();
 
         if ($result) {
+
             event(new TodoUpdated($todo));
 
             return redirect()->back()->with('status', trans('errors.save-succeed'));
@@ -109,6 +110,7 @@ class TodoController extends Controller
         $result = $this->todoRepository->UpdateTodo($request, $todo)->update();
 
         if ($result) {
+
             event(new TodoUpdated($todo));
 
             return redirect()->back()->with('status', trans('errors.update-succeed'));
@@ -129,6 +131,7 @@ class TodoController extends Controller
         $this->authorize('delete', [$todo, $project]);
 
         if ($todo->delete()) {
+
             event(new TodoUpdated($todo));
 
             return redirect()->back()->with('status', trans('errors.delete-succeed'));
