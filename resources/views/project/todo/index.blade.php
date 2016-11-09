@@ -41,7 +41,10 @@
                                     </h4>
                                 </div>
                                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                                    @include('layouts.todo.edit')
+                                    @include('layouts.todo.common.public-edit', [
+                                    'public_todo_edit_url' => url("project/$project->id/todo/todo/$todo->id"),
+                                    'todo_delete_url' => url("project/$project->id/todo/todo/$todo->id"),
+                                    ])
                                 </div>
                             </div>
                         </div>

@@ -134,4 +134,24 @@ class TodoController extends Controller
             return redirect()->back()->withErrors(trans('errors.save-failed'));
         }
     }
+
+    /**
+     * 删除To-do.
+     *
+     * @param Todo $todo
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Todo $todo)
+    {
+        $this->authorize('user', [$todo]);
+
+        if ($todo->delete()) {
+
+            event(new TodoUpdated($todo));
+
+            return redirect()->back()->with('status', trans('errors.delete-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.delete-failed'));
+        }
+    }
 }

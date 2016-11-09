@@ -98,6 +98,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Todo', 'prefix' => 'todo']
     Route::post('/', 'TodoController@store');
     Route::get('status/{status?}', 'TodoController@index');
     Route::patch('todo/{todo}', 'TodoController@update');
+    Route::delete('todo/{todo}', 'TodoController@destroy');
     Route::group(['prefix' => 'type/{type}'], function () {
         Route::get('/', 'TodoController@index');
         Route::get('status/{status?}', 'TodoController@index');
