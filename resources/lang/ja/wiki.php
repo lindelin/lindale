@@ -27,6 +27,8 @@ return [
     'writer'       => '作成者',
     'created'      => '作成日時',
     'updated'      => '更新日時',
+    'delete-index' => '索引削除',
+    'edit-index'   => '索引編集',
 
 
 ];

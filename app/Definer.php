@@ -23,12 +23,16 @@ class Definer
     const PRIVATE_TODO = 2;
 
     /**
-     * 状态ID.
+     * To-do 状态ID.
      */
     const DEFAULT_STATUS_ID = 1;
     const FINISH_STATUS_ID = 2;
     const UNDERWAY_STATUS_ID = 3;
 
+    /**
+     * To-do默认一页表示个数.
+     */
+    const TODO_PAGE_SIZE = 10;
 
     /**
      * 颜色设定.
@@ -41,10 +45,10 @@ class Definer
     const DANGER_COLOR_ID = 6;
 
     /**
-     * To-do默认一页表示个数.
+     * WIKI Type.
      */
-    const TODO_PAGE_SIZE = 10;
-
+    const DEFAULT_WIKI_TYPE = 1;
+    const DEFAULT_WIKI = 0;
 
 
     /******************************************************************************************************************/

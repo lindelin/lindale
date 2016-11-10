@@ -51,6 +51,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         Route::group(['namespace' => 'Wiki'], function () {
             Route::get('wiki-index/create', 'WikiTypeController@create');
             Route::post('wiki-index', 'WikiTypeController@store');
+            Route::patch('wiki-index/{wikiType}', 'WikiTypeController@update');
+            Route::delete('wiki-index/{wikiType}', 'WikiTypeController@destroy');
         });
 
         //成员路由

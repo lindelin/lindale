@@ -10,12 +10,10 @@
             <!-- List group -->
             <ul class="list-group">
                 @foreach( $wikis as $wiki)
-                    @if( $wiki->type_id === 0 or $wiki->type_id === 1)
-                        <a class="list-group-item" href="{{ url("project/$project->id/wiki/$wiki->id") }}">
-                            {{ $wiki->title }}
-                            @if($wiki->type_id === 0) ({{ trans('wiki.default') }}) @endif
-                        </a>
-                    @endif
+                    <a class="list-group-item" href="{{ url("project/$project->id/wiki/$wiki->id") }}">
+                        {{ $wiki->title }}
+                        @if($wiki->type_id === 0) ({{ trans('wiki.default') }}) @endif
+                    </a>
                 @endforeach
             </ul>
 
@@ -27,20 +25,26 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="panel panel-default">
                 <!-- Default panel contents -->
-                <div class="panel-heading" style="{{ Colorable::lindale() }}">{{ $type->name }}</div>
+                <div class="panel-heading" style="{{ Colorable::lindale() }}">
+                    <div class="row">
+                        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                            {{ $type->name }}
+                        </div>
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            @include('layouts.wiki.wiki-type.edit')
+                        </div>
+                    </div>
+                </div>
                 <div class="panel-body">
-                    <p>{{ trans('wiki.index') }}</p>
+                    {{ trans('wiki.index') }}
                 </div>
 
                 <!-- List group -->
                 <ul class="list-group">
-                    @foreach( $wikis as $wiki)
-                        @if( $wiki->type_id === $type->id)
-                            <a class="list-group-item" href="{{ url("project/$project->id/wiki/$wiki->id") }}">
-                                {{ $wiki->title }}
-                                @if($wiki->type_id === 0) ({{ trans('wiki.default') }}) @endif
-                            </a>
-                        @endif
+                    @foreach( $type->Wikis as $wiki)
+                        <a class="list-group-item" href="{{ url("project/$project->id/wiki/$wiki->id") }}">
+                            {{ $wiki->title }}
+                        </a>
                     @endforeach
                 </ul>
 

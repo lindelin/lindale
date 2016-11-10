@@ -6,6 +6,8 @@ use App\Http\Requests\TypeRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\WikiRepository;
 use App\Project\Project;
+use App\Wiki\WikiType;
+use Illuminate\Http\Request;
 
 class WikiTypeController extends Controller
 {
@@ -52,9 +54,45 @@ class WikiTypeController extends Controller
         $result = $this->wikiRepository->CreateWikiType($request, $project)->save();
 
         if ($result) {
-            return redirect()->to("project/$project->id/wiki")->with('status', trans('errors.save-succeed'));
+            return redirect()->back()->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-failed'));
+        }
+    }
+
+    /**
+     * 更新WIKI表单.
+     *
+     * @param Request $request
+     * @param WikiType $wikiType
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, Project $project, WikiType $wikiType)
+    {
+        $result = $this->wikiRepository->UpdateWikiType($request, $wikiType)->update();
+
+        if ($result) {
+            return redirect()->back()->with('status', trans('errors.update-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.update-failed'));
+        }
+    }
+
+    /**
+     * 删除WIKI表单.
+     *
+     * @param Project $project
+     * @param WikiType $wikiType
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Project $project, WikiType $wikiType)
+    {
+        $wikiType->Wikis()->delete();
+
+        if ($wikiType->delete()) {
+            return redirect()->to("/project/$project->id/wiki")->with('status', trans('errors.update-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.update-failed'));
         }
     }
 }

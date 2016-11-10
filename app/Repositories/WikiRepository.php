@@ -2,11 +2,13 @@
 
 namespace App\Repositories;
 
+use App\Definer;
 use App\Http\Requests\TypeRequest;
 use App\Http\Requests\WikiRequest;
 use App\Project\Project;
 use App\Wiki\Wiki;
 use App\Wiki\WikiType;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class WikiRepository
@@ -35,10 +37,10 @@ class WikiRepository
      */
     public function WikiResources(Project $project)
     {
-        $HomeWiki = $project->Wikis()->oldest()->first();
-        $wikis = $project->Wikis()->get();
+        $HomeWiki = $project->Wikis()->where('type_id', Definer::DEFAULT_WIKI)->first();
+        $wikis = $project->Wikis()->where('type_id', Definer::DEFAULT_WIKI)->orWhere('type_id', Definer::DEFAULT_WIKI_TYPE)->get();
         $types = $project->WikiTypes()->get();
-        $DefaultType = WikiType::findOrFail(1);
+        $DefaultType = WikiType::findOrFail(Definer::DEFAULT_WIKI_TYPE);
 
         return compact('wikis', 'HomeWiki', 'types', 'DefaultType');
     }
@@ -116,6 +118,22 @@ class WikiRepository
 
         $wikiType->name = $request->get('type_name');
         $wikiType->project_id = $project->id;
+
+        return $wikiType;
+    }
+
+    /**
+     * 更新WIKI索引方法.
+     *
+     * @param Request $request
+     * @param WikiType $wikiType
+     * @return WikiType
+     */
+    public function UpdateWikiType(Request $request, WikiType $wikiType)
+    {
+        if($request->get('type_name') != ''){
+            $wikiType->name = $request->get('type_name');
+        }
 
         return $wikiType;
     }

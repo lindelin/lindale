@@ -27,6 +27,8 @@ return [
     'writer'       => '撰稿',
     'created'      => '创建时间',
     'updated'      => '更新时间',
+    'delete-index' => '删除这项索引',
+    'edit-index'   => '修改这项索引',
 
 
 ];

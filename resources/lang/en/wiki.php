@@ -27,6 +27,8 @@ return [
     'writer'       => 'Writer',
     'created'      => 'Created',
     'updated'      => 'Updated',
+    'delete-index' => 'Delete Index',
+    'edit-index'   => 'Edit Index',
 
 
 ];
