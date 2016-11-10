@@ -12,5 +12,5 @@
     'bbs_url' => '#',
     'concept_url' => '#',
     'wiki_url' => url("project/$project->id/wiki"),
-    'config_url' => '#'
+    'config_url' => url("project/$project->id/config"),
 ]])

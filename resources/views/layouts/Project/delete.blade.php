@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="right">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <!-- 模态窗按钮 -->
-        <button type="button" class="btn btn-link my-tooltip" title="{{ trans('project.delete') }}" data-toggle="modal" data-target="#projectDelete">
-            <h4 class="text-danger"><span class="glyphicon glyphicon-trash"></span></h4>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#projectDelete">
+            {{ trans('project.delete') }}
         </button>
 
         <!-- 模态窗 -->

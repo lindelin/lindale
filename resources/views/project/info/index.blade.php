@@ -15,7 +15,6 @@
             <div class="row">
                 <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
                     <h2><span class="glyphicon glyphicon-info-sign"></span> {{ trans('header.info') }}</h2>
-                    @include('layouts.Project.delete-edit')
                 </div>
             </div>
             <hr>

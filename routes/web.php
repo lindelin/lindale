@@ -79,6 +79,9 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
 
         //概要路由
         Route::get('info', 'InfoController@index');
+
+        //设定路由
+        Route::get('config', 'ConfigController@index');
     });
 });
 

@@ -107,7 +107,7 @@ class ProjectController extends Controller
         $result = $this->projectRepository->UpdateProject($request, $project)->update();
 
         if ($result) {
-            return redirect()->to('/project/'.$project->id)->with('status', trans('errors.update-succeed'));
+            return redirect()->back()->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
         }
