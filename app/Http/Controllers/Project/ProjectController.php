@@ -7,6 +7,7 @@ use App\Project\Project;
 use App\Repositories\ProjectRepository;
 use App\Http\Requests\ProjectRequest;
 use App\Http\Controllers\Controller;
+use App\Events\ProjectDeleted;
 
 class ProjectController extends Controller
 {
@@ -123,9 +124,11 @@ class ProjectController extends Controller
     {
         $this->authorize('delete', [$project, $request]);
 
-        $this->projectRepository->DeleteProject($project);
-
         if ($project->delete()) {
+
+            //删除项目相关内容
+            event(new ProjectDeleted($project));
+
             return redirect()->to('/project')->with('status', trans('errors.delete-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.delete-failed'));

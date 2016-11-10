@@ -146,16 +146,6 @@ class ProjectRepository
     }
 
     /**
-     * 删除项目相关内容.
-     *
-     * @param Project $project
-     */
-    public function DeleteProject(Project $project)
-    {
-        event(new ProjectDeleted($project));
-    }
-
-    /**
      * 获取用户项目的数量.
      *
      * @param User $user
