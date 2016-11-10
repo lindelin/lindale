@@ -27,7 +27,7 @@
         	<div class="col-xs-12 col-sm-6 col-md-8 col-lg-9">
                 <div class="row">
                     <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                        <h2>{{ $HomeWiki->title }}
+                        <h2><span class="glyphicon glyphicon-book"></span> {{ $HomeWiki->title }}
                             <br>
                             <small>
                                 {{ trans('wiki.writer') }}: {{ $HomeWiki->User->name }}　
