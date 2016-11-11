@@ -26,7 +26,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group{{ $errors->has('type_name') ? ' has-error' : '' }}">
                                 <label class="control-label">
-                                    {{ trans('wiki.type') }}
+                                    {{ trans('wiki.index') }}
                                 </label>
                                 <div>
                                     <input type="text" class="form-control" name="type_name" value="{{ $type->name }}">
