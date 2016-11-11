@@ -117,7 +117,7 @@ class TodoRepository
             $todo->user_id = $request->user()->id;
         }
 
-        $todo->status_id = Definer::DEFAULT_STATUS_ID;
+        $todo->status_id = Definer::UNDERWAY_STATUS_ID;
 
         return $todo;
     }
