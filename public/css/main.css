@@ -27,15 +27,12 @@ body{
 	height: 170px;
 	overflow: scroll;
 }
+
 .member-card-footer{
 	height: 40px;
 }
 
-.home-project-panel{
-	height: 115px;
-}
-
 .home-project-card{
 	overflow: scroll;
-	height: 110px;
+	height: 130px;
 }

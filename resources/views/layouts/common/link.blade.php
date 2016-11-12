@@ -27,6 +27,7 @@
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 {{-- local css --}}
 <link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('/css/callouts.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('/css/bootstrap-off-canvas-nav.css') }}" rel="stylesheet" type="text/css">
 {{-- local js --}}
 <script src="{{ asset('js/main.js') }}"></script>

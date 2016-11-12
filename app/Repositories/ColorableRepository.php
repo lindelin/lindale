@@ -299,4 +299,21 @@ class ColorableRepository
 
         return '<span class="label '.$label[$id].'">'.$text.'</span>';
     }
+
+    /**
+     * 随机CallOut颜色属性.
+     *
+     * @return mixed
+     */
+    public static function randomCallOutColor()
+    {
+        return Collection::make([
+            'bs-callout-default',
+            'bs-callout-primary',
+            'bs-callout-success',
+            'bs-callout-info',
+            'bs-callout-warning',
+            'bs-callout-danger',
+        ])->random();
+    }
 }

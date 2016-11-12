@@ -1,5 +1,4 @@
-<h2>{{ $project->title }} <small>@include('layouts.common.number.project')</small></h2>
-<br>
+<h3>{{ $project->title }} <small>@include('layouts.common.number.project')</small></h3>
 @include('layouts.Project.project-nav')
 <br>
 @include('layouts.common.errors-all')
