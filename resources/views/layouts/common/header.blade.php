@@ -106,6 +106,14 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{ url('/schedule') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('header.schedule') }}">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </a>
+                        <a href="{{ url('/schedule') }}" class="visible-xs-block">
+                            <span class="glyphicon glyphicon-calendar"></span> {{ trans('header.schedule') }}
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{ url('/time-sheet') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('header.time-sheet') }}">
                             <span class="glyphicon glyphicon-time"></span>
                         </a>
@@ -119,14 +127,6 @@
                         </a>
                         <a href="{{ url('/message') }}" class="visible-xs-block">
                             <span class="glyphicon glyphicon-envelope"></span> {{ trans('header.message') }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('/schedule') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('header.schedule') }}">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </a>
-                        <a href="{{ url('/schedule') }}" class="visible-xs-block">
-                            <span class="glyphicon glyphicon-calendar"></span> {{ trans('header.schedule') }}
                         </a>
                     </li>
                     <li>
