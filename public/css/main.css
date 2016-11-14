@@ -33,6 +33,6 @@ body{
 }
 
 .home-project-card{
-	overflow-y: visible;
+	overflow-y: hidden;
 	height: 130px;
 }
