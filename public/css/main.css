@@ -33,6 +33,6 @@ body{
 }
 
 .home-project-card{
-	overflow-y: hidden;
+	overflow: -moz-scrollbars-vertical;
 	height: 130px;
 }
