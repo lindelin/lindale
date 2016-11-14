@@ -5,7 +5,7 @@
     <title>@yield('title')</title>
     @yield('head')
 </head>
-<body>
+<body scroll="no">
 
     @include('layouts.common.header')
 
