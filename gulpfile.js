@@ -13,15 +13,13 @@ require('laravel-elixir-vue');
  |
  */
 
-elixir(mix => {
+elixir(function(mix) {
     mix.sass('app.scss')
        .webpack('app.js');
-});
-
-elixir(function(mix) {
     mix.styles([
         'main.css',
         'callouts.css',
         'bootstrap-off-canvas-nav.css'
     ], 'public/css/main.css');
 });
+

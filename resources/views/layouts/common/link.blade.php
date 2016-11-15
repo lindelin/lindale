@@ -29,7 +29,7 @@
 <link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
 {{-- local js --}}
-<script src="{{ asset('js/app.js') }}"></script>
+
 <!-- Scripts -->
 <script>
     //時間
