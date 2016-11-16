@@ -135,8 +135,20 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Todo', 'prefix' => 'todo']
 */
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Settings', 'prefix' => 'settings'], function () {
-    Route::get('profile', 'ProfileController@index');
-    Route::patch('profile/{user}', 'ProfileController@update');
+    //个人资料路由
+    Route::group(['prefix' => 'profile'], function () {
+        Route::get('/', 'ProfileController@index');
+        Route::patch('{user}', 'ProfileController@update');
+    });
+
+    //OAuth已授权应用路由
+    Route::get('/oauth/authorized', 'OAuthController@authorized');
+
+    //面向开发者设定路由
+    Route::group(['prefix' => 'developer'], function () {
+        Route::get('/oauth/application', 'DeveloperController@application');
+        Route::get('/oauth/personal', 'DeveloperController@personal');
+    });
 });
 
 /*

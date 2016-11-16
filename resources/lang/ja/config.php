@@ -11,5 +11,9 @@ return [
     'project-config' => 'プロジェクト設定',
     'basic' => '基本設定',
     'delete-project-info' => 'プロジェクトを削除します。削除すると、元に戻れないので、気をつけてください。',
+    'developer-config' => '開発者向けの設定',
+    'oauth-app' => 'OAuthアプリケーション',
+    'oauth-personal' => 'アクセストークン',
+    'authorized-clients' => '接続済みのアプリ',
 
 ];

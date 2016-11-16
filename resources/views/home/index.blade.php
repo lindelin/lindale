@@ -13,6 +13,7 @@
       </div>
       {{-- 框架 --}}
       <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 hidden-xs">
+
           <div class="row">
           	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 @include('layouts.home.nav')
@@ -38,9 +39,7 @@
 
           	</div>
           </div>
-          <passport-clients></passport-clients>
-          <passport-authorized-clients></passport-authorized-clients>
-          <passport-personal-access-tokens></passport-personal-access-tokens>
+
       </div>
 
       {{-- 手机对应视图 --}}
