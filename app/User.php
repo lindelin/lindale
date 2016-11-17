@@ -91,12 +91,14 @@ class User extends Authenticatable
 
     /**
      * Send the password reset notification.
+     * 重写
      *
      * @param  string  $token
      * @return void
      */
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new ResetPasswordNotification($token));
+        $locale = session('lang');
+        $this->notify(new ResetPasswordNotification($token, $locale));
     }
 }

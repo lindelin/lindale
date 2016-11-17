@@ -19,14 +19,23 @@ class ResetPasswordNotification extends Notification implements ShouldQueue
     public $token;
 
     /**
+     * 语言信息.
+     *
+     * @var
+     */
+    public $locale;
+
+    /**
      * Create a notification instance.
      *
-     * @param  string  $token
-     * @return void
+     * ResetPasswordNotification constructor.
+     * @param $token
+     * @param $locale
      */
-    public function __construct($token)
+    public function __construct($token, $locale)
     {
         $this->token = $token;
+        $this->locale = $locale;
     }
 
     /**
@@ -48,6 +57,7 @@ class ResetPasswordNotification extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
+        \App::setLocale($this->locale);
         return (new MailMessage)
             ->subject(trans('email.re-pass-title'))
             ->line(trans('email.re-password-info'))
