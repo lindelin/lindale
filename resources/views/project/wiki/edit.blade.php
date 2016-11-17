@@ -13,7 +13,7 @@
         <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h2>{{ trans('wiki.edit-title') }}</h2>
+                    <h3>{{ trans('wiki.edit-title') }}</h3>
                 </div>
             </div>
             <hr>

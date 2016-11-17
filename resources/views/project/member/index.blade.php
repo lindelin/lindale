@@ -15,7 +15,7 @@
 
             <div class="row">
                 <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                    <h2><span class="glyphicon glyphicon-user"></span> {{ trans('header.member') }}</h2>
+                    <h3><span class="glyphicon glyphicon-user"></span> {{ trans('header.member') }}</h3>
                 </div>
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="right">
                     @include('layouts.member.add')
