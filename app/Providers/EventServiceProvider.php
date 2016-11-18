@@ -13,11 +13,29 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\ProjectCreated' => [
-            'App\Listeners\MakeProjectDirectory',
+
+        //项目事件
+        'App\Events\Project\ProjectCreated' => [
+            'App\Listeners\Project\MakeProjectDirectory',
+            'App\Listeners\Project\Notification\ProjectHasCreatedNotify',
         ],
-        'App\Events\ProjectDeleted' => [
-            'App\Listeners\DeleteProjectInfo',
+        'App\Events\Project\ProjectUpdated' => [
+            'App\Listeners\Project\Notification\ProjectHasUpdatedNotify',
+        ],
+        'App\Events\Project\ProjectDeleted' => [
+            'App\Listeners\Project\DeleteProjectInfo',
+            'App\Listeners\Project\Notification\ProjectHasDeletedNotify',
+        ],
+
+        //To-do事件
+        'App\Events\Todo\TodoCreated' => [
+            'App\Listeners\Todo\Notification\TodoHasCreatedNotify',
+        ],
+        'App\Events\Todo\TodoUpdated' => [
+            'App\Listeners\Todo\Notification\TodoHasUpdatedNotify',
+        ],
+        'App\Events\Todo\TodoDeleted' => [
+            'App\Listeners\Todo\Notification\TodoHasDeletedNotify',
         ],
     ];
 

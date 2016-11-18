@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Todo;
 
+use App\Events\Todo\TodoCreated;
+use App\Events\Todo\TodoDeleted;
 use App\Project\Project;
 use App\Repositories\ProjectRepository;
 use App\Repositories\TodoRepository;
@@ -12,7 +14,7 @@ use App\Definer;
 use App\Http\Requests\TodoRequest;
 use App\Http\Controllers\Controller;
 use App\Todo\Todo;
-use App\Events\TodoUpdated;
+use App\Events\Todo\TodoUpdated;
 
 class TodoController extends Controller
 {
@@ -106,7 +108,7 @@ class TodoController extends Controller
 
         if ($result) {
 
-            event(new TodoUpdated($todo));
+            event(new TodoUpdated($todo, $request->user()));
 
             return redirect()->back()->with('status', trans('errors.update-succeed'));
         } else {
@@ -127,7 +129,7 @@ class TodoController extends Controller
 
         if ($result) {
 
-            event(new TodoUpdated($todo));
+            event(new TodoCreated($todo, $request->user()));
 
             return redirect()->back()->with('status', trans('errors.save-succeed'));
         } else {
@@ -141,13 +143,13 @@ class TodoController extends Controller
      * @param Todo $todo
      * @return $this|\Illuminate\Http\RedirectResponse
      */
-    public function destroy(Todo $todo)
+    public function destroy(Todo $todo, Request $request)
     {
         $this->authorize('user', [$todo]);
 
         if ($todo->delete()) {
 
-            event(new TodoUpdated($todo));
+            event(new TodoDeleted($todo, $request->user()));
 
             return redirect()->back()->with('status', trans('errors.delete-succeed'));
         } else {

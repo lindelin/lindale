@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Project;
 
 use App\Definer;
+use App\Events\Todo\TodoCreated;
+use App\Events\Todo\TodoDeleted;
+use App\Events\Todo\TodoUpdated;
 use App\Project\Project;
 use App\Repositories\MemberRepository;
 use App\Repositories\TodoRepository;
@@ -10,8 +13,8 @@ use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TodoRequest;
-use App\Events\TodoUpdated;
 use App\Todo\TodoType;
+use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
@@ -70,7 +73,7 @@ class TodoController extends Controller
 
         if ($result) {
 
-            event(new TodoUpdated($todo));
+            event(new TodoCreated($todo, $request->user()));
 
             return redirect()->back()->with('status', trans('errors.save-succeed'));
         } else {
@@ -111,7 +114,7 @@ class TodoController extends Controller
 
         if ($result) {
 
-            event(new TodoUpdated($todo));
+            event(new TodoUpdated($todo, $request->user()));
 
             return redirect()->back()->with('status', trans('errors.update-succeed'));
         } else {
@@ -126,13 +129,13 @@ class TodoController extends Controller
      * @param Todo $todo
      * @return $this|\Illuminate\Http\RedirectResponse
      */
-    public function destroy(Project $project, Todo $todo)
+    public function destroy(Project $project, Todo $todo, Request $request)
     {
         $this->authorize('delete', [$todo, $project]);
 
         if ($todo->delete()) {
 
-            event(new TodoUpdated($todo));
+            event(new TodoDeleted($todo, $request->user()));
 
             return redirect()->back()->with('status', trans('errors.delete-succeed'));
         } else {

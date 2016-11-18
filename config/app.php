@@ -14,6 +14,7 @@ return [
 
     'name' => 'Lindalë',
     'title' => 'Lindalë - The Project Manager For Everyone.',
+    'slack_key' => env('SLACK_KEY', ''),
 
     /*
     |--------------------------------------------------------------------------

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Events;
+namespace App\Events\Todo;
 
 use App\Todo\Todo;
+use App\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -20,14 +21,23 @@ class TodoUpdated
     public $todo;
 
     /**
+     * 用户
+     *
+     * @var User
+     */
+    public $user;
+
+    /**
      * 创建事件监听器.
      *
-     * TodoUpdated constructor.
+     * TodoCreated constructor.
      * @param Todo $todo
+     * @param User $user
      */
-    public function __construct(Todo $todo)
+    public function __construct(Todo $todo, User $user)
     {
         $this->todo = $todo;
+        $this->user = $user;
     }
 
     /**

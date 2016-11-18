@@ -3,9 +3,13 @@
 namespace App\Project;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Config;
 
 class Project extends Model
 {
+    use Notifiable;
+
     /*
     |--------------------------------------------------------------------------
     | 多对多关联
@@ -121,5 +125,16 @@ class Project extends Model
     public function TodoLists()
     {
         return $this->hasMany('App\Todo\TodoList', 'project_id', 'id');
+    }
+
+    /**
+     * Slack 频道的通知路由
+     * TODO：添加设置项目
+     *
+     * @return string
+     */
+    public function routeNotificationForSlack()
+    {
+        return Config::get('app.slack_key');
     }
 }

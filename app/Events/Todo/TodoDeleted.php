@@ -1,33 +1,45 @@
 <?php
 
-namespace App\Events;
+namespace App\Events\Todo;
 
+use App\Todo\Todo;
+use App\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use App\Project\Project;
 
-class ProjectDeleted
+class TodoDeleted
 {
     use InteractsWithSockets, SerializesModels;
 
     /**
-     * 项目实例.
-     * @var Project
+     * To-do.
+     *
+     * @var Todo
      */
-    public $project;
+    public $todo;
 
     /**
-     * 注入项目实例
-     * ProjectCreated constructor.
-     * @param Project $project
+     * 用户
+     *
+     * @var User
      */
-    public function __construct(Project $project)
+    public $user;
+
+    /**
+     * 创建事件监听器.
+     *
+     * TodoCreated constructor.
+     * @param Todo $todo
+     * @param User $user
+     */
+    public function __construct(Todo $todo, User $user)
     {
-        $this->project = $project;
+        $this->todo = $todo;
+        $this->user = $user;
     }
 
     /**

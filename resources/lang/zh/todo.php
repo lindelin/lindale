@@ -30,6 +30,9 @@ return [
     'none-list'     => '还没有创建列表',
     'delete'        => '删除',
     'can-not-add'   => '不能创建公开TODO',
+    'created-todo' => ':Name 创建了一个新的待办事项：',
+    'updated-todo' => ':Name 更新了一个待办事项：',
+    'deleted-todo' => ':Name 删除了一个待办事项：',
 
 
 ];

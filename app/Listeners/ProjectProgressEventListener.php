@@ -68,7 +68,15 @@ class ProjectProgressEventListener
     public function subscribe($events)
     {
         $events->listen(
-            'App\Events\TodoUpdated',
+            'App\Events\Todo\TodoCreated',
+            'App\Listeners\ProjectProgressEventListener@onTodoUpdated'
+        );
+        $events->listen(
+            'App\Events\Todo\TodoUpdated',
+            'App\Listeners\ProjectProgressEventListener@onTodoUpdated'
+        );
+        $events->listen(
+            'App\Events\Todo\TodoDeleted',
             'App\Listeners\ProjectProgressEventListener@onTodoUpdated'
         );
 

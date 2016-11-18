@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Project;
 
-use App\Events\ProjectCreated;
+use App\Events\Project\ProjectCreated;
+use App\Events\Project\ProjectUpdated;
 use App\Project\Project;
 use App\Repositories\ProjectRepository;
 use App\Http\Requests\ProjectRequest;
 use App\Http\Controllers\Controller;
-use App\Events\ProjectDeleted;
+use App\Events\Project\ProjectDeleted;
 
 class ProjectController extends Controller
 {
@@ -107,6 +108,9 @@ class ProjectController extends Controller
         $result = $this->projectRepository->UpdateProject($request, $project)->update();
 
         if ($result) {
+
+            event(new ProjectUpdated($project));
+
             return redirect()->back()->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
