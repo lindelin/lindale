@@ -30,9 +30,9 @@ return [
     'none-list'     => 'The list does not have.',
     'delete'        => 'Delete',
     'can-not-add'   => 'You can\'t create public TODO.',
-    'created-todo' => '1 new TODO by :Name :',
-    'updated-todo' => '1 TODO Updated by :Name :',
-    'deleted-todo' => '1 TODO Deleted by :Name :',
+    'created-todo'  => '1 new TODO by :Name :',
+    'updated-todo'  => '1 TODO Updated by :Name :',
+    'deleted-todo'  => '1 TODO Deleted by :Name :',
 
 
 ];

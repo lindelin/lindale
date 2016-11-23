@@ -80,7 +80,8 @@ return [
     */
 
     'locale' => 'en',
-    'available_locales' => ['zh', 'ja', 'en'],
+    'available_locales' => ['en', 'zh', 'ja'],
+    'available_language' => ['en' => 'English', 'zh' => '中文', 'ja' => '日本語'],
 
     /*
     |--------------------------------------------------------------------------
@@ -227,13 +228,14 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Inspiring' => Illuminate\Foundation\Inspiring::class,
+        /*'Inspiring' => Illuminate\Foundation\Inspiring::class,*/
         'Colorable' => App\Repositories\ColorableRepository::class,
         'Markdown' => App\Repositories\MarkdownRepository::class,
         'Admin' => App\Policies\AdminPolicy::class,
         'Definer' => \App\Definer::class,
         'Calculator' => \App\Calculator::class,
         'Counter' => \App\Counter::class,
+        'ProjectConfig' => \App\ProjectConfig::class,
 
     ],
 

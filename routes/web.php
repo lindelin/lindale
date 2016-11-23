@@ -83,7 +83,17 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         Route::get('info', 'InfoController@index');
 
         //设定路由
-        Route::get('config', 'ConfigController@index');
+        Route::group(['prefix' => 'config'], function () {
+            //基本设定
+            Route::get('/', 'ConfigController@index');
+            //语言和地区设定
+            Route::get('locale', 'ConfigController@locale');
+            Route::patch('locale', 'ConfigController@updateLocale');
+            //通知设定
+            Route::get('notification', 'ConfigController@notification');
+            Route::patch('notification', 'ConfigController@updateNotification');
+
+        });
     });
 });
 

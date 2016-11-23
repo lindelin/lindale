@@ -31,5 +31,6 @@ return [
     'create-project'        => '新規プロジェクト作成',
     'projects-manage'       => '管理しているプロジェクト',
     'projects-join'         => '参与しているプロジェクト',
+    'lang'                  => '言語',
 
 ];

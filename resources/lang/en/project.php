@@ -31,6 +31,7 @@ return [
     'create-project'        => 'Create a project',
     'projects-manage'       => 'Projects you manage',
     'projects-join'         => 'Projects you join',
+    'lang'                  => 'Language',
 
 
 ];

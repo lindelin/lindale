@@ -30,9 +30,9 @@ return [
     'none-list'     => 'リストがありません。',
     'delete'        => '削除',
     'can-not-add'   => '公開TODO作成できません',
-    'created-todo' => ':Name さんは新しいTODOを作成しました：',
-    'updated-todo' => ':Name さんはTODOを更新しました：',
-    'deleted-todo' => ':Name さんはTODOを削除しました：',
+    'created-todo'  => ':Name さんは新しいTODOを作成しました：',
+    'updated-todo'  => ':Name さんはTODOを更新しました：',
+    'deleted-todo'  => ':Name さんはTODOを削除しました：',
 
 
 ];

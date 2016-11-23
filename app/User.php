@@ -90,6 +90,17 @@ class User extends Authenticatable
     }
 
     /**
+     * 一个用户有多个设定值
+     * 一对多.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function Config()
+    {
+        return $this->hasMany('App\Settings\UserSettings', 'user_id', 'id');
+    }
+
+    /**
      * Send the password reset notification.
      * 重写
      *

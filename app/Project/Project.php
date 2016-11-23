@@ -2,6 +2,7 @@
 
 namespace App\Project;
 
+use App\ProjectConfig;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Config;
@@ -128,6 +129,17 @@ class Project extends Model
     }
 
     /**
+     * 一个项目有多个设定值
+     * 一对多.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function Config()
+    {
+        return $this->hasMany('App\Settings\ProjectSettings', 'project_id', 'id');
+    }
+
+    /**
      * Slack 频道的通知路由
      * TODO：添加设置项目
      *
@@ -135,6 +147,6 @@ class Project extends Model
      */
     public function routeNotificationForSlack()
     {
-        return Config::get('app.slack_key');
+        return ProjectConfig::get(self::find($this->id), ProjectConfig::SLACK_API_KEY);
     }
 }
