@@ -46,7 +46,7 @@ class PublicRoutesTest extends TestCase
     {
         $response = $this->call('GET', '/lang/ja');
         $this->assertEquals(302, $response->status());
-        $this->assertSessionHas('lang', 'ja');
+        $this->assertSessionHas('lang_guest', 'ja');
     }
 
     /**
@@ -59,7 +59,7 @@ class PublicRoutesTest extends TestCase
     {
         $response = $this->call('GET', '/lang/zh');
         $this->assertEquals(302, $response->status());
-        $this->assertSessionHas('lang', 'zh');
+        $this->assertSessionHas('lang_guest', 'zh');
     }
 
     /**
@@ -72,7 +72,7 @@ class PublicRoutesTest extends TestCase
     {
         $response = $this->call('GET', '/lang/en');
         $this->assertEquals(302, $response->status());
-        $this->assertSessionHas('lang', 'en');
+        $this->assertSessionHas('lang_guest', 'en');
     }
 
     /**
