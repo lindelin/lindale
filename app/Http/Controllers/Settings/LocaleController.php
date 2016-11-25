@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\System\ConfigSystem\UserConfigSystem;
 use App\UserConfig;
+use App;
 
 class LocaleController extends Controller
 {
@@ -48,6 +49,10 @@ class LocaleController extends Controller
     public function updateLocale(Request $request)
     {
         $result = $this->configSystem->setConfigInfo($request->user(), UserConfig::LANG, $request->get(UserConfig::LANG));
+
+        $locale = UserConfig::get($request->user(), UserConfig::LANG);
+        $request->session()->put('lang', $locale);
+        App::setLocale($locale);
 
         if ($result) {
             return redirect()->back()->with('status', trans('errors.update-succeed'));
