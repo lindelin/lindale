@@ -228,6 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
         /*'Inspiring' => Illuminate\Foundation\Inspiring::class,*/
         'Colorable' => App\Repositories\ColorableRepository::class,
         'Markdown' => App\Repositories\MarkdownRepository::class,
@@ -236,6 +237,7 @@ return [
         'Calculator' => \App\Calculator::class,
         'Counter' => \App\Counter::class,
         'ProjectConfig' => \App\ProjectConfig::class,
+        'UserConfig' => \App\UserConfig::class,
 
     ],
 

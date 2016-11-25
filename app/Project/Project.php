@@ -141,7 +141,6 @@ class Project extends Model
 
     /**
      * Slack 频道的通知路由
-     * TODO：添加设置项目
      *
      * @return string
      */

@@ -3,6 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
+use UserConfig;
+use Config;
 
 class UseLang
 {
@@ -15,13 +18,24 @@ class UseLang
      */
     public function handle($request, Closure $next)
     {
-        if ($request->session()->has('lang')) {
-            $locale = $request->session()->get('lang');
-            \App::setLocale($locale);
-        } else {
-            $locale = 'en';
-            $request->session()->put('lang', $locale);
-            \App::setLocale($locale);
+        if(Auth::guest()){
+            if ($request->session()->has('lang_guest')) {
+                $locale = $request->session()->get('lang_guest');
+                \App::setLocale($locale);
+            } else {
+                $locale = Config::get('app.fallback_locale');
+                $request->session()->put('lang_guest', $locale);
+                \App::setLocale($locale);
+            }
+        }else{
+            if ($request->session()->has('lang')) {
+                $locale = $request->session()->get('lang');
+                \App::setLocale($locale);
+            } else {
+                $locale = UserConfig::get(Auth::user(), UserConfig::LANG);
+                $request->session()->put('lang', $locale);
+                \App::setLocale($locale);
+            }
         }
 
         return $next($request);

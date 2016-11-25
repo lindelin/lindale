@@ -159,6 +159,14 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Settings', 'prefix' => 'se
         Route::get('/oauth/application', 'DeveloperController@application');
         Route::get('/oauth/personal', 'DeveloperController@personal');
     });
+
+    //语言和地区设定
+    Route::get('locale', 'LocaleController@locale');
+    Route::patch('locale', 'LocaleController@updateLocale');
+
+    //通知设定
+    Route::get('notification', 'NotificationController@notification');
+    Route::patch('notification', 'NotificationController@updateNotification');
 });
 
 /*

@@ -12,6 +12,14 @@
             <span class="glyphicon glyphicon-lock"></span> {{ trans('user.account') }}
         </a>
 
+        <a href="{{ url('settings/locale') }}" class="list-group-item @if($mode == 'locale') active @endif">
+            <span class="glyphicon glyphicon-globe"></span> {{ trans('config.locale') }}
+        </a>
+
+        <a href="{{ url('settings/notification') }}" class="list-group-item @if($mode == 'notification') active @endif">
+            <span class="glyphicon glyphicon-bell"></span> {{ trans('config.notification') }}
+        </a>
+
         <a href="{{ url('settings/oauth/authorized') }}" class="list-group-item @if($mode == 'authorized') active @endif">
             <i class="fa fa-cubes" aria-hidden="true"></i> {{ trans('config.authorized-clients') }}
         </a>

@@ -111,4 +111,14 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token, session('lang')));
     }
+
+    /**
+     * Slack 频道的通知路由
+     *
+     * @return string
+     */
+    public function routeNotificationForSlack()
+    {
+        return UserConfig::get(self::find($this->id), UserConfig::SLACK_API_KEY);
+    }
 }

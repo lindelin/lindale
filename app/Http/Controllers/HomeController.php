@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Config;
-
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -26,8 +26,14 @@ class HomeController extends Controller
      */
     public function lang(Request $request, $locale)
     {
-        if (in_array($locale, Config::get('app.available_locales'))) {
-            $request->session()->put('lang', $locale);
+        if(Auth::guest()){
+            if (in_array($locale, Config::get('app.available_locales'))) {
+                $request->session()->put('lang_guest', $locale);
+            }
+        } else {
+            if (in_array($locale, Config::get('app.available_locales'))) {
+                $request->session()->put('lang', $locale);
+            }
         }
 
         return redirect()->back();
