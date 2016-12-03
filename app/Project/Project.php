@@ -148,4 +148,26 @@ class Project extends Model
     {
         return ProjectConfig::get(self::find($this->id), ProjectConfig::SLACK_API_KEY);
     }
+
+    /**
+     * 一个项目有多个任务
+     * 一对多
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function Tasks()
+    {
+        return $this->hasMany('App\Task\Task', 'project_id', 'id');
+    }
+
+    /**
+     * 一个项目有多个任务组
+     * 一对多
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function TaskGroups()
+    {
+        return $this->hasMany('App\Task\TaskGroup', 'project_id', 'id');
+    }
 }

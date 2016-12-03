@@ -34,6 +34,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /*
+    |--------------------------------------------------------------------------
+    | ManyHasMany 一对多
+    |--------------------------------------------------------------------------
+    */
+
     /**
      * 多个用户拥有多个项目
      * 多对多.
@@ -44,6 +50,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Project\Project')->withPivot('is_admin')->withTimestamps();
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | HasMany 一对多
+    |--------------------------------------------------------------------------
+    */
 
     /**
      * 一个项目总监拥有多个项目
@@ -99,6 +111,23 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Settings\UserSettings', 'user_id', 'id');
     }
+
+    /**
+     * 一个用户有多个任务
+     * 一对多
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function Tasks()
+    {
+        return $this->hasMany('App\Task\Task', 'user_id', 'id');
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Other 其他
+    |--------------------------------------------------------------------------
+    */
 
     /**
      * Send the password reset notification.
