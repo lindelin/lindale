@@ -4,27 +4,34 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Project Language Lines
+    | Task Language Lines
     |--------------------------------------------------------------------------
     */
 
-    'new-project'           => '新しいプロジェクト',
-    'title'                 => 'プロジェクト名',
-    'content'               => 'プロジェクト説明',
-    'start_at'              => '開始時間',
+    'new-group'             => 'チケットグループ作成',
+    'new-task'              => 'チケット作成',
+    'group-title'           => 'グループ名',
+    'group-info'            => '説明',
+    'start_at'              => '開始日',
     'end_at'                => '期日',
-    'type'                  => 'プロジェクト区分',
-    'sl'                    => 'サブリーダー',
-    'password'              => 'プロジェクトパスワード',
-    'password_confirmation' => 'パスワード確認',
+    'type'                  => '作業区分',
+    'status'                => 'ステータス',
+    'color'                 => 'カラー',
     'none'                  => 'なし',
-    'add-image'             => '画像追加',
     'cancel'                => '取消',
-    'submit'                => '追加',
+    'submit'                => '作成',
+    'default'               => 'デフォルト',
+    'underway'              => '進行中',
+    'finish'                => '完了',
+    'unfinished'            => '未完了',
+    'edit'                  => '編集',
+    'created'               => '作成日時',
+    'updated'               => '更新日時',
+
+
     'delete-title'          => 'プロジェクトを削除します, よろしいですか？',
     'delete-input'          => 'プロジェクトパスワードを入力してください。',
     'delete'                => 'プロジェクト削除',
-    'status'                => 'ステータス',
     'edit-project'          => 'プロジェクト編集',
     'edit-title'            => 'プロジェクトを編集します, よろしいですか？',
     'none-project'          => '参加しているプロジェクトがありません。',

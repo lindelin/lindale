@@ -316,4 +316,36 @@ class ColorableRepository
             'bs-callout-danger',
         ])->random();
     }
+
+    /**
+     * 共通进度条颜色属性.
+     *
+     * @param $id
+     * @return mixed
+     */
+    private static function _commonProgressColorClass($id)
+    {
+        $class = [];
+        $class[1] = '';
+        $class[2] = '';
+        $class[3] = 'progress-bar-success';
+        $class[4] = 'progress-bar-info';
+        $class[5] = 'progress-bar-warning';
+        $class[6] = 'progress-bar-danger';
+
+        return $class[$id];
+    }
+
+    /**
+     * 通过id获取面板颜色.
+     *
+     * @param $id
+     * @return mixed
+     */
+    public static function progressColorClass($id)
+    {
+        if ($id <= 6 and $id > 0) {
+            return self::_commonProgressColorClass($id);
+        }
+    }
 }

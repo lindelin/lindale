@@ -92,7 +92,15 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
             //通知设定
             Route::get('notification', 'ConfigController@notification');
             Route::patch('notification', 'ConfigController@updateNotification');
+        });
 
+        Route::group(['prefix' => 'task'], function () {
+            Route::get('/', 'TaskController@index');
+
+            Route::group(['namespace' => 'Task', 'prefix' => 'group'], function () {
+                Route::get('create', 'TaskGroupController@create');
+                Route::post('/', 'TaskGroupController@store');
+            });
         });
     });
 });

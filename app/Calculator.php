@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Task\TaskGroup;
 use App\Todo\TodoType;
 
 class Calculator
@@ -34,6 +35,23 @@ class Calculator
     {
         if(Counter::UserTodoTypeCount($user, $type) > 0){
             return (int)(Counter::UserTodoTypeFinishCount($user, $type) / Counter::UserTodoTypeCount($user, $type) * 100);
+        }else{
+            return self::ZERO;
+        }
+    }
+
+    /**
+     * 计算任务组的任务进展率
+     *
+     * @param TaskGroup $group
+     * @return int
+     */
+    public static function TaskGroupProgressCompute(TaskGroup $group)
+    {
+        if(Counter::GroupTaskCount($group) > 0){
+            return (int)(Counter::GroupTaskFinishCount($group) / Counter::GroupTaskCount($group) * 100);
+        }else{
+            return self::ZERO;
         }
     }
 }

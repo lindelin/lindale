@@ -123,7 +123,7 @@ return [
         'nickname'              => 'ニックネーム',
         'body'                  => '内容',
         'start_at'              => '開始時間',
-        'end_at'                => '期限',
+        'end_at'                => '期日',
         'image'                 => '画像',
         'type_name'             => '名称',
     ],

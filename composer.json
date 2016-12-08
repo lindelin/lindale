@@ -16,7 +16,8 @@
         "laravel/framework": "5.3.*",
         "erusev/parsedown-extra": "^0.7.1",
         "laravel/passport": "^1.0",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.2",
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

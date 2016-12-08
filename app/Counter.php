@@ -4,6 +4,7 @@ namespace App;
 
 
 use App\Project\Project;
+use App\Task\TaskGroup;
 use App\Todo\TodoStatus;
 use App\Todo\TodoType;
 
@@ -111,5 +112,38 @@ class Counter
             ->where('user_id', $user->id)
             ->where('type_id', Definer::PUBLIC_TODO)
             ->count();
+    }
+
+    /**
+     * 合计任务组包含的任务总数
+     *
+     * @param TaskGroup $group
+     * @return int
+     */
+    public static function GroupTaskCount(TaskGroup $group)
+    {
+        return (int)$group->Tasks()->count();
+    }
+
+    /**
+     * 合计任务组包含的已完成任务数
+     *
+     * @param TaskGroup $group
+     * @return int
+     */
+    public static function GroupTaskFinishCount(TaskGroup $group)
+    {
+        return (int)$group->Tasks()->where('is_finish', Definer::TASK_FINISHED)->count();
+    }
+
+    /**
+     * 合计任务组中未完成任务数
+     *
+     * @param TaskGroup $group
+     * @return int
+     */
+    public static function GroupTaskUnfinishedCount(TaskGroup $group)
+    {
+        return (int)$group->Tasks()->where('is_finish', Definer::TASK_UNFINISHED)->count();
     }
 }

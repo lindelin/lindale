@@ -170,4 +170,26 @@ class Project extends Model
     {
         return $this->hasMany('App\Task\TaskGroup', 'project_id', 'id');
     }
+
+    /**
+     * 一个项目可以定义多个任务类型
+     * 一对多
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function TaskTypes()
+    {
+        return $this->hasMany('App\Task\TaskType', 'project_id', 'id');
+    }
+
+    /**
+     * 一个项目可以定义多个任务状态
+     * 一对多
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function TaskStatuses()
+    {
+        return $this->hasMany('App\Task\TaskStatus', 'project_id', 'id');
+    }
 }

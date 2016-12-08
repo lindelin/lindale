@@ -4,7 +4,7 @@
     'top_url' => url("project/$project->id"),
     'info_url' => url("project/$project->id/info"),
     'progress_url' => '#',
-    'tasks_url' => '#',
+    'tasks_url' => url("project/$project->id/task"),
     'todo_url' => url("project/$project->id/todo"),
     'member_url' => url("project/$project->id/member"),
     'achievement_url' => '#',

@@ -50,6 +50,12 @@ class Definer
     const DEFAULT_WIKI_TYPE = 1;
     const DEFAULT_WIKI = 0;
 
+    /**
+     * 任务完成
+     */
+    const TASK_FINISHED = 1;
+    const TASK_UNFINISHED = 0;
+
 
     /******************************************************************************************************************/
 
