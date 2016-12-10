@@ -14,11 +14,10 @@ class CreateTaskPrioritiesTable extends Migration
     public function up()
     {
         Schema::create('task_priorities', function (Blueprint $table) {
-            $table->integer('project_id');
             $table->integer('id');
             $table->string('name', 100);
             $table->timestamps();
-            $table->primary(['project_id', 'id']);
+            $table->primary(['id']);
         });
     }
 

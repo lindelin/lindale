@@ -318,6 +318,37 @@ class ColorableRepository
     }
 
     /**
+     * CallOut颜色属性.
+     *
+     * @param $id
+     * @return mixed
+     */
+    private static function _CallOutColor($id)
+    {
+        $class = [];
+        $class[1] = 'bs-callout-default';
+        $class[2] = 'bs-callout-primary';
+        $class[3] = 'bs-callout-success';
+        $class[4] = 'bs-callout-info';
+        $class[5] = 'bs-callout-warning';
+        $class[6] = 'bs-callout-danger';
+
+        return $class[$id];
+    }
+
+
+    /**
+     * 获取CallOut颜色属性.
+     *
+     * @param $id
+     * @return mixed
+     */
+    public static function getCallOutColor($id)
+    {
+        return self::_CallOutColor($id);
+    }
+
+    /**
      * 共通进度条颜色属性.
      *
      * @param $id

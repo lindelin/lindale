@@ -26,18 +26,8 @@
             	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 
-                        @foreach($groups as $group)
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="heading{{ $group->id }}" style="height: 200px;">
-                                    @include('layouts.task.group.group-panel.heading')
-                                </div>
-                                <div id="collapse{{ $group->id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ $group->id }}">
-                                    <div class="panel-body">
-                                        @include('layouts.task.group.group-panel.body')
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
+                        @foreach($tasks as $task)
+                            @include('layouts.task.common.task', ['task' => $task])
                         @endforeach
 
                     </div>

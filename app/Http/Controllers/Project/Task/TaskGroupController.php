@@ -46,7 +46,7 @@ class TaskGroupController extends Controller
      *
      * @param TaskGroupRequest $request
      * @param Project $project
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function store(TaskGroupRequest $request, Project $project)
     {

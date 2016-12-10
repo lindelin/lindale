@@ -20,7 +20,7 @@
                             <span class="glyphicon glyphicon-th-list"></span> {{ trans('task.new-group') }}
                         </a>
                         <br>
-                        <a href="" class="btn btn-success btn-warning btn-lg btn-block">
+                        <a href="{{ url('project/'.$project->id.'/task/task/create') }}" class="btn btn-success btn-warning btn-lg btn-block">
                             <span class="glyphicon glyphicon-tasks"></span> {{ trans('task.new-task') }}
                         </a>
                     </div>

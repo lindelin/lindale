@@ -42,7 +42,9 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
 */
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
+    //项目
     Route::resource('project', 'ProjectController');
+    //项目内路由
     Route::group(['middleware' => 'ProjectAuth', 'prefix' => 'project/{project}'], function () {
 
         //Wiki路由
@@ -94,9 +96,23 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
             Route::patch('notification', 'ConfigController@updateNotification');
         });
 
+        //任务路由
         Route::group(['prefix' => 'task'], function () {
+            //首页
             Route::get('/', 'TaskController@index');
+            Route::get('all', 'TaskController@all');
+            Route::get('unfinished', 'TaskController@unfinished');
+            Route::get('finished', 'TaskController@finished');
+            Route::get('type/{taskType}', 'TaskController@type');
+            Route::get('priority/{taskPriority}', 'TaskController@priority');
+            Route::get('status/{taskStatus}', 'TaskController@status');
 
+            //任务
+            Route::group(['prefix' => 'task'], function () {
+                Route::post('/', 'TaskController@store');
+                Route::get('create', 'TaskController@create');
+            });
+            //任务组
             Route::group(['namespace' => 'Task', 'prefix' => 'group'], function () {
                 Route::get('create', 'TaskGroupController@create');
                 Route::post('/', 'TaskGroupController@store');

@@ -9,6 +9,7 @@ return [
     */
 
     'new-group'             => 'チケットグループ作成',
+    'group'                 => 'グループ',
     'new-task'              => 'チケット作成',
     'group-title'           => 'グループ名',
     'group-info'            => '説明',
@@ -24,9 +25,18 @@ return [
     'underway'              => '進行中',
     'finish'                => '完了',
     'unfinished'            => '未完了',
+    'all'                   => '全部',
     'edit'                  => '編集',
     'created'               => '作成日時',
     'updated'               => '更新日時',
+    'task-title'             => '題名',
+    'priority'              => '優先度',
+    'task'                  => '関連チケット',
+    'cost'                  => '予定工数',
+    'hour'                  => '時間',
+    'user'                  => '担当者',
+
+
 
 
     'delete-title'          => 'プロジェクトを削除します, よろしいですか？',

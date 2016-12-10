@@ -64,7 +64,7 @@ class Task extends Model
      */
     public function Priority()
     {
-        return $this->hasOne('App\Task\TaskPriority', 'id', 'priority_id')->where('project_id',$this->project_id);
+        return $this->hasOne('App\Task\TaskPriority', 'id', 'priority_id');
     }
 
     /*
@@ -93,6 +93,16 @@ class Task extends Model
     public function Activities()
     {
         return $this->hasMany('App\Task\TaskActivity', 'task_id', 'id');
+    }
+
+    /**
+     * 一个任务有多个关联任务
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function Tasks()
+    {
+        return $this->hasMany('App\Task\Task', 'task_id', 'id');
     }
 
 

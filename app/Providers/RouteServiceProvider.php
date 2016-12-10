@@ -31,6 +31,9 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('project', \App\Project\Project::class);
         Route::model('todo', \App\Todo\Todo::class);
         Route::model('wikiType', \App\Wiki\WikiType::class);
+        Route::model('taskType', \App\Task\TaskType::class);
+        Route::model('taskPriority', \App\Task\TaskPriority::class);
+        Route::model('taskStatus', \App\Task\TaskStatus::class);
     }
 
     /**
