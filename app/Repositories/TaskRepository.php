@@ -195,4 +195,25 @@ class TaskRepository
 
         return $group;
     }
+
+    /**
+     * 更新任务组方法
+     *
+     * @param TaskGroupRequest $request
+     * @param TaskGroup $group
+     * @return TaskGroup
+     */
+    public function UpdateGroup(TaskGroupRequest $request, TaskGroup $group)
+    {
+        $input = $request->only(['title', 'information', 'type_id', 'status_id', 'start_at', 'end_at', 'color_id']);
+
+        foreach ($input as $key => $value) {
+            if ($value == '') {
+                continue;
+            }
+            $group->$key = $value;
+        }
+
+        return $group;
+    }
 }

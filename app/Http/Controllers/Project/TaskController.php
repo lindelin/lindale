@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Project;
 
 use App\Definer;
 use App\Http\Requests\TaskRequest;
+use App\Task\Task;
 use App\Task\TaskPriority;
 use App\Task\TaskStatus;
 use App\Task\TaskType;
@@ -151,4 +152,21 @@ class TaskController extends Controller
             return redirect()->back()->withErrors(trans('errors.save-failed'));
         }
     }
+
+    public function show(Project $project, Task $task)
+    {
+        return view('project.task.show', $this->taskRepository->TaskCreateResources($project))
+            ->with(compact('project', 'task'))
+            ->with(['selected' => 'tasks']);
+    }
+
+    public function destroy(Project $project, Task $task)
+    {
+        if ($task->delete()) {
+            return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.delete-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.delete-failed'));
+        }
+    }
+
 }

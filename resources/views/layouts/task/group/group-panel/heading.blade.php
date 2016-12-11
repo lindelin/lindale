@@ -17,10 +17,10 @@
 </div>
 <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <i class="fa fa-hourglass-start" aria-hidden="true"></i> {{ $group->start_at }}
+        <i class="fa fa-hourglass-start" aria-hidden="true"></i> @if($group->start_at != ''){{ $group->start_at }}@else{{ trans('task.none') }}@endif
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <i class="fa fa-hourglass-end" aria-hidden="true"></i> {{ $group->end_at }}
+        <i class="fa fa-hourglass-end" aria-hidden="true"></i> @if($group->end_at != ''){{ $group->end_at }}@else{{ trans('task.none') }}@endif
     </div>
 </div>
 <br>
@@ -40,6 +40,6 @@
         {{ Counter::GroupTaskUnfinishedCount($group) }} - {{ trans('task.unfinished') }}）
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-        <a href=""><i class="fa fa-cog fa-2x" aria-hidden="true"></i></a>
+        <a href="{{ url('project/'.$project->id.'/task/group/edit/'.$group->id) }}"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></a>
     </div>
 </div>

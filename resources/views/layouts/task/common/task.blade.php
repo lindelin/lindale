@@ -10,7 +10,7 @@
         <div class="col-xs-11 col-sm-10 col-md-11 col-lg-11">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <a href="#">
+                    <a href="{{ url('project/'.$project->id.'/task/show/'.$task->id) }}">
                         <h4>
                             {{ $task->title }}
                         </h4>
@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <strong>
-                        <a href="#" class="{{ Colorable::randomTextColor() }}">
+                        <a href="{{ url('project/'.$project->id.'/task/type/'.$task->Type->id) }}" class="{{ Colorable::randomTextColor() }}">
                             @include('layouts.common.number.task')
                         </a>
                     </strong>

@@ -1,17 +1,17 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
     <li role="presentation" class="active">
-        <a href="#info" role="tab" data-toggle="tab">
+        <a href="#info-{{ $group->id }}" role="tab" data-toggle="tab">
             <span class="glyphicon glyphicon-info-sign"></span> <span class="hidden-xs hidden-sm">{{ trans('header.info') }}</span>
         </a>
     </li>
     <li role="presentation">
-        <a href="#unfinished" role="tab" data-toggle="tab">
+        <a href="#unfinished-{{ $group->id }}" role="tab" data-toggle="tab">
             <span class="glyphicon glyphicon-question-sign"></span> <span class="hidden-xs hidden-sm">{{ trans('task.unfinished') }}</span>
         </a>
     </li>
     <li role="presentation">
-        <a href="#finished" role="tab" data-toggle="tab">
+        <a href="#finished-{{ $group->id }}" role="tab" data-toggle="tab">
             <span class="glyphicon glyphicon-ok-sign"></span> <span class="hidden-xs hidden-sm">{{ trans('task.finish') }}</span>
         </a>
     </li>
@@ -25,7 +25,7 @@
 <!-- Tab panes -->
 <div class="tab-content">
 
-    <div role="tabpanel" class="tab-pane active" id="info">
+    <div role="tabpanel" class="tab-pane active" id="info-{{ $group->id }}">
 
         <br>
         <div class="table-responsive">
@@ -68,7 +68,7 @@
 
     </div>
 
-    <div role="tabpanel" class="tab-pane" id="unfinished">
+    <div role="tabpanel" class="tab-pane" id="unfinished-{{ $group->id }}">
 
         @if($group->Tasks()->where('is_finish', Definer::TASK_UNFINISHED)->count() > 0)
             @foreach($group->Tasks()->where('is_finish', Definer::TASK_UNFINISHED)->get() as $task)
@@ -80,7 +80,7 @@
 
     </div>
 
-    <div role="tabpanel" class="tab-pane" id="finished">
+    <div role="tabpanel" class="tab-pane" id="finished-{{ $group->id }}">
 
         @if($group->Tasks()->where('is_finish', Definer::TASK_FINISHED)->count() > 0)
             @foreach($group->Tasks()->where('is_finish', Definer::TASK_FINISHED)->get() as $task)

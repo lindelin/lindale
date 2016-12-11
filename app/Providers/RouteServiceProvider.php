@@ -34,6 +34,8 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('taskType', \App\Task\TaskType::class);
         Route::model('taskPriority', \App\Task\TaskPriority::class);
         Route::model('taskStatus', \App\Task\TaskStatus::class);
+        Route::model('taskGroup', \App\Task\TaskGroup::class);
+        Route::model('task', \App\Task\Task::class);
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Project\Task;
 
 use App\Http\Requests\TaskGroupRequest;
 use App\Repositories\TaskRepository;
+use App\Task\TaskGroup;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Project\Project;
@@ -42,6 +43,20 @@ class TaskGroupController extends Controller
     }
 
     /**
+     * 更新任务组
+     *
+     * @param Project $project
+     * @param TaskGroup $group
+     * @return mixed
+     */
+    public function edit(Project $project, TaskGroup $group)
+    {
+        return view('project.task.group.edit', $this->taskRepository->TaskGroupCreateResources($project))
+            ->with(['project' => $project, 'selected' => 'tasks'])
+            ->with(compact('group'));
+    }
+
+    /**
      * 保存任务组
      *
      * @param TaskGroupRequest $request
@@ -58,6 +73,27 @@ class TaskGroupController extends Controller
             return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-failed'));
+        }
+    }
+
+    /**
+     * 更新任务组
+     *
+     * @param TaskGroupRequest $request
+     * @param Project $project
+     * @param TaskGroup $group
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
+    public function update(TaskGroupRequest $request, Project $project, TaskGroup $group)
+    {
+        $group = $this->taskRepository->UpdateGroup($request, $group);
+
+        $result = $group->update();
+
+        if ($result) {
+            return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.update-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.update-failed'));
         }
     }
 }

@@ -32,6 +32,16 @@ class TaskGroupRequest extends FormRequest
             'color_id' => 'required|integer|max:10',
         ];
 
-        return $create;
+        $delete = [];
+
+        $update = [];
+
+        if ($this->getMethod() == 'DELETE') {
+            return $delete;
+        } elseif ($this->getMethod() == 'PATCH') {
+            return $update;
+        } else {
+            return $create;
+        }
     }
 }
