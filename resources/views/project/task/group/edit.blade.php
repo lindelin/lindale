@@ -10,12 +10,15 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h3><span class="glyphicon glyphicon-th-list"></span> {{ trans('task.edit-group') }}
+                <small>
+                    @include('layouts.task.common.delete', ['model' => $group, 'delete_url' => url('project/'.$project->id.'/task/group/delete/'.$group->id) ])
+                </small>
+            </h3>
+            <hr>
             <form action="{{ url('project/'.$project->id.'/task/group/edit/'.$group->id) }}" method="post" role="form" enctype="multipart/form-data">
                 {{ method_field('PATCH') }}
                 {{ csrf_field() }}
-
-                <h3><span class="glyphicon glyphicon-th-list"></span> {{ trans('task.new-group') }}</h3>
-                <hr>
 
                 <div class="row">
                     {{-- 框架 --}}

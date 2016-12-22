@@ -82,7 +82,7 @@ class TaskGroupController extends Controller
      * @param TaskGroupRequest $request
      * @param Project $project
      * @param TaskGroup $group
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function update(TaskGroupRequest $request, Project $project, TaskGroup $group)
     {
@@ -94,6 +94,15 @@ class TaskGroupController extends Controller
             return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
+        }
+    }
+
+    public function destroy(Project $project, TaskGroup $group)
+    {
+        if ($group->delete()) {
+            return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.delete-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.delete-failed'));
         }
     }
 }

@@ -28,7 +28,7 @@
 
                         @foreach($groups as $group)
                             <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="heading{{ $group->id }}" style="height: 200px;">
+                                <div class="panel-heading" role="tab" id="heading{{ $group->id }}">
                                     @include('layouts.task.group.group-panel.heading')
                                 </div>
                                 <div id="collapse{{ $group->id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ $group->id }}">

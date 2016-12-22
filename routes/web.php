@@ -119,6 +119,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
                 Route::get('create', 'TaskGroupController@create');
                 Route::get('edit/{taskGroup}', 'TaskGroupController@edit');
                 Route::patch('/edit/{taskGroup}', 'TaskGroupController@update');
+                Route::delete('/delete/{taskGroup}', 'TaskGroupController@destroy');
                 Route::post('/', 'TaskGroupController@store');
             });
         });
@@ -258,3 +259,9 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 | 测试路由
 |
 */
+
+/*use Carbon\Carbon;
+
+Route::get('test', function (){
+    var_dump(Carbon::parse('2017-05-15')->lt(Carbon::now()));
+});*/

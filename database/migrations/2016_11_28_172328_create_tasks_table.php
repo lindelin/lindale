@@ -20,7 +20,7 @@ class CreateTasksTable extends Migration
             $table->text('content')->nullable();
             $table->date('start_at')->nullable();
             $table->date('end_at')->nullable();
-            $table->integer('cost')->nullable();
+            $table->integer('cost')->default(0);
             $table->integer('progress')->default(0);
             $table->integer('user_id')->nullable();
             $table->integer('color_id')->default(1);

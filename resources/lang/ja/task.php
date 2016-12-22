@@ -9,6 +9,7 @@ return [
     */
 
     'new-group'             => 'チケットグループ作成',
+    'edit-group'             => 'チケットグループ編集',
     'group'                 => 'グループ',
     'new-task'              => 'チケット作成',
     'group-title'           => 'グループ名',
@@ -36,8 +37,9 @@ return [
     'hour'                  => '時間',
     'user'                  => '担当者',
     'delete'                => '削除',
-    'delete-title'          => 'チケットを削除します, よろしいですか？',
+    'delete-title'          => 'を削除します, よろしいですか？',
     'add-sub'               => 'サブチケット追加',
+    'update'               => '編集',
 
     'delete-input'          => 'プロジェクトパスワードを入力してください。',
     'edit-project'          => 'プロジェクト編集',
