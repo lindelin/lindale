@@ -31,7 +31,7 @@
                     <span class="glyphicon glyphicon-user"></span> {{ trans('header.member') }}
                 </a>
             </li>
-            <li role="presentation" @if($selected == "bbs") class="active" @endif>
+           {{-- <li role="presentation" @if($selected == "bbs") class="active" @endif>
                 <a href="{{ $bbs_url }}">
                     <span class="glyphicon glyphicon-comment"></span> {{ trans('header.bbs') }}
                 </a>
@@ -40,7 +40,7 @@
                 <a href="{{ $concept_url }}">
                     <span class="glyphicon glyphicon-pushpin"></span> {{ trans('header.concept') }}
                 </a>
-            </li>
+            </li>--}}
             <li role="presentation" @if($selected == "wiki") class="active" @endif>
                 <a href="{{ $wiki_url }}">
                     <span class="glyphicon glyphicon-book"></span> Wiki
@@ -51,7 +51,7 @@
                     <span class="glyphicon glyphicon-th"></span> {{ trans('header.other') }} <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                    <li role="presentation">
+                   {{-- <li role="presentation">
                         <a href="{{ $achievement_url }}">
                             <span class="glyphicon glyphicon-stats"></span> {{ trans('header.achievement') }}
                         </a>
@@ -60,7 +60,7 @@
                         <a href="{{ $budget_url }}">
                             <span class="glyphicon glyphicon-piggy-bank"></span> {{ trans('header.budget') }}
                         </a>
-                    </li>
+                    </li>--}}
                     <li role="presentation">
                         <a href="{{ $config_url }}">
                             <span class="glyphicon glyphicon-cog"></span> {{ trans('header.config') }}

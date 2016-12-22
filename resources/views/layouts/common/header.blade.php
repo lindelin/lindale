@@ -105,7 +105,7 @@
                             <span class="glyphicon glyphicon-check"></span> TODO
                         </a>
                     </li>
-                    <li>
+                    {{--<li>
                         <a href="{{ url('/schedule') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('header.schedule') }}">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </a>
@@ -136,7 +136,7 @@
                         <a href="{{ url('/bbs') }}" class="visible-xs-block">
                             <span class="glyphicon glyphicon-comment"></span> {{ trans('header.bbs') }}
                         </a>
-                    </li>
+                    </li>--}}
                     <li class="dropdown visible-xs-block">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-globe"></span> {{ trans('header.'.Config::get('app.locale')) }} <strong class="caret"></strong>

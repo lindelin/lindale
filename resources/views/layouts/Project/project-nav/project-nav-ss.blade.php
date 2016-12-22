@@ -17,7 +17,7 @@
                             <span class="glyphicon glyphicon-user"></span> {{ trans('header.member') }}
                         </a>
                     </li>
-                    <li role="presentation">
+                   {{-- <li role="presentation">
                         <a href="{{ $bbs_url }}">
                             <span class="glyphicon glyphicon-comment"></span> {{ trans('header.bbs') }}
                         </a>
@@ -36,7 +36,7 @@
                         <a href="{{ $concept_url }}">
                             <span class="glyphicon glyphicon-pushpin"></span> {{ trans('header.concept') }}
                         </a>
-                    </li>
+                    </li>--}}
                     <li role="presentation">
                         <a href="{{ $config_url }}">
                             <span class="glyphicon glyphicon-cog"></span> {{ trans('header.config') }}

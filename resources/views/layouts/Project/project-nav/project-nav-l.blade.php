@@ -31,7 +31,7 @@
                     <span class="glyphicon glyphicon-user"></span> {{ trans('header.member') }}
                 </a>
             </li>
-            <li role="presentation" @if($selected == "achievement") class="active" @endif>
+            {{--<li role="presentation" @if($selected == "achievement") class="active" @endif>
                 <a href="{{ $achievement_url }}">
                     <span class="glyphicon glyphicon-stats"></span> {{ trans('header.achievement') }}
                 </a>
@@ -50,7 +50,7 @@
                 <a href="{{ $concept_url }}">
                     <span class="glyphicon glyphicon-pushpin"></span> {{ trans('header.concept') }}
                 </a>
-            </li>
+            </li>--}}
             <li role="presentation" @if($selected == "wiki") class="active" @endif>
                 <a href="{{ $wiki_url }}">
                     <span class="glyphicon glyphicon-book"></span> Wiki
