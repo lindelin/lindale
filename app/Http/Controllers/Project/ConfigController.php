@@ -85,6 +85,8 @@ class ConfigController extends Controller
      */
     public function updateLocale(Request $request, Project $project)
     {
+        $this->authorize('member', [$project]);
+
         $result = $this->configSystem->setConfigInfo($project, ProjectConfig::LANG, $request->get(ProjectConfig::LANG));
 
         if ($result) {
@@ -121,6 +123,8 @@ class ConfigController extends Controller
      */
     public function updateNotification(Request $request, Project $project)
     {
+        $this->authorize('member', [$project]);
+
         $result1 = $this->configSystem->setConfigInfo($project, ProjectConfig::SLACK_NOTIFICATION_NO, $request->get(ProjectConfig::SLACK_NOTIFICATION_NO));
         $result2 = $this->configSystem->setConfigInfo($project, ProjectConfig::SLACK_API_KEY, $request->get(ProjectConfig::SLACK_API_KEY));
 

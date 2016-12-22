@@ -162,6 +162,8 @@ class TaskController extends Controller
 
     public function destroy(Project $project, Task $task)
     {
+        $this->authorize('delete', [$project, $task]);
+
         if ($task->delete()) {
             return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.delete-succeed'));
         } else {

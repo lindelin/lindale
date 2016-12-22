@@ -33,7 +33,7 @@ class WikiController extends Controller
      * 项目一览.
      *
      * @param Project $project
-     * @return $this
+     * @return mixed
      */
     public function index(Project $project)
     {
@@ -45,7 +45,7 @@ class WikiController extends Controller
      * 创建项目的表单.
      *
      * @param Project $project
-     * @return $this
+     * @return mixed
      */
     public function create(Project $project)
     {
@@ -58,7 +58,7 @@ class WikiController extends Controller
      *
      * @param WikiRequest $request
      * @param Project $project
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function store(WikiRequest $request, Project $project)
     {
@@ -76,7 +76,7 @@ class WikiController extends Controller
      *
      * @param Project $project
      * @param Wiki $wiki
-     * @return $this
+     * @return mixed
      */
     public function show(Project $project, Wiki $wiki)
     {
@@ -89,7 +89,7 @@ class WikiController extends Controller
      *
      * @param Project $project
      * @param Wiki $wiki
-     * @return $this
+     * @return mixed
      */
     public function edit(Project $project, Wiki $wiki)
     {
@@ -103,7 +103,7 @@ class WikiController extends Controller
      * @param WikiRequest $request
      * @param Project $project
      * @param Wiki $wiki
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function update(WikiRequest $request, Project $project, Wiki $wiki)
     {
@@ -121,7 +121,7 @@ class WikiController extends Controller
      *
      * @param Project $project
      * @param Wiki $wiki
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function destroy(Project $project, Wiki $wiki)
     {

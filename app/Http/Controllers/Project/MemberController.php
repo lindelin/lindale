@@ -33,7 +33,7 @@ class MemberController extends Controller
      * 项目成员页.
      *
      * @param Project $project
-     * @return $this
+     * @return mixed
      */
     public function index(Project $project)
     {
@@ -46,7 +46,7 @@ class MemberController extends Controller
      *
      * @param Request $request
      * @param Project $project
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function store(Request $request, Project $project)
     {
@@ -71,7 +71,7 @@ class MemberController extends Controller
      * @param Request $request
      * @param Project $project
      * @param User $user
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function destroy(Request $request, Project $project, User $user)
     {
@@ -97,7 +97,7 @@ class MemberController extends Controller
      * @param Request $request
      * @param Project $project
      * @param User $user
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function policy(Request $request, Project $project, User $user)
     {

@@ -64,7 +64,7 @@ class TodoController extends Controller
      *
      * @param TodoRequest $request
      * @param Project $project
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function store(TodoRequest $request, Project $project)
     {
@@ -104,7 +104,7 @@ class TodoController extends Controller
      * @param TodoRequest $request
      * @param Project $project
      * @param Todo $todo
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function update(TodoRequest $request, Project $project, Todo $todo)
     {
@@ -127,7 +127,7 @@ class TodoController extends Controller
      *
      * @param Project $project
      * @param Todo $todo
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function destroy(Project $project, Todo $todo, Request $request)
     {

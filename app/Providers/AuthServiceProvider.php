@@ -9,6 +9,7 @@ class AuthServiceProvider extends ServiceProvider
 {
     /**
      * The policy mappings for the application.
+     * TODO: 系统发布之前要重新编写授权策略。
      *
      * @var array
      */
@@ -17,6 +18,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\User' => 'App\Policies\UserPolicy',
         'App\Todo\Todo' => 'App\Policies\TodoPolicy',
         'App\Todo\TodoList' => 'App\Policies\TodoListPolicy',
+        'App\Task\Task' => 'App\Policies\TaskPolicy',
     ];
 
     /**

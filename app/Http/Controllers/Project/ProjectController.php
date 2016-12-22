@@ -55,7 +55,7 @@ class ProjectController extends Controller
      * 创建项目.
      *
      * @param ProjectRequest $request
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function store(ProjectRequest $request)
     {
@@ -76,7 +76,7 @@ class ProjectController extends Controller
      * 项目首页.
      *
      * @param Project $project
-     * @return $this
+     * @return mixed
      */
     public function show(Project $project)
     {
@@ -99,7 +99,7 @@ class ProjectController extends Controller
      *
      * @param ProjectRequest $request
      * @param Project $project
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function update(ProjectRequest $request, Project $project)
     {
@@ -122,7 +122,7 @@ class ProjectController extends Controller
      *
      * @param ProjectRequest $request
      * @param Project $project
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function destroy(ProjectRequest $request, Project $project)
     {
