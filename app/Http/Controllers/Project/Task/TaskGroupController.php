@@ -97,6 +97,13 @@ class TaskGroupController extends Controller
         }
     }
 
+    /**
+     * 删除任务组
+     *
+     * @param Project $project
+     * @param TaskGroup $group
+     * @return mixed
+     */
     public function destroy(Project $project, TaskGroup $group)
     {
         if ($group->delete()) {
