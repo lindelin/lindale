@@ -70,12 +70,16 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">
-                        <span class="glyphicon glyphicon-remove"></span> {{ trans('task.cancel') }}
-                    </button>
-                    <button type="submit" class="btn btn-warning">
-                        <span class="glyphicon glyphicon-edit"></span> {{ trans('task.edit') }}
-                    </button>
+                    <div class="row">
+                    	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="right">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                <span class="glyphicon glyphicon-remove"></span> {{ trans('task.cancel') }}
+                            </button>
+                            <button type="submit" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-edit"></span> {{ trans('task.edit') }}
+                            </button>
+                    	</div>
+                    </div>
 
                 </div>
             </form>
