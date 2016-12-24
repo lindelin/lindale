@@ -19,6 +19,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Todo\Todo' => 'App\Policies\TodoPolicy',
         'App\Todo\TodoList' => 'App\Policies\TodoListPolicy',
         'App\Task\Task' => 'App\Policies\TaskPolicy',
+        'App\Task\TaskActivity' => 'App\Policies\TaskActivityPolicy',
     ];
 
     /**

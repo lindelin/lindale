@@ -6,6 +6,7 @@ use App\Project\Project;
 use App\Todo\Todo;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Admin;
 
 class TodoPolicy
 {

@@ -102,13 +102,17 @@
                         <div class="arrow"></div>
                         <div class="panel-heading">
                             <strong class="panel-title"><a href="#">{{ $activity->User->name }}</a></strong>&nbsp;&nbsp;
-                            @include('layouts.task.common.delete', [
-                            'model' => $activity,
-                            'delete_url' => url('project/'.$project->id.'/task/show/'.$task->id.'/activity/'.$activity->id),
-                            'link_name' => $activity->updated_at,
-                            'model_id' => 'deleteActivity'.$activity->id,
-                            'model_name' => trans('task.comment'),
-                            ])
+                            @if (Auth::user()->can('delete', $activity))
+                                @include('layouts.task.common.delete', [
+                                'model' => $activity,
+                                'delete_url' => url('project/'.$project->id.'/task/show/'.$task->id.'/activity/'.$activity->id),
+                                'link_name' => $activity->updated_at,
+                                'model_id' => 'deleteActivity'.$activity->id,
+                                'model_name' => trans('task.comment'),
+                                ])
+                            @else
+                                {{ $activity->updated_at }}
+                            @endif
                         </div>
                         <div class="panel-body">
                             {!! Markdown::toHtml($activity->content) !!}

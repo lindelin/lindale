@@ -6,6 +6,7 @@ use App\Project\Project;
 use App\Task\Task;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Admin;
 
 class TaskPolicy
 {

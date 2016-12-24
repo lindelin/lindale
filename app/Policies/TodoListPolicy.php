@@ -6,6 +6,7 @@ use App\Todo\TodoList;
 use App\User;
 use App\Project\Project;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Admin;
 
 class TodoListPolicy
 {
