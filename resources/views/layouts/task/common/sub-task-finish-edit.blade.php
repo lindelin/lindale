@@ -15,15 +15,15 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span>
                 </button>
-                <form action="{{ $status_edit_url }}" method="POST">
-                    {{ method_field('DELETE') }}
-                    {{ csrf_field() }}
-                    <button type="submit" class="btn btn-danger btn-link btn-sm">
-                        <span class="glyphicon glyphicon-trash"></span> {{ trans('task.delete') }}
-                    </button>
-                </form>
                 <h4 class="modal-title" id="myModalLabel" align="left" style="color: #000000">
                     {{ trans('task.sub-task') }} #{{ $model->id }}
+                    <form action="{{ $status_edit_url }}" method="POST">
+                        {{ method_field('DELETE') }}
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn btn-danger btn-link btn-sm">
+                            <span class="glyphicon glyphicon-trash"></span> {{ trans('task.delete') }}
+                        </button>
+                    </form>
                 </h4>
             </div>
             <form action="{{ $status_edit_url }}" method="POST" style="display: inline;">
