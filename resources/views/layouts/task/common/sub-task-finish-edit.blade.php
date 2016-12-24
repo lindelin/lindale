@@ -17,13 +17,6 @@
                 </button>
                 <h4 class="modal-title" id="myModalLabel" align="left" style="color: #000000">
                     {{ trans('task.sub-task') }} #{{ $model->id }}
-                    <form action="{{ $status_edit_url }}" method="POST">
-                        {{ method_field('DELETE') }}
-                        {{ csrf_field() }}
-                        <button type="submit" class="btn btn-danger btn-link btn-sm">
-                            <span class="glyphicon glyphicon-trash"></span> {{ trans('task.delete') }}
-                        </button>
-                    </form>
                 </h4>
             </div>
             <form action="{{ $status_edit_url }}" method="POST" style="display: inline;">
@@ -77,21 +70,30 @@
                         </div>
                     </div>
 
-                </div>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> {{ trans('task.cancel') }}
+                    </button>
+                    <button type="submit" class="btn btn-warning">
+                        <span class="glyphicon glyphicon-edit"></span> {{ trans('task.edit') }}
+                    </button>
 
-                <div class="modal-footer" style="color: #000000">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">
-                                <span class="glyphicon glyphicon-remove"></span> {{ trans('task.cancel') }}
-                            </button>
-                            <button type="submit" class="btn btn-warning">
-                                <span class="glyphicon glyphicon-edit"></span> {{ trans('task.edit') }}
-                            </button>
-                        </div>
-                    </div>
                 </div>
             </form>
+
+            <div class="modal-footer" style="color: #000000">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <form action="{{ $status_edit_url }}" method="POST">
+                            {{ method_field('DELETE') }}
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-danger btn-block">
+                                <span class="glyphicon glyphicon-trash"></span> {{ trans('task.delete') }}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
