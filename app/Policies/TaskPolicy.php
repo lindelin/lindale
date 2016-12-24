@@ -20,7 +20,7 @@ class TaskPolicy
      */
     public function delete(Project $project, Task $task)
     {
-        if($project->id === $task->project_id){
+        if((int)$project->id === (int)$task->project_id){
             return true;
         }else{
             return false;
