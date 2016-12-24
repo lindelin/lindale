@@ -17,6 +17,15 @@
                 </button>
                 <h4 class="modal-title" id="myModalLabel" align="left" style="color: #000000">
                     {{ trans('task.sub-task') }} #{{ $model->id }}
+                    <small>
+                        <form action="{{ $status_edit_url }}" method="POST">
+                            {{ method_field('DELETE') }}
+                            {{ csrf_field() }}
+                            <button type="submit" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span> {{ trans('task.delete') }}
+                            </button>
+                        </form>
+                    </small>
                 </h4>
             </div>
             <form action="{{ $status_edit_url }}" method="POST" style="display: inline;">
@@ -74,16 +83,7 @@
 
                 <div class="modal-footer" style="color: #000000">
                     <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="left">
-                            <form action="{{ $status_edit_url }}" method="POST">
-                                {{ method_field('DELETE') }}
-                                {{ csrf_field() }}
-                                <button type="submit" class="btn btn-danger">
-                                    <span class="glyphicon glyphicon-trash"></span> {{ trans('task.delete') }}
-                                </button>
-                            </form>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">
                                 <span class="glyphicon glyphicon-remove"></span> {{ trans('task.cancel') }}
                             </button>
