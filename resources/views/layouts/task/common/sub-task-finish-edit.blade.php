@@ -21,7 +21,7 @@
                         <form action="{{ $status_edit_url }}" method="POST">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger">
+                            <button type="submit" class="btn btn-danger btn-link btn-sm">
                                 <span class="glyphicon glyphicon-trash"></span> {{ trans('task.delete') }}
                             </button>
                         </form>
