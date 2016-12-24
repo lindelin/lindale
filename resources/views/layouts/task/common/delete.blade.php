@@ -5,7 +5,7 @@
 {{-- $model_name :删除的对象名 --}}
 
 <!-- 模态窗按钮 -->
-<a class="text-danger" data-toggle="modal" data-target="#{{ $model_id }}">
+<a href="#{{ $model_id }}" class="text-danger" data-toggle="modal" data-target="#{{ $model_id }}">
     {!! $link_name !!}
 </a>
 
