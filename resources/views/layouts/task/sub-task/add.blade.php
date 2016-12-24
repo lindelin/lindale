@@ -1,5 +1,5 @@
 <!-- 模态窗按钮 -->
-<a class="text-success" data-toggle="modal" data-target="#addSubTask">
+<a href="#addSubTask" class="text-success" data-toggle="modal" data-target="#addSubTask">
     <span class="glyphicon glyphicon-plus"></span> {{ trans('task.add-sub') }}
 </a>
 
