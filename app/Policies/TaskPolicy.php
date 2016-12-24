@@ -18,11 +18,15 @@ class TaskPolicy
      * @param Task $task
      * @return bool
      */
-    public function delete(Project $project, Task $task)
+    public function delete(User $user, Task $task, Project $project)
     {
-        if((int)$project->id === (int)$task->project_id){
+        if($user->id === $project->user_id){
             return true;
-        }else{
+        } else if ($user->id === $project->sl_id) {
+            return true;
+        } else if ($user->id === $task->user_id) {
+            return true;
+        } else {
             return false;
         }
     }
