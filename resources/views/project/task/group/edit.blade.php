@@ -12,7 +12,14 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h3><span class="glyphicon glyphicon-th-list"></span> {{ trans('task.edit-group') }}
                 <small>
-                    @include('layouts.task.common.delete', ['model' => $group, 'delete_url' => url('project/'.$project->id.'/task/group/delete/'.$group->id) ])
+                    @include('layouts.task.common.delete',
+                    [
+                    'model' => $group,
+                    'delete_url' => url('project/'.$project->id.'/task/group/delete/'.$group->id),
+                    'link_name' => '<span class="glyphicon glyphicon glyphicon-trash"></span> '.trans('task.delete'),
+                    'model_id' => 'deleteGroup'.$group->id,
+                    'model_name' => $group->title,
+                    ])
                 </small>
             </h3>
             <hr>

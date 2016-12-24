@@ -31,7 +31,7 @@ class HomeController extends Controller
      * 个人主页.
      *
      * @param Request $request
-     * @return $this
+     * @return mixed
      */
     public function index(Request $request)
     {

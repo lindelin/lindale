@@ -1,10 +1,16 @@
+{{-- $model_id :识别ID --}}
+{{-- $link_name :链接显示文字 --}}
+{{-- $delete_url :删除Action --}}
+{{-- $model :删除的对象 --}}
+{{-- $model_name :删除的对象名 --}}
+
 <!-- 模态窗按钮 -->
-<a class="text-danger" data-toggle="modal" data-target="#deleteModel{{ $model->id }}">
-    <span class="glyphicon glyphicon glyphicon-trash"></span> {{ trans('task.delete') }}
+<a class="text-danger" data-toggle="modal" data-target="#{{ $model_id }}">
+    {!! $link_name !!}
 </a>
 
 <!-- 模态窗 -->
-<div class="modal fade" id="deleteModel{{ $model->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="{{ $model_id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -22,7 +28,7 @@
                     <div class="row">
                     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     		<h4 class="text-danger">
-                                #{{ $model->id }}{{ $model->title }}&nbsp;&nbsp;{{ trans('task.delete-title') }}
+                                #{{ $model->id }}{{ $model_name }}&nbsp;&nbsp;{{ trans('task.delete-title') }}
                             </h4>
                     	</div>
                     </div>

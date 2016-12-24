@@ -134,6 +134,20 @@ class TaskController extends Controller
     }
 
     /**
+     * 编辑任务
+     *
+     * @param Project $project
+     * @param Task $task
+     * @return mixed
+     */
+    public function edit(Project $project, Task $task)
+    {
+        return view('project.task.edit', $this->taskRepository->TaskCreateResources($project))
+            ->with(['project' => $project, 'selected' => 'tasks'])
+            ->with(compact('task'));
+    }
+
+    /**
      * 创建任务
      *
      * @param TaskRequest $request
@@ -153,13 +167,48 @@ class TaskController extends Controller
         }
     }
 
+    /**
+     * 更新任务
+     *
+     * @param TaskRequest $request
+     * @param Project $project
+     * @param Task $task
+     * @return mixed
+     */
+    public function update(TaskRequest $request, Project $project, Task $task)
+    {
+        $task = $this->taskRepository->UpdateTask($request, $task);
+
+        $result = $task->update();
+
+        if ($result) {
+            return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.update-failed'));
+        }
+    }
+
+    /**
+     * 任务详情
+     *
+     * @param Project $project
+     * @param Task $task
+     * @return mixed
+     */
     public function show(Project $project, Task $task)
     {
-        return view('project.task.show', $this->taskRepository->TaskCreateResources($project))
+        return view('project.task.show', $this->taskRepository->TaskShowResources($project, $task))
             ->with(compact('project', 'task'))
             ->with(['selected' => 'tasks']);
     }
 
+    /**
+     * 删除任务
+     *
+     * @param Project $project
+     * @param Task $task
+     * @return mixed
+     */
     public function destroy(Project $project, Task $task)
     {
         $this->authorize('delete', [$project, $task]);

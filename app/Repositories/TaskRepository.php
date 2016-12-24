@@ -7,11 +7,14 @@ use App\Definer;
 use App\Http\Requests\TaskGroupRequest;
 use App\Http\Requests\TaskRequest;
 use App\Project\Project;
+use App\Task\SubTask;
 use App\Task\Task;
+use App\Task\TaskActivity;
 use App\Task\TaskGroup;
 use App\Task\TaskPriority;
 use App\Task\TaskStatus;
 use App\Task\TaskType;
+use Illuminate\Http\Request;
 
 class TaskRepository
 {
@@ -49,6 +52,16 @@ class TaskRepository
         $tasks = $tasks->orderBy('priority_id', 'desc')->orderBy('is_finish', 'asc')->get();
 
         return array_merge(compact('tasks'), $resources);
+    }
+
+    public function TaskShowResources(Project $project, Task $task)
+    {
+        $resources = $this->Resources($project);
+        $tasks = $project->Tasks;
+        $subTask = $task->SubTasks()->orderBy('is_finish', 'asc')->latest()->simplePaginate(3, ['*'], 'stPage');
+        $activities = $task->Activities()->latest()->paginate(5, ['*'], 'taPage');
+
+        return array_merge(compact('tasks', 'subTask', 'activities'), $resources);
     }
 
 
@@ -172,6 +185,39 @@ class TaskRepository
     }
 
     /**
+     * 更新任务方法
+     *
+     * @param TaskRequest $request
+     * @param Task $task
+     * @return Task
+     */
+    public function UpdateTask(TaskRequest $request, Task $task)
+    {
+        $input = $request->only([
+            'group_id',
+            'title',
+            'content',
+            'start_at',
+            'end_at',
+            'cost',
+            'type_id',
+            'user_id',
+            'status_id',
+            'priority_id',
+            'color_id',
+        ]);
+
+        foreach ($input as $key => $value) {
+            if ($value == '') {
+                continue;
+            }
+            $task->$key = $value;
+        }
+
+        return $task;
+    }
+
+    /**
      * 创建任务组方法
      *
      * @param TaskGroupRequest $request
@@ -215,5 +261,52 @@ class TaskRepository
         }
 
         return $group;
+    }
+
+    /**
+     * 更新附属任务方法
+     *
+     * @param Request $request
+     * @param SubTask $subTask
+     * @return SubTask
+     */
+    public function UpdateSubTask(Request $request, SubTask $subTask)
+    {
+        $input = $request->only(['content', 'is_finish']);
+
+        foreach ($input as $key => $value) {
+            if ($value == '') {
+                continue;
+            }
+            $subTask->$key = $value;
+        }
+
+        return $subTask;
+    }
+
+    /**
+     * 创建任务动态方法
+     *
+     * @param Request $request
+     * @param Task $task
+     * @return TaskActivity
+     */
+    public function CreateTaskActivity(Request $request, Task $task)
+    {
+        $activity = new TaskActivity();
+
+        $input = $request->only(['content', 'is_finish']);
+
+        foreach ($input as $key => $value) {
+            if ($value == '') {
+                continue;
+            }
+            $activity->$key = $value;
+        }
+
+        $activity->task_id = $task->id;
+        $activity->user_id = $request->user()->id;
+
+        return $activity;
     }
 }

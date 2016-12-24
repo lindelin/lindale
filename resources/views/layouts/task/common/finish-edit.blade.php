@@ -33,13 +33,13 @@
                     {{-- 状态 --}}
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group{{ $errors->has('status_id') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('is_finish') ? ' has-error' : '' }}">
                                 <div>
-                                    <select class="selectpicker form-control" name="status_id">
+                                    <select class="selectpicker form-control" name="is_finish">
                                         <option value="1" @if($model->is_finish === Definer::TASK_FINISHED) selected @endif>{{ trans('task.finish') }}</option>
-                                        <option value="0" @if($model->status_id === Definer::TASK_UNFINISHED) selected @endif>{{ trans('task.unfinished') }}</option>
+                                        <option value="0" @if($model->is_finish === Definer::TASK_UNFINISHED) selected @endif>{{ trans('task.unfinished') }}</option>
                                     </select>
-                                    @include('layouts.common.error-one', ['field' => 'status_id'])
+                                    @include('layouts.common.error-one', ['field' => 'is_finish'])
                                 </div>
                             </div>
                         </div>

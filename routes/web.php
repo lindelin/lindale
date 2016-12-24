@@ -112,8 +112,11 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
             Route::group(['prefix' => 'task'], function () {
                 Route::post('/', 'TaskController@store');
                 Route::delete('/{task}', 'TaskController@destroy');
+                Route::patch('/{task}', 'TaskController@update');
                 Route::get('create', 'TaskController@create');
+                Route::get('edit/{task}', 'TaskController@edit');
             });
+            
             //任务组
             Route::group(['namespace' => 'Task', 'prefix' => 'group'], function () {
                 Route::get('create', 'TaskGroupController@create');
@@ -121,6 +124,17 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
                 Route::patch('/edit/{taskGroup}', 'TaskGroupController@update');
                 Route::delete('/delete/{taskGroup}', 'TaskGroupController@destroy');
                 Route::post('/', 'TaskGroupController@store');
+            });
+
+            Route::group(['namespace' => 'Task', 'prefix' => 'show/{task}/sub-task'], function () {
+                Route::post('/', 'SubTaskController@store');
+                Route::patch('/edit/{subTask}', 'SubTaskController@update');
+                Route::delete('/edit/{subTask}', 'SubTaskController@destroy');
+            });
+
+            Route::group(['namespace' => 'Task', 'prefix' => 'show/{task}/activity'], function () {
+                Route::post('/', 'TaskActivityController@store');
+                Route::delete('/{taskActivity}', 'TaskActivityController@destroy');
             });
         });
     });
