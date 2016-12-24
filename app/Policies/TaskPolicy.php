@@ -30,4 +30,17 @@ class TaskPolicy
             return false;
         }
     }
+
+    /**
+     * Super Admin.
+     *
+     * @param User $user
+     * @return bool
+     */
+    public function before(User $user)
+    {
+        if (Admin::is_super_admin($user)) {
+            return true;
+        }
+    }
 }
