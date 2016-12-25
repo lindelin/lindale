@@ -58,7 +58,7 @@
                                       <div class="row">
                                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                               <strong>
-                                                  <span class="glyphicon glyphicon-tasks"></span> 0/0&nbsp;&nbsp;&nbsp;
+                                                  <span class="glyphicon glyphicon-tasks"></span> @include('layouts.common.progress.project-task-progress')&nbsp;&nbsp;&nbsp;
                                                   <span class="glyphicon glyphicon-check"></span> @include('layouts.common.progress.project-todo-progress')&nbsp;&nbsp;&nbsp;
                                                   <span class="glyphicon glyphicon-calendar"></span> 0/0&nbsp;&nbsp;&nbsp;
                                                   <span class="glyphicon glyphicon-dashboard"></span> {{ $project->progress }}%&nbsp;&nbsp;&nbsp;
