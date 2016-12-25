@@ -28,7 +28,7 @@ class TaskRequest extends FormRequest
             'title' => 'required|max:100',
             'start_at' => 'date|date_format:Y-m-d',
             'end_at' => 'date|after:start_at|date_format:Y-m-d',
-            'cost' => 'integer|max:10',
+            'cost' => 'integer|max:100000000000',
             'type_id' => 'required|integer|max:10',
             'user_id' => 'integer|max:10',
             'status_id' => 'required|integer|max:10',
