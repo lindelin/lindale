@@ -51,9 +51,7 @@
                                     {{ trans('task.group-info') }}
                                 </label>
                                 <div>
-                                    <textarea class="form-control" rows="8" name="information" value="" data-provide="markdown" placeholder=" Markdown">
-                                        {{ old('information') ? old('information') : $group->information }}
-                                    </textarea>
+                                    <textarea class="form-control" rows="8" name="information" value="" data-provide="markdown" placeholder=" Markdown">{{ old('information') ? old('information') : $group->information }}</textarea>
                                     @include('layouts.common.error-one', ['field' => 'information'])
                                 </div>
                             </div>
