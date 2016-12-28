@@ -11,9 +11,9 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         {{-- local icon --}}
-        <link rel="icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon" />
-        <link rel="bookmark" href="{{ asset('/favicon.ico') }}" type="image/x-icon" />
-        <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
+        <link rel="icon" href="{{ asset('/favicon/favicon.ico') }}" type="image/x-icon" />
+        <link rel="bookmark" href="{{ asset('/favicon/favicon.ico') }}" type="image/x-icon" />
+        <link rel="shortcut icon" href="{{ asset('/favicon/favicon.ico') }}" type="image/x-icon">
         <link rel="apple-touch-icon" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
 
         <!-- Styles -->
