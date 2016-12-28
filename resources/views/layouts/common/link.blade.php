@@ -5,7 +5,6 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 {{-- cdn css--}}
-<link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
 <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
@@ -30,6 +29,9 @@
 {{-- local css --}}
 <link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
+{{-- local icon --}}
+<link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
+<link rel="apple-touch-icon"href="{{ asset('/lindale.png') }}"/>
 {{-- local js --}}
 
 <!-- Scripts -->
