@@ -30,11 +30,11 @@
 <link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
 {{-- local icon --}}
-<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/favicon/apple-touch-icon.png') }}">
-<link rel="icon" type="image/png" href="{{ asset('/favicon/favicon-32x32.png') }}" sizes="32x32">
-<link rel="icon" type="image/png" href="{{ asset('/favicon/favicon-16x16.png') }}" sizes="16x16">
-<link rel="manifest" href="{{ asset('/favicon/manifest.json') }}">
-<link rel="mask-icon" href="{{ asset('/favicon/safari-pinned-tab.svg') }}" color="#2760cf">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/favicons/apple-touch-icon.png') }}">
+<link rel="icon" type="image/png" href="{{ asset('/favicons/favicon-32x32.png') }}" sizes="32x32">
+<link rel="icon" type="image/png" href="{{ asset('/favicons/favicon-16x16.png') }}" sizes="16x16">
+<link rel="manifest" href="{{ asset('/favicons/manifest.json') }}">
+<link rel="mask-icon" href="{{ asset('/favicons/safari-pinned-tab.svg') }}" color="#2760cf">
 <meta name="theme-color" content="#ffffff">
 {{-- local js --}}
 
