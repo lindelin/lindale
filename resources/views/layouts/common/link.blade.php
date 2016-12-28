@@ -41,7 +41,7 @@
 <meta name="msapplication-square70x70logo" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
 <meta name="msapplication-square150x150logo" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
 <meta name="msapplication-wide310x150logo" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
-<meta name="msapplication-square310x310logo" content="{{ asset('/favicon/apple-touch-icon.png') }}" />apple-touch-icon.png
+<meta name="msapplication-square310x310logo" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
 {{-- local js --}}
 
 <!-- Scripts -->
