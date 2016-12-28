@@ -14,26 +14,26 @@
         <link rel="icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon" />
         <link rel="bookmark" href="{{ asset('/favicon.ico') }}" type="image/x-icon" />
         <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
-        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ asset('/apple-touch-icon.png') }}" />
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('/apple-touch-icon.png') }}" />
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('/apple-touch-icon.png') }}" />
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('/apple-touch-icon.png') }}" />
-        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="{{ asset('/apple-touch-icon.png') }}" />
-        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ asset('/apple-touch-icon.png') }}" />
-        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ asset('/apple-touch-icon.png') }}" />
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ asset('/apple-touch-icon.png') }}" />
-        <link rel="icon" type="image/png" href="{{ asset('/apple-touch-icon.png') }}" sizes="196x196" />
-        <link rel="icon" type="image/png" href="{{ asset('/apple-touch-icon.png') }}" sizes="96x96" />
-        <link rel="icon" type="image/png" href="{{ asset('/apple-touch-icon.png') }}" sizes="32x32" />
-        <link rel="icon" type="image/png" href="{{ asset('/apple-touch-icon.png') }}" sizes="16x16" />
-        <link rel="icon" type="image/png" href="{{ asset('/apple-touch-icon.png') }}" sizes="128x128" />
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
+        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
+        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
+        <link rel="icon" type="image/png" href="{{ asset('/favicon/apple-touch-icon.png') }}" sizes="196x196" />
+        <link rel="icon" type="image/png" href="{{ asset('/favicon/apple-touch-icon.png') }}" sizes="96x96" />
+        <link rel="icon" type="image/png" href="{{ asset('/favicon/apple-touch-icon.png') }}" sizes="32x32" />
+        <link rel="icon" type="image/png" href="{{ asset('/favicon/apple-touch-icon.png') }}" sizes="16x16" />
+        <link rel="icon" type="image/png" href="{{ asset('/favicon/apple-touch-icon.png') }}" sizes="128x128" />
         <meta name="application-name" content="&nbsp;"/>
         <meta name="msapplication-TileColor" content="#FFFFFF" />
-        <meta name="msapplication-TileImage" content="{{ asset('/apple-touch-icon.png') }}" />
-        <meta name="msapplication-square70x70logo" content="{{ asset('/apple-touch-icon.png') }}" />
-        <meta name="msapplication-square150x150logo" content="{{ asset('/apple-touch-icon.png') }}" />
-        <meta name="msapplication-wide310x150logo" content="{{ asset('/apple-touch-icon.png') }}" />
-        <meta name="msapplication-square310x310logo" content="{{ asset('/apple-touch-icon.png') }}" />
+        <meta name="msapplication-TileImage" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
+        <meta name="msapplication-square70x70logo" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
+        <meta name="msapplication-square150x150logo" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
+        <meta name="msapplication-wide310x150logo" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
+        <meta name="msapplication-square310x310logo" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
 
         <!-- Styles -->
         <style>
