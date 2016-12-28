@@ -30,8 +30,10 @@
 <link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css">
 <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
 {{-- local icon --}}
+<link rel="icon"href="{{ asset('/favicon.ico') }}"type="image/x-icon" />
+<link rel="bookmark"href="{{ asset('/favicon.ico') }}"type="image/x-icon" />
 <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
-<link rel="apple-touch-icon"href="{{ asset('/lindale.png') }}"/>
+<link rel="apple-touch-icon"href="{{ asset('/favicon.png') }}"/>
 {{-- local js --}}
 
 <!-- Scripts -->
