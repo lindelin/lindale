@@ -16,6 +16,7 @@
         <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
         <link href="{{ asset('/apple-touch-icon.png') }}" rel="apple-touch-icon">
         <link rel="icon" type="image/png" href="{{ asset('/apple-touch-icon.png') }}">
+        <link rel="mask-icon" href="{{ asset('/website_icon.svg') }}" color="#FFFFFF">
 
         <!-- Styles -->
         <style>
