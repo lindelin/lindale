@@ -15,7 +15,7 @@
         <link rel="bookmark" href="{{ asset('/favicon.ico') }}" type="image/x-icon" />
         <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
         <link href="{{ asset('/apple-touch-icon.png') }}" rel="apple-touch-icon">
-        <link rel="icon" sizes="any" mask="" href="{{ asset('/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" href="{{ asset('/apple-touch-icon.png') }}">
 
         <!-- Styles -->
         <style>
