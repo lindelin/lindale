@@ -33,7 +33,7 @@
 <link rel="icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon" />
 <link rel="bookmark" href="{{ asset('/favicon.ico') }}" type="image/x-icon" />
 <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
-<link rel="apple-touch-icon" href="{{ asset('/favicon.png') }}"/>
+<link href="{{ asset('/apple-touch-icon.png') }}" rel="apple-touch-icon">
 {{-- local js --}}
 
 <!-- Scripts -->
