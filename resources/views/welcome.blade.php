@@ -15,7 +15,6 @@
         <link rel="bookmark" href="{{ asset('/favicon.ico') }}" type="image/x-icon" />
         <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
         <link rel="apple-touch-icon-precomposed" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
-        <link rel="icon" type="image/png" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
         <meta name="application-name" content="&nbsp;"/>
         <meta name="msapplication-TileColor" content="#FFFFFF" />
         <meta name="msapplication-TileImage" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
