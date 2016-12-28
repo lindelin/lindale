@@ -33,14 +33,7 @@
 <link rel="icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon" />
 <link rel="bookmark" href="{{ asset('/favicon.ico') }}" type="image/x-icon" />
 <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}" type="image/x-icon">
-<link rel="apple-touch-icon-precomposed" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
-<meta name="application-name" content="&nbsp;"/>
-<meta name="msapplication-TileColor" content="#FFFFFF" />
-<meta name="msapplication-TileImage" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
-<meta name="msapplication-square70x70logo" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
-<meta name="msapplication-square150x150logo" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
-<meta name="msapplication-wide310x150logo" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
-<meta name="msapplication-square310x310logo" content="{{ asset('/favicon/apple-touch-icon.png') }}" />
+<link rel="apple-touch-icon" href="{{ asset('/favicon/apple-touch-icon.png') }}" />
 {{-- local js --}}
 
 <!-- Scripts -->
