@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Counter;
 use App\Events\ProjectDeleted;
 use App\Http\Requests\ProjectRequest;
 use App\Project\ProjectStatus;
@@ -45,7 +46,7 @@ class ProjectRepository
     {
         $myProjects = Project::where('user_id', $user->id)->orWhere('sl_id', $user->id)->latest()->simplePaginate(6, ['*'], 'mPage');
         $userProjects = $user->Projects()->latest()->simplePaginate(6, ['*'], 'uPage');
-        $userProjectCount = $this->UserProjectCount($user);
+        $userProjectCount = Counter::UserProjectCount($user);
 
         return compact('myProjects', 'userProjectCount', 'userProjects');
     }
@@ -135,6 +136,7 @@ class ProjectRepository
 
     /**
      * 更新项目进度方法.
+     * TODO: 需要调整（参照任务资源库）
      *
      * @param $progress
      * @param Project $project
@@ -143,16 +145,5 @@ class ProjectRepository
     {
         $project->progress = $progress;
         $project->update();
-    }
-
-    /**
-     * 获取用户项目的数量.
-     *
-     * @param User $user
-     * @return mixed
-     */
-    private function UserProjectCount(User $user)
-    {
-        return ($user->MyProjects()->count()) + ($user->MySlProjects()->count()) + ($user->Projects()->count());
     }
 }

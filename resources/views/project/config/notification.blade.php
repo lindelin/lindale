@@ -51,7 +51,7 @@
                                                        ProjectConfig::get($project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::ON)  active @endif">
                                                 <input type="radio" name="{{ ProjectConfig::SLACK_NOTIFICATION_NO }}" value="{{ ProjectConfig::ON }}" id="option2" autocomplete="off"
                                                        @if(old(ProjectConfig::SLACK_NOTIFICATION_NO) ? old(ProjectConfig::SLACK_NOTIFICATION_NO) :
-                                                       ProjectConfig::get($project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::ON)  checked @endif> NO
+                                                       ProjectConfig::get($project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::ON)  checked @endif> ON
                                             </label>
                                         </div>
                                     </div>

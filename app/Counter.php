@@ -4,6 +4,7 @@ namespace App;
 
 
 use App\Project\Project;
+use App\Task\Task;
 use App\Task\TaskGroup;
 use App\Task\TaskPriority;
 use App\Task\TaskStatus;
@@ -13,6 +14,28 @@ use App\Todo\TodoType;
 
 class Counter
 {
+    /**
+     * 获取用户项目的总数.
+     *
+     * @param User $user
+     * @return int
+     */
+    public static function UserProjectCount(User $user)
+    {
+        return (int)($user->MyProjects()->count() + $user->MySlProjects()->count() + $user->Projects()->count());
+    }
+
+    /**
+     * 合计用户未完成任务总数.
+     *
+     * @param User $user
+     * @return int
+     */
+    public static function UserUnfinishedTaskCount(User $user)
+    {
+        return (int)($user->Tasks()->Where('is_finish', Definer::TASK_UNFINISHED)->count());
+    }
+
     /**
      * 合计用户待办总数.
      *
@@ -33,6 +56,17 @@ class Counter
     public static function UserTodoFinishCount(User $user)
     {
         return (int)$user->Todos()->where('status_id', Definer::FINISH_STATUS_ID)->count();
+    }
+
+    /**
+     * 合计用户未完成待办总数.
+     *
+     * @param User $user
+     * @return int
+     */
+    public static function UserTodoUnfinishedCount(User $user)
+    {
+        return (int)$user->Todos()->where('status_id', '<>',Definer::FINISH_STATUS_ID)->count();
     }
 
     /**
@@ -246,5 +280,38 @@ class Counter
         }
 
         return (int)$task->count();
+    }
+
+    /**
+     * 任务中的附属任务总数.
+     *
+     * @param Task $task
+     * @return int
+     */
+    public static function SubTaskCount(Task $task)
+    {
+        return (int)$task->SubTasks()->count();
+    }
+
+    /**
+     * 任务中的已完成附属任务总数.
+     *
+     * @param Task $task
+     * @return int
+     */
+    public static function FinishedSubTasks(Task $task)
+    {
+        return (int)$task->SubTasks()->where('is_finish', Definer::TASK_FINISHED)->count();
+    }
+
+    /**
+     * 任务中的未完成附属任务总数.
+     *
+     * @param Task $task
+     * @return int
+     */
+    public static function UnfinishedSubTasks(Task $task)
+    {
+        return (int)$task->SubTasks()->where('is_finish', Definer::TASK_UNFINISHED)->count();
     }
 }

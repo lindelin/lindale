@@ -29,10 +29,10 @@
                             <h4><strong>{{ $userProjectCount }}</strong><br> <small>Projects</small></h4>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                            <h4><strong>0</strong><br> <small>Tasks</small></h4>
+                            <h4><strong>{{ \App\Counter::UserUnfinishedTaskCount(Auth::user()) }}</strong><br> <small>Tasks</small></h4>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                            <h4><strong>{{ Auth::user()->Todos()->count() }}</strong><br> <small>TODO</small></h4>
+                            <h4><strong>{{ \App\Counter::UserTodoUnfinishedCount(Auth::user()) }}</strong><br> <small>TODO</small></h4>
                         </div>
                 	</div>
                 </div>

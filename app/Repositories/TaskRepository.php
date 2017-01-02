@@ -309,4 +309,21 @@ class TaskRepository
 
         return $activity;
     }
+
+    /**
+     * 更新任务进度方法.
+     *
+     * @param $progress
+     * @param Task $task
+     * @return bool
+     */
+    public function UpdateTaskProgress($progress, Task $task)
+    {
+        if((int)$progress <= 100 and (int)$progress >= 0){
+            $task->progress = $progress;
+            return $task->update();
+        }else{
+            return false;
+        }
+    }
 }

@@ -50,7 +50,7 @@
                                                        UserConfig::get(Auth::user(), UserConfig::SLACK_NOTIFICATION_NO) == UserConfig::ON)  active @endif">
                                                 <input type="radio" name="{{ UserConfig::SLACK_NOTIFICATION_NO }}" value="{{ UserConfig::ON }}" id="option2" autocomplete="off"
                                                        @if(old(UserConfig::SLACK_NOTIFICATION_NO) ? old(UserConfig::SLACK_NOTIFICATION_NO) :
-                                                       UserConfig::get(Auth::user(), UserConfig::SLACK_NOTIFICATION_NO) == UserConfig::ON)  checked @endif> NO
+                                                       UserConfig::get(Auth::user(), UserConfig::SLACK_NOTIFICATION_NO) == UserConfig::ON)  checked @endif> ONf
                                             </label>
                                         </div>
                                     </div>

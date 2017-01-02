@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Task\Task;
 use App\Task\TaskGroup;
 use App\Todo\TodoType;
 
@@ -50,6 +51,21 @@ class Calculator
     {
         if(Counter::GroupTaskCount($group) > 0){
             return (int)(Counter::GroupTaskFinishCount($group) / Counter::GroupTaskCount($group) * 100);
+        }else{
+            return self::ZERO;
+        }
+    }
+
+    /**
+     * 计算任务进度
+     *
+     * @param Task $task
+     * @return int
+     */
+    public static function TaskProgressCompute(Task $task)
+    {
+        if(Counter::SubTaskCount($task) > 0){
+            return (int)(Counter::FinishedSubTasks($task) / Counter::SubTaskCount($task) * 100);
         }else{
             return self::ZERO;
         }

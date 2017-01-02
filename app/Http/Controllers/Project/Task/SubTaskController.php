@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Project\Task;
 
+use App\Events\Task\SubTask\SubTaskCreated;
+use App\Events\Task\SubTask\SubTaskDeleted;
+use App\Events\Task\SubTask\SubTaskUpdated;
 use App\Project\Project;
 use App\Task\SubTask;
 use App\Task\Task;
@@ -52,6 +55,9 @@ class SubTaskController extends Controller
         $result = $subTask->save();
 
         if ($result) {
+
+            event(new SubTaskCreated($subTask));
+
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
@@ -74,6 +80,9 @@ class SubTaskController extends Controller
         $result = $subTask->update();
 
         if ($result) {
+
+            event(new SubTaskUpdated($subTask));
+
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
@@ -93,6 +102,9 @@ class SubTaskController extends Controller
         $result = $subTask->delete();
 
         if ($result) {
+
+            event(new SubTaskDeleted($subTask));
+
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.delete-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.delete-failed'));

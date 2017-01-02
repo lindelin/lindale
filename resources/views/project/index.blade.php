@@ -94,12 +94,19 @@
                                 </div>
                                 <div class="row">
                                 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <p><span class="glyphicon glyphicon-tasks"></span> 10/100</p>
+                                        <p>
+                                            <span class="glyphicon glyphicon-tasks"></span>
+                                            <a href="{{ url('/project/'.$project->id.'/task/all') }}">
+                                                @include('layouts.common.progress.project-task-progress')
+                                            </a>
+                                        </p>
                                 	</div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                         <p>
                                             <span class="glyphicon glyphicon-check"></span>
-                                            @include('layouts.common.progress.project-todo-progress')
+                                            <a href="{{ url('/project/'.$project->id.'/todo') }}">
+                                                @include('layouts.common.progress.project-todo-progress')
+                                            </a>
                                         </p>
                                     </div>
                                 </div>

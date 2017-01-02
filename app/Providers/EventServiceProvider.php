@@ -37,9 +37,13 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\Todo\TodoDeleted' => [
             'App\Listeners\Todo\Notification\TodoHasDeletedNotify',
         ],
+
+        //任务事件
+
     ];
 
     protected $subscribe = [
+        'App\Listeners\TaskProgressEventListener',
         'App\Listeners\ProjectProgressEventListener',
     ];
 
