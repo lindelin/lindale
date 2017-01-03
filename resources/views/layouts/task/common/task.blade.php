@@ -2,9 +2,9 @@
     <div class="row">
     	<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
             @if((int)$task->is_finish === Definer::TASK_FINISHED)
-                @include('layouts.task.common.finish-edit', ['status_edit_url' => '#', 'model' => $task])
+                @include('layouts.task.common.finish-edit', ['status_edit_url' => url('project/'.$project->id.'/task/task/'.$task->id), 'model' => $task])
             @else
-                @include('layouts.task.common.status-edit', ['status_edit_url' => '#', 'model' => $task])
+                @include('layouts.task.common.status-edit', ['status_edit_url' => url('project/'.$project->id.'/task/task/'.$task->id), 'model' => $task])
             @endif
     	</div>
         <div class="col-xs-10 col-sm-10 col-md-11 col-lg-11">

@@ -46,21 +46,46 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="right">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                <span class="glyphicon glyphicon-remove"></span> {{ trans('task.cancel') }}
+                            </button>
+                            <button type="submit" class="btn btn-success">
+                                <span class="glyphicon glyphicon-edit"></span> {{ trans('task.edit') }}
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
+            </form>
 
             <div class="modal-footer" style="color: #000000">
+
+                {{-- 完了 --}}
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">
-                            <span class="glyphicon glyphicon-remove"></span> {{ trans('task.cancel') }}
-                        </button>
-                        <button type="submit" class="btn btn-success">
-                            <span class="glyphicon glyphicon-edit"></span> {{ trans('task.edit') }}
-                        </button>
+                        @if($model->progress === 100)
+                            <form action="{{ $status_edit_url }}" method="POST" style="display: inline;">
+                            {{ method_field('PATCH') }}
+                            {{ csrf_field() }}
+
+                                <input type="hidden" name="is_finish" value="{{ Definer::TASK_FINISHED }}" />
+                                <button type="submit" class="btn btn-success btn-block">
+                                    <span class="glyphicon glyphicon-ok"></span> {{ trans('task.finish') }}
+                                </button>
+
+                            </form>
+                        @else
+                            <button class="btn btn-danger btn-block" disabled="disabled">
+                                <span class="glyphicon glyphicon-remove"></span> {{ trans('task.unfinished') }}
+                            </button>
+                        @endif
                     </div>
                 </div>
+
             </div>
-            </form>
+
         </div>
     </div>
 </div>

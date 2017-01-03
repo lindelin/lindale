@@ -37,6 +37,24 @@ class TaskRequest extends FormRequest
             'task_id' => 'integer|max:10',
         ];
 
-        return $create;
+        $update = [
+            'group_id' => 'integer|max:10',
+            'title' => 'max:100',
+            'start_at' => 'date|date_format:Y-m-d',
+            'end_at' => 'date|after:start_at|date_format:Y-m-d',
+            'cost' => 'integer|max:100000000000',
+            'type_id' => 'integer|max:10',
+            'user_id' => 'integer|max:10',
+            'status_id' => 'integer|max:10',
+            'priority_id' => 'integer|max:10',
+            'color_id' => 'integer|max:10',
+            'task_id' => 'integer|max:10',
+        ];
+
+        if ($this->getMethod() == 'PATCH') {
+            return $update;
+        } else {
+            return $create;
+        }
     }
 }
