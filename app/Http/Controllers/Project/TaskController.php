@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Project;
 
 use App\Definer;
+use App\Events\Task\TaskCreated;
+use App\Events\Task\TaskDeleted;
+use App\Events\Task\TaskUpdated;
 use App\Http\Requests\TaskRequest;
 use App\Task\Task;
 use App\Task\TaskPriority;
@@ -161,6 +164,9 @@ class TaskController extends Controller
         $result = $task->save();
 
         if ($result) {
+
+            event(new TaskCreated($task));
+
             return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-failed'));
@@ -182,6 +188,9 @@ class TaskController extends Controller
         $result = $task->update();
 
         if ($result) {
+
+            event(new TaskUpdated($task));
+
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
@@ -214,6 +223,9 @@ class TaskController extends Controller
         $this->authorize('delete', [$task, $project]);
 
         if ($task->delete()) {
+
+            event(new TaskDeleted($task));
+
             return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.delete-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.delete-failed'));

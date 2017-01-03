@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Calculator;
 use App\Definer;
 use App\Project\Project;
 use App\Repositories\ProjectRepository;
@@ -41,23 +42,28 @@ class ProjectProgressEventListener
     }
 
     /**
+     * 处理Task更新事件.
+     *
+     * @param $event
+     */
+    public function onTaskUpdated($event)
+    {
+        $project = Project::find($event->task->project_id);
+
+        if($project != null){
+            $this->ProjectProgressUpdate($project);
+        }
+    }
+
+    /**
      * 处理项目进度关联事件（项目进度更新方法）.
      *
      * @param Project $project
      */
     private function ProjectProgressUpdate(Project $project)
     {
-        if ($project->Todos()->count() > 0) {
-            $progress = (int) ($project->Todos()
-                    ->where('type_id', Definer::PUBLIC_TODO)
-                    ->where('status_id', Definer::FINISH_STATUS_ID)->count() / $project->Todos()
-                    ->where('type_id', Definer::PUBLIC_TODO)
-                    ->count() * 100);
-            $this->projectRepository->UpdateProjectProgress($progress, $project);
-        } else {
-            $progress = 0;
-            $this->projectRepository->UpdateProjectProgress($progress, $project);
-        }
+        $progress = Calculator::ProjectProgressCompute($project);
+        $this->projectRepository->UpdateProjectProgress($progress, $project);
     }
 
     /**
@@ -80,9 +86,18 @@ class ProjectProgressEventListener
             'App\Listeners\ProjectProgressEventListener@onTodoUpdated'
         );
 
-        /*$events->listen(
-            'App\Events\UserLoggedOut',
-            'App\Listeners\UserEventListener@ProjectProgressUpdate'
-        );*/
+        $events->listen(
+            'App\Events\Task\TaskCreated',
+            'App\Listeners\ProjectProgressEventListener@onTaskUpdated'
+        );
+        $events->listen(
+            'App\Events\Task\TaskUpdated',
+            'App\Listeners\ProjectProgressEventListener@onTaskUpdated'
+        );
+        $events->listen(
+            'App\Events\Task\TaskDeleted',
+            'App\Listeners\ProjectProgressEventListener@onTaskUpdated'
+        );
+
     }
 }

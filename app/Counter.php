@@ -247,6 +247,35 @@ class Counter
     }
 
     /**
+     * 项目中完成待办数.
+     *
+     * @param Project $project
+     * @return int
+     */
+    public static function ProjectTodoFinishedCount(Project $project)
+    {
+        return (int)$project
+            ->todos()
+            ->where('type_id', Definer::PUBLIC_TODO)
+            ->where('status_id', Definer::FINISH_STATUS_ID)
+            ->count();
+    }
+
+    /**
+     * 项目中待办总数.
+     *
+     * @param Project $project
+     * @return int
+     */
+    public static function ProjectTodoCount(Project $project)
+    {
+        return (int)$project
+            ->todos()
+            ->where('type_id', Definer::PUBLIC_TODO)
+            ->count();
+    }
+
+    /**
      * 合计项目中的任务数（状态别）
      *
      * @param Project $project

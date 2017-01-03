@@ -39,6 +39,15 @@ class EventServiceProvider extends ServiceProvider
         ],
 
         //任务事件
+        'App\Events\Task\TaskCreated' => [
+            'App\Listeners\Task\Notification\TaskHasCreatedNotify',
+        ],
+        'App\Events\Task\TaskUpdated' => [
+            'App\Listeners\Task\Notification\TaskHasUpdatedNotify',
+        ],
+        'App\Events\Task\TaskDeleted' => [
+            'App\Listeners\Task\Notification\TaskHasDeletedNotify',
+        ],
 
     ];
 
