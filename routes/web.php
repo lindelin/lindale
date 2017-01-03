@@ -44,6 +44,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     //项目
     Route::resource('project', 'ProjectController');
+    Route::get('/unfinished/project', 'ProjectController@unfinished');
+    Route::get('/finished/project', 'ProjectController@finished');
     //项目内路由
     Route::group(['middleware' => 'ProjectAuth', 'prefix' => 'project/{project}'], function () {
 

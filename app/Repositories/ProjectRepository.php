@@ -34,6 +34,16 @@ class ProjectRepository
 
             return compact('projects');
         }
+        if ($key == 'unfinished') {
+            $projects = Project::where('progress', '<>', 100)->latest()->get();
+
+            return compact('projects');
+        }
+        if ($key == 'finished') {
+            $projects = Project::where('progress', 100)->latest()->get();
+
+            return compact('projects');
+        }
     }
 
     /**

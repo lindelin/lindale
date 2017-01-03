@@ -42,6 +42,26 @@ class ProjectController extends Controller
     }
 
     /**
+     * 未完成项目一览.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function unfinished()
+    {
+        return view('project.index', $this->projectRepository->ProjectResources('unfinished'));
+    }
+
+    /**
+     * 已完成项目一览.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function finished()
+    {
+        return view('project.index', $this->projectRepository->ProjectResources('finished'));
+    }
+
+    /**
      * 创建项目的表单.
      *
      * @return \Illuminate\Http\Response
