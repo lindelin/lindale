@@ -44,7 +44,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group{{ $errors->has('is_finish') ? ' has-error' : '' }}">
                                 <div>
-                                    <select class="selectpicker form-control" name="is_finish">
+                                    <select class="selectpicker form-control" name="is_finish" @if($task->is_finish === Definer::TASK_FINISHED) disabled @endif>
                                         <option value="1" @if($model->is_finish === Definer::TASK_FINISHED) selected @endif>{{ trans('task.finish') }}</option>
                                         <option value="0" @if($model->is_finish === Definer::TASK_UNFINISHED) selected @endif>{{ trans('task.unfinished') }}</option>
                                     </select>
@@ -92,7 +92,7 @@
                         <form action="{{ $status_edit_url }}" method="POST">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-block">
+                            <button type="submit" class="btn btn-danger btn-block" @if($task->is_finish === Definer::TASK_FINISHED) disabled @endif>
                                 <span class="glyphicon glyphicon-trash"></span> {{ trans('task.delete') }}
                             </button>
                         </form>
