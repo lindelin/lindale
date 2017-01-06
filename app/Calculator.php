@@ -86,4 +86,34 @@ class Calculator
             return self::ZERO;
         }
     }
+
+    /**
+     * 计算未完成任务的比重.
+     *
+     * @param Project $project
+     * @return int
+     */
+    public static function ProjectUnfinishedTaskProgressCompute(Project $project)
+    {
+        if(Counter::ProjectTaskCount($project) > 0){
+            return (int)(Counter::ProjectTaskUnfinishedCount($project) / (Counter::ProjectTaskCount($project) + Counter::ProjectTodoCount($project)) * 100);
+        }else{
+            return self::ZERO;
+        }
+    }
+
+    /**
+     * 计算未完成待办的比重.
+     *
+     * @param Project $project
+     * @return int
+     */
+    public static function ProjectUnfinishedTodoProgressCompute(Project $project)
+    {
+        if(Counter::ProjectTodoCount($project) > 0){
+            return (int)(100 - self::ProjectProgressCompute($project) - self::ProjectUnfinishedTaskProgressCompute($project));
+        }else{
+            return self::ZERO;
+        }
+    }
 }

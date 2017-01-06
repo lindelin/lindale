@@ -145,9 +145,13 @@ class TaskController extends Controller
      */
     public function edit(Project $project, Task $task)
     {
-        return view('project.task.edit', $this->taskRepository->TaskCreateResources($project))
-            ->with(['project' => $project, 'selected' => 'tasks'])
-            ->with(compact('task'));
+        if($task->is_finish === Definer::TASK_UNFINISHED){
+            return view('project.task.edit', $this->taskRepository->TaskCreateResources($project))
+                ->with(['project' => $project, 'selected' => 'tasks'])
+                ->with(compact('task'));
+        }else{
+            return redirect()->back()->withErrors(trans('errors.can-not-edit-task'));
+        }
     }
 
     /**
@@ -183,17 +187,23 @@ class TaskController extends Controller
      */
     public function update(TaskRequest $request, Project $project, Task $task)
     {
-        $task = $this->taskRepository->UpdateTask($request, $task);
+        if($task->is_finish === Definer::TASK_UNFINISHED){
 
-        $result = $task->update();
+            $task = $this->taskRepository->UpdateTask($request, $task);
 
-        if ($result) {
+            $result = $task->update();
 
-            event(new TaskUpdated($task));
+            if ($result) {
 
-            return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
+                event(new TaskUpdated($task));
+
+                return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
+            } else {
+                return redirect()->back()->withErrors(trans('errors.update-failed'));
+            }
+
+        }else{
+            return redirect()->back()->withErrors(trans('errors.can-not-edit-task'));
         }
     }
 
@@ -220,16 +230,21 @@ class TaskController extends Controller
      */
     public function destroy(Project $project, Task $task)
     {
-        $this->authorize('delete', [$task, $project]);
+        if($task->is_finish === Definer::TASK_UNFINISHED){
 
-        if ($task->delete()) {
+            $this->authorize('delete', [$task, $project]);
 
-            event(new TaskDeleted($task));
+            if ($task->delete()) {
 
-            return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.delete-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.delete-failed'));
+                event(new TaskDeleted($task));
+
+                return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.delete-succeed'));
+            } else {
+                return redirect()->back()->withErrors(trans('errors.delete-failed'));
+            }
+
+        }else{
+            return redirect()->back()->withErrors(trans('errors.can-not-delete-task'));
         }
     }
-
 }

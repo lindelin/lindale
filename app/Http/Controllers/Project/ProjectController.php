@@ -131,7 +131,7 @@ class ProjectController extends Controller
 
             event(new ProjectUpdated($project));
 
-            return redirect()->back()->with('status', trans('errors.update-succeed'));
+            return redirect()->to('/project/'.$project->id.'/info')->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
         }

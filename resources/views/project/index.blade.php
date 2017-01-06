@@ -95,18 +95,14 @@
                                 <div class="row">
                                 	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                         <p>
-                                            <a href="{{ url('/project/'.$project->id.'/task/all') }}" style="color: #000000;">
-                                                <span class="glyphicon glyphicon-tasks"></span>
-                                                @include('layouts.common.progress.project-task-progress')
-                                            </a>
+                                            <span class="glyphicon glyphicon-tasks"></span>
+                                            @include('layouts.common.progress.project-task-progress')
                                         </p>
                                 	</div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                         <p>
-                                            <a href="{{ url('/project/'.$project->id.'/todo') }}" style="color: #000000;">
-                                                <span class="glyphicon glyphicon-check"></span>
-                                                @include('layouts.common.progress.project-todo-progress')
-                                            </a>
+                                            <span class="glyphicon glyphicon-check"></span>
+                                            @include('layouts.common.progress.project-todo-progress')
                                         </p>
                                     </div>
                                 </div>

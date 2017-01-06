@@ -25,7 +25,7 @@
             </div>
             <br>
             <br>
-            <div class="row">
+            {{--<div class="row">
             	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -54,7 +54,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {{--@foreach($users as $user)
+                                    --}}{{--@foreach($users as $user)
                                         <tr>
                                             <td>{{ $user->id }}</td>
                                             <td>{{ $user->email }}</td>
@@ -63,14 +63,14 @@
                                             <td>{{ $user->created_at }}</td>
                                             <td>@include('layouts.admin.delete')</td>
                                         </tr>
-                                    @endforeach--}}
+                                    @endforeach--}}{{--
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
             	</div>
-            </div>
+            </div>--}}
 
         </div>
 
@@ -109,13 +109,13 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    12
+                                    @include('layouts.common.progress.project-task-progress')
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
                                     @include('layouts.common.progress.project-todo-progress')
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    6
+                                    0/0
                                 </div>
                             </div>
             			</div>
@@ -175,23 +175,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-success" style="width: 35%">
-                            35%
-                        </div>
-                        <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 20%">
-                            20%
-                        </div>
-                        <div class="progress-bar progress-bar-danger" style="width: 10%">
-                            10%
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+            @include('layouts.Project.common.project-progress')
 
         </div>
     </div>
