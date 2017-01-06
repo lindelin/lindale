@@ -187,7 +187,7 @@ class TaskController extends Controller
      */
     public function update(TaskRequest $request, Project $project, Task $task)
     {
-        if($task->is_finish === Definer::TASK_UNFINISHED or $request->get('is_finish') === 0){
+        if($task->is_finish === Definer::TASK_UNFINISHED or (int)$request->get('is_finish') === Definer::TASK_UNFINISHED){
 
             $task = $this->taskRepository->UpdateTask($request, $task);
 
