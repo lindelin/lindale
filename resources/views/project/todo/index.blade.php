@@ -121,20 +121,24 @@
                 <ul class="list-group">
                     <a href="{{ url("/project/$project->id/todo") }}" class="list-group-item">
                         <span class="badge">
-                            @include('layouts.common.progress.project-todo-progress')
+                            {{ Counter::ProjectTodoFinishedCount($project) }}/{{ Counter::ProjectTodoCount($project) }}
                         </span>
                         {{ trans('todo.all-todos') }}
                     </a>
                     @foreach($statuses as $status)
                         <a href="{{ url("/project/$project->id/todo/status/$status->id") }}" class="list-group-item">
-                            <span class="badge">@include('layouts.common.progress.todo.project-todo-status-progress')</span>
+                            <span class="badge">
+                                @include('layouts.common.progress.todo.project-todo-status-progress')
+                            </span>
                             {{ trans($status->name) }}
                         </a>
                     @endforeach
                     @if($lists->count() > 0)
                         @foreach($lists as $list)
                             <a href="{{ url("/project/$project->id/todo/list/show/$list->id") }}" class="list-group-item">
-                                <span class="badge">@include('layouts.common.progress.todo.project-todo-list-progress')</span>
+                                <span class="badge">
+                                    @include('layouts.common.progress.todo.project-todo-list-progress')
+                                </span>
                                 {{ $list->title }}
                             </a>
                         @endforeach
