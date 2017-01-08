@@ -17,11 +17,11 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'low' => 'Low',
+    'low'    => 'Low',
     'normal' => 'Normal',
-    'high' => 'High',
+    'high'   => 'High',
     'urgent' => 'Urgent',
-    'today' => 'Today',
-    'now' => 'Now',
+    'today'  => 'Today',
+    'now'    => 'Now',
 
 ];

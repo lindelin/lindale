@@ -52,6 +52,9 @@
             <div class="row">
             	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
+                    @include('layouts.Project.common.project-icon')
+                    @include('layouts.Project.common.project-statuses')
+                    @include('layouts.Project.common.project-progress')
                     @include('layouts.task.common.menu')
 
             	</div>

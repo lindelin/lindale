@@ -89,12 +89,12 @@ class TodoHasDeleted extends Notification implements ShouldQueue
             ->error()
             ->content(trans('todo.deleted-todo', ['name' => $this->user->name]))
             ->attachment(function ($attachment) {
-                $attachment->title(':clipboard:'.$this->todo_content, url('/project/'.$this->todo_project.'/todo'))
+                $attachment->title(':clipboard:TODO：'.$this->todo_content, url('/project/'.$this->todo_project.'/todo'))
                     ->fields([
-                        trans('todo.user') => $this->todo_user,
-                        trans('todo.todo-list') => $this->todo_list,
-                        trans('todo.status') => trans($this->todo_status),
-                        trans('todo.created') => $this->todo_created,
+                        trans('todo.user') => $this->todo_user ? $this->todo_user : trans('project.none'),
+                        trans('todo.todo-list') => $this->todo_list ? $this->todo_list : trans('project.none'),
+                        trans('todo.status') => trans($this->todo_status ? $this->todo_status : 'project.none'),
+                        trans('todo.created') => $this->todo_created ? $this->todo_created : trans('project.none'),
                     ]);
             });
     }

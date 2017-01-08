@@ -186,13 +186,23 @@
 
         {{-- 框架 --}}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="list-group">
-                <a href="#" class="list-group-item"><span class="badge">{{ $allCount }}</span> {{ trans('member.all-members') }}</a>
-                <a href="#" class="list-group-item"><span class="badge">1</span> {{ trans('member.pl') }}</a>
-                <a href="#" class="list-group-item"><span class="badge">{{ $slCount }}</span> {{ trans('member.sl') }}</a>
-                <a href="#" class="list-group-item"><span class="badge">{{ $paCount }}</span> {{ trans_choice('member.pa', $paCount) }}</a>
-                <a href="#" class="list-group-item"><span class="badge">{{ $pmCount }}</span> {{ trans_choice('member.pm', $pmCount) }}</a>
+
+            @include('layouts.Project.common.project-icon')
+            @include('layouts.Project.common.project-statuses')
+            @include('layouts.Project.common.project-progress')
+
+            <div class="row">
+            	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item"><span class="badge">{{ $allCount }}</span> {{ trans('member.all-members') }}</a>
+                        <a href="#" class="list-group-item"><span class="badge">1</span> {{ trans('member.pl') }}</a>
+                        <a href="#" class="list-group-item"><span class="badge">{{ $slCount }}</span> {{ trans('member.sl') }}</a>
+                        <a href="#" class="list-group-item"><span class="badge">{{ $paCount }}</span> {{ trans_choice('member.pa', $paCount) }}</a>
+                        <a href="#" class="list-group-item"><span class="badge">{{ $pmCount }}</span> {{ trans_choice('member.pm', $pmCount) }}</a>
+                    </div>
+            	</div>
             </div>
+
         </div>
     </div>
 

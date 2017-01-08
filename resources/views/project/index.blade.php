@@ -25,11 +25,20 @@
                                 <h7 class="panel-title"><a href="{{ url('project/'.$project->id) }}">{{ $project->title }}</a></h7>
                         	</div>
                             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" align="right">
-                                <div class="dropdown">
-                                        <a href="#" class="dropdown-toggle panel-title my-tooltip" title="進行中" data-toggle="dropdown">
-                                            <i class="fa fa-circle-o-notch fa-spin fa-lg fa-fw"></i>
-                                        </a>
-                                    {{--<ul class="dropdown-menu">
+                                @if($project->progress === 100)
+                                    <a href="#" class="dropdown-toggle panel-title my-tooltip" title="完了" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </a>
+                                @else
+                                    <a href="#" class="dropdown-toggle panel-title my-tooltip" title="進行中" data-toggle="dropdown">
+                                        <i class="fa fa-circle-o-notch fa-spin fa-lg fa-fw"></i>
+                                    </a>
+                                @endif
+                                {{--<div class="dropdown">
+                                    <a href="#" class="dropdown-toggle panel-title my-tooltip" title="進行中" data-toggle="dropdown">
+                                        <i class="fa fa-circle-o-notch fa-spin fa-lg fa-fw"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
                                         <li>
                                             <a href="{{ route('lang', ['lang' => 'en']) }}">English</a>
                                         </li>
@@ -39,8 +48,8 @@
                                         <li>
                                             <a href="{{ route('lang', ['lang' => 'zh']) }}">中文</a>
                                         </li>
-                                    </ul>--}}
-                                </div>
+                                    </ul>
+                                </div>--}}
                             </div>
                         </div>
                     </div>
@@ -93,22 +102,28 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                         <p>
                                             <span class="glyphicon glyphicon-tasks"></span>
                                             @include('layouts.common.progress.project-task-progress')
                                         </p>
                                 	</div>
-                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                                         <p>
                                             <span class="glyphicon glyphicon-check"></span>
                                             @include('layouts.common.progress.project-todo-progress')
                                         </p>
                                     </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                        <p>
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                            0/0 {{-- TODO: イベントできたら、追加 --}}
+                                        </p>
+                                    </div>
                                 </div>
                                 <div class="row">
                                 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <p><i class="fa fa-refresh fa-spin fa-lg fa-fw"></i> {{ $project->updated_at }}</p>
+                                        <p><i class="fa fa-refresh fa-spin fa-lg fa-fw"></i> {{ trans('task.updated') }}：{{ $project->updated_at }}</p>
                                 	</div>
                                 </div>
                             </div>

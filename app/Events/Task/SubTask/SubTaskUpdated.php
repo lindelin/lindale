@@ -3,6 +3,7 @@
 namespace App\Events\Task\SubTask;
 
 use App\Task\SubTask;
+use App\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -22,14 +23,23 @@ class SubTaskUpdated
     public $subTask;
 
     /**
+     * 用户.
+     *
+     * @var User
+     */
+    public $user;
+
+    /**
      * 创建事件监听器.
      *
      * SubTaskUpdated constructor.
      * @param SubTask $subTask
+     * @param User $user
      */
-    public function __construct(SubTask $subTask)
+    public function __construct(SubTask $subTask, User $user)
     {
         $this->subTask = $subTask;
+        $this->user = $user;
     }
 
     /**

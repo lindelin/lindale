@@ -104,46 +104,55 @@
 
         {{-- 框架 --}}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="panel panel-default">
-                <!-- Default panel contents -->
-                <div class="panel-heading" style="{{ Colorable::lindale() }}">
-                    <div class="row">
-                    	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                            {{ trans('todo.todo-list') }}
-                    	</div>
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="right">
-                            @include('layouts.todo.common.list-edit', ['list_edit_delete_url' => "project/$project->id/todo/list/delete"])
-                        </div>
-                    </div>
-                </div>
 
-                <!-- List group -->
-                <ul class="list-group">
-                    <a href="{{ url("/project/$project->id/todo") }}" class="list-group-item">
+            @include('layouts.Project.common.project-icon')
+            @include('layouts.Project.common.project-statuses')
+            @include('layouts.Project.common.project-progress')
+
+            <div class="row">
+            	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading" style="{{ Colorable::lindale() }}">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    {{ trans('todo.todo-list') }}
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="right">
+                                    @include('layouts.todo.common.list-edit', ['list_edit_delete_url' => "project/$project->id/todo/list/delete"])
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- List group -->
+                        <ul class="list-group">
+                            <a href="{{ url("/project/$project->id/todo") }}" class="list-group-item">
                         <span class="badge">
                             {{ Counter::ProjectTodoFinishedCount($project) }}/{{ Counter::ProjectTodoCount($project) }}
                         </span>
-                        {{ trans('todo.all-todos') }}
-                    </a>
-                    @foreach($statuses as $status)
-                        <a href="{{ url("/project/$project->id/todo/status/$status->id") }}" class="list-group-item">
+                                {{ trans('todo.all-todos') }}
+                            </a>
+                            @foreach($statuses as $status)
+                                <a href="{{ url("/project/$project->id/todo/status/$status->id") }}" class="list-group-item">
                             <span class="badge">
                                 @include('layouts.common.progress.todo.project-todo-status-progress')
                             </span>
-                            {{ trans($status->name) }}
-                        </a>
-                    @endforeach
-                    @if($lists->count() > 0)
-                        @foreach($lists as $list)
-                            <a href="{{ url("/project/$project->id/todo/list/show/$list->id") }}" class="list-group-item">
+                                    {{ trans($status->name) }}
+                                </a>
+                            @endforeach
+                            @if($lists->count() > 0)
+                                @foreach($lists as $list)
+                                    <a href="{{ url("/project/$project->id/todo/list/show/$list->id") }}" class="list-group-item">
                                 <span class="badge">
                                     @include('layouts.common.progress.todo.project-todo-list-progress')
                                 </span>
-                                {{ $list->title }}
-                            </a>
-                        @endforeach
-                    @endif
-                </ul>
+                                        {{ $list->title }}
+                                    </a>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
+            	</div>
             </div>
 
             @include('layouts.todo.common.add-list', [

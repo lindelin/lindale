@@ -56,7 +56,7 @@ class SubTaskController extends Controller
 
         if ($result) {
 
-            event(new SubTaskCreated($subTask));
+            event(new SubTaskCreated($subTask, $request->user()));
 
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
         } else {
@@ -81,7 +81,7 @@ class SubTaskController extends Controller
 
         if ($result) {
 
-            event(new SubTaskUpdated($subTask));
+            event(new SubTaskUpdated($subTask, $request->user()));
 
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
         } else {
@@ -95,15 +95,16 @@ class SubTaskController extends Controller
      * @param Project $project
      * @param Task $task
      * @param SubTask $subTask
+     * @param Request $request
      * @return mixed
      */
-    public function destroy(Project $project, Task $task, SubTask $subTask)
+    public function destroy(Project $project, Task $task, SubTask $subTask, Request $request)
     {
         $result = $subTask->delete();
 
         if ($result) {
 
-            event(new SubTaskDeleted($subTask));
+            event(new SubTaskDeleted($subTask, $request->user()));
 
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.delete-succeed'));
         } else {

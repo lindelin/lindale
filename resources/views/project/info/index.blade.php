@@ -77,51 +77,8 @@
         {{-- 框架 --}}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
-            <div class="row">
-                @if($project->image != '')
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <a href="#" class="thumbnail">
-                            <img src="{{ asset('storage/'.$project->image) }}" alt="...">
-                        </a>
-            	</div>
-                @else
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <a href="#" class="thumbnail">
-                            <img src="{{ asset('img/plus.png') }}" alt="...">
-                        </a>
-                    </div>
-                @endif
-            </div>
-            <div class="row">
-            	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            		<div class="panel panel-default">
-            			<div class="panel-body">
-                            <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    <span class="glyphicon glyphicon-tasks"></span>
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    <span class="glyphicon glyphicon-check"></span>
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    @include('layouts.common.progress.project-task-progress')
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    @include('layouts.common.progress.project-todo-progress')
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    0/0
-                                </div>
-                            </div>
-            			</div>
-            		</div>
-            	</div>
-            </div>
+            @include('layouts.Project.common.project-icon')
+            @include('layouts.Project.common.project-statuses')
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <a href="{{ url('project/'.$project->id.'/edit') }}" class="btn btn-success btn-block">{{ trans('project.edit-project') }}</a>
@@ -129,16 +86,16 @@
             </div>
             <hr>
             <div class="row">
-            	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <h5><span class="glyphicon glyphicon-king"></span> {{ $pl->name }}</h5>
-            	</div>
+                </div>
             </div>
             <div class="row">
-            	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     @if($sl != null)
                         <h5><span class="glyphicon glyphicon-queen"></span> {{ $sl->name }}</h5>
                     @endif
-            	</div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -147,34 +104,7 @@
                     @endif
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    @if($project->start_at)
-                        <h5><i class="fa fa-hourglass-start" aria-hidden="true"></i> {{ $project->start_at }}</h5>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    @if($project->end_at)
-                        <h5><i class="fa fa-hourglass-end" aria-hidden="true"></i> {{ $project->end_at }}</h5>
-                    @endif
-                </div>
-            </div>
-            <div class="row">
-            	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    @if($project->updated_at)
-                        <h5><i class="fa fa-refresh fa-spin fa-fw"></i> {{ $project->updated_at }}</h5>
-                    @endif
-            	</div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    @if($project->created_at)
-                        <h5><span class="glyphicon glyphicon-time"></span> {{ $project->created_at }}</h5>
-                    @endif
-                </div>
-            </div>
+            @include('layouts.Project.common.project-info')
             @include('layouts.Project.common.project-progress')
 
         </div>

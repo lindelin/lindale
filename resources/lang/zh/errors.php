@@ -19,11 +19,13 @@ return [
     'remove-succeed' => '移除成功！',
     'remove-failed'  => '移除失败！',
 
+    'can-not-delete-task' => '禁止删除已完成的任务',
+    'can-not-edit-task'   => '禁止修改已完成的任务',
+
     /*'add-super-admin-failed'     => '禁止添加超级管理员！',
     'has-member-failed'     => '禁止添加超级管理员！',
     'add-pl-failed'     => '该成员为项目总监！',
     'add-sl-failed'     => '该成员为项目副总监！',*/
-
 
     'unauthorized' => '对不起,您的操作未经授权。',
     '503'          => '稍等片刻, 马上回来!',

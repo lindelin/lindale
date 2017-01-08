@@ -67,6 +67,17 @@ class Task extends Model
         return $this->hasOne('App\Task\TaskPriority', 'id', 'priority_id');
     }
 
+    /**
+     * 一个任务属于一个任务.
+     * 一对一
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function Project()
+    {
+        return $this->hasOne('App\Project\Project', 'id', 'project_id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | HasMany 一对多

@@ -169,7 +169,7 @@ class TaskController extends Controller
 
         if ($result) {
 
-            event(new TaskCreated($task));
+            event(new TaskCreated($task, $request->user()));
 
             return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.save-succeed'));
         } else {
@@ -195,7 +195,7 @@ class TaskController extends Controller
 
             if ($result) {
 
-                event(new TaskUpdated($task));
+                event(new TaskUpdated($task, $request->user()));
 
                 return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
             } else {
@@ -222,13 +222,14 @@ class TaskController extends Controller
     }
 
     /**
-     * 删除任务
+     * 删除任务.
      *
      * @param Project $project
      * @param Task $task
+     * @param Request $request
      * @return mixed
      */
-    public function destroy(Project $project, Task $task)
+    public function destroy(Project $project, Task $task, Request $request)
     {
         if($task->is_finish === Definer::TASK_UNFINISHED){
 
@@ -236,7 +237,7 @@ class TaskController extends Controller
 
             if ($task->delete()) {
 
-                event(new TaskDeleted($task));
+                event(new TaskDeleted($task, $request->user()));
 
                 return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.delete-succeed'));
             } else {

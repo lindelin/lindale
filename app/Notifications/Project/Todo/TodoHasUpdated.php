@@ -74,7 +74,7 @@ class TodoHasUpdated extends Notification implements ShouldQueue
             ->warning()
             ->content(trans('todo.updated-todo', ['name' => $this->user->name]))
             ->attachment(function ($attachment) {
-                $attachment->title(':clipboard:'.$this->todo->content, url('/project/'.$this->todo->Project->id.'/todo'))
+                $attachment->title(':clipboard:TODO：'.$this->todo->content, url('/project/'.$this->todo->Project->id.'/todo'))
                     ->fields([
                         trans('todo.user') => $this->todo->User ? $this->todo->User->name : trans('project.none'),
                         trans('todo.todo-list') => $this->todo->TodoList ? $this->todo->TodoList->title : trans('project.none'),

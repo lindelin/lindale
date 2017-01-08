@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Notifications\Project\Todo;
+namespace App\Notifications\Project\Task;
 
-use App\Todo\Todo;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
@@ -10,16 +9,18 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
 
-class TodoHasCreated extends Notification implements ShouldQueue
+class TaskHasDeleted extends Notification implements ShouldQueue
 {
     use Queueable;
 
     /**
-     * To-do
+     * 任务信息
      *
-     * @var Todo
+     * @var
      */
-    public $todo;
+    public $task_title;
+    public $task_user;
+    public $task_created_at;
 
     /**
      * 用户
@@ -36,18 +37,22 @@ class TodoHasCreated extends Notification implements ShouldQueue
     public $locale;
 
     /**
-     * 资源注入
+     * 注入依赖.
      *
-     * TodoHasCreated constructor.
-     * @param Todo $todo
+     * TaskHasDeleted constructor.
      * @param User $user
      * @param $locale
+     * @param $task_title
+     * @param $task_user
+     * @param $task_created_at
      */
-    public function __construct(Todo $todo, User $user, $locale)
+    public function __construct(User $user, $locale, $task_title, $task_user, $task_created_at)
     {
-        $this->todo = $todo;
         $this->user = $user;
         $this->locale = $locale;
+        $this->task_title = $task_title;
+        $this->task_user = $task_user;
+        $this->task_created_at = $task_created_at;
     }
 
     /**
@@ -71,15 +76,13 @@ class TodoHasCreated extends Notification implements ShouldQueue
     {
         \App::setLocale($this->locale);
         return (new SlackMessage)
-            ->success()
-            ->content(trans('todo.created-todo', ['name' => $this->user->name]))
+            ->error()
+            ->content(trans('task.deleted-task', ['name' => $this->user->name]))
             ->attachment(function ($attachment) {
-                $attachment->title(':clipboard:TODO：'.$this->todo->content, url('/project/'.$this->todo->Project->id.'/todo'))
+                $attachment->title(':scroll:'.trans('header.tasks').'：'.$this->task_title)
                     ->fields([
-                        trans('todo.user') => $this->todo->User ? $this->todo->User->name : trans('project.none'),
-                        trans('todo.todo-list') => $this->todo->TodoList ? $this->todo->TodoList->title : trans('project.none'),
-                        trans('todo.status') => trans($this->todo->Status->name),
-                        trans('todo.created') => (string)$this->todo->created_at,
+                        trans('task.user') => $this->task_user ? $this->task_user->name : trans('project.none'),
+                        trans('task.created') => $this->task_created_at ? $this->task_created_at : trans('project.none'),
                     ]);
             });
     }

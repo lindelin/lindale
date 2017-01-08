@@ -8,8 +8,8 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'finish'                => 'Finished',
-    'unfinished'            => 'Unfinished',
-    'all'                   => 'All',
+    'finish'     => 'Finished',
+    'unfinished' => 'Unfinished',
+    'all'        => 'All',
 
 ];

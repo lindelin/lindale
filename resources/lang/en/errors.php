@@ -17,6 +17,8 @@ return [
     'remove-succeed' => 'Successfully removed.',
     'remove-failed'  => 'Remove failed!',
 
+    'can-not-delete-task' => 'Can not delete completed task.',
+    'can-not-edit-task'   => 'Can not edit completed task.',
 
     'unauthorized' => 'This action is unauthorized.',
     '503'          => 'Be right back.',

@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Events\Task\TaskUpdated;
 use App\Task\Task;
 use App\Calculator;
 use App\Repositories\TaskRepository;
@@ -34,6 +35,7 @@ class TaskProgressEventListener
     public function onSubTaskUpdated($event)
     {
         $this->TaskProgressUpdate($event->subTask->Task);
+        event(new TaskUpdated($event->subTask->Task, $event->user));
     }
 
     /**
