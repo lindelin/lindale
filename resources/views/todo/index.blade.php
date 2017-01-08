@@ -16,7 +16,7 @@
             {{-- 标题部分 --}}
             <div class="row">
             	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="page-header">
+                    {{--<div class="page-header">
                         <h3><span class="glyphicon glyphicon-check"></span> TODO</h3>
                         <h4>
                             @if($type != null)
@@ -29,7 +29,7 @@
                                 <span class="label label-primary">{{ trans('todo.all-todos') }}</span>
                             @endif
                         </h4>
-                    </div>
+                    </div>--}}
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="row">

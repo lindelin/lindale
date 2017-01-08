@@ -144,6 +144,23 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
 
 /*
 |--------------------------------------------------------------------------
+| Task Routes
+|--------------------------------------------------------------------------
+|
+| Taskルート
+|
+| Task路由
+|
+*/
+
+Route::group(['middleware' => 'auth', 'namespace' => 'Task', 'prefix' => 'task'], function () {
+    Route::get('/', 'TaskController@index');
+    Route::get('unfinished', 'TaskController@unfinished');
+    Route::get('finished', 'TaskController@finished');
+});
+
+/*
+|--------------------------------------------------------------------------
 | To-do Routes
 |--------------------------------------------------------------------------
 |

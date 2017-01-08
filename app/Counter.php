@@ -37,6 +37,28 @@ class Counter
     }
 
     /**
+     * 合计用户完成任务总数.
+     *
+     * @param User $user
+     * @return int
+     */
+    public static function UserFinishedTaskCount(User $user)
+    {
+        return (int)($user->Tasks()->Where('is_finish', Definer::TASK_FINISHED)->count());
+    }
+
+    /**
+     * 合计用户任务总数.
+     *
+     * @param User $user
+     * @return int
+     */
+    public static function UserTaskCount(User $user)
+    {
+        return (int)($user->Tasks()->count());
+    }
+
+    /**
      * 合计用户待办总数.
      *
      * @param User $user

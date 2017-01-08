@@ -15,6 +15,7 @@ use App\Task\TaskPriority;
 use App\Task\TaskStatus;
 use App\Task\TaskType;
 use Illuminate\Http\Request;
+use App\User;
 
 class TaskRepository
 {
@@ -54,6 +55,45 @@ class TaskRepository
         return array_merge(compact('tasks'), $resources);
     }
 
+    /**
+     * 用户任务资源.
+     *
+     * @param User $user
+     * @param null $is_finish
+     * @param Project|null $project
+     * @param TaskPriority|null $priority
+     * @return array
+     */
+    public function UserTaskResources(User $user, $is_finish = null, Project $project = null, TaskPriority $priority = null)
+    {
+        $tasks = $user->Tasks();
+
+        if($is_finish !== null){
+            $tasks = $tasks->where('is_finish', $is_finish);
+        }
+
+        if($project != null){
+            $tasks = $tasks->where('project_id', $project->id);
+        }
+
+        if($priority != null){
+            $tasks = $tasks->where('priority_id', $priority->id);
+        }
+
+        $tasks = $tasks->orderBy('priority_id', 'desc')->orderBy('is_finish', 'asc')->get();
+
+        $priorities = TaskPriority::all();
+
+        return compact('tasks', 'priorities');
+    }
+
+    /**
+     * 任务详情资源.
+     *
+     * @param Project $project
+     * @param Task $task
+     * @return array
+     */
     public function TaskShowResources(Project $project, Task $task)
     {
         $resources = $this->Resources($project);
