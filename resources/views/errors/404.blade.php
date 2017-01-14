@@ -69,7 +69,7 @@
     <div class="content">
         <h1 class="title">404...</h1>
         <div class="title m-b-md">
-            <img alt="Logo" src="{{ asset('/img/logo.png') }}" width="40%"/>
+            <img alt="Logo" src="{{ asset('/img/logo_main.png') }}" width="40%"/>
         </div>
         <a href="/">{{ trans('errors.back') }}</a>
         <hr>

@@ -70,7 +70,7 @@
         <h1 class="title">{{ trans('errors.unauthorized') }}</h1>
         <a href="/">{{ trans('errors.back') }}</a>
         <div class="title m-b-md">
-            <img alt="Logo" src="{{ asset('/img/logo.png') }}" width="40%"/>
+            <img alt="Logo" src="{{ asset('/img/logo_main.png') }}" width="40%"/>
         </div>
         <div class="links">
             <a href="https://laravel.com/docs">Documentation</a>

@@ -68,9 +68,17 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
-                    <img alt="Logo" src="{{ asset('/img/logo.png') }}" width="40%"/>
+                    <img alt="Logo" src="{{ asset('/img/logo_main.png') }}" width="40%"/>
                 </div>
-                <h2>{{ trans('errors.503') }}</h2>
+                <h1>
+                    {{ trans('errors.503') }}
+                </h1>
+                <h2>
+                    ただ今、メンテナンス中です。 恐れ入りますが、しばらくお待ち下さいますようお願い申し上げます。
+                </h2>
+                <h2>
+                    稍等片刻, 马上回来!
+                </h2>
                 <hr>
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
