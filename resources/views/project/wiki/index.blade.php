@@ -41,12 +41,16 @@
                 </div>
                 <hr>
                 <div class="row">
-                	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-12 col-sm-8 col-md-7 col-lg-6">
                         @if($HomeWiki->image)
                             <a href="#" class="thumbnail">
                                 <img src="{{ asset('storage/'.$HomeWiki->image) }}">
                             </a>
                         @endif
+                    </div>
+                </div>
+                <div class="row">
+                	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="table-responsive-div">
                             {!! Markdown::toHtml($HomeWiki->content) !!}
                         </div>
