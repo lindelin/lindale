@@ -31,11 +31,7 @@ class TodoHasDeletedNotify
                 $event->user,
                 ProjectConfig::get($event->todo->Project, ProjectConfig::LANG),
                 $event->todo->content,
-                $event->todo->User ? $this->todo->User->name : trans('project.none'),
-                $event->todo->Status->name,
-                (string)$event->todo->created_at,
-                $event->todo->project_id,
-                $event->todo->TodoList ? $event->todo->TodoList->title : trans('project.none')
+                (string)$event->todo->created_at
             ));
         }
 
@@ -51,11 +47,7 @@ class TodoHasDeletedNotify
                 $event->user,
                 UserConfig::get($event->todo->User, UserConfig::LANG),
                 $event->todo->content,
-                $event->todo->User ? $this->todo->User->name : trans('project.none'),
-                $event->todo->Status->name,
-                (string)$event->todo->created_at,
-                $event->todo->project_id,
-                $event->todo->TodoList ? $event->todo->TodoList->title : trans('project.none')
+                (string)$event->todo->created_at
             ));
         }
     }
