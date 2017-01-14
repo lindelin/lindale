@@ -15,14 +15,31 @@ require('laravel-elixir-vue');
 
 elixir(function(mix) {
 
-    mix.sass('app.scss')
-       .webpack('app.js');
+    // scss
+    mix.sass(
+        'app.scss',
+        'resources/assets/css/lib.css'
+    );
 
+    // App.js
+    mix.webpack('app.js');
+
+    // Main CSS
     mix.styles([
+        'lib.css',
         'main.css',
         'callouts.css',
         'bootstrap-off-canvas-nav.css'
     ], 'public/css/main.css');
+
+    // Page Loader
+    mix.styles([
+        'pageloader.css'
+    ], 'public/css/pageloader.css')
+        .scripts([
+            'pageloader.js'
+        ], 'public/js/pageloader.js');
+
 
 });
 

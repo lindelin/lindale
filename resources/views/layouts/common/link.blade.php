@@ -28,7 +28,6 @@
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 {{-- local css --}}
 <link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">
 {{-- local icon --}}
 <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/apple-touch-icon.png') }}">
 <link rel="icon" type="image/png" href="{{ asset('/favicon-32x32.png') }}" sizes="32x32">

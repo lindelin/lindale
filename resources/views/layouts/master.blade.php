@@ -7,6 +7,8 @@
 </head>
 <body>
 
+    @include('layouts.pageloader')
+
     @include('layouts.common.header')
 
     <div class="container">
