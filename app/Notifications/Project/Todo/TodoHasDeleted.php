@@ -77,7 +77,7 @@ class TodoHasDeleted extends Notification implements ShouldQueue
             ->error()
             ->content(trans('todo.deleted-todo', ['name' => $this->user->name]))
             ->attachment(function ($attachment) {
-                $attachment->title(':clipboard:TODO：'.$this->todo_content, url('/project/'.$this->todo_project.'/todo'))
+                $attachment->title(':clipboard:TODO：'.$this->todo_content)
                     ->fields([
                         trans('todo.created') => $this->todo_created ? $this->todo_created : trans('project.none'),
                     ]);
