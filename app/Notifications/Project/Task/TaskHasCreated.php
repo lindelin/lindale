@@ -2,6 +2,7 @@
 
 namespace App\Notifications\Project\Task;
 
+use App\Definer;
 use App\Task\Task;
 use App\User;
 use Illuminate\Bus\Queueable;
@@ -79,7 +80,7 @@ class TaskHasCreated extends Notification implements ShouldQueue
                     ->fields([
                         trans('task.user') => $this->task->User ? $this->task->User->name : trans('project.none'),
                         trans('task.cost') => $this->task->cost ? $this->task->cost.trans('task.hour') : trans('project.none'),
-                        trans('task.status') => trans($this->task->Status->name),
+                        trans('task.status') => $this->task->is_finish === Definer::TASK_FINISHED ? trans('task.finish') : trans($this->task->Status->name),
                         trans('task.progress') => (int)$this->task->progress.'%',
                         trans('task.group') => $this->task->Group ? $this->task->Group->title : trans('project.none'),
                         trans('task.priority') => trans($this->task->Priority->name),
