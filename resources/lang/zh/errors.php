@@ -19,8 +19,9 @@ return [
     'remove-succeed' => '移除成功！',
     'remove-failed'  => '移除失败！',
 
-    'can-not-delete-task' => '禁止删除已完成的任务',
-    'can-not-edit-task'   => '禁止修改已完成的任务',
+    'can-not-delete-task'  => '禁止删除已完成的任务',
+    'can-not-edit-task'    => '禁止修改已完成的任务',
+    'can-not-add-sub-task' => '禁止向已完成的任务中添加附属任务',
 
     /*'add-super-admin-failed'     => '禁止添加超级管理员！',
     'has-member-failed'     => '禁止添加超级管理员！',

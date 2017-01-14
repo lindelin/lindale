@@ -17,8 +17,9 @@ return [
     'remove-succeed' => 'Successfully removed.',
     'remove-failed'  => 'Remove failed!',
 
-    'can-not-delete-task' => 'Can not delete completed task.',
-    'can-not-edit-task'   => 'Can not edit completed task.',
+    'can-not-delete-task'  => 'Can not delete completed task.',
+    'can-not-edit-task'    => 'Can not edit completed task.',
+    'can-not-add-sub-task' => 'Can not add a sub task to a task which has already been completed.',
 
     'unauthorized' => 'This action is unauthorized.',
     '503'          => 'Be right back.',

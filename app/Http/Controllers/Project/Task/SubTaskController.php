@@ -11,6 +11,7 @@ use App\Task\Task;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\TaskRepository;
+use App\Definer;
 
 class SubTaskController extends Controller
 {
@@ -44,23 +45,31 @@ class SubTaskController extends Controller
      */
     public function store(Request $request, Project $project, Task $task)
     {
-        $this->validate($request, [
-            'content' => 'required|max:30',
-        ]);
+        if($task->is_finish === Definer::TASK_UNFINISHED){
 
-        $subTask = new SubTask();
-        $subTask->content = $request->get('content');
-        $subTask->task_id = $task->id;
+            $this->validate($request, [
+                'content' => 'required|max:30',
+            ]);
 
-        $result = $subTask->save();
+            $subTask = new SubTask();
+            $subTask->content = $request->get('content');
+            $subTask->task_id = $task->id;
 
-        if ($result) {
+            $result = $subTask->save();
 
-            event(new SubTaskCreated($subTask, $request->user()));
+            if ($result) {
 
-            return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
+                event(new SubTaskCreated($subTask, $request->user()));
+
+                return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
+            } else {
+                return redirect()->back()->withErrors(trans('errors.update-failed'));
+            }
+
+        }else{
+
+            return redirect()->back()->withErrors(trans('errors.can-not-add-sub-task'));
+
         }
     }
 

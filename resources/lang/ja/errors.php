@@ -19,8 +19,9 @@ return [
     'remove-succeed' => '削除しました。',
     'remove-failed'  => '削除できませんでした。',
 
-    'can-not-delete-task' => '既に完了したチケットを削除することができません。',
-    'can-not-edit-task'   => '既に完了したチケットを編集することができません。',
+    'can-not-delete-task'  => '既に完了したチケットを削除することができません。',
+    'can-not-edit-task'    => '既に完了したチケットを編集することができません。',
+    'can-not-add-sub-task' => '既に完了したチケットにサブチケットを追加することができません。',
 
 
     'unauthorized' => '権利がありません',
