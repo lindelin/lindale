@@ -35,6 +35,9 @@
 <link rel="manifest" href="{{ asset('/manifest.json') }}">
 <link rel="mask-icon" href="{{ asset('/safari-pinned-tab.svg') }}" color="#2760cf">
 <meta name="theme-color" content="#ffffff">
+{{-- facebook meta --}}
+
+
 {{-- local js --}}
 
 <!-- Scripts -->
