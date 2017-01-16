@@ -89,13 +89,13 @@
                     <img alt="Logo" src="{{ asset('/img/logo_main.png') }}" width="30%"/>
                 </div>
 
-                <div class="links">
+                {{--<div class="links">
                     <a href="#">Documentation</a>
                     <a href="#">Blog</a>
                     <a href="#">News</a>
                     <a href="#">About</a>
                     <a href="https://github.com/lindelea/lindale">GitHub</a>
-                </div>
+                </div>--}}
             </div>
         </div>
     </body>
