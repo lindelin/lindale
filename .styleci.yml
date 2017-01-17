@@ -1,1 +1,9 @@
 preset: laravel
+
+linting: true
+
+enabled:
+  - strict
+  - unalign_double_arrow
+  - phpdoc_order
+  - phpdoc_separation
