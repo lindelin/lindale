@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    @include('layouts.pageloader')
+    {{-- @include('layouts.pageloader')--}}
 
     @include('layouts.common.header')
 
