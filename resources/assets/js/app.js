@@ -5,8 +5,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-/*require('./bootstrap');*/
+require('./bootstrap');
 require('./bootstrap-off-canvas-nav');
+require('./pageloader');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -29,17 +29,9 @@ elixir(function(mix) {
         'lib.css',
         'main.css',
         'callouts.css',
+        'pageloader.css',
         'bootstrap-off-canvas-nav.css'
     ], 'public/css/main.css');
-
-    // Page Loader
-    mix.styles([
-        'pageloader.css'
-    ], 'public/css/pageloader.css')
-        .scripts([
-            'pageloader.js'
-        ], 'public/js/pageloader.js');
-
 
 });
 
