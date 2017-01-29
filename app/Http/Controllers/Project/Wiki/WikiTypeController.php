@@ -34,7 +34,7 @@ class WikiTypeController extends Controller
      * 创建WIKI表单.
      *
      * @param Project $project
-     * @return $this
+     * @return mixed
      */
     public function create(Project $project)
     {
@@ -47,7 +47,7 @@ class WikiTypeController extends Controller
      *
      * @param TypeRequest $request
      * @param Project $project
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function store(TypeRequest $request, Project $project)
     {
@@ -65,7 +65,7 @@ class WikiTypeController extends Controller
      *
      * @param Request $request
      * @param WikiType $wikiType
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function update(Request $request, Project $project, WikiType $wikiType)
     {
@@ -83,7 +83,7 @@ class WikiTypeController extends Controller
      *
      * @param Project $project
      * @param WikiType $wikiType
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function destroy(Project $project, WikiType $wikiType)
     {
