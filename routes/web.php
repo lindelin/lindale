@@ -96,6 +96,11 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
             //通知设定
             Route::get('notification', 'ConfigController@notification');
             Route::patch('notification', 'ConfigController@updateNotification');
+
+            //任务设定
+            Route::group(['prefix' => 'task'], function () {
+                Route::get('type', 'ConfigController@taskType');
+            });
         });
 
         //任务路由

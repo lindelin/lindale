@@ -20,5 +20,9 @@ return [
     'save'                => '保存',
     'slack-notify'        => 'Slack 通知',
     'notifiable'          => '通知许可',
+    'delete'              => '删除',
+    'type-name'           => '名称',
+    'config'              => '设定',
+    'list'                => '列表',
 
 ];

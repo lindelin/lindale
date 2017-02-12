@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Project;
 
 use App\Project\Project;
 use App\System\ConfigSystem\ProjectConfigSystem;
+use App\Task\TaskType;
 use Illuminate\Http\Request;
 use App\Repositories\ProjectRepository;
 use App\Http\Requests;
@@ -119,7 +120,7 @@ class ConfigController extends Controller
      *
      * @param Request $request
      * @param Project $project
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function updateNotification(Request $request, Project $project)
     {
@@ -133,5 +134,22 @@ class ConfigController extends Controller
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
         }
+    }
+
+    public function taskType(Project $project)
+    {
+        $taskTypes = TaskType::where('project_id', $project->id)->get();
+        return view('project.config.task-type', $this->projectRepository->ProjectResources())
+            ->with(['project' => $project, 'selected' => 'config', 'mode' => 'taskType'])
+            ->with($this->_taskTypeViewParam($taskTypes, trans('task.type').trans('config.config'), trans('task.type').trans('config.list')));
+    }
+
+    private function _taskTypeViewParam($models, $heading, $list_title)
+    {
+        return [
+            'models' => $models,
+            'heading' => $heading,
+            'list_title' => $list_title,
+        ];
     }
 }
