@@ -24,5 +24,8 @@ return [
     'type-name'           => '名称',
     'config'              => '设定',
     'list'                => '列表',
+    'task-config'      => '任务设定',
+    'task-type-config'      => '任务类型管理',
+    'task-status-config'      => '任务状态管理',
 
 ];

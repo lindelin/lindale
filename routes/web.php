@@ -100,6 +100,10 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
             //任务设定
             Route::group(['prefix' => 'task'], function () {
                 Route::get('type', 'ConfigController@taskType');
+                Route::patch('type/{type?}', 'ConfigController@updateTaskType');
+
+                Route::get('status', 'ConfigController@taskStatus');
+                Route::patch('status/{status?}', 'ConfigController@updateTaskStatus');
             });
         });
 

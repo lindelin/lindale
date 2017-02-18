@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Project;
 
 use App\Project\Project;
 use App\System\ConfigSystem\ProjectConfigSystem;
+use App\Task\TaskStatus;
 use App\Task\TaskType;
-use Illuminate\Http\Request;
 use App\Repositories\ProjectRepository;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use ProjectConfig;
 
 class ConfigController extends Controller
@@ -138,18 +138,55 @@ class ConfigController extends Controller
 
     public function taskType(Project $project)
     {
-        $taskTypes = TaskType::where('project_id', $project->id)->get();
-        return view('project.config.task-type', $this->projectRepository->ProjectResources())
+        $taskTypes = $project->TaskTypes;
+        return view('project.config.common-type', $this->projectRepository->ProjectResources())
             ->with(['project' => $project, 'selected' => 'config', 'mode' => 'taskType'])
-            ->with($this->_taskTypeViewParam($taskTypes, trans('task.type').trans('config.config'), trans('task.type').trans('config.list')));
+            ->with([
+                'models' => $taskTypes,
+                'heading' => trans('config.task-type-config'),
+                'list_title' => trans('task.type'),
+                'add_url' => url('/project/'.$project->id.'/config/task/type/'),
+                'edit_url' => url('/project/'.$project->id.'/config/task/type/'),
+            ]);
     }
 
-    private function _taskTypeViewParam($models, $heading, $list_title)
+    public function updateTaskType(Request $request, Project $project, $id = null)
     {
-        return [
-            'models' => $models,
-            'heading' => $heading,
-            'list_title' => $list_title,
-        ];
+        $result = TaskType::updateOrCreate(
+            ['id' => $id, 'project_id' => $project->id],
+            ['name' => $request->get('name'), 'color_id' => $request->get('color_id')]);
+
+        if ($result) {
+            return redirect()->back()->with('status', trans('errors.update-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.update-failed'));
+        }
+    }
+
+    public function taskStatus(Project $project)
+    {
+        $taskStatuses = $project->TaskStatuses;
+        return view('project.config.common-type', $this->projectRepository->ProjectResources())
+            ->with(['project' => $project, 'selected' => 'config', 'mode' => 'taskStatus'])
+            ->with([
+                'models' => $taskStatuses,
+                'heading' => trans('config.task-status-config'),
+                'list_title' => trans('task.status'),
+                'add_url' => url('/project/'.$project->id.'/config/task/status/'),
+                'edit_url' => url('/project/'.$project->id.'/config/task/status/'),
+            ]);
+    }
+
+    public function updateTaskStatus(Request $request, Project $project, $id = null)
+    {
+        $result = TaskStatus::updateOrCreate(
+            ['id' => $id, 'project_id' => $project->id],
+            ['name' => $request->get('name'), 'color_id' => $request->get('color_id'), 'action_id' => 3]);/* TODO: ACTION */
+
+        if ($result) {
+            return redirect()->back()->with('status', trans('errors.update-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.update-failed'));
+        }
     }
 }

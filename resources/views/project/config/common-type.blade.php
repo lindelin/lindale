@@ -26,7 +26,7 @@
                             <h3>{{ $list_title }}</h3>
                         </div>
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            @include('layouts.admin.add')
+                            @include('layouts.config.common.type-add')
                         </div>
                     </div>
                     <hr>

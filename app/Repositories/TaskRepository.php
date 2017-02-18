@@ -50,7 +50,7 @@ class TaskRepository
             $tasks = $tasks->where('status_id', $status->id)->where('is_finish', Definer::TASK_UNFINISHED);
         }
 
-        $tasks = $tasks->orderBy('priority_id', 'desc')->orderBy('is_finish', 'asc')->get();
+        $tasks = $tasks->orderBy('is_finish', 'asc')->orderBy('priority_id', 'desc')->paginate(10);
 
         return array_merge(compact('tasks'), $resources);
     }
@@ -80,7 +80,7 @@ class TaskRepository
             $tasks = $tasks->where('priority_id', $priority->id);
         }
 
-        $tasks = $tasks->orderBy('priority_id', 'desc')->orderBy('is_finish', 'asc')->get();
+        $tasks = $tasks->orderBy('priority_id', 'desc')->orderBy('is_finish', 'asc')->paginate(10);
 
         $priorities = TaskPriority::all();
 
@@ -129,7 +129,7 @@ class TaskRepository
     public function TaskGroupResources(Project $project)
     {
         $taskGroupCreteResources = $this->TaskGroupCreateResources($project);
-        $groups = $project->TaskGroups;
+        $groups = $project->TaskGroups()->paginate(3);
 
 
         return array_merge(compact('groups'), $taskGroupCreteResources);

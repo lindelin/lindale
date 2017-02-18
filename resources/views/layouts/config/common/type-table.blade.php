@@ -3,9 +3,9 @@
         <thead>
         <tr>
             <th>{{ trans('config.type-name') }}</th>
-            <th>{{ trans('user.updated') }}</th>
-            <th>{{ trans('user.created') }}</th>
-            <th>{{ trans('config.delete') }}</th>
+            <th>{{ trans('common.updated') }}</th>
+            <th>{{ trans('common.created') }}</th>
+            <th>{{ trans('common.edit') }}</th>
         </tr>
         </thead>
         <tbody>
@@ -15,9 +15,9 @@
                 <td>{{ $model->updated_at }}</td>
                 <td>{{ $model->created_at }}</td>
                 <td>
-                    @include('layouts.config.common.type-delete', [
+                    @include('layouts.config.common.type-edit', [
                     'model' => $model,
-                    'delete_url' => '#',/* TODO: URL */
+                    'edit_url' => $edit_url.'/'.$model->id
                     ])
                 </td>
             </tr>
