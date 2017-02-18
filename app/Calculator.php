@@ -103,6 +103,36 @@ class Calculator
     }
 
     /**
+     * 计算项目任务进度.
+     *
+     * @param Project $project
+     * @return int
+     */
+    public static function ProjectTaskProgressCompute(Project $project)
+    {
+        if(Counter::ProjectTaskCount($project) > 0){
+            return (int)(Counter::ProjectTaskFinishedCount($project) / Counter::ProjectTaskCount($project) * 100);
+        }else{
+            return self::ZERO;
+        }
+    }
+
+    /**
+     * 计算项目To-do进度.
+     *
+     * @param Project $project
+     * @return int
+     */
+    public static function ProjectTodoProgressCompute(Project $project)
+    {
+        if(Counter::ProjectTodoCount($project) > 0){
+            return (int)(Counter::ProjectTodoFinishedCount($project) / Counter::ProjectTodoCount($project) * 100);
+        }else{
+            return self::ZERO;
+        }
+    }
+
+    /**
      * 计算未完成任务的比重.
      *
      * @param Project $project

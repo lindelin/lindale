@@ -43,7 +43,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     //项目
-    Route::resource('project', 'ProjectController');
+    Route::resource('project', 'ProjectController', ['except' => ['show']]);
+    Route::get('project/{project}', 'ProjectController@show')->middleware('ProjectAuth');
     Route::get('/unfinished/project', 'ProjectController@unfinished');
     Route::get('/finished/project', 'ProjectController@finished');
     //项目内路由
@@ -82,9 +83,16 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
                 Route::delete('list/delete/{list}', 'TodoListController@destroy');
             });
         });
+        
+        //进度路由
+        Route::group(['prefix' => 'progress'], function () {
+            Route::get('/', 'ProgressController@index');
+        });
 
         //概要路由
-        Route::get('info', 'InfoController@index');
+        Route::group(['prefix' => 'info'], function () {
+            Route::get('/', 'InfoController@index');
+        });
 
         //设定路由
         Route::group(['prefix' => 'config'], function () {
