@@ -34,13 +34,13 @@
                         <div class="panel-body">
                             <div class="row">
                             	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    <span class="glyphicon glyphicon-list"></span>
+                                    {{ trans('todo.all-todos') }}
                             	</div>
                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    <i class="fa fa-users" aria-hidden="true"></i>
+                                    {{ trans('type.public') }}
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    <span class="glyphicon glyphicon-lock"></span>
+                                    {{ trans('type.private') }}
                                 </div>
                             </div>
                             <div class="row">

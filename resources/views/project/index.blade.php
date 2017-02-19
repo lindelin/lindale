@@ -91,12 +91,12 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <p><span class="glyphicon glyphicon-king"></span> {{ $project->ProjectLeader->name }}</p>
+                                        <p><span class="glyphicon glyphicon-king"></span> {{ str_limit($project->ProjectLeader->name, 10) }}</p>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                         <p>
                                             @if($project->SubLeader)
-                                                <span class="glyphicon glyphicon-queen"></span> {{ $project->SubLeader->name }}
+                                                <span class="glyphicon glyphicon-queen"></span> {{ str_limit($project->SubLeader->name, 10) }}
                                             @endif
                                         </p>
                                     </div>
@@ -115,10 +115,10 @@
                                         </p>
                                     </div>
                                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                        <p>
+                                        {{--<p>
                                             <span class="glyphicon glyphicon-calendar"></span>
-                                            0/0 {{-- TODO: イベントできたら、追加 --}}
-                                        </p>
+                                            0/0 --}}{{-- TODO: イベントできたら、追加 --}}{{--
+                                        </p>--}}
                                     </div>
                                 </div>
                                 <div class="row">

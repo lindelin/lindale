@@ -7,7 +7,7 @@
     "authors": [
         {
             "name": "Wu Jie",
-            "email": "kudouyoichi@gmail.com",
+            "email": "kgo@lindelin.org",
             "role": "Developer"
         }
     ],
@@ -17,7 +17,8 @@
         "erusev/parsedown-extra": "^0.7.1",
         "laravel/passport": "^1.0",
         "guzzlehttp/guzzle": "^6.2",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "spatie/laravel-backup": "^4.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

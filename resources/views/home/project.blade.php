@@ -44,7 +44,7 @@
                                           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                               <a href="{{ url("project/$project->id") }}">
                                                   <h4>
-                                                      {{ $project->title }}
+                                                      {{ str_limit($project->title, 30) }}
                                                   </h4>
                                               </a>
                                           </div>

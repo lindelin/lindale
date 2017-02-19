@@ -30,17 +30,17 @@ class ProjectRepository
             return compact('types', 'users', 'statuses');
         }
         if ($key == 'projects') {
-            $projects = Project::latest()->get();
+            $projects = Project::latest()->Paginate(6);
 
             return compact('projects');
         }
         if ($key == 'unfinished') {
-            $projects = Project::where('progress', '<>', 100)->latest()->get();
+            $projects = Project::where('progress', '<>', 100)->latest()->Paginate(6);
 
             return compact('projects');
         }
         if ($key == 'finished') {
-            $projects = Project::where('progress', 100)->latest()->get();
+            $projects = Project::where('progress', 100)->latest()->Paginate(6);
 
             return compact('projects');
         }

@@ -173,6 +173,7 @@ return [
          */
 
         Laravel\Passport\PassportServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
 
         /*
          * Application Service Providers...
