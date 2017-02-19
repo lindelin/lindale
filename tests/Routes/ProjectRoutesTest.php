@@ -45,18 +45,12 @@ class ProjectRoutesTest extends TestCase
      *
      * @test
      */
-    public function it_can_access_the_project_page()
+    public function it_can_not_access_the_project_page()
     {
         $response = $this->actingAs($this->user)->call('GET', '/project');
         $this->assertEquals(200, $response->status());
         $this->assertViewHasAll(['projects']);
     }
-
-    /*
-    |--------------------------------------------------------------------------
-    | 参与していないプロジェクトの Routes Test
-    |--------------------------------------------------------------------------
-    */
 
     /**
      * プライベートルートとしてアクセスできる.
@@ -66,9 +60,15 @@ class ProjectRoutesTest extends TestCase
     public function it_can_access_the_project_show_page()
     {
         $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project1->id);
-        $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['selected', 'project']);
+        $this->assertEquals(302, $response->status());
+        $this->assertRedirectedTo('/');
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | 参与していないプロジェクトの Routes Test
+    |--------------------------------------------------------------------------
+    */
 
     /**
      * プライベートルートとしてアクセスできる
