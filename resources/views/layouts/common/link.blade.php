@@ -25,8 +25,8 @@
 <script src="//cdn.bootcss.com/moment.js/2.14.1/moment.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-datetimepicker/4.17.42/js/bootstrap-datetimepicker.min.js"></script>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+
+{!! Charts::assets() !!}
 
 {{-- local css --}}
 <link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css">

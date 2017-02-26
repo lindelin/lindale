@@ -18,7 +18,8 @@
         "laravel/passport": "^1.0",
         "guzzlehttp/guzzle": "^6.2",
         "doctrine/dbal": "^2.5",
-        "spatie/laravel-backup": "^4.6"
+        "spatie/laravel-backup": "^4.6",
+        "consoletvs/charts": "4.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -174,6 +174,7 @@ return [
 
         Laravel\Passport\PassportServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -240,6 +241,7 @@ return [
         'Counter' => \App\Counter::class,
         'ProjectConfig' => \App\ProjectConfig::class,
         'UserConfig' => \App\UserConfig::class,
+        'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
 
     ],
 
