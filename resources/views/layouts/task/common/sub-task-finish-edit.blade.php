@@ -1,5 +1,5 @@
 <!-- 模态窗按钮 -->
-<a class="my-tooltip" title="{{ trans('task.edit') }}" data-toggle="modal" data-target="#editSubTaskModel{{ $model->id }}">
+<a href="#editSubTaskModel{{ $model->id }}" class="my-tooltip" title="{{ trans('task.edit') }}" data-toggle="modal" data-target="#editSubTaskModel{{ $model->id }}">
     @if($model->is_finish === Definer::TASK_FINISHED)
         <span class="glyphicon glyphicon-ok"></span>
     @else
