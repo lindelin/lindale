@@ -46,7 +46,7 @@ return [
     'comment'      => 'コメント',
     'add-comment'  => '書き込む',
     'progress'     => '進捗',
-    'no-comment'   => 'コメントがありません。',
+    'no-comment'   => 'アクティビティがありません。',
     'created-task' => ':Name さんは新しいチケットを作成しました：',
     'updated-task' => ':Name さんはチケットを更新しました：',
     'deleted-task' => ':Name さんはチケットを削除しました：',

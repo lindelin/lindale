@@ -128,7 +128,7 @@
         </div>
     @else
         <div class="alert alert-warning" role="alert">
-            <strong>Warning!</strong> {{ trans('task.no-comment') }}
+            {{ trans('task.no-comment') }}
         </div>
     @endif
     <hr>
