@@ -7,6 +7,54 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Config;
 
+/**
+ * App\Project\Project
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $content
+ * @property string $start_at
+ * @property string $end_at
+ * @property string $password
+ * @property string $image
+ * @property int $user_id
+ * @property int $sl_id
+ * @property int $type_id
+ * @property int $status_id
+ * @property int $progress
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Settings\ProjectSettings[] $Config
+ * @property-read \App\User $ProjectLeader
+ * @property-read \App\Project\ProjectStatus $Status
+ * @property-read \App\User $SubLeader
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Task\TaskGroup[] $TaskGroups
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Task\TaskStatus[] $TaskStatuses
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Task\TaskType[] $TaskTypes
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Task\Task[] $Tasks
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Todo\TodoList[] $TodoLists
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Todo\Todo[] $Todos
+ * @property-read \App\Project\ProjectType $Type
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $Users
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Wiki\WikiType[] $WikiTypes
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Wiki\Wiki[] $Wikis
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereContent($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereEndAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereImage($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project wherePassword($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereProgress($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereSlId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereStartAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereStatusId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereTitle($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereTypeId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereUserId($value)
+ * @mixin \Eloquent
+ */
 class Project extends Model
 {
     use Notifiable;

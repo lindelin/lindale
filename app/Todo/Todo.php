@@ -4,6 +4,36 @@ namespace App\Todo;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Todo\Todo
+ *
+ * @property int $id
+ * @property string $content
+ * @property int $type_id
+ * @property int $status_id
+ * @property int $color_id
+ * @property int $list_id
+ * @property int $user_id
+ * @property int $project_id
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \App\Project\Project $Project
+ * @property-read \App\Todo\TodoStatus $Status
+ * @property-read \App\Todo\TodoList $TodoList
+ * @property-read \App\Todo\TodoType $Type
+ * @property-read \App\User $User
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereColorId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereContent($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereListId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereProjectId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereStatusId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereTypeId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereUserId($value)
+ * @mixin \Eloquent
+ */
 class Todo extends Model
 {
     /**
