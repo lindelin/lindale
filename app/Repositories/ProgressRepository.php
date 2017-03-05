@@ -55,15 +55,24 @@ class ProgressRepository
             ->colors(['#1f77b4'])
             ->responsive(true);
 
-        $projectProgressAreaspline = Charts::multi('areaspline', 'highcharts')
-            ->title('My nice chart')
-            ->labels(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'])
-            ->dataset('John', [3, 4, 3, 5, 4,])
-            ->dataset('Jane',  [1, 3, 4, 3, 3,])
-            ->responsive(true);
+        $projectProgressAreaspline = Charts::multiDatabase('areaspline', 'highcharts')
+            ->title('進捗状況')
+            ->dataset('新規チケット', $project->Tasks()->select('created_at')->get())
+            ->dataset('終了チケット', $project->Tasks()->select('updated_at AS created_at')->where('is_finish', true)->get())
+            ->dataset('新規TODO', $project->Todos()->select('created_at')->get())
+            ->dataset('終了TODO', $project->Todos()->select('updated_at AS created_at')->where('status_id', 2)->get())
+            ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
+            ->elementLabel('件')
+            ->responsive(true)
+            ->lastByDay(7, true);
+        ;
 
 
-        return compact('schemaDonut', 'projectProgressPie', 'taskProgressPie', 'todoProgressPie', 'projectProgressAreaspline');
-
+        return compact(
+            'schemaDonut',
+            'projectProgressPie',
+            'taskProgressPie',
+            'todoProgressPie',
+            'projectProgressAreaspline');
     }
 }
