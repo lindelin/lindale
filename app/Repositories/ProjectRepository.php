@@ -12,6 +12,7 @@ use App\Project\Project;
 use App\Wiki\Wiki;
 use App\Wiki\WikiType;
 use Illuminate\Support\Facades\Storage;
+use Charts;
 
 class ProjectRepository
 {
@@ -58,7 +59,19 @@ class ProjectRepository
         $userProjects = $user->Projects()->latest()->simplePaginate(6, ['*'], 'uPage');
         $userProjectCount = Counter::UserProjectCount($user);
 
-        return compact('myProjects', 'userProjectCount', 'userProjects');
+        $userProgressAreaspline = Charts::multiDatabase('areaspline', 'highcharts')
+            ->title('進捗状況')
+            ->dataset('新規チケット', $user->Tasks()->select('created_at')->get())
+            ->dataset('終了チケット', $user->Tasks()->select('updated_at AS created_at')->where('is_finish', true)->get())
+            ->dataset('新規TODO', $user->Todos()->select('created_at')->get())
+            ->dataset('終了TODO', $user->Todos()->select('updated_at AS created_at')->where('status_id', 2)->get())
+            ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
+            ->elementLabel('件')
+            ->responsive(true)
+            ->lastByDay(7, true);
+        ;
+
+        return compact('myProjects', 'userProjectCount', 'userProjects', 'userProgressAreaspline');
     }
 
     /**
