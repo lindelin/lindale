@@ -60,7 +60,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                                 <label class="control-label">
-                                    {{ trans('task.group-info') }}
+                                    {{ trans('task.info') }}
                                 </label>
                                 <div>
                                     <textarea class="form-control" rows="8" name="content" data-provide="markdown" placeholder=" Markdown">{{ old('content') ? old('content') : $task->content }}</textarea>

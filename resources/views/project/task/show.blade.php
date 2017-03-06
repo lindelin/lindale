@@ -71,7 +71,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="page-header">
-                <h3><small>{{ trans('task.group-info') }}</small></h3>
+                <h3><small>{{ trans('task.info') }}</small></h3>
             </div>
         </div>
     </div>
