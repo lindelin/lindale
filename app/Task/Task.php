@@ -4,6 +4,56 @@ namespace App\Task;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Task\Task
+ *
+ * @property int $project_id
+ * @property int $id
+ * @property string $title
+ * @property string $content
+ * @property string $start_at
+ * @property string $end_at
+ * @property int $cost
+ * @property int $progress
+ * @property int $user_id
+ * @property int $color_id
+ * @property int $type_id
+ * @property int $status_id
+ * @property int $group_id
+ * @property int $priority_id
+ * @property int $task_id
+ * @property bool $is_finish
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Task\TaskActivity[] $Activities
+ * @property-read \App\Task\TaskGroup $Group
+ * @property-read \App\Task\TaskPriority $Priority
+ * @property-read \App\Project\Project $Project
+ * @property-read \App\Task\TaskStatus $Status
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Task\SubTask[] $SubTasks
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Task\Task[] $Tasks
+ * @property-read \App\Task\TaskType $Type
+ * @property-read \App\User $User
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereColorId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereContent($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereCost($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereEndAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereGroupId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereIsFinish($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task wherePriorityId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereProgress($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereProjectId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereStartAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereStatusId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereTaskId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereTitle($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereTypeId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereUserId($value)
+ * @mixin \Eloquent
+ */
 class Task extends Model
 {
     /*

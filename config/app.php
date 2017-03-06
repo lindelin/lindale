@@ -175,6 +175,8 @@ return [
         Laravel\Passport\PassportServiceProvider::class,
         Spatie\Backup\BackupServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
          * Application Service Providers...

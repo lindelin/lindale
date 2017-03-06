@@ -18,7 +18,11 @@
                     <h3 class="panel-title">Lindalë Information Center</h3>
                 </div>
                 <div class="panel-body">
-
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            {!! $UserChart->render() !!}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

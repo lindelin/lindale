@@ -7,6 +7,57 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ResetPasswordNotification;
 
+/**
+ * App\User
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property string $photo
+ * @property string $content
+ * @property string $mobile
+ * @property string $phone
+ * @property string $fax
+ * @property string $company
+ * @property string $location
+ * @property string $facebook
+ * @property string $slack
+ * @property string $github
+ * @property string $qq
+ * @property string $remember_token
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Settings\UserSettings[] $Config
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Project\Project[] $MyProjects
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Project\Project[] $MySlProjects
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Project\Project[] $Projects
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Task\Task[] $Tasks
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Todo\TodoList[] $TodoLists
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Todo\Todo[] $Todos
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Passport\Client[] $clients
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Passport\Token[] $tokens
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereCompany($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereContent($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereFacebook($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereFax($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereGithub($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereLocation($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereMobile($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User wherePassword($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User wherePhone($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User wherePhoto($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereQq($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereSlack($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, Notifiable;

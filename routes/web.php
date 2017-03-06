@@ -266,6 +266,7 @@ Route::group(['middleware' => ['auth', 'AdminAuth'], 'namespace' => 'Admin', 'pr
     Route::get('user/create', 'UserController@create');
     Route::post('user', 'UserController@store');
     Route::delete('user/{user}', 'UserController@destroy');
+    Route::get('logs', 'LogController@index');
 });
 
 /*

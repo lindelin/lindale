@@ -3,7 +3,7 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+                    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 
                         <a href="{{ url('task') }}" class="btn  btn-xs btn-primary">{{ trans('task.all') }}</a>
                         <a href="{{ url('task/unfinished/') }}" class="btn  btn-xs btn-warning">{{ trans('task.unfinished') }}</a>
@@ -11,7 +11,7 @@
 
                     </div>
 
-                    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-10 hidden-xs">
+                    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 hidden-xs">
                         <div class="progress" style="margin-bottom: 0px;">
                             <div class="progress-bar progress-bar-striped active progress-bar-success"
                                  style="width: {{ \App\Calculator::UserTaskProgressCompute(Auth::user()) }}%">

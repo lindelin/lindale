@@ -19,7 +19,9 @@
         "guzzlehttp/guzzle": "^6.2",
         "doctrine/dbal": "^2.5",
         "spatie/laravel-backup": "^4.6",
-        "consoletvs/charts": "4.*"
+        "consoletvs/charts": "4.*",
+        "rap2hpoutre/laravel-log-viewer": "^0.8.0",
+        "barryvdh/laravel-ide-helper": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

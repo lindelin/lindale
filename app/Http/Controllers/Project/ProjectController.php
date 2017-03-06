@@ -100,7 +100,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('project.show', ['selected' => 'top'])->with('project', $project);
+        return view('project.show', $this->projectRepository->ProjectActivity($project))
+            ->with('project', $project)
+            ->with(['selected' => 'top']);
     }
 
     /**

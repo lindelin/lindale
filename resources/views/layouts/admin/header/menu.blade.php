@@ -8,16 +8,8 @@
         <span class="glyphicon glyphicon-user"></span> {{ trans('admin.user') }}
     </a>
 
-    <a href="#" class="list-group-item">
-        Morbi leo risus
-    </a>
-
-    <a href="#" class="list-group-item">
-        Porta ac consectetur ac
-    </a>
-
-    <a href="#" class="list-group-item">
-        Vestibulum at eros
+    <a href="{{ url('admin/logs') }}" class="list-group-item">
+        <span class="glyphicon glyphicon-console"></span> {{ trans('admin.log-viewer') }}
     </a>
 
 </div>
