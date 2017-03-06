@@ -3,6 +3,7 @@
 namespace App\Console\Commands\Lindale;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 
 class LindaleUpdate extends Command
 {
@@ -22,8 +23,6 @@ class LindaleUpdate extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
     public function handle()
     {
