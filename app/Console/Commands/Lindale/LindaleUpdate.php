@@ -11,7 +11,7 @@ class LindaleUpdate extends Command
      *
      * @var string
      */
-    protected $signature = 'Lindale:update';
+    protected $signature = 'lindale:update';
 
     /**
      * The console command description.
