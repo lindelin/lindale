@@ -1,5 +1,6 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
         <div class="panel panel-default status-panel">
             <div class="panel-body">
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">

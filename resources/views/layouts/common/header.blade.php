@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
 
@@ -11,8 +11,8 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img alt="{{ config('app.name') }}" height="20"src="{{ asset('img/logo.png') }}">
+            <a class="navbar-brand logo" href="{{ url('/') }}">
+                <img alt="{{ config('app.name') }}" height="37" src="{{ asset('img/logo.png') }}">
             </a>
         </div>
 

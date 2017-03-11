@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h3 class="text-primary">{{ Auth::user()->name }}<br> <small>{{ Auth::user()->email }}</small></h3>
+        <h3 class="lindale-color">{{ Auth::user()->name }}<br> <small>{{ Auth::user()->email }}</small></h3>
     </div>
 </div>
 
