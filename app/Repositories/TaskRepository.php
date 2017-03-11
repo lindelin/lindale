@@ -50,9 +50,10 @@ class TaskRepository
             $tasks = $tasks->where('status_id', $status->id)->where('is_finish', Definer::TASK_UNFINISHED);
         }
 
-        $tasks = $tasks->latest()
-            ->orderBy('priority_id', 'desc')
+        $tasks = $tasks
             ->orderBy('is_finish', 'asc')
+            ->latest()
+            ->orderBy('priority_id', 'desc')
             ->paginate(10);
 
         return array_merge(compact('tasks'), $resources);
@@ -83,9 +84,10 @@ class TaskRepository
             $tasks = $tasks->where('priority_id', $priority->id);
         }
 
-        $tasks = $tasks->latest()
-            ->orderBy('priority_id', 'desc')
+        $tasks = $tasks
             ->orderBy('is_finish', 'asc')
+            ->latest()
+            ->orderBy('priority_id', 'desc')
             ->paginate(10);
 
         $priorities = TaskPriority::all();
