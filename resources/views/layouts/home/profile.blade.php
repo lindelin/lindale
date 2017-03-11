@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h2>{{ Auth::user()->name }}<br> <small>{{ Auth::user()->email }}</small></h2>
+        <h3 class="text-primary">{{ Auth::user()->name }}<br> <small>{{ Auth::user()->email }}</small></h3>
     </div>
 </div>
 
@@ -23,6 +23,7 @@
                 <a href="{{ url('/settings/profile') }}" class="list-group-item"><span class="glyphicon glyphicon-plus"></span> {{ trans('user.add-content') }}</a>
             </div>
         @endif
+
     </div>
 </div>
 
@@ -31,10 +32,12 @@
         <a href="{{ url('/settings/profile') }}" class="btn btn-success btn-block">{{ trans('user.edit-profile') }}</a>
     </div>
 </div>
+
 <hr>
 
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
        @if(Auth::user()->company)
            <p><i class="fa fa-university" aria-hidden="true"></i> {{ Auth::user()->company }}</p>
        @endif

@@ -25,7 +25,7 @@ body{
 
 .member-card-body{
 	height: 170px;
-	overflow-y: hidden;
+	overflow-y: scroll;
 }
 
 .member-card-footer{
@@ -35,4 +35,9 @@ body{
 .home-project-card{
 	overflow-y: hidden;
 	height: 130px;
+}
+
+.status-panel{
+	border-bottom-width: 10px;
+	border-bottom-color: #505e91;
 }

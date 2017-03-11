@@ -42,6 +42,23 @@ class Calculator
     }
 
     /**
+     * 计算用户进展.
+     *
+     * @param User $user
+     * @return int
+     */
+    public static function UserProgress(User $user)
+    {
+        if((Counter::UserTaskCount($user) > 0) or (Counter::UserTodoCount($user) > 0)){
+            $finishCount = Counter::UserTodoFinishCount($user) + Counter::UserFinishedTaskCount($user);
+            $count = Counter::UserTodoCount($user) + Counter::UserTaskCount($user);
+            return (int)($finishCount / $count * 100);
+        }else{
+            return self::ZERO;
+        }
+    }
+
+    /**
      * 计算用户待办事项完成的进展（按类别）.
      *
      * @param User $user

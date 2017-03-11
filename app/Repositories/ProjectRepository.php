@@ -59,17 +59,7 @@ class ProjectRepository
         $userProjects = $user->Projects()->latest()->simplePaginate(6, ['*'], 'uPage');
         $userProjectCount = Counter::UserProjectCount($user);
 
-        $userProgressAreaspline = Charts::multiDatabase('areaspline', 'highcharts')
-            ->title('進捗状況')
-            ->dataset('新規チケット', $user->Tasks()->select('created_at')->get())
-            ->dataset('終了チケット', $user->Tasks()->select('updated_at AS created_at')->where('is_finish', true)->get())
-            ->dataset('新規TODO', $user->Todos()->select('created_at')->get())
-            ->dataset('終了TODO', $user->Todos()->select('updated_at AS created_at')->where('status_id', 2)->get())
-            ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
-            ->elementLabel('件')
-            ->responsive(true)
-            ->lastByDay(7, true);
-        ;
+        $userProgressAreaspline = $this->UserProgressAreaspline($user);
 
         return compact('myProjects', 'userProjectCount', 'userProjects', 'userProgressAreaspline');
     }
@@ -185,5 +175,26 @@ class ProjectRepository
         ;
 
         return compact('projectActivity');
+    }
+
+    /**
+     * 用户进展动态图
+     *
+     * @param User $user
+     * @return mixed
+     */
+    private function UserProgressAreaspline(User $user)
+    {
+        return Charts::multiDatabase('areaspline', 'highcharts')
+            ->title(trans('progress.status'))
+            ->dataset(trans('progress.new-task'), $user->Tasks()->select('created_at')->get())
+            ->dataset(trans('progress.finished-task'), $user->Tasks()->select('updated_at AS created_at')->where('is_finish', true)->get())
+            ->dataset(trans('progress.new-todo'), $user->Todos()->select('created_at')->get())
+            ->dataset(trans('progress.finished-todo'), $user->Todos()->select('updated_at AS created_at')->where('status_id', 2)->get())
+            ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
+            ->elementLabel(trans('progress.count'))
+            ->responsive(true)
+            ->lastByDay(7, true);
+        ;
     }
 }
