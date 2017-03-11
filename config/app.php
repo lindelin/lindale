@@ -177,6 +177,7 @@ return [
         ConsoleTVs\Charts\ChartsServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -244,6 +245,7 @@ return [
         'ProjectConfig' => \App\ProjectConfig::class,
         'UserConfig' => \App\UserConfig::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

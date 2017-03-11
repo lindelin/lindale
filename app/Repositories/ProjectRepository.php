@@ -13,6 +13,7 @@ use App\Wiki\Wiki;
 use App\Wiki\WikiType;
 use Illuminate\Support\Facades\Storage;
 use Charts;
+use Image;
 
 class ProjectRepository
 {
@@ -99,6 +100,7 @@ class ProjectRepository
 
         if ($request->file('image')) {
             $path = $request->file('image')->store('projects/tmp', 'public');
+            Image::make(storage_path().'/app/public/'.$path)->resize(600, 600)->save(storage_path().'/app/public/'.$path);
             $project->image = $path;
         }
 
@@ -129,6 +131,7 @@ class ProjectRepository
             $result = Storage::move('public/'.$path, 'public/projects/'.$project->id.'/'.'icon'.'.'.$extension);
             if ($result) {
                 $newPath = 'projects/'.$project->id.'/'.'icon'.'.'.$extension;
+                Image::make(storage_path().'/app/public/'.$newPath)->resize(600, 600)->save(storage_path().'/app/public/'.$newPath);
                 $project->image = $newPath;
             }
         }

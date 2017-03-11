@@ -21,7 +21,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background: #fff url(/img/nav-color.jpg) repeat-x bottom !important;
                 color: #636b6f;
                 font-family: 'Raleway';
                 font-weight: 100;

@@ -6,7 +6,7 @@
         </div>
         <div align="center">
             <h4>
-                Loading...
+                <i class="fa fa-spinner fa-pulse fa-fw"></i>
             </h4>
         </div>
     </div>

@@ -13,7 +13,7 @@
     <!-- Styles -->
     <style>
         html, body {
-            background-color: #fff;
+            background: #fff url(/img/logo_404.png);
             color: #636b6f;
             font-family: 'Raleway';
             font-weight: 100;
@@ -46,7 +46,7 @@
         }
 
         .title {
-            font-size: 84px;
+            font-size: 100px;
         }
 
         .links > a {
@@ -67,19 +67,8 @@
 <body>
 <div class="flex-center position-ref full-height">
     <div class="content">
-        <h1 class="title">404...</h1>
-        <div class="title m-b-md">
-            <img alt="Logo" src="{{ asset('/img/logo_main.png') }}" width="40%"/>
-        </div>
+        <h1 class="title" style="color: #000;">404</h1>
         <a href="/">{{ trans('errors.back') }}</a>
-        <hr>
-        <div class="links">
-            <a href="https://laravel.com/docs">Documentation</a>
-            <a href="https://laracasts.com">Laracasts</a>
-            <a href="https://laravel-news.com">News</a>
-            <a href="https://forge.laravel.com">Forge</a>
-            <a href="https://github.com/laravel/laravel">GitHub</a>
-        </div>
     </div>
 </div>
 </body>

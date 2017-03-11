@@ -11,10 +11,24 @@
     @include('layouts.common.succeed')
 
     <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+            <div class="well well-home" align="center">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+            <div class="well well-home" align="center">
+                <clock></clock>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            @foreach($tasks as $task)
-                @include('layouts.task.common.task', ['task' => $task])
-            @endforeach
+            <div class="well well-home">
+                @foreach($tasks as $task)
+                    @include('layouts.task.common.task', ['task' => $task])
+                @endforeach
+            </div>
     	</div>
     </div>
 

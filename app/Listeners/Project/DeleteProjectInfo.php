@@ -30,5 +30,9 @@ class DeleteProjectInfo
         $event->project->Todos()->delete();
         $event->project->Wikis()->delete();
         $event->project->WikiTypes()->delete();
+        $event->project->TaskGroups()->delete();
+        $event->project->Tasks()->delete();
+        $event->project->TaskStatuses()->delete();
+        $event->project->TaskTypes()->delete();
     }
 }

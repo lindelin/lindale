@@ -15,100 +15,40 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             {{-- 标题部分 --}}
             <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="well well-home" align="center">
+                        <clock></clock>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
             	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    {{--<div class="page-header">
-                        <h3><span class="glyphicon glyphicon-check"></span> TODO</h3>
-                        <h4>
-                            @if($type != null)
-                                @if((int)$type->id === Definer::PUBLIC_TODO)
-                                    <span class="label label-success">{{ trans('type.public') }}</span>
-                                @elseif((int)$type->id === Definer::PRIVATE_TODO)
-                                    <span class="label label-warning">{{ trans('type.private') }}</span>
-                                @endif
-                            @else
-                                <span class="label label-primary">{{ trans('todo.all-todos') }}</span>
-                            @endif
-                        </h4>
-                    </div>--}}
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                            <div class="row">
-                            	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    {{ trans('todo.all-todos') }}
-                            	</div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    {{ trans('type.public') }}
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    {{ trans('type.private') }}
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    @include('layouts.common.progress.todo.user-todo-progress')
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    @include('layouts.common.progress.todo.user-todo-type-progress', ['type' => \App\Todo\TodoType::find(Definer::PUBLIC_TODO)])
-                                </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-                                    @include('layouts.common.progress.todo.user-todo-type-progress', ['type' => \App\Todo\TodoType::find(Definer::PRIVATE_TODO)])
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar
-                        @if($type != null)
-                            @if((int)$type->id === Definer::PUBLIC_TODO)
-                                progress-bar-success
-                            @elseif((int)$type->id === Definer::PRIVATE_TODO)
-                                progress-bar-warning
-                            @endif
-                        @else
-                                progress-bar-primary
-                        @endif
-                        progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: @if($type != null){{ Calculator::UserTodoTypeProgressCompute(Auth::user(), $type) }}@else{{ Calculator::UserTodoProgressCompute(Auth::user()) }}@endif%;">
-                            <span>
-                                @if($type != null)
-                                    {{ Calculator::UserTodoTypeProgressCompute(Auth::user(), $type) }}%
-                                @else
-                                    {{ Calculator::UserTodoProgressCompute(Auth::user()) }}%
-                                @endif
-                            </span>
-                        </div>
-                    </div>
+                    @include('layouts.todo.status-bar')
             	</div>
             </div>
             {{-- 列表部分 --}}
             <div class="row">
             	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="panel @if($type != null) @if((int)$type->id === Definer::PUBLIC_TODO) panel-success @elseif((int)$type->id === Definer::PRIVATE_TODO) panel-warning @endif @else panel-primary @endif">
-                        <!-- Default panel contents -->
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    {{ trans('todo.todo-list') }}
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="right">
-                                    @if($type != null)
-                                        @if((int)$type->id === Definer::PRIVATE_TODO)
-                                            @include('layouts.todo.common.list-edit', ['list_edit_delete_url' => 'todo/type/'.Definer::PRIVATE_TODO.'/list/delete'])
-                                        @endif
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- List group -->
+                    <div class="well well-home">
+                        @if($type != null)
+                            @if((int)$type->id === Definer::PUBLIC_TODO)
+                                <h4></h4>
+                            @elseif((int)$type->id === Definer::PRIVATE_TODO)
+                                <h4></h4>
+                            @endif
+                        @else
+                            <h4>{{ trans('todo.all-todos') }}</h4>
+                            <hr>
+                        @endif
                         <ul class="list-group">
                             <a href="{{ url("/$prefix") }}" class="list-group-item">
-                        <span class="badge">
-                            @if($type != null)
-                                @include('layouts.common.progress.todo.user-todo-type-progress')
-                            @else
-                                @include('layouts.common.progress.todo.user-todo-progress')
-                            @endif
-                        </span>
+                                <span class="badge">
+                                    @if($type != null)
+                                        @include('layouts.common.progress.todo.user-todo-type-progress')
+                                    @else
+                                        @include('layouts.common.progress.todo.user-todo-progress')
+                                    @endif
+                                </span>
                                 {{ trans('todo.all-todos') }}
                             </a>
                             @foreach($statuses as $status)

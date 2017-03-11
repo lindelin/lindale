@@ -30,7 +30,8 @@ elixir(function(mix) {
         'main.css',
         'callouts.css',
         'pageloader.css',
-        'bootstrap-off-canvas-nav.css'
+        'bootstrap-off-canvas-nav.css',
+        'clock.css'
     ], 'public/css/main.css');
 
 });
