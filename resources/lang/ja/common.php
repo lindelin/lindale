@@ -11,5 +11,11 @@ return [
     'finish'     => '完了',
     'unfinished' => '未完了',
     'all'        => '全部',
+    'add'        => '追加',
+    'cancel'     => '取消',
+    'edit'       => '編集',
+    'delete'     => '削除',
+    'updated'    => '更新日時',
+    'created'    => '作成日時',
 
 ];

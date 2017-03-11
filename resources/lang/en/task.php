@@ -39,7 +39,7 @@ return [
     'hour'         => 'Hour',
     'user'         => 'Person in charge',
     'delete'       => 'Delete',
-    'delete-title' => 'を削除します, よろしいですか？',
+    'delete-title' => 'will be deleted，are you sure?',
     'add-sub'      => 'New Subordinate Task',
     'sub-task'     => 'Subordinate Task',
     'update'       => 'Update',

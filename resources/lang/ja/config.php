@@ -20,6 +20,12 @@ return [
     'save'                => '保存',
     'slack-notify'        => 'Slack 通知',
     'notifiable'          => '通知を許可',
-
+    'delete'              => '削除',
+    'type-name'           => '名称',
+    'config'              => '設定',
+    'list'                => 'リスト',
+    'task-config'         => 'チケット設定',
+    'task-type-config'    => 'チケットタイプ管理',
+    'task-status-config'  => 'チケットステータス管理',
 
 ];

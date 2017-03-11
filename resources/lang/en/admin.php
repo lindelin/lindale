@@ -12,6 +12,7 @@ return [
     'center'      => 'Information Center',
     'user-center' => 'Information Center',
     'content'     => 'Content',
+    'log-viewer'  => 'Log Viewer',
 
 
 ];

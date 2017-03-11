@@ -25,9 +25,5 @@ return [
     'add-input'    => '追加したいメンバーを選んでください。',
     'user-list'    => 'ユーザ一覧',
 
-    'add-index' => '添加新的索引',
-    'writer'    => '撰稿',
-    'updated'   => '更新时间',
-
 
 ];

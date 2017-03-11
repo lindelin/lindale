@@ -25,9 +25,5 @@ return [
     'add-input'    => 'Please choose the members you want to add.',
     'user-list'    => 'User List',
 
-    'add-index' => '添加新的索引',
-    'writer'    => '撰稿',
-    'updated'   => '更新时间',
-
 
 ];

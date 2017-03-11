@@ -20,5 +20,12 @@ return [
     'save'                => 'Save',
     'slack-notify'        => 'Slack Notification',
     'notifiable'          => 'Allow Notifications',
+    'delete'              => 'Delete',
+    'type-name'           => 'Name',
+    'config'              => 'Config',
+    'list'                => 'List',
+    'task-config'         => 'Task Config',
+    'task-type-config'    => 'Task Type Config',
+    'task-status-config'  => 'Task Status Config',
 
 ];

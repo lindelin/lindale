@@ -18,7 +18,7 @@ return [
     'cancel'         => 'Cancel',
     'delete'         => 'Delete',
     'delete-user'    => 'Delete User：',
-    'delete-input'   => 'You want to delete this user, you sure?',
+    'delete-input'   => 'You want to delete this user, are you sure?',
     'add-user'       => 'Add User',
     'submit'         => 'Submit',
     'profile-img'    => 'Profile Image',
