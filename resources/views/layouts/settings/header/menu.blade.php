@@ -1,6 +1,8 @@
 <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">{{ trans('user.settings') }}</div>
+    <div class="panel-heading">
+        <h4>{{ trans('user.settings') }}</h4>
+    </div>
     <!-- List group -->
     <ul class="list-group">
 
@@ -29,7 +31,9 @@
 
 <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">{{ trans('config.developer-config') }}</div>
+    <div class="panel-heading">
+        <h4>{{ trans('config.developer-config') }}</h4>
+    </div>
     <!-- List group -->
     <ul class="list-group">
 

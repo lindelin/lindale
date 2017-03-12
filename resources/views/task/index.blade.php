@@ -12,7 +12,22 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
-            <div class="well well-home" align="center">
+            <div class="well well-home">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h4>進捗</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="progress" style="margin-bottom: 0px;">
+                            <div class="progress-bar progress-bar-striped active progress-bar-success"
+                                 style="width: {{ \App\Calculator::UserTaskProgressCompute(Auth::user()) }}%">
+                                {{ \App\Calculator::UserTaskProgressCompute(Auth::user()) }}% Complete
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
@@ -24,11 +39,9 @@
 
     <div class="row">
     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="well well-home">
-                @foreach($tasks as $task)
-                    @include('layouts.task.common.task', ['task' => $task])
-                @endforeach
-            </div>
+            @foreach($tasks as $task)
+                @include('layouts.task.common.task', ['task' => $task])
+            @endforeach
     	</div>
     </div>
 

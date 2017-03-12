@@ -110,10 +110,30 @@ body{
 	margin-left: 0;
 }
 
+#user-icon{
+	padding-top: 5px;
+	padding-bottom: 3px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
 .panel-default, .panel-success, .panel-primary, .panel-info, .panel-warning, .panel-danger{
 	box-shadow: 3px 3px 20px rgba(0, 0, 0, .1);
 }
 
 .panel-default > .panel-heading {
 	background: rgba(243, 243, 243, .1);
+}
+
+.panel-default > .panel-heading > h4 {
+	color: #00184a;
+}
+
+.list-group > .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+	z-index: 2;
+	color: #eb5b4f;
+	background-color: #fff;
+	border-left-width: 3px;
+	border-color: #ddd;
+	border-left-color: #eb5b4f;
 }

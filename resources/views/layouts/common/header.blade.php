@@ -19,14 +19,6 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             @if (Auth::guest())
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="{{ url('/') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('auth.home') }}">
-                            <span class="glyphicon glyphicon-home"></span>
-                        </a>
-                        <a href="{{ url('/') }}" class="visible-xs-block">
-                            <span class="glyphicon glyphicon-home"></span> {{ trans('auth.home') }}
-                        </a>
-                    </li>
                     <li class="dropdown visible-xs-block">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-globe"></span> {{ trans('header.'.Config::get('app.locale')) }} <strong class="caret"></strong>
@@ -208,15 +200,19 @@
                 </li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">{{ trans('auth.login') }}</a></li>
+                    <li>
+                        <a href="{{ url('/login') }}">
+                            <span class="glyphicon glyphicon-log-in"></span> {{ trans('auth.login') }}
+                        </a>
+                    </li>
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" title="{{ trans('auth.logout') }}">
+                        <a href="#" class="dropdown-toggle" id="user-icon" data-toggle="dropdown" role="button" aria-expanded="false" title="{{ trans('auth.logout') }}">
                             <span>
                                 @if(Auth::user()->photo != '')
-                                    <img src="{{ asset('storage/'.Auth::user()->photo) }}" style="padding: 0px;width: 22px;height: 22px;">
+                                    <img src="{{ asset('storage/'.Auth::user()->photo) }}" style="padding: 0px;width: 35px;height: 35px;">
                                 @else
-                                    <img src="{{ asset(Colorable::lindaleProfileImg(Auth::user()->email)) }}" style="padding: 0px;width: 22px;height: 22px;">
+                                    <img src="{{ asset(Colorable::lindaleProfileImg(Auth::user()->email)) }}" style="padding: 0px;width: 35px;height: 35px;">
                                 @endif
                             </span>
                              <span class="caret"></span>
@@ -227,7 +223,7 @@
                                 <a href="#"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                    {{ trans('auth.logout') }}
+                                    <span class="glyphicon glyphicon-log-out"></span> {{ trans('auth.logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">

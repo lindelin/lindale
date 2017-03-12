@@ -14,24 +14,12 @@
                 </a>
             </li>
 
-           {{-- <li role="presentation" @if($mode == "todo") class="active" @endif>
-                <a href="#">
-                    <span class="glyphicon glyphicon-check"></span>
+            <li role="presentation">
+                <a href="{{ url('admin/logs') }}">
+                    <span class="glyphicon glyphicon-console"></span>
                 </a>
             </li>
 
-            <li role="presentation" @if($mode == "progress") class="active" @endif>
-                <a href="#">
-                    <span class="glyphicon glyphicon-dashboard"></span>
-                </a>
-            </li>
-
-            <li role="presentation" @if($mode == "wiki") class="active" @endif>
-                <a href="#">
-                    <span class="glyphicon glyphicon-book"></span>
-                </a>
-            </li>
---}}
         </ul>
     </div>
 </div>

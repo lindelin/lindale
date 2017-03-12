@@ -15,7 +15,7 @@
         <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Users Information Center</h3>
+                    <h4>Users Information Center</h4>
                 </div>
                 <div class="panel-body">
                     <div class="row">

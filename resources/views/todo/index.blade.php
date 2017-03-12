@@ -32,12 +32,12 @@
                     <div class="well well-home">
                         @if($type != null)
                             @if((int)$type->id === Definer::PUBLIC_TODO)
-                                <h4></h4>
+                                <h4 class="lindale-color">{{ trans('todo.todo-list') }}（{{ trans('type.public') }}）</h4>
                             @elseif((int)$type->id === Definer::PRIVATE_TODO)
-                                <h4></h4>
+                                <h4 class="lindale-color">{{ trans('todo.todo-list') }}（{{ trans('type.private') }}）</h4>
                             @endif
                         @else
-                            <h4>{{ trans('todo.all-todos') }}</h4>
+                            <h4 class="lindale-color">{{ trans('todo.todo-list') }}（{{ trans('todo.all-todos') }}）</h4>
                             <hr>
                         @endif
                         <ul class="list-group">

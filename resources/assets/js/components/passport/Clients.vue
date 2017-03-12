@@ -13,7 +13,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span>
+                    <span class="lindale-color">
                         OAuth Clients
                     </span>
 

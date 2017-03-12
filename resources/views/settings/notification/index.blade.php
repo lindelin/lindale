@@ -17,7 +17,7 @@
             {{-- Slack --}}
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('config.slack-notify') }}
+                    <h4>{{ trans('config.slack-notify') }}</h4>
                 </div>
                 <div class="panel-body">
 
@@ -30,7 +30,7 @@
                             <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
 
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+                                    <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3">
                                         <a href="#" class="thumbnail">
                                             <img src="{{ asset('img/ico/Slack-icon.png') }}">
                                         </a>

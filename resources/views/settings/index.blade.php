@@ -16,7 +16,7 @@
             {{-- 基本资料 --}}
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('user.public-profile') }}
+                    <h4 class="lindale-color">{{ trans('user.public-profile') }}</h4>
                 </div>
                 <div class="panel-body">
                     <form action="{{ url('settings/profile/'.$user->id) }}" method="post" role="form" enctype="multipart/form-data">
@@ -34,7 +34,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
+                                            <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3">
                                                 @include('layouts.common.profile-img')
                                             </div>
                                             <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
@@ -154,7 +154,7 @@
             {{-- 联系方式 --}}
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('user.contact') }}
+                    <h4 class="lindale-color">{{ trans('user.contact') }}</h4>
                 </div>
                 <div class="panel-body">
                     <form action="{{ url('settings/profile/'.$user->id) }}" method="post" role="form" enctype="multipart/form-data">

@@ -16,7 +16,7 @@
             {{-- 语言和地区 --}}
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('config.locale') }}
+                    <h4>{{ trans('config.locale') }}</h4>
                 </div>
                 <div class="panel-body">
 
