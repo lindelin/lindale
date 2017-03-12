@@ -13,7 +13,7 @@
     <!-- Styles -->
     <style>
         html, body {
-            background: #fff url(/img/logo_404.png);
+            background: #fff url(/img/logo_404.jpg);
             color: #636b6f;
             font-family: 'Raleway';
             font-weight: 100;
