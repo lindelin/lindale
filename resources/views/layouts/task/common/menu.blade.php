@@ -61,7 +61,7 @@
         <div class="panel-heading" role="tab" id="headingThree">
             <h4 class="panel-title">
                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    <i class="fa fa-tachometer" aria-hidden="true"></i> {{ trans('task.priority') }}
+                    <span class="glyphicon glyphicon-sort-by-attributes-alt"></span> {{ trans('task.priority') }}
                 </a>
             </h4>
         </div>

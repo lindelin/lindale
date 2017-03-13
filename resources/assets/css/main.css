@@ -143,3 +143,17 @@ body{
 	border-color: #ddd;
 	border-left-color: #eb5b4f;
 }
+
+.panel-group > .panel > .panel-collapse.collapse > .list-group > .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+	z-index: 2;
+	color: #eb5b4f;
+	background-color: #fff;
+	border-left-width: 3px;
+	border-color: #ddd;
+	border-left-color: #eb5b4f;
+}
+
+.list-group-item.active > .badge, .nav-pills >.active > a >.badge{
+	background-color: #eb5b4f;
+	color: #fff;
+}

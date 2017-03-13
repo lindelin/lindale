@@ -14,7 +14,10 @@
 
             <div class="row">
                 <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-                    <h3><span class="glyphicon glyphicon-tasks"></span> {{ trans('header.tasks') }}</h3>
+                    <h3 class="lindale-color">
+                        <span class="glyphicon glyphicon-tasks lindale-icon-color"></span>
+                        {{ trans('header.tasks') }}
+                    </h3>
                 </div>
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="right">
                     @include('layouts.task.add')
