@@ -15,4 +15,5 @@ return [
     'new-todo'      => '新建TODO',
     'finished-todo' => '完成TODO',
     'count'         => '件',
+    'proportion'    => '进度比',
 ];

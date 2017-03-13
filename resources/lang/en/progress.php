@@ -15,4 +15,5 @@ return [
     'new-todo'      => 'New TODO',
     'finished-todo' => 'Completed TODO',
     'count'         => 'Unit',
+    'proportion'    => 'Task Proportion',
 ];

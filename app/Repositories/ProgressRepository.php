@@ -12,6 +12,7 @@ class ProgressRepository
     public function ProgressResources(Project $project)
     {
         $schemaDonut = Charts::create('donut', 'c3')
+            ->title(trans('progress.proportion'))
             ->labels(['TODO', trans('header.tasks'), trans('common.finish')])
             ->values([
                 Calculator::ProjectUnfinishedTodoProgressCompute($project),
