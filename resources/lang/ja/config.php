@@ -25,7 +25,7 @@ return [
     'config'              => '設定',
     'list'                => 'リスト',
     'task-config'         => 'チケット設定',
-    'task-type-config'    => 'チケットタイプ管理',
+    'task-type-config'    => '作業区分管理',
     'task-status-config'  => 'チケットステータス管理',
 
 ];
