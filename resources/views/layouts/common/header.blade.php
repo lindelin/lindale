@@ -210,7 +210,7 @@
                         <a href="#" class="dropdown-toggle" id="user-icon" data-toggle="dropdown" role="button" aria-expanded="false" title="{{ trans('auth.logout') }}">
                             <span>
                                 @if(Auth::user()->photo != '')
-                                    <img src="{{ asset('storage/'.Auth::user()->photo) }}" style="padding: 0px;width: 35px;height: 35px;">
+                                    <img src="{{ asset('storage/'.Auth::user()->photo) }}" class="img-circle" style="padding: 0px;width: 35px;height: 35px;">
                                 @else
                                     <img src="{{ asset(Colorable::lindaleProfileImg(Auth::user()->email)) }}" style="padding: 0px;width: 35px;height: 35px;">
                                 @endif

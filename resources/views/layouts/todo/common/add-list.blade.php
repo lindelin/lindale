@@ -3,7 +3,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="panel panel-default">
                 <!-- Default panel contents -->
-                <div class="panel-heading" style="{{ Colorable::lindale() }}">{{ trans('todo.add-todo-list') }}</div>
+                <div class="panel-heading">{{ trans('todo.add-todo-list') }}</div>
                 <div class="panel-body">
                     <form action="{{ $add_list_store_url }}" method="POST" role="form">
                         {{ csrf_field() }}
@@ -33,7 +33,7 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="list-group">
-            <a href="{{ $add_list_create_url }}" class="list-group-item">
+            <a href="{{ $add_list_create_url }}" class="list-group-item lindale-table">
                 <span class="glyphicon glyphicon-plus"></span> {{ trans('todo.add-todo-list') }}
             </a>
         </div>
