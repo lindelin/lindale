@@ -17,7 +17,7 @@
             {{-- 基本設定 --}}
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('config.basic') }}
+                    <h4>{{ trans('config.basic') }}</h4>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -235,15 +235,14 @@
             {{-- 删除项目 --}}
             <div class="panel panel-danger">
                 <div class="panel-heading">
-                    {{ trans('project.delete') }}
+                    <h4>{{ trans('project.delete') }}</h4>
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="row">
                             	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            		<h4>{{ trans('config.delete-project-info') }}</h4>
-                                    <br>
+                            		<p>{{ trans('config.delete-project-info') }}</p>
                             	</div>
                             </div>
                             <div class="row">

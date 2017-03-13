@@ -1,6 +1,8 @@
 <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">{{ trans('config.project-config') }}</div>
+    <div class="panel-heading">
+        <h4>{{ trans('config.project-config') }}</h4>
+    </div>
     <!-- List group -->
     <ul class="list-group">
 
@@ -30,16 +32,18 @@
 
 <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">{{ trans('config.task-config') }}</div>
+    <div class="panel-heading">
+        <h4>{{ trans('config.task-config') }}</h4>
+    </div>
     <!-- List group -->
     <ul class="list-group">
 
         <a href="{{ url("project/$project->id/config/task/type") }}" class="list-group-item @if($mode == 'taskType') active @endif">
-            <span class="glyphicon glyphicon-briefcase"></span> {{ trans('config.task-type-config') }}
+            <span class="glyphicon glyphicon-tag"></span> {{ trans('config.task-type-config') }}
         </a>
 
         <a href="{{ url("project/$project->id/config/task/status") }}" class="list-group-item @if($mode == 'taskStatus') active @endif">
-            <span class="glyphicon glyphicon-briefcase"></span> {{ trans('config.task-status-config') }}
+            <span class="glyphicon glyphicon-dashboard"></span> {{ trans('config.task-status-config') }}
         </a>
 
     </ul>
