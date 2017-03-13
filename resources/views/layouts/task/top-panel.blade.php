@@ -15,17 +15,5 @@
                 </div>
             </div>
         </div>
-        <div class="well well-home visible-xs-block">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="progress" style="margin-bottom: 0px;">
-                        <div class="progress-bar progress-bar-striped active progress-bar-success"
-                             style="width: {{ \App\Calculator::UserTaskProgressCompute(Auth::user()) }}%">
-                            {{ \App\Calculator::UserTaskProgressCompute(Auth::user()) }}% Complete
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>

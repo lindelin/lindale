@@ -11,8 +11,8 @@
     @include('layouts.common.succeed')
 
     <div class="row">
-        <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
-            <div class="well well-home">
+        <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
+            <div class="well well-home" style="padding-bottom: 20px;">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <h4>進捗</h4>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
             <div class="well well-home" align="center">
                 <clock></clock>
             </div>
