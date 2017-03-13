@@ -76,7 +76,7 @@ class TodoRepository
             }
         }
 
-        $todos = $todos->orderBy('status_id', 'desc')->oldest()->paginate($size);
+        $todos = $todos->orderBy('status_id', 'desc')->latest('updated_at')->paginate($size);
 
         $statuses = TodoStatus::where('user_id', Definer::SUPER_ADMIN_ID)->get();
 
