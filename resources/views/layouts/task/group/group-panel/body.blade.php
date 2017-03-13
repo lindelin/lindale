@@ -29,15 +29,15 @@
 
         <br>
         <div class="table-responsive">
-            <table class="table table-hover table-bordered">
+            <table class="table table-hover table-bordered lindale-table">
                 <thead>
                 <tr>
-                    <th><span class="glyphicon glyphicon-tag"></span> {{ trans('task.type') }}</th>
-                    <th><span class="glyphicon glyphicon-dashboard"></span> {{ trans('task.status') }}</th>
-                    <th><i class="fa fa-hourglass-start" aria-hidden="true"></i> {{ trans('task.start_at') }}</th>
-                    <th><i class="fa fa-hourglass-end" aria-hidden="true"></i> {{ trans('task.end_at') }}</th>
-                    <th><i class="fa fa-refresh fa-spin fa-fw"></i> {{trans('task.updated')}}</th>
-                    <th><span class="glyphicon glyphicon-time"></span> {{trans('task.created')}}</th>
+                    <th><span class="glyphicon glyphicon-tag lindale-icon-color"></span> {{ trans('task.type') }}</th>
+                    <th><span class="glyphicon glyphicon-dashboard lindale-icon-color"></span> {{ trans('task.status') }}</th>
+                    <th><i class="fa fa-hourglass-start lindale-icon-color" aria-hidden="true"></i> {{ trans('task.start_at') }}</th>
+                    <th><i class="fa fa-hourglass-end lindale-icon-color" aria-hidden="true"></i> {{ trans('task.end_at') }}</th>
+                    <th><i class="fa fa-refresh fa-spin fa-fw lindale-icon-color"></i> {{trans('task.updated')}}</th>
+                    <th><span class="glyphicon glyphicon-time lindale-icon-color"></span> {{trans('task.created')}}</th>
                 </tr>
                 </thead>
                 <tbody>
