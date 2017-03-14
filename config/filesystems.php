@@ -56,10 +56,10 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => 'your-key',
-            'secret' => 'your-secret',
-            'region' => 'your-region',
-            'bucket' => 'your-bucket',
+            'key' => 'AKIAIYEVCKKX3W7RQH6Q',
+            'secret' => '6+T/JhMjYlvBmOUwFQmfEKyE2AyYTHSb+NntxSri',
+            'region' => 'ap-northeast-1',
+            'bucket' => 'lindelin-s3',
         ],
 
     ],

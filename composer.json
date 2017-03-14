@@ -22,7 +22,8 @@
         "consoletvs/charts": "4.*",
         "rap2hpoutre/laravel-log-viewer": "^0.8.0",
         "barryvdh/laravel-ide-helper": "^2.3",
-        "intervention/image": "^2.3"
+        "intervention/image": "^2.3",
+        "league/flysystem-aws-s3-v3": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
