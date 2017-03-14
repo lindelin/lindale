@@ -106,7 +106,7 @@ return [
             'name' => env('APP_URL'),
             'disks' => ['local', 's3'],
             'newestBackupsShouldNotBeOlderThanDays' => 1,
-            'storageUsedMayNotBeHigherThanMegabytes' => 5000,
+            'storageUsedMayNotBeHigherThanMegabytes' => 2000,
         ],
 
         /*
