@@ -18,7 +18,7 @@
             {{-- Slack --}}
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('config.slack-notify') }}
+                    <h4>{{ trans('config.slack-notify') }}</h4>
                 </div>
                 <div class="panel-body">
 

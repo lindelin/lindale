@@ -1,14 +1,14 @@
 <div class="table-responsive">
-    <table class="table table-hover">
-        <thead>
+    <table class="table table-bordered table-hover">
+        <tbody>
+
         <tr>
             <th>{{ trans('config.type-name') }}</th>
             <th>{{ trans('common.updated') }}</th>
             <th>{{ trans('common.created') }}</th>
             <th>{{ trans('common.edit') }}</th>
         </tr>
-        </thead>
-        <tbody>
+
         @foreach($models as $model)
             <tr>
                 <td>{{ trans($model->name) }}</td>
