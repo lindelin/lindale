@@ -111,9 +111,9 @@
             	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
-                        <div class="panel-heading" style="{{ Colorable::lindale() }}">
+                        <div class="panel-heading">
                             <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 lindale-color">
                                     {{ trans('todo.todo-list') }}
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="right">

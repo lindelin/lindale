@@ -62,9 +62,6 @@
                 <br class="visible-xs-block">
                 <br class="visible-xs-block">
                 <br class="visible-xs-block">
-                @include('layouts.Project.common.project-icon')
-                @include('layouts.Project.common.project-statuses')
-                @include('layouts.Project.common.project-progress')
                 @include('layouts.wiki.side-index')
             </div>
         </div>

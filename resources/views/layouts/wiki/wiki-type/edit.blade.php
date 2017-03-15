@@ -1,7 +1,7 @@
 <!-- 模态窗按钮 -->
 <h4 class="panel-title">
     <a class="my-tooltip" title="{{ trans('wiki.edit-index') }}" data-toggle="modal" data-target="#editIndex{{ $type->id }}">
-        <span class="glyphicon glyphicon-cog"></span>
+        <span class="glyphicon glyphicon-cog lindale-icon-color"></span>
     </a>
 </h4>
 

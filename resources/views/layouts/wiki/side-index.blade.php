@@ -2,11 +2,9 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="panel panel-default">
             <!-- Default panel contents -->
-            <div class="panel-heading" style="{{ Colorable::lindale() }}">Wiki</div>
-            <div class="panel-body">
-                <p>{{ trans('wiki.index') }}</p>
+            <div class="panel-heading">
+                <h4>Wiki</h4>
             </div>
-
             <!-- List group -->
             <ul class="list-group">
                 @foreach( $wikis as $wiki)
@@ -25,9 +23,9 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="panel panel-default">
                 <!-- Default panel contents -->
-                <div class="panel-heading" style="{{ Colorable::lindale() }}">
+                <div class="panel-heading">
                     <div class="row">
-                        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 lindale-color">
                             {{ $type->name }}
                         </div>
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
@@ -35,10 +33,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-body">
-                    {{ trans('wiki.index') }}
-                </div>
-
                 <!-- List group -->
                 <ul class="list-group">
                     @foreach( $type->Wikis as $wiki)
@@ -57,7 +51,9 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="panel panel-default">
                 <!-- Default panel contents -->
-                <div class="panel-heading" style="{{ Colorable::lindale() }}">{{ trans('wiki.add-index') }}</div>
+                <div class="panel-heading">
+                    <h4><span class="glyphicon glyphicon-pencil lindale-icon-color"></span> {{ trans('wiki.add-index') }}</h4>
+                </div>
                 <div class="panel-body">
                     <form action="{{ url("project/$project->id/wiki-index") }}" method="POST" role="form">
                         {{ csrf_field() }}
@@ -74,7 +70,7 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <button type="submit" class="btn btn-primary btn-block">
-                                <span class="glyphicon glyphicon-plus"></span> {{ trans('wiki.add-index') }}
+                                {{ trans('wiki.add-index') }}
                             </button>
                         </div>
                     </form>
@@ -86,8 +82,8 @@
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="list-group">
-            <a href="{{ url("project/$project->id/wiki-index/create") }}" class="list-group-item">
-                <span class="glyphicon glyphicon-plus"></span> {{ trans('wiki.add-index') }}
+            <a href="{{ url("project/$project->id/wiki-index/create") }}" class="list-group-item lindale-table">
+                <span class="glyphicon glyphicon-plus lindale-icon-color"></span> {{ trans('wiki.add-index') }}
             </a>
         </div>
 	</div>

@@ -1,7 +1,7 @@
 <!-- 模态窗按钮 -->
 <h4 class="panel-title">
     <a class="my-tooltip" title="{{ trans('todo.todo-list') }}" data-toggle="modal" data-target="#editTodoList">
-        <span class="glyphicon glyphicon-cog"></span>
+        <span class="glyphicon glyphicon-cog lindale-icon-color"></span>
     </a>
 </h4>
 
@@ -21,15 +21,14 @@
                 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 		@if($lists->count() !== 0)
                             <div class="table-responsive">
-                                <table class="table table-hover" style="color: #000000">
-                                    <thead>
+                                <table class="table table-hover table-bordered" style="color: #000000">
+                                    <tbody>
+
                                     <tr>
                                         <th>#</th>
                                         <th>{{ trans('todo.list-title') }}</th>
                                         <th>{{ trans('todo.delete') }}</th>
                                     </tr>
-                                    </thead>
-                                    <tbody>
 
                                     @foreach($lists as $list)
                                         <tr>

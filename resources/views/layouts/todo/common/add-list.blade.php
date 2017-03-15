@@ -3,7 +3,9 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="panel panel-default">
                 <!-- Default panel contents -->
-                <div class="panel-heading">{{ trans('todo.add-todo-list') }}</div>
+                <div class="panel-heading">
+                    <h4><span class="glyphicon glyphicon-pencil lindale-icon-color"></span> {{ trans('todo.add-todo-list') }}</h4>
+                </div>
                 <div class="panel-body">
                     <form action="{{ $add_list_store_url }}" method="POST" role="form">
                         {{ csrf_field() }}
@@ -20,7 +22,7 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <button type="submit" class="btn btn-primary btn-block">
-                                <span class="glyphicon glyphicon-plus"></span> {{ trans('todo.add') }}
+                                {{ trans('todo.add') }}
                             </button>
                         </div>
                     </form>
@@ -34,7 +36,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="list-group">
             <a href="{{ $add_list_create_url }}" class="list-group-item lindale-table">
-                <span class="glyphicon glyphicon-plus"></span> {{ trans('todo.add-todo-list') }}
+                <span class="glyphicon glyphicon-plus lindale-icon-color"></span> {{ trans('todo.add-todo-list') }}
             </a>
         </div>
     </div>

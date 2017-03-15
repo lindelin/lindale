@@ -190,10 +190,6 @@
         {{-- 框架 --}}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
-            @include('layouts.Project.common.project-icon')
-            @include('layouts.Project.common.project-statuses')
-            @include('layouts.Project.common.project-progress')
-
             <div class="row">
             	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="list-group">
