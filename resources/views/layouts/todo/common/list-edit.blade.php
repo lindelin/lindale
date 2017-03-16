@@ -25,14 +25,12 @@
                                     <tbody>
 
                                     <tr>
-                                        <th>#</th>
                                         <th>{{ trans('todo.list-title') }}</th>
                                         <th>{{ trans('todo.delete') }}</th>
                                     </tr>
 
                                     @foreach($lists as $list)
                                         <tr>
-                                            <td>{{ $list->id }}</td>
                                             <td>{{ $list->title }}</td>
                                             <td>
                                                 <form action="{{ url("$list_edit_delete_url/$list->id") }}" method="post" role="form">
