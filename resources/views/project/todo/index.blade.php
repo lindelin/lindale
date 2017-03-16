@@ -55,17 +55,17 @@
                             <div class="panel-body">
                                 <div class="table-responsive">
                                     <table class="table table-hover table-bordered lindale-table">
-                                        <thead>
-                                        <tr>
-                                            <th><span class="glyphicon glyphicon-user lindale-icon-color"></span> {{ trans('todo.user') }}</th>
-                                            <th><span class="glyphicon glyphicon-tag lindale-icon-color"></span> {{ trans('todo.type') }}</th>
-                                            <th><span class="glyphicon glyphicon-dashboard lindale-icon-color"></span> {{ trans('todo.status') }}</th>
-                                            <th><span class="glyphicon glyphicon-list-alt lindale-icon-color"></span> {{ trans('todo.todo-list') }}</th>
-                                            <th><i class="fa fa-refresh fa-spin fa-fw lindale-icon-color"></i> {{trans('todo.updated')}}</th>
-                                            <th><span class="glyphicon glyphicon-time lindale-icon-color"></span> {{trans('todo.created')}}</th>
-                                        </tr>
-                                        </thead>
                                         <tbody>
+
+                                            <tr>
+                                                <th><span class="glyphicon glyphicon-user lindale-icon-color"></span> {{ trans('todo.user') }}</th>
+                                                <th><span class="glyphicon glyphicon-tag lindale-icon-color"></span> {{ trans('todo.type') }}</th>
+                                                <th><span class="glyphicon glyphicon-dashboard lindale-icon-color"></span> {{ trans('todo.status') }}</th>
+                                                <th><span class="glyphicon glyphicon-list-alt lindale-icon-color"></span> {{ trans('todo.todo-list') }}</th>
+                                                <th><i class="fa fa-refresh fa-spin fa-fw lindale-icon-color"></i> {{trans('todo.updated')}}</th>
+                                                <th><span class="glyphicon glyphicon-time lindale-icon-color"></span> {{trans('todo.created')}}</th>
+                                            </tr>
+
                                             <tr>
                                                 <td>
                                                     @if($todo->User != null){{ $todo->User->name }}@else{{ trans('project.none') }}@endif

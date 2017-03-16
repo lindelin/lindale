@@ -128,41 +128,41 @@
                             <div class="panel-body">
                                 <div class="table-responsive">
                                     <table class="table table-hover table-bordered lindale-table">
-                                        <thead>
-                                        <tr>
-                                            <th><span class="glyphicon glyphicon-user lindale-icon-color"></span> {{ trans('todo.user') }}</th>
-                                            <th><span class="glyphicon glyphicon-tag lindale-icon-color"></span> {{ trans('todo.type') }}</th>
-                                            <th><span class="glyphicon glyphicon-dashboard lindale-icon-color"></span> {{ trans('todo.status') }}</th>
-                                            <th><span class="glyphicon glyphicon-briefcase lindale-icon-color"></span> {{ trans('header.project') }}</th>
-                                            <th><span class="glyphicon glyphicon-list-alt lindale-icon-color"></span> {{ trans('todo.todo-list') }}</th>
-                                            <th><i class="fa fa-refresh fa-spin fa-fw lindale-icon-color"></i> {{trans('todo.updated')}}</th>
-                                            <th><span class="glyphicon glyphicon-time lindale-icon-color"></span> {{trans('todo.created')}}</th>
-                                        </tr>
-                                        </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>
-                                                @if($todo->User != null){{ $todo->User->name }}@else{{ trans('project.none') }}@endif
-                                            </td>
-                                            <td>
-                                                {!! Colorable::label($todo->Type->color_id, trans($todo->Type->name)) !!}
-                                            </td>
-                                            <td>
-                                                {!! Colorable::label($todo->Status->color_id, trans($todo->Status->name)) !!}
-                                            </td>
-                                            <td>
-                                                @if($todo->Project()->count() > 0){{ $todo->Project->title }}@else{{ trans('project.none') }}@endif
-                                            </td>
-                                            <td>
-                                                @if($todo->TodoList != null){{ $todo->TodoList->title }}@else{{ trans('project.none') }}@endif
-                                            </td>
-                                            <td>
-                                                {{ $todo->updated_at }}
-                                            </td>
-                                            <td>
-                                                {{ $todo->created_at }}
-                                            </td>
-                                        </tr>
+
+                                            <tr>
+                                                <th><span class="glyphicon glyphicon-user lindale-icon-color"></span> {{ trans('todo.user') }}</th>
+                                                <th><span class="glyphicon glyphicon-tag lindale-icon-color"></span> {{ trans('todo.type') }}</th>
+                                                <th><span class="glyphicon glyphicon-dashboard lindale-icon-color"></span> {{ trans('todo.status') }}</th>
+                                                <th><span class="glyphicon glyphicon-briefcase lindale-icon-color"></span> {{ trans('header.project') }}</th>
+                                                <th><span class="glyphicon glyphicon-list-alt lindale-icon-color"></span> {{ trans('todo.todo-list') }}</th>
+                                                <th><i class="fa fa-refresh fa-spin fa-fw lindale-icon-color"></i> {{trans('todo.updated')}}</th>
+                                                <th><span class="glyphicon glyphicon-time lindale-icon-color"></span> {{trans('todo.created')}}</th>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    @if($todo->User != null){{ $todo->User->name }}@else{{ trans('project.none') }}@endif
+                                                </td>
+                                                <td>
+                                                    {!! Colorable::label($todo->Type->color_id, trans($todo->Type->name)) !!}
+                                                </td>
+                                                <td>
+                                                    {!! Colorable::label($todo->Status->color_id, trans($todo->Status->name)) !!}
+                                                </td>
+                                                <td>
+                                                    @if($todo->Project()->count() > 0){{ $todo->Project->title }}@else{{ trans('project.none') }}@endif
+                                                </td>
+                                                <td>
+                                                    @if($todo->TodoList != null){{ $todo->TodoList->title }}@else{{ trans('project.none') }}@endif
+                                                </td>
+                                                <td>
+                                                    {{ $todo->updated_at }}
+                                                </td>
+                                                <td>
+                                                    {{ $todo->created_at }}
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

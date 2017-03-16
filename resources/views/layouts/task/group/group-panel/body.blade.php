@@ -30,37 +30,37 @@
         <br>
         <div class="table-responsive">
             <table class="table table-hover table-bordered lindale-table">
-                <thead>
-                <tr>
-                    <th><span class="glyphicon glyphicon-tag lindale-icon-color"></span> {{ trans('task.type') }}</th>
-                    <th><span class="glyphicon glyphicon-dashboard lindale-icon-color"></span> {{ trans('task.status') }}</th>
-                    <th><i class="fa fa-hourglass-start lindale-icon-color" aria-hidden="true"></i> {{ trans('task.start_at') }}</th>
-                    <th><i class="fa fa-hourglass-end lindale-icon-color" aria-hidden="true"></i> {{ trans('task.end_at') }}</th>
-                    <th><i class="fa fa-refresh fa-spin fa-fw lindale-icon-color"></i> {{trans('task.updated')}}</th>
-                    <th><span class="glyphicon glyphicon-time lindale-icon-color"></span> {{trans('task.created')}}</th>
-                </tr>
-                </thead>
                 <tbody>
-                <tr>
-                    <td>
-                        {!! Colorable::label($group->Type->color_id, trans($group->Type->name)) !!}
-                    </td>
-                    <td>
-                        {!! Colorable::label($group->Status->color_id, trans($group->Status->name)) !!}
-                    </td>
-                    <td>
-                        @if($group->start_at != ''){{ $group->start_at }}@else{{ trans('task.none') }}@endif
-                    </td>
-                    <td>
-                        @if($group->end_at != ''){{ $group->end_at }}@else{{ trans('task.none') }}@endif
-                    </td>
-                    <td>
-                        {{ $group->updated_at }}
-                    </td>
-                    <td>
-                        {{ $group->created_at }}
-                    </td>
-                </tr>
+
+                    <tr>
+                        <th><span class="glyphicon glyphicon-tag lindale-icon-color"></span> {{ trans('task.type') }}</th>
+                        <th><span class="glyphicon glyphicon-dashboard lindale-icon-color"></span> {{ trans('task.status') }}</th>
+                        <th><i class="fa fa-hourglass-start lindale-icon-color" aria-hidden="true"></i> {{ trans('task.start_at') }}</th>
+                        <th><i class="fa fa-hourglass-end lindale-icon-color" aria-hidden="true"></i> {{ trans('task.end_at') }}</th>
+                        <th><i class="fa fa-refresh fa-spin fa-fw lindale-icon-color"></i> {{trans('task.updated')}}</th>
+                        <th><span class="glyphicon glyphicon-time lindale-icon-color"></span> {{trans('task.created')}}</th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            {!! Colorable::label($group->Type->color_id, trans($group->Type->name)) !!}
+                        </td>
+                        <td>
+                            {!! Colorable::label($group->Status->color_id, trans($group->Status->name)) !!}
+                        </td>
+                        <td>
+                            @if($group->start_at != ''){{ $group->start_at }}@else{{ trans('task.none') }}@endif
+                        </td>
+                        <td>
+                            @if($group->end_at != ''){{ $group->end_at }}@else{{ trans('task.none') }}@endif
+                        </td>
+                        <td>
+                            {{ $group->updated_at }}
+                        </td>
+                        <td>
+                            {{ $group->created_at }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
