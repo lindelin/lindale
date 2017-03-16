@@ -13,5 +13,6 @@ return [
     'title'      => '词条',
     'content'    => '内容',
     'log-viewer' => 'ログ管理',
+    'route'      => 'ルート管理',
 
 ];

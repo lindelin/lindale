@@ -13,4 +13,5 @@ return [
     'title'      => '词条',
     'content'    => '内容',
     'log-viewer' => '日志查看器',
+    'route'      => '路由表',
 ];

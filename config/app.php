@@ -178,6 +178,7 @@ return [
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        PrettyRoutes\ServiceProvider::class,
 
         /*
          * Application Service Providers...
