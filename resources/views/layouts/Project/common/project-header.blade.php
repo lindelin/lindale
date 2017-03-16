@@ -24,6 +24,7 @@
         </div>
     </div>
 </div>
+<br>
 @include('layouts.Project.project-nav')
 <br>
 @include('layouts.common.errors-all')
