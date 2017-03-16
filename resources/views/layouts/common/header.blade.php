@@ -223,7 +223,7 @@
                                 <a href="#"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                    <span class="glyphicon glyphicon-log-out"></span> {{ trans('auth.logout') }}
+                                    <span class="glyphicon glyphicon-log-out lindale-icon-color"></span> {{ trans('auth.logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">

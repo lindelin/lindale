@@ -11,23 +11,26 @@
 <template>
     <div>
         <div v-if="tokens.length > 0">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4>Authorized Applications</h4>
+            <div class="well well-home">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <h4><i class="fa fa-cubes lindale-icon-color" aria-hidden="true"></i> Authorized Applications</h4>
+                    </div>
                 </div>
-
-                <div class="panel-body">
-                    <!-- Authorized Tokens -->
-                    <table class="table table-borderless m-b-none">
-                        <thead>
+                <br>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <!-- Authorized Tokens -->
+                        <table class="table table-borderless m-b-none">
+                            <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>Scopes</th>
                                 <th></th>
                             </tr>
-                        </thead>
+                            </thead>
 
-                        <tbody>
+                            <tbody>
                             <tr v-for="token in tokens">
                                 <!-- Client Name -->
                                 <td style="vertical-align: middle;">
@@ -48,8 +51,9 @@
                                     </a>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

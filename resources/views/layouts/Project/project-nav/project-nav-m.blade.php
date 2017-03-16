@@ -63,7 +63,7 @@
                     </li>--}}
                     <li role="presentation">
                         <a href="{{ $config_url }}">
-                            <span class="glyphicon glyphicon-cog"></span> {{ trans('header.config') }}
+                            <span class="glyphicon glyphicon-cog lindale-icon-color"></span> {{ trans('header.config') }}
                         </a>
                     </li>
                 </ul>

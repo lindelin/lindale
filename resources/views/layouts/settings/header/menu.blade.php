@@ -1,7 +1,7 @@
 <div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading">
-        <h4>{{ trans('user.settings') }}</h4>
+        <h4 class="panel-title">{{ trans('user.settings') }}</h4>
     </div>
     <!-- List group -->
     <ul class="list-group">
@@ -32,7 +32,7 @@
 <div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading">
-        <h4>{{ trans('config.developer-config') }}</h4>
+        <h4 class="panel-title">{{ trans('config.developer-config') }}</h4>
     </div>
     <!-- List group -->
     <ul class="list-group">

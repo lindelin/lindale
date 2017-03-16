@@ -9,12 +9,12 @@
                 <ul class="dropdown-menu" role="menu">
                     <li role="presentation">
                         <a href="{{ $top_url }}">
-                            <span class="glyphicon glyphicon-th-large"></span> {{ trans('header.top') }}
+                            <span class="glyphicon glyphicon-th-large lindale-icon-color"></span> {{ trans('header.top') }}
                         </a>
                     </li>
                     <li role="presentation">
                         <a href="{{ $member_url }}">
-                            <span class="glyphicon glyphicon-user"></span> {{ trans('header.member') }}
+                            <span class="glyphicon glyphicon-user lindale-icon-color"></span> {{ trans('header.member') }}
                         </a>
                     </li>
                    {{-- <li role="presentation">
@@ -39,7 +39,7 @@
                     </li>--}}
                     <li role="presentation">
                         <a href="{{ $config_url }}">
-                            <span class="glyphicon glyphicon-cog"></span> {{ trans('header.config') }}
+                            <span class="glyphicon glyphicon-cog lindale-icon-color"></span> {{ trans('header.config') }}
                         </a>
                     </li>
                 </ul>

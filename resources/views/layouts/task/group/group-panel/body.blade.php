@@ -75,7 +75,14 @@
                 @include('layouts.task.common.task', ['task' => $task])
             @endforeach
         @else
-            <h2 class="text-danger">NO DATA</h2>
+            <br>
+            <div class="well well-home">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
+                        <h4 class="lindale-icon-color">NO DATA</h4>
+                    </div>
+                </div>
+            </div>
         @endif
 
     </div>
@@ -87,7 +94,14 @@
                 @include('layouts.task.common.task', ['task' => $task])
             @endforeach
         @else
-            <h2 class="text-danger">NO DATA</h2>
+            <br>
+            <div class="well well-home">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
+                        <h4 class="lindale-icon-color">NO DATA</h4>
+                    </div>
+                </div>
+            </div>
         @endif
 
     </div>
