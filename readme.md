@@ -1,7 +1,7 @@
 #Lindalë Project
 
-[![Build Status](https://travis-ci.org/lindelea/lindale.svg?branch=master)](https://travis-ci.org/lindelea/lindale)
-[![StyleCI](https://styleci.io/repos/63577917/shield)](https://styleci.io/repos/63577917)
+[![Build Status](https://travis-ci.org/lindelin/lindale.svg?branch=master)](https://travis-ci.org/lindelin/lindale)
+[![StyleCI](https://styleci.io/repos/63577917/shield?branch=master)](https://styleci.io/repos/63577917)
 [![License](https://poser.pugx.org/lindelea/lindale/license)](https://github.com/kudouyoichi/lindale/blob/master/LICENSE)
 
 
