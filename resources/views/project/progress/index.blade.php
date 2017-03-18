@@ -42,7 +42,7 @@
 
                             <div class="row">
                                 <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3">
-                                    <span class="glyphicon glyphicon-dashboard"></span> {{ trans('header.project').trans('header.progress') }}
+                                    <span class="glyphicon glyphicon-dashboard lindale-icon-color"></span> {{ trans('header.progress') }}
                                 </div>
                                     <div class="col-xs-7 col-sm-7 col-md-8 col-lg-9">
                                     <div class="progress">
@@ -55,7 +55,7 @@
 
                             <div class="row">
                                 <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3">
-                                    <span class="glyphicon glyphicon-tasks"></span> {{ trans('header.tasks').trans('header.progress') }}
+                                    <span class="glyphicon glyphicon-tasks lindale-icon-color"></span> {{ trans('header.tasks') }}
                                 </div>
                                 <div class="col-xs-7 col-sm-7 col-md-8 col-lg-9">
                                     <div class="progress">
@@ -68,7 +68,7 @@
 
                             <div class="row">
                                 <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3">
-                                    <span class="glyphicon glyphicon-check"></span> TODO{{ trans('header.progress') }}
+                                    <span class="glyphicon glyphicon-check lindale-icon-color"></span> TODO
                                 </div>
                                 <div class="col-xs-7 col-sm-7 col-md-8 col-lg-9">
                                     <div class="progress" style="margin-bottom: 0px;">

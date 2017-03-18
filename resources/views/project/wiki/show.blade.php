@@ -12,7 +12,7 @@
         {{-- 框架 --}}
         <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9">
             <div class="row">
-                <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                <div class="col-xs-9 col-sm-9 col-md-8 col-lg-9">
                     <h3 class="lindale-color"><span class="glyphicon glyphicon-book lindale-icon-color"></span> {{ $wiki->title }}
                         <br>
                         <small>
@@ -21,7 +21,7 @@
                         </small>
                     </h3>
                 </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" align="right">
+                <div class="col-xs-3 col-sm-3 col-md-4 col-lg-3" align="right">
                     @include('layouts.wiki.add-delete-edit')
                 </div>
             </div>

@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         @if(Auth::user()->content)
-            <div class="panel panel-default">
+            <div class="panel panel-default" style="box-shadow: none;">
                 <div class="panel-body">
                     {{ Auth::user()->content }}
                 </div>
@@ -39,22 +39,22 @@
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
        @if(Auth::user()->company)
-           <p><i class="fa fa-university" aria-hidden="true"></i> {{ Auth::user()->company }}</p>
+           <p><i class="fa fa-university lindale-icon-color" aria-hidden="true"></i> {{ Auth::user()->company }}</p>
        @endif
        @if(Auth::user()->location)
-           <p><span class="glyphicon glyphicon-globe"></span> {{ Auth::user()->location }}</p>
+           <p><span class="glyphicon glyphicon-globe lindale-icon-color"></span> {{ Auth::user()->location }}</p>
        @endif
        @if(Auth::user()->github)
-           <p><i class="fa fa-github-alt" aria-hidden="true"></i> <a href="{{ Auth::user()->github }}">GitHub</a></p>
+           <p><i class="fa fa-github-alt lindale-icon-color" aria-hidden="true"></i> <a href="{{ Auth::user()->github }}">GitHub</a></p>
        @endif
        @if(Auth::user()->slack)
-           <p><i class="fa fa-slack" aria-hidden="true"></i> <a href="{{ Auth::user()->slack }}">Slack</a></p>
+           <p><i class="fa fa-slack lindale-icon-color" aria-hidden="true"></i> <a href="{{ Auth::user()->slack }}">Slack</a></p>
        @endif
        @if(Auth::user()->facebook)
-           <p><i class="fa fa-facebook-square" aria-hidden="true"></i> <a href="{{ Auth::user()->facebook }}">Facebook</a></p>
+           <p><i class="fa fa-facebook-square lindale-icon-color" aria-hidden="true"></i> <a href="{{ Auth::user()->facebook }}">Facebook</a></p>
        @endif
        @if(Auth::user()->qq)
-           <p><i class="fa fa-qq" aria-hidden="true"></i> {{ Auth::user()->qq }}</p>
+           <p><i class="fa fa-qq lindale-icon-color" aria-hidden="true"></i> {{ Auth::user()->qq }}</p>
        @endif
 
 	</div>

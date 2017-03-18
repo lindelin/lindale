@@ -57,13 +57,13 @@ class ProgressRepository
             ->responsive(true);
 
         $projectProgressAreaspline = Charts::multiDatabase('areaspline', 'highcharts')
-            ->title('進捗状況')
-            ->dataset('新規チケット', $project->Tasks()->select('created_at')->get())
-            ->dataset('終了チケット', $project->Tasks()->select('updated_at AS created_at')->where('is_finish', true)->get())
-            ->dataset('新規TODO', $project->Todos()->select('created_at')->get())
-            ->dataset('終了TODO', $project->Todos()->select('updated_at AS created_at')->where('status_id', 2)->get())
+            ->title(trans('progress.status'))
+            ->dataset(trans('progress.new-task'), $project->Tasks()->select('created_at')->get())
+            ->dataset(trans('progress.finished-task'), $project->Tasks()->select('updated_at AS created_at')->where('is_finish', true)->get())
+            ->dataset(trans('progress.new-todo'), $project->Todos()->select('created_at')->get())
+            ->dataset(trans('progress.finished-todo'), $project->Todos()->select('updated_at AS created_at')->where('status_id', 2)->get())
             ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
-            ->elementLabel('件')
+            ->elementLabel(trans('progress.count'))
             ->responsive(true)
             ->lastByDay(7, true);
         ;
