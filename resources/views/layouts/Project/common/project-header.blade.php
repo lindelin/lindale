@@ -27,5 +27,4 @@
 <br>
 @include('layouts.Project.project-nav')
 <br>
-@include('layouts.common.errors-all')
-@include('layouts.common.succeed')
+@include('layouts.common.message')

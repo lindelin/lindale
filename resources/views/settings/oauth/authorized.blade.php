@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-    @include('layouts.common.errors-all')
-    @include('layouts.common.succeed')
+    @include('layouts.common.message')
 
     <div class="row">
         {{-- 框架 --}}

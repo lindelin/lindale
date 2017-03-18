@@ -7,8 +7,8 @@
 @section('content')
 
     @include('layouts.Project.top-panel')
-    @include('layouts.common.errors-all')
-    @include('layouts.common.succeed')
+    @include('layouts.common.message')
+    <div class='notifications top-left'></div>
 
     <div class="row">
         @foreach( $projects as $project)

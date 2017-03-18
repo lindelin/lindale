@@ -157,3 +157,19 @@ body{
 	background-color: #eb5b4f;
 	color: #fff;
 }
+
+.notifications {
+	z-index: 9999;
+}
+
+/* Positioning */
+.notifications.top-right {
+	right: 30px;
+	top: 100px;
+}
+
+/* Notification Element */
+.notifications > div {
+	position: relative;
+	margin: 5px 0px;
+}

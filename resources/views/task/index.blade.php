@@ -7,8 +7,7 @@
 @section('content')
 
     @include('layouts.task.top-panel')
-    @include('layouts.common.errors-all')
-    @include('layouts.common.succeed')
+    @include('layouts.common.message')
 
     <div class="row">
         <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
