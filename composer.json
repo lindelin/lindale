@@ -1,12 +1,12 @@
 {
-    "name": "lindelea/lindale",
+    "name": "lindelin/lindale",
     "description": "Project Manager",
-    "keywords": ["laravel", "Lindale", "application", "markdown", "Project", "Project Manager"],
+    "keywords": ["laravel", "Lindale", "application", "lindelin", "Project", "Project Manager"],
     "license": "MIT",
     "type": "project",
     "authors": [
         {
-            "name": "Wu Jie",
+            "name": "Lindelea",
             "email": "kgo@lindelin.org",
             "role": "Developer"
         }
@@ -70,7 +70,6 @@
         {
             "type": "composer",
             "url": "https://packagist.org"
-        },
-        { "packagist": false }
+        }
     ]
 }
