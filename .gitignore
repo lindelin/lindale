@@ -2,8 +2,6 @@
 /public/storage
 /vendor
 /.idea
-.idea
-Homestead.json
 Homestead.yaml
 .env
 .D
@@ -11,3 +9,4 @@ Homestead.yaml
 _ide_helper.php
 .phpstorm.meta.php
 composer.lock
+.vagrant/
