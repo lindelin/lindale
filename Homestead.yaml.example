@@ -1,0 +1,18 @@
+ip: 192.168.10.10
+memory: 2048
+cpus: 1
+provider: virtualbox
+authorize: ~/.ssh/id_rsa.pub
+keys:
+    - ~/.ssh/id_rsa
+folders:
+    -
+        map: ~/Documents/Projects/lindale/source
+        to: /home/vagrant/source
+sites:
+    -
+        map: lindale.app
+        to: /home/vagrant/source/lindale/public
+
+name: lindale
+hostname: lindale
