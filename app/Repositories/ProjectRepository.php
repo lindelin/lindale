@@ -56,13 +56,19 @@ class ProjectRepository
      */
     public function UserProjectResources(User $user)
     {
-        $myProjects = Project::where('user_id', $user->id)->orWhere('sl_id', $user->id)->latest()->simplePaginate(6, ['*'], 'mPage');
-        $userProjects = $user->Projects()->latest()->simplePaginate(6, ['*'], 'uPage');
-        $userProjectCount = Counter::UserProjectCount($user);
+        $myProjects = Project::where('user_id', $user->id)
+            ->orWhere('sl_id', $user->id)
+            ->latest()
+            ->simplePaginate(6, ['*'], 'mPage');
 
+        $userProjects = $user->Projects()
+            ->latest()
+            ->simplePaginate(6, ['*'], 'uPage');
+
+        $userProjectCount = Counter::UserProjectCount($user);
         $userProgressAreaspline = $this->UserProgressAreaspline($user);
 
-        return compact('myProjects', 'userProjectCount', 'userProjects', 'userProgressAreaspline');
+        return compact('myProjects', 'userProjects', 'userProjectCount', 'userProgressAreaspline');
     }
 
     /**
@@ -163,16 +169,22 @@ class ProjectRepository
         $project->update();
     }
 
+    /**
+     * 项目进展动态图
+     *
+     * @param Project $project
+     * @return array
+     */
     public function ProjectActivity(Project $project)
     {
         $projectActivity = Charts::multiDatabase('areaspline', 'highcharts')
-            ->title(trans('task.activity'))
-            ->dataset('新規チケット', $project->Tasks()->select('created_at')->get())
-            ->dataset('終了チケット', $project->Tasks()->select('updated_at AS created_at')->where('is_finish', true)->get())
-            ->dataset('新規TODO', $project->Todos()->select('created_at')->get())
-            ->dataset('終了TODO', $project->Todos()->select('updated_at AS created_at')->where('status_id', 2)->get())
+            ->title(trans('progress.status'))
+            ->dataset(trans('progress.new-task'), $project->Tasks()->select('created_at')->get())
+            ->dataset(trans('progress.finished-task'), $project->Tasks()->select('updated_at AS created_at')->where('is_finish', true)->get())
+            ->dataset(trans('progress.new-todo'), $project->Todos()->select('created_at')->get())
+            ->dataset(trans('progress.finished-todo'), $project->Todos()->select('updated_at AS created_at')->where('status_id', 2)->get())
             ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
-            ->elementLabel('件')
+            ->elementLabel(trans('progress.count'))
             ->responsive(true)
             ->lastByDay(7, true);
         ;

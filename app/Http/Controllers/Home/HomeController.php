@@ -38,6 +38,12 @@ class HomeController extends Controller
         return view('home.index', $this->projectRepository->UserProjectResources($request->user()))->with('mode', 'home');
     }
 
+    /**
+     * 我的项目.
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function project(Request $request)
     {
         return view('home.project', $this->projectRepository->UserProjectResources($request->user()))->with('mode', 'project');

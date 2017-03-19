@@ -1,15 +1,16 @@
+{{--头像--}}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         @include('layouts.common.profile-img')
     </div>
 </div>
-
+{{--用户名--}}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h3 class="lindale-color">{{ Auth::user()->name }}<br> <small>{{ Auth::user()->email }}</small></h3>
     </div>
 </div>
-
+{{--自我介绍--}}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         @if(Auth::user()->content)
@@ -26,7 +27,7 @@
 
     </div>
 </div>
-
+{{--编辑--}}
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <a href="{{ url('/settings/profile') }}" class="btn btn-success btn-block">{{ trans('user.edit-profile') }}</a>
@@ -34,7 +35,7 @@
 </div>
 
 <hr>
-
+{{--图标--}}
 <div class="row">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
