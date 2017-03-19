@@ -33,7 +33,7 @@ class UserController extends Controller
      * 超级用户控制台->用户控制台主页.
      *
      * @param Request $request
-     * @return $this
+     * @return mixed
      */
     public function index(Request $request)
     {
@@ -45,7 +45,7 @@ class UserController extends Controller
     /**
      * 超级用户控制台->用户创建表单.
      *
-     * @return $this
+     * @return mixed
      */
     public function create()
     {
@@ -56,7 +56,7 @@ class UserController extends Controller
      * 超级用户控制台->创建用户.
      *
      * @param UserRequest $request
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function store(UserRequest $request)
     {
@@ -76,7 +76,7 @@ class UserController extends Controller
      *
      * @param Request $request
      * @param User $user
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function destroy(Request $request, User $user)
     {
