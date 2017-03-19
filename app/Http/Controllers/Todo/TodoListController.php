@@ -96,10 +96,6 @@ class TodoListController extends Controller
 
         $this->authorize('user', [$list]);
 
-        if ($list->delete()) {
-            return redirect()->to('/todo/type/'.Definer::PRIVATE_TODO)->with('status', trans('errors.delete-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.delete-failed'));
-        }
+        return response()->delete($list->delete());
     }
 }

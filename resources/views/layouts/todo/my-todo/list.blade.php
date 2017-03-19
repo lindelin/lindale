@@ -4,8 +4,11 @@
             @if($type != null)
                 @if((int)$type->id === Definer::PUBLIC_TODO)
                     <h4 class="lindale-color">{{ trans('todo.todo-list') }}（{{ trans('type.public') }}）</h4>
+                    <hr>
                 @elseif((int)$type->id === Definer::PRIVATE_TODO)
                     <h4 class="lindale-color">{{ trans('todo.todo-list') }}（{{ trans('type.private') }}）</h4>
+                    @include('layouts.todo.common.list-edit', ['list_edit_delete_url' => 'todo/type/'.Definer::PRIVATE_TODO.'/list/delete'])
+                    <hr>
                 @endif
             @else
                 <h4 class="lindale-color">{{ trans('todo.todo-list') }}（{{ trans('todo.all-todos') }}）</h4>
