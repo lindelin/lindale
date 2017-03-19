@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h2 class="panel-title" style="font-size: 20px">
+        <h2 class="panel-title lindale-color" style="font-size: 20px">
             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $group->id }}" aria-expanded="false" aria-controls="collapse{{ $group->id }}">
-                <span class="glyphicon glyphicon-th-list"></span> {{ $group->title }}
+                <span class="glyphicon glyphicon-th-list lindale-icon-color"></span> {{ $group->title }}
             </a>
             <small>{!! Colorable::label($group->Status->color_id, trans($group->Status->name)) !!}</small>
         </h2>

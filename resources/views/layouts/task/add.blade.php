@@ -13,15 +13,17 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel" align="left">{{ trans('task.submit') }}</h4>
+                        <h4 class="modal-title lindale-color" id="myModalLabel" align="left">
+                            {{ trans('task.submit') }}
+                        </h4>
                     </div>
                     <div class="modal-body" align="center">
-                        <a href="{{ url('project/'.$project->id.'/task/group/create') }}" class="btn btn-info btn-lg btn-block">
-                            <span class="glyphicon glyphicon-th-list"></span> {{ trans('task.new-group') }}
+                        <a href="{{ url('project/'.$project->id.'/task/group/create') }}" class="btn btn-default btn-lg btn-block">
+                            <h4 class="lindale-color"><span class="glyphicon glyphicon-th-list lindale-icon-color"></span> {{ trans('task.new-group') }}</h4>
                         </a>
                         <br>
-                        <a href="{{ url('project/'.$project->id.'/task/task/create') }}" class="btn btn-success btn-warning btn-lg btn-block">
-                            <span class="glyphicon glyphicon-tasks"></span> {{ trans('task.new-task') }}
+                        <a href="{{ url('project/'.$project->id.'/task/task/create') }}" class="btn btn-default btn-lg btn-block">
+                            <h4 class="lindale-color"><span class="glyphicon glyphicon-tasks lindale-icon-color"></span> {{ trans('task.new-task') }}</h4>
                         </a>
                     </div>
                     <div class="modal-footer">
