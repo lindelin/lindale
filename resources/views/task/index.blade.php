@@ -11,28 +11,10 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
-            <div class="well well-home" style="padding-bottom: 20px;">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h4>進捗</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="progress" style="margin-bottom: 0px;">
-                            <div class="progress-bar progress-bar-striped active progress-bar-success"
-                                 style="width: {{ \App\Calculator::UserTaskProgressCompute(Auth::user()) }}%">
-                                {{ \App\Calculator::UserTaskProgressCompute(Auth::user()) }}% Complete
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @include('layouts.task.my-task.progress')
         </div>
         <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
-            <div class="well well-home" align="center">
-                <clock></clock>
-            </div>
+            @include('layouts.task.my-task.clock')
         </div>
     </div>
 

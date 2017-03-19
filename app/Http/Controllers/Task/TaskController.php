@@ -39,11 +39,23 @@ class TaskController extends Controller
         return view('task.index', $this->taskRepository->UserTaskResources($request->user()));
     }
 
+    /**
+     * 为完成的任务
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function unfinished(Request $request)
     {
         return view('task.index', $this->taskRepository->UserTaskResources($request->user(), Definer::TASK_UNFINISHED));
     }
 
+    /**
+     * 完成的任务
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function finished(Request $request)
     {
         return view('task.index', $this->taskRepository->UserTaskResources($request->user(), Definer::TASK_FINISHED));
