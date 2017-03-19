@@ -146,6 +146,7 @@ return [
         'end_at'                => '结束时间',
         'image'                 => '图片',
         'type_name'             => '名称',
+        'new-password'          => '新密码',
     ],
 
 ];

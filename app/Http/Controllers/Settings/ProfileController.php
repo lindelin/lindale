@@ -33,7 +33,7 @@ class ProfileController extends Controller
      * 个人资料设置.
      *
      * @param Request $request
-     * @return $this
+     * @return mixed
      */
     public function index(Request $request)
     {

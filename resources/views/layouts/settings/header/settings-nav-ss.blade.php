@@ -9,7 +9,7 @@
             </li>
 
             <li role="presentation" @if($mode == "account") class="active" @endif>
-                <a href="#">
+                <a href="{{ url('settings/account') }}">
                     <span class="glyphicon glyphicon-lock"></span>
                 </a>
             </li>

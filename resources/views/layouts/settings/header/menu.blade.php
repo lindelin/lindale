@@ -10,7 +10,7 @@
             <span class="glyphicon glyphicon-user"></span> {{ trans('user.public-profile') }}
         </a>
 
-        <a href="#" class="list-group-item">
+        <a href="{{ url('settings/account') }}" class="list-group-item @if($mode == 'account') active @endif">
             <span class="glyphicon glyphicon-lock"></span> {{ trans('user.account') }}
         </a>
 

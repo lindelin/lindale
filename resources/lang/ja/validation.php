@@ -126,6 +126,7 @@ return [
         'end_at'                => '期日',
         'image'                 => '画像',
         'type_name'             => '名称',
+        'new-password'          => '新しいパスワード',
     ],
 
 ];

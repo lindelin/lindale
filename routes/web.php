@@ -230,6 +230,10 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Settings', 'prefix' => 'se
         Route::patch('{user}', 'ProfileController@update');
     });
 
+    //账户路由
+    Route::get('account', 'AccountController@index');
+    Route::post('account', 'AccountController@resetPassword');
+
     //OAuth已授权应用路由
     Route::get('/oauth/authorized', 'OAuthController@authorized');
 

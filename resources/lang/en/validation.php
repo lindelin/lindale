@@ -124,6 +124,7 @@ return [
         'end_at'                => 'End Time',
         'image'                 => 'Image',
         'type_name'             => 'Name',
+        'new-password'          => 'New Password',
     ],
 
 ];
