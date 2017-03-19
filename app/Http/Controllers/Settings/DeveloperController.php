@@ -10,7 +10,7 @@ class DeveloperController extends Controller
     /**
      * OAuth应用认证与授权
      *
-     * @return $this
+     * @return mixed
      */
     public function application()
     {
@@ -20,7 +20,7 @@ class DeveloperController extends Controller
     /**
      * 个人访问令牌
      *
-     * @return $this
+     * @return mixed
      */
     public function personal()
     {

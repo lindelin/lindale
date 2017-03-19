@@ -49,10 +49,6 @@ class NotificationController extends Controller
         $result1 = $this->configSystem->setConfigInfo($request->user(), UserConfig::SLACK_NOTIFICATION_NO, $request->get(UserConfig::SLACK_NOTIFICATION_NO));
         $result2 = $this->configSystem->setConfigInfo($request->user(), UserConfig::SLACK_API_KEY, $request->get(UserConfig::SLACK_API_KEY));
 
-        if ($result1 and $result2) {
-            return redirect()->back()->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
-        }
+        return response()->update($result1 and $result2);
     }
 }

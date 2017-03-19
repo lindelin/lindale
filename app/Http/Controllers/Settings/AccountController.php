@@ -8,11 +8,22 @@ use Hash;
 
 class AccountController extends Controller
 {
+    /**
+     * Index.
+     *
+     * @return mixed
+     */
     public function index()
     {
         return view('settings.account.index')->with('mode', 'account');
     }
 
+    /**
+     * 修改密码
+     *
+     * @param Request $request
+     * @return mixed
+     */
     public function resetPassword(Request $request)
     {
         $this->validate($request, [
@@ -24,11 +35,7 @@ class AccountController extends Controller
 
         if(Hash::check($request->get('password'), $user->password)){
             $user->password = bcrypt($request->get('new-password'));
-            if($user->update()){
-                return redirect()->back()->with('status', trans('errors.update-succeed'));
-            }else{
-                return redirect()->back()->withErrors(trans('errors.update-failed'));
-            }
+            return response()->update($user->update());
         }else{
             return redirect()->back()->withErrors(trans('auth.failed'));
         }

@@ -44,7 +44,7 @@ class LocaleController extends Controller
      * 语言和地区更新
      *
      * @param Request $request
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function updateLocale(Request $request)
     {
@@ -54,10 +54,6 @@ class LocaleController extends Controller
         $request->session()->put('lang', $locale);
         App::setLocale($locale);
 
-        if ($result) {
-            return redirect()->back()->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
-        }
+        return response()->update($result);
     }
 }

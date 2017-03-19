@@ -10,7 +10,7 @@ class OAuthController extends Controller
     /**
      * 已授权应用
      *
-     * @return $this
+     * @return mixed
      */
     public function authorized()
     {

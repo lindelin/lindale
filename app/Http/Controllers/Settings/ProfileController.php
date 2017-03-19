@@ -45,7 +45,7 @@ class ProfileController extends Controller
      *
      * @param UserRequest $request
      * @param User $user
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function update(UserRequest $request, User $user)
     {
@@ -53,10 +53,6 @@ class ProfileController extends Controller
             ->UpdateUser($request, $user)
             ->update();
 
-        if ($result) {
-            return redirect()->to('settings/profile')->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
-        }
+        return response()->update($result);
     }
 }
