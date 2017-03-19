@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Todo;
 
 use App\Events\Todo\TodoCreated;
 use App\Events\Todo\TodoDeleted;
-use App\Project\Project;
 use App\Repositories\ProjectRepository;
 use App\Repositories\TodoRepository;
 use App\Todo\TodoList;
@@ -46,12 +45,11 @@ class TodoController extends Controller
         $this->projectRepository = $projectRepository;
     }
 
-
     /**
      * Index.
      *
      * @param Request $request
-     * @return $this
+     * @return mixed
      */
     public function index(Request $request)
     {
@@ -98,7 +96,7 @@ class TodoController extends Controller
      *
      * @param TodoRequest $request
      * @param Todo $todo
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function update(TodoRequest $request, Todo $todo)
     {
@@ -106,42 +104,33 @@ class TodoController extends Controller
 
         $result = $this->todoRepository->UpdateTodo($request, $todo)->update();
 
-        if ($result) {
+        event(new TodoUpdated($todo, $request->user()));
 
-            event(new TodoUpdated($todo, $request->user()));
-
-            return redirect()->back()->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
-        }
+        return response()->update($result);
     }
 
     /**
      * 创建To-do.
      *
      * @param TodoRequest $request
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function store(TodoRequest $request)
     {
         $todo = $this->todoRepository->CreateTodo($request);
         $result = $todo->save();
 
-        if ($result) {
+        event(new TodoCreated($todo, $request->user()));
 
-            event(new TodoCreated($todo, $request->user()));
-
-            return redirect()->back()->with('status', trans('errors.save-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.save-failed'));
-        }
+        return response()->save($result);
     }
 
     /**
      * 删除To-do.
      *
      * @param Todo $todo
-     * @return $this|\Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return mixed
      */
     public function destroy(Todo $todo, Request $request)
     {
@@ -149,10 +138,6 @@ class TodoController extends Controller
 
         event(new TodoDeleted($todo, $request->user()));
 
-        if ($todo->delete()) {
-            return redirect()->back()->with('status', trans('errors.delete-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.delete-failed'));
-        }
+        return response()->delete($todo->delete());
     }
 }

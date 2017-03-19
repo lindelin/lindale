@@ -45,7 +45,7 @@ class TodoListController extends Controller
      * 显示创建To-do列表表单.
      *
      * @param Request $request
-     * @return $this
+     * @return mixed
      */
     public function create(Request $request)
     {
@@ -79,11 +79,7 @@ class TodoListController extends Controller
     {
         $result = $this->todoRepository->CreateTodoList($request, null, $request->user())->save();
 
-        if ($result) {
-            return redirect()->back()->with('status', trans('errors.save-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.save-failed'));
-        }
+        return response()->save($result);
     }
 
     /**
