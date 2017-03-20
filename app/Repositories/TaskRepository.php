@@ -106,7 +106,7 @@ class TaskRepository
     {
         $resources = $this->Resources($project);
         $tasks = $project->Tasks;
-        $subTask = $task->SubTasks()->latest()->orderBy('is_finish', 'asc')->simplePaginate(3, ['*'], 'stPage');
+        $subTask = $task->SubTasks()->orderBy('is_finish', 'asc')->latest()->simplePaginate(3, ['*'], 'stPage');
         $activities = $task->Activities()->latest()->paginate(5, ['*'], 'taPage');
 
         return array_merge(compact('tasks', 'subTask', 'activities'), $resources);
