@@ -13,13 +13,13 @@
             @if($project->progress === 100)
                 <h4>
                     <a href="#" class="dropdown-toggle panel-title my-tooltip" title="完了" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-ok"></span>
+                        <span class="glyphicon glyphicon-ok lindale-icon-color"></span>
                     </a>
                 </h4>
             @else
                 <h4>
                     <a href="#" class="dropdown-toggle panel-title my-tooltip" title="進行中" data-toggle="dropdown">
-                        <i class="fa fa-circle-o-notch fa-spin fa-lg fa-fw"></i>
+                        <i class="fa fa-circle-o-notch fa-spin fa-lg fa-fw lindale-icon-color"></i>
                     </a>
                 </h4>
             @endif
