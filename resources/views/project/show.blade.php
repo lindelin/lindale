@@ -10,7 +10,7 @@
 
     <div class="row">
     	<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
-            <div class="row">
+            {{--<div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="well well-home">
                         <div class="row">
@@ -24,6 +24,14 @@
                                 2016年10月27日　システムプレビュー版リリースしました！
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>--}}
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="well well-home">
+                        {!! $projectActivity->render() !!}
                     </div>
                 </div>
             </div>
@@ -79,17 +87,8 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="well well-home">
-                        {!! $projectActivity->render() !!}
-                    </div>
-                </div>
-            </div>
-
     	</div>
         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-            @include('layouts.project.well')
             <div class="well well-home">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
