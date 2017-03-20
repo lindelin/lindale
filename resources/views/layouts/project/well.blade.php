@@ -1,4 +1,4 @@
-<div class="well well-home">
+<div class="well well-home" style="height: 374px;">
     <div class="row">
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
             <h4 class="lindale-icon-color">
@@ -61,8 +61,8 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="progress" style="margin-bottom: 0px;">
-                <div class="progress-bar progress-bar-success" role="progressbar" style="width: {{ $project->progress }}%;">
-                    <span style="color: #000000">{{ $project->progress }}%</span>
+                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style="width: {{ $project->progress }}%;">
+                    <span>{{ $project->progress }}%</span>
                 </div>
             </div>
         </div>
