@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @include('layouts.Project.common.project-header')
+    @include('layouts.project.common.project-header')
 
     @if(!$HomeWiki)
         <div class="row">

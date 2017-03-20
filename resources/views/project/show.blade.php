@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @include('layouts.Project.common.project-header')
+    @include('layouts.project.common.project-header')
 
     <div class="row">
     	<div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
@@ -89,7 +89,7 @@
 
     	</div>
         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-            @include('layouts.Project.well')
+            @include('layouts.project.well')
             <div class="well well-home">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

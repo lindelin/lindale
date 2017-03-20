@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @include('layouts.Project.common.project-header')
+    @include('layouts.project.common.project-header')
 
     <div class="row">
         {{-- 框架 --}}
@@ -80,8 +80,8 @@
         {{-- 框架 --}}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
-            @include('layouts.Project.common.project-icon')
-            @include('layouts.Project.common.project-statuses')
+            @include('layouts.project.common.project-icon')
+            @include('layouts.project.common.project-statuses')
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <a href="{{ url('project/'.$project->id.'/edit') }}" class="btn btn-success btn-block">
@@ -109,8 +109,8 @@
                     @endif
                 </div>
             </div>
-            @include('layouts.Project.common.project-info')
-            @include('layouts.Project.common.project-progress')
+            @include('layouts.project.common.project-info')
+            @include('layouts.project.common.project-progress')
 
         </div>
     </div>

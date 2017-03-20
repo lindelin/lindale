@@ -127,6 +127,7 @@ return [
         'image'                 => '画像',
         'type_name'             => '名称',
         'new-password'          => '新しいパスワード',
+        'project-pass'          => 'プロジェクトパスワード',
     ],
 
 ];

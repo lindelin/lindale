@@ -1,4 +1,4 @@
-@include('layouts.Project.project-nav.project-nav',
+@include('layouts.project.project-nav.project-nav',
 ['url_master' =>
     [
     'top_url' => url("project/$project->id"),

@@ -58,11 +58,7 @@ class MemberController extends Controller
 
         $result = $this->memberRepository->AddMember($request, $project);
 
-        if ($result) {
-            return redirect()->to('/project/'.$project->id.'/member')->with('status', trans('errors.add-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.add-failed'));
-        }
+        return response()->add($result);
     }
 
     /**
@@ -84,11 +80,7 @@ class MemberController extends Controller
 
         $result = $this->memberRepository->RemoveMember($project, $user);
 
-        if ($result) {
-            return redirect()->to('/project/'.$project->id.'/member')->with('status', trans('errors.remove-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.remove-failed'));
-        }
+        return response()->remove($result);
     }
 
     /**
@@ -105,10 +97,6 @@ class MemberController extends Controller
 
         $result = $this->memberRepository->Policy($project, $user, $request);
 
-        if ($result) {
-            return redirect()->to('/project/'.$project->id.'/member')->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
-        }
+        return response()->update($result);
     }
 }

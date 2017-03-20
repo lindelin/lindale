@@ -63,11 +63,7 @@ class TodoListController extends Controller
     {
         $result = $this->todoRepository->CreateTodoList($request, $project)->save();
 
-        if ($result) {
-            return redirect()->back()->with('status', trans('errors.save-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.save-failed'));
-        }
+        return response()->save($result);
     }
 
     /**

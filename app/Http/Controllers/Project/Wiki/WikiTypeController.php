@@ -53,11 +53,7 @@ class WikiTypeController extends Controller
     {
         $result = $this->wikiRepository->CreateWikiType($request, $project)->save();
 
-        if ($result) {
-            return redirect()->back()->with('status', trans('errors.save-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.save-failed'));
-        }
+        return response()->save($result);
     }
 
     /**
@@ -71,11 +67,7 @@ class WikiTypeController extends Controller
     {
         $result = $this->wikiRepository->UpdateWikiType($request, $wikiType)->update();
 
-        if ($result) {
-            return redirect()->back()->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
-        }
+        return response()->update($result);
     }
 
     /**

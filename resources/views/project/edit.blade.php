@@ -182,7 +182,7 @@
                             </div>
                         </div>
 
-                        @include('layouts.Project.edit-modal')
+                        @include('layouts.project.edit-modal')
 
                     </div>
                 </div>

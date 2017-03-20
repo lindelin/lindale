@@ -6,7 +6,7 @@
 
 @section('content')
 
-    @include('layouts.Project.top-panel')
+    @include('layouts.project.top-panel')
     @include('layouts.common.message')
     <div class='notifications top-left'></div>
 
@@ -14,7 +14,7 @@
         @foreach( $projects as $project)
 
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                @include('layouts.Project.well')
+                @include('layouts.project.well')
             </div>
 
         @endforeach

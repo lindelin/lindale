@@ -7,6 +7,7 @@ use App\Repositories\WikiRepository;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\WikiRequest;
 use App\Wiki\Wiki;
+use Storage;
 
 class WikiController extends Controller
 {
@@ -125,9 +126,9 @@ class WikiController extends Controller
      */
     public function destroy(Project $project, Wiki $wiki)
     {
-        /*if ($wiki->image != '') { TODO: 删除WIKI图片
-            Storage::deleteDirectory('public/projects/'.$project->title);
-        }*/
+        if ($wiki->image != '') {
+            Storage::delete('public/'.$wiki->image);
+        }
 
         if ($wiki->delete()) {
             return redirect()->to("project/$project->id/wiki")->with('status', trans('errors.delete-succeed'));

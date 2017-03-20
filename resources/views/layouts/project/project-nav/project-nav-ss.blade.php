@@ -2,7 +2,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <ul class="nav nav-tabs" role="tablist">
 
-            <li role="presentation" class="dropdown @include('layouts.Project.project-nav.nav-selected-ss')">
+            <li role="presentation" class="dropdown @include('layouts.project.project-nav.nav-selected-ss')">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <span class="glyphicon glyphicon-th"></span>
                 </a>

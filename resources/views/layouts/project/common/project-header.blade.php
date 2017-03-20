@@ -25,6 +25,6 @@
     </div>
 </div>
 <br>
-@include('layouts.Project.project-nav')
+@include('layouts.project.project-nav')
 <br>
 @include('layouts.common.message')

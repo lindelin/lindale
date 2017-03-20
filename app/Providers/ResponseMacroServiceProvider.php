@@ -37,6 +37,22 @@ class ResponseMacroServiceProvider extends ServiceProvider
                 return redirect()->back()->withErrors(trans('errors.delete-failed'));
             }
         });
+
+        Response::macro('remove', function ($result) {
+            if ($result) {
+                return redirect()->back()->with('status', trans('errors.remove-succeed'));
+            } else {
+                return redirect()->back()->withErrors(trans('errors.remove-failed'));
+            }
+        });
+
+        Response::macro('add', function ($result) {
+            if ($result) {
+                return redirect()->back()->with('status', trans('errors.add-succeed'));
+            } else {
+                return redirect()->back()->withErrors(trans('errors.add-failed'));
+            }
+        });
     }
 
     /**

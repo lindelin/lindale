@@ -71,14 +71,9 @@ class TodoController extends Controller
         $todo = $this->todoRepository->CreateTodo($request, $project);
         $result = $todo->save();
 
-        if ($result) {
+        event(new TodoCreated($todo, $request->user()));
 
-            event(new TodoCreated($todo, $request->user()));
-
-            return redirect()->back()->with('status', trans('errors.save-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.save-failed'));
-        }
+        return response()->save($result);
     }
 
     /**
@@ -112,14 +107,9 @@ class TodoController extends Controller
 
         $result = $this->todoRepository->UpdateTodo($request, $todo)->update();
 
-        if ($result) {
+        event(new TodoUpdated($todo, $request->user()));
 
-            event(new TodoUpdated($todo, $request->user()));
-
-            return redirect()->back()->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
-        }
+        return response()->update($result);
     }
 
     /**
@@ -133,13 +123,8 @@ class TodoController extends Controller
     {
         $this->authorize('delete', [$todo, $project]);
 
-        if ($todo->delete()) {
+        event(new TodoDeleted($todo, $request->user()));
 
-            event(new TodoDeleted($todo, $request->user()));
-
-            return redirect()->back()->with('status', trans('errors.delete-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.delete-failed'));
-        }
+        return response()->delete($result);
     }
 }

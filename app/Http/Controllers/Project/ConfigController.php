@@ -90,11 +90,7 @@ class ConfigController extends Controller
 
         $result = $this->configSystem->setConfigInfo($project, ProjectConfig::LANG, $request->get(ProjectConfig::LANG));
 
-        if ($result) {
-            return redirect()->back()->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
-        }
+        return response()->update($result);
     }
 
     /*
@@ -129,11 +125,7 @@ class ConfigController extends Controller
         $result1 = $this->configSystem->setConfigInfo($project, ProjectConfig::SLACK_NOTIFICATION_NO, $request->get(ProjectConfig::SLACK_NOTIFICATION_NO));
         $result2 = $this->configSystem->setConfigInfo($project, ProjectConfig::SLACK_API_KEY, $request->get(ProjectConfig::SLACK_API_KEY));
 
-        if ($result1 and $result2) {
-            return redirect()->back()->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
-        }
+        return response()->update($result1 and $result2);
     }
 
     public function taskType(Project $project)
@@ -156,11 +148,7 @@ class ConfigController extends Controller
             ['id' => $id, 'project_id' => $project->id],
             ['name' => $request->get('name'), 'color_id' => $request->get('color_id')]);
 
-        if ($result) {
-            return redirect()->back()->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
-        }
+        return response()->update($result);
     }
 
     public function taskStatus(Project $project)
@@ -183,10 +171,6 @@ class ConfigController extends Controller
             ['id' => $id, 'project_id' => $project->id],
             ['name' => $request->get('name'), 'color_id' => $request->get('color_id'), 'action_id' => 3]);/* TODO: ACTION */
 
-        if ($result) {
-            return redirect()->back()->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
-        }
+        return response()->update($result);
     }
 }

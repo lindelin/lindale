@@ -36,7 +36,7 @@
                     <span class="glyphicon glyphicon-book"></span> Wiki
                 </a>
             </li>
-            <li role="presentation" class="dropdown @include('layouts.Project.project-nav.nav-selected-s')">
+            <li role="presentation" class="dropdown @include('layouts.project.project-nav.nav-selected-s')">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <span class="glyphicon glyphicon-th"></span> {{ trans('header.other') }} <span class="caret"></span>
                 </a>
