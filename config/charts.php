@@ -112,7 +112,7 @@ return [
         'highcharts' => [
             'styles' => [
                 // The following CSS is not added due to color compatibility errors.
-                // 'https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.7/css/highcharts.css',
+                'https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.7/css/highcharts.css',
             ],
             'scripts' => [
                 'https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.7/highcharts.js',

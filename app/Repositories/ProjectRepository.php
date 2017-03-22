@@ -186,7 +186,7 @@ class ProjectRepository
             ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
             ->elementLabel(trans('progress.count'))
             ->responsive(true)
-            ->lastByDay(7, true);
+            ->lastByDay(7, true)->view('vendor.consoletvs.charts.highcharts.multi.areaspline');
         ;
 
         return compact('projectActivity');
