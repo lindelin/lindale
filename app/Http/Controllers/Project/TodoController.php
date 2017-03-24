@@ -117,6 +117,7 @@ class TodoController extends Controller
      *
      * @param Project $project
      * @param Todo $todo
+     * @param Request $request
      * @return mixed
      */
     public function destroy(Project $project, Todo $todo, Request $request)
@@ -125,6 +126,6 @@ class TodoController extends Controller
 
         event(new TodoDeleted($todo, $request->user()));
 
-        return response()->delete($result);
+        return response()->delete($todo->delete());
     }
 }
