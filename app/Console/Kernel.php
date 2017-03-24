@@ -29,11 +29,13 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('backup:clean')->daily()->at('01:00');
 
-        if(App::environment('production')){
-            $schedule->command('backup:run --only-files')->daily()->at('00:00');
-        }else{
-            $schedule->command('backup:run')->daily()->at('00:00');
-        }
+        $schedule->command('backup:run --only-files')->daily()->at('00:00')->when(function () {
+            return App::environment('production');
+        });
+
+        $schedule->command('backup:run')->daily()->at('00:00')->when(function () {
+            return App::environment('staging');
+        });
     }
 
     /**
