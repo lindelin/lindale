@@ -124,8 +124,10 @@ class TodoController extends Controller
     {
         $this->authorize('delete', [$todo, $project]);
 
+        $result = $todo->delete();
+
         event(new TodoDeleted($todo, $request->user()));
 
-        return response()->delete($todo->delete());
+        return response()->delete($result);
     }
 }
