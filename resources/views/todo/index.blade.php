@@ -21,10 +21,19 @@
         {{-- 框架 --}}
         <div class="col-xs-12 col-sm-6 col-md-8 col-lg-9">
 
-            @foreach( $todos as $todo)
-                @include('layouts.todo.my-todo.todo')
-            @endforeach
-            {{ $todos->links() }}
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    @foreach( $todos as $todo)
+                        @include('layouts.todo.my-todo.todo')
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
+                    {{ $todos->links() }}
+                </div>
+            </div>
 
         </div>
         {{-- 框架结束 --}}

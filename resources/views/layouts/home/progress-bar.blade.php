@@ -4,7 +4,10 @@
 
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
-                    <h4 class="lindale-color">{{ trans('header.my').trans('header.progress') }}</h4>
+                    <h4 class="lindale-color">
+                        <span class="glyphicon glyphicon-dashboard lindale-icon-color"></span>
+                        {{ trans('header.my').trans('header.progress') }}
+                    </h4>
                     <br>
                 </div>
             </div>

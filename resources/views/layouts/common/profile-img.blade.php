@@ -1,4 +1,4 @@
-@if(Auth::user()->photo != '')
+@if(Auth::user()->photo != '' and File::exists(public_path('storage/'.Auth::user()->photo)))
     <a href="#" class="thumbnail">
         <img src="{{ asset('storage/'.Auth::user()->photo) }}">
     </a>
