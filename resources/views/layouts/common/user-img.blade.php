@@ -1,4 +1,4 @@
-@if($user_img->photo != '')
+@if($user_img->photo != '' and File::exists(public_path('storage/'.$user_img->photo)))
     <a href="#" class="thumbnail">
         <img src="{{ asset('storage/'.$user_img->photo) }}" width="600" height="600">
     </a>
