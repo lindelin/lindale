@@ -5,7 +5,7 @@ namespace App\Wiki;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Wiki\Wiki
+ * App\Wiki\Wiki.
  *
  * @property int $id
  * @property string $title

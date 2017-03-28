@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: lindale
  * Date: 2016/11/19
- * Time: 22:19
+ * Time: 22:19.
  */
 
 namespace App\System\ConfigSystem;
-
 
 use App\Project\Project;
 use App\Settings\ProjectSettings;
@@ -15,7 +14,7 @@ use App\Settings\ProjectSettings;
 class ProjectConfigSystem
 {
     /**
-     * 获得设置信息
+     * 获得设置信息.
      *
      * @param Project $project
      * @param $config_name
@@ -27,7 +26,7 @@ class ProjectConfigSystem
     }
 
     /**
-     * 创建设置
+     * 创建设置.
      *
      * @param Project $project
      * @param $config_name

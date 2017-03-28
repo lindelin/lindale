@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers\Todo;
 
-use App\Events\Todo\TodoCreated;
-use App\Events\Todo\TodoDeleted;
-use App\Repositories\ProjectRepository;
-use App\Repositories\TodoRepository;
+use App\Definer;
+use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
 use Illuminate\Http\Request;
-use App\Definer;
+use App\Events\Todo\TodoCreated;
+use App\Events\Todo\TodoDeleted;
+use App\Events\Todo\TodoUpdated;
 use App\Http\Requests\TodoRequest;
 use App\Http\Controllers\Controller;
-use App\Todo\Todo;
-use App\Events\Todo\TodoUpdated;
+use App\Repositories\TodoRepository;
+use App\Repositories\ProjectRepository;
 
 class TodoController extends Controller
 {
     /**
-     * To-do资源库
+     * To-do资源库.
      *
      * @var
      */
     protected $todoRepository;
 
     /**
-     * 项目资源库
+     * 项目资源库.
      *
      * @var
      */
@@ -33,7 +33,7 @@ class TodoController extends Controller
 
     /**
      * 构造器
-     * 通过DI注入资源库
+     * 通过DI注入资源库.
      *
      * TodoController constructor.
      * @param TodoRepository $todoRepository
@@ -53,35 +53,35 @@ class TodoController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->route('status')){
+        if ($request->route('status')) {
             $status = $request->route('status');
-        }else{
+        } else {
             $status = null;
         }
 
-        if($request->route('list')){
+        if ($request->route('list')) {
             $list = TodoList::findOrFail($request->route('list'));
             $this->authorize('user', [$list]);
-        }else{
+        } else {
             $list = null;
         }
 
-        if($request->route('project')){
+        if ($request->route('project')) {
             $project = $request->route('project');
-        }else{
+        } else {
             $project = null;
         }
 
-        if($request->route('type')){
+        if ($request->route('type')) {
             $type = $request->route('type');
             $type = TodoType::findOrFail($type);
-        }else{
+        } else {
             $type = null;
         }
 
-        if($type != null){
+        if ($type != null) {
             $prefix = "todo/type/$type->id";
-        }else{
+        } else {
             $prefix = 'todo';
         }
 

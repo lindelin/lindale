@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
-use App\Repositories\UserRepository;
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Repositories\UserRepository;
 
 class UserController extends Controller
 {

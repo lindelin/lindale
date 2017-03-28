@@ -3,8 +3,6 @@
 namespace App\Listeners\Project\Notification;
 
 use App\Events\Project\ProjectCreated;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class ProjectHasCreatedNotify
 {

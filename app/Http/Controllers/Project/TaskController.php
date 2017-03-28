@@ -3,23 +3,23 @@
 namespace App\Http\Controllers\Project;
 
 use App\Definer;
+use App\Task\Task;
+use App\Task\TaskType;
+use App\Project\Project;
+use App\Task\TaskStatus;
+use App\Task\TaskPriority;
+use Illuminate\Http\Request;
 use App\Events\Task\TaskCreated;
 use App\Events\Task\TaskDeleted;
 use App\Events\Task\TaskUpdated;
 use App\Http\Requests\TaskRequest;
-use App\Task\Task;
-use App\Task\TaskPriority;
-use App\Task\TaskStatus;
-use App\Task\TaskType;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Project\Project;
 use App\Repositories\TaskRepository;
 
 class TaskController extends Controller
 {
     /**
-     * 任务资源库
+     * 任务资源库.
      *
      * @var TaskRepository
      */
@@ -27,7 +27,7 @@ class TaskController extends Controller
 
     /**
      * 构造器
-     * 注入资源
+     * 注入资源.
      *
      * TaskGroupController constructor.
      * @param TaskRepository $taskRepository
@@ -38,7 +38,7 @@ class TaskController extends Controller
     }
 
     /**
-     * Index
+     * Index.
      *
      * @param Project $project
      * @return mixed
@@ -50,7 +50,7 @@ class TaskController extends Controller
     }
 
     /**
-     * All Tasks
+     * All Tasks.
      *
      * @param Project $project
      * @return mixed
@@ -74,7 +74,7 @@ class TaskController extends Controller
     }
 
     /**
-     * 已完成
+     * 已完成.
      *
      * @param Project $project
      * @return mixed
@@ -86,7 +86,7 @@ class TaskController extends Controller
     }
 
     /**
-     * 按任务类型
+     * 按任务类型.
      *
      * @param Project $project
      * @param TaskType $type
@@ -99,7 +99,7 @@ class TaskController extends Controller
     }
 
     /**
-     * 按任务优先度
+     * 按任务优先度.
      *
      * @param Project $project
      * @param TaskPriority $priority
@@ -125,7 +125,7 @@ class TaskController extends Controller
     }
 
     /**
-     * 创建任务表单
+     * 创建任务表单.
      *
      * @param Project $project
      * @return mixed
@@ -145,11 +145,11 @@ class TaskController extends Controller
      */
     public function edit(Project $project, Task $task)
     {
-        if($task->is_finish === Definer::TASK_UNFINISHED){
+        if ($task->is_finish === Definer::TASK_UNFINISHED) {
             return view('project.task.edit', $this->taskRepository->TaskCreateResources($project))
                 ->with(['project' => $project, 'selected' => 'tasks'])
                 ->with(compact('task'));
-        }else{
+        } else {
             return redirect()->back()->withErrors(trans('errors.can-not-edit-task'));
         }
     }
@@ -168,7 +168,6 @@ class TaskController extends Controller
         $result = $task->save();
 
         if ($result) {
-
             event(new TaskCreated($task, $request->user()));
 
             return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.save-succeed'));
@@ -187,28 +186,25 @@ class TaskController extends Controller
      */
     public function update(TaskRequest $request, Project $project, Task $task)
     {
-        if($task->is_finish === Definer::TASK_UNFINISHED or (int)$request->get('is_finish') === Definer::TASK_UNFINISHED){
-
+        if ($task->is_finish === Definer::TASK_UNFINISHED or (int) $request->get('is_finish') === Definer::TASK_UNFINISHED) {
             $task = $this->taskRepository->UpdateTask($request, $task);
 
             $result = $task->update();
 
             if ($result) {
-
                 event(new TaskUpdated($task, $request->user()));
 
                 return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
             } else {
                 return redirect()->back()->withErrors(trans('errors.update-failed'));
             }
-
-        }else{
+        } else {
             return redirect()->back()->withErrors(trans('errors.can-not-edit-task'));
         }
     }
 
     /**
-     * 任务详情
+     * 任务详情.
      *
      * @param Project $project
      * @param Task $task
@@ -231,20 +227,17 @@ class TaskController extends Controller
      */
     public function destroy(Project $project, Task $task, Request $request)
     {
-        if($task->is_finish === Definer::TASK_UNFINISHED){
-
+        if ($task->is_finish === Definer::TASK_UNFINISHED) {
             $this->authorize('delete', [$task, $project]);
 
             if ($task->delete()) {
-
                 event(new TaskDeleted($task, $request->user()));
 
                 return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.delete-succeed'));
             } else {
                 return redirect()->back()->withErrors(trans('errors.delete-failed'));
             }
-
-        }else{
+        } else {
             return redirect()->back()->withErrors(trans('errors.can-not-delete-task'));
         }
     }

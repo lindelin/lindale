@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\Project\Task;
 
-use App\Events\Task\SubTask\SubTaskCreated;
-use App\Events\Task\SubTask\SubTaskDeleted;
-use App\Events\Task\SubTask\SubTaskUpdated;
-use App\Project\Project;
-use App\Task\SubTask;
+use App\Definer;
 use App\Task\Task;
+use App\Task\SubTask;
+use App\Project\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\TaskRepository;
-use App\Definer;
+use App\Events\Task\SubTask\SubTaskCreated;
+use App\Events\Task\SubTask\SubTaskDeleted;
+use App\Events\Task\SubTask\SubTaskUpdated;
 
 class SubTaskController extends Controller
 {
     /**
-     * 任务资源库
+     * 任务资源库.
      *
      * @var TaskRepository
      */
@@ -24,7 +24,7 @@ class SubTaskController extends Controller
 
     /**
      * 构造器
-     * 注入资源
+     * 注入资源.
      *
      * TaskGroupController constructor.
      * @param TaskRepository $taskRepository
@@ -36,7 +36,7 @@ class SubTaskController extends Controller
 
     /**
      * 附属任务添加
-     * TODO: 代码解耦
+     * TODO: 代码解耦.
      *
      * @param Request $request
      * @param Project $project
@@ -45,8 +45,7 @@ class SubTaskController extends Controller
      */
     public function store(Request $request, Project $project, Task $task)
     {
-        if($task->is_finish === Definer::TASK_UNFINISHED){
-
+        if ($task->is_finish === Definer::TASK_UNFINISHED) {
             $this->validate($request, [
                 'content' => 'required|max:30',
             ]);
@@ -58,23 +57,19 @@ class SubTaskController extends Controller
             $result = $subTask->save();
 
             if ($result) {
-
                 event(new SubTaskCreated($subTask, $request->user()));
 
                 return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
             } else {
                 return redirect()->back()->withErrors(trans('errors.update-failed'));
             }
-
-        }else{
-
+        } else {
             return redirect()->back()->withErrors(trans('errors.can-not-add-sub-task'));
-
         }
     }
 
     /**
-     * 附属任务更新
+     * 附属任务更新.
      *
      * @param Request $request
      * @param Project $project
@@ -89,7 +84,6 @@ class SubTaskController extends Controller
         $result = $subTask->update();
 
         if ($result) {
-
             event(new SubTaskUpdated($subTask, $request->user()));
 
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
@@ -99,7 +93,7 @@ class SubTaskController extends Controller
     }
 
     /**
-     * 附属任务删除
+     * 附属任务删除.
      *
      * @param Project $project
      * @param Task $task
@@ -112,7 +106,6 @@ class SubTaskController extends Controller
         $result = $subTask->delete();
 
         if ($result) {
-
             event(new SubTaskDeleted($subTask, $request->user()));
 
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.delete-succeed'));

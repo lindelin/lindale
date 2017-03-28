@@ -10,14 +10,13 @@ class LogController extends Controller
 {
     protected $request;
 
-    public function __construct ()
+    public function __construct()
     {
         $this->request = app('request');
     }
 
     public function index()
     {
-
         if ($this->request->input('l')) {
             LaravelLogViewer::setFile(base64_decode($this->request->input('l')));
         }
@@ -26,6 +25,7 @@ class LogController extends Controller
             return $this->download(LaravelLogViewer::pathToLogFile(base64_decode($this->request->input('dl'))));
         } elseif ($this->request->has('del')) {
             app('files')->delete(LaravelLogViewer::pathToLogFile(base64_decode($this->request->input('del'))));
+
             return $this->redirect($this->request->url());
         }
 
@@ -34,7 +34,7 @@ class LogController extends Controller
         return app('view')->make('admin.log.index', [
             'logs' => $logs,
             'files' => LaravelLogViewer::getFiles(true),
-            'current_file' => LaravelLogViewer::getFileName()
+            'current_file' => LaravelLogViewer::getFileName(),
         ]);
     }
 

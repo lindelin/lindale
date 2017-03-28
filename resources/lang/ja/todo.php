@@ -34,5 +34,4 @@ return [
     'updated-todo'  => ':Name さんはTODOを更新しました：',
     'deleted-todo'  => ':Name さんはTODOを削除しました：',
 
-
 ];

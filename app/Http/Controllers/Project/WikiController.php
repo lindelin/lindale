@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Project;
 
-use App\Project\Project;
-use App\Repositories\WikiRepository;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\WikiRequest;
-use App\Wiki\Wiki;
 use Storage;
+use App\Wiki\Wiki;
+use App\Project\Project;
+use App\Http\Requests\WikiRequest;
+use App\Http\Controllers\Controller;
+use App\Repositories\WikiRepository;
 
 class WikiController extends Controller
 {

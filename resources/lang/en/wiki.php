@@ -30,5 +30,4 @@ return [
     'delete-index' => 'Delete Index',
     'edit-index'   => 'Edit Index',
 
-
 ];

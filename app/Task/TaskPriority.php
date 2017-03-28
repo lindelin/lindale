@@ -5,7 +5,7 @@ namespace App\Task;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Task\TaskPriority
+ * App\Task\TaskPriority.
  *
  * @property int $id
  * @property string $name

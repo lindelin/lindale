@@ -4,11 +4,11 @@ namespace App;
 
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ResetPasswordNotification;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
- * App\User
+ * App\User.
  *
  * @property int $id
  * @property string $name
@@ -165,7 +165,7 @@ class User extends Authenticatable
 
     /**
      * 一个用户有多个任务
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -182,7 +182,7 @@ class User extends Authenticatable
 
     /**
      * Send the password reset notification.
-     * 重写
+     * 重写.
      *
      * @param  string  $token
      * @return void
@@ -193,7 +193,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Slack 频道的通知路由
+     * Slack 频道的通知路由.
      *
      * @return string
      */

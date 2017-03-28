@@ -2,36 +2,32 @@
 
 namespace App;
 
-
-use App\System\ConfigSystem\UserConfigSystem;
 use Config;
+use App\System\ConfigSystem\UserConfigSystem;
 
 class UserConfig
 {
     /**
-     * 开关定义
+     * 开关定义.
      */
     const ON = 'on';
     const OFF = 'off';
 
-    /**
-     *
-     */
     const NULL = 'Null';
 
     /**
-     * 语言设定
+     * 语言设定.
      */
     const LANG = 'user_lang';
 
     /**
-     * Slack 设置项目
+     * Slack 设置项目.
      */
     const SLACK_API_KEY = 'slack_api_key'; //Api Key
     const SLACK_NOTIFICATION_NO = 'slack_notification'; //Slack通知设定
 
     /**
-     * 获取设置信息
+     * 获取设置信息.
      *
      * @param User $user
      * @param $key
@@ -43,7 +39,7 @@ class UserConfig
     }
 
     /**
-     * 获取设置信息或者设定默认设置信息
+     * 获取设置信息或者设定默认设置信息.
      *
      * @param User $user
      * @param $config_name
@@ -55,11 +51,12 @@ class UserConfig
 
         $value = $system->getConfigInfo($user, $config_name);
 
-        if($value !== null or $value != ''){
+        if ($value !== null or $value != '') {
             return $value;
-        }else{
+        } else {
             $system->setConfigInfo($user, $config_name, self::getDefaultConfig($config_name));
             $value = $system->getConfigInfo($user, $config_name);
+
             return $value;
         }
     }

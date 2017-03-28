@@ -34,5 +34,4 @@ return [
     'updated-todo'  => ':Name 更新了一个待办事项：',
     'deleted-todo'  => ':Name 删除了一个待办事项：',
 
-
 ];

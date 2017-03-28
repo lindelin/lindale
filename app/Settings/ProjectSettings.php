@@ -5,7 +5,7 @@ namespace App\Settings;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Settings\ProjectSettings
+ * App\Settings\ProjectSettings.
  *
  * @property int $id
  * @property string $config_name

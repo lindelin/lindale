@@ -2,12 +2,12 @@
 
 namespace App\Policies;
 
-use App\Definer;
-use App\Project\Project;
-use App\User;
-use Illuminate\Auth\Access\HandlesAuthorization;
 use Hash;
 use Admin;
+use App\User;
+use App\Definer;
+use App\Project\Project;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ProjectPolicy
 {

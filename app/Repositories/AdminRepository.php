@@ -2,7 +2,7 @@
 /**
  * Created by kgo.
  * Date: 2017/03/05
- * Time: 18:08
+ * Time: 18:08.
  */
 
 namespace App\Repositories;
@@ -20,7 +20,6 @@ class AdminRepository
             ->dataset('活発ユーザ', User::select('updated_at AS created_at')->get())
             ->elementLabel('人')
             ->lastByDay();
-        ;
 
         return compact('UserChart');
     }

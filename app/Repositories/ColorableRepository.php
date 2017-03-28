@@ -336,7 +336,6 @@ class ColorableRepository
         return $class[$id];
     }
 
-
     /**
      * 获取CallOut颜色属性.
      *

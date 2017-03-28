@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Project\Task;
 
-use App\Http\Requests\TaskGroupRequest;
-use App\Repositories\TaskRepository;
 use App\Task\TaskGroup;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Project\Project;
+use App\Http\Controllers\Controller;
+use App\Repositories\TaskRepository;
+use App\Http\Requests\TaskGroupRequest;
 
 class TaskGroupController extends Controller
 {
     /**
-     * 任务资源库
+     * 任务资源库.
      *
      * @var TaskRepository
      */
@@ -20,7 +19,7 @@ class TaskGroupController extends Controller
 
     /**
      * 构造器
-     * 注入资源
+     * 注入资源.
      *
      * TaskGroupController constructor.
      * @param TaskRepository $taskRepository
@@ -31,7 +30,7 @@ class TaskGroupController extends Controller
     }
 
     /**
-     * 创建任务组
+     * 创建任务组.
      *
      * @param Project $project
      * @return mixed
@@ -43,7 +42,7 @@ class TaskGroupController extends Controller
     }
 
     /**
-     * 更新任务组
+     * 更新任务组.
      *
      * @param Project $project
      * @param TaskGroup $group
@@ -57,7 +56,7 @@ class TaskGroupController extends Controller
     }
 
     /**
-     * 保存任务组
+     * 保存任务组.
      *
      * @param TaskGroupRequest $request
      * @param Project $project
@@ -77,7 +76,7 @@ class TaskGroupController extends Controller
     }
 
     /**
-     * 更新任务组
+     * 更新任务组.
      *
      * @param TaskGroupRequest $request
      * @param Project $project
@@ -98,7 +97,7 @@ class TaskGroupController extends Controller
     }
 
     /**
-     * 删除任务组
+     * 删除任务组.
      *
      * @param Project $project
      * @param TaskGroup $group
