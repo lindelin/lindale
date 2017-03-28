@@ -39,7 +39,7 @@
         <br>
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <span class="glyphicon glyphicon-time lindale-icon-color"></span>
+                <i class="fa fa-refresh fa-spin fa-fw lindale-icon-color"></i>
                 <span class="lindale-color">{{ $pl->updated_at->diffForHumans() }}</span>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 panel-title" align="right">
