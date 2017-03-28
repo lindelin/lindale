@@ -2,6 +2,11 @@
 
 [![Build Status](https://travis-ci.org/lindelin/lindale.svg?branch=master)](https://travis-ci.org/lindelin/lindale)
 [![StyleCI](https://styleci.io/repos/63577917/shield?branch=master)](https://styleci.io/repos/63577917)
+[![Latest Stable Version](https://poser.pugx.org/lindelin/lindale/v/stable)](https://packagist.org/packages/lindelin/lindale)
+[![Total Downloads](https://poser.pugx.org/lindelin/lindale/downloads)](https://packagist.org/packages/lindelin/lindale)
+[![Latest Unstable Version](https://poser.pugx.org/lindelin/lindale/v/unstable)](https://packagist.org/packages/lindelin/lindale)
+[![License](https://poser.pugx.org/lindelin/lindale/license)](https://packagist.org/packages/lindelin/lindale)
+[![composer.lock](https://poser.pugx.org/lindelin/lindale/composerlock)](https://packagist.org/packages/lindelin/lindale)
 
 
 ## About Lindalë
@@ -19,4 +24,4 @@ Since Lindalë is built on Laravel 5.3.*, there are a few system requirements:
 - XML PHP Extension
 
 ## License
-Lindalë is open-sourced software licensed under the [MIT license](https://github.com/kudouyoichi/lindale/blob/master/LICENSE)
+The Lindalë is open-sourced software licensed under the [MIT license](https://github.com/lindelin/lindale/blob/master/LICENSE)
