@@ -2,18 +2,15 @@
 
 namespace App\Repositories;
 
-use App\Counter;
-use App\Events\ProjectDeleted;
-use App\Http\Requests\ProjectRequest;
-use App\Project\ProjectStatus;
-use App\User;
-use App\Project\ProjectType;
-use App\Project\Project;
-use App\Wiki\Wiki;
-use App\Wiki\WikiType;
-use Illuminate\Support\Facades\Storage;
-use Charts;
 use Image;
+use Charts;
+use App\User;
+use App\Counter;
+use App\Project\Project;
+use App\Project\ProjectType;
+use App\Project\ProjectStatus;
+use App\Http\Requests\ProjectRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectRepository
 {
@@ -158,7 +155,7 @@ class ProjectRepository
 
     /**
      * 更新项目进度方法.
-     * TODO: 需要调整（参照任务资源库）
+     * TODO: 需要调整（参照任务资源库）.
      *
      * @param $progress
      * @param Project $project
@@ -170,7 +167,7 @@ class ProjectRepository
     }
 
     /**
-     * 项目进展动态图
+     * 项目进展动态图.
      *
      * @param Project $project
      * @return array
@@ -188,13 +185,12 @@ class ProjectRepository
             ->responsive(true)
             ->lastByDay(7, true)
             ->view('vendor.consoletvs.charts.highcharts.multi.areaspline');
-        ;
 
         return compact('projectActivity');
     }
 
     /**
-     * 用户进展动态图
+     * 用户进展动态图.
      *
      * @param User $user
      * @return mixed

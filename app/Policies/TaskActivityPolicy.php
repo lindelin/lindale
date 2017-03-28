@@ -2,17 +2,17 @@
 
 namespace App\Policies;
 
-use App\Task\TaskActivity;
-use App\User;
-use Illuminate\Auth\Access\HandlesAuthorization;
 use Admin;
+use App\User;
+use App\Task\TaskActivity;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TaskActivityPolicy
 {
     use HandlesAuthorization;
 
     /**
-     * 删除任务动态的授权策略
+     * 删除任务动态的授权策略.
      *
      * @param User $user
      * @param TaskActivity $taskActivity
@@ -20,7 +20,7 @@ class TaskActivityPolicy
      */
     public function delete(User $user, TaskActivity $taskActivity)
     {
-        return ($user->id === $taskActivity->user_id);
+        return $user->id === $taskActivity->user_id;
     }
 
     /**

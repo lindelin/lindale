@@ -5,7 +5,7 @@ namespace App\Task;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Task\Task
+ * App\Task\Task.
  *
  * @property int $project_id
  * @property int $id
@@ -81,7 +81,7 @@ class Task extends Model
      */
     public function Type()
     {
-        return $this->hasOne('App\Task\TaskType', 'id', 'type_id')->where('project_id',$this->project_id);
+        return $this->hasOne('App\Task\TaskType', 'id', 'type_id')->where('project_id', $this->project_id);
     }
 
     /**
@@ -92,7 +92,7 @@ class Task extends Model
      */
     public function Status()
     {
-        return $this->hasOne('App\Task\TaskStatus', 'id', 'status_id')->where('project_id',$this->project_id);
+        return $this->hasOne('App\Task\TaskStatus', 'id', 'status_id')->where('project_id', $this->project_id);
     }
 
     /**
@@ -103,7 +103,7 @@ class Task extends Model
      */
     public function Group()
     {
-        return $this->hasOne('App\Task\TaskGroup', 'id', 'group_id')->where('project_id',$this->project_id);
+        return $this->hasOne('App\Task\TaskGroup', 'id', 'group_id')->where('project_id', $this->project_id);
     }
 
     /**
@@ -136,7 +136,7 @@ class Task extends Model
 
     /**
      * 一个任务有多个附属任务
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -147,7 +147,7 @@ class Task extends Model
 
     /**
      * 一个任务有多个动态
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -165,7 +165,4 @@ class Task extends Model
     {
         return $this->hasMany('App\Task\Task', 'task_id', 'id');
     }
-
-
 }
-

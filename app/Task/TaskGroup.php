@@ -5,7 +5,7 @@ namespace App\Task;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Task\TaskGroup
+ * App\Task\TaskGroup.
  *
  * @property int $project_id
  * @property int $id
@@ -38,7 +38,7 @@ class TaskGroup extends Model
 {
     /**
      * 一个任务组有多个任务
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -48,7 +48,7 @@ class TaskGroup extends Model
     }
 
     /**
-     * 一个任务组有一个类型
+     * 一个任务组有一个类型.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */

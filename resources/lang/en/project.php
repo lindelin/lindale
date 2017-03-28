@@ -33,5 +33,4 @@ return [
     'projects-join'         => 'Projects you join',
     'lang'                  => 'Language',
 
-
 ];

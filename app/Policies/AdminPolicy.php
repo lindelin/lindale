@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Definer;
 use App\User;
+use App\Definer;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AdminPolicy

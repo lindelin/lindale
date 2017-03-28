@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
+use App\User;
 use App\Definer;
 use App\Project\Project;
-use App\User;
 use Illuminate\Http\Request;
 
 class MemberRepository

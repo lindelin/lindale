@@ -58,6 +58,7 @@ class ResetPasswordNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         \App::setLocale($this->locale);
+
         return (new MailMessage)
             ->subject(trans('email.re-pass-title'))
             ->line(trans('email.re-password-info'))

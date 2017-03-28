@@ -3,8 +3,6 @@
 namespace App\Listeners\Project;
 
 use App\Events\Project\ProjectCreated;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Storage;
 
 class MakeProjectDirectory

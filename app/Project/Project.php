@@ -2,13 +2,13 @@
 
 namespace App\Project;
 
+use Config;
 use App\ProjectConfig;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use Config;
 
 /**
- * App\Project\Project
+ * App\Project\Project.
  *
  * @property int $id
  * @property string $title
@@ -188,7 +188,7 @@ class Project extends Model
     }
 
     /**
-     * Slack 频道的通知路由
+     * Slack 频道的通知路由.
      *
      * @return string
      */
@@ -199,7 +199,7 @@ class Project extends Model
 
     /**
      * 一个项目有多个任务
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -210,7 +210,7 @@ class Project extends Model
 
     /**
      * 一个项目有多个任务组
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -221,7 +221,7 @@ class Project extends Model
 
     /**
      * 一个项目可以定义多个任务类型
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -232,7 +232,7 @@ class Project extends Model
 
     /**
      * 一个项目可以定义多个任务状态
-     * 一对多
+     * 一对多.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

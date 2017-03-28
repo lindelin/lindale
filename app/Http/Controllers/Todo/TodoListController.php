@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Todo;
 
-use App\Repositories\TodoRepository;
+use App\Definer;
+use App\Todo\TodoList;
 use App\Todo\TodoType;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Definer;
 use App\Http\Requests\TypeRequest;
-use App\Todo\TodoList;
+use App\Http\Controllers\Controller;
+use App\Repositories\TodoRepository;
 use App\Repositories\ProjectRepository;
 
 class TodoListController extends Controller
 {
     /**
-     * To-do资源库
+     * To-do资源库.
      *
      * @var
      */
     protected $todoRepository;
 
     /**
-     * 项目资源库
+     * 项目资源库.
      *
      * @var
      */
@@ -29,7 +29,7 @@ class TodoListController extends Controller
 
     /**
      * 构造器
-     * 通过DI注入资源库
+     * 通过DI注入资源库.
      *
      * TodoController constructor.
      * @param TodoRepository $todoRepository
@@ -49,16 +49,16 @@ class TodoListController extends Controller
      */
     public function create(Request $request)
     {
-        if($request->route('type')){
+        if ($request->route('type')) {
             $type = $request->route('type');
             $type = TodoType::findOrFail($type);
-        }else{
+        } else {
             $type = null;
         }
 
-        if($type != null){
+        if ($type != null) {
             $prefix = "todo/type/$type->id";
-        }else{
+        } else {
             $prefix = 'todo';
         }
 

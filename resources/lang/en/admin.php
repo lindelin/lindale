@@ -15,5 +15,4 @@ return [
     'log-viewer'  => 'Log Viewer',
     'route'       => 'Routes',
 
-
 ];

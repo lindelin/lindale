@@ -30,5 +30,4 @@ return [
     'delete-index' => '索引削除',
     'edit-index'   => '索引編集',
 
-
 ];

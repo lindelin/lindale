@@ -3,8 +3,6 @@
 namespace App\Listeners\Project\Notification;
 
 use App\Events\Project\ProjectDeleted;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class ProjectHasDeletedNotify
 {

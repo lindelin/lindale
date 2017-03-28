@@ -15,7 +15,7 @@ return [
     'edit-task'    => 'Edit Task',
     'group-title'  => 'Group Title',
     'group-info'   => 'Group information',
-    'info'		   => 'Information',
+    'info'           => 'Information',
     'start_at'     => 'Start at',
     'end_at'       => 'End at',
     'type'         => 'Type',

@@ -2,36 +2,33 @@
 
 namespace App;
 
+use Config;
 use App\Project\Project;
 use App\System\ConfigSystem\ProjectConfigSystem;
-use Config;
 
 class ProjectConfig
 {
     /**
-     * 开关定义
+     * 开关定义.
      */
     const ON = 'on';
     const OFF = 'off';
 
-    /**
-     *
-     */
     const NULL = 'Null';
 
     /**
-     * 语言设定
+     * 语言设定.
      */
     const LANG = 'project_lang';
 
     /**
-     * Slack 设置项目
+     * Slack 设置项目.
      */
     const SLACK_API_KEY = 'slack_api_key'; //Api Key
     const SLACK_NOTIFICATION_NO = 'slack_notification'; //Slack通知设定
 
     /**
-     * 获取设置信息
+     * 获取设置信息.
      *
      * @param Project $project
      * @param $key
@@ -43,7 +40,7 @@ class ProjectConfig
     }
 
     /**
-     * 获取设置信息或者设定默认设置信息
+     * 获取设置信息或者设定默认设置信息.
      *
      * @param Project $project
      * @param $config_name
@@ -55,17 +52,18 @@ class ProjectConfig
 
         $value = $system->getConfigInfo($project, $config_name);
 
-        if($value !== null or $value != ''){
+        if ($value !== null or $value != '') {
             return $value;
-        }else{
+        } else {
             $system->setConfigInfo($project, $config_name, self::getDefaultConfig($config_name));
             $value = $system->getConfigInfo($project, $config_name);
+
             return $value;
         }
     }
 
     /**
-     * 获取默认设置
+     * 获取默认设置.
      *
      * @param $key
      * @return mixed
@@ -81,5 +79,4 @@ class ProjectConfig
 
         return $default[$key];
     }
-
 }

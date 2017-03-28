@@ -25,5 +25,4 @@ return [
     'add-input'    => 'Please choose the members you want to add.',
     'user-list'    => 'User List',
 
-
 ];

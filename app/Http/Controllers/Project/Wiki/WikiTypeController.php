@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Project\Wiki;
 
+use App\Wiki\WikiType;
+use App\Project\Project;
+use Illuminate\Http\Request;
 use App\Http\Requests\TypeRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\WikiRepository;
-use App\Project\Project;
-use App\Wiki\WikiType;
-use Illuminate\Http\Request;
 
 class WikiTypeController extends Controller
 {

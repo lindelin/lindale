@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Project;
 
 use App\Definer;
+use App\Todo\Todo;
+use App\Todo\TodoList;
+use App\Todo\TodoType;
+use App\Project\Project;
+use Illuminate\Http\Request;
 use App\Events\Todo\TodoCreated;
 use App\Events\Todo\TodoDeleted;
 use App\Events\Todo\TodoUpdated;
-use App\Project\Project;
-use App\Repositories\MemberRepository;
-use App\Repositories\TodoRepository;
-use App\Todo\Todo;
-use App\Todo\TodoList;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\TodoRequest;
-use App\Todo\TodoType;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Repositories\TodoRepository;
+use App\Repositories\MemberRepository;
 
 class TodoController extends Controller
 {

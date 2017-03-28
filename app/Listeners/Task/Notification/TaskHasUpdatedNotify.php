@@ -2,11 +2,9 @@
 
 namespace App\Listeners\Task\Notification;
 
-use App\Notifications\Project\Task\TaskHasUpdated;
 use App\ProjectConfig;
 use App\Events\Task\TaskUpdated;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Notifications\Project\Task\TaskHasUpdated;
 
 class TaskHasUpdatedNotify
 {
@@ -19,11 +17,11 @@ class TaskHasUpdatedNotify
     public function handle(TaskUpdated $event)
     {
         //项目消息
-        if(
+        if (
             ProjectConfig::get($event->task->Project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::ON and
             ProjectConfig::get($event->task->Project, ProjectConfig::SLACK_API_KEY) != '' and
             ProjectConfig::get($event->task->Project, ProjectConfig::SLACK_API_KEY) != 'Null'
-        ){
+        ) {
             $event->task->Project->notify(new TaskHasUpdated($event->task, $event->user, ProjectConfig::get($event->task->Project, ProjectConfig::LANG)));
         }
     }

@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Http\Requests\UserRequest;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Storage;
 
 class UserRepository

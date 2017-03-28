@@ -29,9 +29,7 @@ class LindaleUpdate extends Command
         $this->comment(PHP_EOL.'Lindale Project Management System');
 
         if ($this->confirm('Do you want to update the system?')) {
-
-            try{
-
+            try {
                 $this->comment(PHP_EOL.'<info>Step 1/3: Caching configs...</info>');
                 Artisan::call('config:cache');
 
@@ -42,15 +40,12 @@ class LindaleUpdate extends Command
                 Artisan::call('optimize');
 
                 $this->comment(PHP_EOL.'Successfully updated. <info>✔</info>');
-
-
-            }catch (\Exception $e){
+            } catch (\Exception $e) {
                 $this->line($e);
                 $this->line(PHP_EOL.'<error>✘</error> System error. Update failed!');
                 exit;
             }
-
-        }else{
+        } else {
             $this->comment(PHP_EOL.'Thanks.');
             exit;
         }

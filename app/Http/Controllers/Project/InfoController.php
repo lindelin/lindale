@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Project;
 
 use App\Project\Project;
-use App\Repositories\MemberRepository;
 use App\Http\Controllers\Controller;
+use App\Repositories\MemberRepository;
 
 class InfoController extends Controller
 {

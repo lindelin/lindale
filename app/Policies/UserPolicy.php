@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
+use Admin;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Admin;
 
 class UserPolicy
 {

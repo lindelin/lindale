@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Settings;
 
+use Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Hash;
 
 class AccountController extends Controller
 {
@@ -28,15 +28,16 @@ class AccountController extends Controller
     {
         $this->validate($request, [
             'password' => 'required',
-            'new-password' => 'required|min:6|max:15|confirmed'
+            'new-password' => 'required|min:6|max:15|confirmed',
         ]);
 
         $user = $request->user();
 
-        if(Hash::check($request->get('password'), $user->password)){
+        if (Hash::check($request->get('password'), $user->password)) {
             $user->password = bcrypt($request->get('new-password'));
+
             return response()->update($user->update());
-        }else{
+        } else {
             return redirect()->back()->withErrors(trans('auth.failed'));
         }
     }

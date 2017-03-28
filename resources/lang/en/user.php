@@ -36,5 +36,4 @@ return [
     'settings'       => 'Personal settings',
     'account'        => 'Account',
 
-
 ];

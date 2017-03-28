@@ -2,8 +2,8 @@
 
 namespace App\Events\Todo;
 
-use App\Todo\Todo;
 use App\User;
+use App\Todo\Todo;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -21,7 +21,7 @@ class TodoUpdated
     public $todo;
 
     /**
-     * 用户
+     * 用户.
      *
      * @var User
      */

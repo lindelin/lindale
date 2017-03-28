@@ -36,5 +36,4 @@ return [
     'settings'       => '个人设定',
     'account'        => '账户设置',
 
-
 ];

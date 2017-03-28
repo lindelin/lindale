@@ -3,19 +3,18 @@
  * Created by PhpStorm.
  * User: lindale
  * Date: 2016/11/23
- * Time: 22:50
+ * Time: 22:50.
  */
 
 namespace App\System\ConfigSystem;
 
-
-use App\Settings\UserSettings;
 use App\User;
+use App\Settings\UserSettings;
 
 class UserConfigSystem
 {
     /**
-     * 获得设置信息
+     * 获得设置信息.
      *
      * @param User $user
      * @param $config_name
@@ -27,7 +26,7 @@ class UserConfigSystem
     }
 
     /**
-     * 创建设置
+     * 创建设置.
      *
      * @param User $user
      * @param $config_name
@@ -38,5 +37,4 @@ class UserConfigSystem
     {
         return UserSettings::updateOrCreate(['config_name' => $config_name, 'user_id' => $user->id], ['config_value' => $config_value]);
     }
-
 }

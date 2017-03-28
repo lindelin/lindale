@@ -5,7 +5,7 @@ namespace App\Todo;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Todo\TodoType
+ * App\Todo\TodoType.
  *
  * @property int $id
  * @property string $name

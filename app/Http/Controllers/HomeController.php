@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Config;
 use Auth;
+use Config;
+use Illuminate\Http\Request;
+
 class HomeController extends Controller
 {
     /**
@@ -26,7 +27,7 @@ class HomeController extends Controller
      */
     public function lang(Request $request, $locale)
     {
-        if(Auth::guest()){
+        if (Auth::guest()) {
             if (in_array($locale, Config::get('app.available_locales'))) {
                 $request->session()->put('lang_guest', $locale);
             }

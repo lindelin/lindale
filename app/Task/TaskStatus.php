@@ -5,7 +5,7 @@ namespace App\Task;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Task\TaskStatus
+ * App\Task\TaskStatus.
  *
  * @property int $project_id
  * @property int $id

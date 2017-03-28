@@ -2,10 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Project\Project;
 use Charts;
 use App\Calculator;
-
+use App\Project\Project;
 
 class ProgressRepository
 {
@@ -27,7 +26,7 @@ class ProgressRepository
             ->values([
                 $project->progress,
                 0,
-                100
+                100,
             ])
             ->colors(['#2ca02c'])
             ->height(250)
@@ -40,7 +39,7 @@ class ProgressRepository
             ->values([
                 Calculator::ProjectTaskProgressCompute($project),
                 0,
-                100
+                100,
             ])
             ->colors(['#ff7f0e'])
             ->responsive(true);
@@ -51,7 +50,7 @@ class ProgressRepository
             ->values([
                 Calculator::ProjectTodoProgressCompute($project),
                 0,
-                100
+                100,
             ])
             ->colors(['#1f77b4'])
             ->responsive(true);
@@ -66,8 +65,6 @@ class ProgressRepository
             ->elementLabel(trans('progress.count'))
             ->responsive(true)
             ->lastByDay(7, true);
-        ;
-
 
         return compact(
             'schemaDonut',

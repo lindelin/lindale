@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Calculator;
 use App\Definer;
+use App\Calculator;
 use App\Project\Project;
 use App\Repositories\ProjectRepository;
 
@@ -36,7 +36,7 @@ class ProjectProgressEventListener
     {
         $project = Project::find($event->todo->project_id);
 
-        if($project != null and (int)$event->todo->type_id !== Definer::PRIVATE_TODO){
+        if ($project != null and (int) $event->todo->type_id !== Definer::PRIVATE_TODO) {
             $this->ProjectProgressUpdate($project);
         }
     }
@@ -50,7 +50,7 @@ class ProjectProgressEventListener
     {
         $project = Project::find($event->task->project_id);
 
-        if($project != null){
+        if ($project != null) {
             $this->ProjectProgressUpdate($project);
         }
     }
@@ -98,6 +98,5 @@ class ProjectProgressEventListener
             'App\Events\Task\TaskDeleted',
             'App\Listeners\ProjectProgressEventListener@onTaskUpdated'
         );
-
     }
 }

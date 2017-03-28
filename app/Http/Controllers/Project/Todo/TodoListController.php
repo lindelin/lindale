@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Project\Todo;
 
-use App\Http\Requests\TypeRequest;
-use App\Project\Project;
-use App\Todo\TodoList;
-use App\Repositories\TodoRepository;
-use App\Http\Controllers\Controller;
-use App\Repositories\MemberRepository;
 use App\Definer;
+use App\Todo\TodoList;
 use App\Todo\TodoType;
+use App\Project\Project;
+use App\Http\Requests\TypeRequest;
+use App\Http\Controllers\Controller;
+use App\Repositories\TodoRepository;
+use App\Repositories\MemberRepository;
 
 class TodoListController extends Controller
 {
@@ -47,6 +47,7 @@ class TodoListController extends Controller
     public function create(Project $project)
     {
         $type = TodoType::findOrFail(Definer::PUBLIC_TODO);
+
         return view('project.todo.index', $this->todoRepository->TodoResources($project, $type))
             ->with($this->memberRepository->AllMember($project))
             ->with(['project' => $project, 'selected' => 'todo', 'add_todo_list' => 'on']);

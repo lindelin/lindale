@@ -83,7 +83,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
                 Route::delete('list/delete/{list}', 'TodoListController@destroy');
             });
         });
-        
+
         //进度路由
         Route::group(['prefix' => 'progress'], function () {
             Route::get('/', 'ProgressController@index');
@@ -135,7 +135,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
                 Route::get('create', 'TaskController@create');
                 Route::get('edit/{task}', 'TaskController@edit');
             });
-            
+
             //任务组
             Route::group(['namespace' => 'Task', 'prefix' => 'group'], function () {
                 Route::get('create', 'TaskGroupController@create');
@@ -200,7 +200,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Todo', 'prefix' => 'todo']
         Route::group(['middleware' => 'ProjectAuth'], function () {
             Route::get('project/{project}', 'TodoController@index');
         });
-        
+
         //待办列表路由
         Route::group(['prefix' => 'list'], function () {
             Route::post('/', 'TodoListController@store');
@@ -209,7 +209,6 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Todo', 'prefix' => 'todo']
             Route::get('show/{list}', 'TodoController@index');
         });
     });
-
 });
 
 /*
