@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <h4>
-                            <a href="#" class="lindale-color">
+                            <a href="{{ url('profile/'.$pl->id) }}" class="lindale-color">
                                 <span class="glyphicon glyphicon-king lindale-icon-color"></span>
                                 {{ $pl->name }}
                             </a>

@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <h4>
-                            <a href="#" class="lindale-color">
+                            <a href="{{ url('profile/'.$pm->id) }}" class="lindale-color">
                                 @if($pm->pivot->is_admin === Definer::PROJECT_ADMIN)
                                     <span class="glyphicon glyphicon-bishop lindale-icon-color"></span>
                                 @else
