@@ -2,15 +2,14 @@
 
 namespace App\Tools;
 
-use App\Project\Project;
 use App\Task\Task;
-use App\Task\TaskGroup;
-use App\Task\TaskPriority;
-use App\Task\TaskStatus;
 use App\Task\TaskType;
-use App\Todo\TodoStatus;
 use App\Todo\TodoType;
-
+use App\Task\TaskGroup;
+use App\Project\Project;
+use App\Task\TaskStatus;
+use App\Todo\TodoStatus;
+use App\Task\TaskPriority;
 
 trait DataStatisticsTool
 {
@@ -22,7 +21,7 @@ trait DataStatisticsTool
      */
     public static function UserProjectCount(User $user)
     {
-        return (int)($user->MyProjects()->count() + $user->MySlProjects()->count() + $user->Projects()->count());
+        return (int) ($user->MyProjects()->count() + $user->MySlProjects()->count() + $user->Projects()->count());
     }
 
     /**
@@ -33,7 +32,7 @@ trait DataStatisticsTool
      */
     public static function UserUnfinishedTaskCount(User $user)
     {
-        return (int)($user->Tasks()->Where('is_finish', Definer::TASK_UNFINISHED)->count());
+        return (int) ($user->Tasks()->Where('is_finish', Definer::TASK_UNFINISHED)->count());
     }
 
     /**
@@ -44,7 +43,7 @@ trait DataStatisticsTool
      */
     public static function UserFinishedTaskCount(User $user)
     {
-        return (int)($user->Tasks()->Where('is_finish', Definer::TASK_FINISHED)->count());
+        return (int) ($user->Tasks()->Where('is_finish', Definer::TASK_FINISHED)->count());
     }
 
     /**
@@ -55,7 +54,7 @@ trait DataStatisticsTool
      */
     public static function UserTaskCount(User $user)
     {
-        return (int)($user->Tasks()->count());
+        return (int) ($user->Tasks()->count());
     }
 
     /**
@@ -66,7 +65,7 @@ trait DataStatisticsTool
      */
     public static function UserTodoCount(User $user)
     {
-        return (int)$user->Todos()->count();
+        return (int) $user->Todos()->count();
     }
 
     /**
@@ -77,7 +76,7 @@ trait DataStatisticsTool
      */
     public static function UserTodoFinishCount(User $user)
     {
-        return (int)$user->Todos()->where('status_id', Definer::FINISH_STATUS_ID)->count();
+        return (int) $user->Todos()->where('status_id', Definer::FINISH_STATUS_ID)->count();
     }
 
     /**
@@ -88,7 +87,7 @@ trait DataStatisticsTool
      */
     public static function UserTodoUnfinishedCount(User $user)
     {
-        return (int)$user->Todos()->where('status_id', '<>',Definer::FINISH_STATUS_ID)->count();
+        return (int) $user->Todos()->where('status_id', '<>', Definer::FINISH_STATUS_ID)->count();
     }
 
     /**
@@ -100,7 +99,7 @@ trait DataStatisticsTool
      */
     public static function UserTodoTypeCount(User $user, TodoType $type)
     {
-        return (int)$user->Todos()->where('type_id', $type->id)->count();
+        return (int) $user->Todos()->where('type_id', $type->id)->count();
     }
 
     /**
@@ -112,7 +111,7 @@ trait DataStatisticsTool
      */
     public static function UserTodoTypeFinishCount(User $user, TodoType $type)
     {
-        return (int)$user->Todos()->where('type_id', $type->id)->where('status_id', Definer::FINISH_STATUS_ID)->count();
+        return (int) $user->Todos()->where('type_id', $type->id)->where('status_id', Definer::FINISH_STATUS_ID)->count();
     }
 
     /**
@@ -124,7 +123,7 @@ trait DataStatisticsTool
      */
     public static function UserTodoStatus(User $user, TodoStatus $status)
     {
-        return (int)$user->Todos()->where('status_id', $status->id)->count();
+        return (int) $user->Todos()->where('status_id', $status->id)->count();
     }
 
     /**
@@ -137,7 +136,7 @@ trait DataStatisticsTool
      */
     public static function UserTodoTypeStatusCount(User $user, TodoType $type, TodoStatus $status)
     {
-        return (int)$user->Todos()->where('type_id', $type->id)->where('status_id', $status->id)->count();
+        return (int) $user->Todos()->where('type_id', $type->id)->where('status_id', $status->id)->count();
     }
 
     /**
@@ -149,7 +148,7 @@ trait DataStatisticsTool
      */
     public static function UserProjectTodoFinishCount(Project $project, User $user)
     {
-        return (int)$project
+        return (int) $project
             ->Todos()
             ->where('user_id', $user->id)
             ->where('type_id', Definer::PUBLIC_TODO)
@@ -166,7 +165,7 @@ trait DataStatisticsTool
      */
     public static function UserProjectTodoCount(Project $project, User $user)
     {
-        return (int)$project
+        return (int) $project
             ->Todos()
             ->where('user_id', $user->id)
             ->where('type_id', Definer::PUBLIC_TODO)
@@ -174,84 +173,84 @@ trait DataStatisticsTool
     }
 
     /**
-     * 合计任务组包含的任务总数
+     * 合计任务组包含的任务总数.
      *
      * @param TaskGroup $group
      * @return int
      */
     public static function GroupTaskCount(TaskGroup $group)
     {
-        return (int)$group->Tasks()->count();
+        return (int) $group->Tasks()->count();
     }
 
     /**
-     * 合计任务组包含的已完成任务数
+     * 合计任务组包含的已完成任务数.
      *
      * @param TaskGroup $group
      * @return int
      */
     public static function GroupTaskFinishCount(TaskGroup $group)
     {
-        return (int)$group->Tasks()->where('is_finish', Definer::TASK_FINISHED)->count();
+        return (int) $group->Tasks()->where('is_finish', Definer::TASK_FINISHED)->count();
     }
 
     /**
-     * 合计任务组中未完成任务数
+     * 合计任务组中未完成任务数.
      *
      * @param TaskGroup $group
      * @return int
      */
     public static function GroupTaskUnfinishedCount(TaskGroup $group)
     {
-        return (int)$group->Tasks()->where('is_finish', Definer::TASK_UNFINISHED)->count();
+        return (int) $group->Tasks()->where('is_finish', Definer::TASK_UNFINISHED)->count();
     }
 
     /**
-     * 合计项目中任务组数
+     * 合计项目中任务组数.
      *
      * @param Project $project
      * @return int
      */
     public static function ProjectTaskGroupCount(Project $project)
     {
-        return (int)$project->TaskGroups()->count();
+        return (int) $project->TaskGroups()->count();
     }
 
     /**
-     * 合计项目中的任务总数
+     * 合计项目中的任务总数.
      *
      * @param Project $project
      * @return int
      */
     public static function ProjectTaskCount(Project $project)
     {
-        return (int)$project->Tasks()->count();
+        return (int) $project->Tasks()->count();
     }
 
     /**
-     * 合计项目中已完成任务数
+     * 合计项目中已完成任务数.
      *
      * @param Project $project
      * @return int
      */
     public static function ProjectTaskFinishedCount(Project $project)
     {
-        return (int)$project->Tasks()->where('is_finish', Definer::TASK_FINISHED)->count();
+        return (int) $project->Tasks()->where('is_finish', Definer::TASK_FINISHED)->count();
     }
 
     /**
-     * 合计项目中未完成任务数
+     * 合计项目中未完成任务数.
      *
      * @param Project $project
      * @return int
      */
     public static function ProjectTaskUnfinishedCount(Project $project)
     {
-        return (int)$project->Tasks()->where('is_finish', Definer::TASK_UNFINISHED)->count();
+        return (int) $project->Tasks()->where('is_finish', Definer::TASK_UNFINISHED)->count();
     }
 
     /**
-     * 合计项目中的任务数（类型别）
+     * 合计项目中的任务数（类型别）.
      *
      * @param Project $project
      * @param TaskType $type
@@ -261,11 +260,11 @@ trait DataStatisticsTool
     public static function ProjectTypeTaskCount(Project $project, TaskType $type, $is_finish = null)
     {
         $task = $project->Tasks()->where('type_id', $type->id);
-        if($is_finish !== null){
+        if ($is_finish !== null) {
             $task = $task->where('is_finish', $is_finish);
         }
 
-        return (int)$task->count();
+        return (int) $task->count();
     }
 
     /**
@@ -276,7 +275,7 @@ trait DataStatisticsTool
      */
     public static function ProjectTodoFinishedCount(Project $project)
     {
-        return (int)$project
+        return (int) $project
             ->todos()
             ->where('type_id', Definer::PUBLIC_TODO)
             ->where('status_id', Definer::FINISH_STATUS_ID)
@@ -291,14 +290,14 @@ trait DataStatisticsTool
      */
     public static function ProjectTodoCount(Project $project)
     {
-        return (int)$project
+        return (int) $project
             ->todos()
             ->where('type_id', Definer::PUBLIC_TODO)
             ->count();
     }
 
     /**
-     * 合计项目中的任务数（状态别）
+     * 合计项目中的任务数（状态别）.
      *
      * @param Project $project
      * @param TaskStatus $status
@@ -308,15 +307,15 @@ trait DataStatisticsTool
     public static function ProjectStatusTaskCount(Project $project, TaskStatus $status, $is_finish = null)
     {
         $task = $project->Tasks()->where('status_id', $status->id);
-        if($is_finish !== null){
+        if ($is_finish !== null) {
             $task = $task->where('is_finish', $is_finish);
         }
 
-        return (int)$task->count();
+        return (int) $task->count();
     }
 
     /**
-     * 合计项目中的任务数（优先度别）
+     * 合计项目中的任务数（优先度别）.
      *
      * @param Project $project
      * @param TaskPriority $priority
@@ -326,11 +325,11 @@ trait DataStatisticsTool
     public static function ProjectPriorityTaskCount(Project $project, TaskPriority $priority, $is_finish = null)
     {
         $task = $project->Tasks()->where('priority_id', $priority->id);
-        if($is_finish !== null){
+        if ($is_finish !== null) {
             $task = $task->where('is_finish', $is_finish);
         }
 
-        return (int)$task->count();
+        return (int) $task->count();
     }
 
     /**
@@ -341,7 +340,7 @@ trait DataStatisticsTool
      */
     public static function SubTaskCount(Task $task)
     {
-        return (int)$task->SubTasks()->count();
+        return (int) $task->SubTasks()->count();
     }
 
     /**
@@ -352,7 +351,7 @@ trait DataStatisticsTool
      */
     public static function FinishedSubTasks(Task $task)
     {
-        return (int)$task->SubTasks()->where('is_finish', Definer::TASK_FINISHED)->count();
+        return (int) $task->SubTasks()->where('is_finish', Definer::TASK_FINISHED)->count();
     }
 
     /**
@@ -363,6 +362,6 @@ trait DataStatisticsTool
      */
     public static function UnfinishedSubTasks(Task $task)
     {
-        return (int)$task->SubTasks()->where('is_finish', Definer::TASK_UNFINISHED)->count();
+        return (int) $task->SubTasks()->where('is_finish', Definer::TASK_UNFINISHED)->count();
     }
 }

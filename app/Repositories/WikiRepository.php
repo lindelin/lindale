@@ -3,12 +3,12 @@
 namespace App\Repositories;
 
 use App\Definer;
-use App\Http\Requests\TypeRequest;
-use App\Http\Requests\WikiRequest;
-use App\Project\Project;
 use App\Wiki\Wiki;
 use App\Wiki\WikiType;
+use App\Project\Project;
 use Illuminate\Http\Request;
+use App\Http\Requests\TypeRequest;
+use App\Http\Requests\WikiRequest;
 use Illuminate\Support\Facades\Storage;
 
 class WikiRepository
@@ -131,7 +131,7 @@ class WikiRepository
      */
     public function UpdateWikiType(Request $request, WikiType $wikiType)
     {
-        if($request->get('type_name') != ''){
+        if ($request->get('type_name') != '') {
             $wikiType->name = $request->get('type_name');
         }
 

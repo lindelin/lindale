@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Project;
 
-use App\Project\Project;
-use App\System\ConfigSystem\ProjectConfigSystem;
-use App\Task\TaskStatus;
-use App\Task\TaskType;
-use App\Repositories\ProjectRepository;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use ProjectConfig;
+use App\Task\TaskType;
+use App\Project\Project;
+use App\Task\TaskStatus;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Repositories\ProjectRepository;
+use App\System\ConfigSystem\ProjectConfigSystem;
 
 class ConfigController extends Controller
 {
@@ -48,7 +48,7 @@ class ConfigController extends Controller
     */
 
     /**
-     * 基本设定
+     * 基本设定.
      *
      * @param Project $project
      * @return mixed
@@ -66,7 +66,7 @@ class ConfigController extends Controller
     */
 
     /**
-     * 语言和地区
+     * 语言和地区.
      *
      * @param Project $project
      * @return mixed
@@ -78,7 +78,7 @@ class ConfigController extends Controller
     }
 
     /**
-     * 语言和地区更新
+     * 语言和地区更新.
      *
      * @param Request $request
      * @param Project $project
@@ -100,7 +100,7 @@ class ConfigController extends Controller
     */
 
     /**
-     * 通知
+     * 通知.
      *
      * @param Project $project
      * @return mixed
@@ -112,7 +112,7 @@ class ConfigController extends Controller
     }
 
     /**
-     * Slack通知更新
+     * Slack通知更新.
      *
      * @param Request $request
      * @param Project $project
@@ -131,6 +131,7 @@ class ConfigController extends Controller
     public function taskType(Project $project)
     {
         $taskTypes = $project->TaskTypes;
+
         return view('project.config.common-type', $this->projectRepository->ProjectResources())
             ->with(['project' => $project, 'selected' => 'config', 'mode' => 'taskType'])
             ->with([
@@ -154,6 +155,7 @@ class ConfigController extends Controller
     public function taskStatus(Project $project)
     {
         $taskStatuses = $project->TaskStatuses;
+
         return view('project.config.common-type', $this->projectRepository->ProjectResources())
             ->with(['project' => $project, 'selected' => 'config', 'mode' => 'taskStatus'])
             ->with([
@@ -169,7 +171,7 @@ class ConfigController extends Controller
     {
         $result = TaskStatus::updateOrCreate(
             ['id' => $id, 'project_id' => $project->id],
-            ['name' => $request->get('name'), 'color_id' => $request->get('color_id'), 'action_id' => 3]);/* TODO: ACTION */
+            ['name' => $request->get('name'), 'color_id' => $request->get('color_id'), 'action_id' => 3]); /* TODO: ACTION */
 
         return response()->update($result);
     }

@@ -5,7 +5,7 @@ namespace App\Settings;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Settings\UserSettings
+ * App\Settings\UserSettings.
  *
  * @property int $id
  * @property string $config_name

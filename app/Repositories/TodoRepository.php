@@ -2,15 +2,15 @@
 
 namespace App\Repositories;
 
+use App\User;
 use App\Definer;
-use App\Http\Requests\TodoRequest;
-use App\Http\Requests\TypeRequest;
-use App\Project\Project;
 use App\Todo\Todo;
 use App\Todo\TodoList;
-use App\Todo\TodoStatus;
 use App\Todo\TodoType;
-use App\User;
+use App\Project\Project;
+use App\Todo\TodoStatus;
+use App\Http\Requests\TodoRequest;
+use App\Http\Requests\TypeRequest;
 
 class TodoRepository
 {
@@ -29,24 +29,24 @@ class TodoRepository
     {
         $todos = null;
 
-        if($project == null and $user == null){
+        if ($project == null and $user == null) {
             abort(404);
         }
 
-        if($project != null){
+        if ($project != null) {
             $todos = $project->Todos();
         }
 
-        if($user != null){
+        if ($user != null) {
             $todos = $user->Todos();
         }
 
-        if($type != null){
-            if ((int)$type->id === Definer::PUBLIC_TODO) {
+        if ($type != null) {
+            if ((int) $type->id === Definer::PUBLIC_TODO) {
                 $todos = $todos->where('type_id', $type->id);
             }
 
-            if ((int)$type->id === Definer::PRIVATE_TODO) {
+            if ((int) $type->id === Definer::PRIVATE_TODO) {
                 $todos = $todos->where('type_id', $type->id);
             }
         }
@@ -59,18 +59,18 @@ class TodoRepository
             $todos = $todos->where('status_id', $status);
         }
 
-        if($project != null){
+        if ($project != null) {
             $lists = $project->TodoLists()->where('type_id', Definer::PUBLIC_TODO)->get();
         }
 
-        if($user != null){
+        if ($user != null) {
             $lists = $user->TodoLists()->where('type_id', Definer::PRIVATE_TODO)->get();
         }
 
-        if($user != null and $type != null){
-            if((int)$type->id === Definer::PUBLIC_TODO){
+        if ($user != null and $type != null) {
+            if ((int) $type->id === Definer::PUBLIC_TODO) {
                 $projects = $this->UserTodoProjects($user);
-                if($project != null){
+                if ($project != null) {
                     $todos = $todos->where('project_id', $project->id);
                 }
             }
@@ -110,10 +110,10 @@ class TodoRepository
             $todo->$key = $value;
         }
 
-        if($project !== null){
+        if ($project !== null) {
             $todo->type_id = Definer::PUBLIC_TODO;
             $todo->project_id = $project->id;
-        }else{
+        } else {
             $todo->user_id = $request->user()->id;
         }
 
@@ -157,12 +157,12 @@ class TodoRepository
 
         $todoList->title = $request->get('type_name');
 
-        if($project !== null){
+        if ($project !== null) {
             $todoList->project_id = $project->id;
             $todoList->type_id = Definer::PUBLIC_TODO;
         }
 
-        if($user !== null){
+        if ($user !== null) {
             $todoList->user_id = $user->id;
             $todoList->type_id = Definer::PRIVATE_TODO;
         }
@@ -171,7 +171,7 @@ class TodoRepository
     }
 
     /**
-     * 获取用户To-do对应的项目列表
+     * 获取用户To-do对应的项目列表.
      *
      * @param User $user
      * @return array
@@ -180,14 +180,15 @@ class TodoRepository
     {
         $projects = [];
         $todos = $user->Todos()->get();
-        foreach ($todos as $todo){
+        foreach ($todos as $todo) {
             $todoProjects = $todo->Project()->get();
-            foreach ($todoProjects as $project){
-                if(isset($projects[$project->id]) != $project){
+            foreach ($todoProjects as $project) {
+                if (isset($projects[$project->id]) != $project) {
                     $projects[$project->id] = $project;
                 }
             }
         }
+
         return $projects;
     }
 }

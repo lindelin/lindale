@@ -6,7 +6,6 @@ use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
 
 class TaskHasDeleted extends Notification implements ShouldQueue
@@ -14,7 +13,7 @@ class TaskHasDeleted extends Notification implements ShouldQueue
     use Queueable;
 
     /**
-     * 任务信息
+     * 任务信息.
      *
      * @var
      */
@@ -23,7 +22,7 @@ class TaskHasDeleted extends Notification implements ShouldQueue
     public $task_created_at;
 
     /**
-     * 用户
+     * 用户.
      *
      * @var User
      */
@@ -67,7 +66,7 @@ class TaskHasDeleted extends Notification implements ShouldQueue
     }
 
     /**
-     * Slack 通知
+     * Slack 通知.
      *
      * @param  mixed  $notifiable
      * @return SlackMessage
@@ -75,6 +74,7 @@ class TaskHasDeleted extends Notification implements ShouldQueue
     public function toSlack($notifiable)
     {
         \App::setLocale($this->locale);
+
         return (new SlackMessage)
             ->error()
             ->content(trans('task.deleted-task', ['name' => $this->user->name]))

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Settings;
 
+use App\UserConfig;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\System\ConfigSystem\UserConfigSystem;
-use App\UserConfig;
 
 class NotificationController extends Controller
 {
@@ -16,9 +16,8 @@ class NotificationController extends Controller
      */
     protected $configSystem;
 
-
     /**
-     * 构造器
+     * 构造器.
      *
      * LocaleController constructor.
      * @param UserConfigSystem $userConfigSystem
@@ -29,7 +28,7 @@ class NotificationController extends Controller
     }
 
     /**
-     * 通知
+     * 通知.
      *
      * @return mixed
      */
@@ -39,7 +38,7 @@ class NotificationController extends Controller
     }
 
     /**
-     * Slack通知更新
+     * Slack通知更新.
      *
      * @param Request $request
      * @return mixed

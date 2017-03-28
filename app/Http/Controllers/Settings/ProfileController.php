@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Settings;
 
-use App\Repositories\UserRepository;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
+use App\Repositories\UserRepository;
 
 class ProfileController extends Controller
 {

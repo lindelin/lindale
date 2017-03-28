@@ -2,14 +2,12 @@
 
 namespace App\Events\Todo;
 
-use App\Todo\Todo;
 use App\User;
+use App\Todo\Todo;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
-use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class TodoCreated
 {
@@ -23,7 +21,7 @@ class TodoCreated
     public $todo;
 
     /**
-     * 用户
+     * 用户.
      *
      * @var User
      */

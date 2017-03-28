@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Settings;
 
+use App;
 use App\User;
+use App\UserConfig;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\System\ConfigSystem\UserConfigSystem;
-use App\UserConfig;
-use App;
 
 class LocaleController extends Controller
 {
@@ -18,9 +18,8 @@ class LocaleController extends Controller
      */
     protected $configSystem;
 
-
     /**
-     * 构造器
+     * 构造器.
      *
      * LocaleController constructor.
      * @param UserConfigSystem $userConfigSystem
@@ -31,7 +30,7 @@ class LocaleController extends Controller
     }
 
     /**
-     * 语言和地区
+     * 语言和地区.
      *
      * @return mixed
      */
@@ -41,7 +40,7 @@ class LocaleController extends Controller
     }
 
     /**
-     * 语言和地区更新
+     * 语言和地区更新.
      *
      * @param Request $request
      * @return mixed

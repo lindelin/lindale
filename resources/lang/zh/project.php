@@ -33,5 +33,4 @@ return [
     'projects-join'         => '我参与的项目',
     'lang'                  => '语言',
 
-
 ];

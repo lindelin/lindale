@@ -3,8 +3,6 @@
 namespace App\Listeners\Project;
 
 use App\Events\Project\ProjectDeleted;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class DeleteProjectInfo
 {

@@ -2,12 +2,11 @@
 
 namespace App\Notifications\Project\Todo;
 
-use App\Todo\Todo;
 use App\User;
+use App\Todo\Todo;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
 
 class TodoHasCreated extends Notification implements ShouldQueue
@@ -15,14 +14,14 @@ class TodoHasCreated extends Notification implements ShouldQueue
     use Queueable;
 
     /**
-     * To-do
+     * To-do.
      *
      * @var Todo
      */
     public $todo;
 
     /**
-     * 用户
+     * 用户.
      *
      * @var User
      */
@@ -36,7 +35,7 @@ class TodoHasCreated extends Notification implements ShouldQueue
     public $locale;
 
     /**
-     * 资源注入
+     * 资源注入.
      *
      * TodoHasCreated constructor.
      * @param Todo $todo
@@ -62,7 +61,7 @@ class TodoHasCreated extends Notification implements ShouldQueue
     }
 
     /**
-     * Slack 通知
+     * Slack 通知.
      *
      * @param  mixed  $notifiable
      * @return SlackMessage
@@ -70,6 +69,7 @@ class TodoHasCreated extends Notification implements ShouldQueue
     public function toSlack($notifiable)
     {
         \App::setLocale($this->locale);
+
         return (new SlackMessage)
             ->success()
             ->content(trans('todo.created-todo', ['name' => $this->user->name]))
@@ -79,7 +79,7 @@ class TodoHasCreated extends Notification implements ShouldQueue
                         trans('todo.user') => $this->todo->User ? $this->todo->User->name : trans('project.none'),
                         trans('todo.todo-list') => $this->todo->TodoList ? $this->todo->TodoList->title : trans('project.none'),
                         trans('todo.status') => trans($this->todo->Status->name),
-                        trans('todo.created') => (string)$this->todo->created_at,
+                        trans('todo.created') => (string) $this->todo->created_at,
                     ]);
             });
     }

@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Task;
 
+use App\Definer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\TaskRepository;
-use App\Definer;
 
 class TaskController extends Controller
 {
     /**
-     * 任务资源库
+     * 任务资源库.
      *
      * @var TaskRepository
      */
@@ -18,7 +18,7 @@ class TaskController extends Controller
 
     /**
      * 构造器
-     * 注入资源
+     * 注入资源.
      *
      * TaskGroupController constructor.
      * @param TaskRepository $taskRepository

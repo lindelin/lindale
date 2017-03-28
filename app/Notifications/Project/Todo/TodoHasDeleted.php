@@ -2,12 +2,11 @@
 
 namespace App\Notifications\Project\Todo;
 
-use App\Todo\Todo;
 use App\User;
+use App\Todo\Todo;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Messages\SlackMessage;
 
 class TodoHasDeleted extends Notification implements ShouldQueue
@@ -15,7 +14,7 @@ class TodoHasDeleted extends Notification implements ShouldQueue
     use Queueable;
 
     /**
-     * To-do
+     * To-do.
      *
      * @var
      */
@@ -23,7 +22,7 @@ class TodoHasDeleted extends Notification implements ShouldQueue
     public $todo_created;
 
     /**
-     * 用户
+     * 用户.
      *
      * @var User
      */
@@ -37,7 +36,7 @@ class TodoHasDeleted extends Notification implements ShouldQueue
     public $locale;
 
     /**
-     * 资源注入
+     * 资源注入.
      *
      * TodoHasDeleted constructor.
      * @param User $user
@@ -65,7 +64,7 @@ class TodoHasDeleted extends Notification implements ShouldQueue
     }
 
     /**
-     * Slack 通知
+     * Slack 通知.
      *
      * @param  mixed  $notifiable
      * @return SlackMessage
@@ -73,6 +72,7 @@ class TodoHasDeleted extends Notification implements ShouldQueue
     public function toSlack($notifiable)
     {
         \App::setLocale($this->locale);
+
         return (new SlackMessage)
             ->error()
             ->content(trans('todo.deleted-todo', ['name' => $this->user->name]))

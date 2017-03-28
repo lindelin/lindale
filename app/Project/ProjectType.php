@@ -5,7 +5,7 @@ namespace App\Project;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Project\ProjectType
+ * App\Project\ProjectType.
  *
  * @property int $id
  * @property string $name

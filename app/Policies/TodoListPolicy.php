@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Todo\TodoList;
+use Admin;
 use App\User;
+use App\Todo\TodoList;
 use App\Project\Project;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Admin;
 
 class TodoListPolicy
 {

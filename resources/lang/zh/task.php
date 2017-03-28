@@ -15,7 +15,7 @@ return [
     'edit-task'    => '编辑任务',
     'group-title'  => '任务组名',
     'group-info'   => '任务组描述',
-    'info'		   => '任务描述',
+    'info'           => '任务描述',
     'start_at'     => '开始日',
     'end_at'       => '期限',
     'type'         => '任务类型',

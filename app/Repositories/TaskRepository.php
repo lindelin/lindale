@@ -2,25 +2,24 @@
 
 namespace App\Repositories;
 
-
-use App\Definer;
-use App\Http\Requests\TaskGroupRequest;
-use App\Http\Requests\TaskRequest;
-use App\Project\Project;
-use App\Task\SubTask;
-use App\Task\Task;
-use App\Task\TaskActivity;
-use App\Task\TaskGroup;
-use App\Task\TaskPriority;
-use App\Task\TaskStatus;
-use App\Task\TaskType;
-use Illuminate\Http\Request;
 use App\User;
+use App\Definer;
+use App\Task\Task;
+use App\Task\SubTask;
+use App\Task\TaskType;
+use App\Task\TaskGroup;
+use App\Project\Project;
+use App\Task\TaskStatus;
+use App\Task\TaskActivity;
+use App\Task\TaskPriority;
+use Illuminate\Http\Request;
+use App\Http\Requests\TaskRequest;
+use App\Http\Requests\TaskGroupRequest;
 
 class TaskRepository
 {
     /**
-     * 任务资源
+     * 任务资源.
      *
      * @param Project $project
      * @param null $is_finish
@@ -34,19 +33,19 @@ class TaskRepository
         $resources = $this->Resources($project);
         $tasks = $project->Tasks();
 
-        if($is_finish !== null){
+        if ($is_finish !== null) {
             $tasks = $tasks->where('is_finish', $is_finish);
         }
 
-        if($type != null){
+        if ($type != null) {
             $tasks = $tasks->where('type_id', $type->id);
         }
 
-        if($priority != null){
+        if ($priority != null) {
             $tasks = $tasks->where('priority_id', $priority->id);
         }
 
-        if($status != null){
+        if ($status != null) {
             $tasks = $tasks->where('status_id', $status->id)->where('is_finish', Definer::TASK_UNFINISHED);
         }
 
@@ -72,15 +71,15 @@ class TaskRepository
     {
         $tasks = $user->Tasks();
 
-        if($is_finish !== null){
+        if ($is_finish !== null) {
             $tasks = $tasks->where('is_finish', $is_finish);
         }
 
-        if($project != null){
+        if ($project != null) {
             $tasks = $tasks->where('project_id', $project->id);
         }
 
-        if($priority != null){
+        if ($priority != null) {
             $tasks = $tasks->where('priority_id', $priority->id);
         }
 
@@ -112,9 +111,8 @@ class TaskRepository
         return array_merge(compact('tasks', 'subTask', 'activities'), $resources);
     }
 
-
     /**
-     * 任务（创建）资源
+     * 任务（创建）资源.
      *
      * @param Project $project
      * @return array
@@ -129,7 +127,7 @@ class TaskRepository
     }
 
     /**
-     * 任务组资源
+     * 任务组资源.
      *
      * @param Project $project
      * @return array
@@ -139,12 +137,11 @@ class TaskRepository
         $taskGroupCreteResources = $this->TaskGroupCreateResources($project);
         $groups = $project->TaskGroups()->latest()->paginate(3);
 
-
         return array_merge(compact('groups'), $taskGroupCreteResources);
     }
 
     /**
-     * 任务组（创建）资源
+     * 任务组（创建）资源.
      *
      * @param Project $project
      * @return array
@@ -155,7 +152,7 @@ class TaskRepository
     }
 
     /**
-     * 关联资源
+     * 关联资源.
      *
      * @param Project $project
      * @return array
@@ -164,28 +161,28 @@ class TaskRepository
     {
         $type = TaskType::firstOrCreate(
             [
-                'project_id' => $project->id
+                'project_id' => $project->id,
             ],
             [
                 'name' => 'task.default',
-                'color_id' => Definer::DEFAULT_COLOR_ID
+                'color_id' => Definer::DEFAULT_COLOR_ID,
             ]
         );
-        if($type != null){
+        if ($type != null) {
             $types = $project->TaskTypes;
         }
 
         $status = TaskStatus::firstOrCreate(
             [
-                'project_id' => $project->id
+                'project_id' => $project->id,
             ],
             [
                 'name' => 'task.underway',
                 'color_id' => Definer::PRIMARY_COLOR_ID,
-                'action_id' => Definer::UNDERWAY_STATUS_ID
+                'action_id' => Definer::UNDERWAY_STATUS_ID,
             ]
         );
-        if($status != null){
+        if ($status != null) {
             $statuses = $project->TaskStatuses;
         }
 
@@ -195,7 +192,7 @@ class TaskRepository
     }
 
     /**
-     * 创建任务方法
+     * 创建任务方法.
      *
      * @param TaskRequest $request
      * @param Project $project
@@ -233,7 +230,7 @@ class TaskRepository
     }
 
     /**
-     * 更新任务方法
+     * 更新任务方法.
      *
      * @param TaskRequest $request
      * @param Task $task
@@ -267,7 +264,7 @@ class TaskRepository
     }
 
     /**
-     * 创建任务组方法
+     * 创建任务组方法.
      *
      * @param TaskGroupRequest $request
      * @param Project $project
@@ -292,7 +289,7 @@ class TaskRepository
     }
 
     /**
-     * 更新任务组方法
+     * 更新任务组方法.
      *
      * @param TaskGroupRequest $request
      * @param TaskGroup $group
@@ -313,7 +310,7 @@ class TaskRepository
     }
 
     /**
-     * 更新附属任务方法
+     * 更新附属任务方法.
      *
      * @param Request $request
      * @param SubTask $subTask
@@ -334,7 +331,7 @@ class TaskRepository
     }
 
     /**
-     * 创建任务动态方法
+     * 创建任务动态方法.
      *
      * @param Request $request
      * @param Task $task
@@ -368,10 +365,11 @@ class TaskRepository
      */
     public function UpdateTaskProgress($progress, Task $task)
     {
-        if((int)$progress <= 100 and (int)$progress >= 0){
+        if ((int) $progress <= 100 and (int) $progress >= 0) {
             $task->progress = $progress;
+
             return $task->update();
-        }else{
+        } else {
             return false;
         }
     }
