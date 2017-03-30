@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => 'info-center@lindale.tk',
+        'address' => 'info@lindelin.org',
         'name' => 'Lindalë Information Center',
     ],
 
