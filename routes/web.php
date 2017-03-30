@@ -26,8 +26,11 @@ Route::get('/lang/{lang}', 'HomeController@lang')->name('lang');
 */
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
+    //Home
     Route::get('home', 'HomeController@index');
     Route::get('home/project', 'HomeController@project');
+    //Profile
+    Route::get('profile/{user}', 'ProfileController@show');
 });
 
 /*

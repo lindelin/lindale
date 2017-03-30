@@ -1,6 +1,6 @@
 <!-- 模态窗按钮 -->
 <a href="#member{{ $member->id }}" data-toggle="modal" data-target="#member{{ $member->id }}" class="my-tooltip" title="{{ trans('member.policy') }}">
-    <span class="glyphicon glyphicon-flag"></span>
+    <span class="glyphicon glyphicon-flag lindale-color"></span>
 </a>
 
 <!-- 模态窗 -->

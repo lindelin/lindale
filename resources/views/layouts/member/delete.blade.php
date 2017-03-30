@@ -1,6 +1,6 @@
 <!-- 模态窗按钮 -->
 <a href="#removeMember{{ $remove_member->id }}" data-toggle="modal" data-target="#removeMember{{ $remove_member->id }}" class="my-tooltip" title="{{ trans('member.delete-title') }}">
-    <span class="glyphicon glyphicon-log-out"></span>
+    <span class="glyphicon glyphicon-log-out lindale-color"></span>
 </a>
 
 <!-- 模态窗 -->
