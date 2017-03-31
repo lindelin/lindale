@@ -189,7 +189,7 @@ class User extends Authenticatable
      */
     public function sendPasswordResetNotification($token)
     {
-        $this->notify(new ResetPasswordNotification($token, session('lang')));
+        $this->notify(new ResetPasswordNotification($token, session('lang_guest')));
     }
 
     /**
