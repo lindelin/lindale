@@ -1,5 +1,6 @@
-# Lindalë Project
+<p align="center"><img src="https://github.com/lindelin/lindale/blob/master/public/img/logo_main.png" width="50%"></p>
 
+# Lindalë - The Project Manager For Everyone.
 [![Build Status](https://travis-ci.org/lindelin/lindale.svg?branch=master)](https://travis-ci.org/lindelin/lindale)
 [![StyleCI](https://styleci.io/repos/63577917/shield?branch=master)](https://styleci.io/repos/63577917)
 [![Latest Stable Version](https://poser.pugx.org/lindelin/lindale/v/stable)](https://packagist.org/packages/lindelin/lindale)
@@ -11,6 +12,7 @@
 
 ## About Lindalë
 #### ...is a word from J.R.R. Tolkien's elvish language named Quenya and means "to sing" or "to make music."
+### Lindalë is an Open Source software for project management.
 
 ## Requirements
 Since Lindalë is built on Laravel 5.3.*, there are a few system requirements:
