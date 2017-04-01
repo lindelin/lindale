@@ -8,8 +8,6 @@ use Illuminate\Support\ServiceProvider;
 
 class RoutingManagementServiceProvider extends ServiceProvider
 {
-    protected $defer = true;
-
     /**
      * Bootstrap the application services.
      *
