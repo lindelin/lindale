@@ -22,11 +22,12 @@
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <i class="fa fa-hourglass-end" aria-hidden="true"></i>
         @if($group->end_at != '')
-            @if(Carbon\Carbon::parse($group->end_at)->lt(Carbon\Carbon::now()))
+            {{--@if(Carbon\Carbon::parse($group->end_at)->lt(Carbon\Carbon::now()))
                 <span class="text-danger">{{ $group->end_at }}（時間切れ！）</span>
             @else
                 {{ $group->end_at }}
-            @endif
+            @endif--}}
+            {{ $group->end_at }}
         @else
             {{ trans('task.none') }}
         @endif
