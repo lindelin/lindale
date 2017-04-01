@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => 'info@lindelin.org',
+        'address' => env('MAIL_ADDRESS'),
         'name' => 'Lindalë Information Center',
     ],
 
