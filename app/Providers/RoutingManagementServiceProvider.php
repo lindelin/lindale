@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Closure;
 use Route;
+use Closure;
+use Illuminate\Support\ServiceProvider;
 
 class RoutingManagementServiceProvider extends ServiceProvider
 {
@@ -20,14 +20,14 @@ class RoutingManagementServiceProvider extends ServiceProvider
         $middlewareClosure = function ($middleware) {
             return $middleware instanceof Closure ? 'Closure' : $middleware;
         };
-        view()->composer('layouts.admin.route-manager', function ($view) use ($middlewareClosure){
+        view()->composer('layouts.admin.route-manager', function ($view) use ($middlewareClosure) {
             $methodColours = [
                 'GET' => 'success',
                 'HEAD' => 'default',
                 'POST' => 'primary',
                 'PUT' => 'warning',
                 'PATCH' => 'info',
-                'DELETE' => 'danger'
+                'DELETE' => 'danger',
             ];
             $view->with([
                 'routes' => Route::getRoutes(),

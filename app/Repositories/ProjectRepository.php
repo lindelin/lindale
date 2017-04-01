@@ -75,6 +75,7 @@ class ProjectRepository
     public function ProfileProjectResources(User $user)
     {
         $userProgressAreaspline = $this->UserProgressAreaspline($user);
+
         return compact('userProgressAreaspline', 'user');
     }
 

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Home;
 
 use App\User;
-use App\Repositories\ProjectRepository;
 use App\Http\Controllers\Controller;
+use App\Repositories\ProjectRepository;
 
 class ProfileController extends Controller
 {
