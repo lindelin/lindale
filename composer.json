@@ -24,7 +24,6 @@
         "barryvdh/laravel-ide-helper": "^2.3",
         "intervention/image": "^2.3",
         "league/flysystem-aws-s3-v3": "^1.0",
-        "garygreen/pretty-routes": "^0.0.6",
         "aws/aws-sdk-php": "^3.24",
         "lindelea/laravel-aws-elb-support": "^1.0"
     },

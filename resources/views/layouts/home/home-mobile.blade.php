@@ -3,8 +3,12 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" @if($mode != 'project') class="active" @endif style="width: 50%;"><a href="{{ url('/home') }}"><div align="center">Home</div></a></li>
-                <li role="presentation" @if($mode == 'project') class="active" @endif style="width: 50%;"><a href="{{ url('/home/project') }}"><div align="center">Project</div></a></li>
+                <li role="presentation" @if($mode != 'project') class="active" @endif style="width: 50%;">
+                    <a href="{{ url('/home') }}"><div align="center">{{ trans('header.my') }}{{ trans('header.home') }}</div></a>
+                </li>
+                <li role="presentation" @if($mode == 'project') class="active" @endif style="width: 50%;">
+                    <a href="{{ url('/home/project') }}"><div align="center">{{ trans('header.my') }}{{ trans('header.project') }}</div></a>
+                </li>
             </ul>
         </div>
     </div>

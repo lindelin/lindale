@@ -178,7 +178,6 @@ return [
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        PrettyRoutes\ServiceProvider::class,
         Lindelea\Support\Aws\Elb\ServiceProvider::class,
 
         /*

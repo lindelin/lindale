@@ -12,8 +12,8 @@
         <span class="glyphicon glyphicon-console"></span> {{ trans('admin.log-viewer') }}
     </a>
 
-    <a href="{{ url('admin/routes') }}" class="list-group-item">
+    {{--<a href="{{ url('admin/routes') }}" class="list-group-item">
         <span class="glyphicon glyphicon-road"></span> {{ trans('admin.route') }}
-    </a>
+    </a>--}}
 
 </div>
