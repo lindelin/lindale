@@ -4,7 +4,8 @@
 
             <li role="presentation" @if($mode == "center") class="active" @endif>
                 <a href="{{ url('admin') }}">
-                    <span class="glyphicon glyphicon-home"></span>
+                    {{--<span class="glyphicon glyphicon-home"></span>--}}
+                    <span class="glyphicon glyphicon-road"></span>
                 </a>
             </li>
 

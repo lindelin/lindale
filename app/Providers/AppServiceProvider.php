@@ -3,8 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Closure;
-use Route;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,16 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $middlewareClosure = function ($middleware) {
-            return $middleware instanceof Closure ? 'Closure' : $middleware;
-        };
-        view()->composer('admin.index', function ($view) use ($middlewareClosure){
-            $view->with([
-                'routes' => Route::getRoutes(),
-                'middlewareClosure' => $middlewareClosure
-            ]);
-        });
-
+        //
     }
 
     /**

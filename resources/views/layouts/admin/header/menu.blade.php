@@ -1,7 +1,8 @@
 <div class="list-group">
 
     <a href="{{ url('admin') }}" class="list-group-item @if($mode == 'center') active @endif">
-        <span class="glyphicon glyphicon-home"></span> {{ trans('admin.center') }}
+        {{--<span class="glyphicon glyphicon-home"></span> {{ trans('admin.center') }}--}}
+        <span class="glyphicon glyphicon-road"></span> {{ trans('admin.route') }}
     </a>
 
     <a href="{{ url('admin/user') }}" class="list-group-item @if($mode == 'user') active @endif">
