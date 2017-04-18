@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <strong>
-                        <a href="{{ url('project/'.$task->Project->id.'/task/type/'.$task->Type->id) }}" class="{{ Colorable::randomTextColor() }}">
+                        <a href="{{ url('project/'.$task->Project->id.'/task/type/'.$task->Type->id) }}" class="{{ Colorable::textColorClass($task->Type->color_id) }}">
                             @include('layouts.common.number.task')
                         </a>
                     </strong>
