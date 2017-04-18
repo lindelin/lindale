@@ -3,11 +3,7 @@
         <tbody>
 
         <tr>
-            <th>
-                <span class="{{ Colorable::textColorClass($model->color_id) }}">
-                    {{ trans('config.type-name') }}
-                </span>
-            </th>
+            <th>{{ trans('config.type-name') }}</th>
             <th>{{ trans('common.updated') }}</th>
             <th>{{ trans('common.created') }}</th>
             <th>{{ trans('common.edit') }}</th>
@@ -15,7 +11,11 @@
 
         @foreach($models as $model)
             <tr>
-                <td>{{ trans($model->name) }}</td>
+                <td>
+                    <span class="{{ Colorable::textColorClass($model->color_id) }}">
+                        {{ trans($model->name) }}
+                    </span>
+                </td>
                 <td>{{ $model->updated_at }}</td>
                 <td>{{ $model->created_at }}</td>
                 <td>
