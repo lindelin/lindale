@@ -3,7 +3,11 @@
         <tbody>
 
         <tr>
-            <th>{{ trans('config.type-name') }}</th>
+            <th>
+                <span class="{{ Colorable::textColorClass($model->Type->color_id) }}">
+                    {{ trans('config.type-name') }}
+                </span>
+            </th>
             <th>{{ trans('common.updated') }}</th>
             <th>{{ trans('common.created') }}</th>
             <th>{{ trans('common.edit') }}</th>
