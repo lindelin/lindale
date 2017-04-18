@@ -48,8 +48,7 @@ body{
 }
 
 .status-panel{
-	border-bottom-width: 10px;
-	border-bottom-color: #00184a;
+	background: #fff url(/img/nav-color.jpg) repeat-x bottom !important;
 }
 
 .nav-tabs{
