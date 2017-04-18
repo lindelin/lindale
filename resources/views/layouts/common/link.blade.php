@@ -44,9 +44,13 @@
 <meta name="msapplication-TileImage" content="{{ asset('/mstile-144x144.png') }}">
 <meta name="theme-color" content="#ffffff">
 
-
 {{-- facebook meta --}}
-
+<meta property="og:image" content="{{ asset('/og-image.jpg') }}">
+<meta property="og:image:width" content="1852">
+<meta property="og:image:height" content="970">
+<meta property="og:title" content="Lindalë - The Project Manager For Everyone">
+<meta property="og:description" content="Lindalë is an Open Source software for complex project management. Experience a soujourn transcending elegant features comprehensively designed for a team of any size.">
+<meta property="og:url" content="https://lindale.tk">
 
 {{-- local js --}}
 
