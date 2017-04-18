@@ -4,7 +4,7 @@
 
         <tr>
             <th>
-                <span class="{{ Colorable::textColorClass($model->Type->color_id) }}">
+                <span class="{{ Colorable::textColorClass($model->color_id) }}">
                     {{ trans('config.type-name') }}
                 </span>
             </th>
