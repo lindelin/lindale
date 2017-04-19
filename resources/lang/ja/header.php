@@ -30,6 +30,6 @@ return [
     'time-sheet'  => '日報',
     'message'     => 'メッセージ',
     'schedule'    => 'スケージュール',
-    'admin'       => 'スーパー管理人',
+    'admin'       => 'システム設定',
     'my'          => 'マイ',
 ];

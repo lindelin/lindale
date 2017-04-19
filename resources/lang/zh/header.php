@@ -30,7 +30,7 @@ return [
     'time-sheet'  => '日报',
     'message'     => '消息',
     'schedule'    => '日程',
-    'admin'       => '超级管理员',
+    'admin'       => '系统设定',
     'my'          => '我的',
 
 ];
