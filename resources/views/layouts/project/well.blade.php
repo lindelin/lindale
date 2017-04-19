@@ -1,10 +1,9 @@
 <div class="well well-home">
     <div class="row">
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-            <h4 class="lindale-icon-color">
-                <span class="glyphicon glyphicon-briefcase"></span>
-                <a href="{{ url('project/'.$project->id) }}" class="lindale-color">
-                    {{ str_limit($project->title, 16) }}
+            <h4 class="project-panel-title">
+                <a href="{{ url('project/'.$project->id) }}" class="lindale-color my-tooltip" data-placement="top" title="{{ $project->title }}">
+                    <nobr><span class="glyphicon glyphicon-briefcase lindale-icon-color"></span> {{ $project->title }}</nobr>
                 </a>
             </h4>
         </div>

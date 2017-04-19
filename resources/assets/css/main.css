@@ -172,3 +172,12 @@ body{
 	position: relative;
 	margin: 5px 0px;
 }
+
+.jumbotron {
+	font-family: 'Noto Sans', sans-serif !important;
+}
+
+.project-panel-title{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
