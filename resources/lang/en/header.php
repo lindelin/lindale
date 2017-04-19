@@ -30,6 +30,6 @@ return [
     'time-sheet'  => 'Time-Sheet',
     'message'     => 'Message',
     'schedule'    => 'Schedule',
-    'admin'       => 'Super Admin',
+    'admin'       => 'System Settings',
     'my'          => 'My ',
 ];

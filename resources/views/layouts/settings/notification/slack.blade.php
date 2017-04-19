@@ -55,7 +55,7 @@
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group{{ $errors->has(UserConfig::SLACK_API_KEY) ? ' has-error' : '' }}">
                                     <label class="control-label">
-                                        API Key
+                                        WebHook
                                     </label>
                                     <div>
                                         <input type="text" class="form-control" name="{{ UserConfig::SLACK_API_KEY }}"

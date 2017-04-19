@@ -10,7 +10,7 @@
 </div>
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <h4 class="{{ Colorable::randomTextColor() }}">
+        <h4 class="{{ Colorable::textColorClass($group->Type->color_id) }}">
             {{ trans($group->Type->name) }}#{{ $group->id }}
         </h4>
     </div>

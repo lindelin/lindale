@@ -11,7 +11,11 @@
 
         @foreach($models as $model)
             <tr>
-                <td>{{ trans($model->name) }}</td>
+                <td>
+                    <span class="{{ Colorable::textColorClass($model->color_id) }}">
+                        {{ trans($model->name) }}
+                    </span>
+                </td>
                 <td>{{ $model->updated_at }}</td>
                 <td>{{ $model->created_at }}</td>
                 <td>
