@@ -38,7 +38,7 @@ class WikiRepository
     public function WikiResources(Project $project)
     {
         $HomeWiki = $project->Wikis()->where('type_id', Definer::DEFAULT_WIKI)->first();
-        $wikis = $project->Wikis()->where('type_id', Definer::DEFAULT_WIKI)->orWhere('type_id', Definer::DEFAULT_WIKI_TYPE)->get();
+        $wikis = $project->Wikis()->where('type_id', Definer::DEFAULT_WIKI_TYPE)->get();
         $types = $project->WikiTypes()->get();
         $DefaultType = WikiType::findOrFail(Definer::DEFAULT_WIKI_TYPE);
 

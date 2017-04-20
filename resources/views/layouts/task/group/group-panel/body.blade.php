@@ -71,7 +71,7 @@
     <div role="tabpanel" class="tab-pane" id="unfinished-{{ $group->id }}">
 
         @if($group->Tasks()->where('is_finish', Definer::TASK_UNFINISHED)->count() > 0)
-            @foreach($group->Tasks()->where('is_finish', Definer::TASK_UNFINISHED)->get() as $task)
+            @foreach($group->Tasks()->where('is_finish', Definer::TASK_UNFINISHED)->orderBy('priority_id', 'desc')->get() as $task)
                 @include('layouts.task.common.task', ['task' => $task])
             @endforeach
         @else
@@ -90,7 +90,7 @@
     <div role="tabpanel" class="tab-pane" id="finished-{{ $group->id }}">
 
         @if($group->Tasks()->where('is_finish', Definer::TASK_FINISHED)->count() > 0)
-            @foreach($group->Tasks()->where('is_finish', Definer::TASK_FINISHED)->get() as $task)
+            @foreach($group->Tasks()->where('is_finish', Definer::TASK_FINISHED)->latest()->get() as $task)
                 @include('layouts.task.common.task', ['task' => $task])
             @endforeach
         @else
