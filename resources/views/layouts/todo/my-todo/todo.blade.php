@@ -29,6 +29,7 @@
                         <tbody>
 
                         <tr>
+                            <th><span class="glyphicon glyphicon-user lindale-icon-color"></span> {{ trans('todo.initiator') }}</th>
                             <th><span class="glyphicon glyphicon-user lindale-icon-color"></span> {{ trans('todo.user') }}</th>
                             <th><span class="glyphicon glyphicon-tag lindale-icon-color"></span> {{ trans('todo.type') }}</th>
                             <th><span class="glyphicon glyphicon-dashboard lindale-icon-color"></span> {{ trans('todo.status') }}</th>
@@ -39,6 +40,9 @@
                         </tr>
 
                         <tr>
+                            <td>
+                                {{ $todo->Initiator ? $todo->Initiator->name : trans('todo.initiator')}}
+                            </td>
                             <td>
                                 @if($todo->User != null){{ $todo->User->name }}@else{{ trans('project.none') }}@endif
                             </td>
@@ -69,6 +73,12 @@
                         {{ $todo->content }}
                     </div>
                 </div>
+                <br>
+                @if($todo->details)
+                    <div class="jumbotron">
+                        {!! Markdown::toHtml($todo->details) !!}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

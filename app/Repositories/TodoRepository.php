@@ -101,7 +101,7 @@ class TodoRepository
     {
         $todo = new Todo();
 
-        $input = $request->only(['content', 'user_id', 'color_id', 'list_id', 'type_id', 'project_id']);
+        $input = $request->only(['content', 'details', 'user_id', 'color_id', 'list_id', 'type_id', 'project_id']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {
@@ -118,6 +118,7 @@ class TodoRepository
         }
 
         $todo->status_id = Definer::UNDERWAY_STATUS_ID;
+        $todo->initiator_id = $request->user()->id;
 
         return $todo;
     }
@@ -131,7 +132,7 @@ class TodoRepository
      */
     public function UpdateTodo(TodoRequest $request, Todo $todo)
     {
-        $input = $request->only(['content', 'user_id', 'color_id', 'list_id', 'status_id']);
+        $input = $request->only(['content', 'details', 'user_id', 'color_id', 'list_id', 'status_id']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {

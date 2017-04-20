@@ -74,6 +74,20 @@
                             </div>
                         </div>
                     @endif
+                    {{-- TODO描述 --}}
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group{{ $errors->has('details') ? ' has-error' : '' }}">
+                                <label class="control-label">
+                                    {{ trans('todo.details') }}
+                                </label>
+                                <div>
+                                    <textarea class="form-control" rows="8" name="details" value="" data-provide="markdown" placeholder=" Markdown">{{ old('details') ?? $todo->details }}</textarea>
+                                    @include('layouts.common.error-one', ['field' => 'details'])
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
                             @if($todo->status_id === Definer::FINISH_STATUS_ID)

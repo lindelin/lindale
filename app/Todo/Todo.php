@@ -48,6 +48,17 @@ class Todo extends Model
     }
 
     /**
+     * 一个To-do有一个开票人
+     * 一对一
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function Initiator()
+    {
+        return $this->hasOne('App\User', 'id', 'initiator_id');
+    }
+
+    /**
      * 一个To-do属于一个类型
      * 一对一
      *

@@ -33,5 +33,12 @@ class TodoStatusSeeder extends Seeder
             'action_id' => \App\Definer::UNDERWAY_STATUS_ID,
             'user_id' => \App\Definer::SUPER_ADMIN_ID,
         ]);
+        \App\Todo\TodoStatus::create([
+            'id' => \App\Definer::UNDETERMINED_STATUS_ID,
+            'name' => 'status.undetermined',
+            'color_id' => \App\Definer::DANGER_COLOR_ID,
+            'action_id' => \App\Definer::UNDETERMINED_STATUS_ID,
+            'user_id' => \App\Definer::SUPER_ADMIN_ID,
+        ]);
     }
 }
