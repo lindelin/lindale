@@ -7,10 +7,12 @@
             </div>
             <!-- List group -->
             <ul class="list-group">
+                <a class="list-group-item" href="{{ url("project/$project->id/wiki/$HomeWiki->id") }}">
+                    {{ $HomeWiki->title }} ({{ trans('wiki.default') }})
+                </a>
                 @foreach( $wikis as $wiki)
                     <a class="list-group-item" href="{{ url("project/$project->id/wiki/$wiki->id") }}">
                         {{ $wiki->title }}
-                        @if($wiki->type_id === 0) ({{ trans('wiki.default') }}) @endif
                     </a>
                 @endforeach
             </ul>
