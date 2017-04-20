@@ -11,5 +11,6 @@ return [
     'wait'     => '等待中',
     'finish'   => '完成',
     'underway' => '进行中',
+    'undetermined' => '等待确认',
 
 ];

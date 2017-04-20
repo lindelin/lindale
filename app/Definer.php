@@ -30,6 +30,7 @@ class Definer
     const DEFAULT_STATUS_ID = 1;
     const FINISH_STATUS_ID = 2;
     const UNDERWAY_STATUS_ID = 3;
+    const UNDETERMINED_STATUS_ID = 4;
 
     /**
      * To-do默认一页表示个数.
@@ -129,6 +130,7 @@ class Definer
         $action[self::DEFAULT_STATUS_ID] = '<i class="fa fa-spinner fa-pulse '.$size.' fa-fw"></i>';
         $action[self::FINISH_STATUS_ID] = '<i class="fa fa-check '.$size.'" aria-hidden="true"></i>';
         $action[self::UNDERWAY_STATUS_ID] = '<i class="fa fa-circle-o-notch fa-spin '.$size.' fa-fw"></i>';
+        $action[self::UNDETERMINED_STATUS_ID] = '<i class="fa fa-spinner fa-pulse '.$size.' fa-fw"></i>';
 
         return $action;
     }

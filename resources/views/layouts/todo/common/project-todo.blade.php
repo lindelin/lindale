@@ -30,8 +30,8 @@
                         <tbody>
 
                         <tr>
+                            <th><span class="glyphicon glyphicon-user lindale-icon-color"></span> {{ trans('todo.initiator') }}</th>
                             <th><span class="glyphicon glyphicon-user lindale-icon-color"></span> {{ trans('todo.user') }}</th>
-                            <th><span class="glyphicon glyphicon-tag lindale-icon-color"></span> {{ trans('todo.type') }}</th>
                             <th><span class="glyphicon glyphicon-dashboard lindale-icon-color"></span> {{ trans('todo.status') }}</th>
                             <th><span class="glyphicon glyphicon-list-alt lindale-icon-color"></span> {{ trans('todo.todo-list') }}</th>
                             <th><i class="fa fa-refresh fa-spin fa-fw lindale-icon-color"></i> {{trans('todo.updated')}}</th>
@@ -40,10 +40,10 @@
 
                         <tr>
                             <td>
-                                @if($todo->User != null){{ $todo->User->name }}@else{{ trans('project.none') }}@endif
+                                {{ $todo->Initiator ? $todo->Initiator->name : trans('todo.initiator')}}
                             </td>
                             <td>
-                                {!! Colorable::label($todo->Type->color_id, trans($todo->Type->name)) !!}
+                                @if($todo->User != null){{ $todo->User->name }}@else{{ trans('project.none') }}@endif
                             </td>
                             <td>
                                 {!! Colorable::label($todo->Status->color_id, trans($todo->Status->name)) !!}
@@ -66,7 +66,12 @@
                         {{ $todo->content }}
                     </div>
                 </div>
-
+                <br>
+                @if($todo->details)
+                    <div class="jumbotron">
+                        {!! Markdown::toHtml($todo->details) !!}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

@@ -11,5 +11,6 @@ return [
     'wait'     => 'Waiting',
     'finish'   => 'Finished',
     'underway' => 'In Progress',
+    'undetermined' => 'Undetermined',
 
 ];
