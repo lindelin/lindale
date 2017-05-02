@@ -145,7 +145,7 @@ class ProjectRoutesTest extends TestCase
     {
         $response = $this->actingAs($this->user)->call('GET', '/project/'.$this->project2->id.'/edit');
         $this->assertEquals(200, $response->status());
-        $this->assertViewHasAll(['project', 'users',]);
+        $this->assertViewHasAll(['project', 'users']);
     }
 
     /**
