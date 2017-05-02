@@ -24,7 +24,7 @@ class CreateProjectsTable extends Migration
             $table->integer('user_id');
             $table->integer('sl_id')->nullable();
             $table->string('type_id', 10)->default('Default');;
-            $table->integer('status_id')->default(1);
+            $table->string('status_id', 10)->default('New');
             $table->integer('progress')->default(0);
             $table->timestamps();
         });

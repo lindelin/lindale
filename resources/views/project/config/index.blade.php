@@ -166,11 +166,7 @@
                                             <div class="form-group{{ $errors->has('status_id') ? ' has-error' : '' }}">
                                                 <label class="control-label">{{ trans('project.status') }}</label>
                                                 <div>
-                                                    <select class="selectpicker form-control" data-live-search="true" name="status_id">
-                                                        @foreach( $statuses as $status)
-                                                            <option value="{{ $status->id }}" @if($project->status_id == $user->id) selected @endif>{{ $status->name }}</option>
-                                                        @endforeach
-                                                    </select>
+                                                    <input type="text" class="form-control" name="status_id" value="{{ old('status_id') ?? $project->status_id }}">
                                                     @include('layouts.common.error-one', ['field' => 'status_id'])
                                                 </div>
                                             </div>
