@@ -53,7 +53,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             @include('layouts.common.number.project')
-            　<span class="label label-danger">{{ $project->Status->name }}</span>
+            　<span class="label label-danger">{{ $project->status_id }}</span>
         </div>
     </div>
     <br>

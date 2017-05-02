@@ -23,8 +23,8 @@ class CreateProjectsTable extends Migration
             $table->string('image', 100)->nullable();
             $table->integer('user_id');
             $table->integer('sl_id')->nullable();
-            $table->integer('type_id');
-            $table->integer('status_id')->default(1);
+            $table->string('type_id', 10)->default('Default');
+            $table->string('status_id', 10)->default('New');
             $table->integer('progress')->default(0);
             $table->timestamps();
         });

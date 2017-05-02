@@ -105,11 +105,7 @@
                             <div class="form-group{{ $errors->has('type_id') ? ' has-error' : '' }}">
                                 <label class="control-label">{{ trans('project.type') }}</label>
                                 <div>
-                                    <select class="selectpicker form-control" name="type_id">
-                                        @foreach( $types as $type)
-                                            <option value="{{ $type->id }}" @if($project->type_id == $type->id) selected @endif>{{ $type->name }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="text" class="form-control" name="type_id" value="{{ old('type_id') ?? $project->type_id }}">
                                     @include('layouts.common.error-one', ['field' => 'type_id'])
                                 </div>
                             </div>
@@ -136,11 +132,7 @@
                             <div class="form-group{{ $errors->has('status_id') ? ' has-error' : '' }}">
                                 <label class="control-label">{{ trans('project.status') }}</label>
                                 <div>
-                                    <select class="selectpicker form-control" data-live-search="true" name="status_id">
-                                        @foreach( $statuses as $status)
-                                            <option value="{{ $status->id }}" @if($project->status_id == $user->id) selected @endif>{{ $status->name }}</option>
-                                        @endforeach
-                                    </select>
+                                    <input type="text" class="form-control" name="status_id" value="{{ old('status_id') ?? $project->status_id }}">
                                     @include('layouts.common.error-one', ['field' => 'status_id'])
                                 </div>
                             </div>

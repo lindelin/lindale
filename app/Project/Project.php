@@ -26,7 +26,6 @@ use Illuminate\Notifications\Notifiable;
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Settings\ProjectSettings[] $Config
  * @property-read \App\User $ProjectLeader
- * @property-read \App\Project\ProjectStatus $Status
  * @property-read \App\User $SubLeader
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Task\TaskGroup[] $TaskGroups
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Task\TaskStatus[] $TaskStatuses
@@ -34,7 +33,6 @@ use Illuminate\Notifications\Notifiable;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Task\Task[] $Tasks
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Todo\TodoList[] $TodoLists
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Todo\Todo[] $Todos
- * @property-read \App\Project\ProjectType $Type
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $Users
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Wiki\WikiType[] $WikiTypes
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Wiki\Wiki[] $Wikis
@@ -102,28 +100,6 @@ class Project extends Model
     public function SubLeader()
     {
         return $this->hasOne('App\User', 'id', 'sl_id');
-    }
-
-    /**
-     * 一个项目只有一个状态
-     * 一对一
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function Status()
-    {
-        return $this->hasOne('App\Project\ProjectStatus', 'id', 'status_id');
-    }
-
-    /**
-     * 一个项目只有一个类型
-     * 一对一
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function Type()
-    {
-        return $this->hasOne('App\Project\ProjectType', 'id', 'type_id');
     }
 
     /*
