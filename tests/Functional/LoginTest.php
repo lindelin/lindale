@@ -10,23 +10,12 @@ class LoginTest extends TestCase
     {
         $this->visit('/login')
             ->see('Lindalë')
-            ->see('HOME')
             ->see('Login')
             ->see('E-Mail Address')
             ->see('Password')
             ->see('Remember Me')
             ->see('English')
             ->see('Forgot Your Password');
-    }
-
-    /**
-     * HOMEボタン作動確認.
-     */
-    public function testHomeButton()
-    {
-        $this->visit('/login')
-            ->click('HOME')
-            ->seePageIs('/');
     }
 
     /**
