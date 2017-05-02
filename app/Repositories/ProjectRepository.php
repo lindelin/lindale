@@ -21,6 +21,7 @@ class ProjectRepository
     {
         if ($key == null) {
             $users = User::all();
+
             return compact('users');
         }
         if ($key == 'projects') {
