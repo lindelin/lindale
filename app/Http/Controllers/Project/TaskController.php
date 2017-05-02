@@ -170,7 +170,8 @@ class TaskController extends Controller
         if ($result) {
             event(new TaskCreated($task, $request->user()));
 
-            return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.save-succeed'));
+            return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)
+                ->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-failed'));
         }
