@@ -34,7 +34,6 @@ use Illuminate\Notifications\Notifiable;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Task\Task[] $Tasks
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Todo\TodoList[] $TodoLists
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Todo\Todo[] $Todos
- * @property-read \App\Project\ProjectType $Type
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $Users
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Wiki\WikiType[] $WikiTypes
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Wiki\Wiki[] $Wikis
@@ -113,17 +112,6 @@ class Project extends Model
     public function Status()
     {
         return $this->hasOne('App\Project\ProjectStatus', 'id', 'status_id');
-    }
-
-    /**
-     * 一个项目只有一个类型
-     * 一对一
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function Type()
-    {
-        return $this->hasOne('App\Project\ProjectType', 'id', 'type_id');
     }
 
     /*

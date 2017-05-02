@@ -7,7 +7,6 @@ use Charts;
 use App\User;
 use App\Counter;
 use App\Project\Project;
-use App\Project\ProjectType;
 use App\Project\ProjectStatus;
 use App\Http\Requests\ProjectRequest;
 use Illuminate\Support\Facades\Storage;
@@ -22,11 +21,10 @@ class ProjectRepository
     public function ProjectResources($key = null)
     {
         if ($key == null) {
-            $types = ProjectType::all();
             $users = User::all();
             $statuses = ProjectStatus::all();
 
-            return compact('types', 'users', 'statuses');
+            return compact('users', 'statuses');
         }
         if ($key == 'projects') {
             $projects = Project::orderBy('progress', 'asc')->latest()->Paginate(6);

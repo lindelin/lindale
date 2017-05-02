@@ -102,12 +102,10 @@
                             <div class="form-group{{ $errors->has('type_id') ? ' has-error' : '' }}">
                                 <label class="control-label">{{ trans('project.type') }}</label>
                                 <div>
-                                    <select class="selectpicker form-control" name="type_id">
-                                        @foreach( $types as $type)
-                                            <option value="{{ $type->id }}" @if(old('type_id') == $type->id) selected @endif>{{ $type->name }}</option>
-                                        @endforeach
-                                    </select>
-                                    @include('layouts.common.error-one', ['field' => 'type_id'])
+                                    <div>
+                                        <input type="text" class="form-control" name="type_id" value="{{ old('type_id') }}">
+                                        @include('layouts.common.error-one', ['field' => 'type_id'])
+                                    </div>
                                 </div>
                             </div>
                         </div>

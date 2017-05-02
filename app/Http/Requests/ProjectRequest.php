@@ -27,10 +27,10 @@ class ProjectRequest extends FormRequest
             'title' => 'required|unique:projects|max:100',
             'start_at' => 'date|date_format:Y-m-d',
             'end_at' => 'date|after:start_at|date_format:Y-m-d',
-            'type_id' => 'required|integer',
+            'type_id' => 'max:10',
             'sl_id' => 'integer',
             'password' => 'required|min:6|max:15|confirmed',
-            /*'image' => 'image',*/
+            'image' => 'image',
         ];
 
         $delete = [
@@ -40,7 +40,7 @@ class ProjectRequest extends FormRequest
         $update = [
             'start_at' => 'date|date_format:Y-m-d',
             'end_at' => 'date|after:start_at|date_format:Y-m-d',
-            'type_id' => 'integer',
+            'type_id' => 'max:10',
             'status_id' => 'integer',
             'sl_id' => 'integer',
             'password' => 'min:6|max:15|confirmed',

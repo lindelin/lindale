@@ -1,1 +1,1 @@
-{{ $project->Type->name }}#{{ sprintf("%02d", $project->type_id).$project->user_id.$project->id }}
+{{ $project->type_id }}#{{ sprintf("%05d", $project->id) }}
