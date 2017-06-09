@@ -12,8 +12,8 @@ return [
     'status'        => 'アクティビティ',
     'new-task'      => '新規チケット',
     'finished-task' => '完了チケット',
-    'new-todo'      => '新規TODO',
-    'finished-todo' => '完了TODO',
+    'new-todo'      => '新規 TODO',
+    'finished-todo' => '完了 TODO',
     'count'         => '件',
     'proportion'    => '進捗割合',
 ];
