@@ -225,6 +225,7 @@ class TaskRepository
         }
 
         $task->project_id = $project->id;
+        $task->initiator_id = $request->user()->id;
 
         return $task;
     }

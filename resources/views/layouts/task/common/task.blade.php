@@ -31,37 +31,49 @@
             <br>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <span class="glyphicon glyphicon-user"></span>
-                    <span class="hidden-xs hidden-sm">{{ trans('task.user') }}：</span>
+                    <span class="glyphicon glyphicon-user lindale-icon-color"></span>
+                    <span class="hidden-xs hidden-sm lindale-color">{{ trans('task.user') }}：</span>
                     @if($task->User != null){{ $task->User->name }}@else{{ trans('task.none') }}@endif
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <i class="fa fa-hourglass-half" aria-hidden="true"></i>
-                    <span class="hidden-xs hidden-sm">{{ trans('task.cost') }}：</span>
+                    <i class="fa fa-hourglass-half lindale-icon-color" aria-hidden="true"></i>
+                    <span class="hidden-xs hidden-sm lindale-color">{{ trans('task.cost') }}：</span>
                     @if((int)$task->cost !== null){{ $task->cost }} {{ trans('task.hour') }}@else{{ trans('task.none') }}@endif
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <span class="glyphicon glyphicon-th-list"></span>
-                    <span class="hidden-xs hidden-sm">{{ trans('task.group') }}：</span>
+                    <span class="glyphicon glyphicon-user lindale-icon-color"></span>
+                    <span class="hidden-xs hidden-sm lindale-color">{{ trans('todo.initiator') }}：</span>
+                    {{ $task->Initiator ? $task->Initiator->name : trans('task.none') }}
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <span class="glyphicon glyphicon-time lindale-icon-color"></span>
+                    <span class="hidden-xs hidden-sm lindale-color">{{ trans('task.created') }}：</span>
+                    {{ $task->created_at }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <span class="glyphicon glyphicon-th-list lindale-icon-color"></span>
+                    <span class="hidden-xs hidden-sm lindale-color">{{ trans('task.group') }}：</span>
                     @if($task->Group != null){{ $task->Group->title }}@else{{ trans('task.none') }}@endif
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <i class="fa fa-tachometer" aria-hidden="true"></i>
-                    <span class="hidden-xs hidden-sm">{{ trans('task.priority') }}：</span>
+                    <i class="fa fa-tachometer lindale-icon-color" aria-hidden="true"></i>
+                    <span class="hidden-xs hidden-sm lindale-color">{{ trans('task.priority') }}：</span>
                     {{ trans($task->Priority->name) }}
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <i class="fa fa-hourglass-start" aria-hidden="true"></i>
-                    <span class="hidden-xs hidden-sm">{{ trans('task.start_at') }}：</span>
+                    <i class="fa fa-hourglass-start lindale-icon-color" aria-hidden="true"></i>
+                    <span class="hidden-xs hidden-sm lindale-color">{{ trans('task.start_at') }}：</span>
                     @if($task->start_at != ''){{ $task->start_at }}@else{{ trans('task.none') }}@endif
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <i class="fa fa-hourglass-end" aria-hidden="true"></i>
-                    <span class="hidden-xs hidden-sm">{{ trans('task.end_at') }}：</span>
+                    <i class="fa fa-hourglass-end lindale-icon-color" aria-hidden="true"></i>
+                    <span class="hidden-xs hidden-sm lindale-color">{{ trans('task.end_at') }}：</span>
                     @if($task->end_at != ''){{ $task->end_at }}@else{{ trans('task.none') }}@endif
                 </div>
             </div>
