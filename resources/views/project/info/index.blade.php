@@ -57,6 +57,13 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    @if($paCount !== 0)
+                        <h5 class="lindale-color"><span class="glyphicon glyphicon-bishop lindale-icon-color"></span> {{ $paCount }}</h5>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     @if($pmCount !== 0)
                         <h5 class="lindale-color"><span class="glyphicon glyphicon-pawn lindale-icon-color"></span> {{ $pmCount }}</h5>
                     @endif

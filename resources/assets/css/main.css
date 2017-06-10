@@ -177,7 +177,18 @@ body{
 	font-family: 'Noto Sans', sans-serif !important;
 }
 
+.jumbotron p {
+    font-size: 16px !important;
+    font-weight: 100 !important;
+}
+
 .project-panel-title{
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+pre {
+	border-radius: 0 !important;
+	border: none !important;
+	padding: 16px !important;
 }

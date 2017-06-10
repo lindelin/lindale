@@ -132,10 +132,10 @@
                             <div class="form-group{{ $errors->has('status_id') ? ' has-error' : '' }}">
                                 <label class="control-label">{{ trans('task.status') }}</label>
                                 <div>
-                                    <select class="selectpicker form-control" data-live-search="true" name="status_id">
-                                        @foreach( $statuses as $status)
-                                            <option value="{{ $status->id }}" @if(old('status_id') ? old('status_id') : $group->status_id == $status->id) selected @endif>
-                                                {{ trans($status->name) }}
+                                    <select class="selectpicker form-control" data-live-search="false" name="status_id">
+                                        @foreach( $taskGroupStatuses as $key => $status)
+                                            <option value="{{ $key }}" @if(old('status_id') ? old('status_id') : $group->status_id == $key) selected @endif>
+                                                {{ $status }}
                                             </option>
                                         @endforeach
                                     </select>

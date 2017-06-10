@@ -28,7 +28,7 @@
                                     <div>
                                         <select class="selectpicker form-control" data-live-search="true" name="group_id">
                                             <option value="" @if(old('group_id') == '') selected @endif>{{ trans('task.none') }}</option>
-                                            @foreach( $groups as $group)
+                                            @foreach( $openGroups as $group)
                                                 <option value="{{ $group->id }}" @if(old('group_id') == $group->id) selected @endif>{{ $group->title }}</option>
                                             @endforeach
                                         </select>

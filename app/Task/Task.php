@@ -74,6 +74,17 @@ class Task extends Model
     }
 
     /**
+     * 一个任务有一个开票人
+     * 一对一
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function Initiator()
+    {
+        return $this->hasOne('App\User', 'id', 'initiator_id');
+    }
+
+    /**
      * 一个任务对应一个类型
      * 一对一
      *
