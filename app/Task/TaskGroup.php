@@ -2,8 +2,8 @@
 
 namespace App\Task;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\HtmlString;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * App\Task\TaskGroup.
@@ -37,7 +37,7 @@ use Illuminate\Support\HtmlString;
  */
 class TaskGroup extends Model
 {
-    const OPEN  = 1;
+    const OPEN = 1;
     const CLOSE = 999;
 
     /**
@@ -63,14 +63,12 @@ class TaskGroup extends Model
 
     /**
      * 一个任务组有一个状态
-     *
-     *
      */
     public function Status()
     {
         if ($this->status_id === self::CLOSE) {
             return new HtmlString('<span class="label label-danger"><span class="glyphicon glyphicon-folder-close"></span> CLOSE</span>');
-        } else{
+        } else {
             return new HtmlString('<span class="label label-success"><span class="glyphicon glyphicon-folder-open"></span> OPEN</span>');
         }
     }

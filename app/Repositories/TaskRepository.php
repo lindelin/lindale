@@ -193,6 +193,7 @@ class TaskRepository
             TaskGroup::OPEN => 'OPEN',
             TaskGroup::CLOSE => 'CLOSE',
             ];
+
         return compact('types', 'statuses', 'priorities', 'taskGroupStatuses');
     }
 
