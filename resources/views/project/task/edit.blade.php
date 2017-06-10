@@ -31,7 +31,7 @@
                                             <option value="0" @if(old('group_id') ? old('group_id') : $task->group_id == '' or 0) selected @endif>
                                                 {{ trans('task.none') }}
                                             </option>
-                                            @foreach( $groups as $group)
+                                            @foreach( $openGroups as $group)
                                                 <option value="{{ $group->id }}" @if(old('group_id') ? old('group_id') : $task->group_id == $group->id) selected @endif>
                                                     {{ $group->title }}
                                                 </option>

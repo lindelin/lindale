@@ -3,6 +3,7 @@
 namespace App\Task;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\HtmlString;
 
 /**
  * App\Task\TaskGroup.
@@ -36,6 +37,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TaskGroup extends Model
 {
+    const OPEN  = 1;
+    const CLOSE = 999;
+
     /**
      * 一个任务组有多个任务
      * 一对多.
@@ -60,10 +64,14 @@ class TaskGroup extends Model
     /**
      * 一个任务组有一个状态
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     *
      */
     public function Status()
     {
-        return $this->hasOne('App\Task\TaskStatus', 'id', 'status_id');
+        if ($this->status_id === self::CLOSE) {
+            return new HtmlString('<span class="label label-danger"><span class="glyphicon glyphicon-folder-close"></span> CLOSE</span>');
+        } else{
+            return new HtmlString('<span class="label label-success"><span class="glyphicon glyphicon-folder-open"></span> OPEN</span>');
+        }
     }
 }

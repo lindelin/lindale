@@ -135,9 +135,10 @@ class TaskRepository
     public function TaskGroupResources(Project $project)
     {
         $taskGroupCreteResources = $this->TaskGroupCreateResources($project);
-        $groups = $project->TaskGroups()->latest()->paginate(3);
+        $groups = $project->TaskGroups()->orderBy('status_id', 'asc')->latest()->paginate(3);
+        $openGroups = $project->TaskGroups()->where('status_id', '<>', TaskGroup::CLOSE)->latest()->get();
 
-        return array_merge(compact('groups'), $taskGroupCreteResources);
+        return array_merge(compact('groups', 'openGroups'), $taskGroupCreteResources);
     }
 
     /**
@@ -188,7 +189,11 @@ class TaskRepository
 
         $priorities = TaskPriority::all();
 
-        return compact('types', 'statuses', 'priorities');
+        $taskGroupStatuses = [
+            TaskGroup::OPEN => 'OPEN',
+            TaskGroup::CLOSE => 'CLOSE',
+            ];
+        return compact('types', 'statuses', 'priorities', 'taskGroupStatuses');
     }
 
     /**

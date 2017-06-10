@@ -4,7 +4,7 @@
             <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $group->id }}" aria-expanded="false" aria-controls="collapse{{ $group->id }}">
                 <span class="glyphicon glyphicon-th-list lindale-icon-color"></span> {{ $group->title }}
             </a>
-            <small>{!! Colorable::label($group->Status->color_id, trans($group->Status->name)) !!}</small>
+            <small>{{ $group->Status() }}</small>
         </h2>
     </div>
 </div>

@@ -46,7 +46,7 @@
                             {!! Colorable::label($group->Type->color_id, trans($group->Type->name)) !!}
                         </td>
                         <td>
-                            {!! Colorable::label($group->Status->color_id, trans($group->Status->name)) !!}
+                            {{ $group->Status() }}
                         </td>
                         <td>
                             @if($group->start_at != ''){{ $group->start_at }}@else{{ trans('task.none') }}@endif
