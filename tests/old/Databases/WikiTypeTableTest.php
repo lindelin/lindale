@@ -1,7 +1,7 @@
 <?php
 
 
-class WikiTypeTableTest extends TestCase
+class WikiTypeTableTest extends BrowserKitTestCase
 {
     /**
      * Wiki索引テーブルにデフォルトデータがある.

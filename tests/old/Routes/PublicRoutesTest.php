@@ -1,7 +1,7 @@
 <?php
 
 
-class PublicRoutesTest extends TestCase
+class PublicRoutesTest extends BrowserKitTestCase
 {
     /**
      * 公開ルートとしてアクセスできる.

@@ -1,7 +1,7 @@
 <?php
 
 
-class LoginTest extends TestCase
+class LoginTest extends BrowserKitTestCase
 {
     /**
      * 歓迎画面の表示確認.

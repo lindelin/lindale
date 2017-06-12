@@ -1,7 +1,7 @@
 <?php
 
 
-class TodoStatusTableTest extends TestCase
+class TodoStatusTableTest extends BrowserKitTestCase
 {
     /**
      * To-doステータステーブルにデフォルトデータがある.

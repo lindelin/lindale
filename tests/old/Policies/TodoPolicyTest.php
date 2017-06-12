@@ -2,7 +2,7 @@
 
 use App\Policies\TodoPolicy;
 
-class TodoPolicyTest extends TestCase
+class TodoPolicyTest extends BrowserKitTestCase
 {
     /**
      * ユーザモデル.

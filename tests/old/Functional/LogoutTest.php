@@ -1,7 +1,7 @@
 <?php
 
 
-class LogoutTest extends TestCase
+class LogoutTest extends BrowserKitTestCase
 {
     /**
      * ログアウト確認.

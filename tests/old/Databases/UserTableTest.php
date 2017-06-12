@@ -1,7 +1,7 @@
 <?php
 
 
-class UserTableTest extends TestCase
+class UserTableTest extends BrowserKitTestCase
 {
     /**
      * ユーザテーブルにスーパー管理人のレコードがある.

@@ -1,7 +1,7 @@
 <?php
 
 
-class ProjectRoutesTest extends TestCase
+class ProjectRoutesTest extends BrowserKitTestCase
 {
     /**
      * ユーザモデル.

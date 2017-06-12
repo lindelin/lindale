@@ -11,6 +11,8 @@ require('./pageloader');
 require('./clock');
 require('./bootstrap-notify');
 
+window.Vue = require('vue');
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the body of the page. From here, you may begin adding components to

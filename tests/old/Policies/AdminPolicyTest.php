@@ -2,7 +2,7 @@
 
 use App\Policies\AdminPolicy;
 
-class AdminPolicyTest extends TestCase
+class AdminPolicyTest extends BrowserKitTestCase
 {
     /**
      * SuperAdminユーザモデル.
