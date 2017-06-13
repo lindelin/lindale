@@ -14,7 +14,7 @@ class ProjectRepository
 {
     /**
      * 项目资源.
-     *
+     * @param null $key
      * @return array
      */
     public function ProjectResources($key = null)
