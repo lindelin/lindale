@@ -16,8 +16,8 @@
                     <h3 class="lindale-color"><span class="glyphicon glyphicon-book lindale-icon-color"></span> {{ $wiki->title }}
                         <br>
                         <small>
-                            {{ trans('wiki.writer') }}: {{ $HomeWiki->User->name }}　
-                            {{ trans('wiki.created') }}: {{ $HomeWiki->created_at }}　
+                            {{ trans('wiki.writer') }}: {{ $wiki->User->name }}　
+                            {{ trans('wiki.created') }}: {{ $wiki->created_at }}　
                         </small>
                     </h3>
                 </div>
