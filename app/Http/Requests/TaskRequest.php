@@ -24,31 +24,31 @@ class TaskRequest extends FormRequest
     public function rules()
     {
         $create = [
-            'group_id' => 'integer',
+            'group_id' => 'nullable|integer',
             'title' => 'required|max:100',
-            'start_at' => 'date|date_format:Y-m-d',
-            'end_at' => 'date|after:start_at|date_format:Y-m-d',
-            'cost' => 'integer|max:100000000000',
+            'start_at' => 'nullable|date|date_format:Y-m-d',
+            'end_at' => 'nullable|date|after:start_at|date_format:Y-m-d',
+            'cost' => 'nullable|integer|max:100000000000',
             'type_id' => 'required|integer',
-            'user_id' => 'integer',
+            'user_id' => 'nullable|integer',
             'status_id' => 'required|integer',
             'priority_id' => 'required|integer',
             'color_id' => 'required|integer',
-            'task_id' => 'integer',
+            'task_id' => 'nullable|integer',
         ];
 
         $update = [
-            'group_id' => 'integer',
-            'title' => 'max:100',
-            'start_at' => 'date|date_format:Y-m-d',
-            'end_at' => 'date|after:start_at|date_format:Y-m-d',
-            'cost' => 'integer|max:100000000000',
-            'type_id' => 'integer',
-            'user_id' => 'integer',
-            'status_id' => 'integer',
-            'priority_id' => 'integer',
-            'color_id' => 'integer',
-            'task_id' => 'integer',
+            'group_id' => 'nullable|integer',
+            'title' => 'nullable|max:100',
+            'start_at' => 'nullable|date|date_format:Y-m-d',
+            'end_at' => 'nullable|date|after:start_at|date_format:Y-m-d',
+            'cost' => 'nullable|integer|max:100000000000',
+            'type_id' => 'nullable|integer',
+            'user_id' => 'nullable|integer',
+            'status_id' => 'nullable|integer',
+            'priority_id' => 'nullable|integer',
+            'color_id' => 'nullable|integer',
+            'task_id' => 'nullable|integer',
         ];
 
         if ($this->getMethod() == 'PATCH') {

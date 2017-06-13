@@ -26,22 +26,22 @@ class UserRequest extends FormRequest
         $create = [
             'name' => 'required|max:20',
             'email' => 'required|unique:users|max:30',
-            'content' => 'max:40',
+            'content' => 'nullable|max:40',
             'password' => 'required|min:6|max:15|confirmed',
         ];
 
         $update = [
-            'name' => 'max:20',
-            'content' => 'max:40',
-            'company' => 'max:40',
-            'location' => 'max:40',
-            'phone' => 'max:30',
-            'fax' => 'max:30',
-            'mobile' => 'max:16',
-            'github' => 'max:50',
-            'Slack' => 'max:50',
-            'facebook' => 'max:50',
-            'qq' => 'max:16',
+            'name' => 'nullable|max:20',
+            'content' => 'nullable|max:40',
+            'company' => 'nullable|max:40',
+            'location' => 'nullable|max:40',
+            'phone' => 'nullable|max:30',
+            'fax' => 'nullable|max:30',
+            'mobile' => 'nullable|max:16',
+            'github' => 'nullable|max:50',
+            'Slack' => 'nullable|max:50',
+            'facebook' => 'nullable|max:50',
+            'qq' => 'nullable|max:16',
         ];
 
         if ($this->getMethod() == 'PATCH') {
