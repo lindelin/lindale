@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Routes;
+namespace Tests\Feature\Routes;
 
 use Tests\TestCase;
 use App\User;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Databases;
+namespace Tests\Feature\Databases;
 
 use Tests\TestCase;
 use Definer;

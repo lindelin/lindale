@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Routes;
+namespace Tests\Feature\Routes;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -83,30 +83,6 @@ class WelcomeRoutesTest extends TestCase
     }
 
     /**
-     * 公開ルートとしてアクセスできない
-     * ログインページにリダイレクトされる.
-     *
-     * @test
-     */
-    public function it_can_not_access_home_page()
-    {
-        $response = $this->get('/home');
-        $response->assertStatus(302);
-    }
-
-    /**
-     * 公開ルートとしてアクセスできる
-     * リダイレクトされる.
-     *
-     * @test
-     */
-    public function it_can_not_access_project_page()
-    {
-        $response = $this->get('/project');
-        $response->assertStatus(302);
-    }
-
-    /**
      * 公開ルートとしてアクセスでき
      * 404ページを見せる.
      *
@@ -127,6 +103,18 @@ class WelcomeRoutesTest extends TestCase
     public function it_can_not_access_admin_page()
     {
         $response = $this->get('/admin');
+        $response->assertStatus(302);
+
+        $response = $this->get('/task');
+        $response->assertStatus(302);
+
+        $response = $this->get('/todo');
+        $response->assertStatus(302);
+
+        $response = $this->get('/home');
+        $response->assertStatus(302);
+
+        $response = $this->get('/project');
         $response->assertStatus(302);
     }
 

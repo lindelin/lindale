@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Routes;
+namespace Tests\Feature\Routes;
 
 use App\Definer;
 use App\Project\Project;
