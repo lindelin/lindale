@@ -20,4 +20,16 @@ class UserPolicy
     {
         return Admin::is_super_admin($user);
     }
+
+    /**
+     * ユーザー更新認可
+     *
+     * @param User $user
+     * @param User $user_data
+     * @return bool
+     */
+    public function update(User $user, User $user_data)
+    {
+        return $user->id === $user_data->id;
+    }
 }
