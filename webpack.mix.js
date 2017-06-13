@@ -11,5 +11,18 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css');
+// App.js
+mix.js('resources/assets/js/app.js', 'public/js');
+
+// Scss
+mix.sass('resources/assets/sass/app.scss', '../resources/assets/css/lib.css');
+
+// Main CSS
+mix.styles([
+    'resources/assets/css/lib.css',
+    'resources/assets/css/main.css',
+    'resources/assets/css/callouts.css',
+    'resources/assets/css/pageloader.css',
+    'resources/assets/css/bootstrap-off-canvas-nav.css',
+    'resources/assets/css/clock.css'
+], 'public/css/main.css');

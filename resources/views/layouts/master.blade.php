@@ -11,7 +11,7 @@
 
     @include('layouts.common.header')
 
-    <div class="container">
+    <div class="container" id="app">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 @yield('content')
