@@ -23,6 +23,5 @@ mix.styles([
     'resources/assets/css/main.css',
     'resources/assets/css/callouts.css',
     'resources/assets/css/pageloader.css',
-    'resources/assets/css/bootstrap-off-canvas-nav.css',
-    'resources/assets/css/clock.css'
+    'resources/assets/css/bootstrap-off-canvas-nav.css'
 ], 'public/css/main.css');
