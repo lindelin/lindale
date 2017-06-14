@@ -190,5 +190,6 @@ body{
 pre {
 	border-radius: 0 !important;
 	border: none !important;
-	padding: 16px !important;
+	padding: 24px !important;
+	background-color: #f8f8f8 !important;
 }
