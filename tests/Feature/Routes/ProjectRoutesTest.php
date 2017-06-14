@@ -53,7 +53,7 @@ class ProjectRoutesTest extends TestCase
      *
      * @test
      */
-    public function it_can_not_access_the_project_page()
+    public function it_can_access_the_project_show_page()
     {
         $response = $this->actingAs($this->user)->get('/project');
         $response->assertStatus(200);
@@ -65,7 +65,7 @@ class ProjectRoutesTest extends TestCase
      *
      * @test
      */
-    public function it_can_access_the_project_show_page()
+    public function it_can_not_access_the_project_show_page()
     {
         $response = $this->actingAs($this->user)->get('/project/'.$this->project1->id);
         $response->assertStatus(302);
