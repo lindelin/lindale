@@ -51,5 +51,6 @@ return [
     'created-task' => ':Name 添加了新的任务：',
     'updated-task' => ':Name 更新了任务：',
     'deleted-task' => ':Name 删除了任务：',
+    'created-task-activity' => ':Name 添加了新的动态：',
 
 ];

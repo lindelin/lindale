@@ -51,5 +51,6 @@ return [
     'created-task' => '1 new Task by :Name :',
     'updated-task' => '1 Task Updated by :Name :',
     'deleted-task' => '1 Task Deleted by :Name :',
+    'created-task-activity' => '1 new Activity by :Name :',
 
 ];

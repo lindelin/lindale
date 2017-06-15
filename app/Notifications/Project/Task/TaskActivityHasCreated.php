@@ -58,7 +58,7 @@ class TaskActivityHasCreated extends Notification implements ShouldQueue
 
         return (new SlackMessage)
             ->success()
-            ->content(trans('created-task-activity', ['name' => $this->taskActivity->User->name]))
+            ->content(trans('task.created-task-activity', ['name' => $this->taskActivity->User->name]))
             ->attachment(function ($attachment) {
                 $attachment->title(
                     ':scroll:'.trans($this->taskActivity->Task->Type->name).'：'.$this->taskActivity->Task->title,
