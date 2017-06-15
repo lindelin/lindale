@@ -55,7 +55,7 @@
                 <header class="page-header no-margin">
                     <div class="mask"></div>
                     <img src="{{ asset('img/top/1.jpeg') }}" alt="Home featured image" class="page-hero" />
-                    <img src="/images/featured/home-tn.jpg" alt="Home featured image" class="mobile-hero" />
+                    <img src="{{ asset('img/top/2.jpg') }}" alt="Home featured image" class="mobile-hero" />
                     <div class="text-box">
                         <p>The Project Manager For Everyone.</p>
 
