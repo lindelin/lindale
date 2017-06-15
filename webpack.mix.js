@@ -25,3 +25,9 @@ mix.styles([
     'resources/assets/css/pageloader.css',
     'resources/assets/css/bootstrap-off-canvas-nav.css'
 ], 'public/css/main.css');
+
+// Welcome CSS
+mix.styles([
+    'resources/assets/css/welcome.css',
+    'resources/assets/css/normalize.css',
+], 'public/css/welcome.css');
