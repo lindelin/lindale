@@ -51,5 +51,6 @@ return [
     'created-task' => ':Name さんは新しいチケットを作成しました：',
     'updated-task' => ':Name さんはチケットを更新しました：',
     'deleted-task' => ':Name さんはチケットを削除しました：',
+    'created-task-activity' => ':Name さんはアクティビティを登録しました：',
 
 ];

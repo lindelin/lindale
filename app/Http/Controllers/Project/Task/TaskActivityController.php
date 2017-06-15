@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Project\Task;
 
+use App\Events\Task\TaskActivity\TaskActivityCreated;
 use App\Task\Task;
 use App\Project\Project;
 use App\Task\TaskActivity;
@@ -45,6 +46,9 @@ class TaskActivityController extends Controller
         $result = $activity->save();
 
         if ($result) {
+
+            event(new TaskActivityCreated($activity));
+
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-failed'));

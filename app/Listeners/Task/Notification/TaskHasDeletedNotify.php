@@ -5,9 +5,12 @@ namespace App\Listeners\Task\Notification;
 use App\ProjectConfig;
 use App\Events\Task\TaskDeleted;
 use App\Notifications\Project\Task\TaskHasDeleted;
+use App\Tools\Checker\ConfigChecker;
 
 class TaskHasDeletedNotify
 {
+    use ConfigChecker;
+
     /**
      * Handle the event.
      *
@@ -17,11 +20,7 @@ class TaskHasDeletedNotify
     public function handle(TaskDeleted $event)
     {
         //项目消息
-        if (
-            ProjectConfig::get($event->task->Project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::ON and
-            ProjectConfig::get($event->task->Project, ProjectConfig::SLACK_API_KEY) != '' and
-            ProjectConfig::get($event->task->Project, ProjectConfig::SLACK_API_KEY) != 'Null'
-        ) {
+        if ($this->projectSlackNotify($event->task->Project)) {
             $event->task->Project->notify(new TaskHasDeleted(
                 $event->user,
                 ProjectConfig::get($event->task->Project, ProjectConfig::LANG),
