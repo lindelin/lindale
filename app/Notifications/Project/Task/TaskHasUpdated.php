@@ -89,7 +89,7 @@ class TaskHasUpdated extends Notification implements ShouldQueue
                         trans('todo.updated') => (string) $this->task->updated_at,
                         trans('todo.created') => (string) $this->task->created_at,
                     ])
-                    ->content(Counter::SubTaskCount($this->task).trans('task.sub-task').'（'.Counter::FinishedSubTasks($this->task).' - '.trans('task.finish').'，'.
+                    ->content(Counter::SubTaskCount($this->task).'　'.trans('task.sub-task').'（'.Counter::FinishedSubTasks($this->task).' - '.trans('task.finish').'，'.
                         Counter::UnfinishedSubTasks($this->task).' - '.trans('task.unfinished').'）');
             });
     }

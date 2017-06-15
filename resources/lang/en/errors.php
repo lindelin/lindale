@@ -14,6 +14,8 @@ return [
     'update-failed'  => 'Update failed!',
     'save-succeed'   => 'Successfully saved.',
     'save-failed'    => 'Save failed!',
+    'add-succeed'    => 'Successfully added',
+    'add-failed'     => 'Add failed!',
     'remove-succeed' => 'Successfully removed.',
     'remove-failed'  => 'Remove failed!',
 

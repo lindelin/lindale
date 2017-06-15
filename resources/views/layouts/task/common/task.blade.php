@@ -43,7 +43,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <span class="glyphicon glyphicon-user lindale-icon-color"></span>
+                    <span class="glyphicon glyphicon-pencil lindale-icon-color"></span>
                     <span class="hidden-xs hidden-sm lindale-color">{{ trans('todo.initiator') }}：</span>
                     {{ $task->Initiator ? $task->Initiator->name : trans('task.none') }}
                 </div>
