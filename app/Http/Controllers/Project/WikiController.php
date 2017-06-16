@@ -63,7 +63,11 @@ class WikiController extends Controller
      */
     public function store(WikiRequest $request, Project $project)
     {
-        $result = $this->wikiRepository->CreateWiki($request, $project)->save();
+        $wiki = $this->wikiRepository->CreateWiki($request, $project);
+
+        $this->authorize('create', [$wiki, $project]);
+
+        $result = $wiki->save();
 
         if ($result) {
             return redirect()->to("project/$project->id/wiki")->with('status', trans('errors.save-succeed'));
@@ -94,6 +98,8 @@ class WikiController extends Controller
      */
     public function edit(Project $project, Wiki $wiki)
     {
+        $this->authorize('update', [$wiki, $project]);
+
         return view('project.wiki.edit', $this->wikiRepository->WikiResources($project))
             ->with(['project' => $project, 'wiki' => $wiki, 'selected' => 'wiki']);
     }
@@ -108,6 +114,8 @@ class WikiController extends Controller
      */
     public function update(WikiRequest $request, Project $project, Wiki $wiki)
     {
+        $this->authorize('update', [$wiki, $project]);
+
         $result = $this->wikiRepository->UpdateWiki($request, $project, $wiki)->update();
 
         if ($result) {
@@ -126,6 +134,8 @@ class WikiController extends Controller
      */
     public function destroy(Project $project, Wiki $wiki)
     {
+        $this->authorize('delete', [$wiki, $project]);
+
         if ($wiki->image != '') {
             Storage::delete('public/'.$wiki->image);
         }

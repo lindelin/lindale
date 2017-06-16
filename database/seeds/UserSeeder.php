@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
         \App\User::create([
             'id' => 1,
             'name'   => 'Admin',
-            'email'    => 'admin@lindale.tk',
+            'email'    => 'admin@lindelin.org',
             'password' => bcrypt('123456'),
         ]);
     }
