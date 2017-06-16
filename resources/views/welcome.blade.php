@@ -33,7 +33,7 @@
     <meta name="msapplication-TileImage" content="{{ asset('/mstile-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Lindalë</title>
+    <title>Lindalë - The Project Manager For Everyone.</title>
 
     <meta name="description" content="The Project Manager For Everyone.">
 
@@ -62,15 +62,15 @@
                         <nav class="menu">
                             <a href="/" class="nav-title "><h1>Lindalë</h1></a>
 
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="http://www.lindelin.org/projects/lindale">About</a>
 
-                            <a class="nav-link" href="#">Document</a>
+                            <a class="nav-link" href="http://www.lindelin.org/projects/lindale">Document</a>
 
-                            <a class="nav-link" href="#">News</a>
+                            <a class="nav-link" href="http://www.lindelin.org">News</a>
 
-                            <a class="nav-link" href="#">GitHub</a>
+                            <a class="nav-link" href="https://github.com/lindelin/lindale">GitHub</a>
 
-                            <a class="nav-link" href="#">Blog</a>
+                            <a class="nav-link" href="http://www.lindelin.org">Blog</a>
 
                             <div class="nav-border"></div>
 
@@ -81,7 +81,12 @@
             </section><!-- End homepage feature -->
 
             <section>
-                <a href="{{ url('/login') }}" title="Let's start now" class="button">Let's start now</a>
+                @if (Auth::guest())
+                    <a href="{{ url('/login') }}" title="Let's start now" class="button">Let's start now</a>
+                @else
+                    <a href="{{ url('/home') }}" title="Let's start now" class="button">Back to home</a>
+                @endif
+
             </section>
         </div>
 
@@ -184,11 +189,11 @@
             </ul><!-- End social profiles -->
 
             <span class="copyright">
-      Copyright &copy; 2017 Lindalë
+      Copyright &copy; {{ date('Y') }} {{ config('app.name') }}
     </span>
 
             <span class="made-with">
-      Lindalë <a class="link" href="#" target="_blank">v1.1.0</a>
+      Lindalë <a class="link" href="https://github.com/lindelin/lindale/releases" target="_blank">v1.1.0</a>
     </span>
         </div>
     </footer>
