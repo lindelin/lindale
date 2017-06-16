@@ -68,7 +68,7 @@ class TaskPolicy
             return true;
         } elseif (($user->id === $project->sl_id) and ($project->id === $task->project_id)) {
             return true;
-        } elseif (($project->Users()->find($user->id)) and ($project->id === $task->project_id)) {
+        } elseif (($project->Users()->find($user->id)->pivot->is_admin === config('admin.project_admin')) and ($project->id === $task->project_id)) {
             return false;
         } else {
             return false;

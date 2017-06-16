@@ -14,4 +14,6 @@ return [
         'password' => env('SUPER_ADMIN_PASS', '!lindelin'),
     ],
 
+    'project_admin' => 777,
+
 ];

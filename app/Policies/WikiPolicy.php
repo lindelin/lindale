@@ -65,8 +65,8 @@ class WikiPolicy
             return true;
         } elseif (($user->id === $project->sl_id) and ($project->id === $wiki->project_id)) {
             return true;
-        } elseif (($project->Users()->find($user->id)) and ($project->id === $wiki->project_id)) {
-            return false;
+        } elseif (($project->Users()->find($user->id)->pivot->is_admin === config('admin.project_admin')) and ($project->id === $wiki->project_id)) {
+            return true;
         } else {
             return false;
         }

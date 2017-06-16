@@ -60,7 +60,7 @@ class ProjectPolicy
             return true;
         } elseif ($user->id === $project->sl_id) {
             return true;
-        } elseif ($project->Users()->find($user->id)->pivot->is_admin === Definer::PROJECT_ADMIN) {
+        } elseif ($project->Users()->find($user->id)->pivot->is_admin === config('admin.project_admin')) {
             return true;
         } else {
             return false;
