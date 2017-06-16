@@ -230,12 +230,35 @@
                     <h4 class="panel-title">{{ trans('project.delete') }}</h4>
                 </div>
                 <div class="panel-body">
+                    @if(Auth()->user()->id === $project->user_id)
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <h3>{{ trans('project.transfer') }}</h3>
+                                        <p>{{ trans('project.transfer-info') }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    {{-- 框架 --}}
+                                    <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
+                                        @include('layouts.project.transfer')
+                                    </div>
+                                    {{-- 框架 --}}
+                                    <div class="col-xs-0 col-sm-1 col-md-2 col-lg-4">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    @endif
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="row">
-                            	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            		<p>{{ trans('config.delete-project-info') }}</p>
-                            	</div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <h3>{{ trans('project.delete') }}</h3>
+                                    <p>{{ trans('config.delete-project-info') }}</p>
+                                </div>
                             </div>
                             <div class="row">
                                 {{-- 框架 --}}

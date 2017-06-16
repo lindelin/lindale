@@ -32,5 +32,7 @@ return [
     'projects-manage'       => '管理しているプロジェクト',
     'projects-join'         => '参与しているプロジェクト',
     'lang'                  => '言語',
+    'transfer'              => '譲渡',
+    'transfer-info'         => 'このプロジェクトを他のユーザーに譲渡する',
 
 ];

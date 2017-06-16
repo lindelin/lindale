@@ -9,6 +9,7 @@ use App\Events\Project\ProjectCreated;
 use App\Events\Project\ProjectDeleted;
 use App\Events\Project\ProjectUpdated;
 use App\Repositories\ProjectRepository;
+use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -157,5 +158,25 @@ class ProjectController extends Controller
         } else {
             return redirect()->back()->withErrors(trans('errors.delete-failed'));
         }
+    }
+
+    /**
+     * 譲渡
+     * @param Request $request
+     * @param Project $project
+     * @return mixed
+     */
+    public function transfer(Request $request, Project $project)
+    {
+        $this->authorize('delete', [$project, $request]);
+
+        $result = $this->projectRepository->Transfer($request, $project)->update();
+
+        if ($result) {
+            return redirect()->to('/project')->with('status', trans('errors.update-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.update-failed'));
+        }
+
     }
 }

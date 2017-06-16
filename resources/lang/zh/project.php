@@ -32,5 +32,7 @@ return [
     'projects-manage'       => '我管理的项目',
     'projects-join'         => '我参与的项目',
     'lang'                  => '语言',
+    'transfer'              => '项目转让',
+    'transfer-info'         => '将此项目转让给其他用户。',
 
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use Illuminate\Http\Request;
 use Image;
 use Charts;
 use App\User;
@@ -194,6 +195,18 @@ class ProjectRepository
             ->view('vendor.consoletvs.charts.highcharts.multi.areaspline');
 
         return compact('projectActivity');
+    }
+
+    /**
+     * 譲渡
+     * @param Request $request
+     * @param Project $project
+     * @return Project
+     */
+    public function Transfer(Request $request, Project $project)
+    {
+        $project->user_id = $request->get('id');
+        return $project;
     }
 
     /**
