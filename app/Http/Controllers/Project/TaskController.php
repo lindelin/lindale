@@ -165,6 +165,8 @@ class TaskController extends Controller
     {
         $task = $this->taskRepository->CreateTask($request, $project);
 
+        $this->authorize('create', [$task, $project]);
+
         $result = $task->save();
 
         if ($result) {
@@ -187,12 +189,15 @@ class TaskController extends Controller
      */
     public function update(TaskRequest $request, Project $project, Task $task)
     {
+        $this->authorize('update', [$task, $project]);
+
         if ($task->is_finish === Definer::TASK_UNFINISHED or (int) $request->get('is_finish') === Definer::TASK_UNFINISHED) {
             $task = $this->taskRepository->UpdateTask($request, $task);
 
             $result = $task->update();
 
             if ($result) {
+
                 event(new TaskUpdated($task, $request->user()));
 
                 return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
@@ -229,6 +234,7 @@ class TaskController extends Controller
     public function destroy(Project $project, Task $task, Request $request)
     {
         if ($task->is_finish === Definer::TASK_UNFINISHED) {
+
             $this->authorize('delete', [$task, $project]);
 
             if ($task->delete()) {
