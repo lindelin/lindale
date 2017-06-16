@@ -12,7 +12,7 @@ trait ConfigChecker
      * @param Project $project
      * @return bool
      */
-    public function projectSlackNotify(Project $project)
+    protected function projectSlackNotify(Project $project)
     {
         return ProjectConfig::get($project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::ON and
             ProjectConfig::get($project, ProjectConfig::SLACK_API_KEY) != '' and

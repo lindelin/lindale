@@ -191,6 +191,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ResponseMacroServiceProvider::class,
         App\Providers\RoutingManagementServiceProvider::class,
+        App\Providers\ToolServiceProvider::class,
 
     ],
 
@@ -244,7 +245,7 @@ return [
         /*'Inspiring' => Illuminate\Foundation\Inspiring::class,*/
         'Colorable' => App\Repositories\ColorableRepository::class,
         'Markdown' => App\Repositories\MarkdownRepository::class,
-        'Admin' => App\Policies\AdminPolicy::class,
+        'Admin' => App\Tools\Facades\Admin::class,
         'Definer' => \App\Definer::class,
         'Calculator' => \App\Calculator::class,
         'Counter' => \App\Counter::class,

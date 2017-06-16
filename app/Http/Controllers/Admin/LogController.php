@@ -13,6 +13,7 @@ class LogController extends Controller
     public function __construct()
     {
         $this->request = app('request');
+        $this->authorize('admin', [$this->request->user()]);
     }
 
     public function index()
