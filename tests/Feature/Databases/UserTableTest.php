@@ -18,7 +18,7 @@ class UserTableTest extends TestCase
         $this->assertDatabaseHas('users', [
             'id' => 1,
             'name'   => 'Admin',
-            'email'    => 'admin@lindale.tk',
+            'email'    => 'admin@lindelin.org',
         ]);
     }
 }
