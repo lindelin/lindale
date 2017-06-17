@@ -4,8 +4,8 @@ namespace App\Listeners\Task\Notification;
 
 use App\ProjectConfig;
 use App\Events\Task\TaskDeleted;
-use App\Notifications\Project\Task\TaskHasDeleted;
 use App\Tools\Checker\ConfigChecker;
+use App\Notifications\Project\Task\TaskHasDeleted;
 
 class TaskHasDeletedNotify
 {

@@ -197,7 +197,6 @@ class TaskController extends Controller
             $result = $task->update();
 
             if ($result) {
-
                 event(new TaskUpdated($task, $request->user()));
 
                 return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
@@ -234,7 +233,6 @@ class TaskController extends Controller
     public function destroy(Project $project, Task $task, Request $request)
     {
         if ($task->is_finish === Definer::TASK_UNFINISHED) {
-
             $this->authorize('delete', [$task, $project]);
 
             if ($task->delete()) {

@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Project;
 
 use App\Project\Project;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectRequest;
 use App\Events\Project\ProjectCreated;
 use App\Events\Project\ProjectDeleted;
 use App\Events\Project\ProjectUpdated;
 use App\Repositories\ProjectRepository;
-use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
@@ -84,7 +84,6 @@ class ProjectController extends Controller
         $result = $project->save();
 
         if ($result) {
-
             event(new ProjectCreated($project));
 
             return redirect()->to('/project')->with('status', trans('errors.save-succeed'));
@@ -178,6 +177,5 @@ class ProjectController extends Controller
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
         }
-
     }
 }

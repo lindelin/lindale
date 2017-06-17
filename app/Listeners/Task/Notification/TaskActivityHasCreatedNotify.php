@@ -2,12 +2,10 @@
 
 namespace App\Listeners\Task\Notification;
 
+use ProjectConfig;
+use App\Tools\Checker\ConfigChecker;
 use App\Events\Task\TaskActivity\TaskActivityCreated;
 use App\Notifications\Project\Task\TaskActivityHasCreated;
-use App\Tools\Checker\ConfigChecker;
-use ProjectConfig;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class TaskActivityHasCreatedNotify
 {

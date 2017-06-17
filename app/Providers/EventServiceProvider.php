@@ -54,8 +54,6 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\Task\Notification\TaskActivityHasCreatedNotify',
         ],
 
-
-
     ];
 
     protected $subscribe = [

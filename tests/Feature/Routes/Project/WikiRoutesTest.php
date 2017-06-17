@@ -2,13 +2,10 @@
 
 namespace Tests\Feature\Routes\Project;
 
+use App\User;
 use App\Wiki\Wiki;
 use Tests\TestCase;
-use App\User;
 use App\Project\Project;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class WikiRoutesTest extends TestCase
 {

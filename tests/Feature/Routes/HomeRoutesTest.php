@@ -4,12 +4,10 @@ namespace Tests\Feature\Routes;
 
 use App\User;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class HomeRoutesTest extends TestCase
 {
-
     use DatabaseTransactions;
 
     /**

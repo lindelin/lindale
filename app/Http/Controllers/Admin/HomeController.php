@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\AdminRepository;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {

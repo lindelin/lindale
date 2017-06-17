@@ -5,7 +5,6 @@ namespace App\Policies;
 use Hash;
 use Admin;
 use App\User;
-use App\Definer;
 use App\Project\Project;
 use Illuminate\Auth\Access\HandlesAuthorization;
 

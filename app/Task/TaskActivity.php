@@ -33,5 +33,4 @@ class TaskActivity extends Model
     {
         return $this->hasOne('App\Task\Task', 'id', 'task_id');
     }
-
 }

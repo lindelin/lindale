@@ -2,9 +2,8 @@
 
 namespace App\Tools\Checker;
 
-
-use App\Project\Project;
 use ProjectConfig;
+use App\Project\Project;
 
 trait ConfigChecker
 {

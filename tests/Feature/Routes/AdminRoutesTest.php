@@ -2,9 +2,8 @@
 
 namespace Tests\Feature\Routes;
 
-use Tests\TestCase;
 use App\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class AdminRoutesTest extends TestCase
@@ -68,7 +67,7 @@ class AdminRoutesTest extends TestCase
             ->post('/admin/user', array_merge($data, [
                 '_token' => csrf_token(),
                 'password' => '123456',
-                'password_confirmation' => '123456'
+                'password_confirmation' => '123456',
             ]));
         $this->assertDatabaseHas('users', $data);
         $response->assertStatus(302);

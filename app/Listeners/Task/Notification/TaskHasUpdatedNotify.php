@@ -4,8 +4,8 @@ namespace App\Listeners\Task\Notification;
 
 use App\ProjectConfig;
 use App\Events\Task\TaskUpdated;
-use App\Notifications\Project\Task\TaskHasUpdated;
 use App\Tools\Checker\ConfigChecker;
+use App\Notifications\Project\Task\TaskHasUpdated;
 
 class TaskHasUpdatedNotify
 {

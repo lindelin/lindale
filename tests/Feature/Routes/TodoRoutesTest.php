@@ -2,20 +2,18 @@
 
 namespace Tests\Feature\Routes;
 
-use App\Definer;
-use App\Project\Project;
-use App\Todo\Todo;
-use App\Todo\TodoStatus;
-use App\Todo\TodoType;
-use Tests\TestCase;
-use App\User;
 use Event;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use App\User;
+use App\Definer;
+use App\Todo\Todo;
+use Tests\TestCase;
+use App\Todo\TodoType;
+use App\Project\Project;
+use App\Todo\TodoStatus;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class TodoRoutesTest extends TestCase
 {
-
     use DatabaseTransactions;
 
     /**
@@ -23,7 +21,8 @@ class TodoRoutesTest extends TestCase
      *
      * @var
      */
-    private $user, $project;
+    private $user;
+    private $project;
 
     /**
      * テストユーザ作成.
