@@ -3,7 +3,6 @@
 namespace Tests\Feature\Routes;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class WelcomeRoutesTest extends TestCase

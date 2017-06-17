@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Definer;
 use App\Task\Task;
 use App\Task\TaskType;
 use App\Todo\TodoType;
@@ -10,7 +11,6 @@ use App\Project\Project;
 use App\Task\TaskStatus;
 use App\Todo\TodoStatus;
 use App\Task\TaskPriority;
-use Definer;
 
 class Counter
 {

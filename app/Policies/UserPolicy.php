@@ -22,7 +22,7 @@ class UserPolicy
     }
 
     /**
-     * ユーザー更新認可
+     * ユーザー更新認可.
      *
      * @param User $user
      * @param User $user_data

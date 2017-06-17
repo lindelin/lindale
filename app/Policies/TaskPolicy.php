@@ -13,7 +13,7 @@ class TaskPolicy
     use HandlesAuthorization;
 
     /**
-     * create
+     * create.
      * @param User $user
      * @param Task $task
      * @param Project $project
@@ -34,7 +34,7 @@ class TaskPolicy
     }
 
     /**
-     * create
+     * create.
      * @param User $user
      * @param Task $task
      * @param Project $project
@@ -55,7 +55,7 @@ class TaskPolicy
     }
 
     /**
-     * create
+     * create.
      * @param User $user
      * @param Task $task
      * @param Project $project

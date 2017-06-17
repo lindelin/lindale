@@ -3,8 +3,6 @@
 namespace Tests\Feature\Databases;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserTableTest extends TestCase
 {

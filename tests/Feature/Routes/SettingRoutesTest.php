@@ -2,9 +2,8 @@
 
 namespace Tests\Feature\Routes;
 
-use Tests\TestCase;
 use App\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class SettingRoutesTest extends TestCase

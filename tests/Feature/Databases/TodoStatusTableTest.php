@@ -2,10 +2,8 @@
 
 namespace Tests\Feature\Databases;
 
-use Tests\TestCase;
 use Definer;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Tests\TestCase;
 
 class TodoStatusTableTest extends TestCase
 {

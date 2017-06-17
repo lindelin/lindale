@@ -2,10 +2,10 @@
 
 namespace App\Policies;
 
-use App\Project\Project;
-use App\User;
 use Admin;
+use App\User;
 use App\Wiki\Wiki;
+use App\Project\Project;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class WikiPolicy
@@ -13,7 +13,7 @@ class WikiPolicy
     use HandlesAuthorization;
 
     /**
-     * create
+     * create.
      * @param User $user
      * @param Wiki $wiki
      * @param Project $project
@@ -33,7 +33,7 @@ class WikiPolicy
     }
 
     /**
-     * create
+     * create.
      * @param User $user
      * @param Wiki $wiki
      * @param Project $project
@@ -53,7 +53,7 @@ class WikiPolicy
     }
 
     /**
-     * create
+     * create.
      * @param User $user
      * @param Wiki $wiki
      * @param Project $project

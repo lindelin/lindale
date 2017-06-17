@@ -2,12 +2,9 @@
 
 namespace Tests\Feature\Routes;
 
-use Tests\TestCase;
 use App\User;
+use Tests\TestCase;
 use App\Project\Project;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ProjectRoutesTest extends TestCase
 {
@@ -220,7 +217,7 @@ class ProjectRoutesTest extends TestCase
             'projectProgressPie',
             'taskProgressPie',
             'todoProgressPie',
-            'projectProgressAreaspline']);
+            'projectProgressAreaspline', ]);
     }
 
     /**
@@ -242,7 +239,7 @@ class ProjectRoutesTest extends TestCase
             'project',
             'selected',
             'mode',
-            'in']);
+            'in', ]);
     }
 
     /**

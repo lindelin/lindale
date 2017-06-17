@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Tools\Checker\AdminChecker;
 use App\User;
+use App\Tools\Checker\AdminChecker;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AdminPolicy

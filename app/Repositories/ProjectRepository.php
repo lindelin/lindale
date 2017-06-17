@@ -2,12 +2,12 @@
 
 namespace App\Repositories;
 
-use Illuminate\Http\Request;
 use Image;
 use Charts;
 use App\User;
 use App\Counter;
 use App\Project\Project;
+use Illuminate\Http\Request;
 use App\Http\Requests\ProjectRequest;
 use Illuminate\Support\Facades\Storage;
 
@@ -206,6 +206,7 @@ class ProjectRepository
     public function Transfer(Request $request, Project $project)
     {
         $project->user_id = $request->get('id');
+
         return $project;
     }
 
