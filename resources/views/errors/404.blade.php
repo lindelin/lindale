@@ -194,7 +194,7 @@
     </span>
 
             <span class="made-with">
-      Lindalë <a class="link" href="https://github.com/lindelin/lindale/releases" target="_blank">v1.1.0</a>
+      Lindalë <a class="link" href="https://github.com/lindelin/lindale/releases" target="_blank">v1.1.6</a>
     </span>
         </div>
     </footer>
