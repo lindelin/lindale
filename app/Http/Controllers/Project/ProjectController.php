@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Project;
 
 use App\Project\Project;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectRequest;
 use App\Events\Project\ProjectCreated;
@@ -156,6 +157,25 @@ class ProjectController extends Controller
             return redirect()->to('/project')->with('status', trans('errors.delete-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.delete-failed'));
+        }
+    }
+
+    /**
+     * 譲渡
+     * @param Request $request
+     * @param Project $project
+     * @return mixed
+     */
+    public function transfer(Request $request, Project $project)
+    {
+        $this->authorize('delete', [$project, $request]);
+
+        $result = $this->projectRepository->Transfer($request, $project)->update();
+
+        if ($result) {
+            return redirect()->to('/project')->with('status', trans('errors.update-succeed'));
+        } else {
+            return redirect()->back()->withErrors(trans('errors.update-failed'));
         }
     }
 }

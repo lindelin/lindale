@@ -14,7 +14,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span class="lindale-color">
+                        <span>
                             Personal Access Tokens
                         </span>
 
@@ -209,7 +209,7 @@
              * Get all of the personal access tokens for the user.
              */
             getTokens() {
-                this.$http.get('/oauth/personal-access-tokens')
+                axios.get('/oauth/personal-access-tokens')
                         .then(response => {
                             this.tokens = response.data;
                         });
@@ -219,7 +219,7 @@
              * Get all of the available scopes.
              */
             getScopes() {
-                this.$http.get('/oauth/scopes')
+                axios.get('/oauth/scopes')
                         .then(response => {
                             this.scopes = response.data;
                         });
@@ -240,7 +240,7 @@
 
                 this.form.errors = [];
 
-                this.$http.post('/oauth/personal-access-tokens', this.form)
+                axios.post('/oauth/personal-access-tokens', this.form)
                         .then(response => {
                             this.form.name = '';
                             this.form.scopes = [];
@@ -250,9 +250,9 @@
 
                             this.showAccessToken(response.data.accessToken);
                         })
-                        .catch(response => {
-                            if (typeof response.data === 'object') {
-                                this.form.errors = _.flatten(_.toArray(response.data));
+                        .catch(error => {
+                            if (typeof error.response.data === 'object') {
+                                this.form.errors = _.flatten(_.toArray(error.response.data));
                             } else {
                                 this.form.errors = ['Something went wrong. Please try again.'];
                             }
@@ -292,7 +292,7 @@
              * Revoke the given token.
              */
             revoke(token) {
-                this.$http.delete('/oauth/personal-access-tokens/' + token.id)
+                axios.delete('/oauth/personal-access-tokens/' + token.id)
                         .then(response => {
                             this.getTokens();
                         });

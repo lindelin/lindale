@@ -25,12 +25,12 @@ class ProjectRequest extends FormRequest
     {
         $create = [
             'title' => 'required|unique:projects|max:100',
-            'start_at' => 'date|date_format:Y-m-d',
-            'end_at' => 'date|after:start_at|date_format:Y-m-d',
-            'type_id' => 'max:10',
-            'sl_id' => 'integer',
+            'start_at' => 'nullable|date|date_format:Y-m-d',
+            'end_at' => 'nullable|date|after:start_at|date_format:Y-m-d',
+            'type_id' => 'nullable|max:10',
+            'sl_id' => 'nullable|integer',
             'password' => 'required|min:6|max:15|confirmed',
-            'image' => 'image',
+            'image' => 'nullable|image',
         ];
 
         $delete = [
@@ -38,13 +38,13 @@ class ProjectRequest extends FormRequest
         ];
 
         $update = [
-            'start_at' => 'date|date_format:Y-m-d',
-            'end_at' => 'date|after:start_at|date_format:Y-m-d',
-            'type_id' => 'max:10',
-            'status_id' => 'max:10',
-            'sl_id' => 'integer',
-            'password' => 'min:6|max:15|confirmed',
-            'image' => 'image',
+            'start_at' => 'nullable|date|date_format:Y-m-d',
+            'end_at' => 'nullable|date|after:start_at|date_format:Y-m-d',
+            'type_id' => 'nullable|max:10',
+            'status_id' => 'nullable|max:10',
+            'sl_id' => 'nullable|integer',
+            'password' => 'nullable|min:6|max:15|confirmed',
+            'image' => 'nullable|image',
         ];
 
         if ($this->getMethod() == 'DELETE') {

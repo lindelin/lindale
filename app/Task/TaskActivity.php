@@ -28,4 +28,9 @@ class TaskActivity extends Model
     {
         return $this->hasOne('App\User', 'id', 'user_id');
     }
+
+    public function Task()
+    {
+        return $this->hasOne('App\Task\Task', 'id', 'task_id');
+    }
 }

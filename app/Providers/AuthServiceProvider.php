@@ -20,6 +20,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Todo\TodoList' => 'App\Policies\TodoListPolicy',
         'App\Task\Task' => 'App\Policies\TaskPolicy',
         'App\Task\TaskActivity' => 'App\Policies\TaskActivityPolicy',
+        'App\Wiki\Wiki' => 'App\Policies\WikiPolicy',
     ];
 
     /**

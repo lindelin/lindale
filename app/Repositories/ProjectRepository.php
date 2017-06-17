@@ -7,6 +7,7 @@ use Charts;
 use App\User;
 use App\Counter;
 use App\Project\Project;
+use Illuminate\Http\Request;
 use App\Http\Requests\ProjectRequest;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,7 +15,7 @@ class ProjectRepository
 {
     /**
      * 项目资源.
-     *
+     * @param null $key
      * @return array
      */
     public function ProjectResources($key = null)
@@ -194,6 +195,19 @@ class ProjectRepository
             ->view('vendor.consoletvs.charts.highcharts.multi.areaspline');
 
         return compact('projectActivity');
+    }
+
+    /**
+     * 譲渡
+     * @param Request $request
+     * @param Project $project
+     * @return Project
+     */
+    public function Transfer(Request $request, Project $project)
+    {
+        $project->user_id = $request->get('id');
+
+        return $project;
     }
 
     /**

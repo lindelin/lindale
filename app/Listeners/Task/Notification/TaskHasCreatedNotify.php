@@ -4,10 +4,13 @@ namespace App\Listeners\Task\Notification;
 
 use App\ProjectConfig;
 use App\Events\Task\TaskCreated;
+use App\Tools\Checker\ConfigChecker;
 use App\Notifications\Project\Task\TaskHasCreated;
 
 class TaskHasCreatedNotify
 {
+    use ConfigChecker;
+
     /**
      * Handle the event.
      *
@@ -17,11 +20,7 @@ class TaskHasCreatedNotify
     public function handle(TaskCreated $event)
     {
         //项目消息
-        if (
-            ProjectConfig::get($event->task->Project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::ON and
-            ProjectConfig::get($event->task->Project, ProjectConfig::SLACK_API_KEY) != '' and
-            ProjectConfig::get($event->task->Project, ProjectConfig::SLACK_API_KEY) != 'Null'
-        ) {
+        if ($this->projectSlackNotify($event->task->Project)) {
             $event->task->Project->notify(new TaskHasCreated($event->task, $event->user, ProjectConfig::get($event->task->Project, ProjectConfig::LANG)));
         }
     }

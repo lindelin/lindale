@@ -29,7 +29,7 @@
                         <tbody>
 
                         <tr>
-                            <th><span class="glyphicon glyphicon-user lindale-icon-color"></span> {{ trans('todo.initiator') }}</th>
+                            <th><span class="glyphicon glyphicon-pencil lindale-icon-color"></span> {{ trans('todo.initiator') }}</th>
                             <th><span class="glyphicon glyphicon-user lindale-icon-color"></span> {{ trans('todo.user') }}</th>
                             <th><span class="glyphicon glyphicon-tag lindale-icon-color"></span> {{ trans('todo.type') }}</th>
                             <th><span class="glyphicon glyphicon-dashboard lindale-icon-color"></span> {{ trans('todo.status') }}</th>

@@ -49,6 +49,11 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\Task\Notification\TaskHasDeletedNotify',
         ],
 
+        //任务动态事件
+        'App\Events\Task\TaskActivity\TaskActivityCreated' => [
+            'App\Listeners\Task\Notification\TaskActivityHasCreatedNotify',
+        ],
+
     ];
 
     protected $subscribe = [

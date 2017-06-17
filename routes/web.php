@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     //项目
     Route::resource('project', 'ProjectController', ['except' => ['show']]);
+    Route::patch('project/transfer/{project}', 'ProjectController@transfer');
     Route::get('project/{project}', 'ProjectController@show')->middleware('ProjectAuth');
     Route::get('/unfinished/project', 'ProjectController@unfinished');
     Route::get('/finished/project', 'ProjectController@finished');
@@ -216,7 +217,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Todo', 'prefix' => 'todo']
 
 /*
 |--------------------------------------------------------------------------
-| Settings Routes
+| Setting Routes
 |--------------------------------------------------------------------------
 |
 | 個人設定ルート
@@ -286,7 +287,7 @@ Route::group(['middleware' => ['auth', 'AdminAuth'], 'namespace' => 'Admin', 'pr
 |
 */
 
-Route::get('login', 'Auth\LoginController@showLoginForm');
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout');
 

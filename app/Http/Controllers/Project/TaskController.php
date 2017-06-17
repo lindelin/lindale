@@ -165,6 +165,8 @@ class TaskController extends Controller
     {
         $task = $this->taskRepository->CreateTask($request, $project);
 
+        $this->authorize('create', [$task, $project]);
+
         $result = $task->save();
 
         if ($result) {
@@ -187,6 +189,8 @@ class TaskController extends Controller
      */
     public function update(TaskRequest $request, Project $project, Task $task)
     {
+        $this->authorize('update', [$task, $project]);
+
         if ($task->is_finish === Definer::TASK_UNFINISHED or (int) $request->get('is_finish') === Definer::TASK_UNFINISHED) {
             $task = $this->taskRepository->UpdateTask($request, $task);
 

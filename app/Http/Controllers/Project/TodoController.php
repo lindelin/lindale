@@ -69,6 +69,9 @@ class TodoController extends Controller
     public function store(TodoRequest $request, Project $project)
     {
         $todo = $this->todoRepository->CreateTodo($request, $project);
+
+        $this->authorize('create', [$todo, $project]);
+
         $result = $todo->save();
 
         event(new TodoCreated($todo, $request->user()));

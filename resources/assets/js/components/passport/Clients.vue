@@ -13,7 +13,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <span class="lindale-color">
+                    <span>
                         OAuth Clients
                     </span>
 
@@ -271,7 +271,7 @@
              * Get all of the OAuth clients for the user.
              */
             getClients() {
-                this.$http.get('/oauth/clients')
+                axios.get('/oauth/clients')
                         .then(response => {
                             this.clients = response.data;
                         });
@@ -321,7 +321,7 @@
             persistClient(method, uri, form, modal) {
                 form.errors = [];
 
-                this.$http[method](uri, form)
+                axios[method](uri, form)
                     .then(response => {
                         this.getClients();
 
@@ -331,9 +331,9 @@
 
                         $(modal).modal('hide');
                     })
-                    .catch(response => {
-                        if (typeof response.data === 'object') {
-                            form.errors = _.flatten(_.toArray(response.data));
+                    .catch(error => {
+                        if (typeof error.response.data === 'object') {
+                            form.errors = _.flatten(_.toArray(error.response.data));
                         } else {
                             form.errors = ['Something went wrong. Please try again.'];
                         }
@@ -344,7 +344,7 @@
              * Destroy the given client.
              */
             destroy(client) {
-                this.$http.delete('/oauth/clients/' + client.id)
+                axios.delete('/oauth/clients/' + client.id)
                         .then(response => {
                             this.getClients();
                         });

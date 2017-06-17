@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Definer;
 use App\Task\Task;
 use App\Task\TaskType;
 use App\Todo\TodoType;
@@ -304,12 +305,9 @@ class Counter
      * @param null $is_finish
      * @return int
      */
-    public static function ProjectStatusTaskCount(Project $project, TaskStatus $status, $is_finish = null)
+    public static function ProjectStatusTaskCount(Project $project, TaskStatus $status)
     {
-        $task = $project->Tasks()->where('status_id', $status->id);
-        if ($is_finish !== null) {
-            $task = $task->where('is_finish', $is_finish);
-        }
+        $task = $project->Tasks()->where('status_id', $status->id)->where('is_finish', Definer::TASK_UNFINISHED);
 
         return (int) $task->count();
     }

@@ -91,7 +91,7 @@
                 @foreach($statuses as $status)
                     <a href="{{ url('project/'.$project->id.'/task/status/'.$status->id) }}" class="list-group-item @if($mode == 'status'.$status->id) active @endif">
                         <span class="badge">
-                            {{ Counter::ProjectStatusTaskCount($project, $status, Definer::TASK_FINISHED) }}/{{ Counter::ProjectStatusTaskCount($project, $status) }}
+                            {{ Counter::ProjectStatusTaskCount($project, $status) }}
                         </span>
                         {{ trans($status->name) }}
                     </a>

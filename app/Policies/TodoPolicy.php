@@ -45,6 +45,19 @@ class TodoPolicy
     }
 
     /**
+     * 作成To-do的授权策略.
+     *
+     * @param User $user
+     * @param Todo $todo
+     * @param Project $project
+     * @return bool
+     */
+    public function create(User $user, Todo $todo, Project $project)
+    {
+        return $this->delete($user, $todo, $project);
+    }
+
+    /**
      * 用户更新To-do的授权策略.
      *
      * @param User $user

@@ -45,10 +45,13 @@ class UserController extends Controller
     /**
      * 超级用户控制台->用户创建表单.
      *
+     * @param Request $request
      * @return mixed
      */
-    public function create()
+    public function create(Request $request)
     {
+        $this->authorize('admin', [$request->user()]);
+
         return view('admin.user.create')->with('mode', 'user');
     }
 

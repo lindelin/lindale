@@ -8,8 +8,9 @@
 require('./bootstrap');
 require('./bootstrap-off-canvas-nav');
 require('./pageloader');
-require('./clock');
 require('./bootstrap-notify');
+
+window.Vue = require('vue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,6 +33,11 @@ Vue.component(
     require('./components/passport/PersonalAccessTokens.vue')
 );
 
+Vue.component(
+    'clock',
+    require('./components/Clock.vue')
+);
+
 const app = new Vue({
-    el: 'body'
+    el: '#app'
 });

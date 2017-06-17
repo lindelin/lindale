@@ -11,7 +11,9 @@ return [
     | based disks are available to your application. Just store away!
     |
     */
-    'default' => 'local',
+
+    'default' => env('FILESYSTEM_DRIVER', 'local'),
+
     /*
     |--------------------------------------------------------------------------
     | Default Cloud Filesystem Disk
@@ -22,7 +24,9 @@ return [
     | will be bound as the Cloud disk implementation in the container.
     |
     */
-    'cloud' => 's3',
+
+    'cloud' => env('FILESYSTEM_CLOUD', 's3'),
+
     /*
     |--------------------------------------------------------------------------
     | Filesystem Disks

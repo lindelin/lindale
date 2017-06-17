@@ -32,5 +32,7 @@ return [
     'projects-manage'       => 'Projects you manage',
     'projects-join'         => 'Projects you join',
     'lang'                  => 'Language',
+    'transfer'              => 'Transfer ownership',
+    'transfer-info'         => 'Transfer this project to another user.',
 
 ];
