@@ -188,7 +188,7 @@
     </span>
 
             <span class="made-with">
-      Lindalë <a class="link" href="https://github.com/lindelin/lindale/releases" target="_blank">v1.1.6</a>
+      Lindalë <a class="link" href="https://github.com/lindelin/lindale/releases" target="_blank">{{ config('app.version') }}</a>
     </span>
         </div>
     </footer>
