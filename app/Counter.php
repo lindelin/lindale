@@ -77,7 +77,7 @@ class Counter
      */
     public static function UserTodoFinishCount(User $user)
     {
-        return (int) $user->Todos()->where('status_id', Definer::FINISH_STATUS_ID)->count();
+        return (int) $user->Todos()->where('status_id', config('todo.status.finished'))->count();
     }
 
     /**
@@ -88,7 +88,7 @@ class Counter
      */
     public static function UserTodoUnfinishedCount(User $user)
     {
-        return (int) $user->Todos()->where('status_id', '<>', Definer::FINISH_STATUS_ID)->count();
+        return (int) $user->Todos()->where('status_id', '<>', config('todo.status.finished'))->count();
     }
 
     /**
@@ -112,7 +112,7 @@ class Counter
      */
     public static function UserTodoTypeFinishCount(User $user, TodoType $type)
     {
-        return (int) $user->Todos()->where('type_id', $type->id)->where('status_id', Definer::FINISH_STATUS_ID)->count();
+        return (int) $user->Todos()->where('type_id', $type->id)->where('status_id', config('todo.status.finished'))->count();
     }
 
     /**
@@ -152,8 +152,8 @@ class Counter
         return (int) $project
             ->Todos()
             ->where('user_id', $user->id)
-            ->where('type_id', Definer::PUBLIC_TODO)
-            ->where('status_id', Definer::FINISH_STATUS_ID)
+            ->where('type_id', config('todo.public'))
+            ->where('status_id', config('todo.status.finished'))
             ->count();
     }
 
@@ -169,7 +169,7 @@ class Counter
         return (int) $project
             ->Todos()
             ->where('user_id', $user->id)
-            ->where('type_id', Definer::PUBLIC_TODO)
+            ->where('type_id', config('todo.public'))
             ->count();
     }
 
@@ -278,8 +278,8 @@ class Counter
     {
         return (int) $project
             ->todos()
-            ->where('type_id', Definer::PUBLIC_TODO)
-            ->where('status_id', Definer::FINISH_STATUS_ID)
+            ->where('type_id', config('todo.public'))
+            ->where('status_id', config('todo.status.finished'))
             ->count();
     }
 
@@ -293,7 +293,7 @@ class Counter
     {
         return (int) $project
             ->todos()
-            ->where('type_id', Definer::PUBLIC_TODO)
+            ->where('type_id', config('todo.public'))
             ->count();
     }
 

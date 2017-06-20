@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Project\Task;
 
-use App\Definer;
+use Definer;
 use App\Task\Task;
 use App\Task\SubTask;
 use App\Project\Project;

@@ -15,35 +15,35 @@ class TodoStatusTableTest extends TestCase
     public function testTodoStatusTableHasDefault()
     {
         $this->assertDatabaseHas('todo_statuses', [
-            'id' => Definer::DEFAULT_STATUS_ID,
+            'id' => config('todo.status.default'),
             'name' => 'status.wait',
             'color_id' => Definer::DEFAULT_COLOR_ID,
-            'action_id' => Definer::DEFAULT_STATUS_ID,
-            'user_id' => Definer::SUPER_ADMIN_ID,
+            'action_id' => config('todo.status.default'),
+            'user_id' => config('admin.super_admin.id'),
         ]);
 
         $this->assertDatabaseHas('todo_statuses', [
-            'id' => Definer::FINISH_STATUS_ID,
+            'id' => config('todo.status.finished'),
             'name' => 'status.finish',
             'color_id' => Definer::SUCCESS_COLOR_ID,
-            'action_id' => Definer::FINISH_STATUS_ID,
-            'user_id' => Definer::SUPER_ADMIN_ID,
+            'action_id' => config('todo.status.finished'),
+            'user_id' => config('admin.super_admin.id'),
         ]);
 
         $this->assertDatabaseHas('todo_statuses', [
-            'id' => Definer::UNDERWAY_STATUS_ID,
+            'id' => config('todo.status.underway'),
             'name' => 'status.underway',
             'color_id' => Definer::PRIMARY_COLOR_ID,
-            'action_id' => Definer::UNDERWAY_STATUS_ID,
-            'user_id' => Definer::SUPER_ADMIN_ID,
+            'action_id' => config('todo.status.underway'),
+            'user_id' => config('admin.super_admin.id'),
         ]);
 
         $this->assertDatabaseHas('todo_statuses', [
-            'id' => Definer::UNDETERMINED_STATUS_ID,
+            'id' => config('todo.status.undetermined'),
             'name' => 'status.undetermined',
             'color_id' => Definer::DANGER_COLOR_ID,
-            'action_id' => Definer::UNDETERMINED_STATUS_ID,
-            'user_id' => Definer::SUPER_ADMIN_ID,
+            'action_id' => config('todo.status.undetermined'),
+            'user_id' => config('admin.super_admin.id'),
         ]);
     }
 }

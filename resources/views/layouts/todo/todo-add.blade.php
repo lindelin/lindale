@@ -30,7 +30,7 @@
                                 @if($MProjects->count() > 0 or $JProjects->count() > 0)
                                     <form action="{{ url("/todo") }}" method="POST" style="display: inline;">
                                         {{ csrf_field() }}
-                                        <input type="hidden" name="type_id" value="{{ Definer::PUBLIC_TODO }}" />
+                                        <input type="hidden" name="type_id" value="{{ config('todo.public') }}" />
                                         {{-- To-do内容 --}}
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -125,7 +125,7 @@
                             <div role="tabpanel" class="tab-pane" id="private-todo">
                                 <form action="{{ url("/todo") }}" method="POST" style="display: inline;">
                                     {{ csrf_field() }}
-                                    <input type="hidden" name="type_id" value="{{ Definer::PRIVATE_TODO }}" />
+                                    <input type="hidden" name="type_id" value="{{ config('todo.private') }}" />
                                     {{-- To-do内容 --}}
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">

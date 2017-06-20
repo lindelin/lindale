@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Definer;
+use Definer;
 use App\Calculator;
 use App\Project\Project;
 use App\Repositories\ProjectRepository;
@@ -36,7 +36,7 @@ class ProjectProgressEventListener
     {
         $project = Project::find($event->todo->project_id);
 
-        if ($project != null and (int) $event->todo->type_id !== Definer::PRIVATE_TODO) {
+        if ($project != null and (int) $event->todo->type_id !== config('todo.private')) {
             $this->ProjectProgressUpdate($project);
         }
     }

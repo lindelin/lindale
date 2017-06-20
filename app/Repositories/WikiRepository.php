@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Definer;
+use Definer;
 use App\Wiki\Wiki;
 use App\Wiki\WikiType;
 use App\Project\Project;

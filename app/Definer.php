@@ -7,37 +7,6 @@ use Illuminate\Support\HtmlString;
 class Definer
 {
     /**
-     * 超级管理员.
-     */
-    const SUPER_ADMIN_ID = 1;
-    const SUPER_ADMIN_EMAIL = 'admin@lindale.tk';
-    const SUPER_ADMIN_NAME = 'Admin';
-
-    /**
-     * 项目主管
-     */
-    const PROJECT_ADMIN = 777;
-
-    /**
-     * To-do Type.
-     */
-    const PUBLIC_TODO = 1;
-    const PRIVATE_TODO = 2;
-
-    /**
-     * To-do 状态ID.
-     */
-    const DEFAULT_STATUS_ID = 1;
-    const FINISH_STATUS_ID = 2;
-    const UNDERWAY_STATUS_ID = 3;
-    const UNDETERMINED_STATUS_ID = 4;
-
-    /**
-     * To-do默认一页表示个数.
-     */
-    const TODO_PAGE_SIZE = 10;
-
-    /**
      * 颜色设定.
      */
     const DEFAULT_COLOR_ID = 1;
@@ -127,10 +96,10 @@ class Definer
     private static function _statusAction($size)
     {
         $action = [];
-        $action[self::DEFAULT_STATUS_ID] = '<i class="fa fa-spinner fa-pulse '.$size.' fa-fw"></i>';
-        $action[self::FINISH_STATUS_ID] = '<i class="fa fa-check '.$size.'" aria-hidden="true"></i>';
-        $action[self::UNDERWAY_STATUS_ID] = '<i class="fa fa-circle-o-notch fa-spin '.$size.' fa-fw"></i>';
-        $action[self::UNDETERMINED_STATUS_ID] = '<i class="fa fa-spinner fa-pulse '.$size.' fa-fw"></i>';
+        $action[config('todo.status.default')] = '<i class="fa fa-spinner fa-pulse '.$size.' fa-fw"></i>';
+        $action[config('todo.status.finished')] = '<i class="fa fa-check '.$size.'" aria-hidden="true"></i>';
+        $action[config('todo.status.underway')] = '<i class="fa fa-circle-o-notch fa-spin '.$size.' fa-fw"></i>';
+        $action[config('todo.status.undetermined')] = '<i class="fa fa-spinner fa-pulse '.$size.' fa-fw"></i>';
 
         return $action;
     }

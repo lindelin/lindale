@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\User;
-use App\Definer;
+use Definer;
 use App\Task\Task;
 use App\Task\SubTask;
 use App\Task\TaskType;
@@ -180,7 +180,7 @@ class TaskRepository
             [
                 'name' => 'task.underway',
                 'color_id' => Definer::PRIMARY_COLOR_ID,
-                'action_id' => Definer::UNDERWAY_STATUS_ID,
+                'action_id' => config('todo.status.underway'),
             ]
         );
         if ($status != null) {

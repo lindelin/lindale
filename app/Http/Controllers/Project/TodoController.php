@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Project;
 
-use App\Definer;
+use Definer;
 use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
@@ -52,7 +52,7 @@ class TodoController extends Controller
      */
     public function index(Project $project, $status = null)
     {
-        $type = TodoType::find(Definer::PUBLIC_TODO);
+        $type = TodoType::find(config('todo.public'));
 
         return view('project.todo.index', $this->todoRepository->TodoResources($project, $type, null, $status))
             ->with($this->memberRepository->AllMember($project))
@@ -89,7 +89,7 @@ class TodoController extends Controller
     public function show(Project $project, $list)
     {
         $list = TodoList::findOrFail($list);
-        $type = TodoType::find(Definer::PUBLIC_TODO);
+        $type = TodoType::find(config('todo.public'));
 
         return view('project.todo.index', $this->todoRepository->TodoResources($project, $type, $list))
             ->with($this->memberRepository->AllMember($project))

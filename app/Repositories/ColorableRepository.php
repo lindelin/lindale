@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Definer;
+use Definer;
 use Illuminate\Support\Collection;
 
 class ColorableRepository

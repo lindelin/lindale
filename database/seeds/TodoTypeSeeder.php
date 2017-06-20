@@ -13,12 +13,12 @@ class TodoTypeSeeder extends Seeder
     {
         DB::table('todo_types')->delete();
         \App\Todo\TodoType::create([
-            'id' => \App\Definer::PUBLIC_TODO,
+            'id' => config('todo.public'),
             'name' => 'type.public',
             'color_id' => \App\Definer::SUCCESS_COLOR_ID,
         ]);
         \App\Todo\TodoType::create([
-            'id' => \App\Definer::PRIVATE_TODO,
+            'id' => config('todo.private'),
             'name' => 'type.private',
             'color_id' => \App\Definer::WARNING_COLOR_ID,
         ]);

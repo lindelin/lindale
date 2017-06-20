@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    @if($lists->count() > 0 and $todo->type_id === Definer::PRIVATE_TODO)
+                    @if($lists->count() > 0 and $todo->type_id === config('todo.private'))
                         {{-- List --}}
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -90,7 +90,7 @@
                     </div>
                     <div class="row">
                     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
-                            @if($todo->status_id === Definer::FINISH_STATUS_ID)
+                            @if($todo->status_id === config('todo.status.finished'))
                             @else
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">
                                     <span class="glyphicon glyphicon-remove"></span> {{ trans('todo.cancel') }}

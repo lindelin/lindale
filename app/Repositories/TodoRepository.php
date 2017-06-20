@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\User;
-use App\Definer;
+use Definer;
 use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
@@ -25,8 +25,10 @@ class TodoRepository
      * @param User|null $user
      * @return array
      */
-    public function TodoResources(Project $project = null, TodoType $type = null, TodoList $list = null, $status = null, $size = Definer::TODO_PAGE_SIZE, User $user = null)
+    public function TodoResources(Project $project = null, TodoType $type = null, TodoList $list = null, $status = null, $size = null, User $user = null)
     {
+        $size = config('todo.page-size');
+
         $todos = null;
 
         if ($project == null and $user == null) {
@@ -42,11 +44,11 @@ class TodoRepository
         }
 
         if ($type != null) {
-            if ((int) $type->id === Definer::PUBLIC_TODO) {
+            if ((int) $type->id === config('todo.public')) {
                 $todos = $todos->where('type_id', $type->id);
             }
 
-            if ((int) $type->id === Definer::PRIVATE_TODO) {
+            if ((int) $type->id === config('todo.private')) {
                 $todos = $todos->where('type_id', $type->id);
             }
         }
@@ -60,15 +62,15 @@ class TodoRepository
         }
 
         if ($project != null) {
-            $lists = $project->TodoLists()->where('type_id', Definer::PUBLIC_TODO)->get();
+            $lists = $project->TodoLists()->where('type_id', config('todo.public'))->get();
         }
 
         if ($user != null) {
-            $lists = $user->TodoLists()->where('type_id', Definer::PRIVATE_TODO)->get();
+            $lists = $user->TodoLists()->where('type_id', config('todo.private'))->get();
         }
 
         if ($user != null and $type != null) {
-            if ((int) $type->id === Definer::PUBLIC_TODO) {
+            if ((int) $type->id === config('todo.public')) {
                 $projects = $this->UserTodoProjects($user);
                 if ($project != null) {
                     $todos = $todos->where('project_id', $project->id);
@@ -78,7 +80,7 @@ class TodoRepository
 
         $todos = $todos->orderBy('status_id', 'desc')->latest('updated_at')->paginate($size);
 
-        $statuses = TodoStatus::where('user_id', Definer::SUPER_ADMIN_ID)->get();
+        $statuses = TodoStatus::where('user_id', config('admin.super_admin.id'))->get();
 
         return compact('todos', 'lists', 'statuses', 'projects');
     }
@@ -111,13 +113,13 @@ class TodoRepository
         }
 
         if ($project !== null) {
-            $todo->type_id = Definer::PUBLIC_TODO;
+            $todo->type_id = config('todo.public');
             $todo->project_id = $project->id;
         } else {
             $todo->user_id = $request->user()->id;
         }
 
-        $todo->status_id = Definer::UNDERWAY_STATUS_ID;
+        $todo->status_id = config('todo.status.underway');
         $todo->initiator_id = $request->user()->id;
 
         return $todo;
@@ -160,12 +162,12 @@ class TodoRepository
 
         if ($project !== null) {
             $todoList->project_id = $project->id;
-            $todoList->type_id = Definer::PUBLIC_TODO;
+            $todoList->type_id = config('todo.public');
         }
 
         if ($user !== null) {
             $todoList->user_id = $user->id;
-            $todoList->type_id = Definer::PRIVATE_TODO;
+            $todoList->type_id = config('todo.private');
         }
 
         return $todoList;

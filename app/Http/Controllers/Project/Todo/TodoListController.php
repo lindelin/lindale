@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Project\Todo;
 
-use App\Definer;
+use Definer;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
 use App\Project\Project;
@@ -46,7 +46,7 @@ class TodoListController extends Controller
      */
     public function create(Project $project)
     {
-        $type = TodoType::findOrFail(Definer::PUBLIC_TODO);
+        $type = TodoType::findOrFail(config('todo.public'));
 
         return view('project.todo.index', $this->todoRepository->TodoResources($project, $type))
             ->with($this->memberRepository->AllMember($project))
