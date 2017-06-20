@@ -290,12 +290,12 @@ class ColorableRepository
     {
         $label = [];
 
-        $label[Definer::DEFAULT_COLOR_ID] = 'label-default';
-        $label[Definer::PRIMARY_COLOR_ID] = 'label-primary';
-        $label[Definer::SUCCESS_COLOR_ID] = 'label-success';
-        $label[Definer::INFO_COLOR_ID] = 'label-info';
-        $label[Definer::WARNING_COLOR_ID] = 'label-warning';
-        $label[Definer::DANGER_COLOR_ID] = 'label-danger';
+        $label[config('color.default')] = 'label-default';
+        $label[config('color.primary')] = 'label-primary';
+        $label[config('color.success')] = 'label-success';
+        $label[config('color.info')] = 'label-info';
+        $label[config('color.warning')] = 'label-warning';
+        $label[config('color.danger')] = 'label-danger';
 
         return '<span class="label '.$label[$id].'">'.$text.'</span>';
     }

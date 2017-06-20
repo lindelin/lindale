@@ -37,10 +37,10 @@ class WikiRepository
      */
     public function WikiResources(Project $project)
     {
-        $HomeWiki = $project->Wikis()->where('type_id', Definer::DEFAULT_WIKI)->first();
-        $wikis = $project->Wikis()->where('type_id', Definer::DEFAULT_WIKI_TYPE)->get();
+        $HomeWiki = $project->Wikis()->where('type_id', config('wiki.default'))->first();
+        $wikis = $project->Wikis()->where('type_id', config('wiki.default-type'))->get();
         $types = $project->WikiTypes()->get();
-        $DefaultType = WikiType::findOrFail(Definer::DEFAULT_WIKI_TYPE);
+        $DefaultType = WikiType::findOrFail(config('wiki.default-type'));
 
         return compact('wikis', 'HomeWiki', 'types', 'DefaultType');
     }

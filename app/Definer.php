@@ -7,22 +7,6 @@ use Illuminate\Support\HtmlString;
 class Definer
 {
     /**
-     * 颜色设定.
-     */
-    const DEFAULT_COLOR_ID = 1;
-    const PRIMARY_COLOR_ID = 2;
-    const SUCCESS_COLOR_ID = 3;
-    const INFO_COLOR_ID = 4;
-    const WARNING_COLOR_ID = 5;
-    const DANGER_COLOR_ID = 6;
-
-    /**
-     * WIKI Type.
-     */
-    const DEFAULT_WIKI_TYPE = 1;
-    const DEFAULT_WIKI = 0;
-
-    /**
      * 任务完成.
      */
     const TASK_FINISHED = 1;
@@ -112,12 +96,12 @@ class Definer
     private static function _commonColor()
     {
         $color = [];
-        $color[self::DEFAULT_COLOR_ID] = trans('color.default');
-        $color[self::PRIMARY_COLOR_ID] = trans('color.primary');
-        $color[self::SUCCESS_COLOR_ID] = trans('color.success');
-        $color[self::INFO_COLOR_ID] = trans('color.info');
-        $color[self::WARNING_COLOR_ID] = trans('color.warning');
-        $color[self::DANGER_COLOR_ID] = trans('color.danger');
+        $color[config('color.default')] = trans('color.default');
+        $color[config('color.primary')] = trans('color.primary');
+        $color[config('color.success')] = trans('color.success');
+        $color[config('color.info')] = trans('color.info');
+        $color[config('color.warning')] = trans('color.warning');
+        $color[config('color.danger')] = trans('color.danger');
 
         return $color;
     }

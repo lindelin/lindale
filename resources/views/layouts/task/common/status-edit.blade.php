@@ -71,7 +71,7 @@
                             {{ csrf_field() }}
 
                                 <input type="hidden" name="is_finish" value="{{ Definer::TASK_FINISHED }}" />
-                                <input type="hidden" name="color_id" value="{{ Definer::SUCCESS_COLOR_ID }}" />
+                                <input type="hidden" name="color_id" value="{{ config('color.success') }}" />
                                 <button type="submit" class="btn btn-success btn-block">
                                     <span class="glyphicon glyphicon-ok"></span> {{ trans('task.finish') }}
                                 </button>

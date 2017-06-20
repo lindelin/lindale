@@ -166,7 +166,7 @@ class TaskRepository
             ],
             [
                 'name' => 'task.default',
-                'color_id' => Definer::DEFAULT_COLOR_ID,
+                'color_id' => config('color.default'),
             ]
         );
         if ($type != null) {
@@ -179,7 +179,7 @@ class TaskRepository
             ],
             [
                 'name' => 'task.underway',
-                'color_id' => Definer::PRIMARY_COLOR_ID,
+                'color_id' => config('color.primary'),
                 'action_id' => config('todo.status.underway'),
             ]
         );

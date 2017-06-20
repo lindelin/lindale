@@ -17,13 +17,13 @@ class TodoTypeTableTest extends TestCase
         $this->assertDatabaseHas('todo_types', [
             'id' => config('todo.public'),
             'name' => 'type.public',
-            'color_id' => Definer::SUCCESS_COLOR_ID,
+            'color_id' => config('color.success'),
         ]);
 
         $this->assertDatabaseHas('todo_types', [
             'id' => config('todo.private'),
             'name' => 'type.private',
-            'color_id' => Definer::WARNING_COLOR_ID,
+            'color_id' => config('color.warning'),
         ]);
     }
 }

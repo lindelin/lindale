@@ -15,12 +15,12 @@ class TodoTypeSeeder extends Seeder
         \App\Todo\TodoType::create([
             'id' => config('todo.public'),
             'name' => 'type.public',
-            'color_id' => \App\Definer::SUCCESS_COLOR_ID,
+            'color_id' => config('color.success'),
         ]);
         \App\Todo\TodoType::create([
             'id' => config('todo.private'),
             'name' => 'type.private',
-            'color_id' => \App\Definer::WARNING_COLOR_ID,
+            'color_id' => config('color.warning'),
         ]);
     }
 }
