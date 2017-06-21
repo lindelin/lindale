@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Project\Todo;
 
-use Definer;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
 use App\Project\Project;

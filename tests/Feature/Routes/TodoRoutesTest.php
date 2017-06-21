@@ -4,7 +4,6 @@ namespace Tests\Feature\Routes;
 
 use Event;
 use App\User;
-use Definer;
 use App\Todo\Todo;
 use Tests\TestCase;
 use App\Todo\TodoType;

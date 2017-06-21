@@ -248,7 +248,6 @@ return [
         'Markdown' => App\Repositories\MarkdownRepository::class,
         'Admin' => App\Tools\Facades\Admin::class,
         'Icon' => App\Tools\Facades\Icon::class,
-        'Definer' => \App\Definer::class,
         'Calculator' => \App\Calculator::class,
         'Counter' => \App\Counter::class,
         'ProjectConfig' => \App\ProjectConfig::class,

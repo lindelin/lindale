@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Task;
 
-use Definer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\TaskRepository;

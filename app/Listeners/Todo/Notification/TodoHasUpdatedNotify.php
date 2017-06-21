@@ -2,7 +2,6 @@
 
 namespace App\Listeners\Todo\Notification;
 
-use Definer;
 use App\UserConfig;
 use App\ProjectConfig;
 use App\Events\Todo\TodoUpdated;

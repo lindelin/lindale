@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Databases;
 
-use Definer;
 use Tests\TestCase;
 
 class TodoTypeTableTest extends TestCase

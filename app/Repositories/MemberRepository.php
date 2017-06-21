@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\User;
-use Definer;
 use App\Project\Project;
 use Illuminate\Http\Request;
 

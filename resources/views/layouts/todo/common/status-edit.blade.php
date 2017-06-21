@@ -1,7 +1,7 @@
 <!-- 模态窗按钮 -->
 <h4 class="panel-title">
     <a class="my-tooltip" title="{{ trans('todo.status-now') }}:{{ trans($todo->Status->name) }}" data-toggle="modal" data-target="#editTodoStatus{{ $todo->id }}">
-        {!! Definer::getStatusAction($todo->Status->action_id) !!}
+        {!! Icon::action($todo->Status->action_id) !!}
     </a>
 </h4>
 
@@ -25,7 +25,7 @@
                     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     		<h4>
                                 {{ trans('todo.status-now') }}：{{ trans($todo->Status->name) }}
-                                {!! Definer::getStatusAction($todo->Status->action_id) !!}
+                                {!! Icon::action($todo->Status->action_id) !!}
                             </h4>
                     	</div>
                     </div>

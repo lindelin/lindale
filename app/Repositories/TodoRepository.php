@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\User;
-use Definer;
 use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Todo\TodoType;

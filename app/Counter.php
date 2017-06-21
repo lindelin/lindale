@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Definer;
 use App\Task\Task;
 use App\Task\TaskType;
 use App\Todo\TodoType;

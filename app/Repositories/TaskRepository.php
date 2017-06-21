@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\User;
-use Definer;
 use App\Task\Task;
 use App\Task\SubTask;
 use App\Task\TaskType;

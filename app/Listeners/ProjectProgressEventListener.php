@@ -2,7 +2,6 @@
 
 namespace App\Listeners;
 
-use Definer;
 use App\Calculator;
 use App\Project\Project;
 use App\Repositories\ProjectRepository;
