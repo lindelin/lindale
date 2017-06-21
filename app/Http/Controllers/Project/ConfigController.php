@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Project;
 
-use App\System\Contracts\ConfigSystem\ProjectConfigSystemContract;
 use ProjectConfig;
 use App\Task\TaskType;
 use App\Project\Project;
@@ -10,6 +9,7 @@ use App\Task\TaskStatus;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\ProjectRepository;
+use App\System\Contracts\ConfigSystem\ProjectConfigSystemContract;
 
 class ConfigController extends Controller
 {

@@ -5,8 +5,6 @@ use Illuminate\Support\HtmlString;
 if (! function_exists('project_config_menu_sp')) {
 
     /**
-     *
-     *
      * @param $mode
      * @return HtmlString|string
      */
@@ -26,13 +24,12 @@ if (! function_exists('project_config_menu_sp')) {
             return 'MENU';
         }
     }
-
 }
 
 if (! function_exists('markdown')) {
 
     /**
-     * Text to Html
+     * Text to Html.
      * @param $text
      * @return mixed
      */
@@ -40,12 +37,9 @@ if (! function_exists('markdown')) {
     {
         return app('markdown')->text($text);
     }
-
 }
 
 if (! function_exists('user_config')) {
-
-
     function user_config(\App\User $user, $key)
     {
         $system = app('ucs');
@@ -61,5 +55,4 @@ if (! function_exists('user_config')) {
             return $value;
         }
     }
-
 }

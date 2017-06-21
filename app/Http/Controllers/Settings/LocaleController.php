@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Settings;
 
 use App;
-use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
 
 class LocaleController extends Controller
 {
