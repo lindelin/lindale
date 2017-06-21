@@ -50,13 +50,13 @@ class ProjectConfig
     {
         $system = new ProjectConfigSystem;
 
-        $value = $system->getConfigInfo($project, $config_name);
+        $value = $system->get($project, $config_name);
 
         if ($value !== null or $value != '') {
             return $value;
         } else {
-            $system->setConfigInfo($project, $config_name, self::getDefaultConfig($config_name));
-            $value = $system->getConfigInfo($project, $config_name);
+            $system->set($project, $config_name, self::getDefaultConfig($config_name));
+            $value = $system->get($project, $config_name);
 
             return $value;
         }

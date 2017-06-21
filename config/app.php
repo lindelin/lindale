@@ -193,6 +193,7 @@ return [
         App\Providers\ResponseMacroServiceProvider::class,
         App\Providers\RoutingManagementServiceProvider::class,
         App\Providers\ToolServiceProvider::class,
+        App\Providers\ConfigSystemServiceProvider::class,
 
     ],
 

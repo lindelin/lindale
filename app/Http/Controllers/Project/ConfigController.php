@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\System\Contracts\ConfigSystem\ProjectConfigSystemContract;
 use ProjectConfig;
 use App\Task\TaskType;
 use App\Project\Project;
@@ -9,7 +10,6 @@ use App\Task\TaskStatus;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\ProjectRepository;
-use App\System\ConfigSystem\ProjectConfigSystem;
 
 class ConfigController extends Controller
 {
@@ -23,7 +23,7 @@ class ConfigController extends Controller
     /**
      * 项目配置系统
      *
-     * @var ProjectConfigSystem
+     * @var ProjectConfigSystemContract
      */
     protected $configSystem;
 
@@ -33,12 +33,12 @@ class ConfigController extends Controller
      *
      * ConfigController constructor.
      * @param ProjectRepository $projectRepository
-     * @param ProjectConfigSystem $projectConfigSystem
+     * @param ProjectConfigSystemContract $configSystem
      */
-    public function __construct(ProjectRepository $projectRepository, ProjectConfigSystem $projectConfigSystem)
+    public function __construct(ProjectRepository $projectRepository, ProjectConfigSystemContract $configSystem)
     {
         $this->projectRepository = $projectRepository;
-        $this->configSystem = $projectConfigSystem;
+        $this->configSystem = $configSystem;
     }
 
     /*
@@ -88,7 +88,7 @@ class ConfigController extends Controller
     {
         $this->authorize('member', [$project]);
 
-        $result = $this->configSystem->setConfigInfo($project, ProjectConfig::LANG, $request->get(ProjectConfig::LANG));
+        $result = $this->configSystem->set($project, ProjectConfig::LANG, $request->get(ProjectConfig::LANG));
 
         return response()->update($result);
     }
@@ -122,8 +122,8 @@ class ConfigController extends Controller
     {
         $this->authorize('member', [$project]);
 
-        $result1 = $this->configSystem->setConfigInfo($project, ProjectConfig::SLACK_NOTIFICATION_NO, $request->get(ProjectConfig::SLACK_NOTIFICATION_NO));
-        $result2 = $this->configSystem->setConfigInfo($project, ProjectConfig::SLACK_API_KEY, $request->get(ProjectConfig::SLACK_API_KEY));
+        $result1 = $this->configSystem->set($project, ProjectConfig::SLACK_NOTIFICATION_NO, $request->get(ProjectConfig::SLACK_NOTIFICATION_NO));
+        $result2 = $this->configSystem->set($project, ProjectConfig::SLACK_API_KEY, $request->get(ProjectConfig::SLACK_API_KEY));
 
         return response()->update($result1 and $result2);
     }

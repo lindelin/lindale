@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers\Settings;
 
-use App\UserConfig;
+use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
+use UserConfig;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\System\ConfigSystem\UserConfigSystem;
 
 class NotificationController extends Controller
 {
     /**
      * 用户配置系统
      *
-     * @var UserConfigSystem
+     * @var UserConfigSystemContract
      */
     protected $configSystem;
 
@@ -20,11 +20,11 @@ class NotificationController extends Controller
      * 构造器.
      *
      * LocaleController constructor.
-     * @param UserConfigSystem $userConfigSystem
+     * @param UserConfigSystemContract $configSystem
      */
-    public function __construct(UserConfigSystem $userConfigSystem)
+    public function __construct(UserConfigSystemContract $configSystem)
     {
-        $this->configSystem = $userConfigSystem;
+        $this->configSystem = $configSystem;
     }
 
     /**
@@ -45,8 +45,8 @@ class NotificationController extends Controller
      */
     public function updateNotification(Request $request)
     {
-        $result1 = $this->configSystem->setConfigInfo($request->user(), UserConfig::SLACK_NOTIFICATION_NO, $request->get(UserConfig::SLACK_NOTIFICATION_NO));
-        $result2 = $this->configSystem->setConfigInfo($request->user(), UserConfig::SLACK_API_KEY, $request->get(UserConfig::SLACK_API_KEY));
+        $result1 = $this->configSystem->set($request->user(), UserConfig::SLACK_NOTIFICATION_NO, $request->get(UserConfig::SLACK_NOTIFICATION_NO));
+        $result2 = $this->configSystem->set($request->user(), UserConfig::SLACK_API_KEY, $request->get(UserConfig::SLACK_API_KEY));
 
         return response()->update($result1 and $result2);
     }

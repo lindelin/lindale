@@ -49,13 +49,13 @@ class UserConfig
     {
         $system = new UserConfigSystem();
 
-        $value = $system->getConfigInfo($user, $config_name);
+        $value = $system->get($user, $config_name);
 
         if ($value !== null or $value != '') {
             return $value;
         } else {
-            $system->setConfigInfo($user, $config_name, self::getDefaultConfig($config_name));
-            $value = $system->getConfigInfo($user, $config_name);
+            $system->set($user, $config_name, self::getDefaultConfig($config_name));
+            $value = $system->get($user, $config_name);
 
             return $value;
         }
