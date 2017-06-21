@@ -69,7 +69,7 @@ class TaskController extends Controller
      */
     public function unfinished(Project $project)
     {
-        return view('project.task.task', $this->taskRepository->TaskResources($project, Definer::TASK_UNFINISHED))
+        return view('project.task.task', $this->taskRepository->TaskResources($project, config('task.unfinished')))
             ->with(['project' => $project, 'selected' => 'tasks', 'mode' => 'unfinished', 'in' => 'menu']);
     }
 
@@ -81,7 +81,7 @@ class TaskController extends Controller
      */
     public function finished(Project $project)
     {
-        return view('project.task.task', $this->taskRepository->TaskResources($project, Definer::TASK_FINISHED))
+        return view('project.task.task', $this->taskRepository->TaskResources($project, config('task.finished')))
             ->with(['project' => $project, 'selected' => 'tasks', 'mode' => 'finished', 'in' => 'menu']);
     }
 
@@ -145,7 +145,7 @@ class TaskController extends Controller
      */
     public function edit(Project $project, Task $task)
     {
-        if ($task->is_finish === Definer::TASK_UNFINISHED) {
+        if ($task->is_finish === config('task.unfinished')) {
             return view('project.task.edit', $this->taskRepository->TaskCreateResources($project))
                 ->with(['project' => $project, 'selected' => 'tasks'])
                 ->with(compact('task'));
@@ -191,7 +191,7 @@ class TaskController extends Controller
     {
         $this->authorize('update', [$task, $project]);
 
-        if ($task->is_finish === Definer::TASK_UNFINISHED or (int) $request->get('is_finish') === Definer::TASK_UNFINISHED) {
+        if ($task->is_finish === config('task.unfinished') or (int) $request->get('is_finish') === config('task.unfinished')) {
             $task = $this->taskRepository->UpdateTask($request, $task);
 
             $result = $task->update();
@@ -232,7 +232,7 @@ class TaskController extends Controller
      */
     public function destroy(Project $project, Task $task, Request $request)
     {
-        if ($task->is_finish === Definer::TASK_UNFINISHED) {
+        if ($task->is_finish === config('task.unfinished')) {
             $this->authorize('delete', [$task, $project]);
 
             if ($task->delete()) {

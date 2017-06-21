@@ -46,7 +46,7 @@ class TaskRepository
         }
 
         if ($status != null) {
-            $tasks = $tasks->where('status_id', $status->id)->where('is_finish', Definer::TASK_UNFINISHED);
+            $tasks = $tasks->where('status_id', $status->id)->where('is_finish', config('task.unfinished'));
         }
 
         $tasks = $tasks

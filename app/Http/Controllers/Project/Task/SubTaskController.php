@@ -45,7 +45,7 @@ class SubTaskController extends Controller
      */
     public function store(Request $request, Project $project, Task $task)
     {
-        if ($task->is_finish === Definer::TASK_UNFINISHED) {
+        if ($task->is_finish === config('task.unfinished')) {
             $this->validate($request, [
                 'content' => 'required|max:30',
             ]);

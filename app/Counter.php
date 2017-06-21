@@ -33,7 +33,7 @@ class Counter
      */
     public static function UserUnfinishedTaskCount(User $user)
     {
-        return (int) ($user->Tasks()->Where('is_finish', Definer::TASK_UNFINISHED)->count());
+        return (int) ($user->Tasks()->Where('is_finish', config('task.unfinished'))->count());
     }
 
     /**
@@ -44,7 +44,7 @@ class Counter
      */
     public static function UserFinishedTaskCount(User $user)
     {
-        return (int) ($user->Tasks()->Where('is_finish', Definer::TASK_FINISHED)->count());
+        return (int) ($user->Tasks()->Where('is_finish', config('task.finished'))->count());
     }
 
     /**
@@ -192,7 +192,7 @@ class Counter
      */
     public static function GroupTaskFinishCount(TaskGroup $group)
     {
-        return (int) $group->Tasks()->where('is_finish', Definer::TASK_FINISHED)->count();
+        return (int) $group->Tasks()->where('is_finish', config('task.finished'))->count();
     }
 
     /**
@@ -203,7 +203,7 @@ class Counter
      */
     public static function GroupTaskUnfinishedCount(TaskGroup $group)
     {
-        return (int) $group->Tasks()->where('is_finish', Definer::TASK_UNFINISHED)->count();
+        return (int) $group->Tasks()->where('is_finish', config('task.unfinished'))->count();
     }
 
     /**
@@ -236,7 +236,7 @@ class Counter
      */
     public static function ProjectTaskFinishedCount(Project $project)
     {
-        return (int) $project->Tasks()->where('is_finish', Definer::TASK_FINISHED)->count();
+        return (int) $project->Tasks()->where('is_finish', config('task.finished'))->count();
     }
 
     /**
@@ -247,7 +247,7 @@ class Counter
      */
     public static function ProjectTaskUnfinishedCount(Project $project)
     {
-        return (int) $project->Tasks()->where('is_finish', Definer::TASK_UNFINISHED)->count();
+        return (int) $project->Tasks()->where('is_finish', config('task.unfinished'))->count();
     }
 
     /**
@@ -307,7 +307,7 @@ class Counter
      */
     public static function ProjectStatusTaskCount(Project $project, TaskStatus $status)
     {
-        $task = $project->Tasks()->where('status_id', $status->id)->where('is_finish', Definer::TASK_UNFINISHED);
+        $task = $project->Tasks()->where('status_id', $status->id)->where('is_finish', config('task.unfinished'));
 
         return (int) $task->count();
     }
@@ -349,7 +349,7 @@ class Counter
      */
     public static function FinishedSubTasks(Task $task)
     {
-        return (int) $task->SubTasks()->where('is_finish', Definer::TASK_FINISHED)->count();
+        return (int) $task->SubTasks()->where('is_finish', config('task.finished'))->count();
     }
 
     /**
@@ -360,6 +360,6 @@ class Counter
      */
     public static function UnfinishedSubTasks(Task $task)
     {
-        return (int) $task->SubTasks()->where('is_finish', Definer::TASK_UNFINISHED)->count();
+        return (int) $task->SubTasks()->where('is_finish', config('task.unfinished'))->count();
     }
 }

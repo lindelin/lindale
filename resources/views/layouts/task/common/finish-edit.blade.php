@@ -36,8 +36,8 @@
                             <div class="form-group{{ $errors->has('is_finish') ? ' has-error' : '' }}">
                                 <div>
                                     <select class="selectpicker form-control" name="is_finish">
-                                        <option value="1" @if($model->is_finish === Definer::TASK_FINISHED) selected @endif>{{ trans('task.finish') }}</option>
-                                        <option value="0" @if($model->is_finish === Definer::TASK_UNFINISHED) selected @endif>{{ trans('task.unfinished') }}</option>
+                                        <option value="1" @if($model->is_finish === config('task.finished')) selected @endif>{{ trans('task.finish') }}</option>
+                                        <option value="0" @if($model->is_finish === config('task.unfinished')) selected @endif>{{ trans('task.unfinished') }}</option>
                                     </select>
                                     @include('layouts.common.error-one', ['field' => 'is_finish'])
                                 </div>

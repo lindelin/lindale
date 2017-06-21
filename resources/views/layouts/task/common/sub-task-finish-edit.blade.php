@@ -1,6 +1,6 @@
 <!-- 模态窗按钮 -->
 <a href="#editSubTaskModel{{ $model->id }}" class="my-tooltip" title="{{ trans('task.edit') }}" data-toggle="modal" data-target="#editSubTaskModel{{ $model->id }}">
-    @if($model->is_finish === Definer::TASK_FINISHED)
+    @if($model->is_finish === config('task.finished'))
         <span class="glyphicon glyphicon-ok"></span>
     @else
         <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
@@ -28,7 +28,7 @@
                     <div class="row">
                     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <h4>
-                                @if($model->is_finish === Definer::TASK_FINISHED)
+                                @if($model->is_finish === config('task.finished'))
                                     {{ trans('task.status') }}:{{ trans('task.finish') }}
                                     <span class="glyphicon glyphicon-ok"></span>
                                 @else
@@ -44,9 +44,9 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group{{ $errors->has('is_finish') ? ' has-error' : '' }}">
                                 <div>
-                                    <select class="selectpicker form-control" name="is_finish" @if($task->is_finish === Definer::TASK_FINISHED) disabled @endif>
-                                        <option value="1" @if($model->is_finish === Definer::TASK_FINISHED) selected @endif>{{ trans('task.finish') }}</option>
-                                        <option value="0" @if($model->is_finish === Definer::TASK_UNFINISHED) selected @endif>{{ trans('task.unfinished') }}</option>
+                                    <select class="selectpicker form-control" name="is_finish" @if($task->is_finish === config('task.finished')) disabled @endif>
+                                        <option value="1" @if($model->is_finish === config('task.finished')) selected @endif>{{ trans('task.finish') }}</option>
+                                        <option value="0" @if($model->is_finish === config('task.unfinished')) selected @endif>{{ trans('task.unfinished') }}</option>
                                     </select>
                                     @include('layouts.common.error-one', ['field' => 'is_finish'])
                                 </div>
@@ -63,14 +63,14 @@
                                 </label>
                                 <div>
                                     <input type="text" class="form-control" name="content" value="{{ old('content') ? old('content') : $model->content }}"
-                                           @if($model->is_finish === Definer::TASK_FINISHED) disabled @endif>
+                                           @if($model->is_finish === config('task.finished')) disabled @endif>
                                     @include('layouts.common.error-one', ['field' => 'content'])
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    @if($model->Task->is_finish === Definer::TASK_UNFINISHED)
+                    @if($model->Task->is_finish === config('task.unfinished'))
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="right">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">
@@ -92,7 +92,7 @@
                         <form action="{{ $status_edit_url }}" method="POST">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-block" @if($task->is_finish === Definer::TASK_FINISHED) disabled @endif>
+                            <button type="submit" class="btn btn-danger btn-block" @if($task->is_finish === config('task.finished')) disabled @endif>
                                 <span class="glyphicon glyphicon-trash"></span> {{ trans('task.delete') }}
                             </button>
                         </form>
