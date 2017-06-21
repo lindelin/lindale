@@ -2,10 +2,9 @@
 
 namespace App\Listeners\Todo\Notification;
 
-use App\Tools\Checker\ConfigChecker;
-use UserConfig;
 use App\ProjectConfig;
 use App\Events\Todo\TodoDeleted;
+use App\Tools\Checker\ConfigChecker;
 use App\Notifications\Project\Todo\TodoHasDeleted;
 
 class TodoHasDeletedNotify
