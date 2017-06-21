@@ -28,3 +28,17 @@ if (! function_exists('project_config_menu_sp')) {
     }
 
 }
+
+if (! function_exists('markdown')) {
+
+    /**
+     * Text to Html
+     * @param $text
+     * @return mixed
+     */
+    function markdown($text)
+    {
+        return app('markdown')->text($text);
+    }
+
+}

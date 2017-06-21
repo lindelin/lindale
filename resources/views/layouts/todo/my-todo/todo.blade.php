@@ -76,7 +76,7 @@
                 <br>
                 @if($todo->details)
                     <div class="jumbotron">
-                        {!! Markdown::toHtml($todo->details) !!}
+                        {!! markdown($todo->details) !!}
                     </div>
                 @endif
             </div>

@@ -64,7 +64,7 @@
                 </tbody>
             </table>
         </div>
-        {!! Markdown::toHtml($group->information) !!}
+        {!! markdown($group->information) !!}
 
     </div>
 

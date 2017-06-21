@@ -30,5 +30,9 @@ class ToolServiceProvider extends ServiceProvider
         $this->app->singleton('icon', function () {
             return $this->app->make(\App\Tools\Html\IconTool::class);
         });
+
+        $this->app->singleton('markdown', function () {
+            return $this->app->make(\ParsedownExtra::class);
+        });
     }
 }

@@ -243,9 +243,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        /*'Inspiring' => Illuminate\Foundation\Inspiring::class,*/
         'Colorable' => App\Repositories\ColorableRepository::class,
-        'Markdown' => App\Repositories\MarkdownRepository::class,
         'Admin' => App\Tools\Facades\Admin::class,
         'Icon' => App\Tools\Facades\Icon::class,
         'Calculator' => \App\Calculator::class,
