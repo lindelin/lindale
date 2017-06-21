@@ -55,7 +55,7 @@ if (! function_exists('user_config')) {
         if ($value !== null or $value != '') {
             return $value;
         } else {
-            $system->set($user, $key, config('config.user.default'.$key));
+            $system->set($user, $key, config('config.user.default.'.$key));
             $value = $system->get($user, $key);
 
             return $value;
