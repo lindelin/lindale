@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\System\ConfigSystem\ProjectConfigSystem;
+use App\System\ConfigSystem\UserConfigSystem;
+use App\System\Contracts\ConfigSystem\ProjectConfigSystemContract;
+use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
 use Illuminate\Support\ServiceProvider;
 
 class ConfigSystemServiceProvider extends ServiceProvider
@@ -24,13 +28,21 @@ class ConfigSystemServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            \App\System\Contracts\ConfigSystem\ProjectConfigSystemContract::class,
-            \App\System\ConfigSystem\ProjectConfigSystem::class
+            ProjectConfigSystemContract::class,
+            ProjectConfigSystem::class
         );
 
         $this->app->bind(
-            \App\System\Contracts\ConfigSystem\UserConfigSystemContract::class,
-            \App\System\ConfigSystem\UserConfigSystem::class
+            UserConfigSystemContract::class,
+            UserConfigSystem::class
         );
+
+        $this->app->singleton('pcs', function () {
+            return $this->app->make(ProjectConfigSystemContract::class);
+        });
+
+        $this->app->singleton('ucs', function () {
+            return $this->app->make(UserConfigSystemContract::class);
+        });
     }
 }

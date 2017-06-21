@@ -39,9 +39,9 @@
                                                 <label class="control-label">{{ trans('project.lang') }}</label>
                                                 <div>
                                                     <select class="selectpicker form-control" name="{{ ProjectConfig::LANG }}">
-                                                        @foreach( Config::get('app.available_locales') as $value)
+                                                        @foreach( config('app.available_locales') as $value)
                                                             <option value="{{ $value }}" @if(old(ProjectConfig::LANG) ? old(ProjectConfig::LANG) : ProjectConfig::get($project, ProjectConfig::LANG) == $value)  selected @endif>
-                                                                {{ Config::get('app.available_language')[$value] }}
+                                                                {{ config('app.available_language')[$value] }}
                                                             </option>
                                                         @endforeach
                                                     </select>

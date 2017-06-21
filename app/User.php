@@ -199,6 +199,6 @@ class User extends Authenticatable
      */
     public function routeNotificationForSlack()
     {
-        return UserConfig::get(self::find($this->id), UserConfig::SLACK_API_KEY);
+        return user_config(self::find($this->id), config('config.user.key.slack'));
     }
 }

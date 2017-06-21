@@ -72,7 +72,7 @@ class ProjectConfig
     {
         $default = [];
         //语言设定
-        $default[self::LANG] = Config::get('app.fallback_locale');
+        $default[self::LANG] = config('app.fallback_locale');
         //Slack 设置项目
         $default[self::SLACK_API_KEY] = self::NULL;
         $default[self::SLACK_NOTIFICATION_NO] = self::OFF;

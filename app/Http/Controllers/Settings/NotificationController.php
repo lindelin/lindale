@@ -45,8 +45,8 @@ class NotificationController extends Controller
      */
     public function updateNotification(Request $request)
     {
-        $result1 = $this->configSystem->set($request->user(), UserConfig::SLACK_NOTIFICATION_NO, $request->get(UserConfig::SLACK_NOTIFICATION_NO));
-        $result2 = $this->configSystem->set($request->user(), UserConfig::SLACK_API_KEY, $request->get(UserConfig::SLACK_API_KEY));
+        $result1 = $this->configSystem->set($request->user(), config('config.user.slack'), $request->get(config('config.user.slack')));
+        $result2 = $this->configSystem->set($request->user(), config('config.user.key.slack'), $request->get(config('config.user.key.slack')));
 
         return response()->update($result1 and $result2);
     }

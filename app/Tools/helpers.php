@@ -42,3 +42,24 @@ if (! function_exists('markdown')) {
     }
 
 }
+
+if (! function_exists('user_config')) {
+
+
+    function user_config(\App\User $user, $key)
+    {
+        $system = app('ucs');
+
+        $value = $system->get($user, $key);
+
+        if ($value !== null or $value != '') {
+            return $value;
+        } else {
+            $system->set($user, $key, config('config.user.default'.$key));
+            $value = $system->get($user, $key);
+
+            return $value;
+        }
+    }
+
+}

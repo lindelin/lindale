@@ -2,13 +2,16 @@
 
 namespace App\Listeners\Todo\Notification;
 
-use App\UserConfig;
+use App\Tools\Checker\ConfigChecker;
+use UserConfig;
 use App\ProjectConfig;
 use App\Events\Todo\TodoDeleted;
 use App\Notifications\Project\Todo\TodoHasDeleted;
 
 class TodoHasDeletedNotify
 {
+    use ConfigChecker;
+
     /**
      * Handle the event.
      *
@@ -33,16 +36,10 @@ class TodoHasDeletedNotify
         }
 
         //个人消息
-        if (
-            (int) $event->todo->type_id === config('todo.public')
-            and $event->todo->User != null
-            and UserConfig::get($event->todo->User, UserConfig::SLACK_NOTIFICATION_NO) == UserConfig::ON
-            and UserConfig::get($event->todo->User, UserConfig::SLACK_API_KEY) != ''
-            and UserConfig::get($event->todo->User, UserConfig::SLACK_API_KEY) != 'Null'
-        ) {
+        if ($this->userSlackNotify($event->todo->User, $event->todo->type_id)) {
             $event->todo->User->notify(new TodoHasDeleted(
                 $event->user,
-                UserConfig::get($event->todo->User, UserConfig::LANG),
+                user_config($event->todo->User, config('config.user.lang')),
                 $event->todo->content,
                 (string) $event->todo->created_at
             ));

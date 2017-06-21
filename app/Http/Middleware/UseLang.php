@@ -24,7 +24,7 @@ class UseLang
                 \App::setLocale($locale);
                 \Carbon\Carbon::setLocale($locale);
             } else {
-                $locale = Config::get('app.fallback_locale');
+                $locale = config('app.fallback_locale');
                 $request->session()->put('lang_guest', $locale);
                 \App::setLocale($locale);
                 \Carbon\Carbon::setLocale($locale);
@@ -35,7 +35,7 @@ class UseLang
                 \App::setLocale($locale);
                 \Carbon\Carbon::setLocale($locale);
             } else {
-                $locale = UserConfig::get(Auth::user(), UserConfig::LANG);
+                $locale = user_config(Auth::user(), config('config.user.lang'));
                 $request->session()->put('lang', $locale);
                 \App::setLocale($locale);
                 \Carbon\Carbon::setLocale($locale);

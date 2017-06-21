@@ -28,11 +28,11 @@ class HomeController extends Controller
     public function lang(Request $request, $locale)
     {
         if (Auth::guest()) {
-            if (in_array($locale, Config::get('app.available_locales'))) {
+            if (in_array($locale, config('app.available_locales'))) {
                 $request->session()->put('lang_guest', $locale);
             }
         } else {
-            if (in_array($locale, Config::get('app.available_locales'))) {
+            if (in_array($locale, config('app.available_locales'))) {
                 $request->session()->put('lang', $locale);
             }
         }

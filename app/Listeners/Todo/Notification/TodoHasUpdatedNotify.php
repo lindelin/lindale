@@ -2,13 +2,16 @@
 
 namespace App\Listeners\Todo\Notification;
 
-use App\UserConfig;
+use App\Tools\Checker\ConfigChecker;
+use UserConfig;
 use App\ProjectConfig;
 use App\Events\Todo\TodoUpdated;
 use App\Notifications\Project\Todo\TodoHasUpdated;
 
 class TodoHasUpdatedNotify
 {
+    use ConfigChecker;
+
     /**
      * Handle the event.
      *
@@ -28,14 +31,8 @@ class TodoHasUpdatedNotify
         }
 
         //个人消息
-        if (
-            (int) $event->todo->type_id === config('todo.public')
-            and $event->todo->User != null
-            and UserConfig::get($event->todo->User, UserConfig::SLACK_NOTIFICATION_NO) == UserConfig::ON
-            and UserConfig::get($event->todo->User, UserConfig::SLACK_API_KEY) != ''
-            and UserConfig::get($event->todo->User, UserConfig::SLACK_API_KEY) != 'Null'
-        ) {
-            $event->todo->User->notify(new TodoHasUpdated($event->todo, $event->user, UserConfig::get($event->todo->User, UserConfig::LANG)));
+        if ($this->userSlackNotify($event->todo->User, $event->todo->type_id)) {
+            $event->todo->User->notify(new TodoHasUpdated($event->todo, $event->user, user_config($event->todo->User, config('config.user.lang'))));
         }
     }
 }

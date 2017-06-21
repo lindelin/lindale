@@ -45,9 +45,9 @@ class LocaleController extends Controller
      */
     public function updateLocale(Request $request)
     {
-        $result = $this->configSystem->set($request->user(), UserConfig::LANG, $request->get(UserConfig::LANG));
+        $result = $this->configSystem->set($request->user(), config('config.user.lang'), $request->get(config('config.user.lang')));
 
-        $locale = UserConfig::get($request->user(), UserConfig::LANG);
+        $locale = user_config($request->user(), config('config.user.lang'));
         $request->session()->put('lang', $locale);
         App::setLocale($locale);
 

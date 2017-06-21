@@ -26,17 +26,17 @@
                                 <hr>
                                 <p>{{ trans('config.notifiable') }}</p>
                                 <div class="btn-group form-group" data-toggle="buttons">
-                                    <label class="btn btn-default @if(old(UserConfig::SLACK_NOTIFICATION_NO) ? old(UserConfig::SLACK_NOTIFICATION_NO) :
-                                                       UserConfig::get(Auth::user(), UserConfig::SLACK_NOTIFICATION_NO) == UserConfig::OFF)  active @endif">
-                                        <input type="radio" name="{{ UserConfig::SLACK_NOTIFICATION_NO }}" value="{{ UserConfig::OFF }}" id="option1" autocomplete="off"
-                                               @if(old(UserConfig::SLACK_NOTIFICATION_NO) ? old(UserConfig::SLACK_NOTIFICATION_NO) :
-                                               UserConfig::get(Auth::user(), UserConfig::SLACK_NOTIFICATION_NO) == UserConfig::OFF)  checked @endif> OFF
+                                    <label class="btn btn-default @if(old(config('config.user.slack')) ? old(config('config.user.slack')) :
+                                                       user_config(Auth::user(), config('config.user.slack')) == config('config.off'))  active @endif">
+                                        <input type="radio" name="{{ config('config.user.slack') }}" value="{{ config('config.off') }}" id="option1" autocomplete="off"
+                                               @if(old(config('config.user.slack')) ? old(config('config.user.slack')) :
+                                               user_config(Auth::user(), config('config.user.slack')) == config('config.off'))  checked @endif> OFF
                                     </label>
-                                    <label class="btn btn-default @if(old(UserConfig::SLACK_NOTIFICATION_NO) ? old(UserConfig::SLACK_NOTIFICATION_NO) :
-                                                       UserConfig::get(Auth::user(), UserConfig::SLACK_NOTIFICATION_NO) == UserConfig::ON)  active @endif">
-                                        <input type="radio" name="{{ UserConfig::SLACK_NOTIFICATION_NO }}" value="{{ UserConfig::ON }}" id="option2" autocomplete="off"
-                                               @if(old(UserConfig::SLACK_NOTIFICATION_NO) ? old(UserConfig::SLACK_NOTIFICATION_NO) :
-                                               UserConfig::get(Auth::user(), UserConfig::SLACK_NOTIFICATION_NO) == UserConfig::ON)  checked @endif> ON
+                                    <label class="btn btn-default @if(old(config('config.user.slack')) ? old(config('config.user.slack')) :
+                                                       user_config(Auth::user(), config('config.user.slack')) == config('config.on'))  active @endif">
+                                        <input type="radio" name="{{ config('config.user.slack') }}" value="{{ config('config.on') }}" id="option2" autocomplete="off"
+                                               @if(old(config('config.user.slack')) ? old(config('config.user.slack')) :
+                                               user_config(Auth::user(), config('config.user.slack')) == config('config.on'))  checked @endif> ON
                                     </label>
                                 </div>
                             </div>
@@ -53,14 +53,14 @@
                         {{-- API Key --}}
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="form-group{{ $errors->has(UserConfig::SLACK_API_KEY) ? ' has-error' : '' }}">
+                                <div class="form-group{{ $errors->has(config('config.user.key.slack')) ? ' has-error' : '' }}">
                                     <label class="control-label">
                                         WebHook
                                     </label>
                                     <div>
-                                        <input type="text" class="form-control" name="{{ UserConfig::SLACK_API_KEY }}"
-                                               value="{{ old(UserConfig::SLACK_API_KEY) ? old(UserConfig::SLACK_API_KEY) : UserConfig::get(Auth::user(), UserConfig::SLACK_API_KEY) }}" />
-                                        @include('layouts.common.error-one', ['field' => UserConfig::SLACK_API_KEY])
+                                        <input type="text" class="form-control" name="{{ config('config.user.key.slack') }}"
+                                               value="{{ old(config('config.user.key.slack')) ? old(config('config.user.key.slack')) : user_config(Auth::user(), config('config.user.key.slack')) }}" />
+                                        @include('layouts.common.error-one', ['field' => config('config.user.key.slack')])
                                     </div>
                                 </div>
                             </div>

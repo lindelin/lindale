@@ -250,7 +250,6 @@ return [
         'Calculator' => \App\Calculator::class,
         'Counter' => \App\Counter::class,
         'ProjectConfig' => \App\ProjectConfig::class,
-        'UserConfig' => \App\UserConfig::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
         'Image' => Intervention\Image\Facades\Image::class,
 
