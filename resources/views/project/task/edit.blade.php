@@ -210,9 +210,9 @@
                                 </label>
                                 <div>
                                     <select class="selectpicker form-control" name="color_id">
-                                        @foreach( Definer::todoColor() as $id => $color)
+                                        @foreach( config('color.common') as $id => $color)
                                             <option value="{{ $id }}" @if(old('color_id') ? old('color_id') : $task->color_id === $id) selected @endif>
-                                                {{ $color }}
+                                                {{ trans($color) }}
                                             </option>
                                         @endforeach
                                     </select>

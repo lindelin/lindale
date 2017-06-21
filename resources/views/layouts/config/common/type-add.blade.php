@@ -32,8 +32,8 @@
                         </label>
                         <div>
                             <select class="selectpicker form-control" name="color_id" required="required">
-                                @foreach( Definer::todoColor() as $id => $color)
-                                    <option value="{{ $id }}">{{ $color }}</option>
+                                @foreach( config('color.common') as $id => $color)
+                                    <option value="{{ $id }}">{{ trans($color) }}</option>
                                 @endforeach
                             </select>
                             @include('layouts.common.error-one', ['field' => 'color_id'])

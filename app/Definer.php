@@ -7,16 +7,6 @@ use Illuminate\Support\HtmlString;
 class Definer
 {
     /**
-     * 获取To-do配色ID.
-     *
-     * @return array
-     */
-    public static function todoColor()
-    {
-        return self::_commonColor();
-    }
-
-    /**
      * 获取状态动作.
      *
      * @param $id
@@ -68,23 +58,5 @@ class Definer
         $action[config('todo.status.undetermined')] = '<i class="fa fa-spinner fa-pulse '.$size.' fa-fw"></i>';
 
         return $action;
-    }
-
-    /**
-     * 共通配色.
-     *
-     * @return array
-     */
-    private static function _commonColor()
-    {
-        $color = [];
-        $color[config('color.default')] = trans('color.default');
-        $color[config('color.primary')] = trans('color.primary');
-        $color[config('color.success')] = trans('color.success');
-        $color[config('color.info')] = trans('color.info');
-        $color[config('color.warning')] = trans('color.warning');
-        $color[config('color.danger')] = trans('color.danger');
-
-        return $color;
     }
 }
