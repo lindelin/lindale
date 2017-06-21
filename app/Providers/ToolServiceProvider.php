@@ -26,5 +26,9 @@ class ToolServiceProvider extends ServiceProvider
         $this->app->singleton('admin', function () {
             return $this->app->make(\App\Policies\AdminPolicy::class);
         });
+
+        $this->app->singleton('icon', function () {
+            return $this->app->make(\App\Tools\Html\IconTool::class);
+        });
     }
 }
