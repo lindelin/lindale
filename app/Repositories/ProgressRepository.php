@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use Charts;
-use App\Calculator;
+use Calculator;
 use App\Project\Project;
 
 class ProgressRepository

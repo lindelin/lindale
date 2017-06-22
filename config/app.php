@@ -247,8 +247,8 @@ return [
         'Colorable' => App\Repositories\ColorableRepository::class,
         'Admin' => App\Tools\Facades\Admin::class,
         'Icon' => App\Tools\Facades\Icon::class,
-        'Calculator' => \App\Calculator::class,
-        'Counter' => \App\Counter::class,
+        'Calculator' => App\Tools\Facades\Calculator::class,
+        'Counter' => App\Tools\Facades\Counter::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
         'Image' => Intervention\Image\Facades\Image::class,
 

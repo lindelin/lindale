@@ -3,7 +3,7 @@
 namespace App\Notifications\Project\Task;
 
 use App\User;
-use App\Counter;
+use Counter;
 use App\Task\Task;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;

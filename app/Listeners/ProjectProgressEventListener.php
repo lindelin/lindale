@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Calculator;
+use Calculator;
 use App\Project\Project;
 use App\Repositories\ProjectRepository;
 

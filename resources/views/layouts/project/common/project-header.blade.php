@@ -11,7 +11,7 @@
                 <span class="glyphicon glyphicon-tasks lindale-icon-color"></span> <strong class="hidden-xs">{{ trans('header.tasks') }}</strong>
             </a>
             <a type="button" class="btn btn-default btn-sm">
-                {{ \App\Counter::ProjectTaskFinishedCount($project) }}/{{ \App\Counter::ProjectTaskCount($project) }}
+                {{ Counter::ProjectTaskFinishedCount($project) }}/{{ Counter::ProjectTaskCount($project) }}
             </a>
         </div>
         <div class="btn-group">

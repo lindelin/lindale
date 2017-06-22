@@ -1,7 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Tools\Analytics;
 
+use App\User;
 use App\Task\Task;
 use App\Task\TaskType;
 use App\Todo\TodoType;
@@ -19,7 +20,7 @@ class Counter
      * @param User $user
      * @return int
      */
-    public static function UserProjectCount(User $user)
+    public function UserProjectCount(User $user)
     {
         return (int) ($user->MyProjects()->count() + $user->MySlProjects()->count() + $user->Projects()->count());
     }
@@ -30,9 +31,9 @@ class Counter
      * @param User $user
      * @return int
      */
-    public static function UserUnfinishedTaskCount(User $user)
+    public function UserUnfinishedTaskCount(User $user)
     {
-        return (int) ($user->Tasks()->Where('is_finish', config('task.unfinished'))->count());
+        return (int) ($user->Tasks()->where('is_finish', config('task.unfinished'))->count());
     }
 
     /**
@@ -41,9 +42,9 @@ class Counter
      * @param User $user
      * @return int
      */
-    public static function UserFinishedTaskCount(User $user)
+    public function UserFinishedTaskCount(User $user)
     {
-        return (int) ($user->Tasks()->Where('is_finish', config('task.finished'))->count());
+        return (int) ($user->Tasks()->where('is_finish', config('task.finished'))->count());
     }
 
     /**
@@ -52,7 +53,7 @@ class Counter
      * @param User $user
      * @return int
      */
-    public static function UserTaskCount(User $user)
+    public function UserTaskCount(User $user)
     {
         return (int) ($user->Tasks()->count());
     }
@@ -63,7 +64,7 @@ class Counter
      * @param User $user
      * @return int
      */
-    public static function UserTodoCount(User $user)
+    public function UserTodoCount(User $user)
     {
         return (int) $user->Todos()->count();
     }
@@ -74,7 +75,7 @@ class Counter
      * @param User $user
      * @return int
      */
-    public static function UserTodoFinishCount(User $user)
+    public function UserTodoFinishCount(User $user)
     {
         return (int) $user->Todos()->where('status_id', config('todo.status.finished'))->count();
     }
@@ -85,7 +86,7 @@ class Counter
      * @param User $user
      * @return int
      */
-    public static function UserTodoUnfinishedCount(User $user)
+    public function UserTodoUnfinishedCount(User $user)
     {
         return (int) $user->Todos()->where('status_id', '<>', config('todo.status.finished'))->count();
     }
@@ -97,7 +98,7 @@ class Counter
      * @param $type
      * @return int
      */
-    public static function UserTodoTypeCount(User $user, TodoType $type)
+    public function UserTodoTypeCount(User $user, TodoType $type)
     {
         return (int) $user->Todos()->where('type_id', $type->id)->count();
     }
@@ -109,7 +110,7 @@ class Counter
      * @param $type
      * @return int
      */
-    public static function UserTodoTypeFinishCount(User $user, TodoType $type)
+    public function UserTodoTypeFinishCount(User $user, TodoType $type)
     {
         return (int) $user->Todos()->where('type_id', $type->id)->where('status_id', config('todo.status.finished'))->count();
     }
@@ -121,7 +122,7 @@ class Counter
      * @param TodoStatus $status
      * @return int
      */
-    public static function UserTodoStatus(User $user, TodoStatus $status)
+    public function UserTodoStatus(User $user, TodoStatus $status)
     {
         return (int) $user->Todos()->where('status_id', $status->id)->count();
     }
@@ -134,7 +135,7 @@ class Counter
      * @param TodoStatus $status
      * @return int
      */
-    public static function UserTodoTypeStatusCount(User $user, TodoType $type, TodoStatus $status)
+    public function UserTodoTypeStatusCount(User $user, TodoType $type, TodoStatus $status)
     {
         return (int) $user->Todos()->where('type_id', $type->id)->where('status_id', $status->id)->count();
     }
@@ -146,7 +147,7 @@ class Counter
      * @param User $user
      * @return int
      */
-    public static function UserProjectTodoFinishCount(Project $project, User $user)
+    public function UserProjectTodoFinishCount(Project $project, User $user)
     {
         return (int) $project
             ->Todos()
@@ -163,7 +164,7 @@ class Counter
      * @param User $user
      * @return int
      */
-    public static function UserProjectTodoCount(Project $project, User $user)
+    public function UserProjectTodoCount(Project $project, User $user)
     {
         return (int) $project
             ->Todos()
@@ -178,7 +179,7 @@ class Counter
      * @param TaskGroup $group
      * @return int
      */
-    public static function GroupTaskCount(TaskGroup $group)
+    public function GroupTaskCount(TaskGroup $group)
     {
         return (int) $group->Tasks()->count();
     }
@@ -189,7 +190,7 @@ class Counter
      * @param TaskGroup $group
      * @return int
      */
-    public static function GroupTaskFinishCount(TaskGroup $group)
+    public function GroupTaskFinishCount(TaskGroup $group)
     {
         return (int) $group->Tasks()->where('is_finish', config('task.finished'))->count();
     }
@@ -200,7 +201,7 @@ class Counter
      * @param TaskGroup $group
      * @return int
      */
-    public static function GroupTaskUnfinishedCount(TaskGroup $group)
+    public function GroupTaskUnfinishedCount(TaskGroup $group)
     {
         return (int) $group->Tasks()->where('is_finish', config('task.unfinished'))->count();
     }
@@ -211,7 +212,7 @@ class Counter
      * @param Project $project
      * @return int
      */
-    public static function ProjectTaskGroupCount(Project $project)
+    public function ProjectTaskGroupCount(Project $project)
     {
         return (int) $project->TaskGroups()->count();
     }
@@ -222,7 +223,7 @@ class Counter
      * @param Project $project
      * @return int
      */
-    public static function ProjectTaskCount(Project $project)
+    public function ProjectTaskCount(Project $project)
     {
         return (int) $project->Tasks()->count();
     }
@@ -233,7 +234,7 @@ class Counter
      * @param Project $project
      * @return int
      */
-    public static function ProjectTaskFinishedCount(Project $project)
+    public function ProjectTaskFinishedCount(Project $project)
     {
         return (int) $project->Tasks()->where('is_finish', config('task.finished'))->count();
     }
@@ -244,7 +245,7 @@ class Counter
      * @param Project $project
      * @return int
      */
-    public static function ProjectTaskUnfinishedCount(Project $project)
+    public function ProjectTaskUnfinishedCount(Project $project)
     {
         return (int) $project->Tasks()->where('is_finish', config('task.unfinished'))->count();
     }
@@ -257,7 +258,7 @@ class Counter
      * @param null $is_finish
      * @return int
      */
-    public static function ProjectTypeTaskCount(Project $project, TaskType $type, $is_finish = null)
+    public function ProjectTypeTaskCount(Project $project, TaskType $type, $is_finish = null)
     {
         $task = $project->Tasks()->where('type_id', $type->id);
         if ($is_finish !== null) {
@@ -273,7 +274,7 @@ class Counter
      * @param Project $project
      * @return int
      */
-    public static function ProjectTodoFinishedCount(Project $project)
+    public function ProjectTodoFinishedCount(Project $project)
     {
         return (int) $project
             ->todos()
@@ -288,7 +289,7 @@ class Counter
      * @param Project $project
      * @return int
      */
-    public static function ProjectTodoCount(Project $project)
+    public function ProjectTodoCount(Project $project)
     {
         return (int) $project
             ->todos()
@@ -301,10 +302,10 @@ class Counter
      *
      * @param Project $project
      * @param TaskStatus $status
-     * @param null $is_finish
      * @return int
+     * @internal param null $is_finish
      */
-    public static function ProjectStatusTaskCount(Project $project, TaskStatus $status)
+    public function ProjectStatusTaskCount(Project $project, TaskStatus $status)
     {
         $task = $project->Tasks()->where('status_id', $status->id)->where('is_finish', config('task.unfinished'));
 
@@ -319,7 +320,7 @@ class Counter
      * @param null $is_finish
      * @return int
      */
-    public static function ProjectPriorityTaskCount(Project $project, TaskPriority $priority, $is_finish = null)
+    public function ProjectPriorityTaskCount(Project $project, TaskPriority $priority, $is_finish = null)
     {
         $task = $project->Tasks()->where('priority_id', $priority->id);
         if ($is_finish !== null) {
@@ -335,7 +336,7 @@ class Counter
      * @param Task $task
      * @return int
      */
-    public static function SubTaskCount(Task $task)
+    public function SubTaskCount(Task $task)
     {
         return (int) $task->SubTasks()->count();
     }
@@ -346,7 +347,7 @@ class Counter
      * @param Task $task
      * @return int
      */
-    public static function FinishedSubTasks(Task $task)
+    public function FinishedSubTasks(Task $task)
     {
         return (int) $task->SubTasks()->where('is_finish', config('task.finished'))->count();
     }
@@ -357,7 +358,7 @@ class Counter
      * @param Task $task
      * @return int
      */
-    public static function UnfinishedSubTasks(Task $task)
+    public function UnfinishedSubTasks(Task $task)
     {
         return (int) $task->SubTasks()->where('is_finish', config('task.unfinished'))->count();
     }

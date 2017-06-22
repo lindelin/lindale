@@ -1,11 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Tools\Analytics;
 
+use App\User;
 use App\Task\Task;
 use App\Todo\TodoType;
 use App\Task\TaskGroup;
 use App\Project\Project;
+use Counter;
 
 class Calculator
 {
@@ -17,7 +19,7 @@ class Calculator
      * @param User $user
      * @return int
      */
-    public static function UserTodoProgressCompute(User $user)
+    public function UserTodoProgressCompute(User $user)
     {
         if (Counter::UserTodoCount($user) > 0) {
             return (int) (Counter::UserTodoFinishCount($user) / Counter::UserTodoCount($user) * 100);
@@ -32,7 +34,7 @@ class Calculator
      * @param User $user
      * @return int
      */
-    public static function UserTaskProgressCompute(User $user)
+    public function UserTaskProgressCompute(User $user)
     {
         if (Counter::UserTaskCount($user) > 0) {
             return (int) (Counter::UserFinishedTaskCount($user) / Counter::UserTaskCount($user) * 100);
@@ -47,7 +49,7 @@ class Calculator
      * @param User $user
      * @return int
      */
-    public static function UserProgress(User $user)
+    public function UserProgress(User $user)
     {
         if ((Counter::UserTaskCount($user) > 0) or (Counter::UserTodoCount($user) > 0)) {
             $finishCount = Counter::UserTodoFinishCount($user) + Counter::UserFinishedTaskCount($user);
@@ -66,7 +68,7 @@ class Calculator
      * @param $type
      * @return int
      */
-    public static function UserTodoTypeProgressCompute(User $user, TodoType $type)
+    public function UserTodoTypeProgressCompute(User $user, TodoType $type)
     {
         if (Counter::UserTodoTypeCount($user, $type) > 0) {
             return (int) (Counter::UserTodoTypeFinishCount($user, $type) / Counter::UserTodoTypeCount($user, $type) * 100);
@@ -81,7 +83,7 @@ class Calculator
      * @param TaskGroup $group
      * @return int
      */
-    public static function TaskGroupProgressCompute(TaskGroup $group)
+    public function TaskGroupProgressCompute(TaskGroup $group)
     {
         if (Counter::GroupTaskCount($group) > 0) {
             return (int) (Counter::GroupTaskFinishCount($group) / Counter::GroupTaskCount($group) * 100);
@@ -96,7 +98,7 @@ class Calculator
      * @param Task $task
      * @return int
      */
-    public static function TaskProgressCompute(Task $task)
+    public function TaskProgressCompute(Task $task)
     {
         if (Counter::SubTaskCount($task) > 0) {
             return (int) (Counter::FinishedSubTasks($task) / Counter::SubTaskCount($task) * 100);
@@ -111,7 +113,7 @@ class Calculator
      * @param Project $project
      * @return int
      */
-    public static function ProjectProgressCompute(Project $project)
+    public function ProjectProgressCompute(Project $project)
     {
         if ((Counter::ProjectTaskCount($project) > 0) or (Counter::ProjectTodoCount($project) > 0)) {
             return (int) ((Counter::ProjectTaskFinishedCount($project) + Counter::ProjectTodoFinishedCount($project)) / (Counter::ProjectTaskCount($project) + Counter::ProjectTodoCount($project)) * 100);
@@ -126,7 +128,7 @@ class Calculator
      * @param Project $project
      * @return int
      */
-    public static function ProjectTaskProgressCompute(Project $project)
+    public function ProjectTaskProgressCompute(Project $project)
     {
         if (Counter::ProjectTaskCount($project) > 0) {
             return (int) (Counter::ProjectTaskFinishedCount($project) / Counter::ProjectTaskCount($project) * 100);
@@ -141,7 +143,7 @@ class Calculator
      * @param Project $project
      * @return int
      */
-    public static function ProjectTodoProgressCompute(Project $project)
+    public function ProjectTodoProgressCompute(Project $project)
     {
         if (Counter::ProjectTodoCount($project) > 0) {
             return (int) (Counter::ProjectTodoFinishedCount($project) / Counter::ProjectTodoCount($project) * 100);
@@ -156,7 +158,7 @@ class Calculator
      * @param Project $project
      * @return int
      */
-    public static function ProjectUnfinishedTaskProgressCompute(Project $project)
+    public function ProjectUnfinishedTaskProgressCompute(Project $project)
     {
         if (Counter::ProjectTaskCount($project) > 0) {
             return (int) (Counter::ProjectTaskUnfinishedCount($project) / (Counter::ProjectTaskCount($project) + Counter::ProjectTodoCount($project)) * 100);
@@ -171,7 +173,7 @@ class Calculator
      * @param Project $project
      * @return int
      */
-    public static function ProjectUnfinishedTodoProgressCompute(Project $project)
+    public function ProjectUnfinishedTodoProgressCompute(Project $project)
     {
         if (Counter::ProjectTodoCount($project) > 0) {
             return (int) (100 - self::ProjectProgressCompute($project) - self::ProjectUnfinishedTaskProgressCompute($project));
