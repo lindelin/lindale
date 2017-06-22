@@ -21,7 +21,7 @@ class TaskActivityHasCreatedNotify
     {
         //项目消息
         if ($this->projectSlackNotify($event->taskActivity->Task->Project)) {
-            $event->taskActivity->Task->Project->notify(new TaskActivityHasCreated($event->taskActivity, ProjectConfig::get($event->taskActivity->Task->Project, ProjectConfig::LANG)));
+            $event->taskActivity->Task->Project->notify(new TaskActivityHasCreated($event->taskActivity, project_config($event->taskActivity->Task->Project, config('config.project.lang'))));
         }
     }
 }

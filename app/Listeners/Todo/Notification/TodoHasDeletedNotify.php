@@ -23,13 +23,13 @@ class TodoHasDeletedNotify
         //项目消息
         if (
             (int) $event->todo->type_id === config('todo.public')
-            and ProjectConfig::get($event->todo->Project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::ON
-            and ProjectConfig::get($event->todo->Project, ProjectConfig::SLACK_API_KEY) != ''
-            and ProjectConfig::get($event->todo->Project, ProjectConfig::SLACK_API_KEY) != 'Null'
+            and project_config($event->todo->Project, config('config.project.slack')) == config('config.on')
+            and project_config($event->todo->Project, config('config.project.key.slack')) != ''
+            and project_config($event->todo->Project, config('config.project.key.slack')) != 'Null'
         ) {
             $event->todo->Project->notify(new TodoHasDeleted(
                 $event->user,
-                ProjectConfig::get($event->todo->Project, ProjectConfig::LANG),
+                project_config($event->todo->Project, config('config.project.lang')),
                 $event->todo->content,
                 (string) $event->todo->created_at
             ));

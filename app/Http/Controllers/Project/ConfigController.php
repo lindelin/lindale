@@ -88,7 +88,7 @@ class ConfigController extends Controller
     {
         $this->authorize('member', [$project]);
 
-        $result = $this->configSystem->set($project, ProjectConfig::LANG, $request->get(ProjectConfig::LANG));
+        $result = $this->configSystem->set($project, config('config.project.lang'), $request->get(config('config.project.lang')));
 
         return response()->update($result);
     }
@@ -122,8 +122,8 @@ class ConfigController extends Controller
     {
         $this->authorize('member', [$project]);
 
-        $result1 = $this->configSystem->set($project, ProjectConfig::SLACK_NOTIFICATION_NO, $request->get(ProjectConfig::SLACK_NOTIFICATION_NO));
-        $result2 = $this->configSystem->set($project, ProjectConfig::SLACK_API_KEY, $request->get(ProjectConfig::SLACK_API_KEY));
+        $result1 = $this->configSystem->set($project, config('config.project.slack'), $request->get(config('config.project.slack')));
+        $result2 = $this->configSystem->set($project, config('config.project.key.slack'), $request->get(config('config.project.key.slack')));
 
         return response()->update($result1 and $result2);
     }

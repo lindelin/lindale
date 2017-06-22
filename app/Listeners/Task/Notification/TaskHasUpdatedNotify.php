@@ -21,7 +21,7 @@ class TaskHasUpdatedNotify
     {
         //项目消息
         if ($this->projectSlackNotify($event->task->Project)) {
-            $event->task->Project->notify(new TaskHasUpdated($event->task, $event->user, ProjectConfig::get($event->task->Project, ProjectConfig::LANG)));
+            $event->task->Project->notify(new TaskHasUpdated($event->task, $event->user, project_config($event->task->Project, config('config.project.lang'))));
         }
     }
 }

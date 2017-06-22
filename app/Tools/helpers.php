@@ -63,3 +63,24 @@ if (! function_exists('user_config')) {
     }
 
 }
+
+if (! function_exists('project_config')) {
+
+
+    function project_config(\App\Project\Project $project, $key)
+    {
+        $system = app('pcs');
+
+        $value = $system->get($project, $key);
+
+        if ($value !== null or $value != '') {
+            return $value;
+        } else {
+            $system->set($project, $key, config('config.project.default.'.$key));
+            $value = $system->get($project, $key);
+
+            return $value;
+        }
+    }
+
+}

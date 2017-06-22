@@ -249,7 +249,6 @@ return [
         'Icon' => App\Tools\Facades\Icon::class,
         'Calculator' => \App\Calculator::class,
         'Counter' => \App\Counter::class,
-        'ProjectConfig' => \App\ProjectConfig::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
         'Image' => Intervention\Image\Facades\Image::class,
 

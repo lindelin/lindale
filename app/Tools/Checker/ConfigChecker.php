@@ -14,9 +14,9 @@ trait ConfigChecker
      */
     protected function projectSlackNotify(Project $project)
     {
-        return ProjectConfig::get($project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::ON and
-            ProjectConfig::get($project, ProjectConfig::SLACK_API_KEY) != '' and
-            ProjectConfig::get($project, ProjectConfig::SLACK_API_KEY) != 'Null';
+        return project_config($project, config('config.project.slack')) == config('config.on') and
+            project_config($project, config('config.project.key.slack')) != '' and
+            project_config($project, config('config.project.key.slack')) != 'Null';
     }
 
     /**

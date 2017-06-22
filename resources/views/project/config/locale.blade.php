@@ -35,17 +35,17 @@
                                     {{-- 项目语言设置 --}}
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="form-group{{ $errors->has(ProjectConfig::LANG) ? ' has-error' : '' }}">
+                                            <div class="form-group{{ $errors->has(config('config.project.lang')) ? ' has-error' : '' }}">
                                                 <label class="control-label">{{ trans('project.lang') }}</label>
                                                 <div>
-                                                    <select class="selectpicker form-control" name="{{ ProjectConfig::LANG }}">
+                                                    <select class="selectpicker form-control" name="{{ config('config.project.lang') }}">
                                                         @foreach( config('app.available_locales') as $value)
-                                                            <option value="{{ $value }}" @if(old(ProjectConfig::LANG) ? old(ProjectConfig::LANG) : ProjectConfig::get($project, ProjectConfig::LANG) == $value)  selected @endif>
+                                                            <option value="{{ $value }}" @if(old(config('config.project.lang')) ? old(config('config.project.lang')) : project_config($project, config('config.project.lang')) == $value)  selected @endif>
                                                                 {{ config('app.available_language')[$value] }}
                                                             </option>
                                                         @endforeach
                                                     </select>
-                                                    @include('layouts.common.error-one', ['field' => ProjectConfig::LANG])
+                                                    @include('layouts.common.error-one', ['field' => config('config.project.lang')])
                                                 </div>
                                             </div>
                                         </div>

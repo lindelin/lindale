@@ -23,11 +23,11 @@ class TodoHasUpdatedNotify
         //项目消息
         if (
             (int) $event->todo->type_id === config('todo.public')
-            and ProjectConfig::get($event->todo->Project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::ON
-            and ProjectConfig::get($event->todo->Project, ProjectConfig::SLACK_API_KEY) != ''
-            and ProjectConfig::get($event->todo->Project, ProjectConfig::SLACK_API_KEY) != 'Null'
+            and project_config($event->todo->Project, config('config.project.slack')) == config('config.on')
+            and project_config($event->todo->Project, config('config.project.key.slack')) != ''
+            and project_config($event->todo->Project, config('config.project.key.slack')) != 'Null'
         ) {
-            $event->todo->Project->notify(new TodoHasUpdated($event->todo, $event->user, ProjectConfig::get($event->todo->Project, ProjectConfig::LANG)));
+            $event->todo->Project->notify(new TodoHasUpdated($event->todo, $event->user, project_config($event->todo->Project, config('config.project.lang'))));
         }
 
         //个人消息

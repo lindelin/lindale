@@ -23,7 +23,7 @@ class TaskHasDeletedNotify
         if ($this->projectSlackNotify($event->task->Project)) {
             $event->task->Project->notify(new TaskHasDeleted(
                 $event->user,
-                ProjectConfig::get($event->task->Project, ProjectConfig::LANG),
+                project_config($event->task->Project, config('config.project.lang')),
                 $event->task->title,
                 $event->task->User,
                 (string) $event->task->created_at
