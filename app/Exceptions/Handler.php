@@ -2,9 +2,12 @@
 
 namespace App\Exceptions;
 
+use App\Exceptions\Notification\ProjectNotificationException;
+use App\Mail\ProjectNotificationError;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Mail;
 
 class Handler extends ExceptionHandler
 {
@@ -44,6 +47,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if($exception instanceof ProjectNotificationException){
+            return $this->projectNotificationExceptionHandler($request, $exception);
+        }
         return parent::render($request, $exception);
     }
 
@@ -61,5 +67,11 @@ class Handler extends ExceptionHandler
         }
 
         return redirect()->guest(route('login'));
+    }
+
+    protected function projectNotificationExceptionHandler($request, ProjectNotificationException $exception)
+    {
+        Mail::to($exception->getProject()->ProjectLeader)->send(new ProjectNotificationError($exception->getProject()));
+        exit;
     }
 }

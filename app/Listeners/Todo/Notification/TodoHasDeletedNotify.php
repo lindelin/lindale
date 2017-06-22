@@ -2,7 +2,9 @@
 
 namespace App\Listeners\Todo\Notification;
 
+use App\Exceptions\Notification\ProjectNotificationException;
 use App\Tools\Checker\ConfigChecker;
+use GuzzleHttp\Exception\ClientException;
 use UserConfig;
 use App\ProjectConfig;
 use App\Events\Todo\TodoDeleted;
@@ -15,19 +17,24 @@ class TodoHasDeletedNotify
     /**
      * Handle the event.
      *
-     * @param  TodoDeleted  $event
+     * @param  TodoDeleted $event
      * @return void
+     * @throws ProjectNotificationException
      */
     public function handle(TodoDeleted $event)
     {
         //项目消息
         if ($this->canNotifyTodoSlackToProject($event->todo->Project, $event->todo->type_id)) {
-            $event->todo->Project->notify(new TodoHasDeleted(
-                $event->user,
-                project_config($event->todo->Project, config('config.project.lang')),
-                $event->todo->content,
-                (string) $event->todo->created_at
-            ));
+            try {
+                $event->todo->Project->notify(new TodoHasDeleted(
+                    $event->user,
+                    project_config($event->todo->Project, config('config.project.lang')),
+                    $event->todo->content,
+                    (string) $event->todo->created_at
+                ));
+            } catch (ClientException $exception) {
+                throw new ProjectNotificationException($event->todo->Project, $exception->getMessage());
+            }
         }
 
         //个人消息

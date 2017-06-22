@@ -2,7 +2,9 @@
 
 namespace App\Listeners\Todo\Notification;
 
+use App\Exceptions\Notification\ProjectNotificationException;
 use App\Tools\Checker\ConfigChecker;
+use GuzzleHttp\Exception\ClientException;
 use UserConfig;
 use App\ProjectConfig;
 use App\Events\Todo\TodoUpdated;
@@ -15,18 +17,23 @@ class TodoHasUpdatedNotify
     /**
      * Handle the event.
      *
-     * @param  TodoUpdated  $event
+     * @param  TodoUpdated $event
      * @return void
+     * @throws ProjectNotificationException
      */
     public function handle(TodoUpdated $event)
     {
         //项目消息
         if ($this->canNotifyTodoSlackToProject($event->todo->Project, $event->todo->type_id)) {
-            $event->todo->Project->notify(new TodoHasUpdated(
-                $event->todo,
-                $event->user,
-                project_config($event->todo->Project, config('config.project.lang'))
-            ));
+            try {
+                $event->todo->Project->notify(new TodoHasUpdated(
+                    $event->todo,
+                    $event->user,
+                    project_config($event->todo->Project, config('config.project.lang'))
+                ));
+            } catch (ClientException $exception) {
+                throw new ProjectNotificationException($event->todo->Project, $exception->getMessage());
+            }
         }
 
         //个人消息
