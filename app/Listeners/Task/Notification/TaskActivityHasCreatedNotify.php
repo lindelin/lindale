@@ -20,8 +20,11 @@ class TaskActivityHasCreatedNotify
     public function handle(TaskActivityCreated $event)
     {
         //项目消息
-        if ($this->projectSlackNotify($event->taskActivity->Task->Project)) {
-            $event->taskActivity->Task->Project->notify(new TaskActivityHasCreated($event->taskActivity, project_config($event->taskActivity->Task->Project, config('config.project.lang'))));
+        if ($this->canNotifyTaskSlackToProject($event->taskActivity->Task->Project)) {
+            $event->taskActivity->Task->Project->notify(new TaskActivityHasCreated(
+                $event->taskActivity,
+                project_config($event->taskActivity->Task->Project, config('config.project.lang'))
+            ));
         }
     }
 }
