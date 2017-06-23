@@ -1,4 +1,11 @@
 <!-- 模态窗按钮 -->
+<script>
+    $(document).ready(function(){
+        $('#checkbox-delete{{ $model->id }}').change(function () {
+            $('#delete{{ $model->id }}').prop("disabled", $(this).is(':checked') == false);
+        }).change();
+    });
+</script>
 <a href="#editSubTaskModel{{ $model->id }}" class="my-tooltip" title="{{ trans('task.edit') }}" data-toggle="modal" data-target="#editSubTaskModel{{ $model->id }}">
     @if($model->is_finish === config('task.finished'))
         <span class="glyphicon glyphicon-ok"></span>
@@ -17,7 +24,15 @@
                 </button>
                 <h4 class="modal-title" id="myModalLabel" align="left" style="color: #000000">
                     {{ trans('task.sub-task') }} #{{ $model->id }}
+                    @if($task->is_finish !== config('task.finished'))
+                        <small class="text-danger">
+                            <span class="glyphicon glyphicon-trash"></span>
+                            <label for="checkbox-delete{{ $model->id }}">{{ trans('todo.delete') }}</label>
+                            <input type="checkbox" id="checkbox-delete{{ $model->id }}">
+                        </small>
+                    @endif
                 </h4>
+
             </div>
             <form action="{{ $status_edit_url }}" method="POST" style="display: inline;">
                 {{ method_field('PATCH') }}
@@ -92,7 +107,7 @@
                         <form action="{{ $status_edit_url }}" method="POST">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-block" @if($task->is_finish === config('task.finished')) disabled @endif>
+                            <button type="submit" id="delete{{ $model->id }}" class="btn btn-danger btn-block" @if($task->is_finish === config('task.finished')) disabled @endif>
                                 <span class="glyphicon glyphicon-trash"></span> {{ trans('task.delete') }}
                             </button>
                         </form>
