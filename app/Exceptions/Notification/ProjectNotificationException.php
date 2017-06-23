@@ -8,8 +8,7 @@ use App\Project\Project;
 class ProjectNotificationException extends \Exception
 {
     /**
-     * ステータス
-     * エラーコード
+     * プロジェクト
      *
      * @var string
      */
@@ -27,7 +26,7 @@ class ProjectNotificationException extends \Exception
     }
 
     /**
-     * ステータス取得
+     * プロジェクト取得
      * @return string
      */
     final public function getProject()

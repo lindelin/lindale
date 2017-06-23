@@ -2,29 +2,35 @@
 
 namespace App\Mail;
 
-use App\Project\Project;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ProjectNotificationError extends Mailable implements ShouldQueue
+class UserNotificationError extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
     /**
-     * @var Project
+     * @var User
      */
-    public $project, $locale;
+    public $user;
 
     /**
-     * ProjectNotificationError constructor.
-     * @param Project $project
+     * @var
+     */
+    public $locale;
+
+    /**
+     * userNotificationError constructor.
+     * @param User $user
      * @param $locale
      */
-    public function __construct(Project $project, $locale)
+    public function __construct(User $user, $locale)
     {
-        $this->project = $project;
+        //
+        $this->user = $user;
         $this->locale = $locale;
     }
 
@@ -35,11 +41,9 @@ class ProjectNotificationError extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        \App::setLocale($this->locale);
-
         return $this->subject(trans('errors.send-slack-failed-mail'))
             ->cc(config('admin.system-notification.mail'))
-            ->markdown('emails.notification.project-notification-error')
-            ->with(['project' => $this->project]);
+            ->markdown('emails.notification.user-notification-error')
+            ->with(['user' => $this->user]);
     }
 }

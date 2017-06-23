@@ -3,6 +3,7 @@
 namespace App\Listeners\Todo\Notification;
 
 use App\Exceptions\Notification\ProjectNotificationException;
+use App\Exceptions\Notification\UserNotificationException;
 use App\Tools\Checker\ConfigChecker;
 use GuzzleHttp\Exception\ClientException;
 use UserConfig;
@@ -15,11 +16,9 @@ class TodoHasUpdatedNotify
     use ConfigChecker;
 
     /**
-     * Handle the event.
-     *
-     * @param  TodoUpdated $event
-     * @return void
+     * @param TodoUpdated $event
      * @throws ProjectNotificationException
+     * @throws UserNotificationException
      */
     public function handle(TodoUpdated $event)
     {
@@ -38,11 +37,15 @@ class TodoHasUpdatedNotify
 
         //个人消息
         if ($this->canNotifyTodoSlackToUser($event->todo->User, $event->todo->type_id)) {
-            $event->todo->User->notify(new TodoHasUpdated(
-                $event->todo,
-                $event->user,
-                user_config($event->todo->User, config('config.user.lang'))
-            ));
+            try {
+                $event->todo->User->notify(new TodoHasUpdated(
+                    $event->todo,
+                    $event->user,
+                    user_config($event->todo->User, config('config.user.lang'))
+                ));
+            } catch (ClientException $exception) {
+                throw new UserNotificationException($event->todo->User, $exception->getMessage());
+            }
         }
     }
 }
