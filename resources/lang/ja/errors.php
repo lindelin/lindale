@@ -27,4 +27,8 @@ return [
     '503'          => 'ただ今、メンテナンス中です。 恐れ入りますが、しばらくお待ち下さいますようお願い申し上げます。',
     'back'         => 'トップページに戻る',
 
+    'send-slack-failed-mail' => '[Lindalë] Slack メッセージ送信失敗',
+    'send-slack-failed' => 'Slack メッセージ送信失敗です。WebHook を確認してください。',
+    'send-slack-failed-message' => 'プロジェクトの新しいメッセージがあります。',
+
 ];

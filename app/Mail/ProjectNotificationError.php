@@ -8,22 +8,23 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ProjectNotificationError extends Mailable
+class ProjectNotificationError extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
     /**
      * @var Project
      */
-    public $project;
+    public $project, $locale;
 
     /**
      * ProjectNotificationError constructor.
      * @param Project $project
      */
-    public function __construct(Project $project)
+    public function __construct(Project $project, $locale)
     {
         $this->project = $project;
+        $this->locale = $locale;
     }
 
     /**
@@ -33,7 +34,11 @@ class ProjectNotificationError extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.notification.project-notification-error')
+        \App::setLocale($this->locale);
+
+        return $this->subject(trans('errors.send-slack-failed-mail'))
+            ->cc(config('admin.system-notification.mail'))
+            ->markdown('emails.notification.project-notification-error')
             ->with(['project' => $this->project]);
     }
 }
