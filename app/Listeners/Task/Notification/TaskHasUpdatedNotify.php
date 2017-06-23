@@ -2,12 +2,11 @@
 
 namespace App\Listeners\Task\Notification;
 
-use App\Exceptions\Notification\ProjectNotificationException;
-use App\ProjectConfig;
 use App\Events\Task\TaskUpdated;
 use App\Tools\Checker\ConfigChecker;
-use App\Notifications\Project\Task\TaskHasUpdated;
 use GuzzleHttp\Exception\ClientException;
+use App\Notifications\Project\Task\TaskHasUpdated;
+use App\Exceptions\Notification\ProjectNotificationException;
 
 class TaskHasUpdatedNotify
 {

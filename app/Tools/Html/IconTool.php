@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: LINDALE
  * Date: 2017/06/21
- * Time: 午後6:23
+ * Time: 午後6:23.
  */
 
 namespace App\Tools\Html;
-
 
 class IconTool
 {
@@ -47,5 +46,4 @@ class IconTool
 
         return $action;
     }
-
 }

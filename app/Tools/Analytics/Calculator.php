@@ -2,12 +2,12 @@
 
 namespace App\Tools\Analytics;
 
+use Counter;
 use App\User;
 use App\Task\Task;
 use App\Todo\TodoType;
 use App\Task\TaskGroup;
 use App\Project\Project;
-use Counter;
 
 class Calculator
 {

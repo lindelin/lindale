@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Task\Task;
 use Calculator;
+use App\Task\Task;
 use App\Events\Task\TaskUpdated;
 use App\Repositories\TaskRepository;
 

@@ -2,14 +2,12 @@
 
 namespace App\Listeners\Todo\Notification;
 
-use App\Exceptions\Notification\ProjectNotificationException;
-use App\Exceptions\Notification\UserNotificationException;
+use App\Events\Todo\TodoDeleted;
 use App\Tools\Checker\ConfigChecker;
 use GuzzleHttp\Exception\ClientException;
-use UserConfig;
-use App\ProjectConfig;
-use App\Events\Todo\TodoDeleted;
 use App\Notifications\Project\Todo\TodoHasDeleted;
+use App\Exceptions\Notification\UserNotificationException;
+use App\Exceptions\Notification\ProjectNotificationException;
 
 class TodoHasDeletedNotify
 {

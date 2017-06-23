@@ -3,7 +3,6 @@
 namespace App\Tools\Checker;
 
 use App\User;
-use ProjectConfig;
 use App\Project\Project;
 
 trait ConfigChecker

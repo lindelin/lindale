@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\System\ConfigSystem\ProjectConfigSystem;
-use App\System\ConfigSystem\UserConfigSystem;
-use App\System\Contracts\ConfigSystem\ProjectConfigSystemContract;
-use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
 use Illuminate\Support\ServiceProvider;
+use App\System\ConfigSystem\UserConfigSystem;
+use App\System\ConfigSystem\ProjectConfigSystem;
+use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
+use App\System\Contracts\ConfigSystem\ProjectConfigSystemContract;
 
 class ConfigSystemServiceProvider extends ServiceProvider
 {

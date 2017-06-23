@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: LINDALE
  * Date: 2017/06/21
- * Time: 午後6:26
+ * Time: 午後6:26.
  */
 
 namespace App\Tools\Facades;
-
 
 use Illuminate\Support\Facades\Facade;
 

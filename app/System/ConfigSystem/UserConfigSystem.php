@@ -2,9 +2,9 @@
 
 namespace App\System\ConfigSystem;
 
-use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
 use App\User;
 use App\Settings\UserSettings;
+use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
 
 class UserConfigSystem implements UserConfigSystemContract
 {

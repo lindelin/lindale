@@ -12,7 +12,7 @@ return [
     'private' => 2,
 
     'status' => [
-        "default" => 1,
+        'default' => 1,
         'finished' => 2,
         'underway' => 3,
         'undetermined' => 4,
