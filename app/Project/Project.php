@@ -3,7 +3,6 @@
 namespace App\Project;
 
 use Config;
-use App\ProjectConfig;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 

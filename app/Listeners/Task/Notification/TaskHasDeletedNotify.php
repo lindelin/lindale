@@ -2,12 +2,11 @@
 
 namespace App\Listeners\Task\Notification;
 
-use App\Exceptions\Notification\ProjectNotificationException;
-use App\ProjectConfig;
 use App\Events\Task\TaskDeleted;
 use App\Tools\Checker\ConfigChecker;
-use App\Notifications\Project\Task\TaskHasDeleted;
 use GuzzleHttp\Exception\ClientException;
+use App\Notifications\Project\Task\TaskHasDeleted;
+use App\Exceptions\Notification\ProjectNotificationException;
 
 class TaskHasDeletedNotify
 {

@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Policies\AdminPolicy;
-use App\Tools\Analytics\Calculator;
-use App\Tools\Analytics\Counter;
 use App\Tools\Html\IconTool;
+use App\Policies\AdminPolicy;
+use App\Tools\Analytics\Counter;
+use App\Tools\Analytics\Calculator;
 use Illuminate\Support\ServiceProvider;
 
 class ToolServiceProvider extends ServiceProvider

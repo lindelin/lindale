@@ -5,7 +5,6 @@ namespace App\Http\Middleware;
 use Auth;
 use Config;
 use Closure;
-use UserConfig;
 
 class UseLang
 {

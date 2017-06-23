@@ -19,6 +19,6 @@ return [
     'system-notification' => [
         'mail' => env('SYSTEM_NOTIFICATION_MAIL'),
         'slack' => env('SYSTEM_NOTIFICATION_SLACK'),
-    ]
+    ],
 
 ];

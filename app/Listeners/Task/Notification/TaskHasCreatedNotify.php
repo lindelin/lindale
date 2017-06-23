@@ -2,12 +2,11 @@
 
 namespace App\Listeners\Task\Notification;
 
-use App\Exceptions\Notification\ProjectNotificationException;
-use App\ProjectConfig;
 use App\Events\Task\TaskCreated;
 use App\Tools\Checker\ConfigChecker;
-use App\Notifications\Project\Task\TaskHasCreated;
 use GuzzleHttp\Exception\ClientException;
+use App\Notifications\Project\Task\TaskHasCreated;
+use App\Exceptions\Notification\ProjectNotificationException;
 
 class TaskHasCreatedNotify
 {

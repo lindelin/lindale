@@ -4,10 +4,8 @@ namespace App\System\Contracts\ConfigSystem;
 
 use App\Project\Project;
 
-
 interface ProjectConfigSystemContract
 {
-
     /**
      * 创建设置.
      * @param Project $project
@@ -24,5 +22,4 @@ interface ProjectConfigSystemContract
      * @return mixed
      */
     public function get(Project $project, $config_name);
-
 }

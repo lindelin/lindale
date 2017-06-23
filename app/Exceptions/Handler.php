@@ -2,14 +2,14 @@
 
 namespace App\Exceptions;
 
-use App\Exceptions\Notification\ProjectNotificationException;
-use App\Exceptions\Notification\UserNotificationException;
-use App\Mail\ProjectNotificationError;
-use App\Mail\UserNotificationError;
-use Exception;
-use Illuminate\Auth\AuthenticationException;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Mail;
+use Exception;
+use App\Mail\UserNotificationError;
+use App\Mail\ProjectNotificationError;
+use Illuminate\Auth\AuthenticationException;
+use App\Exceptions\Notification\UserNotificationException;
+use App\Exceptions\Notification\ProjectNotificationException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -51,11 +51,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if($exception instanceof ProjectNotificationException){
+        if ($exception instanceof ProjectNotificationException) {
             return $this->projectNotificationExceptionHandler($request, $exception);
         } elseif ($exception instanceof UserNotificationException) {
             return $this->userNotificationExceptionHandler($request, $exception);
         }
+
         return parent::render($request, $exception);
     }
 
@@ -76,7 +77,7 @@ class Handler extends ExceptionHandler
     }
 
     /**
-     * Project Slack 通知失敗処理
+     * Project Slack 通知失敗処理.
      * @param $request
      * @param ProjectNotificationException $exception
      * @return mixed
@@ -86,11 +87,12 @@ class Handler extends ExceptionHandler
         info($exception->getMessage(), ['project' => $exception->getProject()->id]);
         Mail::to($exception->getProject()->ProjectLeader)
             ->send(new ProjectNotificationError($exception->getProject(), project_config($exception->getProject(), config('config.project.lang'))));
+
         return redirect()->back()->withErrors(trans('errors.send-slack-failed'));
     }
 
     /**
-     * User Slack 通知失敗処理
+     * User Slack 通知失敗処理.
      * @param $request
      * @param UserNotificationException $exception
      * @return mixed
@@ -100,6 +102,7 @@ class Handler extends ExceptionHandler
         info($exception->getMessage(), ['user' => $exception->getUser()->id]);
         Mail::to($exception->getUser())
             ->send(new UserNotificationError($exception->getUser(), config('config.user.lang')));
+
         return redirect()->back()->withErrors(trans('errors.send-slack-failed'));
     }
 }

@@ -6,7 +6,6 @@ use App\User;
 
 interface UserConfigSystemContract
 {
-
     /**
      * 创建设置.
      * @param User $user
@@ -23,5 +22,4 @@ interface UserConfigSystemContract
      * @return mixed
      */
     public function get(User $user, $config_name);
-
 }
