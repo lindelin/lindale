@@ -67,8 +67,8 @@
                                 </label>
                                 <div>
                                     <select class="selectpicker form-control" name="color_id">
-                                        @foreach( Definer::todoColor() as $id => $color)
-                                            <option value="{{ $id }}" @if($todo->color_id === $id) selected @endif>{{ $color }}</option>
+                                        @foreach( config('color.common') as $id => $color)
+                                            <option value="{{ $id }}" @if($todo->color_id === $id) selected @endif>{{ trans($color) }}</option>
                                         @endforeach
                                     </select>
                                     @include('layouts.common.error-one', ['field' => 'color_id'])

@@ -5,7 +5,7 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 visible-xs-block">
     <div class="btn-group">
         <button type="button" class="btn btn-default">
-            {!! Definer::projectConfigMenu($mode) !!}
+            {{ project_config_menu_sp($mode) }}
         </button>
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="caret"></span>

@@ -4,8 +4,8 @@ namespace App\Repositories;
 
 use Image;
 use Charts;
+use Counter;
 use App\User;
-use App\Counter;
 use App\Project\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProjectRequest;

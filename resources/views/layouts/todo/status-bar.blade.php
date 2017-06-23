@@ -15,10 +15,10 @@
             @include('layouts.common.progress.todo.user-todo-progress')
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-            @include('layouts.common.progress.todo.user-todo-type-progress', ['type' => \App\Todo\TodoType::find(Definer::PUBLIC_TODO)])
+            @include('layouts.common.progress.todo.user-todo-type-progress', ['type' => \App\Todo\TodoType::find(config('todo.public'))])
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-            @include('layouts.common.progress.todo.user-todo-type-progress', ['type' => \App\Todo\TodoType::find(Definer::PRIVATE_TODO)])
+            @include('layouts.common.progress.todo.user-todo-type-progress', ['type' => \App\Todo\TodoType::find(config('todo.private'))])
         </div>
     </div>
     <hr>
@@ -27,9 +27,9 @@
             <div class="progress" style="margin-bottom: 0px;">
                 <div class="progress-bar
                                     @if($type != null)
-                @if((int)$type->id === Definer::PUBLIC_TODO)
+                @if((int)$type->id === config('todo.public'))
                         progress-bar-success
-                    @elseif((int)$type->id === Definer::PRIVATE_TODO)
+                    @elseif((int)$type->id === config('todo.private'))
                         progress-bar-warning
                     @endif
                 @else

@@ -1,6 +1,13 @@
 <!-- 模态窗按钮 -->
+<script>
+    $(document).ready(function(){
+        $('#checkbox-delete{{ $model->id }}').change(function () {
+            $('#delete{{ $model->id }}').prop("disabled", $(this).is(':checked') == false);
+        }).change();
+    });
+</script>
 <a href="#editSubTaskModel{{ $model->id }}" class="my-tooltip" title="{{ trans('task.edit') }}" data-toggle="modal" data-target="#editSubTaskModel{{ $model->id }}">
-    @if($model->is_finish === Definer::TASK_FINISHED)
+    @if($model->is_finish === config('task.finished'))
         <span class="glyphicon glyphicon-ok"></span>
     @else
         <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
@@ -17,7 +24,15 @@
                 </button>
                 <h4 class="modal-title" id="myModalLabel" align="left" style="color: #000000">
                     {{ trans('task.sub-task') }} #{{ $model->id }}
+                    @if($task->is_finish !== config('task.finished'))
+                        <small class="text-danger">
+                            <span class="glyphicon glyphicon-trash"></span>
+                            <label for="checkbox-delete{{ $model->id }}">{{ trans('todo.delete') }}</label>
+                            <input type="checkbox" id="checkbox-delete{{ $model->id }}">
+                        </small>
+                    @endif
                 </h4>
+
             </div>
             <form action="{{ $status_edit_url }}" method="POST" style="display: inline;">
                 {{ method_field('PATCH') }}
@@ -28,7 +43,7 @@
                     <div class="row">
                     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <h4>
-                                @if($model->is_finish === Definer::TASK_FINISHED)
+                                @if($model->is_finish === config('task.finished'))
                                     {{ trans('task.status') }}:{{ trans('task.finish') }}
                                     <span class="glyphicon glyphicon-ok"></span>
                                 @else
@@ -44,9 +59,9 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group{{ $errors->has('is_finish') ? ' has-error' : '' }}">
                                 <div>
-                                    <select class="selectpicker form-control" name="is_finish" @if($task->is_finish === Definer::TASK_FINISHED) disabled @endif>
-                                        <option value="1" @if($model->is_finish === Definer::TASK_FINISHED) selected @endif>{{ trans('task.finish') }}</option>
-                                        <option value="0" @if($model->is_finish === Definer::TASK_UNFINISHED) selected @endif>{{ trans('task.unfinished') }}</option>
+                                    <select class="selectpicker form-control" name="is_finish" @if($task->is_finish === config('task.finished')) disabled @endif>
+                                        <option value="1" @if($model->is_finish === config('task.finished')) selected @endif>{{ trans('task.finish') }}</option>
+                                        <option value="0" @if($model->is_finish === config('task.unfinished')) selected @endif>{{ trans('task.unfinished') }}</option>
                                     </select>
                                     @include('layouts.common.error-one', ['field' => 'is_finish'])
                                 </div>
@@ -63,14 +78,14 @@
                                 </label>
                                 <div>
                                     <input type="text" class="form-control" name="content" value="{{ old('content') ? old('content') : $model->content }}"
-                                           @if($model->is_finish === Definer::TASK_FINISHED) disabled @endif>
+                                           @if($model->is_finish === config('task.finished')) disabled @endif>
                                     @include('layouts.common.error-one', ['field' => 'content'])
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    @if($model->Task->is_finish === \App\Definer::TASK_UNFINISHED)
+                    @if($model->Task->is_finish === config('task.unfinished'))
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="right">
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">
@@ -92,7 +107,7 @@
                         <form action="{{ $status_edit_url }}" method="POST">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-block" @if($task->is_finish === Definer::TASK_FINISHED) disabled @endif>
+                            <button type="submit" id="delete{{ $model->id }}" class="btn btn-danger btn-block" @if($task->is_finish === config('task.finished')) disabled @endif>
                                 <span class="glyphicon glyphicon-trash"></span> {{ trans('task.delete') }}
                             </button>
                         </form>

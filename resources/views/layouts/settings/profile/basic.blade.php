@@ -111,7 +111,7 @@
                                             <div>
                                                 <select class="selectpicker form-control" data-live-search="true" name="location">
                                                     <option value="">{{ trans('project.none') }}</option>
-                                                    @foreach( Definer::arrCountry() as $key => $country)
+                                                    @foreach( config('country') as $key => $country)
                                                         <option value="{{ $country }}" @if($user->location == $country) selected @endif>{{ $country }}（{{ $key }}）</option>
                                                     @endforeach
                                                 </select>

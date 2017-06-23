@@ -3,7 +3,6 @@
 namespace App\Project;
 
 use Config;
-use App\ProjectConfig;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
@@ -170,7 +169,7 @@ class Project extends Model
      */
     public function routeNotificationForSlack()
     {
-        return ProjectConfig::get(self::find($this->id), ProjectConfig::SLACK_API_KEY);
+        return project_config(self::find($this->id), config('config.project.key.slack'));
     }
 
     /**

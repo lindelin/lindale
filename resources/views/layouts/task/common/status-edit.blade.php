@@ -1,7 +1,7 @@
 <!-- 模态窗按钮 -->
 <h4 class="panel-title">
     <a class="my-tooltip" title="{{ trans('task.status') }}:{{ trans($model->Status->name) }}" data-toggle="modal" data-target="#editModelStatus{{ $model->id }}">
-        {!! Definer::getStatusAction($model->Status->action_id) !!}
+        {!! Icon::action($model->Status->action_id) !!}
     </a>
 </h4>
 
@@ -25,7 +25,7 @@
                     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     		<h4>
                                 {{ trans('task.status') }}：{{ trans($model->Status->name) }}
-                                {!! Definer::getStatusAction($model->Status->action_id) !!}
+                                {!! Icon::action($model->Status->action_id) !!}
                             </h4>
                     	</div>
                     </div>
@@ -70,8 +70,8 @@
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
 
-                                <input type="hidden" name="is_finish" value="{{ Definer::TASK_FINISHED }}" />
-                                <input type="hidden" name="color_id" value="{{ Definer::SUCCESS_COLOR_ID }}" />
+                                <input type="hidden" name="is_finish" value="{{ config('task.finished') }}" />
+                                <input type="hidden" name="color_id" value="{{ config('color.success') }}" />
                                 <button type="submit" class="btn btn-success btn-block">
                                     <span class="glyphicon glyphicon-ok"></span> {{ trans('task.finish') }}
                                 </button>

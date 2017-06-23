@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Project\Task;
 
-use App\Definer;
 use App\Task\Task;
 use App\Task\SubTask;
 use App\Project\Project;
@@ -45,7 +44,7 @@ class SubTaskController extends Controller
      */
     public function store(Request $request, Project $project, Task $task)
     {
-        if ($task->is_finish === Definer::TASK_UNFINISHED) {
+        if ($task->is_finish === config('task.unfinished')) {
             $this->validate($request, [
                 'content' => 'required|max:30',
             ]);

@@ -5,8 +5,8 @@
                 <div class="col-xs-9 col-sm-6 col-md-6 col-lg-6">
 
                     <a href="{{ url('todo') }}" class="btn  btn-xs btn-primary">{{ trans('todo.all-todos') }}</a>
-                    <a href="{{ url('todo/type/'.Definer::PUBLIC_TODO) }}" class="btn  btn-xs btn-success">{{ trans('type.public') }}</a>
-                    <a href="{{ url('todo/type/'.Definer::PRIVATE_TODO) }}" class="btn  btn-xs btn-warning">{{ trans('type.private') }}</a>
+                    <a href="{{ url('todo/type/'.config('todo.public')) }}" class="btn  btn-xs btn-success">{{ trans('type.public') }}</a>
+                    <a href="{{ url('todo/type/'.config('todo.private')) }}" class="btn  btn-xs btn-warning">{{ trans('type.private') }}</a>
 
                 </div>
                 <div class="col-xs-3 col-sm-6 col-md-6 col-lg-6" align="right">

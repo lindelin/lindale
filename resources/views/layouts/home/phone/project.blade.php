@@ -14,7 +14,7 @@
                                 <a href="{{ url("project/$project->id") }}" class="list-group-item">
                                     <h4 class="{{ Colorable::randomTextColor() }}"><span class="glyphicon glyphicon-briefcase"></span> {{ $project->title }}</h4>
                                     <p>
-                                        <span class="glyphicon glyphicon-tasks"></span> {{ \App\Counter::ProjectTaskFinishedCount($project) }}/{{ \App\Counter::ProjectTaskCount($project) }}&nbsp;&nbsp;&nbsp;
+                                        <span class="glyphicon glyphicon-tasks"></span> {{ Counter::ProjectTaskFinishedCount($project) }}/{{ Counter::ProjectTaskCount($project) }}&nbsp;&nbsp;&nbsp;
                                         <span class="glyphicon glyphicon-check"></span> {{ Counter::ProjectTodoFinishedCount($project) }}/{{ Counter::ProjectTodoCount($project) }}&nbsp;&nbsp;&nbsp;
                                         {{--<span class="glyphicon glyphicon-calendar"></span> 0/0&nbsp;&nbsp;&nbsp;--}}
                                         <span class="glyphicon glyphicon-dashboard"></span> {{ $project->progress }}%&nbsp;&nbsp;&nbsp;
@@ -52,7 +52,7 @@
                                 <a href="{{ url("project/$project->id") }}" class="list-group-item">
                                     <h4 class="{{ Colorable::randomTextColor() }}"><span class="glyphicon glyphicon-briefcase"></span> {{ $project->title }}</h4>
                                     <p>
-                                        <span class="glyphicon glyphicon-tasks"></span> {{ \App\Counter::ProjectTaskFinishedCount($project) }}/{{ \App\Counter::ProjectTaskCount($project) }}&nbsp;&nbsp;&nbsp;
+                                        <span class="glyphicon glyphicon-tasks"></span> {{ Counter::ProjectTaskFinishedCount($project) }}/{{ Counter::ProjectTaskCount($project) }}&nbsp;&nbsp;&nbsp;
                                         <span class="glyphicon glyphicon-check"></span> {{ Counter::ProjectTodoFinishedCount($project) }}/{{ Counter::ProjectTodoCount($project) }}&nbsp;&nbsp;&nbsp;
                                         {{--<span class="glyphicon glyphicon-calendar"></span> 0/0&nbsp;&nbsp;&nbsp;--}}
                                         <span class="glyphicon glyphicon-dashboard"></span> {{ $project->progress }}%&nbsp;&nbsp;&nbsp;

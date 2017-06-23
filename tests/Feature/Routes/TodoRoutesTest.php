@@ -4,7 +4,6 @@ namespace Tests\Feature\Routes;
 
 use Event;
 use App\User;
-use App\Definer;
 use App\Todo\Todo;
 use Tests\TestCase;
 use App\Todo\TodoType;
@@ -148,7 +147,7 @@ class TodoRoutesTest extends TestCase
      */
     public function it_can_access_the_public_todo_page()
     {
-        $todoType = TodoType::find(Definer::PUBLIC_TODO);
+        $todoType = TodoType::find(config('todo.public'));
         $response = $this->actingAs($this->user)->get('/todo/type/'.$todoType->id);
         $response->assertStatus(200);
         $response->assertViewHasAll(['todos', 'lists', 'statuses', 'MProjects', 'JProjects', 'prefix', 'type']);
@@ -161,7 +160,7 @@ class TodoRoutesTest extends TestCase
      */
     public function it_can_access_the_private_todo_page()
     {
-        $todoType = TodoType::find(Definer::PRIVATE_TODO);
+        $todoType = TodoType::find(config('todo.private'));
         $response = $this->actingAs($this->user)->get('/todo/type/'.$todoType->id);
         $response->assertStatus(200);
         $response->assertViewHasAll(['todos', 'lists', 'statuses', 'MProjects', 'JProjects', 'prefix', 'type']);
@@ -174,7 +173,7 @@ class TodoRoutesTest extends TestCase
      */
     public function it_can_access_the_public_status_todo_page()
     {
-        $todoType = TodoType::find(Definer::PUBLIC_TODO);
+        $todoType = TodoType::find(config('todo.public'));
         $todoStatus = TodoStatus::first();
         $response = $this->actingAs($this->user)->get('/todo/type/'.$todoType->id.'/status/'.$todoStatus->id);
         $response->assertStatus(200);
@@ -188,7 +187,7 @@ class TodoRoutesTest extends TestCase
      */
     public function it_can_access_the_private_status_todo_page()
     {
-        $todoType = TodoType::find(Definer::PRIVATE_TODO);
+        $todoType = TodoType::find(config('todo.private'));
         $todoStatus = TodoStatus::first();
         $response = $this->actingAs($this->user)->get('/todo/type/'.$todoType->id.'/status/'.$todoStatus->id);
         $response->assertStatus(200);
@@ -202,7 +201,7 @@ class TodoRoutesTest extends TestCase
      */
     public function it_can_access_the_public_project_todo_page()
     {
-        $todoType = TodoType::find(Definer::PUBLIC_TODO);
+        $todoType = TodoType::find(config('todo.public'));
         $todoStatus = TodoStatus::first();
         $project = factory(Project::class)->create([
             'user_id' => $this->user->id,

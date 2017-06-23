@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Todo;
 
-use App\Definer;
 use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
@@ -86,7 +85,7 @@ class TodoController extends Controller
         }
 
         return view('todo.index')
-            ->with($this->todoRepository->TodoResources($project, $type, $list, $status, Definer::TODO_PAGE_SIZE, $request->user()))
+            ->with($this->todoRepository->TodoResources($project, $type, $list, $status, config('todo.page-size'), $request->user()))
             ->with($this->projectRepository->UserProjects($request->user()))
             ->with(['prefix' => $prefix, 'type' => $type]);
     }

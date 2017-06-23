@@ -1,4 +1,11 @@
 <!-- 模态窗按钮 -->
+<script>
+    $(document).ready(function(){
+        $('#checkbox-delete{{ $todo->id }}').change(function () {
+            $('#delete{{ $todo->id }}').prop("disabled", $(this).is(':checked') == false);
+        }).change();
+    });
+</script>
 <h4 class="panel-title">
     <a class="my-tooltip" title="{{ trans('todo.edit-title') }}" data-toggle="modal" data-target="#editTodo{{ $todo->id }}">
         <span class="glyphicon glyphicon-cog"></span>
@@ -13,7 +20,15 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel" align="left">{{ trans('todo.edit-title') }}</h4>
+                <h4 class="modal-title" id="myModalLabel" align="left">
+                    {{ trans('todo.edit-title') }}
+                    <small class="text-danger">
+                    <span class="glyphicon glyphicon-trash"></span>
+                        <label for="checkbox-delete{{ $todo->id }}">{{ trans('todo.delete') }}</label>
+                        <input type="checkbox" id="checkbox-delete{{ $todo->id }}">
+                    </small>
+                </h4>
+
             </div>
             <form action="{{ $public_todo_edit_url }}" method="POST" style="display: inline;">
                 {{ method_field('PATCH') }}
@@ -67,8 +82,8 @@
                                 </label>
                                 <div>
                                     <select class="selectpicker form-control" name="color_id">
-                                        @foreach( Definer::todoColor() as $id => $color)
-                                            <option value="{{ $id }}" @if($todo->color_id === $id) selected @endif>{{ $color }}</option>
+                                        @foreach( config('color.common') as $id => $color)
+                                            <option value="{{ $id }}" @if($todo->color_id === $id) selected @endif>{{ trans($color) }}</option>
                                         @endforeach
                                     </select>
                                     @include('layouts.common.error-one', ['field' => 'color_id'])
@@ -115,7 +130,7 @@
 
                     <div class="row">
                     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
-                            @if($todo->status_id === Definer::FINISH_STATUS_ID)
+                            @if($todo->status_id === config('todo.status.finished'))
                             @else
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">
                                     <span class="glyphicon glyphicon-remove"></span> {{ trans('todo.cancel') }}
@@ -135,7 +150,7 @@
                         <form action="{{ $todo_delete_url }}" method="post" role="form">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-block">
+                            <button type="submit" class="btn btn-danger btn-block" id="delete{{ $todo->id }}">
                                 <span class="glyphicon glyphicon-trash"></span> {{ trans('todo.delete-title') }}
                             </button>
                         </form>

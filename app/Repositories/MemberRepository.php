@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\User;
-use App\Definer;
 use App\Project\Project;
 use Illuminate\Http\Request;
 
@@ -20,7 +19,7 @@ class MemberRepository
         $pl = $project->ProjectLeader;
         $sl = $project->SubLeader;
         $pms = $project->Users->all();
-        $paCount = $project->Users()->where('is_admin', Definer::PROJECT_ADMIN)->count();
+        $paCount = $project->Users()->where('is_admin', config('admin.project_admin'))->count();
         $pmCount = $project->Users->count() - $paCount;
         $allCount = $pmCount + $paCount;
         if ($pl) {
@@ -69,7 +68,7 @@ class MemberRepository
             return false;
         } elseif ($user->id === $project->sl_id) {
             return false;
-        } elseif ($user->id === Definer::SUPER_ADMIN_ID) {
+        } elseif ($user->id === config('admin.super_admin.id')) {
             return false;
         } else {
             $project->Users()->attach($user);
@@ -112,7 +111,7 @@ class MemberRepository
             return false;
         } elseif ($user->id === $project->sl_id) {
             return false;
-        } elseif ($user->id === Definer::SUPER_ADMIN_ID) {
+        } elseif ($user->id === config('admin.super_admin.id')) {
             return false;
         } else {
             $pa = $project->Users()->findOrFail($user->id);

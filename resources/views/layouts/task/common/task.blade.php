@@ -1,7 +1,7 @@
 <div class="bs-callout {{ Colorable::getCallOutColor($task->color_id) }}">
     <div class="row">
     	<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
-            @if((int)$task->is_finish === Definer::TASK_FINISHED)
+            @if((int)$task->is_finish === config('task.finished'))
                 @include('layouts.task.common.finish-edit',
                 ['status_edit_url' => url('project/'.$task->Project->id.'/task/task/'.$task->id), 'model' => $task])
             @else

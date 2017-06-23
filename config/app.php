@@ -193,6 +193,7 @@ return [
         App\Providers\ResponseMacroServiceProvider::class,
         App\Providers\RoutingManagementServiceProvider::class,
         App\Providers\ToolServiceProvider::class,
+        App\Providers\ConfigSystemServiceProvider::class,
 
     ],
 
@@ -243,15 +244,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        /*'Inspiring' => Illuminate\Foundation\Inspiring::class,*/
         'Colorable' => App\Repositories\ColorableRepository::class,
-        'Markdown' => App\Repositories\MarkdownRepository::class,
         'Admin' => App\Tools\Facades\Admin::class,
-        'Definer' => \App\Definer::class,
-        'Calculator' => \App\Calculator::class,
-        'Counter' => \App\Counter::class,
-        'ProjectConfig' => \App\ProjectConfig::class,
-        'UserConfig' => \App\UserConfig::class,
+        'Icon' => App\Tools\Facades\Icon::class,
+        'Calculator' => App\Tools\Facades\Calculator::class,
+        'Counter' => App\Tools\Facades\Counter::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
         'Image' => Intervention\Image\Facades\Image::class,
 

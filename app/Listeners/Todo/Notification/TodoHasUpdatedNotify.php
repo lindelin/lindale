@@ -2,41 +2,48 @@
 
 namespace App\Listeners\Todo\Notification;
 
-use App\Definer;
-use App\UserConfig;
-use App\ProjectConfig;
 use App\Events\Todo\TodoUpdated;
+use App\Tools\Checker\ConfigChecker;
+use GuzzleHttp\Exception\ClientException;
 use App\Notifications\Project\Todo\TodoHasUpdated;
+use App\Exceptions\Notification\UserNotificationException;
+use App\Exceptions\Notification\ProjectNotificationException;
 
 class TodoHasUpdatedNotify
 {
+    use ConfigChecker;
+
     /**
-     * Handle the event.
-     *
-     * @param  TodoUpdated  $event
-     * @return void
+     * @param TodoUpdated $event
+     * @throws ProjectNotificationException
+     * @throws UserNotificationException
      */
     public function handle(TodoUpdated $event)
     {
         //项目消息
-        if (
-            (int) $event->todo->type_id === Definer::PUBLIC_TODO
-            and ProjectConfig::get($event->todo->Project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::ON
-            and ProjectConfig::get($event->todo->Project, ProjectConfig::SLACK_API_KEY) != ''
-            and ProjectConfig::get($event->todo->Project, ProjectConfig::SLACK_API_KEY) != 'Null'
-        ) {
-            $event->todo->Project->notify(new TodoHasUpdated($event->todo, $event->user, ProjectConfig::get($event->todo->Project, ProjectConfig::LANG)));
+        if ($this->canNotifyTodoSlackToProject($event->todo->Project, $event->todo->type_id)) {
+            try {
+                $event->todo->Project->notify(new TodoHasUpdated(
+                    $event->todo,
+                    $event->user,
+                    project_config($event->todo->Project, config('config.project.lang'))
+                ));
+            } catch (ClientException $exception) {
+                throw new ProjectNotificationException($event->todo->Project, $exception->getMessage());
+            }
         }
 
         //个人消息
-        if (
-            (int) $event->todo->type_id === Definer::PUBLIC_TODO
-            and $event->todo->User != null
-            and UserConfig::get($event->todo->User, UserConfig::SLACK_NOTIFICATION_NO) == UserConfig::ON
-            and UserConfig::get($event->todo->User, UserConfig::SLACK_API_KEY) != ''
-            and UserConfig::get($event->todo->User, UserConfig::SLACK_API_KEY) != 'Null'
-        ) {
-            $event->todo->User->notify(new TodoHasUpdated($event->todo, $event->user, UserConfig::get($event->todo->User, UserConfig::LANG)));
+        if ($this->canNotifyTodoSlackToUser($event->todo->User, $event->todo->type_id)) {
+            try {
+                $event->todo->User->notify(new TodoHasUpdated(
+                    $event->todo,
+                    $event->user,
+                    user_config($event->todo->User, config('config.user.lang'))
+                ));
+            } catch (ClientException $exception) {
+                throw new UserNotificationException($event->todo->User, $exception->getMessage());
+            }
         }
     }
 }

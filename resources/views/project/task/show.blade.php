@@ -52,7 +52,7 @@
                                 @include('layouts.task.common.sub-task-finish-edit',
                                 ['status_edit_url' => url('project/'.$project->id.'/task/show/'.$task->id.'/sub-task/edit/'.$sub->id), 'model' => $sub])
                             </td>
-                            @if($sub->is_finish === Definer::TASK_FINISHED)
+                            @if($sub->is_finish === config('task.finished'))
                                 <td>
                                     <del>{{ $sub->content }}</del>
                                 </td>
@@ -79,7 +79,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="jumbotron">
-                {!! Markdown::toHtml($task->content) !!}
+                {!! markdown($task->content) !!}
             </div>
         </div>
     </div>
@@ -115,7 +115,7 @@
                             @endif
                         </div>
                         <div class="panel-body">
-                            {!! Markdown::toHtml($activity->content) !!}
+                            {!! markdown($activity->content) !!}
                         </div>
                     </div>
                 </div>

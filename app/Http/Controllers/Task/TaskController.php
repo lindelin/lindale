@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Task;
 
-use App\Definer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\TaskRepository;
@@ -47,7 +46,7 @@ class TaskController extends Controller
      */
     public function unfinished(Request $request)
     {
-        return view('task.index', $this->taskRepository->UserTaskResources($request->user(), Definer::TASK_UNFINISHED));
+        return view('task.index', $this->taskRepository->UserTaskResources($request->user(), config('task.unfinished')));
     }
 
     /**
@@ -58,6 +57,6 @@ class TaskController extends Controller
      */
     public function finished(Request $request)
     {
-        return view('task.index', $this->taskRepository->UserTaskResources($request->user(), Definer::TASK_FINISHED));
+        return view('task.index', $this->taskRepository->UserTaskResources($request->user(), config('task.finished')));
     }
 }

@@ -3,17 +3,16 @@
 namespace App\Http\Controllers\Settings;
 
 use App;
-use App\UserConfig;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\System\ConfigSystem\UserConfigSystem;
+use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
 
 class LocaleController extends Controller
 {
     /**
      * 用户配置系统
      *
-     * @var UserConfigSystem
+     * @var UserConfigSystemContract
      */
     protected $configSystem;
 
@@ -21,11 +20,11 @@ class LocaleController extends Controller
      * 构造器.
      *
      * LocaleController constructor.
-     * @param UserConfigSystem $userConfigSystem
+     * @param UserConfigSystemContract $configSystem
      */
-    public function __construct(UserConfigSystem $userConfigSystem)
+    public function __construct(UserConfigSystemContract $configSystem)
     {
-        $this->configSystem = $userConfigSystem;
+        $this->configSystem = $configSystem;
     }
 
     /**
@@ -46,9 +45,9 @@ class LocaleController extends Controller
      */
     public function updateLocale(Request $request)
     {
-        $result = $this->configSystem->setConfigInfo($request->user(), UserConfig::LANG, $request->get(UserConfig::LANG));
+        $result = $this->configSystem->set($request->user(), config('config.user.lang'), $request->get(config('config.user.lang')));
 
-        $locale = UserConfig::get($request->user(), UserConfig::LANG);
+        $locale = user_config($request->user(), config('config.user.lang'));
         $request->session()->put('lang', $locale);
         App::setLocale($locale);
 

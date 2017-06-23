@@ -1,17 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lindale
- * Date: 2016/11/23
- * Time: 22:50.
- */
 
 namespace App\System\ConfigSystem;
 
 use App\User;
 use App\Settings\UserSettings;
+use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
 
-class UserConfigSystem
+class UserConfigSystem implements UserConfigSystemContract
 {
     /**
      * 获得设置信息.
@@ -20,7 +15,7 @@ class UserConfigSystem
      * @param $config_name
      * @return mixed
      */
-    public function getConfigInfo(User $user, $config_name)
+    public function get(User $user, $config_name)
     {
         return $user->Config()->where('config_name', $config_name)->pluck('config_value')->first();
     }
@@ -33,7 +28,7 @@ class UserConfigSystem
      * @param $config_value
      * @return mixed
      */
-    public function setConfigInfo(User $user, $config_name, $config_value)
+    public function set(User $user, $config_name, $config_value)
     {
         return UserSettings::updateOrCreate(['config_name' => $config_name, 'user_id' => $user->id], ['config_value' => $config_value]);
     }

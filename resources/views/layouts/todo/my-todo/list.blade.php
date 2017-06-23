@@ -2,12 +2,12 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="well well-home">
             @if($type != null)
-                @if((int)$type->id === Definer::PUBLIC_TODO)
+                @if((int)$type->id === config('todo.public'))
                     <h4 class="lindale-color">{{ trans('todo.todo-list') }}（{{ trans('type.public') }}）</h4>
                     <hr>
-                @elseif((int)$type->id === Definer::PRIVATE_TODO)
+                @elseif((int)$type->id === config('todo.private'))
                     <h4 class="lindale-color">{{ trans('todo.todo-list') }}（{{ trans('type.private') }}）</h4>
-                    @include('layouts.todo.common.list-edit', ['list_edit_delete_url' => 'todo/type/'.Definer::PRIVATE_TODO.'/list/delete'])
+                    @include('layouts.todo.common.list-edit', ['list_edit_delete_url' => 'todo/type/'.config('todo.private').'/list/delete'])
                     <hr>
                 @endif
             @else
@@ -38,11 +38,11 @@
                     </a>
                 @endforeach
                 @if($type != null)
-                    @if((int)$type->id === Definer::PRIVATE_TODO and $lists->count() > 0)
+                    @if((int)$type->id === config('todo.private') and $lists->count() > 0)
                         @foreach($lists as $list)
                             <a href="{{ url("$prefix/list/show/$list->id") }}" class="list-group-item">
                                             <span class="badge">{{-- TODO: 集計 --}}
-                                                {{ $list->Todos()->where('status_id', Definer::FINISH_STATUS_ID)->count() }}/{{ $list->Todos()->count() }}
+                                                {{ $list->Todos()->where('status_id', config('todo.status.finished'))->count() }}/{{ $list->Todos()->count() }}
                                             </span>
                                 {{ $list->title }}
                             </a>
@@ -62,8 +62,8 @@
             </ul>
         </div>
         @include('layouts.todo.common.add-list', [
-        'add_list_create_url' => url('todo/type/'.Definer::PRIVATE_TODO.'/list/create'),
-        'add_list_store_url'  => url('todo/type/'.Definer::PRIVATE_TODO.'/list'),
+        'add_list_create_url' => url('todo/type/'.config('todo.private').'/list/create'),
+        'add_list_store_url'  => url('todo/type/'.config('todo.private').'/list'),
         ])
     </div>
 </div>

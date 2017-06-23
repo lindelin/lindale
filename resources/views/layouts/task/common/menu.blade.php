@@ -49,7 +49,7 @@
                 @foreach($types as $type)
                     <a href="{{ url('project/'.$project->id.'/task/type/'.$type->id) }}" class="list-group-item @if($mode == 'type'.$type->id) active @endif">
                         <span class="badge">
-                            {{ Counter::ProjectTypeTaskCount($project, $type, Definer::TASK_FINISHED) }}/{{ Counter::ProjectTypeTaskCount($project, $type) }}
+                            {{ Counter::ProjectTypeTaskCount($project, $type, config('task.finished')) }}/{{ Counter::ProjectTypeTaskCount($project, $type) }}
                         </span>
                         {{ trans($type->name) }}
                     </a>
@@ -70,7 +70,7 @@
                 @foreach($priorities as $priority)
                     <a href="{{ url('project/'.$project->id.'/task/priority/'.$priority->id) }}" class="list-group-item @if($mode == 'priority'.$priority->id) active @endif">
                         <span class="badge">
-                            {{ Counter::ProjectPriorityTaskCount($project, $priority, Definer::TASK_FINISHED) }}/{{ Counter::ProjectPriorityTaskCount($project, $priority) }}
+                            {{ Counter::ProjectPriorityTaskCount($project, $priority, config('task.finished')) }}/{{ Counter::ProjectPriorityTaskCount($project, $priority) }}
                         </span>
                         {{ trans($priority->name) }}
                     </a>

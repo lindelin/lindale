@@ -20,7 +20,7 @@
                     <h4>
                         <strong>
                             <a href="{{ url('/task') }}" style="color: #000000;">
-                                {{ \App\Counter::UserUnfinishedTaskCount(Auth::user()) }}
+                                {{ Counter::UserUnfinishedTaskCount(Auth::user()) }}
                             </a>
                         </strong>
                         <br>
@@ -33,7 +33,7 @@
                     <h4>
                         <strong>
                             <a href="{{ url('/todo') }}" style="color: #000000;">
-                                {{ \App\Counter::UserTodoUnfinishedCount(Auth::user()) }}
+                                {{ Counter::UserTodoUnfinishedCount(Auth::user()) }}
                             </a>
                         </strong>
                         <br>

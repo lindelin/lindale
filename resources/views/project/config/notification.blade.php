@@ -44,17 +44,17 @@
                                             <hr>
                                             <p>{{ trans('config.notifiable') }}</p>
                                             <div class="btn-group form-group" data-toggle="buttons">
-                                                <label class="btn btn-default @if(old(ProjectConfig::SLACK_NOTIFICATION_NO) ? old(ProjectConfig::SLACK_NOTIFICATION_NO) :
-                                                       ProjectConfig::get($project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::OFF)  active @endif">
-                                                    <input type="radio" name="{{ ProjectConfig::SLACK_NOTIFICATION_NO }}" value="{{ ProjectConfig::OFF }}" id="option1" autocomplete="off"
-                                                           @if(old(ProjectConfig::SLACK_NOTIFICATION_NO) ? old(ProjectConfig::SLACK_NOTIFICATION_NO) :
-                                                           ProjectConfig::get($project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::OFF)  checked @endif> OFF
+                                                <label class="btn btn-default @if(old(config('config.project.slack')) ? old(config('config.project.slack')) :
+                                                       project_config($project, config('config.project.slack')) == config('config.off'))  active @endif">
+                                                    <input type="radio" name="{{ config('config.project.slack') }}" value="{{ config('config.off') }}" id="option1" autocomplete="off"
+                                                           @if(old(config('config.project.slack')) ? old(config('config.project.slack')) :
+                                                           project_config($project, config('config.project.slack')) == config('config.off'))  checked @endif> OFF
                                                 </label>
-                                                <label class="btn btn-default @if(old(ProjectConfig::SLACK_NOTIFICATION_NO) ? old(ProjectConfig::SLACK_NOTIFICATION_NO) :
-                                                       ProjectConfig::get($project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::ON)  active @endif">
-                                                    <input type="radio" name="{{ ProjectConfig::SLACK_NOTIFICATION_NO }}" value="{{ ProjectConfig::ON }}" id="option2" autocomplete="off"
-                                                           @if(old(ProjectConfig::SLACK_NOTIFICATION_NO) ? old(ProjectConfig::SLACK_NOTIFICATION_NO) :
-                                                           ProjectConfig::get($project, ProjectConfig::SLACK_NOTIFICATION_NO) == ProjectConfig::ON)  checked @endif> ON
+                                                <label class="btn btn-default @if(old(config('config.project.slack')) ? old(config('config.project.slack')) :
+                                                       project_config($project, config('config.project.slack')) == config('config.on'))  active @endif">
+                                                    <input type="radio" name="{{ config('config.project.slack') }}" value="{{ config('config.on') }}" id="option2" autocomplete="off"
+                                                           @if(old(config('config.project.slack')) ? old(config('config.project.slack')) :
+                                                           project_config($project, config('config.project.slack')) == config('config.on'))  checked @endif> ON
                                                 </label>
                                             </div>
                                         </div>
@@ -71,14 +71,14 @@
                                     {{-- API Key --}}
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="form-group{{ $errors->has(ProjectConfig::SLACK_API_KEY) ? ' has-error' : '' }}">
+                                            <div class="form-group{{ $errors->has(config('config.project.key.slack')) ? ' has-error' : '' }}">
                                                 <label class="control-label">
                                                     WebHook
                                                 </label>
                                                 <div>
-                                                    <input type="text" class="form-control" name="{{ ProjectConfig::SLACK_API_KEY }}"
-                                                           value="{{ old(ProjectConfig::SLACK_API_KEY) ? old(ProjectConfig::SLACK_API_KEY) : ProjectConfig::get($project, ProjectConfig::SLACK_API_KEY) }}" />
-                                                    @include('layouts.common.error-one', ['field' => ProjectConfig::SLACK_API_KEY])
+                                                    <input type="text" class="form-control" name="{{ config('config.project.key.slack') }}"
+                                                           value="{{ old(config('config.project.key.slack')) ? old(config('config.project.key.slack')) : project_config($project, config('config.project.key.slack')) }}" />
+                                                    @include('layouts.common.error-one', ['field' => config('config.project.key.slack')])
                                                 </div>
                                             </div>
                                         </div>

@@ -2,7 +2,6 @@
 
 namespace Tests\Feature\Databases;
 
-use Definer;
 use Tests\TestCase;
 
 class TodoTypeTableTest extends TestCase
@@ -15,15 +14,15 @@ class TodoTypeTableTest extends TestCase
     public function testTodoTypeTableHasDefault()
     {
         $this->assertDatabaseHas('todo_types', [
-            'id' => Definer::PUBLIC_TODO,
+            'id' => config('todo.public'),
             'name' => 'type.public',
-            'color_id' => Definer::SUCCESS_COLOR_ID,
+            'color_id' => config('color.success'),
         ]);
 
         $this->assertDatabaseHas('todo_types', [
-            'id' => Definer::PRIVATE_TODO,
+            'id' => config('todo.private'),
             'name' => 'type.private',
-            'color_id' => Definer::WARNING_COLOR_ID,
+            'color_id' => config('color.warning'),
         ]);
     }
 }

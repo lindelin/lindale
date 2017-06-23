@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\User;
-use App\Definer;
 use App\Task\Task;
 use App\Task\SubTask;
 use App\Task\TaskType;
@@ -46,7 +45,7 @@ class TaskRepository
         }
 
         if ($status != null) {
-            $tasks = $tasks->where('status_id', $status->id)->where('is_finish', Definer::TASK_UNFINISHED);
+            $tasks = $tasks->where('status_id', $status->id)->where('is_finish', config('task.unfinished'));
         }
 
         $tasks = $tasks
@@ -166,7 +165,7 @@ class TaskRepository
             ],
             [
                 'name' => 'task.default',
-                'color_id' => Definer::DEFAULT_COLOR_ID,
+                'color_id' => config('color.default'),
             ]
         );
         if ($type != null) {
@@ -179,8 +178,8 @@ class TaskRepository
             ],
             [
                 'name' => 'task.underway',
-                'color_id' => Definer::PRIMARY_COLOR_ID,
-                'action_id' => Definer::UNDERWAY_STATUS_ID,
+                'color_id' => config('color.primary'),
+                'action_id' => config('todo.status.underway'),
             ]
         );
         if ($status != null) {
