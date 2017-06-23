@@ -1,4 +1,11 @@
 <!-- 模态窗按钮 -->
+<script>
+    $(document).ready(function(){
+        $('#checkbox-delete{{ $todo->id }}').change(function () {
+            $('#delete{{ $todo->id }}').prop("disabled", $(this).is(':checked') == false);
+        }).change();
+    });
+</script>
 <h4 class="panel-title">
     <a class="my-tooltip" title="{{ trans('todo.edit-title') }}" data-toggle="modal" data-target="#editTodo{{ $todo->id }}">
         <span class="glyphicon glyphicon-cog"></span>
@@ -13,7 +20,15 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel" align="left">{{ trans('todo.edit-title') }}</h4>
+                <h4 class="modal-title" id="myModalLabel" align="left">
+                    {{ trans('todo.edit-title') }}
+                    <small class="text-danger">
+                    <span class="glyphicon glyphicon-trash"></span>
+                        <label for="checkbox-delete{{ $todo->id }}">{{ trans('todo.delete') }}</label>
+                        <input type="checkbox" id="checkbox-delete{{ $todo->id }}">
+                    </small>
+                </h4>
+
             </div>
             <form action="{{ $public_todo_edit_url }}" method="POST" style="display: inline;">
                 {{ method_field('PATCH') }}
@@ -135,7 +150,7 @@
                         <form action="{{ $todo_delete_url }}" method="post" role="form">
                             {{ method_field('DELETE') }}
                             {{ csrf_field() }}
-                            <button type="submit" class="btn btn-danger btn-block">
+                            <button type="submit" class="btn btn-danger btn-block" id="delete{{ $todo->id }}">
                                 <span class="glyphicon glyphicon-trash"></span> {{ trans('todo.delete-title') }}
                             </button>
                         </form>
