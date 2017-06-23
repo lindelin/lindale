@@ -2,14 +2,12 @@
 
 namespace App\Listeners\Todo\Notification;
 
-use App\Exceptions\Notification\ProjectNotificationException;
-use App\Exceptions\Notification\UserNotificationException;
+use App\Events\Todo\TodoCreated;
 use App\Tools\Checker\ConfigChecker;
 use GuzzleHttp\Exception\ClientException;
-use UserConfig;
-use App\ProjectConfig;
-use App\Events\Todo\TodoCreated;
 use App\Notifications\Project\Todo\TodoHasCreated;
+use App\Exceptions\Notification\UserNotificationException;
+use App\Exceptions\Notification\ProjectNotificationException;
 
 class TodoHasCreatedNotify
 {

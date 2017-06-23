@@ -15,7 +15,8 @@ class ProjectNotificationError extends Mailable implements ShouldQueue
     /**
      * @var Project
      */
-    public $project, $locale;
+    public $project;
+    public $locale;
 
     /**
      * ProjectNotificationError constructor.

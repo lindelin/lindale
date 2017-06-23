@@ -18,7 +18,7 @@ class ProgressRepository
                 Calculator::ProjectUnfinishedTaskProgressCompute($project),
                 $project->progress,
             ])
-            ->dimensions(1000,500)
+            ->dimensions(1000, 500)
             ->responsive(true);
 
         $projectProgressPie = Charts::create('percentage', 'justgage')
