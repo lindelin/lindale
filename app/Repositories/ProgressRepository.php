@@ -10,7 +10,7 @@ class ProgressRepository
 {
     public function ProgressResources(Project $project)
     {
-        $schemaDonut = Charts::create('donut', 'c3')
+        $schemaDonut = Charts::create('donut', 'highcharts')
             ->title(trans('progress.proportion'))
             ->labels(['TODO', trans('header.tasks'), trans('common.finish')])
             ->values([
@@ -18,6 +18,7 @@ class ProgressRepository
                 Calculator::ProjectUnfinishedTaskProgressCompute($project),
                 $project->progress,
             ])
+            ->dimensions(1000,500)
             ->responsive(true);
 
         $projectProgressPie = Charts::create('percentage', 'justgage')
