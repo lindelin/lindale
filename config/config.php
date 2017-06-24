@@ -35,7 +35,7 @@ return [
         ],
 
         'default' => [
-            'user_lang' => 'en',
+            'project_lang' => 'en',
             'slack_notification' => 'off',
             'slack_api_key' => 'Null',
         ],
