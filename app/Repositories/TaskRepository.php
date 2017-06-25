@@ -257,7 +257,7 @@ class TaskRepository
             'priority_id',
             'color_id',
             'is_finish',
-            'spend'
+            'spend',
         ]);
 
         foreach ($input as $key => $value) {
