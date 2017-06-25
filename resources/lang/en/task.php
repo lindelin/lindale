@@ -36,6 +36,7 @@ return [
     'priority'     => 'Priority',
     'task'         => 'Related Tasks',
     'cost'         => 'Cost',
+    'spend'        => 'Spend time',
     'hour'         => 'Hour',
     'user'         => 'Person in charge',
     'delete'       => 'Delete',

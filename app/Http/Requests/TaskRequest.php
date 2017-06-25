@@ -43,6 +43,7 @@ class TaskRequest extends FormRequest
             'start_at' => 'nullable|date|date_format:Y-m-d',
             'end_at' => 'nullable|date|after:start_at|date_format:Y-m-d',
             'cost' => 'nullable|integer|max:100000000000',
+            'spend' => 'nullable|integer|max:100000000000',
             'type_id' => 'nullable|integer',
             'user_id' => 'nullable|integer',
             'status_id' => 'nullable|integer',

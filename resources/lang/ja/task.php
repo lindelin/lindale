@@ -36,6 +36,7 @@ return [
     'priority'     => '優先度',
     'task'         => '関連チケット',
     'cost'         => '予定工数',
+    'spend'        => '実工数',
     'hour'         => '時間',
     'user'         => '担当者',
     'delete'       => '削除',
