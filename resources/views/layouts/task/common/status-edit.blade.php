@@ -23,10 +23,10 @@
 
                     <div class="row">
                     	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    		<h4>
-                                {{ trans('task.status') }}：{{ trans($model->Status->name) }}
-                                {!! Icon::action($model->Status->action_id) !!}
-                            </h4>
+                        <h4>
+                            {{ trans('task.status') }}：{{ trans($model->Status->name) }}
+                            {!! Icon::action($model->Status->action_id) !!}
+                        </h4>
                     	</div>
                     </div>
 
@@ -69,6 +69,21 @@
                             <form action="{{ $status_edit_url }}" method="POST" style="display: inline;">
                             {{ method_field('PATCH') }}
                             {{ csrf_field() }}
+
+                                <div class="row">
+                                    {{-- 実工数 --}}
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="form-group{{ $errors->has('spend') ? ' has-error' : '' }}" align="left">
+                                            <label class="control-label">
+                                                {{ trans('task.spend') }}
+                                            </label>
+                                            <div>
+                                                <input type="text" class="form-control" name="spend" value="{{ old('spend') }}">
+                                                @include('layouts.common.error-one', ['field' => 'spend'])
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <input type="hidden" name="is_finish" value="{{ config('task.finished') }}" />
                                 <input type="hidden" name="color_id" value="{{ config('color.success') }}" />

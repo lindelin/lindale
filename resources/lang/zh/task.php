@@ -36,6 +36,7 @@ return [
     'priority'     => '优先度',
     'task'         => '关联任务',
     'cost'         => '预计工数',
+    'spend'        => '实际工数',
     'hour'         => '小时',
     'user'         => '负责人',
     'delete'       => '删除',
