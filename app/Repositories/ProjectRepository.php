@@ -52,10 +52,12 @@ class ProjectRepository
     {
         $myProjects = Project::where('user_id', $user->id)
             ->orWhere('sl_id', $user->id)
+            ->orderBy('progress', 'asc')
             ->latest()
             ->simplePaginate(6, ['*'], 'mPage');
 
         $userProjects = $user->Projects()
+            ->orderBy('progress', 'asc')
             ->latest()
             ->simplePaginate(6, ['*'], 'uPage');
 
