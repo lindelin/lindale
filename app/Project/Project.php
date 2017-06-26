@@ -163,6 +163,17 @@ class Project extends Model
     }
 
     /**
+     * 一个项目有多个通知
+     * 一对多.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function Notices()
+    {
+        return $this->hasMany('App\Notice\Notice', 'project_id', 'id');
+    }
+
+    /**
      * Slack 频道的通知路由.
      *
      * @return string

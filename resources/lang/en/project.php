@@ -34,5 +34,6 @@ return [
     'lang'                  => 'Language',
     'transfer'              => 'Transfer ownership',
     'transfer-info'         => 'Transfer this project to another user.',
+    'notice'                => 'Notices',
 
 ];
