@@ -24,4 +24,8 @@ return [
     'today'  => '本日内',
     'now'    => '立刻',
 
+    'info'   => '信息',
+    'important' => '重要',
+    'urgency' => '紧急',
+
 ];
