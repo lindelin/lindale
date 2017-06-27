@@ -29,6 +29,12 @@
             </li>
             <li role="separator" class="divider"></li>
             <li>
+                <a href="{{ route('notice.index', compact('project')) }}">
+                    <span class="glyphicon glyphicon-bullhorn lindale-icon-color"></span> {{ trans('project.notice') }}
+                </a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
                 <a href="{{ url("project/$project->id/config/task/type") }}">
                     <span class="glyphicon glyphicon-tag lindale-icon-color"></span> {{ trans('config.task-type-config') }}
                 </a>

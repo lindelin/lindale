@@ -17,5 +17,10 @@ return [
     'delete'     => '削除',
     'updated'    => '更新日時',
     'created'    => '作成日時',
+    'new'        => '新規作成',
+    'title'      => 'タイトル',
+    'content'    => '内容',
+    'type'       => 'タイプ',
+    'delete-info' => ':Name を削除します, よろしいですか？',
 
 ];

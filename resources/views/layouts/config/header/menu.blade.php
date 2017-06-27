@@ -18,6 +18,10 @@
             <span class="glyphicon glyphicon-bell"></span> {{ trans('config.notification') }}
         </a>
 
+        <a href="{{ route('notice.index', compact('project')) }}" class="list-group-item @if($mode == 'notice') active @endif">
+            <span class="glyphicon glyphicon-bullhorn"></span> {{ trans('project.notice') }}
+        </a>
+
         {{--
 
         <a href="#" class="list-group-item">

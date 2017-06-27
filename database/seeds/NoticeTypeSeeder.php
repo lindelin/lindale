@@ -29,7 +29,7 @@ class NoticeTypeSeeder extends Seeder
         ]);
         \App\Notice\NoticeType::create([
             'id' => 4,
-            'name' => 'type.success',
+            'name' => 'type.urgency',
             'color_id' => 6,
         ]);
     }

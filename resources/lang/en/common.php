@@ -17,5 +17,10 @@ return [
     'delete'     => 'Delete',
     'updated'    => 'Updated',
     'created'    => 'Created',
+    'new'        => 'New',
+    'title'      => 'Title',
+    'content'    => 'Content',
+    'type'       => 'Type',
+    'delete-info' => ':Name will be deleted，are you sure?',
 
 ];
