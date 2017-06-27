@@ -33,7 +33,7 @@ class NoticePolicy
     }
 
     /**
-     * create.
+     * update.
      * @param User $user
      * @param Notice $notice
      * @param Project $project
@@ -53,7 +53,7 @@ class NoticePolicy
     }
 
     /**
-     * create.
+     * delete.
      * @param User $user
      * @param Notice $notice
      * @param Project $project

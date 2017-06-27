@@ -11,6 +11,9 @@ use Mockery\Matcher\Not;
 
 class NoticeRepository
 {
+    /**
+     * @var array
+     */
     protected $column = ['title', 'content', 'start_at', 'end_at', 'type_id'];
 
     /**
@@ -25,6 +28,12 @@ class NoticeRepository
         return compact('noticeTypes', 'notices');
     }
 
+    /**
+     * Create Notice
+     * @param $request
+     * @param Project $project
+     * @return Notice
+     */
     public function CreateNotice($request, Project $project)
     {
         $notice = new Notice();
@@ -44,6 +53,13 @@ class NoticeRepository
         return $notice;
     }
 
+    /**
+     * Update Notice
+     * @param $request
+     * @param Project $project
+     * @param Notice $notice
+     * @return Notice
+     */
     public function UpdateNotice($request, Project $project,Notice $notice)
     {
         $input = $request->only($this->column);

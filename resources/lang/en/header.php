@@ -14,7 +14,7 @@ return [
     'ja'          => '日本語',
     'en'          => 'English',
     'top'         => 'Top',
-    'info'        => 'Info',
+    'info'        => 'Overview',
     'progress'    => 'Progress',
     'tasks'       => 'Tasks',
     'member'      => 'Members',

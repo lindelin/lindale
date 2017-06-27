@@ -8,7 +8,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'schema-info'   => 'Schema',
+    'schema-info'   => 'Overview',
     'status'        => 'Activity',
     'new-task'      => 'New Tasks',
     'finished-task' => 'Completed Tasks',

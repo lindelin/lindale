@@ -18,6 +18,36 @@
                     <div class="well well-home">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <h4><span class="glyphicon glyphicon-info-sign lindale-icon-color"></span> {{ trans('header.info') }}</h4>
+                            </div>
+                        </div>
+                        <hr>
+                        @if($project->content)
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    {!! markdown($project->content) !!}
+                                </div>
+                            </div>
+                        @else
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <a href="{{ url('project/'.$project->id.'/edit') }}" class="btn btn-success btn-block">
+                                        {{ trans('project.edit-project') }}
+                                    </a>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
+    	</div>
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="well well-home">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                 <h4><i class="fa fa-area-chart lindale-icon-color" aria-hidden="true"></i> {{ trans('progress.status') }}</h4>
                             </div>
                         </div>
@@ -30,7 +60,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="well well-home">
@@ -42,7 +71,7 @@
                         <hr>
                         <div class="row">
                             <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4">
-                                <span class="glyphicon glyphicon-dashboard"></span> {{ trans('header.project').trans('header.progress') }}
+                                <span class="glyphicon glyphicon-dashboard"></span> {{ trans('header.project') }}
                             </div>
                             <div class="col-xs-7 col-sm-7 col-md-8 col-lg-8">
                                 <div class="progress">
@@ -55,7 +84,7 @@
 
                         <div class="row">
                             <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4">
-                                <span class="glyphicon glyphicon-tasks"></span> {{ trans('header.tasks').trans('header.progress') }}
+                                <span class="glyphicon glyphicon-tasks"></span> {{ trans('header.tasks') }}
                             </div>
                             <div class="col-xs-7 col-sm-7 col-md-8 col-lg-8">
                                 <div class="progress">
@@ -68,7 +97,7 @@
 
                         <div class="row">
                             <div class="col-xs-5 col-sm-5 col-md-4 col-lg-4">
-                                <span class="glyphicon glyphicon-check"></span> TODO{{ trans('header.progress') }}
+                                <span class="glyphicon glyphicon-check"></span> TODO
                             </div>
                             <div class="col-xs-7 col-sm-7 col-md-8 col-lg-8">
                                 <div class="progress" style="margin-bottom: 0px;">
@@ -80,32 +109,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-    	</div>
-        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-            <div class="well well-home">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h4><span class="glyphicon glyphicon-info-sign lindale-icon-color"></span> 概要</h4>
-                    </div>
-                </div>
-                <hr>
-                @if($project->content)
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            {!! markdown($project->content) !!}
-                        </div>
-                    </div>
-                @else
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <a href="{{ url('project/'.$project->id.'/edit') }}" class="btn btn-success btn-block">
-                                {{ trans('project.edit-project') }}
-                            </a>
-                        </div>
-                    </div>
-                @endif
             </div>
         </div>
     </div>
