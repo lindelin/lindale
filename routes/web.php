@@ -101,13 +101,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         //设定路由
         Route::group(['prefix' => 'config'], function () {
             //基本设定
-            Route::get('/', 'ConfigController@index');
+            Route::get('/', 'ConfigController@index')->name('config.index');;
             //语言和地区设定
-            Route::get('locale', 'ConfigController@locale');
-            Route::patch('locale', 'ConfigController@updateLocale');
+            Route::get('locale', 'ConfigController@locale')->name('config.locale.index');
+            Route::patch('locale', 'ConfigController@updateLocale')->name('config.locale.update');
             //通知设定
-            Route::get('notification', 'ConfigController@notification');
-            Route::patch('notification', 'ConfigController@updateNotification');
+            Route::get('notification', 'ConfigController@notification')->name('config.notification.index');
+            Route::patch('notification', 'ConfigController@updateNotification')->name('config.notification.update');
             //お知らせ
             Route::group(['prefix' => 'notice'], function () {
                 Route::get('/', 'NoticeController@index')->name('notice.index');
