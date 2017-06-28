@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
 
         Commands\Lindale\LindaleUpdate::class,
+        Commands\Notification\NoticeSend::class,
 
     ];
 
@@ -36,6 +37,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('backup:run')->daily()->at('00:00')->when(function () {
             return App::environment('staging');
         });
+
+        $schedule->command('notice:send')->daily()->at('10:00');
     }
 
     /**
