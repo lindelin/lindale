@@ -8,10 +8,10 @@ before_script:
   - composer install
   - cp .env.travis .env
   - php artisan key:generate
+  - php artisan optimize
   - php artisan migrate
   - php artisan db:seed
   - php artisan passport:install
-  - php artisan optimize
 
 script:
   - ./vendor/bin/phpunit
