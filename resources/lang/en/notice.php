@@ -10,5 +10,7 @@ return [
 
     'start' => 'Published',
     'end' => 'End Date',
+    'user' => 'Publisher',
+    'none' => 'No Notifications',
 
 ];

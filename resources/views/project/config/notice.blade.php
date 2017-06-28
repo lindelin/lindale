@@ -20,6 +20,9 @@
                             {{ trans('common.title') }}
                         </th>
                         <th>
+                            {{ trans('notice.user') }}
+                        </th>
+                        <th>
                             {{ trans('common.edit') }}
                         </th>
                         <th>
@@ -30,13 +33,16 @@
                         @foreach($notices as $notice)
                             <tr>
                                 <td>
-                                    #{{ $notice->id }}
+                                    {{ Icon::noticeStatus($notice->start_at, $notice->end_at) }} #{{ $notice->id }}
                                 </td>
                                 <td>
                                     {!! Colorable::label($notice->Type->color_id, trans($notice->Type->name)) !!}
                                 </td>
                                 <td>
                                     {{ $notice->title }}
+                                </td>
+                                <td>
+                                    {{ $notice->User->name }}
                                 </td>
                                 <td>
                                     @include('layouts.notice.edit')
