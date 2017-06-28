@@ -19,7 +19,7 @@ class SendNotice
      */
     public function handle(NoticeEvent $event)
     {
-        if (Carbon::today()->between($event->notice->start_at, $event->notice->end_at)) {
+        if (Carbon::today()->between($event->notice->start_at, $event->notice->end_at) and $event->notice->Project->Users->count() > 0) {
             Mail::to($event->notice->Project->Users)
                 ->send(new SendNoticeMail($event->notice, project_config($event->notice->Project, config('config.project.lang'))));
         }
