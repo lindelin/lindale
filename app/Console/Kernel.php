@@ -38,7 +38,7 @@ class Kernel extends ConsoleKernel
             return App::environment('staging');
         });
 
-        $schedule->command('notice:send')->daily()->at('10:00');
+        //$schedule->command('notice:send')->daily()->at('10:00');
     }
 
     /**
