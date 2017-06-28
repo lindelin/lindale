@@ -2,6 +2,7 @@
 
 namespace App\Notice;
 
+use App\Project\Project;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,5 +31,15 @@ class Notice extends Model
     public function User()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    /**
+     * 一对一
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function Project()
+    {
+        return $this->hasOne(Project::class, 'id', 'project_id');
     }
 }

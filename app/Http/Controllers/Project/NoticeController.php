@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Events\Project\NoticeEvent;
 use App\Http\Requests\NoticeRequest;
 use App\Notice\Notice;
 use App\Project\Project;
@@ -48,6 +49,9 @@ class NoticeController extends Controller
         $notice = $this->noticeRepository->CreateNotice($request, $project);
         $this->authorize('create', [$notice, $project]);
         $result = $notice->save();
+        if ($result) {
+            event(new NoticeEvent($notice));
+        }
         return response()->save($result);
     }
 

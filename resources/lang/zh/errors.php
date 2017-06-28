@@ -32,7 +32,7 @@ return [
     '503'          => '稍等片刻, 马上回来!',
     'back'         => '返回首页',
 
-    'send-slack-failed-mail' => '[Lindalë] 发送 Slack 消息失败',
+    'send-slack-failed-mail' => '【Lindalë】发送 Slack 消息失败',
     'send-slack-failed' => '发送 Slack 消息失败，请检查 WebHook 是否正确。',
     'send-slack-failed-message' => '您的项目有一条新消息。',
 

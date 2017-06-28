@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     //项目
     Route::resource('project', 'ProjectController', ['except' => ['show']]);
     Route::patch('project/transfer/{project}', 'ProjectController@transfer');
-    Route::get('project/{project}', 'ProjectController@show')->middleware('ProjectAuth');
+    Route::get('project/{project}', 'ProjectController@show')->middleware('ProjectAuth')->name('project.show');
     Route::get('/unfinished/project', 'ProjectController@unfinished');
     Route::get('/finished/project', 'ProjectController@finished');
     //项目内路由
@@ -330,3 +330,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('test', function (){
     var_dump(Carbon::parse('2017-05-15')->lt(Carbon::now()));
 });*/
+
+Route::get('test', function (){
+    $notice = \App\Notice\Notice::first();
+    event(new \App\Events\Project\NoticeEvent($notice));
+});

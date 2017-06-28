@@ -41,6 +41,8 @@ class UserNotificationError extends Mailable implements ShouldQueue
      */
     public function build()
     {
+        \App::setLocale($this->locale);
+
         return $this->subject(trans('errors.send-slack-failed-mail'))
             ->cc(config('admin.system-notification.mail'))
             ->markdown('emails.notification.user-notification-error')
