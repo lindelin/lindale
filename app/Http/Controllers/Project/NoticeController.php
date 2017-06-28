@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Project;
 
-use App\Events\Project\NoticeEvent;
-use App\Http\Requests\NoticeRequest;
 use App\Notice\Notice;
 use App\Project\Project;
-use App\Repositories\NoticeRepository;
-use App\Repositories\ProjectRepository;
-use Illuminate\Http\Request;
+use App\Events\Project\NoticeEvent;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NoticeRequest;
+use App\Repositories\NoticeRepository;
 
 class NoticeController extends Controller
 {
@@ -28,7 +26,7 @@ class NoticeController extends Controller
     }
 
     /**
-     * Index
+     * Index.
      * @param Project $project
      * @return mixed
      */
@@ -39,7 +37,7 @@ class NoticeController extends Controller
     }
 
     /**
-     * Store
+     * Store.
      * @param NoticeRequest $request
      * @param Project $project
      * @return mixed
@@ -52,11 +50,12 @@ class NoticeController extends Controller
         if ($result) {
             event(new NoticeEvent($notice));
         }
+
         return response()->save($result);
     }
 
     /**
-     * Update
+     * Update.
      * @param NoticeRequest $request
      * @param Project $project
      * @param Notice $notice
@@ -66,11 +65,12 @@ class NoticeController extends Controller
     {
         $this->authorize('update', [$notice, $project]);
         $result = $this->noticeRepository->UpdateNotice($request, $project, $notice)->update();
+
         return response()->update($result);
     }
 
     /**
-     * Delete
+     * Delete.
      * @param Project $project
      * @param Notice $notice
      * @return mixed
@@ -79,6 +79,7 @@ class NoticeController extends Controller
     {
         $this->authorize('delete', [$notice, $project]);
         $result = $notice->delete();
+
         return response()->delete($result);
     }
 }

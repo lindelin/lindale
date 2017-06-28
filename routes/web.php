@@ -101,7 +101,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         //设定路由
         Route::group(['prefix' => 'config'], function () {
             //基本设定
-            Route::get('/', 'ConfigController@index')->name('config.index');;
+            Route::get('/', 'ConfigController@index')->name('config.index');
             //语言和地区设定
             Route::get('locale', 'ConfigController@locale')->name('config.locale.index');
             Route::patch('locale', 'ConfigController@updateLocale')->name('config.locale.update');

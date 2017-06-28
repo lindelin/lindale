@@ -2,10 +2,10 @@
 
 namespace App\Policies;
 
+use Admin;
+use App\User;
 use App\Notice\Notice;
 use App\Project\Project;
-use App\User;
-use Admin;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class NoticePolicy
