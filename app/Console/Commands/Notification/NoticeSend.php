@@ -30,7 +30,7 @@ class NoticeSend extends Command
      */
     public function __construct()
     {
-        $this->notices = Notice::where('start_at', Carbon::today())->get();
+        $this->notices = Notice::where('start_at', Carbon::today()->toDateString())->get();
         parent::__construct();
     }
 
