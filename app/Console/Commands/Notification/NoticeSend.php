@@ -2,10 +2,10 @@
 
 namespace App\Console\Commands\Notification;
 
-use App\Events\Project\NoticeEvent;
-use App\Notice\Notice;
 use Carbon\Carbon;
+use App\Notice\Notice;
 use Illuminate\Console\Command;
+use App\Events\Project\NoticeEvent;
 
 class NoticeSend extends Command
 {
@@ -32,7 +32,7 @@ class NoticeSend extends Command
     }
 
     /**
-     * 処理
+     * 処理.
      */
     public function handle()
     {
@@ -57,7 +57,6 @@ class NoticeSend extends Command
             } else {
                 $this->line(PHP_EOL.'<info>✔</info> NO DATA.'.PHP_EOL);
             }
-
         } catch (\Exception $exception) {
             $this->line($exception);
             $this->line(PHP_EOL.'<error>✘</error> System error. Sending failed!');

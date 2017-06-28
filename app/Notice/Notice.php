@@ -2,15 +2,15 @@
 
 namespace App\Notice;
 
-use App\Project\Project;
 use App\User;
+use App\Project\Project;
 use Illuminate\Database\Eloquent\Model;
 
 class Notice extends Model
 {
     protected $dates = [
         'start_at',
-        'end_at'
+        'end_at',
     ];
 
     /**

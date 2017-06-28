@@ -2,19 +2,19 @@
 
 namespace App\Providers;
 
-use App\Notice\Notice;
-use App\Project\Project;
-use App\Task\SubTask;
-use App\Task\Task;
-use App\Task\TaskActivity;
-use App\Task\TaskGroup;
-use App\Task\TaskPriority;
-use App\Task\TaskStatus;
-use App\Task\TaskType;
-use App\Todo\Todo;
-use App\User;
-use App\Wiki\WikiType;
 use Route;
+use App\User;
+use App\Task\Task;
+use App\Todo\Todo;
+use App\Task\SubTask;
+use App\Notice\Notice;
+use App\Task\TaskType;
+use App\Wiki\WikiType;
+use App\Task\TaskGroup;
+use App\Project\Project;
+use App\Task\TaskStatus;
+use App\Task\TaskActivity;
+use App\Task\TaskPriority;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider

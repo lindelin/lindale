@@ -2,12 +2,10 @@
 
 namespace App\Listeners\Project\Notification;
 
-use App\Events\Project\NoticeEvent;
-use App\Mail\SendNoticeMail;
-use Carbon\Carbon;
 use Mail;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use Carbon\Carbon;
+use App\Mail\SendNoticeMail;
+use App\Events\Project\NoticeEvent;
 
 class SendNotice
 {

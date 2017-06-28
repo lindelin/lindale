@@ -32,7 +32,7 @@ class IconTool
     }
 
     /**
-     * お知らせのステータス取得
+     * お知らせのステータス取得.
      * @param $start
      * @param $end
      * @return HtmlString|string
