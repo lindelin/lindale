@@ -11,6 +11,7 @@ before_script:
   - php artisan migrate
   - php artisan db:seed
   - php artisan passport:install
+  - php artisan optimize
 
 script:
   - ./vendor/bin/phpunit
