@@ -23,14 +23,11 @@ class NoticeSend extends Command
      */
     protected $description = 'Send project\'s notice to user';
 
-    protected $notices;
-
     /**
      * NoticeSend constructor.
      */
     public function __construct()
     {
-        $this->notices = Notice::where('start_at', Carbon::today()->toDateString())->get();
         parent::__construct();
     }
 
@@ -40,13 +37,14 @@ class NoticeSend extends Command
     public function handle()
     {
         try {
+            $notices = Notice::where('start_at', Carbon::today()->toDateString())->get();
 
-            if ($this->notices->count() > 0) {
+            if ($notices->count() > 0) {
                 $this->comment(PHP_EOL.'<info>Sending...</info>');
 
-                $bar = $this->output->createProgressBar(count($this->notices));
+                $bar = $this->output->createProgressBar(count($notices));
 
-                foreach ($this->notices as $notice) {
+                foreach ($notices as $notice) {
                     event(new NoticeEvent($notice));
                     info('Dispatching Events: NoticeEvent', ['notice' => $notice->id]);
                     $bar->advance();
