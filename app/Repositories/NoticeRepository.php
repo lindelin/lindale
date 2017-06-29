@@ -2,12 +2,9 @@
 
 namespace App\Repositories;
 
-
-use App\Http\Requests\NoticeRequest;
 use App\Notice\Notice;
-use App\Notice\NoticeType;
 use App\Project\Project;
-use Mockery\Matcher\Not;
+use App\Notice\NoticeType;
 
 class NoticeRepository
 {
@@ -29,7 +26,7 @@ class NoticeRepository
     }
 
     /**
-     * Create Notice
+     * Create Notice.
      * @param $request
      * @param Project $project
      * @return Notice
@@ -54,13 +51,13 @@ class NoticeRepository
     }
 
     /**
-     * Update Notice
+     * Update Notice.
      * @param $request
      * @param Project $project
      * @param Notice $notice
      * @return Notice
      */
-    public function UpdateNotice($request, Project $project,Notice $notice)
+    public function UpdateNotice($request, Project $project, Notice $notice)
     {
         $input = $request->only($this->column);
 

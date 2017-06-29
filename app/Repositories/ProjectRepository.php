@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-use Carbon\Carbon;
 use Image;
 use Charts;
 use Counter;
 use App\User;
+use Carbon\Carbon;
 use App\Project\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProjectRequest;
