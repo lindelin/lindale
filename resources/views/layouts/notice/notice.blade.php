@@ -67,10 +67,10 @@
                                                         {{ $notice->User->name }}
                                                     </td>
                                                     <td>
-                                                        {{ $notice->start_at }}
+                                                        {{ $notice->start_at->format('Y/m/d') }}
                                                     </td>
                                                     <td>
-                                                        {{ $notice->end_at }}
+                                                        {{ $notice->end_at->format('Y/m/d') }}
                                                     </td>
                                                 </tr>
                                             @endslot

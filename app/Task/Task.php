@@ -56,6 +56,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Task extends Model
 {
+    protected $dates = [
+        'start_at',
+        'end_at'
+    ];
+
     /*
     |--------------------------------------------------------------------------
     | HasOne 一对一

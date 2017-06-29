@@ -69,24 +69,40 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <i class="fa fa-hourglass-start lindale-icon-color" aria-hidden="true"></i>
                     <span class="hidden-xs hidden-sm lindale-color">{{ trans('task.start_at') }}：</span>
-                    @if($task->start_at != ''){{ $task->start_at }}@else{{ trans('task.none') }}@endif
+                    @if($task->start_at != '')
+                        @if(Carbon\Carbon::parse($task->start_at)->lte(Carbon\Carbon::now()))
+                            <span class="text-success">{{ $task->start_at->format('Y/m/d') }}</span>
+                        @else
+                            {{ $task->start_at->format('Y/m/d') }}
+                        @endif
+                    @else
+                        {{ trans('task.none') }}
+                    @endif
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <i class="fa fa-hourglass-end lindale-icon-color" aria-hidden="true"></i>
                     <span class="hidden-xs hidden-sm lindale-color">{{ trans('task.end_at') }}：</span>
-                    @if($task->end_at != ''){{ $task->end_at }}@else{{ trans('task.none') }}@endif
+                    @if($task->end_at != '')
+                        @if(Carbon\Carbon::parse($task->end_at)->lt(Carbon\Carbon::now()))
+                            <span class="text-danger">{{ $task->end_at->format('Y/m/d') }}</span>
+                        @else
+                            {{ $task->end_at->format('Y/m/d') }}
+                        @endif
+                    @else
+                        {{ trans('task.none') }}
+                    @endif
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <span class="glyphicon glyphicon-time lindale-icon-color"></span>
                     <span class="hidden-xs hidden-sm lindale-color">{{ trans('task.created') }}：</span>
-                    {{ $task->created_at }}
+                    {{ $task->created_at->format('Y/m/d H:i') }}
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <i class="fa fa-refresh fa-spin fa-lg fa-fw lindale-icon-color"></i>
                     <span class="hidden-xs hidden-sm lindale-color">{{ trans('task.updated') }}：</span>
-                    {{ $task->updated_at }}
+                    {{ $task->updated_at->diffForHumans() }}
                 </div>
             </div>
             <br>
