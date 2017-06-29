@@ -24,4 +24,8 @@ return [
     'today'  => '本日中',
     'now'    => '今すぐ',
 
+    'info'   => '情報',
+    'important' => '重要',
+    'urgency' => '緊急',
+
 ];

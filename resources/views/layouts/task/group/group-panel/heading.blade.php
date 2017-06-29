@@ -17,17 +17,25 @@
 </div>
 <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <i class="fa fa-hourglass-start" aria-hidden="true"></i> @if($group->start_at != ''){{ $group->start_at }}@else{{ trans('task.none') }}@endif
+        <i class="fa fa-hourglass-start" aria-hidden="true"></i>
+        @if($group->start_at != '')
+            @if(Carbon\Carbon::parse($group->start_at)->lte(Carbon\Carbon::now()))
+                <span class="text-success">{{ $group->start_at->format('Y/m/d') }}</span>
+            @else
+                {{ $group->start_at->format('Y/m/d') }}
+            @endif
+        @else
+            {{ trans('task.none') }}
+        @endif
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <i class="fa fa-hourglass-end" aria-hidden="true"></i>
         @if($group->end_at != '')
-            {{--@if(Carbon\Carbon::parse($group->end_at)->lt(Carbon\Carbon::now()))
-                <span class="text-danger">{{ $group->end_at }}（時間切れ！）</span>
+            @if(Carbon\Carbon::parse($group->end_at)->lt(Carbon\Carbon::now()))
+                <span class="text-danger">{{ $group->end_at->format('Y/m/d') }}</span>
             @else
-                {{ $group->end_at }}
-            @endif--}}
-            {{ $group->end_at }}
+                {{ $group->end_at->format('Y/m/d') }}
+            @endif
         @else
             {{ trans('task.none') }}
         @endif

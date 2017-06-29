@@ -59,10 +59,10 @@
                                 @if($todo->TodoList != null){{ $todo->TodoList->title }}@else{{ trans('project.none') }}@endif
                             </td>
                             <td>
-                                {{ $todo->updated_at }}
+                                {{ $todo->updated_at->diffForHumans() }}
                             </td>
                             <td>
-                                {{ $todo->created_at }}
+                                {{ $todo->created_at->format('Y/m/d H:i') }}
                             </td>
                         </tr>
                         </tbody>

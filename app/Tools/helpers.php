@@ -20,6 +20,8 @@ if (! function_exists('project_config_menu_sp')) {
             return new HtmlString('<span class="glyphicon glyphicon-tag lindale-icon-color"></span> '.trans('config.task-type-config'));
         } elseif ($mode == 'taskStatus') {
             return new HtmlString('<span class="glyphicon glyphicon-dashboard lindale-icon-color"></span> '.trans('config.task-status-config'));
+        } elseif ($mode == 'notice') {
+            return new HtmlString('<span class="glyphicon glyphicon-bullhorn lindale-icon-color"></span> '.trans('project.notice'));
         } else {
             return 'MENU';
         }

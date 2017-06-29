@@ -27,7 +27,7 @@ return [
     '503'          => 'Be right back.',
     'back'         => 'Back to Home.',
 
-    'send-slack-failed-mail' => '[Lindalë] Sending Slack message failed',
+    'send-slack-failed-mail' => '【Lindalë】Sending Slack message failed',
     'send-slack-failed' => 'Sending Slack message failed, please check if WebHook is correct.',
     'send-slack-failed-message' => 'You have a new message for your project.',
 

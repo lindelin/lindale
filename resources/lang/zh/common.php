@@ -17,5 +17,10 @@ return [
     'delete'     => '删除',
     'updated'    => '更新时间',
     'created'    => '创建时间',
+    'new'        => '新建',
+    'title'      => '标题',
+    'content'    => '内容',
+    'type'       => '类型',
+    'delete-info' => ':Name 将被删除, 确定吗？',
 
 ];

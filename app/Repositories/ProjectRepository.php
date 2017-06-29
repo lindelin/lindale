@@ -6,6 +6,7 @@ use Image;
 use Charts;
 use Counter;
 use App\User;
+use Carbon\Carbon;
 use App\Project\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProjectRequest;
@@ -182,7 +183,7 @@ class ProjectRepository
      * @param Project $project
      * @return array
      */
-    public function ProjectActivity(Project $project)
+    public function ProjectTopResources(Project $project)
     {
         $projectActivity = Charts::multiDatabase('areaspline', 'highcharts')
             ->title(trans('progress.status'))
@@ -196,7 +197,10 @@ class ProjectRepository
             ->lastByDay(7, true)
             ->view('vendor.consoletvs.charts.highcharts.multi.areaspline');
 
-        return compact('projectActivity');
+        $today = Carbon::today()->toDateString();
+        $notices = $project->Notices()->where('start_at', '<=', $today)->where('end_at', '>=', $today)->latest()->get();
+
+        return compact('projectActivity', 'notices');
     }
 
     /**

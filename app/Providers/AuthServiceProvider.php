@@ -21,6 +21,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Task\Task' => 'App\Policies\TaskPolicy',
         'App\Task\TaskActivity' => 'App\Policies\TaskActivityPolicy',
         'App\Wiki\Wiki' => 'App\Policies\WikiPolicy',
+        'App\Notice\Notice' => 'App\Policies\NoticePolicy',
     ];
 
     /**

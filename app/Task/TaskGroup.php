@@ -40,6 +40,11 @@ class TaskGroup extends Model
     const OPEN = 1;
     const CLOSE = 999;
 
+    protected $dates = [
+        'start_at',
+        'end_at',
+    ];
+
     /**
      * 一个任务组有多个任务
      * 一对多.

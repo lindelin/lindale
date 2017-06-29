@@ -1,282 +1,143 @@
-@extends('layouts.master')
-
-@section('title')
-    {{ trans('header.config') }} - {{ $project->title }} - {{ config('app.title') }}
-@endsection
-
-@section('content')
-
-    @include('layouts.project.common.project-header')
-
-    <div class="row">
-        {{-- 框架 --}}
-        @include('layouts.config.header')
-
-        {{-- 框架 --}}
-        <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
-            {{-- 基本設定 --}}
-            <div class="well well-home">
+@component('components.project.config', compact('project', 'selected', 'mode'))
+    {{-- 基本設定 --}}
+    @component('components.well')
+        @slot('title')
+            <span class="glyphicon glyphicon-briefcase lindale-icon-color"></span> {{ trans('config.basic') }}
+        @endslot
+        @component('components.elements.form', ['url' => route('project.update', compact('project')), 'method' => 'PATCH'])
+            @component('components.grids.12-11-10-8')
+                {{-- 图片 --}}
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h4><span class="glyphicon glyphicon-briefcase lindale-icon-color"></span> {{ trans('config.basic') }}</h4>
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        @include('layouts.common.project-img')
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                        <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
+                            <label class="control-label">{{ trans('project.add-image') }}</label>
+                            <input type="file" name="image">
+                            <p class="help-block">（ jpeg、png、bmp、gif、svg ）</p>
+                            @include('layouts.common.error-one', ['field' => 'image'])
+                        </div>
                     </div>
                 </div>
-                <br>
+
+                {{-- 项目名 --}}
+                @component('components.elements.form.text', ['name' => 'title', 'value' => $project->title])
+                    {{ trans('project.title') }}
+                @endcomponent
+
+                {{-- 项目描述 --}}
+                @component('components.elements.form.markdown', ['name' => 'content', 'value' => $project->content])
+                    {{ trans('project.content') }}
+                @endcomponent
+
+                {{-- 开始时间 --}} {{-- 结束时间 --}}
+                @component('components.elements.form.start-end', ['start_target' => 'projectStart-'.$project->id, 'end_target' => 'projectEnd-'.$project->id])
+                    @slot('start')
+                        {{ trans('project.start_at') }}
+                    @endslot
+                    @slot('end')
+                        {{ trans('project.end_at') }}
+                    @endslot
+                    @slot('start_value')
+                        {{ $project->start_at }}
+                    @endslot
+                    @slot('end_value')
+                        {{ $project->end_at }}
+                    @endslot
+                @endcomponent
+
+                {{-- 类型 --}}
+                @component('components.elements.form.text', ['name' => 'type_id', 'value' => $project->type_id])
+                    {{ trans('project.type') }}
+                @endcomponent
+
+                {{-- 项目副总监 --}}
+                @component('components.elements.form.select', ['name' => 'sl_id'])
+                    @slot('label')
+                        {{ trans('project.sl') }}
+                    @endslot
+
+                    <option value="">{{ trans('project.none') }}</option>
+                    @foreach( $users as $user)
+                        <option value="{{ $user->id }}" @if($project->sl_id == $user->id) selected @endif>{{ $user->name }}（{{ $user->email }}）</option>
+                    @endforeach
+                @endcomponent
+
+                {{-- 项目状态 --}}
+                @component('components.elements.form.text', ['name' => 'status_id', 'value' => $project->type_id])
+                    {{ trans('project.status') }}
+                @endcomponent
+
+                {{-- 项目密码 --}}
+                @component('components.elements.form.password', ['name' => 'password'])
+                    {{ trans('project.password') }}
+                @endcomponent
+
+                {{-- 确认密码 --}}
+                @component('components.elements.form.password', ['name' => 'password_confirmation'])
+                    {{ trans('project.password_confirmation') }}
+                @endcomponent
+
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <form action="{{ url('project/'.$project->id) }}" method="post" role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
-                            {{ csrf_field() }}
-
-                            <div class="row">
-                                {{-- 框架 --}}
-                                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
-
-                                    {{-- 图片 --}}
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                            @include('layouts.common.project-img')
-                                        </div>
-                                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                                            <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
-                                                <label class="control-label">{{ trans('project.add-image') }}</label>
-                                                <input type="file" name="image">
-                                                <p class="help-block">（ jpeg、png、bmp、gif、svg ）</p>
-                                                @include('layouts.common.error-one', ['field' => 'image'])
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- 项目名 --}}
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                                                <label class="control-label">
-                                                    {{ trans('project.title') }}
-                                                </label>
-                                                <div>
-                                                    <input type="text" class="form-control" name="title" value="{{ $project->title }}">
-                                                    @include('layouts.common.error-one', ['field' => 'title'])
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- 项目描述 --}}
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
-                                                <label class="control-label">
-                                                    {{ trans('project.content') }}
-                                                </label>
-                                                <div>
-                                                    <textarea class="form-control" rows="8" name="content" value="" data-provide="markdown" placeholder=" Markdown">{{ $project->content }}</textarea>
-                                                    @include('layouts.common.error-one', ['field' => 'content'])
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- 开始时间 --}}
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="form-group{{ $errors->has('start_at') ? ' has-error' : '' }}">
-                                                <label class="control-label">
-                                                    {{ trans('project.start_at') }}
-                                                </label>
-                                                <div>
-                                                    <div class='input-group date' id='datetimepicker1'>
-                                                        <input type='text' class="form-control" name="start_at" value="{{ $project->start_at }}"/>
-                                                        <span class="input-group-addon">
-                                                            <span class="glyphicon glyphicon-calendar"></span>
-                                                        </span>
-                                                    </div>
-                                                    @include('layouts.common.error-one', ['field' => 'start_at'])
-                                                </div>
-                                                <script type="text/javascript">
-                                                    $(function () {
-                                                        $('#datetimepicker1').datetimepicker({
-                                                            format: 'YYYY-MM-DD'
-                                                        });
-                                                    });
-                                                </script>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- 结束时间 --}}
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="form-group{{ $errors->has('end_at') ? ' has-error' : '' }}">
-                                                <label class="control-label">{{ trans('project.end_at') }}</label>
-                                                <div>
-                                                    <div class='input-group date' id='datetimepicker2'>
-                                                        <input type='text' class="form-control" name="end_at" value="{{ $project->end_at }}"/>
-                                                        <span class="input-group-addon">
-                                                            <span class="glyphicon glyphicon-calendar"></span>
-                                                        </span>
-                                                    </div>
-                                                    @include('layouts.common.error-one', ['field' => 'end_at'])
-                                                </div>
-                                                <script type="text/javascript">
-                                                    $(function () {
-                                                        $('#datetimepicker2').datetimepicker({
-                                                            format: 'YYYY-MM-DD'
-                                                        });
-                                                    });
-                                                </script>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- 类型 --}}
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="form-group{{ $errors->has('type_id') ? ' has-error' : '' }}">
-                                                <label class="control-label">{{ trans('project.type') }}</label>
-                                                <div>
-                                                    <input type="text" class="form-control" name="type_id" value="{{ old('type_id') ?? $project->type_id }}">
-                                                    @include('layouts.common.error-one', ['field' => 'type_id'])
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- 项目副总监 --}}
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="form-group{{ $errors->has('sl_id') ? ' has-error' : '' }}">
-                                                <label class="control-label">{{ trans('project.sl') }}</label>
-                                                <div>
-                                                    <select class="selectpicker form-control" data-live-search="true" name="sl_id">
-                                                        <option value="">{{ trans('project.none') }}</option>
-                                                        @foreach( $users as $user)
-                                                            <option value="{{ $user->id }}" @if($project->sl_id == $user->id) selected @endif>{{ $user->name }}（{{ $user->email }}）</option>
-                                                        @endforeach
-                                                    </select>
-                                                    @include('layouts.common.error-one', ['field' => 'sl_id'])
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- 项目状态 --}}
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="form-group{{ $errors->has('status_id') ? ' has-error' : '' }}">
-                                                <label class="control-label">{{ trans('project.status') }}</label>
-                                                <div>
-                                                    <input type="text" class="form-control" name="status_id" value="{{ old('status_id') ?? $project->status_id }}">
-                                                    @include('layouts.common.error-one', ['field' => 'status_id'])
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- 项目密码 --}}
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                                <label for="password" class="control-label">
-                                                    {{ trans('project.password') }}
-                                                </label>
-                                                <div>
-                                                    <input id="password" type="password" class="form-control" name="password">
-                                                    @include('layouts.common.error-one', ['field' => 'password'])
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- 确认密码 --}}
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                                                <label for="password-confirm" class="control-label">
-                                                    {{ trans('project.password_confirmation') }}
-                                                </label>
-                                                <div>
-                                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
-                                                    @include('layouts.common.error-one', ['field' => 'password_confirmation'])
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            @include('layouts.project.edit-modal')
-                                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#projectEdit">
-                                                {{ trans('project.edit-project') }}
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                {{-- 框架 --}}
-                                <div class="col-xs-0 col-sm-1 col-md-2 col-lg-4">
-
-                                </div>
-                            </div>
-
-                        </form>
+                        @include('layouts.project.edit-modal')
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#projectEdit">
+                            {{ trans('project.edit-project') }}
+                        </button>
                     </div>
                 </div>
-            </div>
+            @endcomponent
+        @endcomponent
+    @endcomponent
 
-            {{-- 删除项目 --}}
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <h4 class="panel-title">{{ trans('project.delete') }}</h4>
-                </div>
-                <div class="panel-body">
-                    @if(Auth()->user()->id === $project->user_id)
+    {{-- 删除项目 --}}
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h4 class="panel-title">{{ trans('project.delete') }}</h4>
+        </div>
+        <div class="panel-body">
+            @if(Auth()->user()->id === $project->user_id)
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                        <h3>{{ trans('project.transfer') }}</h3>
-                                        <p>{{ trans('project.transfer-info') }}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    {{-- 框架 --}}
-                                    <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
-                                        @include('layouts.project.transfer')
-                                    </div>
-                                    {{-- 框架 --}}
-                                    <div class="col-xs-0 col-sm-1 col-md-2 col-lg-4">
-                                    </div>
-                                </div>
+                                <h3>{{ trans('project.transfer') }}</h3>
+                                <p>{{ trans('project.transfer-info') }}</p>
                             </div>
                         </div>
-                        <hr>
-                    @endif
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    <h3>{{ trans('project.delete') }}</h3>
-                                    <p>{{ trans('config.delete-project-info') }}</p>
-                                </div>
+                        <div class="row">
+                            {{-- 框架 --}}
+                            <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
+                                @include('layouts.project.transfer')
                             </div>
-                            <div class="row">
-                                {{-- 框架 --}}
-                                <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
-                                    @include('layouts.project.delete')
-                                </div>
-                                {{-- 框架 --}}
-                                <div class="col-xs-0 col-sm-1 col-md-2 col-lg-4">
-                                </div>
+                            {{-- 框架 --}}
+                            <div class="col-xs-0 col-sm-1 col-md-2 col-lg-4">
                             </div>
                         </div>
                     </div>
                 </div>
+                <hr>
+            @endif
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <h3>{{ trans('project.delete') }}</h3>
+                            <p>{{ trans('config.delete-project-info') }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {{-- 框架 --}}
+                        <div class="col-xs-12 col-sm-11 col-md-10 col-lg-8">
+                            @include('layouts.project.delete')
+                        </div>
+                        {{-- 框架 --}}
+                        <div class="col-xs-0 col-sm-1 col-md-2 col-lg-4">
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
-
     </div>
-
-
-@endsection
+@endcomponent

@@ -13,18 +13,24 @@
         </button>
         <ul class="dropdown-menu">
             <li>
-                <a href="{{ url("project/$project->id/config") }}">
+                <a href="{{ route('config.index', compact('project')) }}">
                     <span class="glyphicon glyphicon-briefcase lindale-icon-color"></span> {{ trans('config.basic') }}
                 </a>
             </li>
             <li>
-                <a href="{{ url("project/$project->id/config/locale") }}">
+                <a href="{{ route('config.locale.index', compact('project')) }}">
                     <span class="glyphicon glyphicon-globe lindale-icon-color"></span> {{ trans('config.locale') }}
                 </a>
             </li>
             <li>
-                <a href="{{ url("project/$project->id/config/notification") }}">
+                <a href="{{ route('config.notification.index', compact('project')) }}">
                     <span class="glyphicon glyphicon-bell lindale-icon-color"></span> {{ trans('config.notification') }}
+                </a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+                <a href="{{ route('notice.index', compact('project')) }}">
+                    <span class="glyphicon glyphicon-bullhorn lindale-icon-color"></span> {{ trans('project.notice') }}
                 </a>
             </li>
             <li role="separator" class="divider"></li>

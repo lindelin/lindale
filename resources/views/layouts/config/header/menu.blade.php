@@ -6,16 +6,20 @@
     <!-- List group -->
     <ul class="list-group">
 
-        <a href="{{ url("project/$project->id/config") }}" class="list-group-item @if($mode == 'basic') active @endif">
+        <a href="{{ route('config.index', compact('project')) }}" class="list-group-item @if($mode == 'basic') active @endif">
             <span class="glyphicon glyphicon-briefcase"></span> {{ trans('config.basic') }}
         </a>
 
-        <a href="{{ url("project/$project->id/config/locale") }}" class="list-group-item @if($mode == 'locale') active @endif">
+        <a href="{{ route('config.locale.index', compact('project')) }}" class="list-group-item @if($mode == 'locale') active @endif">
             <span class="glyphicon glyphicon-globe"></span> {{ trans('config.locale') }}
         </a>
 
-        <a href="{{ url("project/$project->id/config/notification") }}" class="list-group-item @if($mode == 'notification') active @endif">
+        <a href="{{ route('config.notification.index', compact('project')) }}" class="list-group-item @if($mode == 'notification') active @endif">
             <span class="glyphicon glyphicon-bell"></span> {{ trans('config.notification') }}
+        </a>
+
+        <a href="{{ route('notice.index', compact('project')) }}" class="list-group-item @if($mode == 'notice') active @endif">
+            <span class="glyphicon glyphicon-bullhorn"></span> {{ trans('project.notice') }}
         </a>
 
         {{--

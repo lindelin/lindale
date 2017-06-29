@@ -24,4 +24,8 @@ return [
     'today'  => 'Today',
     'now'    => 'Now',
 
+    'info'   => 'Info',
+    'important' => 'Important',
+    'urgency' => 'Urgency',
+
 ];

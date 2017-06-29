@@ -2,7 +2,19 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Route;
+use Route;
+use App\User;
+use App\Task\Task;
+use App\Todo\Todo;
+use App\Task\SubTask;
+use App\Notice\Notice;
+use App\Task\TaskType;
+use App\Wiki\WikiType;
+use App\Task\TaskGroup;
+use App\Project\Project;
+use App\Task\TaskStatus;
+use App\Task\TaskActivity;
+use App\Task\TaskPriority;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
@@ -27,17 +39,18 @@ class RouteServiceProvider extends ServiceProvider
 
         parent::boot();
 
-        Route::model('user', \App\User::class);
-        Route::model('project', \App\Project\Project::class);
-        Route::model('todo', \App\Todo\Todo::class);
-        Route::model('wikiType', \App\Wiki\WikiType::class);
-        Route::model('taskType', \App\Task\TaskType::class);
-        Route::model('taskPriority', \App\Task\TaskPriority::class);
-        Route::model('taskStatus', \App\Task\TaskStatus::class);
-        Route::model('taskGroup', \App\Task\TaskGroup::class);
-        Route::model('task', \App\Task\Task::class);
-        Route::model('subTask', \App\Task\SubTask::class);
-        Route::model('taskActivity', \App\Task\TaskActivity::class);
+        Route::model('user', User::class);
+        Route::model('project', Project::class);
+        Route::model('todo', Todo::class);
+        Route::model('wikiType', WikiType::class);
+        Route::model('taskType', TaskType::class);
+        Route::model('taskPriority', TaskPriority::class);
+        Route::model('taskStatus', TaskStatus::class);
+        Route::model('taskGroup', TaskGroup::class);
+        Route::model('task', Task::class);
+        Route::model('subTask', SubTask::class);
+        Route::model('taskActivity', TaskActivity::class);
+        Route::model('notice', Notice::class);
     }
 
     /**

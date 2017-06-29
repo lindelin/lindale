@@ -27,6 +27,11 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\Project\Notification\ProjectHasDeletedNotify',
         ],
 
+        //お知らせ
+        'App\Events\Project\NoticeEvent' => [
+            'App\Listeners\Project\Notification\SendNotice',
+        ],
+
         //To-do事件
         'App\Events\Todo\TodoCreated' => [
             'App\Listeners\Todo\Notification\TodoHasCreatedNotify',

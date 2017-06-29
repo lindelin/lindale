@@ -11,10 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UserSeeder::class);
-        $this->call(WikiTypeSeeder::class);
+        if (App::environment('testing')) {
+            $this->call(UserSeeder::class);
+            $this->call(WikiTypeSeeder::class);
+        }
         $this->call(TaskPrioritySeeder::class);
         $this->call(TodoTypeSeeder::class);
         $this->call(TodoStatusSeeder::class);
+        $this->call(NoticeTypeSeeder::class);
     }
 }

@@ -1,4 +1,4 @@
-@component('mail::message')
+@component('vendor.mail.markdown.message')
 ## {{ trans('email.hello') }}
 {{ trans('errors.send-slack-failed-message') }}
 

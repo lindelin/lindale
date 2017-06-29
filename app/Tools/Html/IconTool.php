@@ -8,6 +8,9 @@
 
 namespace App\Tools\Html;
 
+use Carbon\Carbon;
+use Illuminate\Support\HtmlString;
+
 class IconTool
 {
     /**
@@ -25,6 +28,25 @@ class IconTool
             return $action[$id];
         } else {
             return $action;
+        }
+    }
+
+    /**
+     * お知らせのステータス取得.
+     * @param $start
+     * @param $end
+     * @return HtmlString|string
+     */
+    public function noticeStatus($start, $end)
+    {
+        if ($start != null and $end != null and $start instanceof Carbon and $end instanceof Carbon) {
+            if (Carbon::today()->between($start, $end)) {
+                return new HtmlString('<span class="glyphicon glyphicon-ok-circle text-success"></span>');
+            } else {
+                return new HtmlString('<span class="glyphicon glyphicon-ban-circle text-danger"></span>');
+            }
+        } else {
+            return 'Error';
         }
     }
 

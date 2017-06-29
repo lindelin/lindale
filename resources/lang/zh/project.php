@@ -34,5 +34,6 @@ return [
     'lang'                  => '语言',
     'transfer'              => '项目转让',
     'transfer-info'         => '将此项目转让给其他用户。',
+    'notice'                => '公告',
 
 ];
