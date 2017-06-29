@@ -58,7 +58,7 @@ class Task extends Model
 {
     protected $dates = [
         'start_at',
-        'end_at'
+        'end_at',
     ];
 
     /*
