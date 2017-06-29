@@ -33,7 +33,7 @@
     <meta name="msapplication-TileImage" content="{{ asset('/mstile-144x144.png') }}">
     <meta name="theme-color" content="#ffffff">
 
-    <title>404 - Lindalë</title>
+    <title>503 - Lindalë</title>
 
     <meta name="description" content="The Project Manager For Everyone.">
 
@@ -55,8 +55,8 @@
             <section class="home-feature">
                 <header class="page-header no-margin">
                     <div class="mask"></div>
-                    <img src="{{ asset('img/top/404.jpg') }}" alt="Home featured image" class="page-hero" />
-                    <img src="{{ asset('img/top/404-tn.jpg') }}" alt="Home featured image" class="mobile-hero" />
+                    <img src="http://jp.lindelin.org/images/featured/404.jpg" alt="Home featured image" class="page-hero" />
+                    <img src="http://jp.lindelin.org/images/featured/404-tn.jpg" alt="Home featured image" class="mobile-hero" />
                     <div class="text-box">
                         <p>The Project Manager For Everyone.</p>
 
