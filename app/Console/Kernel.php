@@ -34,10 +34,6 @@ class Kernel extends ConsoleKernel
             return App::environment('production');
         });
 
-        $schedule->command('backup:run')->daily()->at('00:00')->when(function () {
-            return App::environment('staging');
-        });
-
         $schedule->command('notice:send')->daily()->at('10:00');
     }
 
