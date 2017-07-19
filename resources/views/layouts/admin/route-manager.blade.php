@@ -56,11 +56,7 @@
                             <td>{{ $route->getName() }}</td>
                             <td>{!! preg_replace('#(@.*)$#', '<span class="text-warning">$1</span>', $route->getActionName()) !!}</td>
                             <td>
-                                @if (is_callable([$route, 'controllerMiddleware']))
-                                    {{ implode(', ', array_map($middlewareClosure, array_merge($route->middleware(), $route->controllerMiddleware()))) }}
-                                @else
-                                    {{ implode(', ', $route->middleware()) }}
-                                @endif
+                                {{ implode(', ', $route->middleware()) }}
                             </td>
                         </tr>
                     @endforeach
