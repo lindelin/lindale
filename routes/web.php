@@ -90,7 +90,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
 
         //进度路由
         Route::group(['prefix' => 'progress'], function () {
-            Route::get('/', 'ProgressController@index');
+            Route::get('/', 'ProgressController@index')->name('progress');
         });
 
         //概要路由

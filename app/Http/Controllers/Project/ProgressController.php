@@ -18,6 +18,6 @@ class ProgressController extends Controller
     public function index(Project $project)
     {
         return view('project.progress.index', $this->progressRepository->ProgressResources($project))
-            ->with(['project' => $project, 'selected' => 'progress']);
+            ->with(['project' => $project, 'selected' => 'progress', 'mode' => 'overview']);
     }
 }
