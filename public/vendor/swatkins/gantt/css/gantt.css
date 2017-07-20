@@ -101,7 +101,7 @@
   border-right: 1px solid #000000;
   border-bottom: 1px solid #000000;
   text-indent: -12000px;
-  font-size: 60%; }
+  font-size: 100%; }
 
 .gantt-day.weekend span {
   background: #cbcbcb; }
