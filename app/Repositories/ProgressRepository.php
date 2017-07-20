@@ -85,7 +85,10 @@ class ProgressRepository
         if(is_finish = 1,\'success\',if(date(now()) > date(`end_at`),\'urgent\', 
         if(date(now()) between date(`start_at`) and date(`end_at`),\'important\',\'no\'))) as class';
 
-        $tasks = $project->Tasks()->select(DB::raw($select))
+        $tasks = $project->Tasks()
+            ->where('start_at', '<>', '')
+            ->where('end_at', '<>', '')
+            ->select(DB::raw($select))
             ->orderBy('start', 'asc')
             ->orderBy('end', 'asc')
             ->get();
