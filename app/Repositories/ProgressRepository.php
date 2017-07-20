@@ -80,8 +80,8 @@ class ProgressRepository
     public function taskGanttChart(Project $project)
     {
         $select = 'title as label, 
-        if(start_at = NULL, DATE_FORMAT(start_at, \'%Y-%m-%d\'), DATE_FORMAT(now(), \'%Y-%m-%d\')) as start, 
-        if(end_at = NULL, DATE_FORMAT(end_at, \'%Y-%m-%d\'), DATE_FORMAT(now(), \'%Y-%m-%d\')) as end, 
+        if(start_at is not null, DATE_FORMAT(start_at, \'%Y-%m-%d\'), DATE_FORMAT(now(), \'%Y-%m-%d\')) as start, 
+        if(end_at is not null, DATE_FORMAT(end_at, \'%Y-%m-%d\'), DATE_FORMAT(now(), \'%Y-%m-%d\')) as end, 
         if(is_finish = 1,\'success\',if(date(now()) > date(`end_at`),\'urgent\', 
         if(date(now()) between date(`start_at`) and date(`end_at`),\'important\',\'no\'))) as class';
 
