@@ -34,19 +34,7 @@ class ProgressController extends Controller
 
     public function gantt(Project $project)
     {
-        $select = 'title as label, DATE_FORMAT(start_at, \'%Y-%m-%d\') as start, 
-        DATE_FORMAT(end_at, \'%Y-%m-%d\') as end, 
-        if(is_finish = 1,\'success\',if(date(now()) > date(`end_at`),\'urgent\', if(date(now()) between date(`start_at`) and date(`end_at`),\'important\',\'no\'))) as class';
-        $task = Task::select(DB::raw($select))
-            ->orderBy('start', 'asc')
-            ->orderBy('end', 'asc')
-            ->get();
-
-        $gantt = new Gantt($task->toArray(), [
-            'title' => trans('header.tasks'),
-        ]);
-
-        return view('project.progress.gantt', [ 'gantt' => $gantt ])
+        return view('project.progress.gantt', $this->progressRepository->taskGanttChart($project))
             ->with(['project' => $project, 'selected' => 'progress', 'mode' => 'gantt']);
     }
 }

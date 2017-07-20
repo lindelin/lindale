@@ -5,6 +5,8 @@ namespace App\Repositories;
 use Charts;
 use Calculator;
 use App\Project\Project;
+use Swatkins\LaravelGantt\Gantt;
+use DB;
 
 class ProgressRepository
 {
@@ -73,5 +75,25 @@ class ProgressRepository
             'taskProgressPie',
             'todoProgressPie',
             'projectProgressAreaspline');
+    }
+
+    public function taskGanttChart(Project $project)
+    {
+        $select = 'title as label, 
+        if(start_at = NULL, DATE_FORMAT(start_at, \'%Y-%m-%d\'), DATE_FORMAT(now(), \'%Y-%m-%d\')) as start, 
+        if(end_at = NULL, DATE_FORMAT(end_at, \'%Y-%m-%d\'), DATE_FORMAT(now(), \'%Y-%m-%d\')) as end, 
+        if(is_finish = 1,\'success\',if(date(now()) > date(`end_at`),\'urgent\', 
+        if(date(now()) between date(`start_at`) and date(`end_at`),\'important\',\'no\'))) as class';
+
+        $tasks = $project->Tasks()->select(DB::raw($select))
+            ->orderBy('start', 'asc')
+            ->orderBy('end', 'asc')
+            ->get();
+
+        $gantt = new Gantt($tasks->toArray(), [
+            'title' => trans('header.tasks'),
+        ]);
+
+        return compact('gantt');
     }
 }
