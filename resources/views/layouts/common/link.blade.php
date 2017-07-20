@@ -4,19 +4,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
-{{-- cdn css--}}
-<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-<link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
 {{-- cdn js--}}
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 {{-- Charts CDN --}}
 {!! Charts::assets() !!}
-{{-- local css --}}
+{{-- css --}}
 <link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css">
-{{-- local js --}}
+{{-- js --}}
 <script src="{{ asset('js/lib.js') }}"></script>
-{{-- local icon --}}
+{{-- icon --}}
 <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/apple-touch-icon.png') }}">
 <link rel="icon" type="image/png" href="{{ asset('/favicon-32x32.png') }}" sizes="32x32">
 <link rel="icon" type="image/png" href="{{ asset('/favicon-16x16.png') }}" sizes="16x16">
