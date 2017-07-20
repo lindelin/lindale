@@ -27,7 +27,8 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "lindelea/laravel-aws-elb-support": "^1.0",
         "rap2hpoutre/laravel-log-viewer": "^0.8.0",
-        "spatie/laravel-backup": "^4.6"
+        "spatie/laravel-backup": "^4.6",
+        "swatkins/laravel-gantt": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

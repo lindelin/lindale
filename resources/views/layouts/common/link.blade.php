@@ -10,6 +10,7 @@
 {!! Charts::assets() !!}
 {{-- css --}}
 <link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css">
+<link href="/vendor/swatkins/gantt/css/gantt.css" rel="stylesheet" type="text/css">
 {{-- js --}}
 <script src="{{ asset('js/lib.js') }}"></script>
 {{-- icon --}}

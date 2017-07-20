@@ -181,6 +181,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Lindelea\Support\Aws\Elb\ServiceProvider::class,
+        Swatkins\LaravelGantt\GanttServiceProvider::class,
 
         /*
          * Application Service Providers...

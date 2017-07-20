@@ -16,7 +16,7 @@
             <a href="#" class="btn btn-default @if($mode == 'user') btn-primary @endif">
                 {{ trans('progress.user') }}
             </a>
-            <a href="#" class="btn btn-default @if($mode == 'gantt') btn-primary @endif">
+            <a href="{{ route('progress.gantt', compact('project')) }}" class="btn btn-default @if($mode == 'gantt') btn-primary @endif">
                 {{ trans('progress.gantt') }}
             </a>
             <a href="#" class="btn btn-default @if($mode == 'task') btn-primary @endif">
