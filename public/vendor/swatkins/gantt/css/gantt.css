@@ -5,7 +5,7 @@
   overflow: hidden;
   color: #000000;
   background: #ffffff;
-  border: 1px solid #000b0d; }
+  border: 1px solid #ddd; }
 
 .gantt * {
   font-weight: normal;
@@ -32,7 +32,7 @@
   bottom: 0;
   top: 0;
   width: 199px;
-  border-right: 1px solid #000000;
+  border-right: 1px solid #ddd;
   z-index: 2; }
 
 .gantt aside:before {
@@ -48,13 +48,13 @@
   z-index: 3; }
 
 .gantt aside .gantt-labels {
-  border-top: 1px solid #000000; }
+  border-top: 1px solid #ddd; }
 
 .gantt aside .gantt-label strong {
   display: block;
   padding: 0 20px;
   color: #000000;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #ddd;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
@@ -76,8 +76,8 @@
 
 .gantt header .gantt-month strong {
   display: block;
-  border-right: 1px solid #000000;
-  border-bottom: 1px solid #000000; }
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd; }
 
 .gantt header .gantt-day span {
   text-indent: 0;
@@ -98,8 +98,8 @@
 
 .gantt-day span {
   display: block;
-  border-right: 1px solid #000000;
-  border-bottom: 1px solid #000000;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   text-indent: -12000px;
   font-size: 80%; }
 
