@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Tools\Analytics\ProgressCharts;
 use App\Tools\Html\IconTool;
 use App\Policies\AdminPolicy;
 use App\Tools\Analytics\Counter;
@@ -45,6 +46,10 @@ class ToolServiceProvider extends ServiceProvider
 
         $this->app->singleton('calculator', function () {
             return $this->app->make(Calculator::class);
+        });
+
+        $this->app->singleton('progressCharts', function () {
+            return $this->app->make(ProgressCharts::class);
         });
     }
 }

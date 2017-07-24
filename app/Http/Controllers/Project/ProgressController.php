@@ -41,4 +41,10 @@ class ProgressController extends Controller
         return view('project.progress.gantt', $this->progressRepository->taskGanttChart($project))
             ->with(['project' => $project, 'selected' => 'progress', 'mode' => 'gantt']);
     }
+
+    public function member(Project $project)
+    {
+        return view('project.progress.member', $this->progressRepository->memberProgress($project))
+            ->with(['project' => $project, 'selected' => 'progress', 'mode' => 'member']);
+    }
 }

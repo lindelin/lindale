@@ -252,6 +252,7 @@ return [
         'Counter' => App\Tools\Facades\Counter::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Graphs' => App\Tools\Facades\Graphs::class,
 
     ],
 

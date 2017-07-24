@@ -7,9 +7,14 @@ use Calculator;
 use App\Project\Project;
 use Swatkins\LaravelGantt\Gantt;
 use DB;
+use Graphs;
 
 class ProgressRepository
 {
+    /**
+     * @param Project $project
+     * @return array
+     */
     public function ProgressResources(Project $project)
     {
         $schemaDonut = Charts::create('donut', 'highcharts')
@@ -77,6 +82,11 @@ class ProgressRepository
             'projectProgressAreaspline');
     }
 
+    /**
+     * ガントチャート
+     * @param Project $project
+     * @return array
+     */
     public function taskGanttChart(Project $project)
     {
         $select = 'title as label, 
@@ -98,5 +108,15 @@ class ProgressRepository
         ]);
 
         return compact('gantt');
+    }
+
+    public function memberProgress(Project $project)
+    {
+        $memberOverviewBar =  Graphs::memberOverviewBar($project);
+        $users = $project->Users;
+        $projectLeader = $project->ProjectLeader;
+        $subLeader = $project->SubLeader;
+
+        return compact('memberOverviewBar', 'users', 'subLeader', 'projectLeader');
     }
 }

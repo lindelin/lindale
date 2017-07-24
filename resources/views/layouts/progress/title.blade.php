@@ -13,7 +13,7 @@
             <a href="{{ route('progress', compact('project')) }}" class="btn btn-default @if($mode == 'overview') btn-primary @endif">
                 {{ trans('progress.schema-info') }}
             </a>
-            <a href="#" class="btn btn-default @if($mode == 'user') btn-primary @endif">
+            <a href="{{ route('progress.member', compact('project')) }}" class="btn btn-default @if($mode == 'member') btn-primary @endif">
                 {{ trans('progress.user') }}
             </a>
             <a href="{{ route('progress.gantt', compact('project')) }}" class="btn btn-default @if($mode == 'gantt') btn-primary @endif">
