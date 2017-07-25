@@ -14,7 +14,7 @@ return [
 
     'name' => env('APP_NAME', 'Lindalë'),
     'title' => 'Lindalë - The Project Manager For Everyone.',
-    'version' => 'v1.2.1',
+    'version' => 'v1.3.0',
 
     /*
     |--------------------------------------------------------------------------
@@ -181,6 +181,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Lindelea\Support\Aws\Elb\ServiceProvider::class,
+        Swatkins\LaravelGantt\GanttServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -251,6 +252,7 @@ return [
         'Counter' => App\Tools\Facades\Counter::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Graphs' => App\Tools\Facades\Graphs::class,
 
     ],
 

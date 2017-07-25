@@ -16,4 +16,8 @@ return [
     'finished-todo' => 'Completed TODO',
     'count'         => 'Unit',
     'proportion'    => 'Task Proportion',
+    'user'          => 'Members',
+    'gantt'         => 'Gantt Chart',
+    'task'          => 'Tasks',
+    'report'        => 'Report',
 ];

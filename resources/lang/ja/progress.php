@@ -16,4 +16,8 @@ return [
     'finished-todo' => '完了 TODO',
     'count'         => '件',
     'proportion'    => '進捗割合',
+    'user'          => 'メンバー別',
+    'gantt'         => 'ガントチャート',
+    'task'          => 'チケット',
+    'report'        => 'レポート',
 ];

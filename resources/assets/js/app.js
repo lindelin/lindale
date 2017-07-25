@@ -9,6 +9,9 @@ require('./bootstrap');
 require('./bootstrap-off-canvas-nav');
 require('./pageloader');
 require('./bootstrap-notify');
+require('./bootstrap-select');
+require('./bootstrap-markdown');
+require('./bootstrap-datetimepicker');
 
 window.Vue = require('vue');
 

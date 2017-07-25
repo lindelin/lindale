@@ -2,12 +2,18 @@
 
 namespace App\Repositories;
 
+use DB;
 use Charts;
 use Calculator;
 use App\Project\Project;
+use Swatkins\LaravelGantt\Gantt;
 
 class ProgressRepository
 {
+    /**
+     * @param Project $project
+     * @return array
+     */
     public function ProgressResources(Project $project)
     {
         $schemaDonut = Charts::create('donut', 'highcharts')
@@ -73,5 +79,46 @@ class ProgressRepository
             'taskProgressPie',
             'todoProgressPie',
             'projectProgressAreaspline');
+    }
+
+    /**
+     * ガントチャート.
+     * @param Project $project
+     * @return array
+     */
+    public function taskGanttChart(Project $project)
+    {
+        $select = 'title as label, 
+        if(start_at is not null, DATE_FORMAT(start_at, \'%Y-%m-%d\'), DATE_FORMAT(now(), \'%Y-%m-%d\')) as start, 
+        if(end_at is not null, DATE_FORMAT(end_at, \'%Y-%m-%d\'), DATE_FORMAT(now(), \'%Y-%m-%d\')) as end, 
+        if(is_finish = 1,\'success\',if(date(now()) > date(`end_at`),\'urgent\', 
+        if(date(now()) between date(`start_at`) and date(`end_at`),\'important\',\'no\'))) as class';
+
+        $tasks = $project->Tasks()
+            ->where('start_at', '<>', '')
+            ->where('end_at', '<>', '')
+            ->select(DB::raw($select))
+            ->orderBy('start', 'asc')
+            ->orderBy('end', 'asc')
+            ->get();
+
+        if ($tasks->count() > 0) {
+            $gantt = new Gantt($tasks->toArray(), [
+                'title' => trans('header.tasks'),
+            ]);
+        } else {
+            $gantt = 'NO DATA';
+        }
+
+        return compact('gantt');
+    }
+
+    public function memberProgress(Project $project)
+    {
+        $users = $project->Users;
+        $projectLeader = $project->ProjectLeader;
+        $subLeader = $project->SubLeader;
+
+        return compact('users', 'subLeader', 'projectLeader');
     }
 }
