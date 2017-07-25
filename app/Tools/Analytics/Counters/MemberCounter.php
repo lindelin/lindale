@@ -2,15 +2,13 @@
 
 namespace App\Tools\Analytics\Counters;
 
-
-use App\Project\Project;
 use App\User;
+use App\Project\Project;
 
 trait MemberCounter
 {
-
     /**
-     * 总计成员所有数
+     * 总计成员所有数.
      * @param Project $project
      * @param User $user
      * @return int
@@ -21,7 +19,7 @@ trait MemberCounter
     }
 
     /**
-     * 总计成员完成数
+     * 总计成员完成数.
      * @param Project $project
      * @param User $user
      * @return int

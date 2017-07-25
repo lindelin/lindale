@@ -2,12 +2,11 @@
 
 namespace App\Repositories;
 
+use DB;
 use Charts;
 use Calculator;
 use App\Project\Project;
 use Swatkins\LaravelGantt\Gantt;
-use DB;
-use Graphs;
 
 class ProgressRepository
 {
@@ -83,7 +82,7 @@ class ProgressRepository
     }
 
     /**
-     * ガントチャート
+     * ガントチャート.
      * @param Project $project
      * @return array
      */
@@ -107,7 +106,7 @@ class ProgressRepository
             $gantt = new Gantt($tasks->toArray(), [
                 'title' => trans('header.tasks'),
             ]);
-        }else{
+        } else {
             $gantt = 'NO DATA';
         }
 

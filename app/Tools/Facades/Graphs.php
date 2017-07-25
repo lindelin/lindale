@@ -8,7 +8,6 @@
 
 namespace App\Tools\Facades;
 
-
 use Illuminate\Support\Facades\Facade;
 
 class Graphs extends Facade

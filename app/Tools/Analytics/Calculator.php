@@ -2,9 +2,9 @@
 
 namespace App\Tools\Analytics;
 
+use App\Tools\Analytics\Progresses\UserProgress;
 use App\Tools\Analytics\Progresses\MemberProgress;
 use App\Tools\Analytics\Progresses\ProjectProgress;
-use App\Tools\Analytics\Progresses\UserProgress;
 
 class Calculator
 {
