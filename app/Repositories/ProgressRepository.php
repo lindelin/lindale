@@ -103,20 +103,23 @@ class ProgressRepository
             ->orderBy('end', 'asc')
             ->get();
 
-        $gantt = new Gantt($tasks->toArray(), [
-            'title' => trans('header.tasks'),
-        ]);
+        if ($tasks->count() > 0) {
+            $gantt = new Gantt($tasks->toArray(), [
+                'title' => trans('header.tasks'),
+            ]);
+        }else{
+            $gantt = 'NO DATA';
+        }
 
         return compact('gantt');
     }
 
     public function memberProgress(Project $project)
     {
-        $memberOverviewBar =  Graphs::memberOverviewBar($project);
         $users = $project->Users;
         $projectLeader = $project->ProjectLeader;
         $subLeader = $project->SubLeader;
 
-        return compact('memberOverviewBar', 'users', 'subLeader', 'projectLeader');
+        return compact('users', 'subLeader', 'projectLeader');
     }
 }

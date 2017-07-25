@@ -19,8 +19,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                    {{ Counter::projectTotalCount($project) }} tasks /
-                                    <span class="text-success">{{ Counter::memberTotalCount($project, $user) }} +++ </span>/
+                                    {{ Counter::memberTotalCount($project, $user) }} tasks /
+                                    <span class="text-success">{{ Counter::memberAddTaskCount($project, $user) }} +++ </span>/
                                     <span class="text-danger"> {{ Counter::memberTotalFinishedCount($project, $user) }} ---</span>
                                 </div>
                             </div>

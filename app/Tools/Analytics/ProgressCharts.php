@@ -15,15 +15,6 @@ class ProgressCharts
      */
     public function memberOverviewBar(Project $project)
     {
-        $users =  $project->Users;
-        $userLabels = [];
-        foreach ($users as $user){
-            $userLabels[$user->id] = $user->name;
-        }
-        $userLabels[$project->ProjectLeader->id] = $project->ProjectLeader->name;
-        $userLabels[$project->SubLeader->id] = $project->SubLeader->name;
-        $userLabels[''] = trans('project.none');
-
         return Charts::multiDatabase('bar', 'highcharts')
             ->title('Overview')
             ->dataset(trans('header.tasks'), $project->Tasks)
@@ -33,7 +24,39 @@ class ProgressCharts
             ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
             ->elementLabel(trans('progress.count'))
             ->responsive(true)
-            ->groupBy('user_id', null, $userLabels);
+            ->groupBy('user_id', null, $this->userLabels($project));
+    }
+
+    /**
+     * 项目成员任务／待办统计柱状图
+     * @param Project $project
+     * @return mixed
+     */
+    public function memberOverviewTaskBar(Project $project)
+    {
+        return Charts::multiDatabase('bar', 'highcharts')
+            ->title('Tasks')
+            ->dataset(trans('progress.finished-task'), $project->Tasks()->where('is_finish', true)->get())
+            ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
+            ->elementLabel(trans('progress.count'))
+            ->responsive(true)
+            ->groupBy('user_id', null, $this->userLabels($project));
+    }
+
+    /**
+     * 项目成员任务／待办统计柱状图
+     * @param Project $project
+     * @return mixed
+     */
+    public function memberOverviewTodoBar(Project $project)
+    {
+        return Charts::multiDatabase('bar', 'highcharts')
+            ->title('To-dos')
+            ->dataset(trans('progress.finished-todo'), $project->Todos()->where('status_id', 2)->get())
+            ->colors(['#ff2321'])
+            ->elementLabel(trans('progress.count'))
+            ->responsive(true)
+            ->groupBy('user_id', null, $this->userLabels($project));
     }
 
     public function memberProgressAreaspline(Project $project, User $user)
@@ -51,7 +74,52 @@ class ProgressCharts
             ->view('vendor.consoletvs.charts.highcharts.multi.areaspline');
     }
 
+    /**
+     * メンバー別作業区分円グラフ
+     * @param Project $project
+     * @param User $user
+     * @return mixed
+     */
     public function memberTaskTypePie(Project $project, User $user)
+    {
+        return Charts::database($project->Tasks()->where('user_id', $user->id)->get(), 'pie', 'highcharts')
+            ->title(trans('task.type'))
+            ->dimensions(1000, 500)
+            ->responsive(true)
+            ->groupBy('type_id', null, $this->taskTypeLabels($project));
+    }
+
+    /**
+     * ユーザラベル
+     * @param Project $project
+     * @return array
+     */
+    private function userLabels(Project $project)
+    {
+        $userLabels = [];
+
+        $users =  $project->Users;
+        if ($users->count() > 0) {
+            foreach ($users as $user){
+                $userLabels[$user->id] = $user->name;
+            }
+        }
+        if ($project->SubLeader) {
+            $userLabels[$project->SubLeader->id] = $project->SubLeader->name;
+        }
+        $userLabels[$project->ProjectLeader->id] = $project->ProjectLeader->name;
+        $userLabels[''] = trans('project.none');
+        $userLabels[0] = trans('project.none');
+
+        return $userLabels;
+    }
+
+    /**
+     * 作業区分ラベル
+     * @param Project $project
+     * @return array
+     */
+    private function taskTypeLabels(Project $project)
     {
         $types =  $project->TaskTypes;
         $typeLabels = [];
@@ -60,10 +128,6 @@ class ProgressCharts
         }
         $typeLabels[''] = trans('project.none');
 
-        return Charts::database($project->Tasks()->where('user_id', $user->id)->get(), 'pie', 'highcharts')
-            ->title(trans('task.type'))
-            ->dimensions(1000, 500)
-            ->responsive(true)
-            ->groupBy('type_id', null, $typeLabels);
+        return $typeLabels;
     }
 }

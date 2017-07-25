@@ -44,6 +44,18 @@ trait MemberCounter
     }
 
     /**
+     * 合计项目中成员的任务总数.
+     *
+     * @param Project $project
+     * @param User $user
+     * @return int
+     */
+    public function memberAddTaskCount(Project $project, User $user)
+    {
+        return (int) $project->Tasks()->where('initiator_id', $user->id)->count();
+    }
+
+    /**
      * 合计项目中成员已完成任务数.
      *
      * @param Project $project
