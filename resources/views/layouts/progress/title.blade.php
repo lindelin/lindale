@@ -19,13 +19,13 @@
             <a href="{{ route('progress.gantt', compact('project')) }}" class="btn btn-default @if($mode == 'gantt') btn-primary @endif">
                 {{ trans('progress.gantt') }}
             </a>
-            <a href="#" class="btn btn-default @if($mode == 'task') btn-primary @endif">
+            <a href="#" class="btn btn-default @if($mode == 'task') btn-primary @endif" disabled>
                 {{ trans('progress.task') }}
             </a>
-            <a href="#" class="btn btn-default @if($mode == 'todo') btn-primary @endif">
+            <a href="#" class="btn btn-default @if($mode == 'todo') btn-primary @endif" disabled>
                 TODO
             </a>
-            <a href="#" class="btn btn-default @if($mode == 'report') btn-primary @endif">
+            <a href="#" class="btn btn-default @if($mode == 'report') btn-primary @endif" disabled>
                 {{ trans('progress.report') }}
             </a>
         </div>
