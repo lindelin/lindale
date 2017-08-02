@@ -2,9 +2,8 @@
 
 namespace App\Tools\Analytics\Progresses;
 
-
-use App\User;
 use Counter;
+use App\User;
 use App\Project\Project;
 
 trait MemberProgress

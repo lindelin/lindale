@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Tools\Analytics\ProgressCharts;
 use App\Tools\Html\IconTool;
 use App\Policies\AdminPolicy;
 use App\Tools\Analytics\Counter;
 use App\Tools\Analytics\Calculator;
+use App\Tools\Analytics\ProgressCharts;
 use Illuminate\Support\ServiceProvider;
 
 class ToolServiceProvider extends ServiceProvider

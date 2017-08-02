@@ -2,11 +2,10 @@
 
 namespace App\Tools\Analytics\Counters;
 
-
+use App\User;
+use App\Todo\TodoType;
 use App\Project\Project;
 use App\Todo\TodoStatus;
-use App\Todo\TodoType;
-use App\User;
 
 trait UserCounter
 {
