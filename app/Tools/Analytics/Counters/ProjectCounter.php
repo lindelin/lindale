@@ -2,18 +2,17 @@
 
 namespace App\Tools\Analytics\Counters;
 
-
-use App\Project\Project;
 use App\Task\Task;
-use App\Task\TaskGroup;
-use App\Task\TaskPriority;
-use App\Task\TaskStatus;
 use App\Task\TaskType;
+use App\Task\TaskGroup;
+use App\Project\Project;
+use App\Task\TaskStatus;
+use App\Task\TaskPriority;
 
 trait ProjectCounter
 {
     /**
-     * 课题总数
+     * 课题总数.
      * @param Project $project
      * @return int
      */

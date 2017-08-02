@@ -2,14 +2,14 @@
 
 namespace App\Tools\Analytics;
 
-use App\User;
 use Charts;
+use App\User;
 use App\Project\Project;
 
 class ProgressCharts
 {
     /**
-     * 项目成员任务／待办统计柱状图
+     * 项目成员任务／待办统计柱状图.
      * @param Project $project
      * @return mixed
      */
@@ -28,7 +28,7 @@ class ProgressCharts
     }
 
     /**
-     * 项目成员任务／待办统计柱状图
+     * 项目成员任务／待办统计柱状图.
      * @param Project $project
      * @return mixed
      */
@@ -44,7 +44,7 @@ class ProgressCharts
     }
 
     /**
-     * 项目成员任务／待办统计柱状图
+     * 项目成员任务／待办统计柱状图.
      * @param Project $project
      * @return mixed
      */
@@ -75,7 +75,7 @@ class ProgressCharts
     }
 
     /**
-     * メンバー別作業区分円グラフ
+     * メンバー別作業区分円グラフ.
      * @param Project $project
      * @param User $user
      * @return mixed
@@ -90,7 +90,7 @@ class ProgressCharts
     }
 
     /**
-     * ユーザラベル
+     * ユーザラベル.
      * @param Project $project
      * @return array
      */
@@ -98,9 +98,9 @@ class ProgressCharts
     {
         $userLabels = [];
 
-        $users =  $project->Users;
+        $users = $project->Users;
         if ($users->count() > 0) {
-            foreach ($users as $user){
+            foreach ($users as $user) {
                 $userLabels[$user->id] = $user->name;
             }
         }
@@ -115,15 +115,15 @@ class ProgressCharts
     }
 
     /**
-     * 作業区分ラベル
+     * 作業区分ラベル.
      * @param Project $project
      * @return array
      */
     private function taskTypeLabels(Project $project)
     {
-        $types =  $project->TaskTypes;
+        $types = $project->TaskTypes;
         $typeLabels = [];
-        foreach ($types as $type){
+        foreach ($types as $type) {
             $typeLabels[$type->id] = trans($type->name);
         }
         $typeLabels[''] = trans('project.none');
