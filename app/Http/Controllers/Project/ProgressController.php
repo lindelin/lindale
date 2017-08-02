@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Project;
 
 use App\Project\Project;
+use Swatkins\LaravelGantt\Gantt;
 use App\Http\Controllers\Controller;
 use App\Repositories\ProgressRepository;
-use App\Task\Task;
-use DB;
-use Swatkins\LaravelGantt\Gantt;
 
 class ProgressController extends Controller
 {
