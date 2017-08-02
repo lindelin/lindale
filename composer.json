@@ -16,6 +16,7 @@
         "aws/aws-sdk-php": "^3.24",
         "barryvdh/laravel-ide-helper": "^2.3",
         "consoletvs/charts": "4.*",
+        "dhtmlx/connector-php": "^3.0",
         "doctrine/dbal": "^2.5",
         "erusev/parsedown-extra": "^0.7.1",
         "guzzlehttp/guzzle": "^6.2",
