@@ -14,7 +14,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <a href="{{ url('project/'.$task->Project->id.'/task/show/'.$task->id) }}">
                         <h4>
-                            {{ $task->title }}
+                            {{ trans($task->Type->name) }}：{{ $task->title }}
                         </h4>
                     </a>
                 </div>
