@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Task\Task;
 use DB;
 use Charts;
 use Calculator;
@@ -88,27 +89,42 @@ class ProgressRepository
      */
     public function taskGanttChart(Project $project)
     {
-        $select = 'title as label, 
-        if(start_at is not null, DATE_FORMAT(start_at, \'%Y-%m-%d\'), DATE_FORMAT(now(), \'%Y-%m-%d\')) as start, 
-        if(end_at is not null, DATE_FORMAT(end_at, \'%Y-%m-%d\'), DATE_FORMAT(now(), \'%Y-%m-%d\')) as end, 
-        if(is_finish = 1,\'success\',if(date(now()) > date(`end_at`),\'urgent\', 
-        if(date(now()) between date(`start_at`) and date(`end_at`),\'important\',\'no\'))) as class';
+        $taskGroups = $project->TaskGroups;
 
-        $tasks = $project->Tasks()
-            ->where('start_at', '<>', '')
-            ->where('end_at', '<>', '')
-            ->select(DB::raw($select))
-            ->orderBy('start', 'asc')
-            ->orderBy('end', 'asc')
-            ->get();
-
-        if ($tasks->count() > 0) {
-            $gantt = new Gantt($tasks->toArray(), [
-                'title' => trans('header.tasks'),
-            ]);
-        } else {
-            $gantt = 'NO DATA';
+        $gantt = [];
+        foreach ($taskGroups as $group) {
+            if (!$group->start_at) {
+                continue;
+            }
+            $task_data = [];
+            $task_data['id'] = $group->id;
+            $task_data['text'] = $group->title;
+            $task_data['start_date'] = $group->start_at->format('d-m-Y');
+            $task_data['duration'] = $group->start_at->diffInDays($group->end_at);
+            $task_data['progress'] = trans_progress($group->progress);
+            $task_data['user'] = 'Lindelin';
+            $task_data['open'] = false;
+            $gantt[] = $task_data;
+            if ($group->Tasks->count() > 0) {
+                foreach ($group->Tasks as $task) {
+                    if (!$task->start_at) {
+                        continue;
+                    }
+                    $task_data = [];
+                    //$task_data['id'] = $task->id;
+                    $task_data['text'] = '<a href="/">'.$task->title.'</a>';
+                    $task_data['start_date'] = $task->start_at->format('d-m-Y');
+                    $task_data['duration'] = $task->start_at->diffInDays($task->end_at);
+                    $task_data['progress'] = trans_progress($task->progress);
+                    $task_data['user'] = $task->User ? $task->User->name : trans('project.none');
+                    $task_data['open'] = false;
+                    $task_data['parent'] = $group->id;
+                    $gantt[] = $task_data;
+                }
+            }
         }
+
+        $gantt = collect($gantt)->toJson();
 
         return compact('gantt');
     }

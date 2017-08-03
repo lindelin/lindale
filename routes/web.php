@@ -333,7 +333,3 @@ Route::get('test', function (){
     var_dump(Carbon::parse('2017-05-15')->lt(Carbon::now()));
 });*/
 
-/*Route::get('test', function (){
-    $notice = \App\Notice\Notice::first();
-    event(new \App\Events\Project\NoticeEvent($notice));
-});*/

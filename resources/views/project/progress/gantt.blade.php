@@ -17,66 +17,49 @@
                     <i class="fa fa-tasks fa-lg lindale-icon-color" aria-hidden="true"></i> {{ trans('progress.gantt') }}
                 @endslot
 
+                    <style>
+                        .weekend{ background: #f4f7f4 !important;}
+                    </style>
+
                     <div id="gantt_here" style='width:100%; height:720px;'></div>
 
                     <script type="text/javascript">
+                        var date_to_str = gantt.date.date_to_str(gantt.config.task_date);
+
+                        var id = gantt.addMarker({ start_date: new Date(), css: "today", title:date_to_str( new Date())});
+                        setInterval(function(){
+                            var today = gantt.getMarker(id);
+                            today.start_date = new Date();
+                            today.title = date_to_str(today.start_date);
+                            gantt.updateMarker(id);
+                        }, 1000*60);
                         var tasks = {
-                            data:[
-                                {id:1, text:"Project #1",start_date:"01-04-2013", duration:11,
-                                    progress: 0.6, open: true},
-                                {id:2, text:"Task #1",   start_date:"03-04-2013", duration:5,
-                                    progress: 1,   open: true, parent:1},
-                                {id:3, text:"Task #2",   start_date:"02-04-2013", duration:7,
-                                    progress: 0.5, open: true, parent:1},
-                                {id:4, text:"Task #2.1", start_date:"03-04-2013", duration:2,
-                                    progress: 1,   open: true, parent:3},
-                                {id:5, text:"Task #2.2", start_date:"04-04-2013", duration:3,
-                                    progress: 0.8, open: true, parent:3},
-                                {id:6, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:7, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:8, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:9, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:10, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:11, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:12, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:13, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:14, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:15, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:16, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:17, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:18, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:19, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:20, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:21, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:22, text:"Task #2.3", start_date:"05-04-2013", duration:4,
-                                    progress: 0.2, open: true, parent:3},
-                                {id:23, text:"Task #2.3", start_date:"05-04-2013", duration:100,
-                                    progress: 0.2, open: true, parent:3}
-                            ],
-                            links:[
-                                {id:1, source:1, target:2, type:"1"},
-                                {id:2, source:1, target:3, type:"1"},
-                                {id:3, source:3, target:4, type:"1"},
-                                {id:4, source:4, target:5, type:"0"},
-                                {id:5, source:5, target:6, type:"0"}
-                            ]
+                            data:{!! $gantt !!}
                         };
+                        gantt.config.columns = [
+                            {name:"text",       label:"Task name",  width:"*", tree:true },
+                            {name:"start_date", label:"Start time", align: "center" },
+                            {name:"duration",   label:"Duration",   align: "center" }
+                        ];
+                        gantt.templates.grid_indent=function(task){
+                            return "<div style='width:4px; float:left; height:100%'></div>"
+                        };
+                        gantt.config.order_branch = true;
+                        gantt.config.sort = true;
+                        gantt.templates.scale_cell_class = function(date){
+                            if(date.getDay()==0||date.getDay()==6){
+                                return "weekend";
+                            }
+                        };
+                        gantt.templates.task_cell_class = function(item,date){
+                            if(date.getDay()==0||date.getDay()==6){
+                                return "weekend" ;
+                            }
+                        };
+                        gantt.templates.task_text=function(start,end,task){
+                            return "<b>Text:</b> "+task.text+",<b> User:</b> "+task.user;
+                        };
+                        gantt.config.readonly = true;
                         gantt.init("gantt_here");
                         gantt.parse (tasks);
 
