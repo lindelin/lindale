@@ -112,12 +112,13 @@ class ProgressRepository
                     }
                     $task_data = [];
                     //$task_data['id'] = $task->id;
-                    $task_data['text'] = '<a href="/">'.$task->title.'</a>';
+                    $task_data['text'] = $task->title;
                     $task_data['start_date'] = $task->start_at->format('d-m-Y');
                     $task_data['duration'] = $task->start_at->diffInDays($task->end_at);
                     $task_data['progress'] = trans_progress($task->progress);
                     $task_data['user'] = $task->User ? $task->User->name : trans('project.none');
                     $task_data['open'] = false;
+                    $task_data['is_finish'] = $task->is_finish;
                     $task_data['parent'] = $group->id;
                     $gantt[] = $task_data;
                 }
