@@ -17,16 +17,16 @@
                     <span class="glyphicon glyphicon-print"></span>
                 </button>
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hidden-xs" align="center">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 hidden-xs hidden-sm" align="center">
                 <h3>
                     {{ trans('progress.gantt') }}
                 </h3>
             </div>
-            <div class="col-xs-8 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-xs-8 col-sm-8 col-md-4 col-lg-4">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <label class="radio-inline">
-                            <input type="radio" id="scale1" name="scale" value="1" checked=""><label for="scale1">Day scale</label>
+                            <input type="radio" id="scale1" name="scale" value="1"><label for="scale1">Day scale</label>
                         </label>
                         <label class="radio-inline">
                             <input type="radio" id="scale2" name="scale" value="2"><label for="scale2">Week scale</label>
@@ -35,7 +35,7 @@
                             <input type="radio" id="scale3" name="scale" value="3"><label for="scale3">Month scale</label>
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" id="scale4" name="scale" value="4"><label for="scale4">Year scale</label>
+                            <input type="radio" id="scale4" name="scale" value="4" checked><label for="scale4">Year scale</label>
                         </label>
                     </div>
                 </div>

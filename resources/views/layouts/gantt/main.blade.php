@@ -10,12 +10,12 @@
             background:#D9DF29;
         }
         .finished_task{
-            border:2px solid #00c52d;
+            border:1px solid rgb(60, 148, 69);
             color: #6ba8e3;
-            background: #00d254;
+            background: rgb(101, 193, 111);
         }
         .finished_task .gantt_task_progress{
-            background: #00c41f;
+            background: #46ad51;
         }
     </style>
 @endsection
@@ -53,7 +53,7 @@
             case "1":
                 gantt.config.scale_unit = "day";
                 gantt.config.step = 1;
-                gantt.config.date_scale = "%d %M";
+                gantt.config.date_scale = "%d（%M）";
                 gantt.config.subscales = [];
                 gantt.config.scale_height = 27;
                 gantt.templates.date_scale = null;
@@ -65,16 +65,15 @@
                 break;
             case "2":
                 var weekScaleTemplate = function(date){
-                    var dateToStr = gantt.date.date_to_str("%d %M");
+                    var dateToStr = gantt.date.date_to_str("%m/%d");
                     var endDate = gantt.date.add(gantt.date.add(date, 1, "week"), -1, "day");
                     return dateToStr(date) + " - " + dateToStr(endDate);
                 };
-
                 gantt.config.scale_unit = "week";
                 gantt.config.step = 1;
                 gantt.templates.date_scale = weekScaleTemplate;
                 gantt.config.subscales = [
-                    {unit:"day", step:1, date:"%D" }
+                    {unit:"day", step:1, date:"%d（%D）" }
                 ];
                 gantt.config.scale_height = 50;
                 gantt.templates.task_cell_class = function(item,date){
@@ -87,7 +86,7 @@
                 gantt.config.scale_unit = "month";
                 gantt.config.date_scale = "%F, %Y";
                 gantt.config.subscales = [
-                    {unit:"day", step:1, date:"%j, %D" }
+                    {unit:"day", step:1, date:"%j（%D）" }
                 ];
                 gantt.config.scale_height = 50;
                 gantt.templates.date_scale = null;
@@ -101,12 +100,8 @@
                 gantt.config.scale_unit = "year";
                 gantt.config.step = 1;
                 gantt.config.date_scale = "%Y";
-                gantt.config.min_column_width = 50;
-
-                gantt.config.scale_height = 90;
+                gantt.config.scale_height = 50;
                 gantt.templates.date_scale = null;
-
-
                 gantt.config.subscales = [
                     {unit:"month", step:1, date:"%M" }
                 ];
@@ -142,8 +137,6 @@
                 break;
         }
     };
-
-    gantt.config.order_branch = true;
     // 排序
     gantt.config.sort = true;
     // 只读
@@ -152,7 +145,7 @@
     gantt.init("gantt_here");
     // 导入数据
     gantt.parse (tasks);
-
+    // 视图调整
     var func = function(e) {
         e = e || window.event;
         var el = e.target || e.srcElement;
@@ -160,7 +153,7 @@
         setScaleConfig(value);
         gantt.render();
     };
-
+    // 视图调整
     var els = document.getElementsByName("scale");
     for (var i = 0; i < els.length; i++) {
         els[i].onclick = func;
