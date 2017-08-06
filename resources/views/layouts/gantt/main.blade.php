@@ -1,21 +1,38 @@
 @section('head')
     <style>
         .weekend{ background: #eeeeee !important;}
-        .meeting_task{
-            border:2px solid #BFC518;
-            color:#6ba8e3;
-            background: #F2F67E;
+        .warning-task{
+            border:1px solid #f6f447;
+            color:#f6f447;
+            background: #f6f447;
         }
-        .meeting_task .gantt_task_progress{
-            background:#D9DF29;
+        .warning-task .gantt_task_progress{
+            background:#d5d330;
         }
-        .finished_task{
-            border:1px solid rgb(60, 148, 69);
-            color: #6ba8e3;
-            background: rgb(101, 193, 111);
+        .success-task{
+            border:1px solid #43d43d;
+            color: #43d43d;
+            background: #43d43d;
         }
-        .finished_task .gantt_task_progress{
-            background: #46ad51;
+        .success-task .gantt_task_progress{
+            background: #2fb529;
+        }
+        .danger-task{
+            border:1px solid #f4474a;
+            color: #f4474a;
+            background: #f4474a;
+        }
+        .danger-task .gantt_task_progress{
+            background: #d33033;
+        }
+
+        .info-task{
+            border:1px solid #3d7ed3;
+            color:#3d7ed3;
+            background: #3d7ed3;
+        }
+        .info-task .gantt_task_progress{
+            background: #2966b4;
         }
     </style>
 @endsection
@@ -43,6 +60,10 @@
     gantt.templates.grid_indent=function(task){
         return "<div style='width:4px; float:left; height:100%'></div>"
     };
+
+    /*gantt.templates.tooltip_text = function(start,end,task){
+        return "<b>Task:</b> "+task.text+"<br/><b>Start:</b> " + task.start_date;
+    };*/
 
     gantt.templates.task_text=function(start,end,task){
         return '';
@@ -125,15 +146,20 @@
 
 
     gantt.templates.task_class  = function(start, end, task){
-        switch (task.is_finish){
+        switch (task.task_type){
             case 1:
-                return "finished_task";
+                return "success-task";
+                break;
+            case 2:
+                return "warning-task";
                 break;
             case 0:
-                return "medium";
+                return "info-task";
+                break;
+            case 777:
+                return "danger-task";
                 break;
             default :
-                return "low";
                 break;
         }
     };

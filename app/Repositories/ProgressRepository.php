@@ -101,8 +101,9 @@ class ProgressRepository
             $task_data['text'] = $group->title;
             $task_data['start_date'] = $group->start_at->format('d-m-Y');
             $task_data['duration'] = $group->start_at->diffInDays($group->end_at);
-            $task_data['progress'] = trans_progress($group->progress);
+            $task_data['progress'] = trans_progress(Calculator::TaskGroupProgressCompute($group));
             $task_data['user'] = 'Lindelin';
+            $task_data['task_type'] = 9999;
             $task_data['open'] = false;
             $gantt[] = $task_data;
             if ($group->Tasks->count() > 0) {
@@ -118,7 +119,7 @@ class ProgressRepository
                     $task_data['progress'] = trans_progress($task->progress);
                     $task_data['user'] = $task->User ? $task->User->name : trans('project.none');
                     $task_data['open'] = false;
-                    $task_data['is_finish'] = $task->is_finish;
+                    $task_data['task_type'] = $task->is_finish;
                     $task_data['parent'] = $group->id;
                     $gantt[] = $task_data;
                 }
