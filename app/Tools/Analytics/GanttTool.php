@@ -6,7 +6,6 @@ namespace App\Tools\Analytics;
 use App\Project\Project;
 use App\Task\Task;
 use App\Task\TaskGroup;
-use Calculator;
 use Carbon\Carbon;
 
 trait GanttTool
@@ -63,7 +62,7 @@ trait GanttTool
         $data['text'] = $group->title;
         $data['start_date'] = $group->start_at->format('d-m-Y');
         $data['duration'] = $group->start_at->diffInDays($group->end_at);
-        $data['progress'] = trans_progress(Calculator::TaskGroupProgressCompute($group));
+        $data['progress'] = trans_progress(\Calculator::TaskGroupProgressCompute($group));
         $data['user'] = trans('task.group');
         $data['task_type'] = 999;
         $data['work_type'] = trans($group->Type->name);
