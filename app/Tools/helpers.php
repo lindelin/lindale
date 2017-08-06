@@ -60,6 +60,12 @@ if (! function_exists('user_config')) {
 }
 
 if (! function_exists('project_config')) {
+    /**
+     * Project Config.
+     * @param \App\Project\Project $project
+     * @param $key
+     * @return mixed
+     */
     function project_config(\App\Project\Project $project, $key)
     {
         $system = app('pcs');
@@ -74,5 +80,17 @@ if (! function_exists('project_config')) {
 
             return $value;
         }
+    }
+}
+
+if (! function_exists('trans_progress')) {
+    /**
+     * Progress to 小数.
+     * @param $progress
+     * @return float
+     */
+    function trans_progress($progress)
+    {
+        return round(($progress / 100), 2);
     }
 }

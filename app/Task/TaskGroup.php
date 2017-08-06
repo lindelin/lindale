@@ -2,6 +2,7 @@
 
 namespace App\Task;
 
+use App\Project\Project;
 use Illuminate\Support\HtmlString;
 use Illuminate\Database\Eloquent\Model;
 
@@ -76,5 +77,10 @@ class TaskGroup extends Model
         } else {
             return new HtmlString('<span class="label label-success"><span class="glyphicon glyphicon-folder-open"></span> OPEN</span>');
         }
+    }
+
+    public function Project()
+    {
+        return $this->hasOne(Project::class, 'id', 'project_id');
     }
 }

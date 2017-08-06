@@ -22,5 +22,10 @@ return [
     'content'    => 'Content',
     'type'       => 'Type',
     'delete-info' => ':Name will be deleted，are you sure?',
+    'day' => 'Day',
+    'week' => 'Week',
+    'month' => 'Month',
+    'year' => 'Year',
+    'duration' => 'Duration',
 
 ];
