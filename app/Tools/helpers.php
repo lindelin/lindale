@@ -61,7 +61,7 @@ if (! function_exists('user_config')) {
 
 if (! function_exists('project_config')) {
     /**
-     * Project Config
+     * Project Config.
      * @param \App\Project\Project $project
      * @param $key
      * @return mixed
@@ -85,12 +85,12 @@ if (! function_exists('project_config')) {
 
 if (! function_exists('trans_progress')) {
     /**
-     * Progress to 小数
+     * Progress to 小数.
      * @param $progress
      * @return float
      */
     function trans_progress($progress)
     {
-        return round(($progress / 100),2);
+        return round(($progress / 100), 2);
     }
 }
