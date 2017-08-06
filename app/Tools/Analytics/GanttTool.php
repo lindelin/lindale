@@ -2,16 +2,15 @@
 
 namespace App\Tools\Analytics;
 
-
-use App\Project\Project;
 use App\Task\Task;
-use App\Task\TaskGroup;
 use Carbon\Carbon;
+use App\Task\TaskGroup;
+use App\Project\Project;
 
 trait GanttTool
 {
     /**
-     * Gantt JSON Data
+     * Gantt JSON Data.
      * @param Project $project
      * @return string
      */
@@ -24,7 +23,7 @@ trait GanttTool
         $data = [];
         $link = [];
         foreach ($taskGroups as $group) {
-            if (!$group->start_at and !$group->end_at) {
+            if (! $group->start_at and ! $group->end_at) {
                 continue;
             }
             $data[] = $this->taskGroupDataMapping($group);
@@ -34,7 +33,7 @@ trait GanttTool
                     ->where('end_at', '<>', '')
                     ->get();
                 foreach ($tasks as $task) {
-                    if ((!$task->start_at) and (!$task->end_at)) {
+                    if ((! $task->start_at) and (! $task->end_at)) {
                         continue;
                     } else {
                         $data[] = $this->taskDataMapping($project, $group, $task);
@@ -51,7 +50,7 @@ trait GanttTool
     }
 
     /**
-     * チケットグループデータマッピング
+     * チケットグループデータマッピング.
      * @param TaskGroup $group
      * @return array
      */
@@ -72,7 +71,7 @@ trait GanttTool
     }
 
     /**
-     * チケットデータマッピング
+     * チケットデータマッピング.
      * @param Project $project
      * @param TaskGroup $group
      * @param Task $task
@@ -117,13 +116,13 @@ trait GanttTool
     private function taskTypeMapping(Task $task)
     {
         if ($task->is_finish === config('task.finished')) {
-            return (int)200;
+            return (int) 200;
         } elseif (Carbon::now()->between($task->start_at, $task->end_at, false)) {
-            return (int)755;
+            return (int) 755;
         } elseif (Carbon::parse($task->end_at)->lt(Carbon::now())) {
-            return (int)777;
+            return (int) 777;
         } else {
-            return (int)300;
+            return (int) 300;
         }
     }
 }

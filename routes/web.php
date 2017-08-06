@@ -333,4 +333,3 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('test', function (){
     var_dump(Carbon::parse('2017-05-15')->lt(Carbon::now()));
 });*/
-
