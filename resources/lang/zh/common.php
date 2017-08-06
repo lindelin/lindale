@@ -22,5 +22,10 @@ return [
     'content'    => '内容',
     'type'       => '类型',
     'delete-info' => ':Name 将被删除, 确定吗？',
+    'day' => '日',
+    'week' => '周',
+    'month' => '月',
+    'year' => '年',
+    'duration' => '期间',
 
 ];

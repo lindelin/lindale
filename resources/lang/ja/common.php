@@ -22,5 +22,10 @@ return [
     'content'    => '内容',
     'type'       => 'タイプ',
     'delete-info' => ':Name を削除します, よろしいですか？',
+    'day' => '1日',
+    'week' => '週',
+    'month' => '月',
+    'year' => '年',
+    'duration' => '期間',
 
 ];

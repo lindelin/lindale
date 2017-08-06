@@ -92,6 +92,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         Route::group(['prefix' => 'progress'], function () {
             Route::get('/', 'ProgressController@index')->name('progress');
             Route::get('/gantt', 'ProgressController@gantt')->name('progress.gantt');
+            Route::get('/gantt-full', 'ProgressController@ganttFull')->name('progress.gantt-full');
             Route::get('/member', 'ProgressController@member')->name('progress.member');
         });
 
@@ -138,7 +139,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
             Route::get('type/{taskType}', 'TaskController@type');
             Route::get('priority/{taskPriority}', 'TaskController@priority');
             Route::get('status/{taskStatus}', 'TaskController@status');
-            Route::get('show/{task}', 'TaskController@show');
+            Route::get('show/{task}', 'TaskController@show')->name('task.show');
 
             //任务
             Route::group(['prefix' => 'task'], function () {
@@ -331,9 +332,4 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('test', function (){
     var_dump(Carbon::parse('2017-05-15')->lt(Carbon::now()));
-});*/
-
-/*Route::get('test', function (){
-    $notice = \App\Notice\Notice::first();
-    event(new \App\Events\Project\NoticeEvent($notice));
 });*/
