@@ -2,16 +2,16 @@
 
 namespace App\Repositories;
 
-use App\Task\Task;
-use App\Tools\Analytics\GanttTool;
-use DB;
 use Charts;
 use Calculator;
+use App\Task\Task;
 use App\Project\Project;
+use App\Tools\Analytics\GanttTool;
 
 class ProgressRepository
 {
     use GanttTool;
+
     /**
      * @param Project $project
      * @return array
@@ -96,7 +96,7 @@ class ProgressRepository
     }
 
     /**
-     * メンバー進捗
+     * メンバー進捗.
      * @param Project $project
      * @return array
      */
