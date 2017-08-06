@@ -3,14 +3,15 @@
 namespace App\Repositories;
 
 use App\Task\Task;
+use App\Tools\Analytics\GanttTool;
 use DB;
 use Charts;
 use Calculator;
 use App\Project\Project;
-use Swatkins\LaravelGantt\Gantt;
 
 class ProgressRepository
 {
+    use GanttTool;
     /**
      * @param Project $project
      * @return array
@@ -89,48 +90,16 @@ class ProgressRepository
      */
     public function taskGanttChart(Project $project)
     {
-        $taskGroups = $project->TaskGroups;
-
-        $gantt = [];
-        foreach ($taskGroups as $group) {
-            if (!$group->start_at) {
-                continue;
-            }
-            $task_data = [];
-            $task_data['id'] = $group->id;
-            $task_data['text'] = $group->title;
-            $task_data['start_date'] = $group->start_at->format('d-m-Y');
-            $task_data['duration'] = $group->start_at->diffInDays($group->end_at);
-            $task_data['progress'] = trans_progress(Calculator::TaskGroupProgressCompute($group));
-            $task_data['user'] = 'Lindelin';
-            $task_data['task_type'] = 9999;
-            $task_data['open'] = false;
-            $gantt[] = $task_data;
-            if ($group->Tasks->count() > 0) {
-                foreach ($group->Tasks as $task) {
-                    if (!$task->start_at) {
-                        continue;
-                    }
-                    $task_data = [];
-                    //$task_data['id'] = $task->id;
-                    $task_data['text'] = $task->title;
-                    $task_data['start_date'] = $task->start_at->format('d-m-Y');
-                    $task_data['duration'] = $task->start_at->diffInDays($task->end_at);
-                    $task_data['progress'] = trans_progress($task->progress);
-                    $task_data['user'] = $task->User ? $task->User->name : trans('project.none');
-                    $task_data['open'] = false;
-                    $task_data['task_type'] = $task->is_finish;
-                    $task_data['parent'] = $group->id;
-                    $gantt[] = $task_data;
-                }
-            }
-        }
-
-        $gantt = collect($gantt)->toJson();
+        $gantt = $this->ganttData($project);
 
         return compact('gantt');
     }
 
+    /**
+     * メンバー進捗
+     * @param Project $project
+     * @return array
+     */
     public function memberProgress(Project $project)
     {
         $users = $project->Users;

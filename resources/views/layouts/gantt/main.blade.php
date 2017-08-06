@@ -37,11 +37,9 @@
     </style>
 @endsection
 
-
-
 <script type="text/javascript" charset="UTF-8">
+    // 现在时刻标记设置
     var date_to_str = gantt.date.date_to_str(gantt.config.task_date);
-
     var id = gantt.addMarker({ start_date: new Date(), css: "today", text: "Now", title:date_to_str( new Date())});
     setInterval(function(){
         var today = gantt.getMarker(id);
@@ -49,26 +47,43 @@
         today.title = date_to_str(today.start_date);
         gantt.updateMarker(id);
     }, 1000*60);
+    // Json数据设置
     var tasks = {
-        data:{!! $gantt !!}
+        data:{!! $gantt['tasks'] !!},
+        links:{!! $gantt['links'] !!}
     };
+    // 左侧边栏设置
     gantt.config.columns = [
         {name:"text",       label:"{{ trans('header.tasks') }}",  width:"*", tree:true },
         {name:"start_date", label:"{{ trans('task.start_at') }}", align: "center" },
-        {name:"duration",   label:"Duration",   align: "center" }
+        {name:"duration",   label:"{{ trans('common.duration') }}",   align: "center" }
     ];
+    // 子任务缩进设置
     gantt.templates.grid_indent=function(task){
         return "<div style='width:4px; float:left; height:100%'></div>"
     };
-
-    /*gantt.templates.tooltip_text = function(start,end,task){
-        return "<b>Task:</b> "+task.text+"<br/><b>Start:</b> " + task.start_date;
-    };*/
-
+    // 任务条左侧显示内容
+    gantt.templates.leftside_text = function(start, end, task){
+        return "<b>【"+task.user+"】"+task.work_type+": </b>" +task.text;
+    };
+    // tooltip显示内容
+    gantt.templates.tooltip_text = function(start,end,task){
+        return "<b>{{ trans('header.tasks') }}:</b> "+
+            task.text+
+            "<br/><b>{{ trans('task.user') }}:</b> "+
+            task.user+
+            "<br/><b>{{ trans('header.progress') }}:</b> "+
+            task.progress * 100 + '%' +
+            "<br/><b>{{ trans('task.start_at') }}:</b> " +
+            gantt.templates.tooltip_date_format(start)+
+            "<br/><b>{{ trans('task.end_at') }}:</b> "+
+            gantt.templates.tooltip_date_format(end);
+    };
+    // 任务条内显示文字
     gantt.templates.task_text=function(start,end,task){
         return '';
     };
-
+    // 视图设置
     function setScaleConfig(value){
         switch (value) {
             case "1":
@@ -134,26 +149,18 @@
                 break;
         }
     }
-
+    // 初始视图
     setScaleConfig('4');
-
-    /*gantt.config.scale_unit = "month";
-    gantt.config.date_scale = "%F, %Y";
-    gantt.config.scale_height = 50;
-    gantt.config.subscales = [
-        {unit:"day", step:1, date:"%j（%D）" }
-    ];*/
-
-
+    // 任务类型
     gantt.templates.task_class  = function(start, end, task){
         switch (task.task_type){
-            case 1:
+            case 200:
                 return "success-task";
                 break;
-            case 2:
+            case 755:
                 return "warning-task";
                 break;
-            case 0:
+            case 300:
                 return "info-task";
                 break;
             case 777:
@@ -184,7 +191,7 @@
     for (var i = 0; i < els.length; i++) {
         els[i].onclick = func;
     }
-
+    // TODO:チケット編集
     /*var dp = new dataProcessor("./gantt_data");
      dp.init(gantt);*/
 </script>

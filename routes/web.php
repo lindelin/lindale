@@ -139,7 +139,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
             Route::get('type/{taskType}', 'TaskController@type');
             Route::get('priority/{taskPriority}', 'TaskController@priority');
             Route::get('status/{taskStatus}', 'TaskController@status');
-            Route::get('show/{task}', 'TaskController@show');
+            Route::get('show/{task}', 'TaskController@show')->name('task.show');
 
             //任务
             Route::group(['prefix' => 'task'], function () {

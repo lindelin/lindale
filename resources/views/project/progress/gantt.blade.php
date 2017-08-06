@@ -22,6 +22,8 @@
                     </small>
                 @endslot
 
+                @include('layouts.gantt.mode')
+
                 <div id="gantt_here" style="width:100%"></div>
 
                 <script type="text/javascript" charset="UTF-8">
