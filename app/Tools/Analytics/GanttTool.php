@@ -2,9 +2,9 @@
 
 namespace App\Tools\Analytics;
 
-use App\Task\SubTask;
 use App\Task\Task;
 use Carbon\Carbon;
+use App\Task\SubTask;
 use App\Task\TaskGroup;
 use App\Project\Project;
 
