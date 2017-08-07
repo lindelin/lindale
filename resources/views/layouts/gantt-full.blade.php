@@ -7,7 +7,7 @@
     <script src="{{ asset('dhtmlxGantt/codebase/locale/locale_'.session('lang').'.js') }}" type="text/javascript" charset="utf-8"></script>
     <script src="{{ asset('dhtmlxGantt/codebase/ext/dhtmlxgantt_smart_rendering.js') }}" type="text/javascript" charset="utf-8"></script>
     <script src="{{ asset('dhtmlxGantt/codebase/ext/dhtmlxgantt_tooltip.js') }}" type="text/javascript" charset="utf-8"></script>
-    <script src="http://export.dhtmlx.com/gantt/api.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://export.dhtmlx.com/gantt/api.js" type="text/javascript" charset="utf-8"></script>
     <title>@yield('title')</title>
     @yield('head')
     <style type="text/css" media="screen">
