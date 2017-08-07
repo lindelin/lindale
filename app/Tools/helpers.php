@@ -111,7 +111,7 @@ if (! function_exists('trans_lang_for_gantt')) {
             case 'ja':
                 return 'jp';
                 break;
-            default :
+            default:
                 return 'en';
                 break;
         }
