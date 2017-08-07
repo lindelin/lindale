@@ -170,6 +170,17 @@
                 break;
         }
     };
+    // PDF
+    $(document).ready(function(){
+        $('#toPdf').click(function () {
+            gantt.exportToPDF({
+                name:"gantt.pdf",
+                header:"<h2>{{ $project->title }}</h2>",
+                locale:"{{ trans_lang_for_gantt(session('lang')) }}",
+                skin:'terrace'
+            });
+        });
+    });
     // 排序
     gantt.config.sort = true;
     // 只读
