@@ -117,3 +117,24 @@ if (! function_exists('trans_lang_for_gantt')) {
         }
     }
 }
+
+if (! function_exists('trans_task_group_status_for_gantt')) {
+    /**
+     * Progress to 小数.
+     * @param $status
+     * @return float
+     * @internal param $lang
+     * @internal param $progress
+     */
+    function trans_task_group_status_for_gantt($status)
+    {
+        switch ($status) {
+            case 999:
+                return false;
+                break;
+            default:
+                return true;
+                break;
+        }
+    }
+}

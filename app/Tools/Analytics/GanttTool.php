@@ -4,6 +4,7 @@ namespace App\Tools\Analytics;
 
 use App\Task\Task;
 use Carbon\Carbon;
+use App\Task\SubTask;
 use App\Task\TaskGroup;
 use App\Project\Project;
 
@@ -39,6 +40,12 @@ trait GanttTool
                         $data[] = $this->taskDataMapping($project, $group, $task);
                         $link[] = $this->linkDataMapping($group, $task);
                     }
+                    if ($task->SubTasks->count() > 0) {
+                        foreach ($task->SubTasks as $subTask) {
+                            $data[] = $this->subTaskDataMapping($task, $subTask);
+                            $link[] = $this->subLinkDataMapping($task, $subTask);
+                        }
+                    }
                 }
             }
         }
@@ -65,7 +72,7 @@ trait GanttTool
         $data['user'] = trans('task.group');
         $data['task_type'] = 999;
         $data['work_type'] = trans($group->Type->name);
-        $data['open'] = true;
+        $data['open'] = trans_task_group_status_for_gantt($group->status_id);
 
         return $data;
     }
@@ -95,6 +102,31 @@ trait GanttTool
     }
 
     /**
+     * チケットデータマッピング.
+     * @param Task $task
+     * @param SubTask $subTask
+     * @return array
+     * @internal param Project $project
+     * @internal param TaskGroup $group
+     */
+    protected function subTaskDataMapping(Task $task, SubTask $subTask)
+    {
+        $data = [];
+        $data['id'] = 's_'.$subTask->id;
+        $data['text'] = $subTask->content;
+        $data['start_date'] = $task->start_at->format('d-m-Y');
+        $data['duration'] = $task->start_at->diffInDays($task->end_at);
+        $data['progress'] = trans_progress($task->progress);
+        $data['user'] = $task->User ? $task->User->name : trans('project.none');
+        $data['open'] = false;
+        $data['task_type'] = $this->taskTypeMapping($task);
+        $data['work_type'] = trans('task.sub-task');
+        $data['parent'] = 't_'.$task->id;
+
+        return $data;
+    }
+
+    /**
      * @param TaskGroup $group
      * @param Task $task
      * @return array
@@ -105,6 +137,22 @@ trait GanttTool
         $data['source'] = 'g_'.$group->id;
         $data['target'] = 't_'.$task->id;
         $data['type'] = 1;
+
+        return $data;
+    }
+
+    /**
+     * @param Task $task
+     * @param SubTask $subTask
+     * @return array
+     * @internal param TaskGroup $group
+     */
+    protected function subLinkDataMapping(Task $task, SubTask $subTask)
+    {
+        $data = [];
+        $data['source'] = 't_'.$task->id;
+        $data['target'] = 's_'.$subTask->id;
+        $data['type'] = 2;
 
         return $data;
     }
