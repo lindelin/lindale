@@ -13,7 +13,7 @@
                 <a href="{{ route('progress.gantt', compact('project')) }}" class="btn btn-success btn-lg">
                     <span class="glyphicon glyphicon-arrow-left"></span>
                 </a>
-                <button type="button" onclick="gantt.exportToPDF()" class="btn btn-success btn-lg">
+                <button type="button" id="toPdf" class="btn btn-success btn-lg">
                     <span class="glyphicon glyphicon-print"></span>
                 </button>
             </div>

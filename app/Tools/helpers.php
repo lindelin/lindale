@@ -94,3 +94,26 @@ if (! function_exists('trans_progress')) {
         return round(($progress / 100), 2);
     }
 }
+
+if (! function_exists('trans_lang_for_gantt')) {
+    /**
+     * Progress to 小数.
+     * @param $lang
+     * @return float
+     * @internal param $progress
+     */
+    function trans_lang_for_gantt($lang)
+    {
+        switch ($lang) {
+            case 'zh':
+                return 'cn';
+                break;
+            case 'ja':
+                return 'jp';
+                break;
+            default :
+                return 'en';
+                break;
+        }
+    }
+}
