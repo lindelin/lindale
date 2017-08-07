@@ -16,7 +16,6 @@
         "aws/aws-sdk-php": "^3.24",
         "barryvdh/laravel-ide-helper": "^2.3",
         "consoletvs/charts": "4.*",
-        "dhtmlx/connector-php": "^3.0",
         "doctrine/dbal": "^2.5",
         "erusev/parsedown-extra": "^0.7.1",
         "guzzlehttp/guzzle": "^6.2",
@@ -28,8 +27,7 @@
         "league/flysystem-aws-s3-v3": "^1.0",
         "lindelea/laravel-aws-elb-support": "^1.0",
         "rap2hpoutre/laravel-log-viewer": "^0.8.0",
-        "spatie/laravel-backup": "^4.6",
-        "swatkins/laravel-gantt": "^1.0"
+        "spatie/laravel-backup": "^4.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
