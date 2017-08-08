@@ -22,12 +22,12 @@
             <a href="{{ route('progress.tasks', compact('project')) }}" class="btn btn-default @if($mode == 'task') btn-primary @endif">
                 {{ trans('progress.task') }}
             </a>
-            <a href="#" class="btn btn-default @if($mode == 'todo') btn-primary @endif" disabled>
+            <a href="{{ route('progress.todo', compact('project')) }}" class="btn btn-default @if($mode == 'todo') btn-primary @endif">
                 TODO
             </a>
-            <a href="#" class="btn btn-default @if($mode == 'report') btn-primary @endif" disabled>
+            {{--<a href="#" class="btn btn-default @if($mode == 'report') btn-primary @endif" disabled>
                 {{ trans('progress.report') }}
-            </a>
+            </a>--}}
         </div>
     </div>
 </div>

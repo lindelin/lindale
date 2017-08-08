@@ -65,4 +65,10 @@ class ProgressController extends Controller
         return view('project.progress.task', $this->progressRepository->taskProgress($project))
             ->with(['project' => $project, 'selected' => 'progress', 'mode' => 'task']);
     }
+
+    public function todo(Project $project)
+    {
+        return view('project.progress.todo', $this->progressRepository->todoProgress($project))
+            ->with(['project' => $project, 'selected' => 'progress', 'mode' => 'todo']);
+    }
 }

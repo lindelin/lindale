@@ -144,6 +144,11 @@ class ProgressCharts
             ->groupBy('type_id', null, $this->taskTypeLabels($project));
     }
 
+    /**
+     * 任务动向
+     * @param Project $project
+     * @return mixed
+     */
     public function taskProgressAreaspline(Project $project)
     {
         return Charts::multiDatabase('areaspline', 'highcharts')
@@ -168,6 +173,40 @@ class ProgressCharts
             ->dataset(trans('header.tasks'), $project->Tasks)
             ->dataset(trans('progress.finished-task'), $project->Tasks()->where('is_finish', true)->get())
             ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
+            ->elementLabel(trans('progress.count'))
+            ->responsive(true)
+            ->lastByMonth(12, true);
+    }
+
+    /**
+     * 任务动向
+     * @param Project $project
+     * @return mixed
+     */
+    public function todoProgressAreaspline(Project $project)
+    {
+        return Charts::multiDatabase('areaspline', 'highcharts')
+            ->title(trans('progress.status'))
+            ->dataset(trans('progress.new-todo'), $project->Todos()->select('created_at')->get())
+            ->dataset(trans('progress.finished-todo'), $project->Todos()->select('updated_at AS created_at')->where('status_id', 2)->get())
+            ->colors(['#ff8a00', '#00a477', '#008bfa', '#ff2321'])
+            ->elementLabel(trans('progress.count'))
+            ->responsive(true)
+            ->lastByDay(14, true);
+    }
+
+    /**
+     * 任务统计柱状图.
+     * @param Project $project
+     * @return mixed
+     */
+    public function todoOverviewBar(Project $project)
+    {
+        return Charts::multiDatabase('bar', 'highcharts')
+            ->title(trans('header.info'))
+            ->dataset(trans('progress.new-todo'), $project->Todos()->select('created_at')->get())
+            ->dataset(trans('progress.finished-todo'), $project->Todos()->select('updated_at AS created_at')->where('status_id', 2)->get())
+            ->colors(['#ff8a00', '#00a477', '#008bfa', '#ff2321'])
             ->elementLabel(trans('progress.count'))
             ->responsive(true)
             ->lastByMonth(12, true);

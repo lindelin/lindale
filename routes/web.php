@@ -95,6 +95,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
             Route::get('/gantt', 'ProgressController@gantt')->name('progress.gantt');
             Route::get('/gantt-full', 'ProgressController@ganttFull')->name('progress.gantt-full');
             Route::get('/tasks', 'ProgressController@tasks')->name('progress.tasks');
+            Route::get('/todo', 'ProgressController@todo')->name('progress.todo');
         });
 
         //概要路由
