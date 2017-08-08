@@ -130,4 +130,46 @@ class ProgressCharts
 
         return $typeLabels;
     }
+
+    /**
+     * 作業区分円グラフ.
+     * @param Project $project
+     * @return mixed
+     */
+    public function taskTypePie(Project $project)
+    {
+        return Charts::database($project->Tasks, 'pie', 'highcharts')
+            ->title(trans('task.type'))
+            ->responsive(true)
+            ->groupBy('type_id', null, $this->taskTypeLabels($project));
+    }
+
+    public function taskProgressAreaspline(Project $project)
+    {
+        return Charts::multiDatabase('areaspline', 'highcharts')
+            ->title(trans('progress.status'))
+            ->dataset(trans('progress.new-task'), $project->Tasks()->select('created_at')->get())
+            ->dataset(trans('progress.finished-task'), $project->Tasks()->select('updated_at AS created_at')->where('is_finish', true)->get())
+            ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
+            ->elementLabel(trans('progress.count'))
+            ->responsive(true)
+            ->lastByDay(14, true);
+    }
+
+    /**
+     * 任务统计柱状图.
+     * @param Project $project
+     * @return mixed
+     */
+    public function taskOverviewBar(Project $project)
+    {
+        return Charts::multiDatabase('bar', 'highcharts')
+            ->title(trans('header.info'))
+            ->dataset(trans('header.tasks'), $project->Tasks)
+            ->dataset(trans('progress.finished-task'), $project->Tasks()->where('is_finish', true)->get())
+            ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
+            ->elementLabel(trans('progress.count'))
+            ->responsive(true)
+            ->lastByMonth(12, true);
+    }
 }

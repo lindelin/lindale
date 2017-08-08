@@ -108,4 +108,11 @@ class ProgressRepository
 
         return compact('users', 'subLeader', 'projectLeader');
     }
+
+    public function taskProgress(Project $project)
+    {
+        $taskGroups = $project->TaskGroups()->latest()->paginate(5);
+
+        return compact('taskGroups');
+    }
 }

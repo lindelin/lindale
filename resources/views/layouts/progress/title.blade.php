@@ -19,7 +19,7 @@
             <a href="{{ route('progress.gantt', compact('project')) }}" class="btn btn-default @if($mode == 'gantt') btn-primary @endif">
                 {{ trans('progress.gantt') }}
             </a>
-            <a href="#" class="btn btn-default @if($mode == 'task') btn-primary @endif" disabled>
+            <a href="{{ route('progress.tasks', compact('project')) }}" class="btn btn-default @if($mode == 'task') btn-primary @endif">
                 {{ trans('progress.task') }}
             </a>
             <a href="#" class="btn btn-default @if($mode == 'todo') btn-primary @endif" disabled>

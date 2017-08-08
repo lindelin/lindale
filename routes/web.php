@@ -91,9 +91,10 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         //进度路由
         Route::group(['prefix' => 'progress'], function () {
             Route::get('/', 'ProgressController@index')->name('progress');
+            Route::get('/member', 'ProgressController@member')->name('progress.member');
             Route::get('/gantt', 'ProgressController@gantt')->name('progress.gantt');
             Route::get('/gantt-full', 'ProgressController@ganttFull')->name('progress.gantt-full');
-            Route::get('/member', 'ProgressController@member')->name('progress.member');
+            Route::get('/tasks', 'ProgressController@tasks')->name('progress.tasks');
         });
 
         //概要路由

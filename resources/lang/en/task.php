@@ -24,7 +24,7 @@ return [
     'none'         => 'None',
     'cancel'       => 'Cancel',
     'submit'       => 'Submit',
-    'default'      => 'Default',
+    'default'      => 'Task',
     'underway'     => 'Underway',
     'finish'       => 'Finished',
     'unfinished'   => 'Unfinished',
