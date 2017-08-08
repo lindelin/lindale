@@ -24,7 +24,7 @@ return [
     'none'         => '无',
     'cancel'       => '取消',
     'submit'       => '创建',
-    'default'      => '默认',
+    'default'      => '任务',
     'underway'     => '进行中',
     'finish'       => '完成',
     'unfinished'   => '未完成',

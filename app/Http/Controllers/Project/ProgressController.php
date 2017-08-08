@@ -40,15 +40,35 @@ class ProgressController extends Controller
             ->with(['project' => $project, 'selected' => 'progress', 'mode' => 'gantt']);
     }
 
+    /**
+     * @param Project $project
+     * @return mixed
+     */
     public function ganttFull(Project $project)
     {
         return view('project.progress.gantt-full', $this->progressRepository->taskGanttChart($project))
             ->with(['project' => $project]);
     }
 
+    /**
+     * @param Project $project
+     * @return mixed
+     */
     public function member(Project $project)
     {
         return view('project.progress.member', $this->progressRepository->memberProgress($project))
             ->with(['project' => $project, 'selected' => 'progress', 'mode' => 'member']);
+    }
+
+    public function tasks(Project $project)
+    {
+        return view('project.progress.task', $this->progressRepository->taskProgress($project))
+            ->with(['project' => $project, 'selected' => 'progress', 'mode' => 'task']);
+    }
+
+    public function todo(Project $project)
+    {
+        return view('project.progress.todo', $this->progressRepository->todoProgress($project))
+            ->with(['project' => $project, 'selected' => 'progress', 'mode' => 'todo']);
     }
 }
