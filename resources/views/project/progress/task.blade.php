@@ -55,7 +55,7 @@
                         @if($taskGroup->Tasks()->count() > 0)
                             @foreach($taskGroup->Tasks as $task)
                                 <tr>
-                                    <td>{{ $task->title }}</td>
+                                    <td><a href="{{ route('task.show', compact('project', 'task')) }}">{{ $task->title }}</a></td>
                                     <td>{!! Colorable::label($task->Type->color_id, trans($task->Type->name)) !!}</td>
                                     <td>{{ $task->User ? $task->User->name : trans('project.none') }}</td>
                                     <td>{{ $task->Initiator ? $task->Initiator->name : trans('project.none') }}</td>
