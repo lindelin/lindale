@@ -24,7 +24,7 @@ return [
     'none'         => 'なし',
     'cancel'       => '取消',
     'submit'       => '作成',
-    'default'      => 'デフォルト',
+    'default'      => 'タスク',
     'underway'     => '進行中',
     'finish'       => '完了',
     'unfinished'   => '未完了',
