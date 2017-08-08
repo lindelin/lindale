@@ -126,7 +126,7 @@ class ProgressRepository
      */
     public function todoProgress(Project $project)
     {
-        $todos= $project->Todos()->latest()->paginate(20);
+        $todos = $project->Todos()->latest()->paginate(20);
 
         return compact('todos');
     }

@@ -145,7 +145,7 @@ class ProgressCharts
     }
 
     /**
-     * 任务动向
+     * 任务动向.
      * @param Project $project
      * @return mixed
      */
@@ -179,7 +179,7 @@ class ProgressCharts
     }
 
     /**
-     * 任务动向
+     * 任务动向.
      * @param Project $project
      * @return mixed
      */
