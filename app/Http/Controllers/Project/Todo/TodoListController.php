@@ -25,7 +25,8 @@ class TodoListController extends Controller
 
     /**
      * 构造器
-     * 通过DI注入资源库.
+     * 通过DI注�
+     * �资源库.
      *
      * TodoListController constructor.
      * @param TodoRepository $todoRepository

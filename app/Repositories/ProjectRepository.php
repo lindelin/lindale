@@ -166,7 +166,8 @@ class ProjectRepository
 
     /**
      * 更新项目进度方法.
-     * TODO: 需要调整（参照任务资源库）.
+     * TODO: 需要调整（参�
+     * �任务资源库）.
      *
      * @param $progress
      * @param Project $project

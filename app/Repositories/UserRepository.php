@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Storage;
 class UserRepository
 {
     /**
-     * 获得全部用户.
+     * 获得�
+     * �部用户.
      *
      * @return array
      */
@@ -46,7 +47,9 @@ class UserRepository
     }
 
     /**
-     * 删除用户的相关内容.
+     * 删除用户的相�
+     * ��
+     * 容.
      *
      * @param User $user
      */

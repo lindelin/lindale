@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Storage;
 class MakeProjectDirectory
 {
     /**
-     * 项目创建事件的监听者.
+     * 项目创建事件的监听�
+     * .
      *
      * MakeProjectDirectory constructor.
      */

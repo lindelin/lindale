@@ -9,7 +9,8 @@ use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
 class NotificationController extends Controller
 {
     /**
-     * 用户配置系统
+     * 用户�
+     * �置系统
      *
      * @var UserConfigSystemContract
      */

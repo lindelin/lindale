@@ -8,7 +8,8 @@ use Closure;
 class AdminAuth
 {
     /**
-     * 用于验证超级用户的中间件.
+     * 用于验证�
+     * 级用户的中间件.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

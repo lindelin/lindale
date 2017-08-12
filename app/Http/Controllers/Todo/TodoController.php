@@ -32,7 +32,8 @@ class TodoController extends Controller
 
     /**
      * 构造器
-     * 通过DI注入资源库.
+     * 通过DI注�
+     * �资源库.
      *
      * TodoController constructor.
      * @param TodoRepository $todoRepository
