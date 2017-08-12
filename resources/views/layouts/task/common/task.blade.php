@@ -118,8 +118,12 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    {{ Counter::SubTaskCount($task) }}　{{ trans('task.sub-task') }}（{{ Counter::FinishedSubTasks($task) }} - {{ trans('task.finish') }} ，
-                    {{ Counter::UnfinishedSubTasks($task) }} - {{ trans('task.unfinished') }}）
+                    <h4>
+                        <small>
+                            {{ Counter::SubTaskCount($task) }}　{{ trans('task.sub-task') }}（{{ Counter::FinishedSubTasks($task) }} - {{ trans('task.finish') }} ，
+                            {{ Counter::UnfinishedSubTasks($task) }} - {{ trans('task.unfinished') }}）
+                        </small>
+                    </h4>
                 </div>
             </div>
         </div>

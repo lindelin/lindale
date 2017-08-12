@@ -1,5 +1,5 @@
-<nav class="navbar-fixed-bottom lindale-footer hidden-xs" role="navigation">
-    <div class="container-fluid" style="padding-top: 2px;">
+<nav class="navbar-inverse navbar-fixed-bottom lindale-footer hidden-xs" role="navigation">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xs-0 col-sm-0 col-md-4 col-lg-4">
             </div>
@@ -29,7 +29,6 @@
                 &copy; {{ date('Y') }}
                 <a href="{{ url('/') }}" target="_blank">{{ config('app.name') }}</a>.
                 All rights reserved.
-                <p>Powered by <a href="http://www.lindelin.org" target="_blank">Lindelin</a>.</p>
             </div>
         </div>
     </div>
