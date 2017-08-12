@@ -48,7 +48,7 @@
                 @foreach($subTask as $sub)
                     <table class="bs-callout {{ Colorable::getCallOutColor($task->color_id) }} table table-bordered table-hover">
                         <tr>
-                            <td width="10%">
+                            <td width="10%" style="padding-left: 24px;">
                                 @include('layouts.task.common.sub-task-finish-edit',
                                 ['status_edit_url' => url('project/'.$project->id.'/task/show/'.$task->id.'/sub-task/edit/'.$sub->id), 'model' => $sub])
                             </td>

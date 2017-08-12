@@ -1,0 +1,69 @@
+.btn-primary, .progress-bar-primary, .panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.text-primary{
+    color: #007bff;
+}
+
+.panel-primary{
+    border-color: #007bff;
+}
+
+.btn-success, .progress-bar-success, .panel-success>.panel-heading, .alert-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.text-success{
+    color: #28a745;
+}
+
+.panel-success{
+    border-color: #28a745;
+}
+
+.btn-danger, .progress-bar-danger, .panel-danger>.panel-heading, .alert-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.text-danger{
+    color: #dc3545;
+}
+
+.panel-danger{
+    border-color: #dc3545;
+}
+
+.btn-warning, .progress-bar-warning, .panel-warning>.panel-heading {
+    color: #111;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.text-warning{
+    color: #ffc107;
+}
+
+.panel-warning{
+    border-color: #ffc107;
+}
+
+.btn-info, .panel-info>.panel-heading {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.text-info{
+    color: #17a2b8;
+}
+
+.panel-info{
+    border-color: #17a2b8;
+}

@@ -85,7 +85,7 @@ mix.styles([
     'resources/assets/css/bootstrap-off-canvas-nav.css',
     'resources/assets/css/bootstrap-datetimepicker.css',
     'resources/assets/css/bootstrap-markdown.css',
-    'resources/assets/css/button.css'
+    'resources/assets/css/colors.css'
 ], 'public/css/main.css');
 
 // lib.js

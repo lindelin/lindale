@@ -12,7 +12,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand logo" href="{{ url('/') }}">
-                <img alt="{{ config('app.name') }}" height="37" src="{{ asset('img/logo.png') }}">
+                <img alt="{{ config('app.name') }}" height="40" src="{{ asset('img/logo.png') }}">
             </a>
         </div>
 
@@ -67,7 +67,7 @@
                     <hr class="visible-xs-block">
                     <li>
                         <a href="{{ url('/home') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('auth.home') }}">
-                            <span class="glyphicon glyphicon-home"></span>
+                            HOME
                         </a>
                         <a href="{{ url('/home') }}" class="visible-xs-block">
                             <span class="glyphicon glyphicon-home"></span> {{ trans('auth.home') }}
@@ -75,7 +75,7 @@
                     </li>
                     <li>
                         <a href="{{ url('/project') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('header.project') }}">
-                            <span class="glyphicon glyphicon-briefcase"></span>
+                            PROJECTS
                         </a>
                         <a href="{{ url('/project') }}" class="visible-xs-block">
                             <span class="glyphicon glyphicon-briefcase"></span> {{ trans('header.project') }}
@@ -83,7 +83,7 @@
                     </li>
                     <li>
                         <a href="{{ url('/task') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="{{ trans('header.tasks') }}">
-                            <span class="glyphicon glyphicon-tasks"></span>
+                            TASKS
                         </a>
                         <a href="{{ url('/task') }}" class="visible-xs-block">
                             <span class="glyphicon glyphicon-tasks"></span> {{ trans('header.tasks') }}
@@ -91,7 +91,7 @@
                     </li>
                     <li>
                         <a href="{{ url('/todo') }}" class="my-tooltip hidden-xs" data-placement="bottom" title="TODO">
-                            <span class="glyphicon glyphicon-check"></span>
+                            TODO
                         </a>
                         <a href="{{ url('/todo') }}" class="visible-xs-block">
                             <span class="glyphicon glyphicon-check"></span> TODO
@@ -210,9 +210,9 @@
                         <a href="#" class="dropdown-toggle" id="user-icon" data-toggle="dropdown" role="button" aria-expanded="false" title="{{ trans('auth.logout') }}">
                             <span>
                                 @if(Auth::user()->photo != '')
-                                    <img src="{{ asset('storage/'.Auth::user()->photo) }}" class="img-circle" style="padding: 0px;width: 35px;height: 35px;">
+                                    <img src="{{ asset('storage/'.Auth::user()->photo) }}" class="img-circle" style="padding: 0;width: 40px;height: 40px;">
                                 @else
-                                    <img src="{{ asset(Colorable::lindaleProfileImg(Auth::user()->email)) }}" style="padding: 0px;width: 35px;height: 35px;">
+                                    <img src="{{ asset(Colorable::lindaleProfileImg(Auth::user()->email)) }}" style="padding: 0;width: 40px;height: 40px;">
                                 @endif
                             </span>
                              <span class="caret"></span>
