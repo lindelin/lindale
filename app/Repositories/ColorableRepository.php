@@ -177,7 +177,8 @@ class ColorableRepository
     }
 
     /**
-     * 共通面板颜色属性.
+     * �
+     * �通面板颜色属性.
      *
      * @param $id
      * @return mixed
@@ -228,7 +229,8 @@ class ColorableRepository
     }
 
     /**
-     * 共通文本颜色属性.
+     * �
+     * �通文本颜色属性.
      *
      * @param $id
      * @return mixed
@@ -347,7 +349,8 @@ class ColorableRepository
     }
 
     /**
-     * 共通进度条颜色属性.
+     * �
+     * �通进度条颜色属性.
      *
      * @param $id
      * @return mixed

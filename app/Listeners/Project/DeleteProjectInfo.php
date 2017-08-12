@@ -7,7 +7,8 @@ use App\Events\Project\ProjectDeleted;
 class DeleteProjectInfo
 {
     /**
-     * 项目创建事件的监听者.
+     * 项目创建事件的监听�
+     * .
      *
      * DeleteProjectInfo constructor.
      */
@@ -17,7 +18,9 @@ class DeleteProjectInfo
     }
 
     /**
-     * 删除项目相关内容.
+     * 删除项目相�
+     * ��
+     * 容.
      *
      * @param  ProjectDeleted  $event
      * @return void

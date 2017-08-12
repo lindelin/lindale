@@ -84,7 +84,8 @@ trait MemberCounter
     }
 
     /**
-     * 项目中成员待办总数.
+     * 项目中成员�
+     * 办总数.
      *
      * @param Project $project
      * @param User $user
@@ -99,7 +100,8 @@ trait MemberCounter
     }
 
     /**
-     * 项目中成员完成待办数.
+     * 项目中成员完成�
+     * 办数.
      *
      * @param Project $project
      * @param User $user

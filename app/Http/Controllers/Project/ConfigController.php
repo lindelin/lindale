@@ -20,7 +20,8 @@ class ConfigController extends Controller
     protected $projectRepository;
 
     /**
-     * 项目配置系统
+     * 项目�
+     * �置系统
      *
      * @var ProjectConfigSystemContract
      */

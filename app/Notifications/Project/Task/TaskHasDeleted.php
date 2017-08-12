@@ -36,7 +36,8 @@ class TaskHasDeleted extends Notification implements ShouldQueue
     public $locale;
 
     /**
-     * 注入依赖.
+     * 注�
+     * �依赖.
      *
      * TaskHasDeleted constructor.
      * @param User $user

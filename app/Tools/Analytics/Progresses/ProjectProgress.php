@@ -100,7 +100,8 @@ trait ProjectProgress
     }
 
     /**
-     * 计算未完成待办的比重.
+     * 计算未完成�
+     * 办的比重.
      *
      * @param Project $project
      * @return int

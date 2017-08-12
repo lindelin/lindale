@@ -9,7 +9,8 @@ use App\Project\Project;
 class ProgressCharts
 {
     /**
-     * 项目成员任务／待办统计柱状图.
+     * 项目成员任务／�
+     * 办统计柱状图.
      * @param Project $project
      * @return mixed
      */
@@ -28,7 +29,8 @@ class ProgressCharts
     }
 
     /**
-     * 项目成员任务／待办统计柱状图.
+     * 项目成员任务／�
+     * 办统计柱状图.
      * @param Project $project
      * @return mixed
      */
@@ -44,7 +46,8 @@ class ProgressCharts
     }
 
     /**
-     * 项目成员任务／待办统计柱状图.
+     * 项目成员任务／�
+     * 办统计柱状图.
      * @param Project $project
      * @return mixed
      */

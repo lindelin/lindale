@@ -36,7 +36,8 @@ class TodoHasDeleted extends Notification implements ShouldQueue
     public $locale;
 
     /**
-     * 资源注入.
+     * 资源注�
+     * �.
      *
      * TodoHasDeleted constructor.
      * @param User $user
