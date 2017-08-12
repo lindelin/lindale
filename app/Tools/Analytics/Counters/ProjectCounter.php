@@ -22,7 +22,8 @@ trait ProjectCounter
     }
 
     /**
-     * 合计任务组包含的任务总数.
+     * 合计任务组�
+     * 含的任务总数.
      *
      * @param TaskGroup $group
      * @return int
@@ -33,7 +34,8 @@ trait ProjectCounter
     }
 
     /**
-     * 合计任务组包含的已完成任务数.
+     * 合计任务组�
+     * 含的已完成任务数.
      *
      * @param TaskGroup $group
      * @return int
@@ -125,7 +127,8 @@ trait ProjectCounter
     }
 
     /**
-     * 项目中完成待办数.
+     * 项目中完成�
+     * 办数.
      *
      * @param Project $project
      * @return int
@@ -140,7 +143,8 @@ trait ProjectCounter
     }
 
     /**
-     * 项目中待办总数.
+     * 项目中�
+     * 办总数.
      *
      * @param Project $project
      * @return int
@@ -171,7 +175,8 @@ trait ProjectCounter
     }
 
     /**
-     * 合计项目中的任务数（优先度别）.
+     * 合计项目中的任务数（优�
+     * �度别）.
      *
      * @param Project $project
      * @param TaskPriority $priority

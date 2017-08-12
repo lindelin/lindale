@@ -36,7 +36,8 @@ class TaskHasUpdated extends Notification implements ShouldQueue
     public $locale;
 
     /**
-     * 注入依赖.
+     * 注�
+     * �依赖.
      *
      * TaskHasUpdated constructor.
      * @param Task $task

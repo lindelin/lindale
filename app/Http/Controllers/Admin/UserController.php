@@ -30,7 +30,8 @@ class UserController extends Controller
     }
 
     /**
-     * 超级用户控制台->用户控制台主页.
+     * �
+     * 级用户控制台->用户控制台主页.
      *
      * @param Request $request
      * @return mixed
@@ -43,7 +44,8 @@ class UserController extends Controller
     }
 
     /**
-     * 超级用户控制台->用户创建表单.
+     * �
+     * 级用户控制台->用户创建表单.
      *
      * @param Request $request
      * @return mixed
@@ -56,7 +58,8 @@ class UserController extends Controller
     }
 
     /**
-     * 超级用户控制台->创建用户.
+     * �
+     * 级用户控制台->创建用户.
      *
      * @param UserRequest $request
      * @return mixed
@@ -75,7 +78,8 @@ class UserController extends Controller
     }
 
     /**
-     * 超级用户控制台->删除用户.
+     * �
+     * 级用户控制台->删除用户.
      *
      * @param Request $request
      * @param User $user

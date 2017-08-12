@@ -19,7 +19,8 @@ class ProjectUpdated
     public $project;
 
     /**
-     * 注入项目实例
+     * 注�
+     * �项目实例
      * ProjectCreated constructor.
      * @param Project $project
      */

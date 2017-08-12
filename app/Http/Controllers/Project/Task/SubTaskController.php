@@ -23,7 +23,8 @@ class SubTaskController extends Controller
 
     /**
      * 构造器
-     * 注入资源.
+     * 注�
+     * �资源.
      *
      * TaskGroupController constructor.
      * @param TaskRepository $taskRepository

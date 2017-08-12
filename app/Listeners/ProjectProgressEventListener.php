@@ -16,7 +16,9 @@ class ProjectProgressEventListener
     protected $projectRepository;
 
     /**
-     * 创建事件订阅者实例.
+     * 创建事件订�
+     * �
+     * 实例.
      *
      * ProjectProgressEventListener constructor.
      * @param ProjectRepository $projectRepository
@@ -55,7 +57,8 @@ class ProjectProgressEventListener
     }
 
     /**
-     * 处理项目进度关联事件（项目进度更新方法）.
+     * 处理项目进度�
+     * �联事件（项目进度更新方法）.
      *
      * @param Project $project
      */
@@ -66,7 +69,9 @@ class ProjectProgressEventListener
     }
 
     /**
-     * 为订阅者注册监听器。
+     * 为订�
+     * �
+     * 注册监听器。
      *
      * @param $events
      */
