@@ -1,5 +1,5 @@
 <nav class="navbar-inverse navbar-fixed-bottom lindale-footer hidden-xs" role="navigation">
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-top: 2px;">
         <div class="row">
             <div class="col-xs-0 col-sm-0 col-md-4 col-lg-4">
             </div>
