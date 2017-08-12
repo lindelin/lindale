@@ -16,7 +16,8 @@ class HomeController extends Controller
     }
 
     /**
-     * 超级用户控制台.
+     * �
+     * 级用户控制台.
      *
      * @param Request $request
      * @return mixed

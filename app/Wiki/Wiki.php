@@ -32,7 +32,8 @@ use Illuminate\Database\Eloquent\Model;
 class Wiki extends Model
 {
     /**
-     * 一篇WIKI只有一个作者
+     * 一篇WIKI只有一个作�
+     *
      * 一对一
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

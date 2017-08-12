@@ -94,7 +94,8 @@ class TaskRepository
     }
 
     /**
-     * 任务详情资源.
+     * 任务详�
+     * 资源.
      *
      * @param Project $project
      * @param Task $task
@@ -152,7 +153,8 @@ class TaskRepository
     }
 
     /**
-     * 关联资源.
+     * �
+     * �联资源.
      *
      * @param Project $project
      * @return array

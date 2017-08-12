@@ -35,7 +35,8 @@ class TodoHasUpdated extends Notification implements ShouldQueue
     public $locale;
 
     /**
-     * 资源注入.
+     * 资源注�
+     * �.
      *
      * TodoHasCreated constructor.
      * @param Todo $todo

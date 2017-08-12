@@ -26,7 +26,8 @@ class TaskController extends Controller
 
     /**
      * 构造器
-     * 注入资源.
+     * 注�
+     * �资源.
      *
      * TaskGroupController constructor.
      * @param TaskRepository $taskRepository
@@ -98,7 +99,8 @@ class TaskController extends Controller
     }
 
     /**
-     * 按任务优先度.
+     * 按任务优�
+     * �度.
      *
      * @param Project $project
      * @param TaskPriority $priority
@@ -208,7 +210,8 @@ class TaskController extends Controller
     }
 
     /**
-     * 任务详情.
+     * 任务详�
+     * .
      *
      * @param Project $project
      * @param Task $task
