@@ -82,7 +82,7 @@
 
             <section>
                 @if (Auth::guest())
-                    <a href="{{ url('/login') }}" title="Let's start now" class="button">Let's start now</a>
+                    <a href="{{ url('/login') }}" title="Let's start now" class="button">Login</a>
                 @else
                     <a href="{{ url('/home') }}" title="Let's start now" class="button">Back to home</a>
                 @endif

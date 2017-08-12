@@ -1,9 +1,7 @@
 .bs-callout {
     padding: 20px;
     margin: 20px 0;
-    border: 1px solid #eee;
-    border-left-width: 5px;
-    border-radius: 3px;
+    border: 1px solid #eaeaea;
     box-shadow: 3px 3px 20px rgba(0, 0, 0, .1);
 }
 .bs-callout h4 {
@@ -20,38 +18,38 @@
     margin-top: -5px;
 }
 .bs-callout-default {
-    border-left-color: #777;
+    background: linear-gradient(to right, #343a40 0, #343a40 8px, #fff 8px, #fff 100%) no-repeat;
 }
 .bs-callout-default h4 {
-    color: #777;
+    color: #343a40;
 }
 .bs-callout-primary {
-    border-left-color: #428bca;
+    background: linear-gradient(to right, #007bff 0, #007bff 8px, #fff 8px, #fff 100%) no-repeat;
 }
 .bs-callout-primary h4 {
-    color: #428bca;
+    color: #007bff;
 }
 .bs-callout-success {
-    border-left-color: #5cb85c;
+    background: linear-gradient(to right, #28a745 0, #28a745 8px, #fff 8px, #fff 100%) no-repeat;
 }
 .bs-callout-success h4 {
-    color: #5cb85c;
+    color: #28a745;
 }
 .bs-callout-danger {
-    border-left-color: #d9534f;
+    background: linear-gradient(to right, #dc3545 0, #dc3545 8px, #fff 8px, #fff 100%) no-repeat;
 }
 .bs-callout-danger h4 {
-    color: #d9534f;
+    color: #dc3545;
 }
 .bs-callout-warning {
-    border-left-color: #f0ad4e;
+    background: linear-gradient(to right, #ffc107 0, #ffc107 8px, #fff 8px, #fff 100%) no-repeat;
 }
 .bs-callout-warning h4 {
-    color: #f0ad4e;
+    color: #ffc107;
 }
 .bs-callout-info {
-    border-left-color: #5bc0de;
+    background: linear-gradient(to right, #17a2b8 0, #17a2b8 8px, #fff 8px, #fff 100%) no-repeat;
 }
 .bs-callout-info h4 {
-    color: #5bc0de;
+    color: #17a2b8;
 }

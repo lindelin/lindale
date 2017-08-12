@@ -10,7 +10,7 @@
         <br>
         <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <a href="{{ route('progress.gantt', compact('project')) }}" class="btn btn-success btn-lg">
+                <a href="{{ redirect()->back()->getTargetUrl() }}" class="btn btn-success btn-lg">
                     <span class="glyphicon glyphicon-arrow-left"></span>
                 </a>
                 <button type="button" id="toPdf" class="btn btn-success btn-lg">

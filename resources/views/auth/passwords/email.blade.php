@@ -37,4 +37,22 @@
             </div>
         </div>
     </form>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-globe"></span> {{ trans('header.'.config('app.locale')) }} <strong class="caret"></strong>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="{{ route('lang', ['lang' => 'en']) }}">English</a>
+                </li>
+                <li>
+                    <a href="{{ route('lang', ['lang' => 'ja']) }}">日本語</a>
+                </li>
+                <li>
+                    <a href="{{ route('lang', ['lang' => 'zh']) }}">中文</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 @endsection
