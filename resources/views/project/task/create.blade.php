@@ -112,23 +112,6 @@
                             </div>
                         </div>
 
-                        {{-- 耗时 --}}
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group{{ $errors->has('cost') ? ' has-error' : '' }}">
-                                <label class="control-label">
-                                    {{ trans('task.cost') }}
-                                </label>
-                                <div>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="cost" value="{{ old('cost') }}">
-                                        <span class="input-group-addon">{{ trans('task.hour') }}</span>
-                                    </div>
-                                    @include('layouts.common.error-one', ['field' => 'cost'])
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
                     {{-- 框架 --}}
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
@@ -219,22 +202,21 @@
                             </div>
                         </div>
 
-                        @if($tasks->count() > 0)
-                            {{-- 关联任务 --}}
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="form-group{{ $errors->has('task_id') ? ' has-error' : '' }}">
-                                    <label class="control-label">{{ trans('task.task') }}</label>
-                                    <div>
-                                        <select class="selectpicker form-control" data-live-search="true" multiple data-max-options="5" name="task_id[]">
-                                            @foreach( $tasks as $task)
-                                                <option value="{{ $task->id }}" @if(in_array($task->id, (array)old('task_id'))) selected @endif>{{ trans($task->title) }}</option>
-                                            @endforeach
-                                        </select>
-                                        @include('layouts.common.error-one', ['field' => 'task_id'])
+                        {{-- 耗时 --}}
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group{{ $errors->has('cost') ? ' has-error' : '' }}">
+                                <label class="control-label">
+                                    {{ trans('task.cost') }}
+                                </label>
+                                <div>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="cost" value="{{ old('cost') }}">
+                                        <span class="input-group-addon">{{ trans('task.hour') }}</span>
                                     </div>
+                                    @include('layouts.common.error-one', ['field' => 'cost'])
                                 </div>
                             </div>
-                        @endif
+                        </div>
 
                     </div>
                 </div>
