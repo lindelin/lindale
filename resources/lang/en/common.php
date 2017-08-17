@@ -27,5 +27,6 @@ return [
     'month' => 'Month',
     'year' => 'Year',
     'duration' => 'Duration',
+    'choose-file' => 'Choose File',
 
 ];
