@@ -112,6 +112,22 @@
                             </div>
                         </div>
 
+                        {{-- 耗时 --}}
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group{{ $errors->has('cost') ? ' has-error' : '' }}">
+                                <label class="control-label">
+                                    {{ trans('task.cost') }}
+                                </label>
+                                <div>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="cost" value="{{ old('cost') }}">
+                                        <span class="input-group-addon">{{ trans('task.hour') }}</span>
+                                    </div>
+                                    @include('layouts.common.error-one', ['field' => 'cost'])
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     {{-- 框架 --}}
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
@@ -202,18 +218,41 @@
                             </div>
                         </div>
 
-                        {{-- 耗时 --}}
+                        {{-- 附属任务 --}}
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group{{ $errors->has('cost') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('contents') ? ' has-error' : '' }}">
                                 <label class="control-label">
-                                    {{ trans('task.cost') }}
+                                    {{ trans('task.sub-task') }} 1
                                 </label>
                                 <div>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="cost" value="{{ old('cost') }}">
-                                        <span class="input-group-addon">{{ trans('task.hour') }}</span>
-                                    </div>
-                                    @include('layouts.common.error-one', ['field' => 'cost'])
+                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents')[0] }}">
+                                    @include('layouts.common.error-one', ['field' => 'contents'])
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- 附属任务 --}}
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group{{ $errors->has('contents') ? ' has-error' : '' }}">
+                                <label class="control-label">
+                                    {{ trans('task.sub-task') }} 2
+                                </label>
+                                <div>
+                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents')[1] }}">
+                                    @include('layouts.common.error-one', ['field' => 'contents'])
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- 附属任务 --}}
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group{{ $errors->has('contents') ? ' has-error' : '' }}">
+                                <label class="control-label">
+                                    {{ trans('task.sub-task') }} 3
+                                </label>
+                                <div>
+                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents')[2] }}">
+                                    @include('layouts.common.error-one', ['field' => 'contents'])
                                 </div>
                             </div>
                         </div>

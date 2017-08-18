@@ -28,7 +28,7 @@
                                     {{ trans('task.sub-task') }} 1
                                 </label>
                                 <div>
-                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents') }}">
+                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents')[0] }}">
                                     @include('layouts.common.error-one', ['field' => 'contents'])
                                 </div>
                             </div>
@@ -42,7 +42,7 @@
                                     {{ trans('task.sub-task') }} 2
                                 </label>
                                 <div>
-                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents') }}">
+                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents')[1] }}">
                                     @include('layouts.common.error-one', ['field' => 'contents'])
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                                     {{ trans('task.sub-task') }} 3
                                 </label>
                                 <div>
-                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents') }}">
+                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents')[2] }}">
                                     @include('layouts.common.error-one', ['field' => 'contents'])
                                 </div>
                             </div>
