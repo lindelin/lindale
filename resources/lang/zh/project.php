@@ -35,5 +35,9 @@ return [
     'transfer'              => '项目转让',
     'transfer-info'         => '将此项目转让给其他用户。',
     'notice'                => '公告',
+    'none-favorite' => '收藏夹为空',
+    'add-favorite' => '添加到收藏夹',
+    'remove-favorite' => '从收藏夹删除',
+    'favorite' => '收藏夹',
 
 ];

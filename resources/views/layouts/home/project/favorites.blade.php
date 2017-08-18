@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <h4 class="lindale-color"><span class="glyphicon glyphicon-star lindale-icon-color"></span> お気に入り</h4>
+        <h4 class="lindale-color"><span class="glyphicon glyphicon-star lindale-icon-color"></span> {{ trans('project.favorite') }}</h4>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="right">
         <h4 class="remove-add">
@@ -53,7 +53,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="well well-home" style="height: 160px;padding-top: 64px;" align="center">
                 <h4>
-                    ありません
+                    {{ trans('project.none-favorite') }}
                 </h4>
             </div>
         </div>

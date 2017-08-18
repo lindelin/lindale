@@ -35,5 +35,9 @@ return [
     'transfer'              => 'Transfer ownership',
     'transfer-info'         => 'Transfer this project to another user.',
     'notice'                => 'Notices',
+    'none-favorite' => 'Favorite is not registered',
+    'add-favorite' => 'Add to Favorites',
+    'remove-favorite' => 'Remove from Favorites',
+    'favorite' => 'Favorites',
 
 ];

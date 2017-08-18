@@ -6,7 +6,7 @@
         <span class="glyphicon glyphicon-plus text-success"></span>
     @endslot
     @slot('modalTitle')
-        お気に入り追加
+        {{ trans('project.add-favorite') }}
     @endslot
     @slot('modalFooter')
         {{ csrf_field() }}

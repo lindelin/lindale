@@ -6,7 +6,7 @@
         <span class="glyphicon glyphicon-minus text-danger"></span>
     @endslot
     @slot('modalTitle')
-        お気に入り削除
+        {{ trans('project.remove-favorite') }}
     @endslot
     @slot('modalFooter')
         {{ csrf_field() }}
