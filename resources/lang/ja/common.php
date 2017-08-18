@@ -27,5 +27,6 @@ return [
     'month' => '月',
     'year' => '年',
     'duration' => '期間',
+    'choose-file' => 'ファイルを選択',
 
 ];

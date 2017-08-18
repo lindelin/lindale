@@ -28,8 +28,9 @@
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                             <div class="form-group{{ $errors->has('photo') ? ' has-error' : '' }}">
                                                 <label class="control-label">{{ trans('user.add-image') }}</label>
-                                                <input type="file" name="photo">
-                                                <p class="help-block">You can also drag and drop a picture from your computer.（ jpeg、png、bmp、gif、svg ）</p>
+                                                @component('components.elements.form.file')
+                                                    photo
+                                                @endcomponent
                                                 @include('layouts.common.error-one', ['field' => 'photo'])
                                             </div>
                                         </div>

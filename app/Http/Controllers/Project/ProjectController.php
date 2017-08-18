@@ -132,7 +132,7 @@ class ProjectController extends Controller
         if ($result) {
             event(new ProjectUpdated($project));
 
-            return redirect()->to('/project/'.$project->id.'/info')->with('status', trans('errors.update-succeed'));
+            return redirect()->to(route('config.index', compact('project')))->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
         }

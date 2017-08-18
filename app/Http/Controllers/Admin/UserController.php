@@ -85,7 +85,7 @@ class UserController extends Controller
     {
         $this->authorize('admin', [$request->user()]);
 
-        $this->userRepository->DeleteUser($user);
+        //$this->userRepository->DeleteUser($user);
 
         if ($user->delete()) {
             return redirect()->to('/admin/user')->with('status', trans('errors.delete-succeed'));

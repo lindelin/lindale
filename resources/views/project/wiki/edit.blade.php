@@ -55,8 +55,9 @@
                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                                     <label class="control-label">{{ trans('project.add-image') }}</label>
-                                    <input type="file" name="image">
-                                    <p class="help-block">（ jpeg、png、bmp、gif、svg ）</p>
+                                    @component('components.elements.form.file')
+                                        image
+                                    @endcomponent
                                     @include('layouts.common.error-one', ['field' => 'image'])
                                 </div>
                             </div>

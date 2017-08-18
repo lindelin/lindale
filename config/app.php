@@ -14,7 +14,7 @@ return [
 
     'name' => env('APP_NAME', 'Lindalë'),
     'title' => 'Lindalë - The Project Manager For Everyone.',
-    'version' => 'v1.4.7',
+    'version' => 'v1.4.8',
 
     /*
     |--------------------------------------------------------------------------
