@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Project\Task;
 
+use App\Exceptions\StoreSubTaskException;
 use App\Task\Task;
 use App\Task\SubTask;
 use App\Project\Project;
@@ -46,19 +47,30 @@ class SubTaskController extends Controller
     {
         if ($task->is_finish === config('task.unfinished')) {
             $this->validate($request, [
-                'content' => 'required|max:30',
+                'contents' => 'required',
             ]);
 
-            $subTask = new SubTask();
-            $subTask->content = $request->get('content');
-            $subTask->task_id = $task->id;
-
-            $result = $subTask->save();
+            try {
+                $subTask = null;
+                foreach ($request->get('contents') as $content) {
+                    if ($content == '') {
+                        continue;
+                    }
+                    $subTask = new SubTask();
+                    $subTask->content = $content;
+                    $subTask->task_id = $task->id;
+                    if (!$subTask->save()) {
+                        throw new StoreSubTaskException('Can not store Sub-Task.');
+                    }
+                }
+                $result = true;
+            } catch (StoreSubTaskException $exception) {
+                $result = false;
+            }
 
             if ($result) {
                 event(new SubTaskCreated($subTask, $request->user()));
-
-                return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
+                return redirect()->to(route('task.show', compact('project', 'task')))->with('status', trans('errors.update-succeed'));
             } else {
                 return redirect()->back()->withErrors(trans('errors.update-failed'));
             }
@@ -84,8 +96,7 @@ class SubTaskController extends Controller
 
         if ($result) {
             event(new SubTaskUpdated($subTask, $request->user()));
-
-            return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
+            return redirect()->to(route('task.show', compact('project', 'task')))->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
         }
@@ -106,8 +117,7 @@ class SubTaskController extends Controller
 
         if ($result) {
             event(new SubTaskDeleted($subTask, $request->user()));
-
-            return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.delete-succeed'));
+            return redirect()->to(route('task.show', compact('project', 'task')))->with('status', trans('errors.delete-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.delete-failed'));
         }

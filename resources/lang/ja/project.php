@@ -35,5 +35,9 @@ return [
     'transfer'              => '譲渡',
     'transfer-info'         => 'このプロジェクトを他のユーザーに譲渡する',
     'notice'                => 'お知らせ',
+    'none-favorite' => 'お気に入り登録されていません',
+    'add-favorite' => 'お気に入りに追加',
+    'remove-favorite' => 'お気に入りを削除',
+    'favorite' => 'お気に入り',
 
 ];

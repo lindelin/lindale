@@ -169,6 +169,10 @@ class TaskController extends Controller
         $result = $task->save();
 
         if ($result) {
+            $result = $this->taskRepository->createSubTask($request, $task);
+        }
+
+        if ($result) {
             event(new TaskCreated($task, $request->user()));
 
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)

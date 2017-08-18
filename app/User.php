@@ -110,6 +110,17 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Project\Project')->withPivot('is_admin')->withTimestamps();
     }
 
+    /**
+     * 多个用户拥有多个项目
+     * 多对多.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function favorites()
+    {
+        return $this->belongsToMany('App\Project\Project', 'favorites', 'user_id', 'project_id')->withTimestamps();
+    }
+
     /*
     |--------------------------------------------------------------------------
     | HasMany 一对多

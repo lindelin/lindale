@@ -1,17 +1,15 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h4 class="lindale-color">
+            <span class="glyphicon glyphicon-dashboard lindale-icon-color"></span>
+            {{ trans('header.my').trans('header.progress') }}
+        </h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="well well-home">
-
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
-                    <h4 class="lindale-color">
-                        <span class="glyphicon glyphicon-dashboard lindale-icon-color"></span>
-                        {{ trans('header.my').trans('header.progress') }}
-                    </h4>
-                    <br>
-                </div>
-            </div>
-
+            <br>
             <div class="row">
                 <div class="col-xs-5 col-sm-5 col-md-4 col-lg-3">
                     <span class="glyphicon glyphicon-dashboard lindale-icon-color"></span> {{ trans('header.progress') }}

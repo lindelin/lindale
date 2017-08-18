@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Exceptions\StoreSubTaskException;
 use App\User;
 use App\Task\Task;
 use App\Task\SubTask;
@@ -377,6 +378,33 @@ class TaskRepository
 
             return $task->update();
         } else {
+            return false;
+        }
+    }
+
+    /**
+     * サブチケット作成
+     * @param $request
+     * @param Task $task
+     * @return bool
+     */
+    public function createSubTask($request, Task $task)
+    {
+        try {
+            $subTask = null;
+            foreach ($request->get('contents') as $content) {
+                if ($content == '') {
+                    continue;
+                }
+                $subTask = new SubTask();
+                $subTask->content = $content;
+                $subTask->task_id = $task->id;
+                if (!$subTask->save()) {
+                    throw new StoreSubTaskException('Can not store Sub-Task.');
+                }
+            }
+            return true;
+        } catch (StoreSubTaskException $exception) {
             return false;
         }
     }
