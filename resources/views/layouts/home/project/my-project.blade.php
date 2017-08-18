@@ -8,7 +8,7 @@
                 <a href="{{ $myProjects->previousPageUrl() }}">
                     <i class="fa fa-chevron-circle-left fa-lg lindale-icon-color" aria-hidden="true"></i>
                 </a>
-                　{{ $myProjects->currentPage() }}　
+                　{{ $myProjects->currentPage() }}/{{ $myProjects->lastPage() }}　
                 <a href="{{ $myProjects->nextPageUrl() }}">
                     <i class="fa fa-chevron-circle-right fa-lg lindale-icon-color" aria-hidden="true"></i>
                 </a>

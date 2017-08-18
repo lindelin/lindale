@@ -7,7 +7,7 @@
             <small>
                 <a href="{{ $userProjects->previousPageUrl() }}" >
                     <i class="fa fa-chevron-circle-left fa-lg lindale-icon-color" aria-hidden="true"></i>
-                </a>　{{ $userProjects->currentPage() }}　
+                </a>　{{ $userProjects->currentPage() }}/{{ $userProjects->lastPage() }}　
                 <a href="{{ $userProjects->nextPageUrl() }}">
                     <i class="fa fa-chevron-circle-right fa-lg lindale-icon-color" aria-hidden="true"></i>
                 </a>
