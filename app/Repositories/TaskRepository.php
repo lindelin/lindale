@@ -392,14 +392,14 @@ class TaskRepository
     {
         try {
             $subTask = null;
-            foreach ($request->get('contents') as $content){
-                if($content == ''){
+            foreach ($request->get('contents') as $content) {
+                if ($content == '') {
                     continue;
                 }
                 $subTask = new SubTask();
                 $subTask->content = $content;
                 $subTask->task_id = $task->id;
-                if(!$subTask->save()){
+                if (!$subTask->save()) {
                     throw new StoreSubTaskException('Can not store Sub-Task.');
                 }
             }
