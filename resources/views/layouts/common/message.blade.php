@@ -19,7 +19,7 @@
                 $('.top-right').notify({
                     type: 'danger',
                     closable: true,
-                    fadeOut: { enabled: true, delay: 3000 },
+                    fadeOut: { enabled: true, delay: 30000 },
                     message: { text: '{{ $error }}' }
                 }).show();
             });
