@@ -23,13 +23,41 @@
                     <div class="row">
                         {{-- 附属任务 --}}
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('contents') ? ' has-error' : '' }}">
                                 <label class="control-label">
-                                    {{ trans('task.sub-task') }}
+                                    {{ trans('task.sub-task') }} 1
                                 </label>
                                 <div>
-                                    <input type="text" class="form-control" name="content" value="{{ old('content') }}">
-                                    @include('layouts.common.error-one', ['field' => 'content'])
+                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents') }}">
+                                    @include('layouts.common.error-one', ['field' => 'contents'])
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {{-- 附属任务 --}}
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group{{ $errors->has('contents') ? ' has-error' : '' }}">
+                                <label class="control-label">
+                                    {{ trans('task.sub-task') }} 2
+                                </label>
+                                <div>
+                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents') }}">
+                                    @include('layouts.common.error-one', ['field' => 'contents'])
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {{-- 附属任务 --}}
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group{{ $errors->has('contents') ? ' has-error' : '' }}">
+                                <label class="control-label">
+                                    {{ trans('task.sub-task') }} 3
+                                </label>
+                                <div>
+                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents') }}">
+                                    @include('layouts.common.error-one', ['field' => 'contents'])
                                 </div>
                             </div>
                         </div>
