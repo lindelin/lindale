@@ -393,6 +393,9 @@ class TaskRepository
         try {
             $subTask = null;
             foreach ($request->get('contents') as $content){
+                if($content == ''){
+                    continue;
+                }
                 $subTask = new SubTask();
                 $subTask->content = $content;
                 $subTask->task_id = $task->id;
