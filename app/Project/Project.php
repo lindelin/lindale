@@ -234,7 +234,11 @@ class Project extends Model
      */
     public function latestTask($count)
     {
-        return $this->Tasks()->latest()->take($count)->get();
+        return $this->Tasks()
+            ->where('is_finish', config('task.unfinished'))
+            ->latest()
+            ->take($count)
+            ->get();
     }
 
     /**
