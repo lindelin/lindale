@@ -235,3 +235,7 @@ dropdown-menu {
 	color: #eb5b4f;
 	background-color: transparent;
 }
+
+.remove-add a {
+	margin-left: 8px;
+}
