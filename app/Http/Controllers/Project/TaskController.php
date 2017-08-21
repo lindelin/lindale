@@ -238,7 +238,7 @@ class TaskController extends Controller
         if ($task->is_finish === config('task.unfinished')) {
             $this->authorize('delete', [$task, $project]);
 
-            foreach ($task->SubTasks as $subTask){
+            foreach ($task->SubTasks as $subTask) {
                 $subTask->delete();
             }
 
