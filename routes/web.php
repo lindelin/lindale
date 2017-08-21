@@ -136,7 +136,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         //任务路由
         Route::group(['prefix' => 'task'], function () {
             //首页
-            Route::get('/', 'TaskController@index');
+            Route::get('/', 'TaskController@index')->name('task.index');
             Route::get('all', 'TaskController@all');
             Route::get('unfinished', 'TaskController@unfinished');
             Route::get('finished', 'TaskController@finished');
