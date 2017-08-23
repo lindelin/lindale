@@ -83,10 +83,10 @@ class TaskHasCreated extends Notification implements ShouldQueue
                         trans('task.progress') => (int) $this->task->progress.'%',
                         trans('task.group') => $this->task->Group ? $this->task->Group->title : trans('project.none'),
                         trans('task.priority') => trans($this->task->Priority->name),
-                        trans('task.start_at') => $this->task->start_at ? $this->task->start_at : trans('project.none'),
-                        trans('task.end_at') => $this->task->end_at ? $this->task->end_at : trans('project.none'),
-                        trans('todo.updated') => (string) $this->task->updated_at,
-                        trans('todo.created') => (string) $this->task->created_at,
+                        trans('task.start_at') => $this->task->start_at ? $this->task->start_at->format('Y/m/d') : trans('project.none'),
+                        trans('task.end_at') => $this->task->end_at ? $this->task->end_at->format('Y/m/d') : trans('project.none'),
+                        trans('todo.updated') => (string) $this->task->updated_at->format('Y/m/d h:m:s'),
+                        trans('todo.created') => (string) $this->task->created_at->format('Y/m/d h:m:s'),
                     ])
                     ->content(Counter::SubTaskCount($this->task).'　'.trans('task.sub-task').'（'.Counter::FinishedSubTasks($this->task).' - '.trans('task.finish').'，'.
                     Counter::UnfinishedSubTasks($this->task).' - '.trans('task.unfinished').'）');

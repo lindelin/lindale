@@ -79,7 +79,7 @@ class TodoHasCreated extends Notification implements ShouldQueue
                         trans('todo.user') => $this->todo->User ? $this->todo->User->name : trans('project.none'),
                         trans('todo.todo-list') => $this->todo->TodoList ? $this->todo->TodoList->title : trans('project.none'),
                         trans('todo.status') => trans($this->todo->Status->name),
-                        trans('todo.created') => (string) $this->todo->created_at,
+                        trans('todo.created') => (string) $this->todo->created_at->format('Y/m/d h:m:s'),
                     ]);
             });
     }
