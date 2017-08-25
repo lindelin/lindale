@@ -169,6 +169,10 @@ class TaskController extends Controller
         $result = $task->save();
 
         if ($result) {
+            $result = $this->taskRepository->createSubTask($request, $task);
+        }
+
+        if ($result) {
             event(new TaskCreated($task, $request->user()));
 
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)
@@ -233,6 +237,10 @@ class TaskController extends Controller
     {
         if ($task->is_finish === config('task.unfinished')) {
             $this->authorize('delete', [$task, $project]);
+
+            foreach ($task->SubTasks as $subTask) {
+                $subTask->delete();
+            }
 
             if ($task->delete()) {
                 event(new TaskDeleted($task, $request->user()));

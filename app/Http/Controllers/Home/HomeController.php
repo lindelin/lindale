@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Project\Project;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\ProjectRepository;
@@ -47,5 +49,41 @@ class HomeController extends Controller
     public function project(Request $request)
     {
         return view('home.project', $this->projectRepository->UserProjectResources($request->user()))->with('mode', 'project');
+    }
+
+    /**
+     * お気に入り追加
+     * @return mixed
+     */
+    public function addFavorites()
+    {
+        $project = Project::findOrFail(request('project_id'));
+        $this->authorize('is_member', [$project]);
+        try {
+            request()->user()->favorites()->attach($project);
+            $result = true;
+        } catch (QueryException $exception) {
+            $result = false;
+        }
+
+        return response()->update($result);
+    }
+
+    /**
+     * お気に入り削除
+     * @return mixed
+     */
+    public function removeFavorites()
+    {
+        $project = Project::findOrFail(request('project_id'));
+        $this->authorize('is_member', [$project]);
+        try {
+            request()->user()->favorites()->detach($project);
+            $result = true;
+        } catch (QueryException $exception) {
+            $result = false;
+        }
+
+        return response()->update($result);
     }
 }

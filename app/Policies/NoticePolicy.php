@@ -26,7 +26,7 @@ class NoticePolicy
         } elseif (($user->id === $project->sl_id) and ($project->id === $notice->project_id)) {
             return true;
         } elseif (($project->Users()->find($user->id)) and ($project->id === $notice->project_id)) {
-            return false;
+            return true;
         } else {
             return false;
         }

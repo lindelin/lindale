@@ -226,4 +226,28 @@ class Project extends Model
     {
         return $this->hasMany('App\Task\TaskStatus', 'project_id', 'id');
     }
+
+    /**
+     * 获取最新任务
+     * @param $count
+     * @return \Illuminate\Support\Collection
+     */
+    public function latestTask($count)
+    {
+        return $this->Tasks()
+            ->where('is_finish', config('task.unfinished'))
+            ->latest()
+            ->take($count)
+            ->get();
+    }
+
+    /**
+     * 获取最新To-do
+     * @param $count
+     * @return \Illuminate\Support\Collection
+     */
+    public function latestTodo($count)
+    {
+        return $this->Todos()->latest()->take($count)->get();
+    }
 }

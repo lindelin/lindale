@@ -24,6 +24,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SubTask extends Model
 {
+    protected $fillable = [
+        'content', 'task_id',
+    ];
     /**
      * 一个附属任务属于一个任务
      * 一对一

@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
     //Home
     Route::get('home', 'HomeController@index');
     Route::get('home/project', 'HomeController@project');
+    Route::post('home/favorites', 'HomeController@addFavorites')->name('add.favorites');
+    Route::post('home/favorites/remove', 'HomeController@removeFavorites')->name('remove.favorites');
     //Profile
     Route::get('profile/{user}', 'ProfileController@show');
 });
@@ -134,7 +136,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         //任务路由
         Route::group(['prefix' => 'task'], function () {
             //首页
-            Route::get('/', 'TaskController@index');
+            Route::get('/', 'TaskController@index')->name('task.index');
             Route::get('all', 'TaskController@all');
             Route::get('unfinished', 'TaskController@unfinished');
             Route::get('finished', 'TaskController@finished');
@@ -334,4 +336,9 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('test', function (){
     var_dump(Carbon::parse('2017-05-15')->lt(Carbon::now()));
+});*/
+
+/*Route::get('test', function (){
+    $user = \App\User::first();
+    $user->favorites()->attach(24);
 });*/

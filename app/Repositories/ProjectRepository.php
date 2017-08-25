@@ -55,12 +55,12 @@ class ProjectRepository
             ->orWhere('sl_id', $user->id)
             ->orderBy('progress', 'asc')
             ->latest()
-            ->simplePaginate(6, ['*'], 'mPage');
+            ->paginate(6, ['*'], 'mPage');
 
         $userProjects = $user->Projects()
             ->orderBy('progress', 'asc')
             ->latest()
-            ->simplePaginate(6, ['*'], 'uPage');
+            ->paginate(6, ['*'], 'uPage');
 
         $userProjectCount = Counter::UserProjectCount($user);
         $userProgressAreaspline = $this->UserProgressAreaspline($user);

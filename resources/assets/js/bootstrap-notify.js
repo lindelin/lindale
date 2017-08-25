@@ -32,7 +32,7 @@
 
     if(this.options.closable) {
       var link = $('<button type="button" class="close" data-dismiss="alert">' +
-          '<span aria-hidden="true" class="glyphicon glyphicon-remove-circle"></span></button>');
+          '<span aria-hidden="true" class="glyphicon glyphicon-remove-circle" style="color: #ffffff;"></span></button>');
       $(link).on('click', $.proxy(onClose, this));
       this.$note.prepend(link);
     }

@@ -25,6 +25,19 @@ class ProjectPolicy
         return $user->id === $project->user_id and Hash::check($request->get('password'), $project->password);
     }
 
+    public function is_member(User $user, Project $project)
+    {
+        if ($project->user_id === $user->id) {
+            return true;
+        } elseif ($project->sl_id === $user->id) {
+            return true;
+        } elseif ($project->Users()->find($user->id)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * プロジェクトリーダーとサブリーダーのみ（パスワード必要）.
      *

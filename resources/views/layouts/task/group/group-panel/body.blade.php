@@ -1,11 +1,11 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active">
+    <li role="presentation">
         <a href="#info-{{ $group->id }}" role="tab" data-toggle="tab">
             <span class="glyphicon glyphicon-info-sign"></span> <span class="hidden-xs hidden-sm">{{ trans('header.info') }}</span>
         </a>
     </li>
-    <li role="presentation">
+    <li role="presentation" class="active">
         <a href="#unfinished-{{ $group->id }}" role="tab" data-toggle="tab">
             <span class="glyphicon glyphicon-question-sign"></span> <span class="hidden-xs hidden-sm">{{ trans('task.unfinished') }}</span>
         </a>
@@ -25,7 +25,7 @@
 <!-- Tab panes -->
 <div class="tab-content">
 
-    <div role="tabpanel" class="tab-pane active" id="info-{{ $group->id }}">
+    <div role="tabpanel" class="tab-pane" id="info-{{ $group->id }}">
 
         <br>
         <div class="table-responsive">
@@ -68,7 +68,7 @@
 
     </div>
 
-    <div role="tabpanel" class="tab-pane" id="unfinished-{{ $group->id }}">
+    <div role="tabpanel" class="tab-pane active" id="unfinished-{{ $group->id }}">
 
         @if($group->Tasks()->where('is_finish', config('task.unfinished'))->count() > 0)
             @foreach($group->Tasks()->where('is_finish', config('task.unfinished'))->orderBy('priority_id', 'desc')->get() as $task)

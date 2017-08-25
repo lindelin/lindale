@@ -106,7 +106,7 @@ class TaskGroupController extends Controller
     public function destroy(Project $project, TaskGroup $group)
     {
         if ($group->delete()) {
-            return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.delete-succeed'));
+            return redirect()->to(route('task.index', compact('project')))->with('status', trans('errors.delete-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.delete-failed'));
         }

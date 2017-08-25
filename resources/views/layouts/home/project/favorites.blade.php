@@ -1,25 +1,19 @@
 <div class="row">
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <h3><small> {{ trans('project.projects-manage') }}</small></h3>
+        <h4 class="lindale-color"><span class="glyphicon glyphicon-star lindale-icon-color"></span> {{ trans('project.favorite') }}</h4>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" align="right">
-        <h3>
-            <small>
-                <a href="{{ $myProjects->previousPageUrl() }}">
-                    <i class="fa fa-chevron-circle-left fa-lg lindale-icon-color" aria-hidden="true"></i>
-                </a>
-                　{{ $myProjects->currentPage() }}/{{ $myProjects->lastPage() }}　
-                <a href="{{ $myProjects->nextPageUrl() }}">
-                    <i class="fa fa-chevron-circle-right fa-lg lindale-icon-color" aria-hidden="true"></i>
-                </a>
-            </small>
-        </h3>
+        <h4 class="remove-add">
+            @include('layouts.home.favorites.remove')
+            @include('layouts.home.favorites.add')
+        </h4>
     </div>
 </div>
-<div class="row">
+@if(Auth::user()->favorites()->count() > 0)
+    <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="row">
-            @foreach($myProjects as $project)
+            @foreach(Auth::user()->favorites as $project)
 
                 <div class="col-xs-6 col-sm-12 col-md-6 col-lg-6">
                     <div class="bs-callout home-project-card {{ Colorable::randomCallOutColor() }}">
@@ -54,3 +48,14 @@
         </div>
     </div>
 </div>
+@else
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="well well-home" style="height: 160px;padding-top: 64px;" align="center">
+                <h4>
+                    {{ trans('project.none-favorite') }}
+                </h4>
+            </div>
+        </div>
+    </div>
+@endif

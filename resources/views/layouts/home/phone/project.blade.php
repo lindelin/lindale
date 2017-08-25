@@ -30,7 +30,7 @@
                     <a href="{{ $myProjects->previousPageUrl() }}">
                         <i class="fa fa-chevron-circle-left fa-lg lindale-icon-color" aria-hidden="true"></i>
                     </a>
-                    　{{ $myProjects->currentPage() }}　
+                    　{{ $myProjects->currentPage() }}/{{ $myProjects->lastPage() }}　
                     <a href="{{ $myProjects->nextPageUrl() }}">
                         <i class="fa fa-chevron-circle-right fa-lg lindale-icon-color" aria-hidden="true"></i>
                     </a>
@@ -66,7 +66,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
                     <a href="{{ $userProjects->previousPageUrl() }}"><i class="fa fa-chevron-circle-left fa-lg lindale-icon-color" aria-hidden="true"></i></a>
-                    　{{ $userProjects->currentPage() }}　
+                    　{{ $userProjects->currentPage() }}/{{ $userProjects->lastPage() }}　
                     <a href="{{ $userProjects->nextPageUrl() }}"><i class="fa fa-chevron-circle-right fa-lg lindale-icon-color" aria-hidden="true"></i></a>
                 </div>
             </div>

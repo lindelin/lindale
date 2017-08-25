@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\ResetPasswordNotification;
@@ -60,7 +61,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  */
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -85,6 +86,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * 需要被转换成日期的属性。
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
     /*
     |--------------------------------------------------------------------------
     | ManyHasMany 一对多
@@ -100,6 +108,17 @@ class User extends Authenticatable
     public function Projects()
     {
         return $this->belongsToMany('App\Project\Project')->withPivot('is_admin')->withTimestamps();
+    }
+
+    /**
+     * 多个用户拥有多个项目
+     * 多对多.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function favorites()
+    {
+        return $this->belongsToMany('App\Project\Project', 'favorites', 'user_id', 'project_id')->withTimestamps();
     }
 
     /*

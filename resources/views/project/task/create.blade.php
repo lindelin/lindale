@@ -128,7 +128,6 @@
                             </div>
                         </div>
 
-
                     </div>
                     {{-- 框架 --}}
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
@@ -219,22 +218,44 @@
                             </div>
                         </div>
 
-                        @if($tasks->count() > 0)
-                            {{-- 关联任务 --}}
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                <div class="form-group{{ $errors->has('task_id') ? ' has-error' : '' }}">
-                                    <label class="control-label">{{ trans('task.task') }}</label>
-                                    <div>
-                                        <select class="selectpicker form-control" data-live-search="true" multiple data-max-options="5" name="task_id[]">
-                                            @foreach( $tasks as $task)
-                                                <option value="{{ $task->id }}" @if(in_array($task->id, (array)old('task_id'))) selected @endif>{{ trans($task->title) }}</option>
-                                            @endforeach
-                                        </select>
-                                        @include('layouts.common.error-one', ['field' => 'task_id'])
-                                    </div>
+                        {{-- 附属任务 --}}
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group{{ $errors->has('contents') ? ' has-error' : '' }}">
+                                <label class="control-label">
+                                    {{ trans('task.sub-task') }} 1
+                                </label>
+                                <div>
+                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents')[0] }}">
+                                    @include('layouts.common.error-one', ['field' => 'contents'])
                                 </div>
                             </div>
-                        @endif
+                        </div>
+
+                        {{-- 附属任务 --}}
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group{{ $errors->has('contents') ? ' has-error' : '' }}">
+                                <label class="control-label">
+                                    {{ trans('task.sub-task') }} 2
+                                </label>
+                                <div>
+                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents')[1] }}">
+                                    @include('layouts.common.error-one', ['field' => 'contents'])
+                                </div>
+                            </div>
+                        </div>
+
+                        {{-- 附属任务 --}}
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group{{ $errors->has('contents') ? ' has-error' : '' }}">
+                                <label class="control-label">
+                                    {{ trans('task.sub-task') }} 3
+                                </label>
+                                <div>
+                                    <input type="text" class="form-control" name="contents[]" value="{{ old('contents')[2] }}">
+                                    @include('layouts.common.error-one', ['field' => 'contents'])
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
