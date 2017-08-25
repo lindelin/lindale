@@ -22,7 +22,7 @@
         "intervention/image": "^2.3",
         "laravel/dusk": "^1.1",
         "laravel/framework": "5.4.*",
-        "laravel/passport": "^2.0",
+        "laravel/passport": "^3.0",
         "laravel/tinker": "~1.0",
         "league/flysystem-aws-s3-v3": "^1.0",
         "lindelea/laravel-aws-elb-support": "^1.0",
