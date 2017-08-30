@@ -181,6 +181,8 @@
             });
         });
     });
+    // smart rendering
+    gantt.config.smart_rendering = true;
     // 排序
     gantt.config.sort = true;
     // 只读
