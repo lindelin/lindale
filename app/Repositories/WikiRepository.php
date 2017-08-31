@@ -55,7 +55,7 @@ class WikiRepository
     {
         $wiki = new Wiki();
 
-        $input = $request->only(['title', 'content', 'type_id']);
+        $input = $request->all(['title', 'content', 'type_id']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {
@@ -84,7 +84,7 @@ class WikiRepository
      */
     public function UpdateWiki(WikiRequest $request, Project $project, Wiki $wiki)
     {
-        $input = $request->only(['title', 'content', 'type_id']);
+        $input = $request->all(['title', 'content', 'type_id']);
 
         if ($request->file('image')) {
             $path = $request->file('image')->store("projects/$project->id/wiki", 'public');

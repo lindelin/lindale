@@ -35,7 +35,7 @@ class NoticeRepository
     {
         $notice = new Notice();
 
-        $input = $request->only($this->column);
+        $input = $request->all($this->column);
 
         foreach ($input as $key => $value) {
             if ($value == '') {

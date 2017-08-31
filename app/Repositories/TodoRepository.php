@@ -102,7 +102,7 @@ class TodoRepository
     {
         $todo = new Todo();
 
-        $input = $request->only(['content', 'details', 'user_id', 'color_id', 'list_id', 'type_id', 'project_id']);
+        $input = $request->all(['content', 'details', 'user_id', 'color_id', 'list_id', 'type_id', 'project_id']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {
@@ -133,7 +133,7 @@ class TodoRepository
      */
     public function UpdateTodo(TodoRequest $request, Todo $todo)
     {
-        $input = $request->only(['content', 'details', 'user_id', 'color_id', 'list_id', 'status_id']);
+        $input = $request->all(['content', 'details', 'user_id', 'color_id', 'list_id', 'status_id']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {

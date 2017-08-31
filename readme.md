@@ -14,9 +14,9 @@
 ### Lindalë is an Open Source software for project management.
 
 ## Requirements
-Since Lindalë is built on Laravel 5.3.*, there are a few system requirements:
+Since Lindalë is built on Laravel 5.5.*, there are a few system requirements:
 
-- PHP >= 5.6
+- PHP >= 7.0
 - OpenSSL PHP Extension
 - PDO PHP Extension
 - PDO compliant database (SQL, MySQL, PostgreSQL, SQLite)
