@@ -79,7 +79,7 @@ class TodoHasDeleted extends Notification implements ShouldQueue
             ->attachment(function ($attachment) {
                 $attachment->title(':clipboard:TODO：'.$this->todo_content)
                     ->fields([
-                        trans('todo.created') => $this->todo_created ? $this->todo_created->format('Y/m/d h:m:s') : trans('project.none'),
+                        trans('todo.created') => $this->todo_created ? $this->todo_created : trans('project.none'),
                     ]);
             });
     }
