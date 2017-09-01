@@ -20,11 +20,11 @@ class AdminRoutesTest extends TestCase
     /**
      * テストユーザ作成.
      *
-     * @before
      * @return void
      */
-    public function createTestData()
+    public function setUp()
     {
+        parent::setUp();
         $this->user = User::find(1);
     }
 
