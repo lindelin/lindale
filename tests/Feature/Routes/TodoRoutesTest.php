@@ -31,7 +31,7 @@ class TodoRoutesTest extends TestCase
      */
     public function createTestData()
     {
-        $this->user = factory(\App\User::class)->create();
+        $this->user = factory(User::class)->create();
         $this->project = factory(Project::class)->create([
             'user_id' => $this->user->id,
         ]);
