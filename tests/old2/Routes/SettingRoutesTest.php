@@ -25,7 +25,7 @@ class SettingRoutesTest extends TestCase
      */
     public function createTestData()
     {
-        $this->user = factory(User::class)->create([
+        $this->user = factory(\App\User::class)->create([
             'password' => bcrypt('123456'),
         ]);
     }

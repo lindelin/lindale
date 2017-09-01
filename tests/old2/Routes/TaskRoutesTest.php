@@ -6,7 +6,7 @@ use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class HomeRoutesTest extends TestCase
+class TaskRoutesTest extends TestCase
 {
     use DatabaseTransactions;
 
@@ -25,7 +25,7 @@ class HomeRoutesTest extends TestCase
      */
     public function createTestData()
     {
-        $this->user = factory(User::class)->create();
+        $this->user = factory(\App\User::class)->create();
     }
 
     /**
@@ -33,11 +33,11 @@ class HomeRoutesTest extends TestCase
      *
      * @test
      */
-    public function it_can_access_the_home_page()
+    public function it_can_access_the_task_page()
     {
-        $response = $this->actingAs($this->user)->get('/home');
+        $response = $this->actingAs($this->user)->get('/task');
         $response->assertStatus(200);
-        $response->assertViewHasAll(['myProjects', 'userProjects', 'userProjectCount', 'userProgressAreaspline']);
+        $response->assertViewHasAll(['tasks', 'priorities']);
     }
 
     /**
@@ -45,11 +45,11 @@ class HomeRoutesTest extends TestCase
      *
      * @test
      */
-    public function it_can_access_the_home_project_page()
+    public function it_can_access_the_unfinished_task_page()
     {
-        $response = $this->actingAs($this->user)->get('/home/project');
+        $response = $this->actingAs($this->user)->get('/task/unfinished');
         $response->assertStatus(200);
-        $response->assertViewHasAll(['myProjects', 'userProjects', 'userProjectCount', 'userProgressAreaspline']);
+        $response->assertViewHasAll(['tasks', 'priorities']);
     }
 
     /**
@@ -57,10 +57,10 @@ class HomeRoutesTest extends TestCase
      *
      * @test
      */
-    public function it_can_access_the_user_profile_page()
+    public function it_can_access_the_finished_task_page()
     {
-        $response = $this->actingAs($this->user)->get('/profile/1');
+        $response = $this->actingAs($this->user)->get('/task/finished');
         $response->assertStatus(200);
-        $response->assertViewHasAll(['userProgressAreaspline', 'user']);
+        $response->assertViewHasAll(['tasks', 'priorities']);
     }
 }
