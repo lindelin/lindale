@@ -29,7 +29,7 @@ class TaskHasDeletedNotify
                     project_config($event->task->Project, config('config.project.lang')),
                     $event->task->title,
                     $event->task->User,
-                    (string) $event->task->created_at->format('Y/m/d h:m:s')
+                    (string) $event->task->created_at
                 ));
             } catch (ClientException $exception) {
                 throw new ProjectNotificationException($event->task->Project, $exception->getMessage());

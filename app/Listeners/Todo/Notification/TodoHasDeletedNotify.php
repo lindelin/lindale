@@ -27,7 +27,7 @@ class TodoHasDeletedNotify
                     $event->user,
                     project_config($event->todo->Project, config('config.project.lang')),
                     $event->todo->content,
-                    (string) $event->todo->created_at->format('Y/m/d h:m:s')
+                    (string) $event->todo->created_at
                 ));
             } catch (ClientException $exception) {
                 throw new ProjectNotificationException($event->todo->Project, $exception->getMessage());
@@ -41,7 +41,7 @@ class TodoHasDeletedNotify
                     $event->user,
                     user_config($event->todo->User, config('config.user.lang')),
                     $event->todo->content,
-                    (string) $event->todo->created_at->format('Y/m/d h:m:s')
+                    (string) $event->todo->created_at
                 ));
             } catch (ClientException $exception) {
                 throw new UserNotificationException($event->todo->User, $exception->getMessage());

@@ -82,7 +82,7 @@ class TaskHasDeleted extends Notification implements ShouldQueue
                 $attachment->title(':scroll:'.trans('header.tasks').'：'.$this->task_title)
                     ->fields([
                         trans('task.user') => $this->task_user ? $this->task_user->name : trans('project.none'),
-                        trans('task.created') => $this->task_created_at ? $this->task_created_at : trans('project.none'),
+                        trans('task.created') => $this->task_created_at ? $this->task_created_at->format('Y/m/d h:m:s') : trans('project.none'),
                     ]);
             });
     }
