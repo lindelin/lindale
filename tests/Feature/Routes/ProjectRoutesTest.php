@@ -32,11 +32,12 @@ class ProjectRoutesTest extends TestCase
     /**
      * テストデータ作成.
      *
-     * @before
+     *
      * @return void
      */
-    public function createTestData()
+    public function setUp()
     {
+        parent::setUp();
         $this->user = factory(User::class)->create();
         $this->project1 = factory(Project::class)->create();
         $this->project2 = factory(Project::class)->create([
