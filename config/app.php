@@ -15,7 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Lindalë'),
     'title' => 'Lindalë - The Project Manager For Everyone.',
-    'version' => 'v1.5.0',
+    'version' => 'v1.5.1',
 
     /*
     |--------------------------------------------------------------------------
@@ -181,6 +181,7 @@ return [
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Fideloper\Proxy\TrustedProxyServiceProvider::class,
 
         /*
          * Application Service Providers...
