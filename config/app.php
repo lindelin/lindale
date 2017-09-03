@@ -181,7 +181,6 @@ return [
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Lindelea\Support\Aws\Elb\ServiceProvider::class,
 
         /*
          * Application Service Providers...
