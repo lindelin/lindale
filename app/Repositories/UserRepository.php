@@ -31,7 +31,7 @@ class UserRepository
     {
         $user = new User();
 
-        $input = $request->only(['email', 'content', 'name']);
+        $input = $request->all(['email', 'content', 'name']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {
@@ -77,7 +77,7 @@ class UserRepository
      */
     public function UpdateUser(UserRequest $request, User $user)
     {
-        $input = $request->only([
+        $input = $request->all([
             'name',
             'content',
             'company',

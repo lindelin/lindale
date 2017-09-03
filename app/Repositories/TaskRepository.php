@@ -208,7 +208,7 @@ class TaskRepository
     {
         $task = new Task();
 
-        $input = $request->only([
+        $input = $request->all([
             'group_id',
             'title',
             'content',
@@ -245,7 +245,7 @@ class TaskRepository
      */
     public function UpdateTask(TaskRequest $request, Task $task)
     {
-        $input = $request->only([
+        $input = $request->all([
             'group_id',
             'title',
             'content',
@@ -282,7 +282,7 @@ class TaskRepository
     {
         $group = new TaskGroup();
 
-        $input = $request->only(['title', 'information', 'type_id', 'status_id', 'start_at', 'end_at', 'color_id']);
+        $input = $request->all(['title', 'information', 'type_id', 'status_id', 'start_at', 'end_at', 'color_id']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {
@@ -305,7 +305,7 @@ class TaskRepository
      */
     public function UpdateGroup(TaskGroupRequest $request, TaskGroup $group)
     {
-        $input = $request->only(['title', 'information', 'type_id', 'status_id', 'start_at', 'end_at', 'color_id']);
+        $input = $request->all(['title', 'information', 'type_id', 'status_id', 'start_at', 'end_at', 'color_id']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {
@@ -326,7 +326,7 @@ class TaskRepository
      */
     public function UpdateSubTask(Request $request, SubTask $subTask)
     {
-        $input = $request->only(['content', 'is_finish']);
+        $input = $request->all(['content', 'is_finish']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {
@@ -349,7 +349,7 @@ class TaskRepository
     {
         $activity = new TaskActivity();
 
-        $input = $request->only(['content', 'is_finish']);
+        $input = $request->all(['content', 'is_finish']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {

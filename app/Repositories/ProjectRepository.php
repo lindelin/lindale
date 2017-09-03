@@ -103,7 +103,7 @@ class ProjectRepository
     {
         $project = new Project();
 
-        $input = $request->only(['title', 'content', 'start_at', 'end_at', 'type_id', 'sl_id']);
+        $input = $request->all(['title', 'content', 'start_at', 'end_at', 'type_id', 'sl_id']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {
@@ -134,7 +134,7 @@ class ProjectRepository
      */
     public function UpdateProject($request, Project $project)
     {
-        $input = $request->only(['title', 'content', 'start_at', 'end_at', 'type_id', 'sl_id', 'status_id']);
+        $input = $request->all(['title', 'content', 'start_at', 'end_at', 'type_id', 'sl_id', 'status_id']);
 
         if ($request->file('image')) {
             if ($project->image != '') {

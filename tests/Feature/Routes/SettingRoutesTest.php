@@ -20,11 +20,11 @@ class SettingRoutesTest extends TestCase
     /**
      * テストユーザ作成.
      *
-     * @before
      * @return void
      */
-    public function createTestData()
+    public function setUp()
     {
+        parent::setUp();
         $this->user = factory(User::class)->create([
             'password' => bcrypt('123456'),
         ]);
