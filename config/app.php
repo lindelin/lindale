@@ -183,6 +183,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Lindelea\Support\Aws\Elb\ServiceProvider::class,
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
+        Laravel\Dusk\DuskServiceProvider::class,
 
         /*
          * Application Service Providers...
