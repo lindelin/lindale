@@ -21,7 +21,7 @@
         "erusev/parsedown-extra": "^0.7.1",
         "guzzlehttp/guzzle": "^6.2",
         "intervention/image": "^2.3",
-        "laravel/dusk": "^1.1",
+        "laravel/dusk": "^2.0.0",
         "laravel/framework": "5.5.*",
         "laravel/passport": "^3.0",
         "laravel/tinker": "~1.0",
