@@ -18,8 +18,6 @@ install:
 
 before_script:
   - mysql -e 'create database lindale;'
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-  - php artisan serve &
   - php artisan key:generate
   - php artisan migrate
   - php artisan db:seed
@@ -27,6 +25,8 @@ before_script:
 
 script:
   - ./vendor/bin/phpunit
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - php artisan serve &
   - php artisan dusk
 
 notifications:
