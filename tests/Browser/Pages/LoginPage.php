@@ -38,7 +38,7 @@ class LoginPage extends BasePage
             ->assertSee('日本語')
             ->assertSee('中文')
             ->clickLink('日本語')
-            ->assertSee('メールアドレス')
+            ->waitForText('メールアドレス', 5)
             ->assertSee('パスワード')
             ->assertSee('リメンバー・ミー')
             ->assertSee('パスワードを忘れた方？')

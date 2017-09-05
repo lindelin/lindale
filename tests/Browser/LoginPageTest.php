@@ -35,7 +35,8 @@ class LoginPageTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit(new LoginPage())
-                ->clickLink('忘记密码?')
+                ->visit('lang/en')
+                ->clickLink('Forgot Your Password?')
                 ->assertPathIs('/password/reset')
             ;
         });
