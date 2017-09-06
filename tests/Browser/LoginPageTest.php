@@ -55,6 +55,19 @@ class LoginPageTest extends DuskTestCase
                 ->pause(2000)
                 ->click('#login-button')
                 ->assertPathIs('/home')
+                ->pause(2000)
+                ->click('#user-icon')
+                ->click('#logout-link')
+                ->pause(2000)
+                ->assertPathIs('/')
+                ->visit(new LoginPage())
+                ->pause(2000)
+                ->type('email', 'admin@lindelin.org')
+                ->type('password', '123456777')
+                ->click('#login-button')
+                ->pause(2000)
+                ->assertPathIs('/login')
+                ->assertSee('These credentials do not match our records.')
             ;
         });
     }
