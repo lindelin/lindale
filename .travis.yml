@@ -14,7 +14,7 @@ addons:
 install:
    - cp .env.travis .env
    - composer self-update
-   - composer install
+   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 before_script:
   - mysql -e 'create database lindale;'
@@ -22,11 +22,15 @@ before_script:
   - php artisan migrate
   - php artisan db:seed
   - php artisan passport:install
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - ./vendor/laravel/dusk/bin/chromedriver-linux &
   - php artisan serve &
 
 
 script:
   - ./vendor/bin/phpunit
+  - cp .env.browser .env
   - php artisan dusk
 
 notifications:
