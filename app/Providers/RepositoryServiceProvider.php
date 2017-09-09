@@ -40,5 +40,11 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Contracts\Repositories\NoticeRepositoryContract',
             'App\Repositories\NoticeRepository'
         );
+
+        // Progress Repository
+        $this->app->bind(
+            'App\Contracts\Repositories\ProgressRepositoryContract',
+            'App\Repositories\ProgressRepository'
+        );
     }
 }
