@@ -197,6 +197,7 @@ return [
         App\Providers\RoutingManagementServiceProvider::class,
         App\Providers\ToolServiceProvider::class,
         App\Providers\ConfigSystemServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
 
     ],
 
