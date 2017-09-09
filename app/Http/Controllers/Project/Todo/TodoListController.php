@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Project\Todo;
 
+use App\Contracts\Repositories\MemberRepositoryContract;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
 use App\Project\Project;
 use App\Http\Requests\TypeRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\TodoRepository;
-use App\Repositories\MemberRepository;
 
 class TodoListController extends Controller
 {
@@ -17,9 +17,10 @@ class TodoListController extends Controller
      * @var TodoRepository
      */
     protected $todoRepository;
+
     /**
      * 项目成员资源库.
-     * @var MemberRepository
+     * @var MemberRepositoryContract
      */
     protected $memberRepository;
 
@@ -29,9 +30,9 @@ class TodoListController extends Controller
      *
      * TodoListController constructor.
      * @param TodoRepository $todoRepository
-     * @param MemberRepository $memberRepository
+     * @param MemberRepositoryContract $memberRepository
      */
-    public function __construct(TodoRepository $todoRepository, MemberRepository $memberRepository)
+    public function __construct(TodoRepository $todoRepository, MemberRepositoryContract $memberRepository)
     {
         $this->todoRepository = $todoRepository;
         $this->memberRepository = $memberRepository;
@@ -48,7 +49,7 @@ class TodoListController extends Controller
         $type = TodoType::findOrFail(config('todo.public'));
 
         return view('project.todo.index', $this->todoRepository->TodoResources($project, $type))
-            ->with($this->memberRepository->AllMember($project))
+            ->with($this->memberRepository->allMember($project))
             ->with(['project' => $project, 'selected' => 'todo', 'add_todo_list' => 'on']);
     }
 

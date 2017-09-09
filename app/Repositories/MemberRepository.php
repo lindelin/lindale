@@ -2,11 +2,12 @@
 
 namespace App\Repositories;
 
+use App\Contracts\Repositories\MemberRepositoryContract;
 use App\User;
 use App\Project\Project;
 use Illuminate\Http\Request;
 
-class MemberRepository
+class MemberRepository implements MemberRepositoryContract
 {
     /**
      * 项目成员资源.
@@ -14,7 +15,7 @@ class MemberRepository
      * @param Project $project
      * @return array
      */
-    public function MemberResources(Project $project)
+    public function memberResources(Project $project)
     {
         $pl = $project->ProjectLeader;
         $sl = $project->SubLeader;
@@ -42,7 +43,7 @@ class MemberRepository
      * @param Project $project
      * @return array
      */
-    public function AllMember(Project $project)
+    public function allMember(Project $project)
     {
         $pl = $project->ProjectLeader;
         $sl = $project->SubLeader;
@@ -58,7 +59,7 @@ class MemberRepository
      * @param Project $project
      * @return bool
      */
-    public function AddMember(Request $request, Project $project)
+    public function addMember($request, Project $project)
     {
         $user = User::findOrFail($request->get('id'));
 
@@ -84,7 +85,7 @@ class MemberRepository
      * @param User $user
      * @return bool
      */
-    public function RemoveMember(Project $project, User $user)
+    public function removeMember(Project $project, User $user)
     {
         if ($project->Users()->find($user->id) == null) {
             return false;
@@ -103,7 +104,7 @@ class MemberRepository
      * @param Request $request
      * @return bool
      */
-    public function Policy(Project $project, User $user, Request $request)
+    public function policy(Project $project, User $user, $request)
     {
         if ($project->Users()->find($user->id) == null) {
             return false;

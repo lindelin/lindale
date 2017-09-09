@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Contracts\Repositories\MemberRepositoryContract;
 use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
@@ -13,7 +14,6 @@ use App\Events\Todo\TodoUpdated;
 use App\Http\Requests\TodoRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\TodoRepository;
-use App\Repositories\MemberRepository;
 
 class TodoController extends Controller
 {
@@ -22,9 +22,10 @@ class TodoController extends Controller
      * @var TodoRepository
      */
     protected $todoRepository;
+
     /**
      * 项目成员资源库.
-     * @var MemberRepository
+     * @var MemberRepositoryContract
      */
     protected $memberRepository;
 
@@ -34,9 +35,9 @@ class TodoController extends Controller
      *
      * TodoController constructor.
      * @param TodoRepository $todoRepository
-     * @param MemberRepository $memberRepository
+     * @param MemberRepositoryContract $memberRepository
      */
-    public function __construct(TodoRepository $todoRepository, MemberRepository $memberRepository)
+    public function __construct(TodoRepository $todoRepository, MemberRepositoryContract $memberRepository)
     {
         $this->todoRepository = $todoRepository;
         $this->memberRepository = $memberRepository;
@@ -54,7 +55,7 @@ class TodoController extends Controller
         $type = TodoType::find(config('todo.public'));
 
         return view('project.todo.index', $this->todoRepository->TodoResources($project, $type, null, $status))
-            ->with($this->memberRepository->AllMember($project))
+            ->with($this->memberRepository->allMember($project))
             ->with(['project' => $project, 'selected' => 'todo']);
     }
 
@@ -91,7 +92,7 @@ class TodoController extends Controller
         $type = TodoType::find(config('todo.public'));
 
         return view('project.todo.index', $this->todoRepository->TodoResources($project, $type, $list))
-            ->with($this->memberRepository->AllMember($project))
+            ->with($this->memberRepository->allMember($project))
             ->with(['project' => $project, 'selected' => 'todo']);
     }
 

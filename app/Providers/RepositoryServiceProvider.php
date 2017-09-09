@@ -23,9 +23,15 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // Admin Repository
         $this->app->bind(
             'App\Contracts\Repositories\AdminRepositoryContract',
             'App\Repositories\AdminRepository'
+        );
+
+        $this->app->bind(
+            'App\Contracts\Repositories\MemberRepositoryContract',
+            'App\Repositories\MemberRepository'
         );
     }
 }
