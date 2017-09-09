@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Contracts\Repositories\ProjectRepositoryContract;
 use App\Project\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,14 +10,12 @@ use App\Http\Requests\ProjectRequest;
 use App\Events\Project\ProjectCreated;
 use App\Events\Project\ProjectDeleted;
 use App\Events\Project\ProjectUpdated;
-use App\Repositories\ProjectRepository;
 
 class ProjectController extends Controller
 {
     /**
      * 项目资源库.
-     *
-     * @var ProjectRepository
+     * @var ProjectRepositoryContract
      */
     protected $projectRepository;
 
@@ -25,9 +24,9 @@ class ProjectController extends Controller
      * 通过DI获取项目资源库.
      *
      * ProjectController constructor.
-     * @param ProjectRepository $projectRepository
+     * @param ProjectRepositoryContract $projectRepository
      */
-    public function __construct(ProjectRepository $projectRepository)
+    public function __construct(ProjectRepositoryContract $projectRepository)
     {
         $this->projectRepository = $projectRepository;
     }

@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Contracts\Repositories\ProjectRepositoryContract;
 use App\Task\TaskType;
 use App\Project\Project;
 use App\Task\TaskStatus;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\ProjectRepository;
 use App\System\Contracts\ConfigSystem\ProjectConfigSystemContract;
 
 class ConfigController extends Controller
 {
     /**
      * 项目资源库.
-     *
-     * @var ProjectRepository
+     * @var ProjectRepositoryContract
      */
     protected $projectRepository;
 
@@ -31,10 +30,10 @@ class ConfigController extends Controller
      * 通过DI获取项目资源库.
      *
      * ConfigController constructor.
-     * @param ProjectRepository $projectRepository
+     * @param ProjectRepositoryContract $projectRepository
      * @param ProjectConfigSystemContract $configSystem
      */
-    public function __construct(ProjectRepository $projectRepository, ProjectConfigSystemContract $configSystem)
+    public function __construct(ProjectRepositoryContract $projectRepository, ProjectConfigSystemContract $configSystem)
     {
         $this->projectRepository = $projectRepository;
         $this->configSystem = $configSystem;

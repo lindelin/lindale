@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Contracts\Repositories\ProjectRepositoryContract;
 use App\User;
 use App\Http\Controllers\Controller;
-use App\Repositories\ProjectRepository;
 
 class ProfileController extends Controller
 {
     /**
      * 项目资源库.
-     *
-     * @var ProjectRepository
+     * @var ProjectRepositoryContract
      */
     protected $projectRepository;
 
@@ -20,9 +19,9 @@ class ProfileController extends Controller
      * 通过DI获取资源库.
      *
      * HomeController constructor.
-     * @param ProjectRepository $projectRepository
+     * @param ProjectRepositoryContract $projectRepository
      */
-    public function __construct(ProjectRepository $projectRepository)
+    public function __construct(ProjectRepositoryContract $projectRepository)
     {
         $this->projectRepository = $projectRepository;
     }

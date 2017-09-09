@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Contracts\Repositories\ProjectRepositoryContract;
 use Image;
 use Charts;
 use Counter;
@@ -9,10 +10,9 @@ use App\User;
 use Carbon\Carbon;
 use App\Project\Project;
 use Illuminate\Http\Request;
-use App\Http\Requests\ProjectRequest;
 use Illuminate\Support\Facades\Storage;
 
-class ProjectRepository
+class ProjectRepository implements ProjectRepositoryContract
 {
     /**
      * 项目资源.
@@ -96,10 +96,10 @@ class ProjectRepository
     /**
      * 创建项目方法.
      *
-     * @param ProjectRequest $request
+     * @param $request
      * @return mixed
      */
-    public function CreateProject(ProjectRequest $request)
+    public function CreateProject($request)
     {
         $project = new Project();
 
@@ -170,11 +170,12 @@ class ProjectRepository
      *
      * @param $progress
      * @param Project $project
+     * @return bool|mixed
      */
     public function UpdateProjectProgress($progress, Project $project)
     {
         $project->progress = $progress;
-        $project->update();
+        return $project->update();
     }
 
     /**
@@ -209,7 +210,7 @@ class ProjectRepository
      * @param Project $project
      * @return Project
      */
-    public function Transfer(Request $request, Project $project)
+    public function Transfer($request, Project $project)
     {
         $project->user_id = $request->get('id');
 

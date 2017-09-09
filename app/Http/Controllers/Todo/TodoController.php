@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Todo;
 
+use App\Contracts\Repositories\ProjectRepositoryContract;
 use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
@@ -12,7 +13,6 @@ use App\Events\Todo\TodoUpdated;
 use App\Http\Requests\TodoRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\TodoRepository;
-use App\Repositories\ProjectRepository;
 
 class TodoController extends Controller
 {
@@ -25,8 +25,7 @@ class TodoController extends Controller
 
     /**
      * 项目资源库.
-     *
-     * @var
+     * @var ProjectRepositoryContract
      */
     protected $projectRepository;
 
@@ -36,9 +35,9 @@ class TodoController extends Controller
      *
      * TodoController constructor.
      * @param TodoRepository $todoRepository
-     * @param ProjectRepository $projectRepository
+     * @param ProjectRepositoryContract $projectRepository
      */
-    public function __construct(TodoRepository $todoRepository, ProjectRepository $projectRepository)
+    public function __construct(TodoRepository $todoRepository, ProjectRepositoryContract $projectRepository)
     {
         $this->todoRepository = $todoRepository;
         $this->projectRepository = $projectRepository;

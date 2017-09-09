@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Contracts\Repositories\ProjectRepositoryContract;
 use App\Project\Project;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\ProjectRepository;
 
 class HomeController extends Controller
 {
     /**
      * 项目资源库.
-     *
-     * @var ProjectRepository
+     * @var ProjectRepositoryContract
      */
     protected $projectRepository;
 
@@ -22,9 +21,9 @@ class HomeController extends Controller
      * 通过DI获取资源库.
      *
      * HomeController constructor.
-     * @param ProjectRepository $projectRepository
+     * @param ProjectRepositoryContract $projectRepository
      */
-    public function __construct(ProjectRepository $projectRepository)
+    public function __construct(ProjectRepositoryContract $projectRepository)
     {
         $this->projectRepository = $projectRepository;
     }
