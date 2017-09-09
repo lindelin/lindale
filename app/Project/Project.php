@@ -51,6 +51,7 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Project\Project whereUserId($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Notice\Notice[] $Notices
  */
 class Project extends Model
 {

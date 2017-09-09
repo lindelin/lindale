@@ -53,6 +53,11 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereUserId($value)
  * @mixin \Eloquent
+ * @property int|null $initiator_id
+ * @property int|null $spend
+ * @property-read \App\User $Initiator
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Task\Task whereInitiatorId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Task\Task whereSpend($value)
  */
 class Task extends Model
 {

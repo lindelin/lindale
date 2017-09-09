@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Task\TaskActivity whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Task\TaskActivity whereUserId($value)
  * @mixin \Eloquent
+ * @property-read \App\Task\Task $Task
  */
 class TaskActivity extends Model
 {

@@ -33,6 +33,11 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereUserId($value)
  * @mixin \Eloquent
+ * @property int|null $initiator_id
+ * @property string|null $details
+ * @property-read \App\User $Initiator
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Todo\Todo whereDetails($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Todo\Todo whereInitiatorId($value)
  */
 class Todo extends Model
 {
