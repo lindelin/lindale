@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Project;
 
 use App\Contracts\Repositories\MemberRepositoryContract;
+use App\Contracts\Repositories\TodoRepositoryContract;
 use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
@@ -13,13 +14,12 @@ use App\Events\Todo\TodoDeleted;
 use App\Events\Todo\TodoUpdated;
 use App\Http\Requests\TodoRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\TodoRepository;
 
 class TodoController extends Controller
 {
     /**
      * To-do资源库.
-     * @var TodoRepository
+     * @var TodoRepositoryContract
      */
     protected $todoRepository;
 
@@ -34,10 +34,10 @@ class TodoController extends Controller
      * 通过DI注入资源库.
      *
      * TodoController constructor.
-     * @param TodoRepository $todoRepository
+     * @param TodoRepositoryContract $todoRepository
      * @param MemberRepositoryContract $memberRepository
      */
-    public function __construct(TodoRepository $todoRepository, MemberRepositoryContract $memberRepository)
+    public function __construct(TodoRepositoryContract $todoRepository, MemberRepositoryContract $memberRepository)
     {
         $this->todoRepository = $todoRepository;
         $this->memberRepository = $memberRepository;
@@ -54,7 +54,7 @@ class TodoController extends Controller
     {
         $type = TodoType::find(config('todo.public'));
 
-        return view('project.todo.index', $this->todoRepository->TodoResources($project, $type, null, $status))
+        return view('project.todo.index', $this->todoRepository->todoResources($project, $type, null, $status))
             ->with($this->memberRepository->allMember($project))
             ->with(['project' => $project, 'selected' => 'todo']);
     }
@@ -68,7 +68,7 @@ class TodoController extends Controller
      */
     public function store(TodoRequest $request, Project $project)
     {
-        $todo = $this->todoRepository->CreateTodo($request, $project);
+        $todo = $this->todoRepository->createTodo($request, $project);
 
         $this->authorize('create', [$todo, $project]);
 
@@ -91,7 +91,7 @@ class TodoController extends Controller
         $list = TodoList::findOrFail($list);
         $type = TodoType::find(config('todo.public'));
 
-        return view('project.todo.index', $this->todoRepository->TodoResources($project, $type, $list))
+        return view('project.todo.index', $this->todoRepository->todoResources($project, $type, $list))
             ->with($this->memberRepository->allMember($project))
             ->with(['project' => $project, 'selected' => 'todo']);
     }
@@ -108,7 +108,7 @@ class TodoController extends Controller
     {
         $this->authorize('update', [$todo, $project]);
 
-        $result = $this->todoRepository->UpdateTodo($request, $todo)->update();
+        $result = $this->todoRepository->updateTodo($request, $todo)->update();
 
         event(new TodoUpdated($todo, $request->user()));
 

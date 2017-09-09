@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Todo;
 
 use App\Contracts\Repositories\ProjectRepositoryContract;
+use App\Contracts\Repositories\TodoRepositoryContract;
 use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
@@ -12,14 +13,12 @@ use App\Events\Todo\TodoDeleted;
 use App\Events\Todo\TodoUpdated;
 use App\Http\Requests\TodoRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\TodoRepository;
 
 class TodoController extends Controller
 {
     /**
      * To-do资源库.
-     *
-     * @var
+     * @var TodoRepositoryContract
      */
     protected $todoRepository;
 
@@ -34,10 +33,10 @@ class TodoController extends Controller
      * 通过DI注入资源库.
      *
      * TodoController constructor.
-     * @param TodoRepository $todoRepository
+     * @param TodoRepositoryContract $todoRepository
      * @param ProjectRepositoryContract $projectRepository
      */
-    public function __construct(TodoRepository $todoRepository, ProjectRepositoryContract $projectRepository)
+    public function __construct(TodoRepositoryContract $todoRepository, ProjectRepositoryContract $projectRepository)
     {
         $this->todoRepository = $todoRepository;
         $this->projectRepository = $projectRepository;
@@ -84,7 +83,7 @@ class TodoController extends Controller
         }
 
         return view('todo.index')
-            ->with($this->todoRepository->TodoResources($project, $type, $list, $status, config('todo.page-size'), $request->user()))
+            ->with($this->todoRepository->todoResources($project, $type, $list, $status, config('todo.page-size'), $request->user()))
             ->with($this->projectRepository->UserProjects($request->user()))
             ->with(['prefix' => $prefix, 'type' => $type]);
     }
@@ -100,7 +99,7 @@ class TodoController extends Controller
     {
         $this->authorize('user', [$todo]);
 
-        $result = $this->todoRepository->UpdateTodo($request, $todo)->update();
+        $result = $this->todoRepository->updateTodo($request, $todo)->update();
 
         event(new TodoUpdated($todo, $request->user()));
 
@@ -115,7 +114,7 @@ class TodoController extends Controller
      */
     public function store(TodoRequest $request)
     {
-        $todo = $this->todoRepository->CreateTodo($request);
+        $todo = $this->todoRepository->createTodo($request);
         $result = $todo->save();
 
         event(new TodoCreated($todo, $request->user()));

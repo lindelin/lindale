@@ -3,19 +3,18 @@
 namespace App\Http\Controllers\Todo;
 
 use App\Contracts\Repositories\ProjectRepositoryContract;
+use App\Contracts\Repositories\TodoRepositoryContract;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
 use Illuminate\Http\Request;
 use App\Http\Requests\TypeRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\TodoRepository;
 
 class TodoListController extends Controller
 {
     /**
      * To-do资源库.
-     *
-     * @var
+     * @var TodoRepositoryContract
      */
     protected $todoRepository;
 
@@ -30,10 +29,10 @@ class TodoListController extends Controller
      * 通过DI注入资源库.
      *
      * TodoController constructor.
-     * @param TodoRepository $todoRepository
+     * @param TodoRepositoryContract $todoRepository
      * @param ProjectRepositoryContract $projectRepository
      */
-    public function __construct(TodoRepository $todoRepository, ProjectRepositoryContract $projectRepository)
+    public function __construct(TodoRepositoryContract $todoRepository, ProjectRepositoryContract $projectRepository)
     {
         $this->todoRepository = $todoRepository;
         $this->projectRepository = $projectRepository;
@@ -61,7 +60,7 @@ class TodoListController extends Controller
         }
 
         return view('todo.index')
-            ->with($this->todoRepository->TodoResources(null, $type, null, null, config('todo.page-size'), $request->user()))
+            ->with($this->todoRepository->todoResources(null, $type, null, null, config('todo.page-size'), $request->user()))
             ->with($this->projectRepository->UserProjects($request->user()))
             ->with(['selected' => 'todo', 'add_todo_list' => 'on'])
             ->with(['prefix' => $prefix, 'type' => $type]);
@@ -75,7 +74,7 @@ class TodoListController extends Controller
      */
     public function store(TypeRequest $request)
     {
-        $result = $this->todoRepository->CreateTodoList($request, null, $request->user())->save();
+        $result = $this->todoRepository->createTodoList($request, null, $request->user())->save();
 
         return response()->save($result);
     }

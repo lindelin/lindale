@@ -59,6 +59,12 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\TaskRepository'
         );
 
+        // To-do Repository
+        $this->app->bind(
+            'App\Contracts\Repositories\TodoRepositoryContract',
+            'App\Repositories\TodoRepository'
+        );
+
         // User Repository
         $this->app->bind(
             'App\Contracts\Repositories\UserRepositoryContract',

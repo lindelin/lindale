@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Project\Todo;
 
 use App\Contracts\Repositories\MemberRepositoryContract;
+use App\Contracts\Repositories\TodoRepositoryContract;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
 use App\Project\Project;
 use App\Http\Requests\TypeRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\TodoRepository;
 
 class TodoListController extends Controller
 {
     /**
      * To-do资源库.
-     * @var TodoRepository
+     * @var TodoRepositoryContract
      */
     protected $todoRepository;
 
@@ -29,10 +29,10 @@ class TodoListController extends Controller
      * 通过DI注入资源库.
      *
      * TodoListController constructor.
-     * @param TodoRepository $todoRepository
+     * @param TodoRepositoryContract $todoRepository
      * @param MemberRepositoryContract $memberRepository
      */
-    public function __construct(TodoRepository $todoRepository, MemberRepositoryContract $memberRepository)
+    public function __construct(TodoRepositoryContract $todoRepository, MemberRepositoryContract $memberRepository)
     {
         $this->todoRepository = $todoRepository;
         $this->memberRepository = $memberRepository;
@@ -48,7 +48,7 @@ class TodoListController extends Controller
     {
         $type = TodoType::findOrFail(config('todo.public'));
 
-        return view('project.todo.index', $this->todoRepository->TodoResources($project, $type))
+        return view('project.todo.index', $this->todoRepository->todoResources($project, $type))
             ->with($this->memberRepository->allMember($project))
             ->with(['project' => $project, 'selected' => 'todo', 'add_todo_list' => 'on']);
     }
@@ -62,7 +62,7 @@ class TodoListController extends Controller
      */
     public function store(Project $project, TypeRequest $request)
     {
-        $result = $this->todoRepository->CreateTodoList($request, $project)->save();
+        $result = $this->todoRepository->createTodoList($request, $project)->save();
 
         return response()->save($result);
     }
