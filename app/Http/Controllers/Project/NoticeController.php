@@ -2,25 +2,25 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Contracts\Repositories\NoticeRepositoryContract;
 use App\Notice\Notice;
 use App\Project\Project;
 use App\Events\Project\NoticeEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NoticeRequest;
-use App\Repositories\NoticeRepository;
 
 class NoticeController extends Controller
 {
     /**
-     * @var NoticeRepository
+     * @var NoticeRepositoryContract
      */
-    private $noticeRepository;
+    protected $noticeRepository;
 
     /**
      * NoticeController constructor.
-     * @param NoticeRepository $noticeRepository
+     * @param NoticeRepositoryContract $noticeRepository
      */
-    public function __construct(NoticeRepository $noticeRepository)
+    public function __construct(NoticeRepositoryContract $noticeRepository)
     {
         $this->noticeRepository = $noticeRepository;
     }
@@ -32,7 +32,7 @@ class NoticeController extends Controller
      */
     public function index(Project $project)
     {
-        return view('project.config.notice', $this->noticeRepository->ProjectNoticeResources($project))
+        return view('project.config.notice', $this->noticeRepository->projectNoticeResources($project))
             ->with(['project' => $project, 'selected' => 'config', 'mode' => 'notice']);
     }
 
@@ -44,7 +44,7 @@ class NoticeController extends Controller
      */
     public function store(NoticeRequest $request, Project $project)
     {
-        $notice = $this->noticeRepository->CreateNotice($request, $project);
+        $notice = $this->noticeRepository->createNotice($request, $project);
         $this->authorize('create', [$notice, $project]);
         $result = $notice->save();
         if ($result) {
@@ -64,9 +64,8 @@ class NoticeController extends Controller
     public function update(NoticeRequest $request, Project $project, Notice $notice)
     {
         $this->authorize('update', [$notice, $project]);
-        $result = $this->noticeRepository->UpdateNotice($request, $project, $notice)->update();
 
-        return response()->update($result);
+        return response()->update($this->noticeRepository->updateNotice($request, $project, $notice)->update());
     }
 
     /**
@@ -78,8 +77,7 @@ class NoticeController extends Controller
     public function destroy(Project $project, Notice $notice)
     {
         $this->authorize('delete', [$notice, $project]);
-        $result = $notice->delete();
 
-        return response()->delete($result);
+        return response()->delete($notice->delete());
     }
 }

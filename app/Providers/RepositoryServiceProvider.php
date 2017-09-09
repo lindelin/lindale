@@ -29,9 +29,16 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\AdminRepository'
         );
 
+        // Member Repository
         $this->app->bind(
             'App\Contracts\Repositories\MemberRepositoryContract',
             'App\Repositories\MemberRepository'
+        );
+
+        // Notice Repository
+        $this->app->bind(
+            'App\Contracts\Repositories\NoticeRepositoryContract',
+            'App\Repositories\NoticeRepository'
         );
     }
 }
