@@ -53,6 +53,12 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Repositories\ProjectRepository'
         );
 
+        // User Repository
+        $this->app->bind(
+            'App\Contracts\Repositories\UserRepositoryContract',
+            'App\Repositories\UserRepository'
+        );
+
         // WIKI Repository
         $this->app->bind(
             'App\Contracts\Repositories\WikiRepositoryContract',
