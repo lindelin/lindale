@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Project\Task;
 
+use App\Contracts\Repositories\TaskRepositoryContract;
 use App\Exceptions\StoreSubTaskException;
 use App\Task\Task;
 use App\Task\SubTask;
 use App\Project\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\TaskRepository;
 use App\Events\Task\SubTask\SubTaskCreated;
 use App\Events\Task\SubTask\SubTaskDeleted;
 use App\Events\Task\SubTask\SubTaskUpdated;
@@ -17,8 +17,7 @@ class SubTaskController extends Controller
 {
     /**
      * 任务资源库.
-     *
-     * @var TaskRepository
+     * @var TaskRepositoryContract
      */
     protected $taskRepository;
 
@@ -27,9 +26,9 @@ class SubTaskController extends Controller
      * 注入资源.
      *
      * TaskGroupController constructor.
-     * @param TaskRepository $taskRepository
+     * @param TaskRepositoryContract $taskRepository
      */
-    public function __construct(TaskRepository $taskRepository)
+    public function __construct(TaskRepositoryContract $taskRepository)
     {
         $this->taskRepository = $taskRepository;
     }

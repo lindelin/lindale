@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Contracts\Repositories\TaskRepositoryContract;
 use App\Task\Task;
 use App\Task\TaskType;
 use App\Project\Project;
@@ -13,14 +14,12 @@ use App\Events\Task\TaskDeleted;
 use App\Events\Task\TaskUpdated;
 use App\Http\Requests\TaskRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\TaskRepository;
 
 class TaskController extends Controller
 {
     /**
      * 任务资源库.
-     *
-     * @var TaskRepository
+     * @var TaskRepositoryContract
      */
     protected $taskRepository;
 
@@ -29,9 +28,9 @@ class TaskController extends Controller
      * 注入资源.
      *
      * TaskGroupController constructor.
-     * @param TaskRepository $taskRepository
+     * @param TaskRepositoryContract $taskRepository
      */
-    public function __construct(TaskRepository $taskRepository)
+    public function __construct(TaskRepositoryContract $taskRepository)
     {
         $this->taskRepository = $taskRepository;
     }

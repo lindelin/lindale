@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Contracts\Repositories\TaskRepositoryContract;
 use App\Exceptions\StoreSubTaskException;
 use App\User;
 use App\Task\Task;
@@ -16,7 +17,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\TaskRequest;
 use App\Http\Requests\TaskGroupRequest;
 
-class TaskRepository
+class TaskRepository implements TaskRepositoryContract
 {
     /**
      * 任务资源.
@@ -204,7 +205,7 @@ class TaskRepository
      * @param Project $project
      * @return Task
      */
-    public function CreateTask(TaskRequest $request, Project $project)
+    public function CreateTask($request, Project $project)
     {
         $task = new Task();
 
@@ -243,7 +244,7 @@ class TaskRepository
      * @param Task $task
      * @return Task
      */
-    public function UpdateTask(TaskRequest $request, Task $task)
+    public function UpdateTask($request, Task $task)
     {
         $input = $request->all([
             'group_id',
@@ -278,7 +279,7 @@ class TaskRepository
      * @param Project $project
      * @return TaskGroup
      */
-    public function CreateGroup(TaskGroupRequest $request, Project $project)
+    public function CreateGroup($request, Project $project)
     {
         $group = new TaskGroup();
 
@@ -303,7 +304,7 @@ class TaskRepository
      * @param TaskGroup $group
      * @return TaskGroup
      */
-    public function UpdateGroup(TaskGroupRequest $request, TaskGroup $group)
+    public function UpdateGroup($request, TaskGroup $group)
     {
         $input = $request->all(['title', 'information', 'type_id', 'status_id', 'start_at', 'end_at', 'color_id']);
 
@@ -324,7 +325,7 @@ class TaskRepository
      * @param SubTask $subTask
      * @return SubTask
      */
-    public function UpdateSubTask(Request $request, SubTask $subTask)
+    public function UpdateSubTask($request, SubTask $subTask)
     {
         $input = $request->all(['content', 'is_finish']);
 
@@ -345,7 +346,7 @@ class TaskRepository
      * @param Task $task
      * @return TaskActivity
      */
-    public function CreateTaskActivity(Request $request, Task $task)
+    public function CreateTaskActivity($request, Task $task)
     {
         $activity = new TaskActivity();
 
