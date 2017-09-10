@@ -9,9 +9,6 @@ use App\Task\SubTask;
 use App\Project\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Events\Task\SubTask\SubTaskCreated;
-use App\Events\Task\SubTask\SubTaskDeleted;
-use App\Events\Task\SubTask\SubTaskUpdated;
 
 class SubTaskController extends Controller
 {
@@ -44,6 +41,7 @@ class SubTaskController extends Controller
      */
     public function store(Request $request, Project $project, Task $task)
     {
+        // TODO: 改修　脆弱性
         if ($task->is_finish === config('task.unfinished')) {
             $this->validate($request, [
                 'contents' => 'required',
@@ -67,12 +65,8 @@ class SubTaskController extends Controller
                 $result = false;
             }
 
-            if ($result) {
-                event(new SubTaskCreated($subTask, $request->user()));
-                return redirect()->to(route('task.show', compact('project', 'task')))->with('status', trans('errors.update-succeed'));
-            } else {
-                return redirect()->back()->withErrors(trans('errors.update-failed'));
-            }
+            return response()->save($result);
+
         } else {
             return redirect()->back()->withErrors(trans('errors.can-not-add-sub-task'));
         }
@@ -89,16 +83,8 @@ class SubTaskController extends Controller
      */
     public function update(Request $request, Project $project, Task $task, SubTask $subTask)
     {
-        $subTask = $this->taskRepository->UpdateSubTask($request, $subTask);
-
-        $result = $subTask->update();
-
-        if ($result) {
-            event(new SubTaskUpdated($subTask, $request->user()));
-            return redirect()->to(route('task.show', compact('project', 'task')))->with('status', trans('errors.update-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.update-failed'));
-        }
+        // TODO: 安全隐患
+        return response()->update($this->taskRepository->UpdateSubTask($request, $subTask)->update());
     }
 
     /**
@@ -112,13 +98,7 @@ class SubTaskController extends Controller
      */
     public function destroy(Project $project, Task $task, SubTask $subTask, Request $request)
     {
-        $result = $subTask->delete();
-
-        if ($result) {
-            event(new SubTaskDeleted($subTask, $request->user()));
-            return redirect()->to(route('task.show', compact('project', 'task')))->with('status', trans('errors.delete-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.delete-failed'));
-        }
+        // TODO: 安全隐患
+        return response()->delete($subTask->delete());
     }
 }

@@ -32,12 +32,11 @@ class SubTaskCreated
      *
      * SubTaskCreated constructor.
      * @param SubTask $subTask
-     * @param User $user
      */
-    public function __construct(SubTask $subTask, User $user)
+    public function __construct(SubTask $subTask)
     {
         $this->subTask = $subTask;
-        $this->user = $user;
+        $this->user = request()->user();
     }
 
     /**
