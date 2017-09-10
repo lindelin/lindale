@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('root');;
 Route::get('/lang/{lang}', 'HomeController@lang')->name('lang');
 
 /*
@@ -27,12 +27,12 @@ Route::get('/lang/{lang}', 'HomeController@lang')->name('lang');
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
     //Home
-    Route::get('home', 'HomeController@index');
-    Route::get('home/project', 'HomeController@project');
+    Route::get('home', 'HomeController@index')->name('home');
+    Route::get('home/project', 'HomeController@project')->name('my.project');
     Route::post('home/favorites', 'HomeController@addFavorites')->name('add.favorites');
     Route::post('home/favorites/remove', 'HomeController@removeFavorites')->name('remove.favorites');
     //Profile
-    Route::get('profile/{user}', 'ProfileController@show');
+    Route::get('profile/{user}', 'ProfileController@show')->name('profile');
 });
 
 /*
@@ -49,44 +49,44 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     //项目
     Route::resource('project', 'ProjectController', ['except' => ['show']]);
-    Route::patch('project/transfer/{project}', 'ProjectController@transfer');
+    Route::patch('project/transfer/{project}', 'ProjectController@transfer')->name('project.transfer');
     Route::get('project/{project}', 'ProjectController@show')->middleware('ProjectAuth')->name('project.show');
-    Route::get('/unfinished/project', 'ProjectController@unfinished');
-    Route::get('/finished/project', 'ProjectController@finished');
+    Route::get('/unfinished/project', 'ProjectController@unfinished')->name('project.unfinished');
+    Route::get('/finished/project', 'ProjectController@finished')->name('project.finished');
     //项目内路由
     Route::group(['middleware' => 'ProjectAuth', 'prefix' => 'project/{project}'], function () {
 
         //Wiki路由
         Route::resource('wiki', 'WikiController');
-        Route::post('wiki/first', 'WikiController@first');
+        Route::post('wiki/first', 'WikiController@first')->name('wiki.first');
         Route::group(['namespace' => 'Wiki'], function () {
-            Route::get('wiki-index/create', 'WikiTypeController@create');
-            Route::post('wiki-index', 'WikiTypeController@store');
-            Route::patch('wiki-index/{wikiType}', 'WikiTypeController@update');
-            Route::delete('wiki-index/{wikiType}', 'WikiTypeController@destroy');
+            Route::get('wiki-index/create', 'WikiTypeController@create')->name('wiki-index.create');
+            Route::post('wiki-index', 'WikiTypeController@store')->name('wiki-index.store');
+            Route::patch('wiki-index/{wikiType}', 'WikiTypeController@update')->name('wiki-index.update');
+            Route::delete('wiki-index/{wikiType}', 'WikiTypeController@destroy')->name('wiki-index.destroy');
         });
 
         //成员路由
         Route::group(['prefix' => 'member'], function () {
-            Route::get('/', 'MemberController@index');
-            Route::post('/', 'MemberController@store');
-            Route::delete('{user}', 'MemberController@destroy');
-            Route::patch('{user}', 'MemberController@policy');
+            Route::get('/', 'MemberController@index')->name('member.index');
+            Route::post('/', 'MemberController@store')->name('member.store');
+            Route::delete('{user}', 'MemberController@destroy')->name('member.destroy');
+            Route::patch('{user}', 'MemberController@policy')->name('member.policy');
         });
 
         //待办路由
         Route::group(['prefix' => 'todo'], function () {
-            Route::get('/', 'TodoController@index');
-            Route::get('status/{status?}', 'TodoController@index');
-            Route::post('/', 'TodoController@store');
-            Route::patch('todo/{todo}', 'TodoController@update');
-            Route::delete('todo/{todo}', 'TodoController@destroy');
-            Route::get('list/show/{list}', 'TodoController@show');
+            Route::get('/', 'TodoController@index')->name('todo.index');
+            Route::get('status/{status?}', 'TodoController@index')->name('todo.status');
+            Route::post('/', 'TodoController@store')->name('todo.store');
+            Route::patch('todo/{todo}', 'TodoController@update')->name('todo.update');
+            Route::delete('todo/{todo}', 'TodoController@destroy')->name('todo.destroy');
+            Route::get('list/show/{list}', 'TodoController@show')->name('todo.list');
             //待办列表路由
             Route::group(['namespace' => 'Todo'], function () {
-                Route::post('list', 'TodoListController@store');
-                Route::get('list/create', 'TodoListController@create');
-                Route::delete('list/delete/{list}', 'TodoListController@destroy');
+                Route::post('list', 'TodoListController@store')->name('todo-list.store');
+                Route::get('list/create', 'TodoListController@create')->name('todo-list.create');
+                Route::delete('list/delete/{list}', 'TodoListController@destroy')->name('todo-list.destroy');
             });
         });
 
@@ -102,7 +102,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
 
         //概要路由
         Route::group(['prefix' => 'info'], function () {
-            Route::get('/', 'InfoController@index');
+            Route::get('/', 'InfoController@index')->name('project.info');
         });
 
         //设定路由
@@ -125,11 +125,11 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
 
             //任务设定
             Route::group(['prefix' => 'task'], function () {
-                Route::get('type', 'ConfigController@taskType');
-                Route::patch('type/{type?}', 'ConfigController@updateTaskType');
+                Route::get('type', 'ConfigController@taskType')->name('config.taskType');
+                Route::patch('type/{type?}', 'ConfigController@updateTaskType')->name('config.taskType.update');
 
-                Route::get('status', 'ConfigController@taskStatus');
-                Route::patch('status/{status?}', 'ConfigController@updateTaskStatus');
+                Route::get('status', 'ConfigController@taskStatus')->name('config.taskStatus');
+                Route::patch('status/{status?}', 'ConfigController@updateTaskStatus')->name('config.taskStatus.update');
             });
         });
 
@@ -137,41 +137,41 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         Route::group(['prefix' => 'task'], function () {
             //首页
             Route::get('/', 'TaskController@index')->name('task.index');
-            Route::get('all', 'TaskController@all');
-            Route::get('unfinished', 'TaskController@unfinished');
-            Route::get('finished', 'TaskController@finished');
-            Route::get('type/{taskType}', 'TaskController@type');
-            Route::get('priority/{taskPriority}', 'TaskController@priority');
-            Route::get('status/{taskStatus}', 'TaskController@status');
+            Route::get('all', 'TaskController@all')->name('task.all');
+            Route::get('unfinished', 'TaskController@unfinished')->name('task.unfinished');
+            Route::get('finished', 'TaskController@finished')->name('task.finished');
+            Route::get('type/{taskType}', 'TaskController@type')->name('task.type');
+            Route::get('priority/{taskPriority}', 'TaskController@priority')->name('task.priority');
+            Route::get('status/{taskStatus}', 'TaskController@status')->name('task.status');
             Route::get('show/{task}', 'TaskController@show')->name('task.show');
 
             //任务
             Route::group(['prefix' => 'task'], function () {
-                Route::post('/', 'TaskController@store');
-                Route::delete('/{task}', 'TaskController@destroy');
-                Route::patch('/{task}', 'TaskController@update');
-                Route::get('create', 'TaskController@create');
-                Route::get('edit/{task}', 'TaskController@edit');
+                Route::post('/', 'TaskController@store')->name('task.store');
+                Route::delete('/{task}', 'TaskController@destroy')->name('task.destroy');
+                Route::patch('/{task}', 'TaskController@update')->name('task.update');
+                Route::get('create', 'TaskController@create')->name('task.create');
+                Route::get('edit/{task}', 'TaskController@edit')->name('task.edit');
             });
 
             //任务组
             Route::group(['namespace' => 'Task', 'prefix' => 'group'], function () {
-                Route::get('create', 'TaskGroupController@create');
-                Route::get('edit/{taskGroup}', 'TaskGroupController@edit');
-                Route::patch('/edit/{taskGroup}', 'TaskGroupController@update');
-                Route::delete('/delete/{taskGroup}', 'TaskGroupController@destroy');
-                Route::post('/', 'TaskGroupController@store');
+                Route::get('create', 'TaskGroupController@create')->name('taskGroup.create');
+                Route::get('edit/{taskGroup}', 'TaskGroupController@edit')->name('taskGroup.edit');
+                Route::patch('/edit/{taskGroup}', 'TaskGroupController@update')->name('taskGroup.update');
+                Route::delete('/delete/{taskGroup}', 'TaskGroupController@destroy')->name('taskGroup.destroy');
+                Route::post('/', 'TaskGroupController@store')->name('taskGroup.store');
             });
 
             Route::group(['namespace' => 'Task', 'prefix' => 'show/{task}/sub-task'], function () {
-                Route::post('/', 'SubTaskController@store');
-                Route::patch('/edit/{subTask}', 'SubTaskController@update');
-                Route::delete('/edit/{subTask}', 'SubTaskController@destroy');
+                Route::post('/', 'SubTaskController@store')->name('subTask.store');
+                Route::patch('/edit/{subTask}', 'SubTaskController@update')->name('subTask.update');
+                Route::delete('/edit/{subTask}', 'SubTaskController@destroy')->name('subTask.destroy');
             });
 
             Route::group(['namespace' => 'Task', 'prefix' => 'show/{task}/activity'], function () {
-                Route::post('/', 'TaskActivityController@store');
-                Route::delete('/{taskActivity}', 'TaskActivityController@destroy');
+                Route::post('/', 'TaskActivityController@store')->name('taskActivity.store');
+                Route::delete('/{taskActivity}', 'TaskActivityController@destroy')->name('taskActivity.destroy');
             });
         });
     });
