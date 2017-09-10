@@ -2,7 +2,6 @@
 
 namespace App\Contracts\Repositories;
 
-
 use App\Notice\Notice;
 use App\Project\Project;
 

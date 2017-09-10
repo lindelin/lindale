@@ -13,7 +13,7 @@ use App\Http\Requests\TodoRequest;
 use App\Http\Requests\TypeRequest;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-class TodoRepository implements  TodoRepositoryContract
+class TodoRepository implements TodoRepositoryContract
 {
     use AuthorizesRequests;
     /**

@@ -17,7 +17,6 @@ class MyHomePageTest extends DuskTestCase
      */
     public function testMyHomePage()
     {
-
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(2))
                 ->visit(new MyHomePage())
