@@ -2,6 +2,9 @@
 
 namespace App\Task;
 
+use App\Events\Task\TaskCreated;
+use App\Events\Task\TaskDeleted;
+use App\Events\Task\TaskUpdated;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -64,6 +67,17 @@ class Task extends Model
     protected $dates = [
         'start_at',
         'end_at',
+    ];
+
+    /**
+     * タイミングイベント定義。
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => TaskCreated::class,
+        'updated' => TaskUpdated::class,
+        'deleted' => TaskDeleted::class,
     ];
 
     /*

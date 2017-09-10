@@ -8,10 +8,6 @@ use App\Task\TaskType;
 use App\Project\Project;
 use App\Task\TaskStatus;
 use App\Task\TaskPriority;
-use Illuminate\Http\Request;
-use App\Events\Task\TaskCreated;
-use App\Events\Task\TaskDeleted;
-use App\Events\Task\TaskUpdated;
 use App\Http\Requests\TaskRequest;
 use App\Http\Controllers\Controller;
 
@@ -172,8 +168,6 @@ class TaskController extends Controller
         }
 
         if ($result) {
-            event(new TaskCreated($task, $request->user()));
-
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)
                 ->with('status', trans('errors.save-succeed'));
         } else {
@@ -199,8 +193,6 @@ class TaskController extends Controller
             $result = $task->update();
 
             if ($result) {
-                event(new TaskUpdated($task, $request->user()));
-
                 return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
             } else {
                 return redirect()->back()->withErrors(trans('errors.update-failed'));
@@ -229,10 +221,9 @@ class TaskController extends Controller
      *
      * @param Project $project
      * @param Task $task
-     * @param Request $request
      * @return mixed
      */
-    public function destroy(Project $project, Task $task, Request $request)
+    public function destroy(Project $project, Task $task)
     {
         if ($task->is_finish === config('task.unfinished')) {
             $this->authorize('delete', [$task, $project]);
@@ -242,8 +233,6 @@ class TaskController extends Controller
             }
 
             if ($task->delete()) {
-                event(new TaskDeleted($task, $request->user()));
-
                 return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.delete-succeed'));
             } else {
                 return redirect()->back()->withErrors(trans('errors.delete-failed'));

@@ -34,7 +34,7 @@ class TaskProgressEventListener
     public function onSubTaskUpdated($event)
     {
         $this->TaskProgressUpdate($event->subTask->Task);
-        event(new TaskUpdated($event->subTask->Task, $event->user));
+        event(new TaskUpdated($event->subTask->Task));
     }
 
     /**
