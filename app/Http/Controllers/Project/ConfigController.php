@@ -169,7 +169,7 @@ class ConfigController extends Controller
     {
         $result = TaskStatus::updateOrCreate(
             ['id' => $id, 'project_id' => $project->id],
-            ['name' => $request->get('name'), 'color_id' => $request->get('color_id'), 'action_id' => 3]); /* TODO: ACTION */
+            ['name' => $request->get('name'), 'color_id' => $request->get('color_id'), 'action_id' => 3]); /* TODO: 状态ACTION */
 
         return response()->update($result);
     }

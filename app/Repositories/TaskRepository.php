@@ -376,7 +376,6 @@ class TaskRepository implements TaskRepositoryContract
     {
         if ((int) $progress <= 100 and (int) $progress >= 0) {
             $task->progress = $progress;
-
             return $task->update();
         } else {
             return false;

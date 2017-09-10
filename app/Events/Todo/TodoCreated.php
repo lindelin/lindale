@@ -16,7 +16,7 @@ class TodoCreated
     /**
      * To-do.
      *
-     * @var Todo
+     * @var To-do
      */
     public $todo;
 
@@ -31,7 +31,7 @@ class TodoCreated
      * 创建事件监听器.
      *
      * TodoCreated constructor.
-     * @param Todo $todo
+     * @param To-do $todo
      */
     public function __construct(Todo $todo)
     {

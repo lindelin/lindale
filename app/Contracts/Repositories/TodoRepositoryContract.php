@@ -34,7 +34,7 @@ interface TodoRepositoryContract
     /**
      * 更新To-do方法.
      * @param $request
-     * @param Todo $todo
+     * @param To-do $todo
      * @return mixed
      */
     public function updateTodo($request, Todo $todo);

@@ -68,7 +68,6 @@ class MemberController extends Controller
      */
     public function destroy(Request $request, Project $project, User $user)
     {
-        //TODO: 成员专用Request
         $this->validate($request, [
             'project-pass' => 'required',
         ]);

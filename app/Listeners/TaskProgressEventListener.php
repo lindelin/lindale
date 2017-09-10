@@ -3,9 +3,7 @@
 namespace App\Listeners;
 
 use App\Contracts\Repositories\TaskRepositoryContract;
-use Calculator;
 use App\Task\Task;
-use App\Events\Task\TaskUpdated;
 
 class TaskProgressEventListener
 {
@@ -34,7 +32,6 @@ class TaskProgressEventListener
     public function onSubTaskUpdated($event)
     {
         $this->TaskProgressUpdate($event->subTask->Task);
-        event(new TaskUpdated($event->subTask->Task));
     }
 
     /**
@@ -44,7 +41,7 @@ class TaskProgressEventListener
      */
     private function TaskProgressUpdate(Task $task)
     {
-        $progress = Calculator::TaskProgressCompute($task);
+        $progress = calculator()->TaskProgressCompute($task);
 
         $this->taskRepository->UpdateTaskProgress($progress, $task);
     }

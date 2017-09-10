@@ -138,3 +138,14 @@ if (! function_exists('trans_task_group_status_for_gantt')) {
         }
     }
 }
+
+if (! function_exists('calculator')) {
+    /**
+     * 進捗 calculator
+     * @return \App\Tools\Analytics\Calculator|Calculator|\Illuminate\Foundation\Application|mixed
+     */
+    function calculator()
+    {
+        return app('calculator');
+    }
+}
