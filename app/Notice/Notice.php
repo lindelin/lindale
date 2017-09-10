@@ -2,6 +2,7 @@
 
 namespace App\Notice;
 
+use App\Events\Project\NoticeEvent;
 use App\User;
 use App\Project\Project;
 use Illuminate\Database\Eloquent\Model;
@@ -39,6 +40,15 @@ class Notice extends Model
     protected $dates = [
         'start_at',
         'end_at',
+    ];
+
+    /**
+     * タイミングイベント定義。
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => NoticeEvent::class,
     ];
 
     /**

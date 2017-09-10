@@ -46,12 +46,8 @@ class NoticeController extends Controller
     {
         $notice = $this->noticeRepository->createNotice($request, $project);
         $this->authorize('create', [$notice, $project]);
-        $result = $notice->save();
-        if ($result) {
-            event(new NoticeEvent($notice));
-        }
 
-        return response()->save($result);
+        return response()->save($notice->save());
     }
 
     /**
