@@ -8,10 +8,6 @@ use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
 use App\Project\Project;
-use Illuminate\Http\Request;
-use App\Events\Todo\TodoCreated;
-use App\Events\Todo\TodoDeleted;
-use App\Events\Todo\TodoUpdated;
 use App\Http\Requests\TodoRequest;
 use App\Http\Controllers\Controller;
 
@@ -72,11 +68,7 @@ class TodoController extends Controller
 
         $this->authorize('create', [$todo, $project]);
 
-        $result = $todo->save();
-
-        event(new TodoCreated($todo, $request->user()));
-
-        return response()->save($result);
+        return response()->save($todo->save());
     }
 
     /**
@@ -108,29 +100,19 @@ class TodoController extends Controller
     {
         $this->authorize('update', [$todo, $project]);
 
-        $result = $this->todoRepository->updateTodo($request, $todo)->update();
-
-        event(new TodoUpdated($todo, $request->user()));
-
-        return response()->update($result);
+        return response()->update($this->todoRepository->updateTodo($request, $todo)->update());
     }
 
     /**
      * 删除To-do.
-     *
      * @param Project $project
      * @param Todo $todo
-     * @param Request $request
      * @return mixed
      */
-    public function destroy(Project $project, Todo $todo, Request $request)
+    public function destroy(Project $project, Todo $todo)
     {
         $this->authorize('delete', [$todo, $project]);
 
-        $result = $todo->delete();
-
-        event(new TodoDeleted($todo, $request->user()));
-
-        return response()->delete($result);
+        return response()->delete($todo->delete());
     }
 }

@@ -32,12 +32,11 @@ class TodoUpdated
      *
      * TodoCreated constructor.
      * @param Todo $todo
-     * @param User $user
      */
-    public function __construct(Todo $todo, User $user)
+    public function __construct(Todo $todo)
     {
         $this->todo = $todo;
-        $this->user = $user;
+        $this->user = request()->user();
     }
 
     /**

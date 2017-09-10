@@ -2,6 +2,9 @@
 
 namespace App\Todo;
 
+use App\Events\Todo\TodoCreated;
+use App\Events\Todo\TodoDeleted;
+use App\Events\Todo\TodoUpdated;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -41,6 +44,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Todo extends Model
 {
+    /**
+     * タイミングイベント定義。
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => TodoCreated::class,
+        'updated' => TodoUpdated::class,
+        'deleted' => TodoDeleted::class,
+    ];
+
     /**
      * 一个To-do有一个负责人
      * 一对一
