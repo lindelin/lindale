@@ -89,7 +89,7 @@ class TodoController extends Controller
      * 更新To-do.
      *
      * @param TodoRequest $request
-     * @param Todo $todo
+     * @param To-do $todo
      * @return mixed
      */
     public function update(TodoRequest $request, Todo $todo)
@@ -107,13 +107,12 @@ class TodoController extends Controller
      */
     public function store(TodoRequest $request)
     {
-        // TODO: 安全隐患
         return response()->save($this->todoRepository->createTodo($request)->save());
     }
 
     /**
      * 删除To-do.
-     * @param Todo $todo
+     * @param To-do $todo
      * @return mixed
      */
     public function destroy(Todo $todo)

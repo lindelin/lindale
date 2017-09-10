@@ -34,7 +34,7 @@ class TaskPolicy
     }
 
     /**
-     * create.
+     * update.
      * @param User $user
      * @param Task $task
      * @param Project $project
@@ -55,7 +55,28 @@ class TaskPolicy
     }
 
     /**
-     * create.
+     * show.
+     * @param User $user
+     * @param Task $task
+     * @param Project $project
+     * @return bool
+     * @internal param Wiki $wiki
+     */
+    public function show(User $user, Task $task, Project $project)
+    {
+        if (($user->id === $project->user_id) and ($project->id === $task->project_id)) {
+            return true;
+        } elseif (($user->id === $project->sl_id) and ($project->id === $task->project_id)) {
+            return true;
+        } elseif (($project->Users()->find($user->id)) and ($project->id === $task->project_id)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * delete.
      * @param User $user
      * @param Task $task
      * @param Project $project

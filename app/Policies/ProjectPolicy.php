@@ -25,6 +25,11 @@ class ProjectPolicy
         return $user->id === $project->user_id and Hash::check($request->get('password'), $project->password);
     }
 
+    /**
+     * @param User $user
+     * @param Project $project
+     * @return bool
+     */
     public function is_member(User $user, Project $project)
     {
         if ($project->user_id === $user->id) {

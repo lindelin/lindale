@@ -49,6 +49,7 @@ class TaskGroupController extends Controller
      */
     public function edit(Project $project, TaskGroup $group)
     {
+        $this->authorize('update', [$group, $project]);
         return view('project.task.group.edit', $this->taskRepository->TaskGroupCreateResources($project))
             ->with(['project' => $project, 'selected' => 'tasks'])
             ->with(compact('group'));
@@ -65,9 +66,9 @@ class TaskGroupController extends Controller
     {
         $group = $this->taskRepository->CreateGroup($request, $project);
 
-        $result = $group->save();
+        $this->authorize('create', [$group, $project]);
 
-        if ($result) {
+        if ($group->save()) {
             return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-failed'));
@@ -84,11 +85,8 @@ class TaskGroupController extends Controller
      */
     public function update(TaskGroupRequest $request, Project $project, TaskGroup $group)
     {
-        $group = $this->taskRepository->UpdateGroup($request, $group);
-
-        $result = $group->update();
-
-        if ($result) {
+        $this->authorize('update', [$group, $project]);
+        if ($this->taskRepository->UpdateGroup($request, $group)->update()) {
             return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
@@ -104,6 +102,7 @@ class TaskGroupController extends Controller
      */
     public function destroy(Project $project, TaskGroup $group)
     {
+        $this->authorize('update', [$group, $project]);
         if ($group->delete()) {
             return redirect()->to(route('task.index', compact('project')))->with('status', trans('errors.delete-succeed'));
         } else {

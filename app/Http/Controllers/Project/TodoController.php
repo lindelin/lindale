@@ -93,7 +93,7 @@ class TodoController extends Controller
      *
      * @param TodoRequest $request
      * @param Project $project
-     * @param Todo $todo
+     * @param To-do $to-do
      * @return mixed
      */
     public function update(TodoRequest $request, Project $project, Todo $todo)
@@ -106,7 +106,7 @@ class TodoController extends Controller
     /**
      * 删除To-do.
      * @param Project $project
-     * @param Todo $todo
+     * @param To-do $to-do
      * @return mixed
      */
     public function destroy(Project $project, Todo $todo)

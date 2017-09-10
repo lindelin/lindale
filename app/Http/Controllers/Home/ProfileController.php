@@ -26,6 +26,11 @@ class ProfileController extends Controller
         $this->projectRepository = $projectRepository;
     }
 
+    /**
+     * ユーザプロフィール
+     * @param User $user
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show(User $user)
     {
         return view('home.profile', $this->projectRepository->ProfileProjectResources($user));

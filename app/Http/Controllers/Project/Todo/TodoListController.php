@@ -62,9 +62,11 @@ class TodoListController extends Controller
      */
     public function store(Project $project, TypeRequest $request)
     {
-        $result = $this->todoRepository->createTodoList($request, $project)->save();
+        $list = $this->todoRepository->createTodoList($request, $project);
 
-        return response()->save($result);
+        $this->authorize('create', [$list, $project]);
+
+        return response()->save($list->save());
     }
 
     /**

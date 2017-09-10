@@ -41,9 +41,9 @@
                     @if((int)$type->id === config('todo.private') and $lists->count() > 0)
                         @foreach($lists as $list)
                             <a href="{{ url("$prefix/list/show/$list->id") }}" class="list-group-item">
-                                            <span class="badge">{{-- TODO: 集計 --}}
-                                                {{ $list->Todos()->where('status_id', config('todo.status.finished'))->count() }}/{{ $list->Todos()->count() }}
-                                            </span>
+                                <span class="badge">
+                                    {{ $list->Todos()->where('status_id', config('todo.status.finished'))->count() }}/{{ $list->Todos()->count() }}
+                                </span>
                                 {{ $list->title }}
                             </a>
                         @endforeach

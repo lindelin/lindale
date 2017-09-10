@@ -49,11 +49,6 @@ class ProfileController extends Controller
     public function update(UserRequest $request, User $user)
     {
         $this->authorize('update', [$user]);
-
-        $result = $this->userRepository
-            ->updateUser($request, $user)
-            ->update();
-
-        return response()->update($result);
+        return response()->update($this->userRepository->updateUser($request, $user)->update());
     }
 }

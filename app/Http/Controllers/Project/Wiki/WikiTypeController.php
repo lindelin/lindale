@@ -50,24 +50,25 @@ class WikiTypeController extends Controller
      */
     public function store(TypeRequest $request, Project $project)
     {
-        $result = $this->wikiRepository->createWikiType($request, $project)->save();
+        $wikiType = $this->wikiRepository->createWikiType($request, $project);
 
-        return response()->save($result);
+        $this->authorize('create', [$wikiType, $project]);
+
+        return response()->save($wikiType->save());
     }
 
     /**
      * 更新WIKI表单.
-     *
      * @param Request $request
+     * @param Project $project
      * @param WikiType $wikiType
      * @return mixed
      */
     public function update(Request $request, Project $project, WikiType $wikiType)
     {
-        // TODO: 認可
-        $result = $this->wikiRepository->updateWikiType($request, $wikiType)->update();
+        $this->authorize('update', [$wikiType, $project]);
 
-        return response()->update($result);
+        return response()->update($this->wikiRepository->updateWikiType($request, $wikiType)->update());
     }
 
     /**
@@ -79,6 +80,8 @@ class WikiTypeController extends Controller
      */
     public function destroy(Project $project, WikiType $wikiType)
     {
+        $this->authorize('delete', [$wikiType, $project]);
+
         $wikiType->Wikis()->delete();
 
         if ($wikiType->delete()) {

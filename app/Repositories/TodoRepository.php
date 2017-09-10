@@ -11,9 +11,11 @@ use App\Project\Project;
 use App\Todo\TodoStatus;
 use App\Http\Requests\TodoRequest;
 use App\Http\Requests\TypeRequest;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class TodoRepository implements  TodoRepositoryContract
 {
+    use AuthorizesRequests;
     /**
      * 获取项目To-do资源.
      *
@@ -108,6 +110,7 @@ class TodoRepository implements  TodoRepositoryContract
         if ($project !== null) {
             $todo->type_id = config('todo.public');
             $todo->project_id = $project->id;
+            $this->authorize('create', [$todo, $project]);
         } else {
             $todo->user_id = $request->user()->id;
         }

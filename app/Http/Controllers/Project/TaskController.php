@@ -139,6 +139,7 @@ class TaskController extends Controller
      */
     public function edit(Project $project, Task $task)
     {
+        $this->authorize('update', [$task, $project]);
         if ($task->is_finish === config('task.unfinished')) {
             return view('project.task.edit', $this->taskRepository->TaskCreateResources($project))
                 ->with(['project' => $project, 'selected' => 'tasks'])
@@ -211,6 +212,7 @@ class TaskController extends Controller
      */
     public function show(Project $project, Task $task)
     {
+        $this->authorize('show', [$task, $project]);
         return view('project.task.show', $this->taskRepository->TaskShowResources($project, $task))
             ->with(compact('project', 'task'))
             ->with(['selected' => 'tasks']);
@@ -225,8 +227,8 @@ class TaskController extends Controller
      */
     public function destroy(Project $project, Task $task)
     {
+        $this->authorize('delete', [$task, $project]);
         if ($task->is_finish === config('task.unfinished')) {
-            $this->authorize('delete', [$task, $project]);
 
             foreach ($task->SubTasks as $subTask) {
                 $subTask->delete();

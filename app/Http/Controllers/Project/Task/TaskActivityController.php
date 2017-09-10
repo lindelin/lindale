@@ -39,7 +39,8 @@ class TaskActivityController extends Controller
      */
     public function store(Request $request, Project $project, Task $task)
     {
-        // TODO:安全
+        $this->authorize('update', [$task, $project]);
+
         $activity = $this->taskRepository->CreateTaskActivity($request, $task);
 
         return response()->save($activity->save());
@@ -55,8 +56,7 @@ class TaskActivityController extends Controller
      */
     public function destroy(Project $project, Task $task, TaskActivity $taskActivity)
     {
-        // TODO:安全
-        $this->authorize('delete', $taskActivity);
+        $this->authorize('delete', [$taskActivity, $task, $project]);
 
         return response()->delete($taskActivity->delete());
     }

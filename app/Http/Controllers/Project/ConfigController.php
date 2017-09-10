@@ -53,6 +53,7 @@ class ConfigController extends Controller
      */
     public function index(Project $project)
     {
+        $this->authorize('member', [$project]);
         return view('project.config.index', $this->projectRepository->ProjectResources())
             ->with(['project' => $project, 'selected' => 'config', 'mode' => 'basic']);
     }
@@ -71,6 +72,7 @@ class ConfigController extends Controller
      */
     public function locale(Project $project)
     {
+        $this->authorize('member', [$project]);
         return view('project.config.locale', $this->projectRepository->ProjectResources())
             ->with(['project' => $project, 'selected' => 'config', 'mode' => 'locale']);
     }
@@ -105,6 +107,7 @@ class ConfigController extends Controller
      */
     public function notification(Project $project)
     {
+        $this->authorize('member', [$project]);
         return view('project.config.notification', $this->projectRepository->ProjectResources())
             ->with(['project' => $project, 'selected' => 'config', 'mode' => 'notification']);
     }
@@ -126,8 +129,20 @@ class ConfigController extends Controller
         return response()->update($result1 and $result2);
     }
 
+    /*
+   　|--------------------------------------------------------------------------
+  　 | 任务类型设定
+  　 |--------------------------------------------------------------------------
+   　*/
+
+    /**
+     * 任务类型
+     * @param Project $project
+     * @return mixed
+     */
     public function taskType(Project $project)
     {
+        $this->authorize('member', [$project]);
         $taskTypes = $project->TaskTypes;
 
         return view('project.config.common-type', $this->projectRepository->ProjectResources())
@@ -141,8 +156,16 @@ class ConfigController extends Controller
             ]);
     }
 
+    /**
+     * 任务类型设定
+     * @param Request $request
+     * @param Project $project
+     * @param null $id
+     * @return mixed
+     */
     public function updateTaskType(Request $request, Project $project, $id = null)
     {
+        $this->authorize('member', [$project]);
         $result = TaskType::updateOrCreate(
             ['id' => $id, 'project_id' => $project->id],
             ['name' => $request->get('name'), 'color_id' => $request->get('color_id')]);
@@ -150,8 +173,20 @@ class ConfigController extends Controller
         return response()->update($result);
     }
 
+    /*
+   　|--------------------------------------------------------------------------
+  　 | 任务状态设定
+  　 |--------------------------------------------------------------------------
+   　*/
+
+    /**
+     * 任务状态设定
+     * @param Project $project
+     * @return mixed
+     */
     public function taskStatus(Project $project)
     {
+        $this->authorize('member', [$project]);
         $taskStatuses = $project->TaskStatuses;
 
         return view('project.config.common-type', $this->projectRepository->ProjectResources())
@@ -165,8 +200,16 @@ class ConfigController extends Controller
             ]);
     }
 
+    /**
+     * 任务状态设定
+     * @param Request $request
+     * @param Project $project
+     * @param null $id
+     * @return mixed
+     */
     public function updateTaskStatus(Request $request, Project $project, $id = null)
     {
+        $this->authorize('member', [$project]);
         $result = TaskStatus::updateOrCreate(
             ['id' => $id, 'project_id' => $project->id],
             ['name' => $request->get('name'), 'color_id' => $request->get('color_id'), 'action_id' => 3]); /* TODO: 状态ACTION */

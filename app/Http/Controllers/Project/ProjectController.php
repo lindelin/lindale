@@ -79,10 +79,7 @@ class ProjectController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-        $project = $this->projectRepository->CreateProject($request);
-        $result = $project->save();
-
-        if ($result) {
+        if ($this->projectRepository->CreateProject($request)->save()) {
             return redirect()->to('/project')->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-fail'));
@@ -124,9 +121,7 @@ class ProjectController extends Controller
     {
         $this->authorize('update', [$project, $request]);
 
-        $result = $this->projectRepository->UpdateProject($request, $project)->update();
-
-        if ($result) {
+        if ($this->projectRepository->UpdateProject($request, $project)->update()) {
             return redirect()->to(route('config.index', compact('project')))->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
@@ -161,9 +156,7 @@ class ProjectController extends Controller
     {
         $this->authorize('delete', [$project, $request]);
 
-        $result = $this->projectRepository->Transfer($request, $project)->update();
-
-        if ($result) {
+        if ($this->projectRepository->Transfer($request, $project)->update()) {
             return redirect()->to('/project')->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));

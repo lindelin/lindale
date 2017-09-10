@@ -40,7 +40,7 @@ class SubTaskController extends Controller
      */
     public function store(Request $request, Project $project, Task $task)
     {
-        // TODO: 脆弱性
+        $this->authorize('update', [$task, $project]);
         if ($task->is_finish === config('task.unfinished')) {
             $this->validate($request, ['contents' => 'required',]);
             return response()->save($this->taskRepository->createSubTask($request, $task));
@@ -60,22 +60,20 @@ class SubTaskController extends Controller
      */
     public function update(Request $request, Project $project, Task $task, SubTask $subTask)
     {
-        // TODO: 安全隐患
+        $this->authorize('update', [$subTask, $task, $project]);
         return response()->update($this->taskRepository->UpdateSubTask($request, $subTask)->update());
     }
 
     /**
      * 附属任务删除.
-     *
      * @param Project $project
      * @param Task $task
      * @param SubTask $subTask
-     * @param Request $request
      * @return mixed
      */
-    public function destroy(Project $project, Task $task, SubTask $subTask, Request $request)
+    public function destroy(Project $project, Task $task, SubTask $subTask)
     {
-        // TODO: 安全隐患
+        $this->authorize('delete', [$subTask, $task, $project]);
         return response()->delete($subTask->delete());
     }
 }

@@ -66,9 +66,7 @@ class WikiController extends Controller
 
         $this->authorize('create', [$wiki, $project]);
 
-        $result = $wiki->save();
-
-        if ($result) {
+        if ($wiki->save()) {
             return redirect()->to("project/$project->id/wiki")->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-failed'));
@@ -84,6 +82,7 @@ class WikiController extends Controller
      */
     public function show(Project $project, Wiki $wiki)
     {
+        $this->authorize('show', [$wiki, $project]);
         return view('project.wiki.show', $this->wikiRepository->wikiResources($project))
             ->with(['project' => $project, 'wiki' => $wiki, 'selected' => 'wiki']);
     }

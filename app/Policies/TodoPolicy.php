@@ -16,7 +16,7 @@ class TodoPolicy
      * 删除To-do的授权策略.
      *
      * @param User $user
-     * @param Todo $todo
+     * @param To-do $to-do
      * @param Project $project
      * @return bool
      */
@@ -35,7 +35,7 @@ class TodoPolicy
      * 更新To-do的授权策略.
      *
      * @param User $user
-     * @param Todo $todo
+     * @param To-do $to-do
      * @param Project $project
      * @return bool
      */
@@ -48,7 +48,7 @@ class TodoPolicy
      * 作成To-do的授权策略.
      *
      * @param User $user
-     * @param Todo $todo
+     * @param To-do $to-do
      * @param Project $project
      * @return bool
      */

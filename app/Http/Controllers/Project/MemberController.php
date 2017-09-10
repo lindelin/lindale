@@ -36,6 +36,7 @@ class MemberController extends Controller
      */
     public function index(Project $project)
     {
+        $this->authorize('member', [$project]);
         return view('project.member.index', $this->memberRepository->memberResources($project))
             ->with(['project' => $project, 'selected' => 'member']);
     }
