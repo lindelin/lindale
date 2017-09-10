@@ -2,7 +2,6 @@
 
 namespace App\Contracts\Repositories;
 
-
 use App\Project\Project;
 use App\Wiki\Wiki;
 use App\Wiki\WikiType;
