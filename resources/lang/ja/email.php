@@ -9,7 +9,7 @@ return [
     */
 
     'lindale-info-center'  => 'Lindalë インフォメーションセンター',
-    'whoops'               => '申し訳有りません。',
+    'whoops'               => '申し訳ございません',
     'hello'                => 'こんにちは',
     're-password-info'     => 'このメールは、お客様のアカウントのパスワードリセットリクエストを受信したため届きました。',
     'reset-password'       => 'パスワードリセット',
