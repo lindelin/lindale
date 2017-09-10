@@ -8,7 +8,6 @@ use App\Project\Project;
 use App\Task\TaskActivity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Events\Task\TaskActivity\TaskActivityCreated;
 
 class TaskActivityController extends Controller
 {
@@ -40,17 +39,10 @@ class TaskActivityController extends Controller
      */
     public function store(Request $request, Project $project, Task $task)
     {
+        // TODO:安全
         $activity = $this->taskRepository->CreateTaskActivity($request, $task);
 
-        $result = $activity->save();
-
-        if ($result) {
-            event(new TaskActivityCreated($activity));
-
-            return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.save-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.save-failed'));
-        }
+        return response()->save($activity->save());
     }
 
     /**
@@ -63,12 +55,9 @@ class TaskActivityController extends Controller
      */
     public function destroy(Project $project, Task $task, TaskActivity $taskActivity)
     {
+        // TODO:安全
         $this->authorize('delete', $taskActivity);
 
-        if ($taskActivity->delete()) {
-            return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.delete-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.delete-failed'));
-        }
+        return response()->delete($taskActivity->delete());
     }
 }

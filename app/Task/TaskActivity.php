@@ -2,6 +2,7 @@
 
 namespace App\Task;
 
+use App\Events\Task\TaskActivity\TaskActivityCreated;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -25,6 +26,15 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TaskActivity extends Model
 {
+    /**
+     * タイミングイベント定義。
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => TaskActivityCreated::class,
+    ];
+
     public function User()
     {
         return $this->hasOne('App\User', 'id', 'user_id');
