@@ -83,8 +83,6 @@ class ProjectController extends Controller
         $result = $project->save();
 
         if ($result) {
-            event(new ProjectCreated($project));
-
             return redirect()->to('/project')->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-fail'));
@@ -129,8 +127,6 @@ class ProjectController extends Controller
         $result = $this->projectRepository->UpdateProject($request, $project)->update();
 
         if ($result) {
-            event(new ProjectUpdated($project));
-
             return redirect()->to(route('config.index', compact('project')))->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
@@ -149,10 +145,6 @@ class ProjectController extends Controller
         $this->authorize('delete', [$project, $request]);
 
         if ($project->delete()) {
-
-            //删除项目相关内容
-            event(new ProjectDeleted($project));
-
             return redirect()->to('/project')->with('status', trans('errors.delete-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.delete-failed'));

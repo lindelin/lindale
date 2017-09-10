@@ -2,6 +2,9 @@
 
 namespace App\Project;
 
+use App\Events\Project\ProjectCreated;
+use App\Events\Project\ProjectDeleted;
+use App\Events\Project\ProjectUpdated;
 use Config;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -56,6 +59,17 @@ use Illuminate\Notifications\Notifiable;
 class Project extends Model
 {
     use Notifiable;
+
+    /**
+     * タイミングイベント定義。
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => ProjectCreated::class,
+        'updated' => ProjectUpdated::class,
+        'deleted' => ProjectDeleted::class,
+    ];
 
     /*
     |--------------------------------------------------------------------------
