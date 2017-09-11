@@ -15,7 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Lindalë'),
     'title' => 'Lindalë - The Project Manager For Everyone.',
-    'version' => 'v1.5.2',
+    'version' => 'v1.5.4',
 
     /*
     |--------------------------------------------------------------------------
@@ -196,6 +196,7 @@ return [
         App\Providers\RoutingManagementServiceProvider::class,
         App\Providers\ToolServiceProvider::class,
         App\Providers\ConfigSystemServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
 
     ],
 
