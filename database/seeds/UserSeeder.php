@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Event;
+use Illuminate\Support\Facades\Event;
 
 class UserSeeder extends Seeder
 {
