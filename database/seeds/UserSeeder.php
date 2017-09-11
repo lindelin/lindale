@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Event;
 
 class UserSeeder extends Seeder
 {
@@ -11,6 +12,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        Event::fake();
         DB::table('users')->delete();
         \App\User::create([
             'id' => 1,
