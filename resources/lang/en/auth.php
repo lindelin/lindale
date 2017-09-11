@@ -24,6 +24,7 @@ return [
     'logout'           => 'Logout',
     'home'             => 'HOME',
     'reset'            => 'Reset Password',
+    'set'              => 'Set Your Password',
     'confirm_password' => 'Confirm Password',
 
 ];

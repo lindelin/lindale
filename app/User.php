@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\User\UserCreated;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -84,6 +85,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $touches = ['Projects'];
+
+    /**
+     * タイミングイベント定義。
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => UserCreated::class,
+    ];
 
     /**
      * The attributes that should be hidden for arrays.

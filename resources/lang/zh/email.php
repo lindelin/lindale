@@ -17,5 +17,10 @@ return [
     'error-button'         => '如果您在点击“ :Name ”按钮时遇到问题，请将以下网址复制并粘贴到您的网络浏览器中：',
     'regards'              => '此致敬礼，',
     're-pass-title'        => '重置密码通知',
+    'invite-user-subject'  => ':User 邀请你的参与 :App 上的项目',
+    'invite-user-title'  => '你被邀请参与 :App 。',
+    'invite-user-app'  => ':App 是一个开源的项目管理系统。',
+    'invite-user-body'  => ':User（ :email ）向你发出了邀请函。',
+    'invite-user-button'  => '加入',
 
 ];

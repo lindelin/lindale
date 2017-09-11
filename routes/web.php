@@ -304,6 +304,7 @@ Route::group(['middleware' => ['auth', 'AdminAuth'], 'namespace' => 'Admin', 'pr
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout');
+Route::get('auth/token/{token}', 'Auth\SetPasswordController@showSetForm')->name('password.set');
 
 /*
 |--------------------------------------------------------------------------
@@ -319,6 +320,7 @@ Route::post('logout', 'Auth\LoginController@logout');
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+Route::post('password/set', 'Auth\SetPasswordController@setPassword')->name('password.update');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 /*

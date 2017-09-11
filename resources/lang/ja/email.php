@@ -17,5 +17,10 @@ return [
     'error-button'         => '「:Name」ボタンをクリックしても問題が解決しない場合は、以下の URL をコピーしてウェブブラウザに貼り付けてください：',
     'regards'              => 'よろしくお願い致します。',
     're-pass-title'        => 'パスワードリセット',
+    'invite-user-subject'  => ':User が :App でプロジェクトに参加するようにあなたを招待しました',
+    'invite-user-title'  => 'あなたは :App に参加するように招待されていました。',
+    'invite-user-app'  => ':App は、プロジェクト管理のためのオープンソースソフトウェアです。',
+    'invite-user-body'  => ':User さん（ :email ）があなたにこの招待状を送ってくれました。',
+    'invite-user-button'  => '参加します',
 
 ];
