@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class InviteMail extends Mailable
+class InviteMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -24,15 +24,23 @@ class InviteMail extends Mailable
     public $user;
 
     /**
+     * 言語
+     * @var
+     */
+    public $locale;
+
+    /**
      * Create a new message instance.
      *
      * @param AuthToken $token
      * @param User $user
+     * @param $locale
      */
-    public function __construct(AuthToken $token, User $user)
+    public function __construct(AuthToken $token, User $user, $locale)
     {
         $this->token = $token;
         $this->user = $user;
+        $this->locale = $locale;
     }
 
     /**

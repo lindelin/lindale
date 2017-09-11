@@ -50,7 +50,7 @@ class AuthToken extends Model
      */
     public function send()
     {
-        Mail::to($this->user->email)->send(new InviteMail($this, request()->user()));
+        Mail::to($this->user->email)->send(new InviteMail($this, request()->user(), app()->getLocale()));
     }
 
     /**
