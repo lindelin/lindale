@@ -73,7 +73,6 @@ class MemberRepository implements MemberRepositoryContract
             return false;
         } else {
             $project->Users()->attach($user);
-
             return true;
         }
     }
@@ -120,6 +119,40 @@ class MemberRepository implements MemberRepositoryContract
             $pa->pivot->update();
 
             return true;
+        }
+    }
+
+    /**
+     * 添加用户（邀请）
+     * @param $request
+     * @param Project $project
+     * @return mixed
+     */
+    public function createUser($request, Project $project)
+    {
+        $user = new User();
+        $input = $request->all(['email', 'name']);
+        foreach ($input as $key => $value) {
+            if ($value == '') {
+                continue;
+            }
+            $user->$key = $value;
+        }
+        $user->password = bcrypt(str_random(10));
+
+        if ($user->save()) {
+            if ($project->Users()->find($user->id) != null) {
+                return false;
+            } elseif ($user->id === $project->user_id) {
+                return false;
+            } elseif ($user->id === $project->sl_id) {
+                return false;
+            } elseif ($user->id === config('admin.super_admin.id')) {
+                return false;
+            } else {
+                $project->Users()->attach($user);
+                return true;
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ return [
     'pa'           => 'Manager|Managers',
     'pm'           => 'Member|Members',
     'add-member'   => 'Add New Member',
+    'invite-member'=> 'Invite',
     'cancel'       => 'Cancel',
     'submit'       => 'Add',
     'message'      => 'Send a message',

@@ -14,6 +14,7 @@ return [
     'pa'           => 'マネージャー',
     'pm'           => 'メンバー',
     'add-member'   => 'メンバー追加',
+    'invite-member'=> '招待',
     'cancel'       => '取消',
     'submit'       => '追加',
     'message'      => 'メッセージ送信',

@@ -70,6 +70,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         Route::group(['prefix' => 'member'], function () {
             Route::get('/', 'MemberController@index')->name('member.index');
             Route::post('/', 'MemberController@store')->name('member.store');
+            Route::post('/invite', 'MemberController@invite')->name('member.invite');
             Route::delete('{user}', 'MemberController@destroy')->name('member.destroy');
             Route::patch('{user}', 'MemberController@policy')->name('member.policy');
         });

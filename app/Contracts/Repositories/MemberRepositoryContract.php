@@ -30,6 +30,14 @@ interface MemberRepositoryContract
     public function addMember($request, Project $project);
 
     /**
+     * 添加用户（邀请）
+     * @param $request
+     * @param Project $project
+     * @return mixed
+     */
+    public function createUser($request, Project $project);
+
+    /**
      * 移除成员方法.
      * @param Project $project
      * @param User $user

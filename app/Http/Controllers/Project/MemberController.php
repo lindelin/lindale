@@ -60,6 +60,24 @@ class MemberController extends Controller
     }
 
     /**
+     * 招待.
+     * @param Request $request
+     * @param Project $project
+     * @return mixed
+     */
+    public function invite(Request $request, Project $project)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:20',
+            'email' => 'required|unique:users|max:30',
+        ]);
+
+        $this->authorize('member', [$project]);
+
+        return response()->add($this->memberRepository->createUser($request, $project));
+    }
+
+    /**
      * 移除成员.
      *
      * @param Request $request
