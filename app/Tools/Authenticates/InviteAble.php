@@ -2,7 +2,6 @@
 
 namespace App\Tools\Authenticates;
 
-
 use App\User;
 
 trait InviteAble
