@@ -19,6 +19,13 @@
             overflow:hidden;
         }
     </style>
+    @if(app()->getLocale() == 'zh')
+        <style>
+            body {
+                font-family: 'Nunito', 'Noto Sans', sans-serif !important;
+            }
+        </style>
+    @endif
 </head>
 <body>
 
