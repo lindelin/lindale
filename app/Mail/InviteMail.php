@@ -50,6 +50,8 @@ class InviteMail extends Mailable implements ShouldQueue
      */
     public function build()
     {
+        \App::setLocale($this->locale);
+
         return $this->subject('【'.config('app.name').'】'.trans('email.invite-user-subject',
                 ['user' => $this->user->name, 'app' => config('app.name')]))
             ->markdown('emails.invite')
