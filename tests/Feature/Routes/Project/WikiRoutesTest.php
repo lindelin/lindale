@@ -4,6 +4,7 @@ namespace Tests\Feature\Routes\Project;
 
 use App\User;
 use App\Wiki\Wiki;
+use Illuminate\Support\Facades\Event;
 use Tests\TestCase;
 use App\Project\Project;
 
@@ -39,6 +40,7 @@ class WikiRoutesTest extends TestCase
      */
     public function setUp()
     {
+        Event::fake();
         parent::setUp();
         $this->user = factory(User::class)->create();
         $this->project1 = factory(Project::class)->create();

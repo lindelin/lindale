@@ -3,6 +3,7 @@
 namespace Tests\Feature\Routes;
 
 use App\User;
+use Illuminate\Support\Facades\Event;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -24,6 +25,7 @@ class AdminRoutesTest extends TestCase
      */
     public function setUp()
     {
+        Event::fake();
         parent::setUp();
         $this->user = User::find(1);
     }
