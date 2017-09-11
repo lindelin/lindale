@@ -25,8 +25,8 @@ class TaskRoutesTest extends TestCase
      */
     public function setUp()
     {
-        Event::fake();
         parent::setUp();
+        Event::fake();
         $this->user = factory(User::class)->create();
     }
 

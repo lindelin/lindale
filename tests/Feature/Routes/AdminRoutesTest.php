@@ -25,8 +25,8 @@ class AdminRoutesTest extends TestCase
      */
     public function setUp()
     {
-        Event::fake();
         parent::setUp();
+        Event::fake();
         $this->user = User::find(1);
     }
 

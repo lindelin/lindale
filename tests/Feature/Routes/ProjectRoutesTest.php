@@ -38,8 +38,8 @@ class ProjectRoutesTest extends TestCase
      */
     public function setUp()
     {
-        Event::fake();
         parent::setUp();
+        Event::fake();
         $this->user = factory(User::class)->create();
         $this->project1 = factory(Project::class)->create();
         $this->project2 = factory(Project::class)->create([
