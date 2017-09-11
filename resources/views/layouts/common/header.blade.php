@@ -220,7 +220,7 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="#"
+                                <a id="logout-link" href="#"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                     <span class="glyphicon glyphicon-log-out lindale-icon-color"></span> {{ trans('auth.logout') }}

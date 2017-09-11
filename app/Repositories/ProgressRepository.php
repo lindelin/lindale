@@ -2,13 +2,14 @@
 
 namespace App\Repositories;
 
+use App\Contracts\Repositories\ProgressRepositoryContract;
 use Charts;
 use Calculator;
 use App\Task\Task;
 use App\Project\Project;
 use App\Tools\Analytics\GanttTool;
 
-class ProgressRepository
+class ProgressRepository implements ProgressRepositoryContract
 {
     use GanttTool;
 
@@ -16,7 +17,7 @@ class ProgressRepository
      * @param Project $project
      * @return array
      */
-    public function ProgressResources(Project $project)
+    public function progressResources(Project $project)
     {
         $schemaDonut = Charts::create('donut', 'highcharts')
             ->title(trans('progress.proportion'))

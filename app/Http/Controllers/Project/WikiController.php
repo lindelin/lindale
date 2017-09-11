@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Contracts\Repositories\WikiRepositoryContract;
 use Storage;
 use App\Wiki\Wiki;
 use App\Project\Project;
 use App\Http\Requests\WikiRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\WikiRepository;
 
 class WikiController extends Controller
 {
     /**
      * WIKI资源库.
-     *
-     * @var
+     * @var WikiRepositoryContract
      */
     protected $wikiRepository;
 
@@ -23,9 +22,9 @@ class WikiController extends Controller
      * 通过DI获取资源库.
      *
      * WikiController constructor.
-     * @param WikiRepository $wikiRepository
+     * @param WikiRepositoryContract $wikiRepository
      */
-    public function __construct(WikiRepository $wikiRepository)
+    public function __construct(WikiRepositoryContract $wikiRepository)
     {
         $this->wikiRepository = $wikiRepository;
     }
@@ -38,7 +37,7 @@ class WikiController extends Controller
      */
     public function index(Project $project)
     {
-        return view('project.wiki.index', $this->wikiRepository->WikiResources($project))
+        return view('project.wiki.index', $this->wikiRepository->wikiResources($project))
             ->with(['project' => $project, 'selected' => 'wiki']);
     }
 
@@ -50,7 +49,7 @@ class WikiController extends Controller
      */
     public function create(Project $project)
     {
-        return view('project.wiki.create', $this->wikiRepository->WikiResources($project))
+        return view('project.wiki.create', $this->wikiRepository->wikiResources($project))
             ->with(['project' => $project, 'selected' => 'wiki']);
     }
 
@@ -63,13 +62,11 @@ class WikiController extends Controller
      */
     public function store(WikiRequest $request, Project $project)
     {
-        $wiki = $this->wikiRepository->CreateWiki($request, $project);
+        $wiki = $this->wikiRepository->createWiki($request, $project);
 
         $this->authorize('create', [$wiki, $project]);
 
-        $result = $wiki->save();
-
-        if ($result) {
+        if ($wiki->save()) {
             return redirect()->to("project/$project->id/wiki")->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-failed'));
@@ -85,7 +82,8 @@ class WikiController extends Controller
      */
     public function show(Project $project, Wiki $wiki)
     {
-        return view('project.wiki.show', $this->wikiRepository->WikiResources($project))
+        $this->authorize('show', [$wiki, $project]);
+        return view('project.wiki.show', $this->wikiRepository->wikiResources($project))
             ->with(['project' => $project, 'wiki' => $wiki, 'selected' => 'wiki']);
     }
 
@@ -100,7 +98,7 @@ class WikiController extends Controller
     {
         $this->authorize('update', [$wiki, $project]);
 
-        return view('project.wiki.edit', $this->wikiRepository->WikiResources($project))
+        return view('project.wiki.edit', $this->wikiRepository->wikiResources($project))
             ->with(['project' => $project, 'wiki' => $wiki, 'selected' => 'wiki']);
     }
 
@@ -116,7 +114,7 @@ class WikiController extends Controller
     {
         $this->authorize('update', [$wiki, $project]);
 
-        $result = $this->wikiRepository->UpdateWiki($request, $project, $wiki)->update();
+        $result = $this->wikiRepository->updateWiki($request, $project, $wiki)->update();
 
         if ($result) {
             return redirect()->to("project/$project->id/wiki/$wiki->id")->with('status', trans('errors.update-succeed'));
@@ -155,7 +153,7 @@ class WikiController extends Controller
      */
     public function first(Project $project)
     {
-        $this->wikiRepository->FirstWiki($project)->save();
+        $this->wikiRepository->firstWiki($project)->save();
 
         return redirect()->back();
     }

@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Contracts\Repositories\TodoRepositoryContract;
 use App\User;
 use App\Todo\Todo;
 use App\Todo\TodoList;
@@ -10,9 +11,11 @@ use App\Project\Project;
 use App\Todo\TodoStatus;
 use App\Http\Requests\TodoRequest;
 use App\Http\Requests\TypeRequest;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-class TodoRepository
+class TodoRepository implements TodoRepositoryContract
 {
+    use AuthorizesRequests;
     /**
      * 获取项目To-do资源.
      *
@@ -24,7 +27,7 @@ class TodoRepository
      * @param User|null $user
      * @return array
      */
-    public function TodoResources(Project $project = null, TodoType $type = null, TodoList $list = null, $status = null, $size = null, User $user = null)
+    public function todoResources(Project $project = null, TodoType $type = null, TodoList $list = null, $status = null, $size = null, User $user = null)
     {
         $size = config('todo.page-size');
 
@@ -70,7 +73,7 @@ class TodoRepository
 
         if ($user != null and $type != null) {
             if ((int) $type->id === config('todo.public')) {
-                $projects = $this->UserTodoProjects($user);
+                $projects = $this->userTodoProjects($user);
                 if ($project != null) {
                     $todos = $todos->where('project_id', $project->id);
                 }
@@ -84,13 +87,6 @@ class TodoRepository
         return compact('todos', 'lists', 'statuses', 'projects');
     }
 
-    public function AllTodoTypes()
-    {
-        $types = TodoType::all();
-
-        return compact('types');
-    }
-
     /**
      * 创建To-do方法.
      *
@@ -98,7 +94,7 @@ class TodoRepository
      * @param Project|null $project
      * @return Todo
      */
-    public function CreateTodo(TodoRequest $request, Project $project = null)
+    public function createTodo($request, Project $project = null)
     {
         $todo = new Todo();
 
@@ -114,6 +110,7 @@ class TodoRepository
         if ($project !== null) {
             $todo->type_id = config('todo.public');
             $todo->project_id = $project->id;
+            $this->authorize('create', [$todo, $project]);
         } else {
             $todo->user_id = $request->user()->id;
         }
@@ -131,7 +128,7 @@ class TodoRepository
      * @param Todo $todo
      * @return Todo
      */
-    public function UpdateTodo(TodoRequest $request, Todo $todo)
+    public function updateTodo($request, Todo $todo)
     {
         $input = $request->all(['content', 'details', 'user_id', 'color_id', 'list_id', 'status_id']);
 
@@ -153,7 +150,7 @@ class TodoRepository
      * @param User|null $user
      * @return TodoList
      */
-    public function CreateTodoList(TypeRequest $request, Project $project = null, User $user = null)
+    public function createTodoList($request, Project $project = null, User $user = null)
     {
         $todoList = new TodoList();
 
@@ -178,7 +175,7 @@ class TodoRepository
      * @param User $user
      * @return array
      */
-    private function UserTodoProjects(User $user)
+    private function userTodoProjects(User $user)
     {
         $projects = [];
         $todos = $user->Todos()->get();

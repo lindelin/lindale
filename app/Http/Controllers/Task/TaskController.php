@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Task;
 
+use App\Contracts\Repositories\TaskRepositoryContract;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\TaskRepository;
 
 class TaskController extends Controller
 {
     /**
      * 任务资源库.
-     *
-     * @var TaskRepository
+     * @var TaskRepositoryContract
      */
     protected $taskRepository;
 
@@ -20,9 +19,9 @@ class TaskController extends Controller
      * 注入资源.
      *
      * TaskGroupController constructor.
-     * @param TaskRepository $taskRepository
+     * @param TaskRepositoryContract $taskRepository
      */
-    public function __construct(TaskRepository $taskRepository)
+    public function __construct(TaskRepositoryContract $taskRepository)
     {
         $this->taskRepository = $taskRepository;
     }

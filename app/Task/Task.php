@@ -2,6 +2,9 @@
 
 namespace App\Task;
 
+use App\Events\Task\TaskCreated;
+use App\Events\Task\TaskDeleted;
+use App\Events\Task\TaskUpdated;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -53,12 +56,28 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Task\Task whereUserId($value)
  * @mixin \Eloquent
+ * @property int|null $initiator_id
+ * @property int|null $spend
+ * @property-read \App\User $Initiator
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Task\Task whereInitiatorId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Task\Task whereSpend($value)
  */
 class Task extends Model
 {
     protected $dates = [
         'start_at',
         'end_at',
+    ];
+
+    /**
+     * タイミングイベント定義。
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => TaskCreated::class,
+        'updated' => TaskUpdated::class,
+        'deleted' => TaskDeleted::class,
     ];
 
     /*

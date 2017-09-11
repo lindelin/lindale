@@ -33,7 +33,7 @@ class WikiPolicy
     }
 
     /**
-     * create.
+     * update.
      * @param User $user
      * @param Wiki $wiki
      * @param Project $project
@@ -53,7 +53,27 @@ class WikiPolicy
     }
 
     /**
-     * create.
+     * show.
+     * @param User $user
+     * @param Wiki $wiki
+     * @param Project $project
+     * @return bool
+     */
+    public function show(User $user, Wiki $wiki, Project $project)
+    {
+        if (($user->id === $project->user_id) and ($project->id === $wiki->project_id)) {
+            return true;
+        } elseif (($user->id === $project->sl_id) and ($project->id === $wiki->project_id)) {
+            return true;
+        } elseif (($project->Users()->find($user->id)) and ($project->id === $wiki->project_id)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * delete.
      * @param User $user
      * @param Wiki $wiki
      * @param Project $project

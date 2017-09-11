@@ -2,15 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contracts\Repositories\AdminRepositoryContract;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\AdminRepository;
 
 class HomeController extends Controller
 {
+    /**
+     * @var AdminRepositoryContract
+     */
     protected $adminRepository;
 
-    public function __construct(AdminRepository $adminRepository)
+    /**
+     * HomeController constructor.
+     * @param AdminRepositoryContract $adminRepository
+     */
+    public function __construct(AdminRepositoryContract $adminRepository)
     {
         $this->adminRepository = $adminRepository;
     }
@@ -25,6 +33,6 @@ class HomeController extends Controller
     {
         $this->authorize('admin', [$request->user()]);
 
-        return view('admin.index', $this->adminRepository->DashboardResources())->with('mode', 'center');
+        return view('admin.index', $this->adminRepository->dashboardResources())->with('mode', 'center');
     }
 }

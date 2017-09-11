@@ -31,12 +31,11 @@ class TodoRoutesTest extends TestCase
     public function setUp()
     {
         parent::setUp();
+        Event::fake();
         $this->user = factory(User::class)->create();
         $this->project = factory(Project::class)->create([
             'user_id' => $this->user->id,
         ]);
-
-        Event::fake();
     }
 
     /**

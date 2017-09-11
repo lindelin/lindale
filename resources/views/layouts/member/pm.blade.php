@@ -47,7 +47,7 @@
                 <span class="lindale-color">{{ $pm->updated_at->diffForHumans() }}</span>
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 panel-title" align="right">
-                @include('layouts.member.policy', ['member' => $pm])　
+                @include('layouts.member.policy', ['member' => $pm])
                 {{--<a href="#" class="my-tooltip" title="{{ trans('member.message') }}">
                     <span class="glyphicon glyphicon-envelope"></span>
                 </a>　--}}

@@ -2,16 +2,15 @@
 
 namespace App\Listeners;
 
+use App\Contracts\Repositories\ProjectRepositoryContract;
 use Calculator;
 use App\Project\Project;
-use App\Repositories\ProjectRepository;
 
 class ProjectProgressEventListener
 {
     /**
      * 项目资源库.
-     *
-     * @var ProjectRepository
+     * @var ProjectRepositoryContract
      */
     protected $projectRepository;
 
@@ -19,9 +18,9 @@ class ProjectProgressEventListener
      * 创建事件订阅者实例.
      *
      * ProjectProgressEventListener constructor.
-     * @param ProjectRepository $projectRepository
+     * @param ProjectRepositoryContract $projectRepository
      */
-    public function __construct(ProjectRepository $projectRepository)
+    public function __construct(ProjectRepositoryContract $projectRepository)
     {
         $this->projectRepository = $projectRepository;
     }

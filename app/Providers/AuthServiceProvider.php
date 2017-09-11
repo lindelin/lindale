@@ -10,7 +10,6 @@ class AuthServiceProvider extends ServiceProvider
 {
     /**
      * The policy mappings for the application.
-     * TODO: 系统发布之前要重新编写授权策略。
      *
      * @var array
      */
@@ -21,7 +20,10 @@ class AuthServiceProvider extends ServiceProvider
         'App\Todo\TodoList' => 'App\Policies\TodoListPolicy',
         'App\Task\Task' => 'App\Policies\TaskPolicy',
         'App\Task\TaskActivity' => 'App\Policies\TaskActivityPolicy',
+        'App\Task\SubTask' => 'App\Policies\SubTaskPolicy',
+        'App\Task\TaskGroup' => 'App\Policies\TaskGroupPolicy',
         'App\Wiki\Wiki' => 'App\Policies\WikiPolicy',
+        'App\Wiki\WikiType' => 'App\Policies\WikiTypePolicy',
         'App\Notice\Notice' => 'App\Policies\NoticePolicy',
     ];
 

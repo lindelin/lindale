@@ -3,6 +3,7 @@
 namespace Tests\Feature\Routes;
 
 use App\User;
+use Illuminate\Support\Facades\Event;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -21,6 +22,7 @@ class HomeRoutesTest extends TestCase
     public function setUp()
     {
         parent::setUp();
+        Event::fake();
         $this->user = factory(User::class)->create();
     }
 

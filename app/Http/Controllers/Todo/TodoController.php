@@ -2,31 +2,26 @@
 
 namespace App\Http\Controllers\Todo;
 
+use App\Contracts\Repositories\ProjectRepositoryContract;
+use App\Contracts\Repositories\TodoRepositoryContract;
 use App\Todo\Todo;
 use App\Todo\TodoList;
 use App\Todo\TodoType;
 use Illuminate\Http\Request;
-use App\Events\Todo\TodoCreated;
-use App\Events\Todo\TodoDeleted;
-use App\Events\Todo\TodoUpdated;
 use App\Http\Requests\TodoRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\TodoRepository;
-use App\Repositories\ProjectRepository;
 
 class TodoController extends Controller
 {
     /**
      * To-do资源库.
-     *
-     * @var
+     * @var TodoRepositoryContract
      */
     protected $todoRepository;
 
     /**
      * 项目资源库.
-     *
-     * @var
+     * @var ProjectRepositoryContract
      */
     protected $projectRepository;
 
@@ -35,10 +30,10 @@ class TodoController extends Controller
      * 通过DI注入资源库.
      *
      * TodoController constructor.
-     * @param TodoRepository $todoRepository
-     * @param ProjectRepository $projectRepository
+     * @param TodoRepositoryContract $todoRepository
+     * @param ProjectRepositoryContract $projectRepository
      */
-    public function __construct(TodoRepository $todoRepository, ProjectRepository $projectRepository)
+    public function __construct(TodoRepositoryContract $todoRepository, ProjectRepositoryContract $projectRepository)
     {
         $this->todoRepository = $todoRepository;
         $this->projectRepository = $projectRepository;
@@ -85,7 +80,7 @@ class TodoController extends Controller
         }
 
         return view('todo.index')
-            ->with($this->todoRepository->TodoResources($project, $type, $list, $status, config('todo.page-size'), $request->user()))
+            ->with($this->todoRepository->todoResources($project, $type, $list, $status, config('todo.page-size'), $request->user()))
             ->with($this->projectRepository->UserProjects($request->user()))
             ->with(['prefix' => $prefix, 'type' => $type]);
     }
@@ -94,18 +89,14 @@ class TodoController extends Controller
      * 更新To-do.
      *
      * @param TodoRequest $request
-     * @param Todo $todo
+     * @param To-do $todo
      * @return mixed
      */
     public function update(TodoRequest $request, Todo $todo)
     {
         $this->authorize('user', [$todo]);
 
-        $result = $this->todoRepository->UpdateTodo($request, $todo)->update();
-
-        event(new TodoUpdated($todo, $request->user()));
-
-        return response()->update($result);
+        return response()->update($this->todoRepository->updateTodo($request, $todo)->update());
     }
 
     /**
@@ -116,29 +107,18 @@ class TodoController extends Controller
      */
     public function store(TodoRequest $request)
     {
-        $todo = $this->todoRepository->CreateTodo($request);
-        $result = $todo->save();
-
-        event(new TodoCreated($todo, $request->user()));
-
-        return response()->save($result);
+        return response()->save($this->todoRepository->createTodo($request)->save());
     }
 
     /**
      * 删除To-do.
-     *
-     * @param Todo $todo
-     * @param Request $request
+     * @param To-do $todo
      * @return mixed
      */
-    public function destroy(Todo $todo, Request $request)
+    public function destroy(Todo $todo)
     {
         $this->authorize('user', [$todo]);
 
-        $result = $todo->delete();
-
-        event(new TodoDeleted($todo, $request->user()));
-
-        return response()->delete($result);
+        return response()->delete($todo->delete());
     }
 }

@@ -14,6 +14,7 @@ return [
     'pa'           => '项目主管',
     'pm'           => '项目成员',
     'add-member'   => '添加成员',
+    'invite-member'=> '邀请',
     'cancel'       => '取消',
     'submit'       => '添加',
     'message'      => '发送消息',

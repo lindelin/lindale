@@ -2,19 +2,20 @@
 
 namespace App\Repositories;
 
+use App\Contracts\Repositories\UserRepositoryContract;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Storage;
 
-class UserRepository
+class UserRepository implements UserRepositoryContract
 {
     /**
      * 获得全部用户.
      *
      * @return array
      */
-    public function AllUser()
+    public function allUser()
     {
         $users = User::all();
 
@@ -27,7 +28,7 @@ class UserRepository
      * @param UserRequest $request
      * @return User
      */
-    public function CreateUser(UserRequest $request)
+    public function createUser($request)
     {
         $user = new User();
 
@@ -49,10 +50,11 @@ class UserRepository
      * 删除用户的相关内容.
      *
      * @param User $user
+     * @return mixed
      */
-    public function DeleteUser(User $user)
+    public function deleteUser(User $user)
     {
-        $user->MyProjects()->delete();
+        return $user->MyProjects()->delete();
     }
 
     /**
@@ -61,7 +63,7 @@ class UserRepository
      * @param Request $request
      * @return array
      */
-    public function MyInfo(Request $request)
+    public function myInfo($request)
     {
         $user = User::findOrFail($request->user()->id);
 
@@ -75,7 +77,7 @@ class UserRepository
      * @param User $user
      * @return User
      */
-    public function UpdateUser(UserRequest $request, User $user)
+    public function updateUser($request, User $user)
     {
         $input = $request->all([
             'name',

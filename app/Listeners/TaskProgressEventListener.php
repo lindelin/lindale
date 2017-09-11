@@ -2,17 +2,14 @@
 
 namespace App\Listeners;
 
-use Calculator;
+use App\Contracts\Repositories\TaskRepositoryContract;
 use App\Task\Task;
-use App\Events\Task\TaskUpdated;
-use App\Repositories\TaskRepository;
 
 class TaskProgressEventListener
 {
     /**
      * 任务资源库.
-     *
-     * @var TaskRepository
+     * @var TaskRepositoryContract
      */
     protected $taskRepository;
 
@@ -20,9 +17,9 @@ class TaskProgressEventListener
      * 创建事件监听器.
      *
      * TaskProgressUpdate constructor.
-     * @param TaskRepository $taskRepository
+     * @param TaskRepositoryContract $taskRepository
      */
-    public function __construct(TaskRepository $taskRepository)
+    public function __construct(TaskRepositoryContract $taskRepository)
     {
         $this->taskRepository = $taskRepository;
     }
@@ -35,7 +32,6 @@ class TaskProgressEventListener
     public function onSubTaskUpdated($event)
     {
         $this->TaskProgressUpdate($event->subTask->Task);
-        event(new TaskUpdated($event->subTask->Task, $event->user));
     }
 
     /**
@@ -45,7 +41,7 @@ class TaskProgressEventListener
      */
     private function TaskProgressUpdate(Task $task)
     {
-        $progress = Calculator::TaskProgressCompute($task);
+        $progress = calculator()->TaskProgressCompute($task);
 
         $this->taskRepository->UpdateTaskProgress($progress, $task);
     }

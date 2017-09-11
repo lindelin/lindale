@@ -2,11 +2,12 @@
 
 namespace App\Repositories;
 
+use App\Contracts\Repositories\NoticeRepositoryContract;
 use App\Notice\Notice;
 use App\Project\Project;
 use App\Notice\NoticeType;
 
-class NoticeRepository
+class NoticeRepository implements NoticeRepositoryContract
 {
     /**
      * @var array
@@ -14,10 +15,11 @@ class NoticeRepository
     protected $column = ['title', 'content', 'start_at', 'end_at', 'type_id'];
 
     /**
+     * 项目通知资源.
      * @param Project $project
      * @return array
      */
-    public function ProjectNoticeResources(Project $project)
+    public function projectNoticeResources(Project $project)
     {
         $notices = $project->Notices()->latest()->get();
         $noticeTypes = NoticeType::all();
@@ -31,7 +33,7 @@ class NoticeRepository
      * @param Project $project
      * @return Notice
      */
-    public function CreateNotice($request, Project $project)
+    public function createNotice($request, Project $project)
     {
         $notice = new Notice();
 
@@ -57,7 +59,7 @@ class NoticeRepository
      * @param Notice $notice
      * @return Notice
      */
-    public function UpdateNotice($request, Project $project, Notice $notice)
+    public function updateNotice($request, Project $project, Notice $notice)
     {
         $input = $request->only($this->column);
 

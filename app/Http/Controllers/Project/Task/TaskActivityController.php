@@ -2,20 +2,18 @@
 
 namespace App\Http\Controllers\Project\Task;
 
+use App\Contracts\Repositories\TaskRepositoryContract;
 use App\Task\Task;
 use App\Project\Project;
 use App\Task\TaskActivity;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\TaskRepository;
-use App\Events\Task\TaskActivity\TaskActivityCreated;
 
 class TaskActivityController extends Controller
 {
     /**
      * 任务资源库.
-     *
-     * @var TaskRepository
+     * @var TaskRepositoryContract
      */
     protected $taskRepository;
 
@@ -24,9 +22,9 @@ class TaskActivityController extends Controller
      * 注入资源.
      *
      * TaskGroupController constructor.
-     * @param TaskRepository $taskRepository
+     * @param TaskRepositoryContract $taskRepository
      */
-    public function __construct(TaskRepository $taskRepository)
+    public function __construct(TaskRepositoryContract $taskRepository)
     {
         $this->taskRepository = $taskRepository;
     }
@@ -41,17 +39,11 @@ class TaskActivityController extends Controller
      */
     public function store(Request $request, Project $project, Task $task)
     {
+        $this->authorize('update', [$task, $project]);
+
         $activity = $this->taskRepository->CreateTaskActivity($request, $task);
 
-        $result = $activity->save();
-
-        if ($result) {
-            event(new TaskActivityCreated($activity));
-
-            return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.save-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.save-failed'));
-        }
+        return response()->save($activity->save());
     }
 
     /**
@@ -64,12 +56,8 @@ class TaskActivityController extends Controller
      */
     public function destroy(Project $project, Task $task, TaskActivity $taskActivity)
     {
-        $this->authorize('delete', $taskActivity);
+        $this->authorize('delete', [$taskActivity, $task, $project]);
 
-        if ($taskActivity->delete()) {
-            return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.delete-succeed'));
-        } else {
-            return redirect()->back()->withErrors(trans('errors.delete-failed'));
-        }
+        return response()->delete($taskActivity->delete());
     }
 }

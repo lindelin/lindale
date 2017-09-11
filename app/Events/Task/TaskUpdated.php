@@ -32,12 +32,11 @@ class TaskUpdated
      *
      * TaskUpdated constructor.
      * @param Task $task
-     * @param User $user
      */
-    public function __construct(Task $task, User $user)
+    public function __construct(Task $task)
     {
         $this->task = $task;
-        $this->user = $user;
+        $this->user = request()->user();
     }
 
     /**

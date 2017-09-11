@@ -16,7 +16,7 @@ class TodoUpdated
     /**
      * To-do.
      *
-     * @var Todo
+     * @var To-do
      */
     public $todo;
 
@@ -31,13 +31,12 @@ class TodoUpdated
      * 创建事件监听器.
      *
      * TodoCreated constructor.
-     * @param Todo $todo
-     * @param User $user
+     * @param To-do $todo
      */
-    public function __construct(Todo $todo, User $user)
+    public function __construct(Todo $todo)
     {
         $this->todo = $todo;
-        $this->user = $user;
+        $this->user = request()->user();
     }
 
     /**

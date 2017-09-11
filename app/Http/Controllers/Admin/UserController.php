@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contracts\Repositories\UserRepositoryContract;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\UserRepository;
 
 class UserController extends Controller
 {
     /**
      * 用户资源库.
-     *
-     * @var UserRepository
+     * @var UserRepositoryContract
      */
     protected $userRepository;
 
@@ -22,9 +21,9 @@ class UserController extends Controller
      * 通过DI获取资源库.
      *
      * UserController constructor.
-     * @param UserRepository $userRepository
+     * @param UserRepositoryContract $userRepository
      */
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepositoryContract $userRepository)
     {
         $this->userRepository = $userRepository;
     }
@@ -39,7 +38,7 @@ class UserController extends Controller
     {
         $this->authorize('admin', [$request->user()]);
 
-        return view('admin.user.index', $this->userRepository->AllUser())->with('mode', 'user');
+        return view('admin.user.index', $this->userRepository->allUser())->with('mode', 'user');
     }
 
     /**
@@ -65,7 +64,7 @@ class UserController extends Controller
     {
         $this->authorize('admin', [$request->user()]);
 
-        $result = $this->userRepository->CreateUser($request)->save();
+        $result = $this->userRepository->createUser($request)->save();
 
         if ($result) {
             return redirect()->to('/admin/user')->with('status', trans('errors.save-succeed'));

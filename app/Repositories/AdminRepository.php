@@ -1,18 +1,18 @@
 <?php
-/**
- * Created by kgo.
- * Date: 2017/03/05
- * Time: 18:08.
- */
 
 namespace App\Repositories;
 
+use App\Contracts\Repositories\AdminRepositoryContract;
 use Charts;
 use App\User;
 
-class AdminRepository
+class AdminRepository implements AdminRepositoryContract
 {
-    public function DashboardResources()
+    /**
+     * 仪表盘資源取得
+     * @return array
+     */
+    public function dashboardResources()
     {
         $UserChart = Charts::multiDatabase('bar', 'highcharts')
             ->title('ユーザ状況')

@@ -37,9 +37,10 @@ trait ConfigChecker
      * @param $todo_type_id
      * @return bool
      */
-    protected function canNotifyTodoSlackToProject(Project $project, $todo_type_id)
+    protected function canNotifyTodoSlackToProject(Project $project = null, $todo_type_id)
     {
         return (int) $todo_type_id === config('todo.public')
+            and $project != null
             and project_config($project, config('config.project.slack')) == config('config.on')
             and project_config($project, config('config.project.key.slack')) != ''
             and project_config($project, config('config.project.key.slack')) != 'Null';
