@@ -4,6 +4,13 @@
     @include('layouts.common.link')
     <title>@yield('title')</title>
     @yield('head')
+    @if(app()->getLocale() == 'zh')
+        <style>
+            body {
+                font-family: 'Nunito', 'Noto Sans', sans-serif !important;
+            }
+        </style>
+    @endif
 </head>
 <body>
 

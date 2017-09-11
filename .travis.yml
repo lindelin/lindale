@@ -1,20 +1,34 @@
 language: php
+
 php:
   - 7.0
   - 7.1
 
+sudo: required
+
+dist: trusty
+
+addons:
+   chrome: stable
+
+install:
+   - cp .env.travis .env
+   - composer self-update
+   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+
 before_script:
   - mysql -e 'create database lindale;'
-  - composer self-update
-  - composer install
-  - cp .env.travis .env
   - php artisan key:generate
   - php artisan migrate
   - php artisan db:seed
   - php artisan passport:install
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - php artisan serve &
+
 
 script:
   - ./vendor/bin/phpunit
+  - php artisan dusk
 
 notifications:
     slack: lindelin:S2LWtcR8bjfvtUKN8R0bHrra

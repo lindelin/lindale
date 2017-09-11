@@ -35,7 +35,6 @@ class AccountController extends Controller
 
         if (Hash::check($request->get('password'), $user->password)) {
             $user->password = bcrypt($request->get('new-password'));
-
             return response()->update($user->update());
         } else {
             return redirect()->back()->withErrors(trans('auth.failed'));

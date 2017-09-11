@@ -102,7 +102,7 @@
                         <div class="arrow"></div>
                         <div class="panel-heading">
                             <strong class="panel-title"><a href="#">{{ $activity->User->name }}</a></strong>&nbsp;&nbsp;
-                            @if (Auth::user()->can('delete', $activity))
+                            @if (Auth::user()->can('delete', [$activity, $task, $project]))
                                 @include('layouts.task.common.delete', [
                                 'model' => $activity,
                                 'delete_url' => url('project/'.$project->id.'/task/show/'.$task->id.'/activity/'.$activity->id),

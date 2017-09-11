@@ -183,6 +183,10 @@
     });
     // smart rendering
     gantt.config.smart_rendering = true;
+    // 动态载入
+    gantt.config.branch_loading = true;
+    // 优化表格
+    gantt.config.smart_scales = true;
     // 排序
     gantt.config.sort = true;
     // 只读

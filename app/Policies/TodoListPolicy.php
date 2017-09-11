@@ -13,6 +13,25 @@ class TodoListPolicy
     use HandlesAuthorization;
 
     /**
+     * 创建To-do列表的授权策略.
+     *
+     * @param User $user
+     * @param TodoList $list
+     * @param Project $project
+     * @return bool
+     */
+    public function create(User $user, TodoList $list, Project $project)
+    {
+        if ($this->UserPolicy($user, $list)) {
+            return true;
+        } elseif ($this->ProjectPolicy($list, $project)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * 删除To-do列表的授权策略.
      *
      * @param User $user

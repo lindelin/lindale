@@ -16,7 +16,7 @@ class TodoHasCreated extends Notification implements ShouldQueue
     /**
      * To-do.
      *
-     * @var Todo
+     * @var To-do
      */
     public $todo;
 
@@ -38,7 +38,7 @@ class TodoHasCreated extends Notification implements ShouldQueue
      * 资源注入.
      *
      * TodoHasCreated constructor.
-     * @param Todo $todo
+     * @param To-do $to-do
      * @param User $user
      * @param $locale
      */

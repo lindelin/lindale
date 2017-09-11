@@ -2,6 +2,9 @@
 
 namespace App\Todo;
 
+use App\Events\Todo\TodoCreated;
+use App\Events\Todo\TodoDeleted;
+use App\Events\Todo\TodoUpdated;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -33,9 +36,25 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereUpdatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Todo\Todo whereUserId($value)
  * @mixin \Eloquent
+ * @property int|null $initiator_id
+ * @property string|null $details
+ * @property-read \App\User $Initiator
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Todo\Todo whereDetails($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Todo\Todo whereInitiatorId($value)
  */
 class Todo extends Model
 {
+    /**
+     * タイミングイベント定義。
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => TodoCreated::class,
+        'updated' => TodoUpdated::class,
+        'deleted' => TodoDeleted::class,
+    ];
+
     /**
      * 一个To-do有一个负责人
      * 一对一

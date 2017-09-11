@@ -2,25 +2,20 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Contracts\Repositories\TaskRepositoryContract;
 use App\Task\Task;
 use App\Task\TaskType;
 use App\Project\Project;
 use App\Task\TaskStatus;
 use App\Task\TaskPriority;
-use Illuminate\Http\Request;
-use App\Events\Task\TaskCreated;
-use App\Events\Task\TaskDeleted;
-use App\Events\Task\TaskUpdated;
 use App\Http\Requests\TaskRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\TaskRepository;
 
 class TaskController extends Controller
 {
     /**
      * 任务资源库.
-     *
-     * @var TaskRepository
+     * @var TaskRepositoryContract
      */
     protected $taskRepository;
 
@@ -29,9 +24,9 @@ class TaskController extends Controller
      * 注入资源.
      *
      * TaskGroupController constructor.
-     * @param TaskRepository $taskRepository
+     * @param TaskRepositoryContract $taskRepository
      */
-    public function __construct(TaskRepository $taskRepository)
+    public function __construct(TaskRepositoryContract $taskRepository)
     {
         $this->taskRepository = $taskRepository;
     }
@@ -144,6 +139,7 @@ class TaskController extends Controller
      */
     public function edit(Project $project, Task $task)
     {
+        $this->authorize('update', [$task, $project]);
         if ($task->is_finish === config('task.unfinished')) {
             return view('project.task.edit', $this->taskRepository->TaskCreateResources($project))
                 ->with(['project' => $project, 'selected' => 'tasks'])
@@ -173,8 +169,6 @@ class TaskController extends Controller
         }
 
         if ($result) {
-            event(new TaskCreated($task, $request->user()));
-
             return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)
                 ->with('status', trans('errors.save-succeed'));
         } else {
@@ -200,8 +194,6 @@ class TaskController extends Controller
             $result = $task->update();
 
             if ($result) {
-                event(new TaskUpdated($task, $request->user()));
-
                 return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));
             } else {
                 return redirect()->back()->withErrors(trans('errors.update-failed'));
@@ -220,6 +212,7 @@ class TaskController extends Controller
      */
     public function show(Project $project, Task $task)
     {
+        $this->authorize('show', [$task, $project]);
         return view('project.task.show', $this->taskRepository->TaskShowResources($project, $task))
             ->with(compact('project', 'task'))
             ->with(['selected' => 'tasks']);
@@ -230,21 +223,17 @@ class TaskController extends Controller
      *
      * @param Project $project
      * @param Task $task
-     * @param Request $request
      * @return mixed
      */
-    public function destroy(Project $project, Task $task, Request $request)
+    public function destroy(Project $project, Task $task)
     {
+        $this->authorize('delete', [$task, $project]);
         if ($task->is_finish === config('task.unfinished')) {
-            $this->authorize('delete', [$task, $project]);
-
             foreach ($task->SubTasks as $subTask) {
                 $subTask->delete();
             }
 
             if ($task->delete()) {
-                event(new TaskDeleted($task, $request->user()));
-
                 return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.delete-succeed'));
             } else {
                 return redirect()->back()->withErrors(trans('errors.delete-failed'));

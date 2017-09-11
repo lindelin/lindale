@@ -48,6 +48,8 @@
 
             @include('layouts.member.menu')
 
+            @include('layouts.member.invite')
+
         </div>
     </div>
 

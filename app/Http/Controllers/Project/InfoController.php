@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Contracts\Repositories\MemberRepositoryContract;
 use App\Project\Project;
 use App\Http\Controllers\Controller;
-use App\Repositories\MemberRepository;
 
 class InfoController extends Controller
 {
     /**
      * 项目成员资源库.
-     *
-     * @var MemberRepository
+     * @var MemberRepositoryContract
      */
     protected $memberRepository;
 
@@ -20,9 +19,9 @@ class InfoController extends Controller
      * 通过DI获取资源库.
      *
      * InfoController constructor.
-     * @param MemberRepository $memberRepository
+     * @param MemberRepositoryContract $memberRepository
      */
-    public function __construct(MemberRepository $memberRepository)
+    public function __construct(MemberRepositoryContract $memberRepository)
     {
         $this->memberRepository = $memberRepository;
     }
@@ -35,8 +34,8 @@ class InfoController extends Controller
      */
     public function index(Project $project)
     {
-        return view('project.info.index')
-            ->with($this->memberRepository->MemberResources($project))
+        $this->authorize('member', [$project]);
+        return view('project.info.index', $this->memberRepository->memberResources($project))
             ->with(['project' => $project, 'selected' => 'info']);
     }
 }

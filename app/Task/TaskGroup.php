@@ -35,6 +35,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Task\TaskGroup whereTypeId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Task\TaskGroup whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Project\Project $Project
  */
 class TaskGroup extends Model
 {

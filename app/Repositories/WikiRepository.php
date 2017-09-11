@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Contracts\Repositories\WikiRepositoryContract;
 use App\Wiki\Wiki;
 use App\Wiki\WikiType;
 use App\Project\Project;
@@ -10,7 +11,7 @@ use App\Http\Requests\TypeRequest;
 use App\Http\Requests\WikiRequest;
 use Illuminate\Support\Facades\Storage;
 
-class WikiRepository
+class WikiRepository implements WikiRepositoryContract
 {
     /**
      * 创建默认WIKI方法.
@@ -18,7 +19,7 @@ class WikiRepository
      * @param Project $project
      * @return Wiki
      */
-    public function FirstWiki(Project $project)
+    public function firstWiki(Project $project)
     {
         $wiki = new Wiki();
         $wiki->title = $project->title.' Wiki';
@@ -34,7 +35,7 @@ class WikiRepository
      * @param Project $project
      * @return array
      */
-    public function WikiResources(Project $project)
+    public function wikiResources(Project $project)
     {
         $HomeWiki = $project->Wikis()->where('type_id', config('wiki.default'))->first();
         $wikis = $project->Wikis()->where('type_id', config('wiki.default-type'))->get();
@@ -51,7 +52,7 @@ class WikiRepository
      * @param Project $project
      * @return Wiki
      */
-    public function CreateWiki(WikiRequest $request, Project $project)
+    public function createWiki($request, Project $project)
     {
         $wiki = new Wiki();
 
@@ -82,7 +83,7 @@ class WikiRepository
      * @param Wiki $wiki
      * @return Wiki
      */
-    public function UpdateWiki(WikiRequest $request, Project $project, Wiki $wiki)
+    public function updateWiki($request, Project $project, Wiki $wiki)
     {
         $input = $request->all(['title', 'content', 'type_id']);
 
@@ -111,7 +112,7 @@ class WikiRepository
      * @param Project $project
      * @return WikiType
      */
-    public function CreateWikiType(TypeRequest $request, Project $project)
+    public function createWikiType($request, Project $project)
     {
         $wikiType = new WikiType;
 
@@ -128,7 +129,7 @@ class WikiRepository
      * @param WikiType $wikiType
      * @return WikiType
      */
-    public function UpdateWikiType(Request $request, WikiType $wikiType)
+    public function updateWikiType($request, WikiType $wikiType)
     {
         if ($request->get('type_name') != '') {
             $wikiType->name = $request->get('type_name');

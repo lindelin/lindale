@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers\Project\Wiki;
 
+use App\Contracts\Repositories\WikiRepositoryContract;
 use App\Wiki\WikiType;
 use App\Project\Project;
 use Illuminate\Http\Request;
 use App\Http\Requests\TypeRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\WikiRepository;
 
 class WikiTypeController extends Controller
 {
     /**
      * WIKI资源库.
-     *
-     * @var
+     * @var WikiRepositoryContract
      */
     protected $wikiRepository;
 
@@ -23,9 +22,9 @@ class WikiTypeController extends Controller
      * 通过DI获取资源库.
      *
      * WikiController constructor.
-     * @param WikiRepository $wikiRepository
+     * @param WikiRepositoryContract $wikiRepository
      */
-    public function __construct(WikiRepository $wikiRepository)
+    public function __construct(WikiRepositoryContract $wikiRepository)
     {
         $this->wikiRepository = $wikiRepository;
     }
@@ -38,7 +37,7 @@ class WikiTypeController extends Controller
      */
     public function create(Project $project)
     {
-        return view('project.wiki.index', $this->wikiRepository->WikiResources($project))
+        return view('project.wiki.index', $this->wikiRepository->wikiResources($project))
             ->with(['project' => $project, 'selected' => 'wiki', 'add_wiki_index' => 'on']);
     }
 
@@ -51,23 +50,25 @@ class WikiTypeController extends Controller
      */
     public function store(TypeRequest $request, Project $project)
     {
-        $result = $this->wikiRepository->CreateWikiType($request, $project)->save();
+        $wikiType = $this->wikiRepository->createWikiType($request, $project);
 
-        return response()->save($result);
+        $this->authorize('create', [$wikiType, $project]);
+
+        return response()->save($wikiType->save());
     }
 
     /**
      * 更新WIKI表单.
-     *
      * @param Request $request
+     * @param Project $project
      * @param WikiType $wikiType
      * @return mixed
      */
     public function update(Request $request, Project $project, WikiType $wikiType)
     {
-        $result = $this->wikiRepository->UpdateWikiType($request, $wikiType)->update();
+        $this->authorize('update', [$wikiType, $project]);
 
-        return response()->update($result);
+        return response()->update($this->wikiRepository->updateWikiType($request, $wikiType)->update());
     }
 
     /**
@@ -79,6 +80,8 @@ class WikiTypeController extends Controller
      */
     public function destroy(Project $project, WikiType $wikiType)
     {
+        $this->authorize('delete', [$wikiType, $project]);
+
         $wikiType->Wikis()->delete();
 
         if ($wikiType->delete()) {

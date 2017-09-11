@@ -59,6 +59,11 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\Task\Notification\TaskActivityHasCreatedNotify',
         ],
 
+        //用户事件
+        'App\Events\User\UserCreated' => [
+            'App\Listeners\User\SendInviteMail',
+        ],
+
     ];
 
     protected $subscribe = [

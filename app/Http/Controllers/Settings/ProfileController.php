@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\Settings;
 
+use App\Contracts\Repositories\UserRepositoryContract;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
-use App\Repositories\UserRepository;
 
 class ProfileController extends Controller
 {
     /**
      * 用户资源库.
-     *
-     * @var UserRepository
+     * @var UserRepositoryContract
      */
     protected $userRepository;
 
@@ -22,9 +21,9 @@ class ProfileController extends Controller
      * 通过DI获取资源库.
      *
      * ProfileController constructor.
-     * @param UserRepository $userRepository
+     * @param UserRepositoryContract $userRepository
      */
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepositoryContract $userRepository)
     {
         $this->userRepository = $userRepository;
     }
@@ -37,7 +36,7 @@ class ProfileController extends Controller
      */
     public function index(Request $request)
     {
-        return view('settings.index', $this->userRepository->MyInfo($request))->with('mode', 'profile');
+        return view('settings.index', $this->userRepository->myInfo($request))->with('mode', 'profile');
     }
 
     /**
@@ -50,11 +49,6 @@ class ProfileController extends Controller
     public function update(UserRequest $request, User $user)
     {
         $this->authorize('update', [$user]);
-
-        $result = $this->userRepository
-            ->UpdateUser($request, $user)
-            ->update();
-
-        return response()->update($result);
+        return response()->update($this->userRepository->updateUser($request, $user)->update());
     }
 }

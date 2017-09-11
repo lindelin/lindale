@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Contracts\Repositories\MemberRepositoryContract;
 use App\User;
 use App\Project\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositories\MemberRepository;
 
 class MemberController extends Controller
 {
     /**
      * 项目成员资源库.
-     *
-     * @var MemberRepository
+     * @var MemberRepositoryContract
      */
     protected $memberRepository;
 
@@ -22,9 +21,9 @@ class MemberController extends Controller
      * 通过DI获取资源库.
      *
      * MemberController constructor.
-     * @param MemberRepository $memberRepository
+     * @param MemberRepositoryContract $memberRepository
      */
-    public function __construct(MemberRepository $memberRepository)
+    public function __construct(MemberRepositoryContract $memberRepository)
     {
         $this->memberRepository = $memberRepository;
     }
@@ -37,7 +36,8 @@ class MemberController extends Controller
      */
     public function index(Project $project)
     {
-        return view('project.member.index', $this->memberRepository->MemberResources($project))
+        $this->authorize('member', [$project]);
+        return view('project.member.index', $this->memberRepository->memberResources($project))
             ->with(['project' => $project, 'selected' => 'member']);
     }
 
@@ -56,9 +56,25 @@ class MemberController extends Controller
 
         $this->authorize('member', [$project]);
 
-        $result = $this->memberRepository->AddMember($request, $project);
+        return response()->add($this->memberRepository->addMember($request, $project));
+    }
 
-        return response()->add($result);
+    /**
+     * 招待.
+     * @param Request $request
+     * @param Project $project
+     * @return mixed
+     */
+    public function invite(Request $request, Project $project)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:20',
+            'email' => 'required|unique:users|max:30',
+        ]);
+
+        $this->authorize('member', [$project]);
+
+        return response()->add($this->memberRepository->createUser($request, $project));
     }
 
     /**
@@ -71,16 +87,13 @@ class MemberController extends Controller
      */
     public function destroy(Request $request, Project $project, User $user)
     {
-        //TODO: 成员专用Request
         $this->validate($request, [
             'project-pass' => 'required',
         ]);
 
         $this->authorize('update', [$project, $request]);
 
-        $result = $this->memberRepository->RemoveMember($project, $user);
-
-        return response()->remove($result);
+        return response()->remove($this->memberRepository->removeMember($project, $user));
     }
 
     /**
@@ -95,8 +108,6 @@ class MemberController extends Controller
     {
         $this->authorize('member', [$project]);
 
-        $result = $this->memberRepository->Policy($project, $user, $request);
-
-        return response()->update($result);
+        return response()->update($this->memberRepository->policy($project, $user, $request));
     }
 }

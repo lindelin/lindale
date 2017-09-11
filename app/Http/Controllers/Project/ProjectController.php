@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Contracts\Repositories\ProjectRepositoryContract;
 use App\Project\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,14 +10,12 @@ use App\Http\Requests\ProjectRequest;
 use App\Events\Project\ProjectCreated;
 use App\Events\Project\ProjectDeleted;
 use App\Events\Project\ProjectUpdated;
-use App\Repositories\ProjectRepository;
 
 class ProjectController extends Controller
 {
     /**
      * 项目资源库.
-     *
-     * @var ProjectRepository
+     * @var ProjectRepositoryContract
      */
     protected $projectRepository;
 
@@ -25,9 +24,9 @@ class ProjectController extends Controller
      * 通过DI获取项目资源库.
      *
      * ProjectController constructor.
-     * @param ProjectRepository $projectRepository
+     * @param ProjectRepositoryContract $projectRepository
      */
-    public function __construct(ProjectRepository $projectRepository)
+    public function __construct(ProjectRepositoryContract $projectRepository)
     {
         $this->projectRepository = $projectRepository;
     }
@@ -80,12 +79,7 @@ class ProjectController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-        $project = $this->projectRepository->CreateProject($request);
-        $result = $project->save();
-
-        if ($result) {
-            event(new ProjectCreated($project));
-
+        if ($this->projectRepository->CreateProject($request)->save()) {
             return redirect()->to('/project')->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-fail'));
@@ -127,11 +121,7 @@ class ProjectController extends Controller
     {
         $this->authorize('update', [$project, $request]);
 
-        $result = $this->projectRepository->UpdateProject($request, $project)->update();
-
-        if ($result) {
-            event(new ProjectUpdated($project));
-
+        if ($this->projectRepository->UpdateProject($request, $project)->update()) {
             return redirect()->to(route('config.index', compact('project')))->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
@@ -150,10 +140,6 @@ class ProjectController extends Controller
         $this->authorize('delete', [$project, $request]);
 
         if ($project->delete()) {
-
-            //删除项目相关内容
-            event(new ProjectDeleted($project));
-
             return redirect()->to('/project')->with('status', trans('errors.delete-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.delete-failed'));
@@ -170,9 +156,7 @@ class ProjectController extends Controller
     {
         $this->authorize('delete', [$project, $request]);
 
-        $result = $this->projectRepository->Transfer($request, $project)->update();
-
-        if ($result) {
+        if ($this->projectRepository->Transfer($request, $project)->update()) {
             return redirect()->to('/project')->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));

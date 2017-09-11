@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\Project\Task;
 
+use App\Contracts\Repositories\TaskRepositoryContract;
 use App\Task\TaskGroup;
 use App\Project\Project;
 use App\Http\Controllers\Controller;
-use App\Repositories\TaskRepository;
 use App\Http\Requests\TaskGroupRequest;
 
 class TaskGroupController extends Controller
 {
     /**
      * 任务资源库.
-     *
-     * @var TaskRepository
+     * @var TaskRepositoryContract
      */
     protected $taskRepository;
 
@@ -22,9 +21,9 @@ class TaskGroupController extends Controller
      * 注入资源.
      *
      * TaskGroupController constructor.
-     * @param TaskRepository $taskRepository
+     * @param TaskRepositoryContract $taskRepository
      */
-    public function __construct(TaskRepository $taskRepository)
+    public function __construct(TaskRepositoryContract $taskRepository)
     {
         $this->taskRepository = $taskRepository;
     }
@@ -50,6 +49,7 @@ class TaskGroupController extends Controller
      */
     public function edit(Project $project, TaskGroup $group)
     {
+        $this->authorize('update', [$group, $project]);
         return view('project.task.group.edit', $this->taskRepository->TaskGroupCreateResources($project))
             ->with(['project' => $project, 'selected' => 'tasks'])
             ->with(compact('group'));
@@ -66,9 +66,9 @@ class TaskGroupController extends Controller
     {
         $group = $this->taskRepository->CreateGroup($request, $project);
 
-        $result = $group->save();
+        $this->authorize('create', [$group, $project]);
 
-        if ($result) {
+        if ($group->save()) {
             return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.save-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.save-failed'));
@@ -85,11 +85,8 @@ class TaskGroupController extends Controller
      */
     public function update(TaskGroupRequest $request, Project $project, TaskGroup $group)
     {
-        $group = $this->taskRepository->UpdateGroup($request, $group);
-
-        $result = $group->update();
-
-        if ($result) {
+        $this->authorize('update', [$group, $project]);
+        if ($this->taskRepository->UpdateGroup($request, $group)->update()) {
             return redirect()->to('project/'.$project->id.'/task')->with('status', trans('errors.update-succeed'));
         } else {
             return redirect()->back()->withErrors(trans('errors.update-failed'));
@@ -105,6 +102,7 @@ class TaskGroupController extends Controller
      */
     public function destroy(Project $project, TaskGroup $group)
     {
+        $this->authorize('update', [$group, $project]);
         if ($group->delete()) {
             return redirect()->to(route('task.index', compact('project')))->with('status', trans('errors.delete-succeed'));
         } else {

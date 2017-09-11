@@ -15,7 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Lindalë'),
     'title' => 'Lindalë - The Project Manager For Everyone.',
-    'version' => 'v1.5.2',
+    'version' => 'v1.5.3',
 
     /*
     |--------------------------------------------------------------------------
@@ -183,6 +183,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Lindelea\Support\Aws\Elb\ServiceProvider::class,
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
+        Laravel\Dusk\DuskServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -196,6 +197,7 @@ return [
         App\Providers\RoutingManagementServiceProvider::class,
         App\Providers\ToolServiceProvider::class,
         App\Providers\ConfigSystemServiceProvider::class,
+        App\Providers\RepositoryServiceProvider::class,
 
     ],
 

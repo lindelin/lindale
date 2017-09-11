@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\User\UserCreated;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -58,6 +59,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @method static \Illuminate\Database\Query\Builder|\App\User whereSlack($value)
  * @method static \Illuminate\Database\Query\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property \Carbon\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Project\Project[] $favorites
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\User onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\User withoutTrashed()
  */
 class User extends Authenticatable
 {
@@ -76,6 +85,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $touches = ['Projects'];
+
+    /**
+     * タイミングイベント定義。
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => UserCreated::class,
+    ];
 
     /**
      * The attributes that should be hidden for arrays.

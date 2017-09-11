@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers\Project;
 
+use App\Contracts\Repositories\ProgressRepositoryContract;
 use App\Project\Project;
-use Swatkins\LaravelGantt\Gantt;
 use App\Http\Controllers\Controller;
-use App\Repositories\ProgressRepository;
 
 class ProgressController extends Controller
 {
+    /**
+     * @var ProgressRepositoryContract
+     */
     protected $progressRepository;
 
     /**
      * ProgressController constructor.
-     * @param ProgressRepository $progressRepository
+     * @param ProgressRepositoryContract $progressRepository
      */
-    public function __construct(ProgressRepository $progressRepository)
+    public function __construct(ProgressRepositoryContract $progressRepository)
     {
         $this->progressRepository = $progressRepository;
     }
@@ -26,7 +28,7 @@ class ProgressController extends Controller
      */
     public function index(Project $project)
     {
-        return view('project.progress.index', $this->progressRepository->ProgressResources($project))
+        return view('project.progress.index', $this->progressRepository->progressResources($project))
             ->with(['project' => $project, 'selected' => 'progress', 'mode' => 'overview']);
     }
 
@@ -60,12 +62,20 @@ class ProgressController extends Controller
             ->with(['project' => $project, 'selected' => 'progress', 'mode' => 'member']);
     }
 
+    /**
+     * @param Project $project
+     * @return mixed
+     */
     public function tasks(Project $project)
     {
         return view('project.progress.task', $this->progressRepository->taskProgress($project))
             ->with(['project' => $project, 'selected' => 'progress', 'mode' => 'task']);
     }
 
+    /**
+     * @param Project $project
+     * @return mixed
+     */
     public function todo(Project $project)
     {
         return view('project.progress.todo', $this->progressRepository->todoProgress($project))

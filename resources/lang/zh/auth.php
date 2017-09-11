@@ -24,6 +24,7 @@ return [
     'logout'           => '登出',
     'home'             => '首页',
     'reset'            => '密码重置',
+    'set'              => '设置密码',
     'confirm_password' => '确认密码',
 
 ];

@@ -2,6 +2,9 @@
 
 namespace App\Task;
 
+use App\Events\Task\SubTask\SubTaskCreated;
+use App\Events\Task\SubTask\SubTaskDeleted;
+use App\Events\Task\SubTask\SubTaskUpdated;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -27,6 +30,18 @@ class SubTask extends Model
     protected $fillable = [
         'content', 'task_id',
     ];
+
+    /**
+     * タイミングイベント定義。
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => SubTaskCreated::class,
+        'updated' => SubTaskUpdated::class,
+        'deleted' => SubTaskDeleted::class,
+    ];
+
     /**
      * 一个附属任务属于一个任务
      * 一对一
