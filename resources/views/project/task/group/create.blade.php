@@ -64,7 +64,8 @@
                                 <script type="text/javascript">
                                     $(function () {
                                         $('#datetimepicker1').datetimepicker({
-                                            format: 'YYYY-MM-DD'
+                                            format: 'YYYY-MM-DD',
+                                            locale : '{{ trans_lang_for_date() }}'
                                         });
                                     });
                                 </script>
@@ -87,7 +88,8 @@
                                 <script type="text/javascript">
                                     $(function () {
                                         $('#datetimepicker2').datetimepicker({
-                                            format: 'YYYY-MM-DD'
+                                            format: 'YYYY-MM-DD',
+                                            locale : '{{ trans_lang_for_date() }}'
                                         });
                                     });
                                 </script>

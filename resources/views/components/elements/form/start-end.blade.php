@@ -16,7 +16,8 @@
             <script type="text/javascript">
                 $(function () {
                     $('#{{ $start_target }}').datetimepicker({
-                        format: 'YYYY-MM-DD'
+                        format: 'YYYY-MM-DD',
+                        locale : '{{ trans_lang_for_date() }}'
                     });
                 });
             </script>
@@ -40,7 +41,8 @@
             <script type="text/javascript">
                 $(function () {
                     $('#{{ $end_target }}').datetimepicker({
-                        format: 'YYYY-MM-DD'
+                        format: 'YYYY-MM-DD',
+                        locale : '{{ trans_lang_for_date() }}'
                     });
                 });
             </script>
