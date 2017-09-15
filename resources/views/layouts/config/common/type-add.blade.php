@@ -33,7 +33,7 @@
                         <div>
                             <select class="selectpicker form-control" name="color_id" required="required">
                                 @foreach( config('color.common') as $id => $color)
-                                    <option value="{{ $id }}">{{ trans($color) }}</option>
+                                    <option data-content="{{ Colorable::label($id, trans($color)) }}" value="{{ $id }}">{{ trans($color) }}</option>
                                 @endforeach
                             </select>
                             @include('layouts.common.error-one', ['field' => 'color_id'])

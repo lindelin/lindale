@@ -212,7 +212,7 @@
                                 <div>
                                     <select class="selectpicker form-control" name="color_id">
                                         @foreach( config('color.common') as $id => $color)
-                                            <option value="{{ $id }}" @if(old('color_id') === $id) selected @endif>{{ trans($color) }}</option>
+                                            <option data-content="{{ Colorable::label($id, trans($color)) }}" value="{{ $id }}" @if(old('color_id') === $id) selected @endif>{{ trans($color) }}</option>
                                         @endforeach
                                     </select>
                                     @include('layouts.common.error-one', ['field' => 'color_id'])
