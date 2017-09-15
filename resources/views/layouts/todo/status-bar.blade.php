@@ -1,23 +1,25 @@
 <div class="well well-home">
     <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             {{ trans('todo.all-todos') }}
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-            {{ trans('type.public') }}
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-            {{ trans('type.private') }}
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            @include('layouts.common.progress.todo.user-todo-progress')
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-            @include('layouts.common.progress.todo.user-todo-progress')
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            {{ trans('type.public') }}
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             @include('layouts.common.progress.todo.user-todo-type-progress', ['type' => \App\Todo\TodoType::find(config('todo.public'))])
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
+    </div>
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            {{ trans('type.private') }}
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
             @include('layouts.common.progress.todo.user-todo-type-progress', ['type' => \App\Todo\TodoType::find(config('todo.private'))])
         </div>
     </div>
