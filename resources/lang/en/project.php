@@ -39,5 +39,6 @@ return [
     'add-favorite' => 'Add to Favorites',
     'remove-favorite' => 'Remove from Favorites',
     'favorite' => 'Favorites',
+    'milestone' => 'Milestone',
 
 ];

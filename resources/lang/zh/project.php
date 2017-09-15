@@ -39,5 +39,6 @@ return [
     'add-favorite' => '添加到收藏夹',
     'remove-favorite' => '从收藏夹删除',
     'favorite' => '收藏夹',
+    'milestone' => '里程碑',
 
 ];
