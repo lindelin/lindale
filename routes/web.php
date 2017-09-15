@@ -175,6 +175,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
                 Route::delete('/{taskActivity}', 'TaskActivityController@destroy')->name('taskActivity.destroy');
             });
         });
+
+        //成就路由
+        Route::group(['prefix' => 'achievement'], function () {
+            Route::get('/', 'AchievementController@index')->name('achievement');
+            Route::get('evaluation', 'AchievementController@evaluation')->name('evaluation');
+            Route::get('member', 'AchievementController@member')->name('achievement.member');
+        });
     });
 });
 

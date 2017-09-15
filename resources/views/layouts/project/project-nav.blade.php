@@ -7,7 +7,7 @@
     'tasks_url' => url("project/$project->id/task"),
     'todo_url' => url("project/$project->id/todo"),
     'member_url' => url("project/$project->id/member"),
-    'achievement_url' => '#',
+    'achievement_url' => route('achievement', compact('project')),
     'budget_url' => '#',
     'bbs_url' => '#',
     'concept_url' => '#',

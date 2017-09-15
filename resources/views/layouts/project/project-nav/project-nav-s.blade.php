@@ -46,16 +46,17 @@
                             <span class="glyphicon glyphicon-user lindale-icon-color"></span> {{ trans('header.member') }}
                         </a>
                     </li>
+                    <li role="presentation">
+                        <a href="{{ $achievement_url }}">
+                            <span class="glyphicon glyphicon-stats lindale-icon-color"></span> {{ trans('header.achievement') }}
+                        </a>
+                    </li>
                    {{-- <li role="presentation">
                         <a href="{{ $bbs_url }}">
                             <span class="glyphicon glyphicon-comment"></span> {{ trans('header.bbs') }}
                         </a>
                     </li>
-                    <li role="presentation">
-                        <a href="{{ $achievement_url }}">
-                            <span class="glyphicon glyphicon-stats"></span> {{ trans('header.achievement') }}
-                        </a>
-                    </li>
+
                     <li role="presentation">
                         <a href="{{ $budget_url }}">
                             <span class="glyphicon glyphicon-piggy-bank"></span> {{ trans('header.budget') }}
