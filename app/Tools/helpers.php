@@ -118,6 +118,26 @@ if (! function_exists('trans_lang_for_gantt')) {
     }
 }
 
+if (! function_exists('trans_lang_for_date')) {
+    /**
+     * @return string
+     */
+    function trans_lang_for_date()
+    {
+        switch (app()->getLocale()) {
+            case 'zh':
+                return 'zh-cn';
+                break;
+            case 'ja':
+                return 'ja';
+                break;
+            default:
+                return 'en';
+                break;
+        }
+    }
+}
+
 if (! function_exists('trans_task_group_status_for_gantt')) {
     /**
      * Progress to 小数.

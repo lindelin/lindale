@@ -39,5 +39,6 @@ return [
     'add-favorite' => 'お気に入りに追加',
     'remove-favorite' => 'お気に入りを削除',
     'favorite' => 'お気に入り',
+    'milestone' => 'マイルストーン',
 
 ];

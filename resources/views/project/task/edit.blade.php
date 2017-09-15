@@ -87,7 +87,8 @@
                                 <script type="text/javascript">
                                     $(function () {
                                         $('#datetimepicker1').datetimepicker({
-                                            format: 'YYYY-MM-DD'
+                                            format: 'YYYY-MM-DD',
+                                            locale : '{{ trans_lang_for_date() }}'
                                         });
                                     });
                                 </script>
@@ -110,7 +111,8 @@
                                 <script type="text/javascript">
                                     $(function () {
                                         $('#datetimepicker2').datetimepicker({
-                                            format: 'YYYY-MM-DD'
+                                            format: 'YYYY-MM-DD',
+                                            locale : '{{ trans_lang_for_date() }}'
                                         });
                                     });
                                 </script>
@@ -211,7 +213,7 @@
                                 <div>
                                     <select class="selectpicker form-control" name="color_id">
                                         @foreach( config('color.common') as $id => $color)
-                                            <option value="{{ $id }}" @if(old('color_id') ? old('color_id') : $task->color_id === $id) selected @endif>
+                                            <option data-content="{{ Colorable::label($id, trans($color)) }}" value="{{ $id }}" @if(old('color_id') ? old('color_id') : $task->color_id === $id) selected @endif>
                                                 {{ trans($color) }}
                                             </option>
                                         @endforeach
