@@ -3,21 +3,23 @@
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
             {{ trans('todo.all-todos') }}
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-            {{ trans('type.public') }}
-        </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-            {{ trans('type.private') }}
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" align="center">
+            @include('layouts.common.progress.todo.user-todo-progress')
         </div>
     </div>
     <div class="row">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
-            @include('layouts.common.progress.todo.user-todo-progress')
+            {{ trans('type.public') }}
         </div>
-        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" align="center">
             @include('layouts.common.progress.todo.user-todo-type-progress', ['type' => \App\Todo\TodoType::find(config('todo.public'))])
         </div>
+    </div>
+    <div class="row">
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" align="center">
+            {{ trans('type.private') }}
+        </div>
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" align="center">
             @include('layouts.common.progress.todo.user-todo-type-progress', ['type' => \App\Todo\TodoType::find(config('todo.private'))])
         </div>
     </div>
