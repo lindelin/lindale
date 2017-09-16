@@ -243,6 +243,35 @@ class Project extends Model
     }
 
     /**
+     * 一个项目有多个评价表
+     * 一对多.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function evaluations()
+    {
+        return $this->hasMany(Evaluation::class, 'project_id', 'id');
+    }
+
+    /**
+     * 评价表数
+     * @return int
+     */
+    public function openEvaluationCount()
+    {
+        return $this->evaluations()->where('is_closed', config('task.unfinished'))->count();
+    }
+
+    /**
+     * 完成评价表数
+     * @return int
+     */
+    public function closedEvaluationCount()
+    {
+        return $this->evaluations()->where('is_closed', config('task.finished'))->count();
+    }
+
+    /**
      * 获取最新任务
      * @param $count
      * @return \Illuminate\Support\Collection

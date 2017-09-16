@@ -180,6 +180,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
         Route::group(['prefix' => 'achievement'], function () {
             Route::get('/', 'AchievementController@index')->name('achievement');
             Route::get('evaluation', 'AchievementController@evaluation')->name('evaluation');
+            Route::get('evaluation/closed', 'AchievementController@closedEvaluation')->name('evaluation.closed');
+            Route::patch('evaluation/{evaluation}', 'AchievementController@updateEvaluation')->name('evaluation.update');
             Route::get('member', 'AchievementController@member')->name('achievement.member');
         });
     });

@@ -53,5 +53,6 @@ return [
     'updated-task' => '1 Task Updated by :Name :',
     'deleted-task' => '1 Task Deleted by :Name :',
     'created-task-activity' => '1 new Activity by :Name :',
+    'can-not-finish-none-user-task' => 'The task can not be finished without a person in charge.',
 
 ];

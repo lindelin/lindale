@@ -76,5 +76,11 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Contracts\Repositories\WikiRepositoryContract',
             'App\Repositories\WikiRepository'
         );
+
+        // WIKI Repository
+        $this->app->bind(
+            'App\Contracts\Repositories\AchievementRepositoryContract',
+            'App\Repositories\AchievementRepository'
+        );
     }
 }

@@ -53,5 +53,6 @@ return [
     'updated-task' => ':Name 更新了任务：',
     'deleted-task' => ':Name 删除了任务：',
     'created-task-activity' => ':Name 添加了新的动态：',
+    'can-not-finish-none-user-task' => '不能完成没有负责任的任务',
 
 ];

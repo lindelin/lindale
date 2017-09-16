@@ -5,6 +5,7 @@ namespace App\Task;
 use App\Events\Task\TaskCreated;
 use App\Events\Task\TaskDeleted;
 use App\Events\Task\TaskUpdated;
+use App\Events\Task\TaskUpdating;
 use Illuminate\Database\Eloquent\Model;
 
 /**

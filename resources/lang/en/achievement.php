@@ -8,8 +8,8 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'evaluation' => '実績評価',
-    'no-evaluation' => '実績評価シートがありません',
-    'reviewer' => 'レビュアー',
+    'evaluation' => 'Evaluation',
+    'no-evaluation' => 'There are not any open Evaluations.',
+    'reviewer' => 'Reviewer',
 
 ];

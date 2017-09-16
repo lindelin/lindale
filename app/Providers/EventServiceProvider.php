@@ -49,7 +49,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\Task\TaskUpdated' => [
             'App\Listeners\Task\Notification\TaskHasUpdatedNotify',
-            //'App\Listeners\Task\FinishedTaskListener',
+            'App\Listeners\Task\FinishedTaskListener',
         ],
         'App\Events\Task\TaskDeleted' => [
             'App\Listeners\Task\Notification\TaskHasDeletedNotify',

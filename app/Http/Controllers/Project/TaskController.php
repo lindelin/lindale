@@ -191,7 +191,11 @@ class TaskController extends Controller
         if ($task->is_finish === config('task.unfinished') or (int) $request->get('is_finish') === config('task.unfinished')) {
             $task = $this->taskRepository->UpdateTask($request, $task);
 
-            $result = $task->update();
+            if ((int)$task->user_id === 0 and (int)$task->is_finish === config('task.finished')) {
+                return redirect()->back()->withErrors(trans('task.can-not-finish-none-user-task'));
+            } else {
+                $result = $task->update();
+            }
 
             if ($result) {
                 return redirect()->to('project/'.$project->id.'/task/show/'.$task->id)->with('status', trans('errors.update-succeed'));

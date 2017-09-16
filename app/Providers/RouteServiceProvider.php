@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Project\Evaluation;
 use Route;
 use App\User;
 use App\Task\Task;
@@ -51,6 +52,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('subTask', SubTask::class);
         Route::model('taskActivity', TaskActivity::class);
         Route::model('notice', Notice::class);
+        Route::model('evaluation', Evaluation::class);
     }
 
     /**
