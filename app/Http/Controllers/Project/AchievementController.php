@@ -73,4 +73,10 @@ class AchievementController extends Controller
 
         return response()->update($this->achievementRepository->updateEvaluations($request, $evaluation));
     }
+
+    public function member(Project $project)
+    {
+        return view('project.achievement.index')
+            ->with(['project' => $project, 'selected' => 'achievement', 'mode' => 'member']);
+    }
 }

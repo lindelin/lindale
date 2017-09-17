@@ -63,7 +63,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" align="center">
-                            <h2>TASKS</h2>
+                            <h2 style="color: #777;">TASKS</h2>
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
                             <h2>{{ $project->tasks()->where('is_finish', config('task.finished'))->count() }}</h2>
@@ -86,7 +86,30 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" align="center">
-                            <h2>TODOS</h2>
+                            <h2 style="color: #777;">TODOS</h2>
+                        </div>
+                        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
+                            <h2>{{ $project->tasks()->where('is_finish', config('task.finished'))->count() }}</h2>
+                        </div>
+                        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
+                            <h2>/</h2>
+                        </div>
+                        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
+                            <h2>{{ $project->todos()->count() }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" align="center">
+                            <h2 style="color: #777;">COST/SPENT</h2>
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
                             <h2>{{ $project->tasks()->where('is_finish', config('task.finished'))->count() }}</h2>
@@ -109,7 +132,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" align="center">
-                            <h2>貢献度</h2>
+                            <h2 style="color: #777;">貢献度</h2>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9" align="center">
                             <h2>{{ number_format(34234234) }}</h2>
