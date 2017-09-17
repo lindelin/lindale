@@ -12,6 +12,8 @@
 
         @include('layouts.progress.title')
 
+        <br>
+
         @include('layouts.progress.basic')
 
         @slot('side')
