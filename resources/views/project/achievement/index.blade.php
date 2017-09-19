@@ -109,7 +109,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" align="center">
-                            <h2 style="color: #777;">COST/SPENT</h2>
+                            <h2 style="color: #777;">{{ trans('achievement.estimated') }}/{{ trans('achievement.spent') }}</h2>
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
                             <h2>{{ number_format($project->costAchievement()) }}</h2>
@@ -132,7 +132,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" align="center">
-                            <h2 style="color: #777;">貢献度</h2>
+                            <h2 style="color: #777;">{{ trans('achievement.contribution') }}</h2>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9" align="center">
                             <h2>{{ number_format($project->contributionAchievement()) }}</h2>

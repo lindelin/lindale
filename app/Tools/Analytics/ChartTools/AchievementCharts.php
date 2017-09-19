@@ -44,8 +44,8 @@ trait AchievementCharts
         }
 
         return Charts::multi('bar', 'highcharts')
-            ->title('Stars')
-            ->colors(['#28a745', '#00ff00', '#0000ff'])
+            ->title('STARS')
+            ->colors(['#17a2b8', '#00ff00', '#0000ff'])
             ->labels($users)
             ->dataset('Stars', $stars)
             ->elementLabel(trans('achievement.star-count'))
@@ -85,7 +85,7 @@ trait AchievementCharts
     }
 
     /**
-     * メンバー別タスク予定工数対実工数棒グラフ
+     * メンバー別貢献度棒グラフ
      * @param Project $project
      * @return mixed
      */
@@ -106,7 +106,7 @@ trait AchievementCharts
 
         return Charts::multi('bar', 'highcharts')
             ->title(trans('achievement.contribution'))
-            ->colors(['#28a745', '#00ff00', '#0000ff'])
+            ->colors(['#ffc107', '#00ff00', '#0000ff'])
             ->labels($users)
             ->dataset(trans('achievement.contribution'), $contributions)
             ->elementLabel(trans('achievement.point'))
@@ -135,7 +135,7 @@ trait AchievementCharts
         }
 
         return Charts::multi('bar', 'highcharts')
-            ->title('Tasks')
+            ->title('TASKS')
             ->labels($users)
             ->dataset(trans('progress.finished-task'), $task_counts)
             ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
@@ -166,7 +166,7 @@ trait AchievementCharts
         }
 
         return Charts::multi('bar', 'highcharts')
-            ->title('To-dos')
+            ->title('TODOS')
             ->labels($users)
             ->dataset(trans('progress.finished-todo'), $todo_counts)
             ->colors(['#ff2321'])
