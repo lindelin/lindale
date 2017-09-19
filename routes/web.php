@@ -354,3 +354,16 @@ Route::get('test', function (){
     $user = \App\User::first();
     $user->favorites()->attach(24);
 });*/
+
+Route::get('test', function (){
+    $project = \App\Project\Project::where('id', 11)->first();
+    $datas = $project->evaluations()->select(\DB::raw('`user_id`, sum(`evaluation`) as `star`'))->groupBy('user_id')->get();
+    $users = [];
+    $stars = [];
+    foreach ($datas as $data) {
+        $users[] = $data->user->name;
+        $stars[] = $data->star;
+    }
+
+    dd($users, $stars);
+});

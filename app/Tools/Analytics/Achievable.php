@@ -140,6 +140,6 @@ trait Achievable
                 ->where('type_id', config('todo.public'))
                 ->where('status_id', config('todo.status.finished'))
                 ->where('user_id', $user->id)->count() * 30 +
-            $this->Wikis()->where('user_id', $user->id) * 100;
+            $this->Wikis()->where('user_id', $user->id)->count() * 100;
     }
 }

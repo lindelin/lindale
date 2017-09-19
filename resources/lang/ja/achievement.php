@@ -11,5 +11,11 @@ return [
     'evaluation' => '実績評価',
     'no-evaluation' => '実績評価シートがありません',
     'reviewer' => 'レビュアー',
-
+    'star-count' => '個',
+    'hour' => '時間',
+    'estimated' => '予定工数',
+    'spent' => '実工数',
+    'man-hours' => '工数',
+    'contribution' => '貢献度',
+    'point' => 'ポイント',
 ];

@@ -76,7 +76,7 @@ class AchievementController extends Controller
 
     public function member(Project $project)
     {
-        return view('project.achievement.index')
+        return view('project.achievement.member')
             ->with(['project' => $project, 'selected' => 'achievement', 'mode' => 'member']);
     }
 }

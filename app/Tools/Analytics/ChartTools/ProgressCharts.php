@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Tools\Analytics;
+namespace App\Tools\Analytics\ChartTools;
 
 use Charts;
 use App\User;
 use App\Project\Project;
 
-class ProgressCharts
+trait ProgressCharts
 {
     /**
      * 项目成员任务／待办统计柱状图.
@@ -34,13 +34,24 @@ class ProgressCharts
      */
     public function memberOverviewTaskBar(Project $project)
     {
-        return Charts::multiDatabase('bar', 'highcharts')
+        $datas = $project->Tasks()
+            ->select(\DB::raw('user_id, count(*) as count'))
+            ->where('is_finish', true)
+            ->where('user_id', '>', 0)
+            ->groupBy('user_id')->get();
+
+        $tasks = [];
+
+        foreach ($datas as $data) {
+            $tasks = $data->count;
+        }
+
+        return Charts::multi('bar', 'highcharts')
             ->title('Tasks')
-            ->dataset(trans('progress.finished-task'), $project->Tasks()->where('is_finish', true)->get())
+            ->dataset(trans('progress.finished-task'), $tasks)
             ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
             ->elementLabel(trans('progress.count'))
-            ->responsive(true)
-            ->groupBy('user_id', null, $this->userLabels($project));
+            ->responsive(true);
     }
 
     /**
