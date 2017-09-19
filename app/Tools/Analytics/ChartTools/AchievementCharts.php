@@ -15,16 +15,16 @@ trait AchievementCharts
      */
     public function memberAchievementStarBar(Project $project)
     {
-        $datas = $project->evaluations()
+        $evaluations = $project->evaluations()
             ->select(\DB::raw('`user_id`, sum(`evaluation`) as `star`'))
             ->where('is_closed', config('task.finished'))
             ->groupBy('user_id')
             ->get();
         $users = [];
         $stars = [];
-        foreach ($datas as $data) {
-            $users[] = $data->user->name;
-            $stars[] = (int)$data->star;
+        foreach ($evaluations as $evaluation) {
+            $users[] = $evaluation->user->name;
+            $stars[] = (int)$evaluation->star;
         }
 
         return Charts::multi('bar', 'highcharts')
@@ -43,7 +43,7 @@ trait AchievementCharts
      */
     public function memberAchievementCostSpendBar(Project $project)
     {
-        $datas = $project->tasks()
+        $tasks = $project->tasks()
             ->select(\DB::raw('`user_id`, sum(`cost`) as `cost`, sum(`spend`) as `spend`'))
             ->where('is_finish', config('task.finished'))
             ->where('user_id', '>', 0)
@@ -52,10 +52,10 @@ trait AchievementCharts
         $users = [];
         $costs = [];
         $spends = [];
-        foreach ($datas as $data) {
-            $users[] = $data->user->name;
-            $costs[] = (int)$data->cost;
-            $spends[] = (int)$data->spend;
+        foreach ($tasks as $task) {
+            $users[] = $task->user->name;
+            $costs[] = (int)$task->cost;
+            $spends[] = (int)$task->spend;
         }
 
         return Charts::multi('bar', 'highcharts')
@@ -98,31 +98,62 @@ trait AchievementCharts
     }
 
     /**
-     * 项目成员任务／待办统计柱状图.
+     * メンバー別タスク集計棒グラフ
      * @param Project $project
      * @return mixed
      */
     public function memberAchievementTaskBar(Project $project)
     {
-        $datas = $project->Tasks()
+        $tasks = $project->Tasks()
             ->select(\DB::raw('`user_id`, count(*) as `count`'))
             ->where('is_finish', true)
             ->where('user_id', '>', 0)
             ->groupBy('user_id')->get();
 
         $users = [];
-        $tasks = [];
+        $task_counts = [];
 
-        foreach ($datas as $data) {
-            $users[] = $data->user->name;
-            $tasks[] = (int)$data->count;
+        foreach ($tasks as $task) {
+            $users[] = $task->user->name;
+            $task_counts[] = (int)$task->count;
         }
 
         return Charts::multi('bar', 'highcharts')
             ->title('Tasks')
             ->labels($users)
-            ->dataset(trans('progress.finished-task'), $tasks)
+            ->dataset(trans('progress.finished-task'), $task_counts)
             ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
+            ->elementLabel(trans('progress.count'))
+            ->responsive(true);
+    }
+
+    /**
+     * メンバー別 TODOS 集計棒ブラフ
+     * @param Project $project
+     * @return mixed
+     */
+    public function memberAchievementTodoBar(Project $project)
+    {
+        $todos = $project->Todos()
+            ->select(\DB::raw('`user_id`, count(*) as `count`'))
+            ->where('type_id', config('todo.public'))
+            ->where('status_id', config('todo.status.finished'))
+            ->where('user_id', '>', 0)
+            ->groupBy('user_id')->get();
+
+        $todo_counts = [];
+        $users = [];
+
+        foreach($todos as $todo) {
+            $todo_counts[] = (int)$todo->count;
+            $users[] = $todo->user->name;
+        }
+
+        return Charts::multi('bar', 'highcharts')
+            ->title('To-dos')
+            ->labels($users)
+            ->dataset(trans('progress.finished-todo'), $todo_counts)
+            ->colors(['#ff2321'])
             ->elementLabel(trans('progress.count'))
             ->responsive(true);
     }
