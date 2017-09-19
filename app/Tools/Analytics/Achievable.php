@@ -2,7 +2,6 @@
 
 namespace App\Tools\Analytics;
 
-
 use App\User;
 use Carbon\Carbon;
 
