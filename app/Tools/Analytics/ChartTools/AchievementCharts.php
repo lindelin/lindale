@@ -9,6 +9,22 @@ use Charts;
 trait AchievementCharts
 {
     /**
+     * 作業区分円棒グラフ.
+     * @param Project $project
+     * @return mixed
+     */
+    public function taskTypeAchievementStarBar(Project $project)
+    {
+        return Charts::database($project->Tasks()
+            ->where('is_finish', config('task.finished'))
+            ->get(), 'bar', 'highcharts')
+            ->title(trans('task.type'))
+            ->responsive(true)
+            ->elementLabel(trans('progress.count'))
+            ->groupBy('type_id', null, $this->taskTypeLabels($project));
+    }
+
+    /**
      * メンバー別スター集計棒グラフ
      * @param Project $project
      * @return mixed

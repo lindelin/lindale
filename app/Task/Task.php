@@ -117,7 +117,7 @@ class Task extends Model
      */
     public function Type()
     {
-        return $this->hasOne('App\Task\TaskType', 'id', 'type_id')->where('project_id', $this->project_id);
+        return $this->hasOne('App\Task\TaskType', 'id', 'type_id');
     }
 
     /**

@@ -54,7 +54,7 @@ trait Achievable
      */
     public function starsAchievement()
     {
-        return (int)$this->evaluations()->sum('evaluation');
+        return (int)$this->evaluations()->where('is_closed', config('task.finished'))->sum('evaluation');
     }
 
     /**
@@ -102,7 +102,7 @@ trait Achievable
      */
     public function costAchievement()
     {
-        return (int)$this->Tasks()->sum('cost');
+        return (int)$this->Tasks()->where('is_finish', config('task.finished'))->sum('cost');
     }
 
     /**
@@ -111,7 +111,7 @@ trait Achievable
      */
     public function spendAchievement()
     {
-        return (int)$this->Tasks()->sum('spend');
+        return (int)$this->Tasks()->where('is_finish', config('task.finished'))->sum('spend');
     }
 
     /**

@@ -34,24 +34,13 @@ trait ProgressCharts
      */
     public function memberOverviewTaskBar(Project $project)
     {
-        $datas = $project->Tasks()
-            ->select(\DB::raw('user_id, count(*) as count'))
-            ->where('is_finish', true)
-            ->where('user_id', '>', 0)
-            ->groupBy('user_id')->get();
-
-        $tasks = [];
-
-        foreach ($datas as $data) {
-            $tasks = $data->count;
-        }
-
-        return Charts::multi('bar', 'highcharts')
+        return Charts::multiDatabase('bar', 'highcharts')
             ->title('Tasks')
-            ->dataset(trans('progress.finished-task'), $tasks)
+            ->dataset(trans('progress.finished-task'), $project->Tasks()->where('is_finish', true)->get())
             ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
             ->elementLabel(trans('progress.count'))
-            ->responsive(true);
+            ->responsive(true)
+            ->groupBy('user_id', null, $this->userLabels($project));
     }
 
     /**
