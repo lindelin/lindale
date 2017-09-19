@@ -5,6 +5,7 @@ namespace App\Project;
 use App\Events\Project\ProjectCreated;
 use App\Events\Project\ProjectDeleted;
 use App\Events\Project\ProjectUpdated;
+use App\Tools\Analytics\Achievable;
 use Config;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -58,7 +59,7 @@ use Illuminate\Notifications\Notifiable;
  */
 class Project extends Model
 {
-    use Notifiable;
+    use Notifiable, Achievable;
 
     /**
      * タイミングイベント定義。
@@ -69,6 +70,11 @@ class Project extends Model
         'created' => ProjectCreated::class,
         'updated' => ProjectUpdated::class,
         'deleted' => ProjectDeleted::class,
+    ];
+
+    protected $dates = [
+        'start_at',
+        'end_at',
     ];
 
     /*

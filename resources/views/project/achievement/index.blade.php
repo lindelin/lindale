@@ -16,7 +16,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="panel panel-warning">
                         <div class="panel-body">
-                            <h2>{{ $project->tasks()->count() }}<br><small>STARS</small></h2>
+                            <h2>{{ number_format($project->daysAchievement()) }}<br><small>DAYS</small></h2>
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="panel panel-danger">
                         <div class="panel-body">
-                            <h2>{{ $project->todos()->count() }}<br><small>DAYS</small></h2>
+                            <h2>{{ number_format($project->membersAchievement()) }}<br><small>MEMBERS</small></h2>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="panel panel-info">
                         <div class="panel-body">
-                            <h2>{{ $project->wikis()->count() }}<br><small>WIKIS</small></h2>
+                            <h2>{{ number_format($project->wikisAchievement()) }}<br><small>WIKIS</small></h2>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="panel panel-success">
                         <div class="panel-body">
-                            <h2>{{ $project->Users()->count() }}<br><small>MEMBERS</small></h2>
+                            <h2>{{ number_format($project->starsAchievement()) }}<br><small>STARS</small></h2>
                         </div>
                     </div>
                 </div>
@@ -66,13 +66,13 @@
                             <h2 style="color: #777;">TASKS</h2>
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
-                            <h2>{{ $project->tasks()->where('is_finish', config('task.finished'))->count() }}</h2>
+                            <h2>{{ number_format($project->tasksFinishedAchievement()) }}</h2>
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
                             <h2>/</h2>
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
-                            <h2>{{ $project->tasks()->count() }}</h2>
+                            <h2>{{ number_format($project->tasksAchievement()) }}</h2>
                         </div>
                     </div>
                 </div>
@@ -89,13 +89,13 @@
                             <h2 style="color: #777;">TODOS</h2>
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
-                            <h2>{{ $project->tasks()->where('is_finish', config('task.finished'))->count() }}</h2>
+                            <h2>{{ number_format($project->todosFinishedAchievement()) }}</h2>
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
                             <h2>/</h2>
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
-                            <h2>{{ $project->todos()->count() }}</h2>
+                            <h2>{{ number_format($project->todosAchievement()) }}</h2>
                         </div>
                     </div>
                 </div>
@@ -112,13 +112,13 @@
                             <h2 style="color: #777;">COST/SPENT</h2>
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
-                            <h2>{{ $project->tasks()->where('is_finish', config('task.finished'))->count() }}</h2>
+                            <h2>{{ number_format($project->costAchievement()) }}</h2>
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
                             <h2>/</h2>
                         </div>
                         <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" align="center">
-                            <h2>{{ $project->todos()->count() }}</h2>
+                            <h2>{{ number_format($project->spendAchievement()) }}</h2>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                             <h2 style="color: #777;">貢献度</h2>
                         </div>
                         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9" align="center">
-                            <h2>{{ number_format(34234234) }}</h2>
+                            <h2>{{ number_format($project->contributionAchievement()) }}</h2>
                         </div>
                     </div>
                 </div>
