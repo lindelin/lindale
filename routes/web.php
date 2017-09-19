@@ -355,7 +355,7 @@ Route::get('test', function (){
     $user->favorites()->attach(24);
 });*/
 
-Route::get('test', function (){
+Route::get('test', function () {
     $project = \App\Project\Project::where('id', 11)->first();
     $datas = $project->evaluations()->select(\DB::raw('`user_id`, sum(`evaluation`) as `star`'))->groupBy('user_id')->get();
     $users = [];
