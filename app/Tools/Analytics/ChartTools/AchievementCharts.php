@@ -98,9 +98,12 @@ trait AchievementCharts
             $users[] = $project->SubLeader->name;
             $contributions[] = $project->userContributionAchievement($project->SubLeader);
         }
-        foreach ($project->Users() as $member) {
-            $users[] = $member->name;
-            $contributions[] = $project->userContributionAchievement($member);
+
+        if ($project->Users()->count() > 0) {
+            foreach ($project->Users as $member) {
+                $users[] = $member->name;
+                $contributions[] = $project->userContributionAchievement($member);
+            }
         }
 
         return Charts::multi('bar', 'highcharts')
