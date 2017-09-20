@@ -22,13 +22,13 @@ before_script:
   - php artisan migrate
   - php artisan db:seed
   - php artisan passport:install
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-  - php artisan serve &
+  #- google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  #- php artisan serve &
 
 
 script:
   - ./vendor/bin/phpunit
-  - php artisan dusk
+  #- php artisan dusk
 
 notifications:
     slack: lindelin:S2LWtcR8bjfvtUKN8R0bHrra
