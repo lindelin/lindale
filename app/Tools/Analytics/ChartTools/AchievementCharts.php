@@ -2,7 +2,6 @@
 
 namespace App\Tools\Analytics\ChartTools;
 
-
 use App\Project\Project;
 use Charts;
 
@@ -160,7 +159,7 @@ trait AchievementCharts
         $todo_counts = [];
         $users = [];
 
-        foreach($todos as $todo) {
+        foreach ($todos as $todo) {
             $todo_counts[] = (int)$todo->count;
             $users[] = $todo->user->name;
         }
