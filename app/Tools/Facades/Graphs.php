@@ -19,6 +19,6 @@ class Graphs extends Facade
      */
     public static function getFacadeAccessor()
     {
-        return 'progressCharts';
+        return 'graphTool';
     }
 }

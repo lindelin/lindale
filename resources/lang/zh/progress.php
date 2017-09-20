@@ -16,7 +16,7 @@ return [
     'finished-todo' => '完成 TODO',
     'count'         => '件',
     'proportion'    => '进度比',
-    'user'          => '个人进度',
+    'user'          => '成员',
     'gantt'         => '甘特图',
     'task'          => '任务',
     'report'        => '报告',

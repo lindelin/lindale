@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
+use App\Tools\Analytics\GraphTool;
 use App\Tools\Html\IconTool;
 use App\Policies\AdminPolicy;
 use App\Tools\Analytics\Counter;
 use App\Tools\Analytics\Calculator;
-use App\Tools\Analytics\ProgressCharts;
 use Illuminate\Support\ServiceProvider;
 
 class ToolServiceProvider extends ServiceProvider
@@ -48,8 +48,8 @@ class ToolServiceProvider extends ServiceProvider
             return $this->app->make(Calculator::class);
         });
 
-        $this->app->singleton('progressCharts', function () {
-            return $this->app->make(ProgressCharts::class);
+        $this->app->singleton('graphTool', function () {
+            return $this->app->make(GraphTool::class);
         });
     }
 }

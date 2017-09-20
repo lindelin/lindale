@@ -5,6 +5,7 @@ namespace App\Project;
 use App\Events\Project\ProjectCreated;
 use App\Events\Project\ProjectDeleted;
 use App\Events\Project\ProjectUpdated;
+use App\Tools\Analytics\Achievable;
 use Config;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -58,7 +59,7 @@ use Illuminate\Notifications\Notifiable;
  */
 class Project extends Model
 {
-    use Notifiable;
+    use Notifiable, Achievable;
 
     /**
      * タイミングイベント定義。
@@ -69,6 +70,11 @@ class Project extends Model
         'created' => ProjectCreated::class,
         'updated' => ProjectUpdated::class,
         'deleted' => ProjectDeleted::class,
+    ];
+
+    protected $dates = [
+        'start_at',
+        'end_at',
     ];
 
     /*
@@ -240,6 +246,35 @@ class Project extends Model
     public function TaskStatuses()
     {
         return $this->hasMany('App\Task\TaskStatus', 'project_id', 'id');
+    }
+
+    /**
+     * 一个项目有多个评价表
+     * 一对多.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function evaluations()
+    {
+        return $this->hasMany(Evaluation::class, 'project_id', 'id');
+    }
+
+    /**
+     * 评价表数
+     * @return int
+     */
+    public function openEvaluationCount()
+    {
+        return $this->evaluations()->where('is_closed', config('task.unfinished'))->count();
+    }
+
+    /**
+     * 完成评价表数
+     * @return int
+     */
+    public function closedEvaluationCount()
+    {
+        return $this->evaluations()->where('is_closed', config('task.finished'))->count();
     }
 
     /**

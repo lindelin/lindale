@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Tools\Analytics;
+namespace App\Tools\Analytics\ChartTools;
 
 use Charts;
 use App\User;
 use App\Project\Project;
 
-class ProgressCharts
+trait ProgressCharts
 {
     /**
      * 项目成员任务／待办统计柱状图.

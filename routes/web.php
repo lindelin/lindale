@@ -175,6 +175,15 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
                 Route::delete('/{taskActivity}', 'TaskActivityController@destroy')->name('taskActivity.destroy');
             });
         });
+
+        //成就路由
+        Route::group(['prefix' => 'achievement'], function () {
+            Route::get('/', 'AchievementController@index')->name('achievement');
+            Route::get('evaluation', 'AchievementController@evaluation')->name('evaluation');
+            Route::get('evaluation/closed', 'AchievementController@closedEvaluation')->name('evaluation.closed');
+            Route::patch('evaluation/{evaluation}', 'AchievementController@updateEvaluation')->name('evaluation.update');
+            Route::get('member', 'AchievementController@member')->name('achievement.member');
+        });
     });
 });
 
@@ -345,3 +354,16 @@ Route::get('test', function (){
     $user = \App\User::first();
     $user->favorites()->attach(24);
 });*/
+
+Route::get('test', function () {
+    $project = \App\Project\Project::where('id', 11)->first();
+    $datas = $project->evaluations()->select(\DB::raw('`user_id`, sum(`evaluation`) as `star`'))->groupBy('user_id')->get();
+    $users = [];
+    $stars = [];
+    foreach ($datas as $data) {
+        $users[] = $data->user->name;
+        $stars[] = $data->star;
+    }
+
+    dd($users, $stars);
+});

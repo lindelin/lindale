@@ -25,6 +25,7 @@ class AuthServiceProvider extends ServiceProvider
         'App\Wiki\Wiki' => 'App\Policies\WikiPolicy',
         'App\Wiki\WikiType' => 'App\Policies\WikiTypePolicy',
         'App\Notice\Notice' => 'App\Policies\NoticePolicy',
+        'App\Project\Evaluation' => 'App\Policies\EvaluationPolicy',
     ];
 
     /**

@@ -5,6 +5,7 @@ namespace App\Task;
 use App\Events\Task\TaskCreated;
 use App\Events\Task\TaskDeleted;
 use App\Events\Task\TaskUpdated;
+use App\Events\Task\TaskUpdating;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -116,7 +117,7 @@ class Task extends Model
      */
     public function Type()
     {
-        return $this->hasOne('App\Task\TaskType', 'id', 'type_id')->where('project_id', $this->project_id);
+        return $this->hasOne('App\Task\TaskType', 'id', 'type_id');
     }
 
     /**

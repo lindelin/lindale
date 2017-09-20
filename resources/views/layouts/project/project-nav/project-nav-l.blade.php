@@ -31,11 +31,12 @@
                     <span class="glyphicon glyphicon-user"></span> {{ trans('header.member') }}
                 </a>
             </li>
-            {{--<li role="presentation" @if($selected == "achievement") class="active" @endif>
+            <li role="presentation" @if($selected == "achievement") class="active" @endif>
                 <a href="{{ $achievement_url }}">
                     <span class="glyphicon glyphicon-stats"></span> {{ trans('header.achievement') }}
                 </a>
             </li>
+            {{--
             <li role="presentation" @if($selected == "budget") class="active" @endif>
                 <a href="{{ $budget_url }}">
                     <span class="glyphicon glyphicon-piggy-bank"></span> {{ trans('header.budget') }}

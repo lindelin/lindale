@@ -51,11 +51,12 @@
                     <span class="glyphicon glyphicon-th"></span> {{ trans('header.other') }} <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                   {{-- <li role="presentation">
+                   <li role="presentation">
                         <a href="{{ $achievement_url }}">
-                            <span class="glyphicon glyphicon-stats"></span> {{ trans('header.achievement') }}
+                            <span class="glyphicon glyphicon-stats lindale-icon-color"></span> {{ trans('header.achievement') }}
                         </a>
                     </li>
+                    {{--
                     <li role="presentation">
                         <a href="{{ $budget_url }}">
                             <span class="glyphicon glyphicon-piggy-bank"></span> {{ trans('header.budget') }}
