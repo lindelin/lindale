@@ -21,25 +21,18 @@ class ProjectRepository implements ProjectRepositoryContract
      */
     public function ProjectResources($key = null)
     {
-        if ($key == null) {
-            $users = User::all();
-
-            return compact('users');
-        }
         if ($key == 'projects') {
             $projects = Project::orderBy('progress', 'asc')->latest()->Paginate(6);
-
             return compact('projects');
-        }
-        if ($key == 'unfinished') {
+        } else if ($key == 'unfinished') {
             $projects = Project::where('progress', '<>', 100)->orderBy('progress', 'asc')->latest()->Paginate(6);
-
             return compact('projects');
-        }
-        if ($key == 'finished') {
+        } else if ($key == 'finished') {
             $projects = Project::where('progress', 100)->latest()->Paginate(6);
-
             return compact('projects');
+        } else {
+            $users = User::all();
+            return compact('users');
         }
     }
 
