@@ -24,10 +24,10 @@ class ProjectRepository implements ProjectRepositoryContract
         if ($key == 'projects') {
             $projects = Project::orderBy('progress', 'asc')->latest()->Paginate(6);
             return compact('projects');
-        } else if ($key == 'unfinished') {
+        } elseif ($key == 'unfinished') {
             $projects = Project::where('progress', '<>', 100)->orderBy('progress', 'asc')->latest()->Paginate(6);
             return compact('projects');
-        } else if ($key == 'finished') {
+        } elseif ($key == 'finished') {
             $projects = Project::where('progress', 100)->latest()->Paginate(6);
             return compact('projects');
         } else {
