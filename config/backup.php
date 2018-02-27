@@ -18,7 +18,7 @@ return [
                  * The list of directories and files that will be included in the backup.
                  */
                 'include' => [
-                    base_path(),
+                    storage_path(),
                 ],
 
                 /*
@@ -62,7 +62,6 @@ return [
              * The disk names on which the backups will be stored.
              */
             'disks' => [
-                'local',
                 's3',
             ],
         ],
@@ -114,9 +113,9 @@ return [
     'monitorBackups' => [
         [
             'name' => env('APP_URL'),
-            'disks' => ['local', 's3'],
+            'disks' => ['s3'],
             'newestBackupsShouldNotBeOlderThanDays' => 1,
-            'storageUsedMayNotBeHigherThanMegabytes' => 2000,
+            'storageUsedMayNotBeHigherThanMegabytes' => 1000,
         ],
 
         /*
@@ -166,13 +165,13 @@ return [
             /*
              * The number of years for which one yearly backup must be kept.
              */
-            'keepYearlyBackupsForYears' => 2,
+            'keepYearlyBackupsForYears' => 1,
 
             /*
              * After cleaning up the backups remove the oldest backup until
              * this amount of megabytes has been reached.
              */
-            'deleteOldestBackupsWhenUsingMoreMegabytesThan' => 2000,
+            'deleteOldestBackupsWhenUsingMoreMegabytesThan' => 1000,
         ],
     ],
 ];
