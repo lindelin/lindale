@@ -1,10 +1,10 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
         sh '''cd /var/www/html/lindale
-git pull
+./vendor/bin/phpunit
 '''
       }
     }
