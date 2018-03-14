@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('error') {
       steps {
-        sh '''cd /var/www/html/lindale
+        sh '''composer install
 ./vendor/bin/phpunit
 '''
       }
