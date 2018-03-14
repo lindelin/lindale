@@ -1,11 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('error') {
+    stage('Install') {
       steps {
-        sh '''composer install
-./vendor/bin/phpunit
-'''
+        sh '''cp .env.travis .env
+composer self-update
+travis_retry composer install --no-interaction --prefer-dist --no-suggest
+php artisan key:generate'''
       }
     }
   }
