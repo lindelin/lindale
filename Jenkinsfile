@@ -3,10 +3,10 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh '''cp .env.travis .env
-composer self-update
-travis_retry composer install --no-interaction --prefer-dist --no-suggest
-php artisan key:generate'''
+        sh '''sudo cp .env.travis .env
+sudo composer self-update
+sudo composer install --no-interaction --prefer-dist --no-suggest
+sudo php artisan key:generate'''
       }
     }
   }
