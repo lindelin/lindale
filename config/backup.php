@@ -77,9 +77,9 @@ return [
     'notifications' => [
 
         'notifications' => [
-            \Spatie\Backup\Notifications\Notifications\BackupHasFailed::class         => ['mail, slack'],
+            \Spatie\Backup\Notifications\Notifications\BackupHasFailed::class         => ['mail', 'slack'],
             \Spatie\Backup\Notifications\Notifications\UnhealthyBackupWasFound::class => ['slack'],
-            \Spatie\Backup\Notifications\Notifications\CleanupHasFailed::class        => ['mail, slack'],
+            \Spatie\Backup\Notifications\Notifications\CleanupHasFailed::class        => ['mail', 'slack'],
             \Spatie\Backup\Notifications\Notifications\BackupWasSuccessful::class     => ['slack'],
             \Spatie\Backup\Notifications\Notifications\HealthyBackupWasFound::class   => ['slack'],
             \Spatie\Backup\Notifications\Notifications\CleanupWasSuccessful::class    => ['slack'],
