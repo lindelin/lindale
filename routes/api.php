@@ -14,5 +14,5 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/projects', function (Request $request) {
-    return response()->json($request->user()->Projects, 200);
+    return response()->json($request->user()->MyProjects, 200);
 })->middleware('auth:api');
