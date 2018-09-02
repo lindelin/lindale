@@ -16,7 +16,7 @@ class UseSSL
      */
     public function handle($request, Closure $next)
     {
-        if (! $request->secure() and ! App::environment('testing')) {
+        if (! $request->secure() and ! (app()->environment('testing') or app()->environment('local'))) {
             return redirect()->secure($request->getRequestUri());
         }
 
