@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\Resource;
 use File;
 use Colorable;
+use Counter;
 
 class ProjectResource extends Resource
 {
@@ -25,8 +26,10 @@ class ProjectResource extends Resource
             'image' => $this->image(),
             'pl' => new UserResource($this->ProjectLeader),
             'sl' => new UserResource($this->SubLeader),
-            'type_id' => $this->type_id,
-            'status_id' => $this->status_id,
+            'type' => $this->type_id,
+            'status' => $this->status_id,
+            'task_status' => Counter::ProjectTaskFinishedCount($this->resource).'/'.Counter::ProjectTaskCount($this->resource),
+            'todo_status' => Counter::ProjectTodoFinishedCount($this->resource).'/'.Counter::ProjectTodoCount($this->resource),
             'progress' => $this->progress,
             'created_at' => $this->created_at->format('Y/m/d h:i:s'),
             'updated_at' => $this->updated_at->format('Y/m/d h:i:s'),

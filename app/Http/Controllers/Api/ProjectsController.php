@@ -13,6 +13,6 @@ class ProjectsController extends Controller
         return new ProjectCollection($request->user()->MyProjects()->with([
             'ProjectLeader',
             'SubLeader'
-        ])->get());
+        ])->paginate(10));
     }
 }
