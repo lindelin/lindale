@@ -54,6 +54,28 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('taskActivity', TaskActivity::class);
         Route::model('notice', Notice::class);
         Route::model('evaluation', Evaluation::class);
+
+        // ngrok.io Hack
+        $scheme = "";
+        $host = "";
+        $baseInfo = parse_url(config("app.url"));
+        $baseHost = $baseInfo["host"];
+        $baseScheme = $baseInfo["scheme"];
+
+        if (isset($_SERVER["HTTP_X_ORIGINAL_HOST"])) {
+            $scheme = isset($_SERVER["HTTP_X_FORWARDED_PROTO"]) ? $_SERVER["HTTP_X_FORWARDED_PROTO"] : $baseScheme;
+            $host = isset($_SERVER["HTTP_X_ORIGINAL_HOST"]) ? $_SERVER["HTTP_X_ORIGINAL_HOST"] : "";
+        } elseif (isset($_SERVER["HTTP_REFERER"])) {
+            $info = parse_url($_SERVER["HTTP_REFERER"]);
+            $host = $info["host"];
+            $scheme = $info["scheme"];
+        }
+
+        if ($host != "" && $host != $baseHost && preg_match("#ngrok\.io#", $host)) {
+            $scheme ?: $baseScheme;
+            \URL::forceRootUrl("{$scheme}://{$host}");
+        }
+        // End ngrok.io Hack
     }
 
     /**
