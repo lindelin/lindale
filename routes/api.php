@@ -14,3 +14,4 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/projects', 'ProjectsController@resources')->middleware('auth:api');
+Route::get('/profile', 'ProfileController@resources')->middleware('auth:api');
