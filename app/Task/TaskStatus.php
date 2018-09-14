@@ -26,4 +26,13 @@ use Illuminate\Database\Eloquent\Model;
 class TaskStatus extends Model
 {
     protected $fillable = ['id', 'project_id', 'name', 'color_id', 'action_id'];
+
+    /**
+     * 表示名
+     * @return array|\Illuminate\Contracts\Translation\Translator|null|string
+     */
+    public function name()
+    {
+        return trans($this->name);
+    }
 }

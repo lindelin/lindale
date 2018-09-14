@@ -128,7 +128,7 @@ class Task extends Model
      */
     public function Status()
     {
-        return $this->hasOne('App\Task\TaskStatus', 'id', 'status_id')->where('project_id', $this->project_id);
+        return $this->hasOne('App\Task\TaskStatus', 'id', 'status_id');
     }
 
     /**
@@ -139,7 +139,7 @@ class Task extends Model
      */
     public function Group()
     {
-        return $this->hasOne('App\Task\TaskGroup', 'id', 'group_id')->where('project_id', $this->project_id);
+        return $this->hasOne('App\Task\TaskGroup', 'id', 'group_id');
     }
 
     /**
