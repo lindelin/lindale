@@ -3,16 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\ProjectCollection;
-use Illuminate\Http\Request;
+use App\Project\Project;
 use App\Http\Controllers\Controller;
 
 class ProjectsController extends Controller
 {
-    public function resources(Request $request)
+    /**
+     * プロジェクト一覧資源
+     * @return ProjectCollection
+     */
+    public function resources()
     {
-        return new ProjectCollection($request->user()->MyProjects()->with([
-            'ProjectLeader',
-            'SubLeader'
-        ])->paginate(10));
+        return new ProjectCollection(Project::orderBy('progress', 'asc')->latest()->Paginate(30));
     }
 }
