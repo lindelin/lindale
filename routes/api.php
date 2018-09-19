@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/projects', 'ProjectsController@resources')->middleware('auth:api');
-Route::get('/profile', 'ProfileController@resources')->middleware('auth:api');
-Route::get('/tasks', 'TasksController@myTaskCollection')->middleware('auth:api');
-Route::get('/todos', 'TodosController@myTodoCollection')->middleware('auth:api');
+Route::get('/projects', 'ProjectsController@resources');
+Route::get('/profile', 'ProfileController@resources');
+Route::get('/tasks', 'TasksController@myTaskCollection');
+Route::get('/todos', 'TodosController@myTodoCollection');

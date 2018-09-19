@@ -21,6 +21,7 @@ class Todo extends Resource
             'details' => $this->details,
             'type' => $this->Type->name(),
             'status' => $this->Status->name(),
+            'action' => $this->Status->action_id,
             'color' => $this->color_id,
             'list_name' => $this->TodoList ? $this->TodoList->title : null,
             'user_name' => $this->User ? $this->User->name : null,
