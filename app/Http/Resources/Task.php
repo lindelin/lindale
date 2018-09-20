@@ -27,7 +27,7 @@ class Task extends Resource
             'user_name' => $this->User->name,
             'color' => $this->color_id,
             'type' => $this->Type->name,
-            'status' => $this->Status->name(),
+            'status' => $this->is_finish ? trans('task.finish') : $this->Status->name(),
             'group' => $this->Group ? $this->Group->title : null,
             'priority' => $this->Priority->name(),
             'is_finish' => $this->is_finish,
