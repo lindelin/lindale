@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
 
-class Task extends Resource
+class TaskResource extends Resource
 {
     /**
      * Transform the resource into an array.
@@ -15,16 +15,16 @@ class Task extends Resource
     public function toArray($request)
     {
         return [
-            'project_name' => $this->Project->title,
+            'project' => $this->Project->title,
             'id' => $this->id,
-            'initiator_name' => $this->Initiator->name ?? "System",
+            'initiator' => $this->Initiator  ? new UserResource($this->Initiator) : null,
             'title' => $this->title,
             'content' => $this->content,
             'start_at' => $this->start_at ? $this->start_at->format('Y/m/d') : null,
             'end_at' => $this->end_at ? $this->end_at->format('Y/m/d') : null,
             'cost' => $this->cost,
             'progress' => $this->progress,
-            'user_name' => $this->User->name ?? 'None',
+            'user' => $this->User ? new UserResource($this->User) : null,
             'color' => $this->color_id,
             'type' => trans($this->Type->name),
             'status' => $this->is_finish ? trans('task.finish') : $this->Status->name(),
@@ -32,6 +32,8 @@ class Task extends Resource
             'priority' => $this->Priority->name(),
             'is_finish' => $this->is_finish,
             'updated_at' => $this->updated_at->diffForHumans(),
+            'sub_tasks' => SubTaskResource::collection($this->SubTasks),
+            'task_activities' => TaskActivitieResource::collection($this->Activities),
         ];
     }
 }
