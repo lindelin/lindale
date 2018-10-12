@@ -62,8 +62,12 @@ class TaskPolicy
      * @return bool
      * @internal param Wiki $wiki
      */
-    public function show(User $user, Task $task, Project $project)
+    public function show(User $user, Task $task, Project $project = null)
     {
+        if ($project === null) {
+            $project = $task->Project;
+        }
+
         if (($user->id === $project->user_id) and ($project->id === $task->project_id)) {
             return true;
         } elseif (($user->id === $project->sl_id) and ($project->id === $task->project_id)) {

@@ -37,9 +37,12 @@ class TasksController extends Controller
      * Task Resource
      * @param Task $task
      * @return TaskResource
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function taskResource(Task $task)
     {
+        $this->authorize('show', [$task]);
+
         $task->load([
             'Type',
             'Status',
