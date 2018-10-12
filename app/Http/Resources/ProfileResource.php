@@ -2,10 +2,12 @@
 
 namespace App\Http\Resources;
 
+use App\User;
 use Illuminate\Http\Resources\Json\Resource;
 use File;
 use Colorable;
 use Calculator;
+use Charts;
 
 class ProfileResource extends Resource
 {
@@ -37,6 +39,7 @@ class ProfileResource extends Resource
                 'task' => Calculator::UserTaskProgressCompute($this->resource),
                 'todo' => Calculator::UserTodoProgressCompute($this->resource),
             ],
+            'activity' => view()->make('layouts.webview')->with('contents', $this->createActivityChart($request->user()))->render(),
         ];
     }
 
@@ -52,4 +55,26 @@ class ProfileResource extends Resource
             return asset(Colorable::lindaleProfileImg($this->email));
         }
     }
+
+    /**
+     * activity
+     * @param User $user
+     * @return mixed
+     */
+    private function createActivityChart(User $user)
+    {
+        return Charts::multiDatabase('areaspline', 'highcharts')
+            ->title(trans('progress.status'))
+            ->dataset(trans('progress.new-task'), $user->Tasks()->select('created_at')->get())
+            ->dataset(trans('progress.finished-task'), $user->Tasks()->select('updated_at AS created_at')->where('is_finish', true)->get())
+            ->dataset(trans('progress.new-todo'), $user->Todos()->select('created_at')->get())
+            ->dataset(trans('progress.finished-todo'), $user->Todos()->select('updated_at AS created_at')->where('status_id', 2)->get())
+            ->colors(['#008bfa', '#ff2321', '#ff8a00', '#00a477'])
+            ->elementLabel(trans('progress.count'))
+            ->responsive(true)
+            ->lastByDay(7, true)
+            ->view('vendor.consoletvs.charts.highcharts.multi.areaspline')
+            ->render();
+    }
+
 }
