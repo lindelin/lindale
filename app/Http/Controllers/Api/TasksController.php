@@ -52,7 +52,9 @@ class TasksController extends Controller
             'Initiator',
             'User',
             'SubTasks',
-            'Activities'
+            'Activities' => function ($query) {
+                $query->with(['User']);
+            }
             ]);
 
         return new TaskResource($task);

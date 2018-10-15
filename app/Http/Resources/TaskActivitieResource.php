@@ -14,6 +14,11 @@ class TaskActivitieResource extends Resource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'task_id' => $this->task_id,
+            'id' => $this->id,
+            'content' => $this->content,
+            'user' => new UserResource($this->User),
+        ];
     }
 }
