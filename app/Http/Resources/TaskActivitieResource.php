@@ -19,6 +19,7 @@ class TaskActivitieResource extends Resource
             'id' => $this->id,
             'content' => $this->content,
             'user' => new UserResource($this->User),
+            'update_at' => $this->updated_at->diffForHumans(),
         ];
     }
 }
