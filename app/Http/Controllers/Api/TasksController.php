@@ -53,6 +53,7 @@ class TasksController extends Controller
             'User',
             'SubTasks',
             'Activities' => function ($query) {
+                $query->latest();
                 $query->with(['User']);
             }
             ]);
