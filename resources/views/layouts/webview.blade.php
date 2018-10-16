@@ -6,7 +6,9 @@
         <style>
             body {
                 font-family: 'Nunito', 'Noto Sans', sans-serif !important;
-            }
+                padding-top: 8px !important;
+                padding-bottom: 8px !important;
+            }important
         </style>
     @endif
 </head>
