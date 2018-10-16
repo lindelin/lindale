@@ -17,7 +17,7 @@ class TaskActivitieResource extends Resource
         return [
             'task_id' => $this->task_id,
             'id' => $this->id,
-            'content' => $this->content,
+            'content' => view()->make('layouts.webview')->with('contents', markdown($this->content)),
             'user' => new UserResource($this->User),
             'update_at' => $this->updated_at->diffForHumans(),
         ];
