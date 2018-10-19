@@ -10,10 +10,10 @@
         </style>
     @endif
     <style>
-            body {
-                padding-top: 16px !important;
-                padding-bottom: 16px !important;
-            }
+        body {
+            padding-top: 16px !important;
+            padding-bottom: 16px !important;
+        }
     </style>
 </head>
 <body>

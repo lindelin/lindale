@@ -19,7 +19,7 @@ class Task extends Resource
             'id' => $this->id,
             'initiator_name' => $this->Initiator->name ?? "System",
             'title' => $this->title,
-            'content' => view()->make('layouts.webview')->with('contents', markdown($this->content))->render(),
+            'content' => $this->content,
             'start_at' => $this->start_at ? $this->start_at->format('Y/m/d') : null,
             'end_at' => $this->end_at ? $this->end_at->format('Y/m/d') : null,
             'cost' => $this->cost,
