@@ -6,16 +6,14 @@
         <style>
             body {
                 font-family: 'Nunito', 'Noto Sans', sans-serif !important;
-                padding-top: 8px !important;
-                padding-bottom: 8px !important;
-            }important
+            }
         </style>
     @endif
     <style>
             body {
-                padding-top: 8px !important;
-                padding-bottom: 8px !important;
-            }important
+                padding-top: 16px !important;
+                padding-bottom: 16px !important;
+            }
     </style>
 </head>
 <body>
