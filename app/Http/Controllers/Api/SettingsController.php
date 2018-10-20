@@ -13,6 +13,11 @@ class SettingsController extends Controller
      */
     public function locale()
     {
-        return response()->json(['language' => user_config(request()->user(), config('config.user.lang'))], 200);
+        $lang = user_config(request()->user(), config('config.user.lang'));
+        return response()->json([
+            'language' => $lang,
+            'language_name' => config('app.available_language.' . $lang),
+            'options' => config('app.available_language'),
+        ], 200);
     }
 }
