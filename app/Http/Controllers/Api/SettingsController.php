@@ -77,6 +77,7 @@ class SettingsController extends Controller
 
         if (Hash::check($request->input('password'), $user->password)) {
             $user->password = bcrypt($request->get('new_password'));
+            $user->update();
             return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
         } else {
             return response()->json(['status' => 'NG', 'messages' => trans('auth.failed')], 200);
