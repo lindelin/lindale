@@ -23,6 +23,8 @@ Route::prefix('/settings')->group(function () {
     Route::get('/locale', 'SettingsController@locale');
     Route::put('/locale', 'SettingsController@updateLocale');
     Route::put('/password', 'SettingsController@resetPassword');
+    Route::get('/notification', 'SettingsController@notification');
+    Route::put('/notification', 'SettingsController@updateNotification');
 });
 
 

@@ -83,4 +83,32 @@ class SettingsController extends Controller
             return response()->json(['status' => 'NG', 'messages' => trans('auth.failed')], 200);
         }
     }
+
+    /**
+     * 通知.
+     *
+     * @return mixed
+     */
+    public function notification()
+    {
+        $slack = user_config(request()->user(), config('config.user.slack'));
+        return response()->json(['slack' => $slack], 200);
+    }
+
+    /**
+     * Slack通知更新.
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    public function updateNotification(Request $request)
+    {
+        $this->validate($request, [
+            'slack' => 'required',
+        ]);
+
+        $this->configSystem->set($request->user(), config('config.user.slack'), $request->input('slack'));
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
+    }
 }
