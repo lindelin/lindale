@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Hash;
 
 class SettingsController extends Controller
 {
@@ -57,5 +58,28 @@ class SettingsController extends Controller
         //App::setLocale($locale);
 
         return response()->json(['status' => 'OK'], 200);
+    }
+
+    /**
+     * 修改密码
+     *
+     * @param Request $request
+     * @return mixed
+     */
+    public function resetPassword(Request $request)
+    {
+        $this->validate($request, [
+            'password' => 'required',
+            'new_password' => 'required|min:6|max:15|confirmed',
+        ]);
+
+        $user = $request->user();
+
+        if (Hash::check($request->input('password'), $user->password)) {
+            $user->password = bcrypt($request->get('new_password'));
+            return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
+        } else {
+            return response()->json(['status' => 'NG', 'messages' => trans('auth.failed')], 200);
+        }
     }
 }
