@@ -21,6 +21,7 @@ Route::get('/todos', 'TodosController@myTodoCollection');
 
 Route::prefix('/settings')->group(function () {
     Route::get('/locale', 'SettingsController@locale');
+    Route::put('/locale', 'SettingsController@updateLocale');
 });
 
 
