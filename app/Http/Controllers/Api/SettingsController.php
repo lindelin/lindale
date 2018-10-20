@@ -15,8 +15,8 @@ class SettingsController extends Controller
     {
         $lang = user_config(request()->user(), config('config.user.lang'));
         return response()->json([
-            'language' => $lang,
-            'language_name' => config('app.available_language.' . $lang),
+            'current_language' => $lang,
+            'current_language_name' => config('app.available_language.' . $lang),
             'options' => config('app.available_language'),
         ], 200);
     }
