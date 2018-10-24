@@ -111,4 +111,28 @@ class SettingsController extends Controller
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
     }
+
+    /**
+     * プロフィール更新
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateProfile(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'content' => 'required',
+            'company' => 'required',
+        ]);
+
+        $user = $request->user();
+
+        $user->name = $request->input('name');
+        $user->content = $request->input('content');
+        $user->company = $request->input('company');
+        $user->update();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
+    }
 }
