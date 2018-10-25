@@ -25,6 +25,7 @@ Route::prefix('/settings')->group(function () {
     Route::put('/password', 'SettingsController@resetPassword');
     Route::get('/notification', 'SettingsController@notification');
     Route::put('/notification', 'SettingsController@updateNotification');
+    Route::put('/profile', 'SettingsController@updateProfile');
 });
 
 Route::put('/sub-tasks/{subTask}', 'SubTaskController@update');
