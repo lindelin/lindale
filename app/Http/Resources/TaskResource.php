@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
+use Counter;
 
 class TaskResource extends Resource
 {
@@ -28,6 +29,10 @@ class TaskResource extends Resource
             'color' => $this->color_id,
             'type' => trans($this->Type->name),
             'status' => $this->is_finish ? trans('task.finish') : $this->Status->name(),
+            'sub_task_status' => Counter::SubTaskCount($this).'　'.
+                trans('task.sub-task').'（'.Counter::FinishedSubTasks($this).' - '.
+                trans('task.finish').' ，'.Counter::UnfinishedSubTasks($this).' - '.
+                trans('task.unfinished').'）',
             'group' => $this->Group ? $this->Group->title : null,
             'priority' => $this->Priority->name(),
             'is_finish' => $this->is_finish,
