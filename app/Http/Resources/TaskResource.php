@@ -29,9 +29,9 @@ class TaskResource extends Resource
             'color' => $this->color_id,
             'type' => trans($this->Type->name),
             'status' => $this->is_finish ? trans('task.finish') : $this->Status->name(),
-            'sub_task_status' => Counter::SubTaskCount($this).'　'.
-                trans('task.sub-task').'（'.Counter::FinishedSubTasks($this).' - '.
-                trans('task.finish').' ，'.Counter::UnfinishedSubTasks($this).' - '.
+            'sub_task_status' => Counter::SubTaskCount($this->resource).'　'.
+                trans('task.sub-task').'（'.Counter::FinishedSubTasks($this->resource).' - '.
+                trans('task.finish').' ，'.Counter::UnfinishedSubTasks($this->resource).' - '.
                 trans('task.unfinished').'）',
             'group' => $this->Group ? $this->Group->title : null,
             'priority' => $this->Priority->name(),
