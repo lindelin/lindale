@@ -27,4 +27,6 @@ Route::prefix('/settings')->group(function () {
     Route::put('/notification', 'SettingsController@updateNotification');
 });
 
+Route::put('/sub-tasks/{subTask}', 'SubTaskController@update');
+
 
