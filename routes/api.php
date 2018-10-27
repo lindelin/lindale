@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/projects', 'ProjectsController@resources');
-Route::get('/favorites/projects', 'ProjectsController@favorites');
+Route::get('/projects/favorites', 'ProjectsController@favorites');
 Route::get('/profile', 'ProfileController@resources');
 Route::get('/tasks', 'TasksController@myTaskCollection');
 Route::get('/tasks/{task}', 'TasksController@taskResource');
