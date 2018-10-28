@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Exceptions\Task\TaskUpdateApiException;
 use App\Http\Resources\MyTaskCollection;
 use App\Http\Resources\TaskResource;
 use App\Task\Task;
@@ -59,5 +60,39 @@ class TasksController extends Controller
             ]);
 
         return new TaskResource($task);
+    }
+
+    /**
+     * チケットを完了
+     * @param Request $request
+     * @param Task $task
+     * @return \Illuminate\Http\JsonResponse
+     * @throws TaskUpdateApiException
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function completeTask(Request $request, Task $task)
+    {
+        $this->authorize('show', [$task]);
+
+        $this->validate($request, [
+            'is_finish' => 'required|boolean',
+        ]);
+
+        if ($task->is_finish === config('task.finished') and (int) $request->input('is_finish') === config('task.finished')) {
+            TaskUpdateApiException::canNotEdit();
+        }
+
+        if ($task->progress !== 100) {
+            TaskUpdateApiException::canNotEdit();
+        }
+
+        if ((int)$task->user_id === 0) {
+            TaskUpdateApiException::canNotFinishNoneUserTask();
+        }
+
+        $task->is_finish = config('task.finished');
+        $task->update();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
     }
 }
