@@ -30,6 +30,6 @@ class TaskUpdateApiException extends \Exception
      */
     public function render($request)
     {
-        return response()->json(['status' => 'OK', 'messages' => $this->getMessage()], 200);
+        return response()->json(['status' => 'NG', 'messages' => $this->getMessage()], 200);
     }
 }
