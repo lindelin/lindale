@@ -78,7 +78,7 @@ class TasksController extends Controller
             'is_finish' => 'required|boolean',
         ]);
 
-        if ($task->is_finish === config('task.finished') and (int) $request->input('is_finish') === config('task.finished')) {
+        if ($task->is_finish === config('task.finished') and (int)$request->input('is_finish') === config('task.finished')) {
             TaskUpdateApiException::canNotEdit();
         }
 
@@ -90,7 +90,7 @@ class TasksController extends Controller
             TaskUpdateApiException::canNotFinishNoneUserTask();
         }
 
-        $task->is_finish = config('task.finished');
+        $task->is_finish = $request->input('is_finish');
         $task->update();
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
