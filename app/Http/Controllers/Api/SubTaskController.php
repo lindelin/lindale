@@ -18,7 +18,7 @@ class SubTaskController extends Controller
      */
     public function update(Request $request, SubTask $subTask)
     {
-        if ($subTask->Task->is_finish === config('task.finished') and (int)$request->input('is_finish') === config('task.finished')) {
+        if ($subTask->Task->is_finish === config('task.finished')) {
             TaskUpdateApiException::canNotEdit();
         }
 
