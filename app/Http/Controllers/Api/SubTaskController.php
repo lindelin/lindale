@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Exceptions\Task\TaskUpdateApiException;
 use App\Task\SubTask;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -13,9 +14,14 @@ class SubTaskController extends Controller
      * @param Request $request
      * @param SubTask $subTask
      * @return \Illuminate\Http\JsonResponse
+     * @throws TaskUpdateApiException
      */
     public function update(Request $request, SubTask $subTask)
     {
+        if ($subTask->Task->is_finish === config('task.finished') and (int)$request->input('is_finish') === config('task.finished')) {
+            TaskUpdateApiException::canNotEdit();
+        }
+
         $this->validate($request, [
             'is_finish' => 'required|boolean',
         ]);
