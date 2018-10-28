@@ -95,4 +95,24 @@ class TasksController extends Controller
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
     }
+
+    /**
+     * チケット削除
+     * @param Task $task
+     * @return \Illuminate\Http\JsonResponse
+     * @throws TaskUpdateApiException
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function destroy(Task $task)
+    {
+        $this->authorize('show', [$task]);
+
+        if ($task->is_finish === config('task.finished')) {
+            TaskUpdateApiException::canNotEdit();
+        }
+
+        $task->delete();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.delete-succeed')], 200);
+    }
 }
