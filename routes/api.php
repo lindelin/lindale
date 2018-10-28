@@ -17,6 +17,7 @@ Route::get('/projects', 'ProjectsController@resources');
 Route::get('/projects/favorites', 'ProjectsController@favorites');
 Route::get('/profile', 'ProfileController@resources');
 Route::get('/tasks', 'TasksController@myTaskCollection');
+Route::put('/tasks/{task}/complete', 'TasksController@completeTask');
 Route::get('/tasks/{task}', 'TasksController@taskResource');
 Route::get('/todos', 'TodosController@myTodoCollection');
 
