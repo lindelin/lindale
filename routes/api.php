@@ -16,10 +16,13 @@ use Illuminate\Http\Request;
 Route::get('/projects', 'ProjectsController@resources');
 Route::get('/projects/favorites', 'ProjectsController@favorites');
 Route::get('/profile', 'ProfileController@resources');
+
 Route::get('/tasks', 'TasksController@myTaskCollection');
 Route::put('/tasks/{task}/complete', 'TasksController@completeTask');
 Route::get('/tasks/{task}', 'TasksController@taskResource');
 Route::delete('/tasks/{task}', 'TasksController@destroy');
+Route::post('/tasks/{task}/sub-task', 'SubTaskController@store');
+
 Route::get('/todos', 'TodosController@myTodoCollection');
 
 Route::prefix('/settings')->group(function () {
