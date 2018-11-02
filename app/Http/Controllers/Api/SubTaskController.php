@@ -77,4 +77,24 @@ class SubTaskController extends Controller
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.add-succeed')], 200);
     }
+
+    /**
+     * 削除API
+     * @param SubTask $subTask
+     * @return \Illuminate\Http\JsonResponse
+     * @throws TaskUpdateApiException
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function destroy(SubTask $subTask)
+    {
+        $this->authorize('show', [$subTask->Task]);
+
+        if ($subTask->Task->is_finish === config('task.finished')) {
+            TaskUpdateApiException::canNotEdit();
+        }
+
+        $subTask->delete();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.delete-succeed')], 200);
+    }
 }

@@ -35,5 +35,6 @@ Route::prefix('/settings')->group(function () {
 });
 
 Route::put('/sub-tasks/{subTask}', 'SubTaskController@update');
+Route::dalete('/sub-tasks/{subTask}', 'SubTaskController@destroy');
 
 
