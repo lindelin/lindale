@@ -22,6 +22,7 @@ Route::put('/tasks/{task}/complete', 'TasksController@completeTask');
 Route::get('/tasks/{task}', 'TasksController@taskResource');
 Route::delete('/tasks/{task}', 'TasksController@destroy');
 Route::post('/tasks/{task}/sub-task', 'SubTaskController@store');
+Route::post('/tasks/{task}/activities', 'TaskActivitiesController@store');
 
 Route::get('/todos', 'TodosController@myTodoCollection');
 

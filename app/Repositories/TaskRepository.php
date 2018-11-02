@@ -350,7 +350,7 @@ class TaskRepository implements TaskRepositoryContract
     {
         $activity = new TaskActivity();
 
-        $input = $request->all(['content', 'is_finish']);
+        $input = $request->all(['content']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {
