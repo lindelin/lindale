@@ -9,11 +9,11 @@ class MyTodoCollection extends ResourceCollection
     /**
      * Transform the resource collection into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function toArray($request)
     {
-        return Todo::collection($this->collection);
+        return TodoResource::collection($this->collection);
     }
 }

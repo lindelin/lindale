@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
 
-class Todo extends Resource
+class TodoResource extends Resource
 {
     /**
      * Transform the resource into an array.
@@ -16,7 +16,7 @@ class Todo extends Resource
     {
         return [
             'id' => $this->id,
-            'initiator_name' => $this->Initiator ? $this->Initiator->name : "System",
+            'initiator' => $this->Initiator  ? new UserResource($this->Initiator) : null,
             'content' => $this->content,
             'details' => $this->details,
             'type' => $this->Type->name(),
@@ -24,7 +24,7 @@ class Todo extends Resource
             'action' => $this->Status->action_id,
             'color' => $this->color_id,
             'list_name' => $this->TodoList ? $this->TodoList->title : null,
-            'user_name' => $this->User ? $this->User->name : null,
+            'user' => $this->User ? new UserResource($this->User) : null,
             'project_name' => $this->Project->title,
             'updated_at' => $this->updated_at->diffForHumans(),
         ];
