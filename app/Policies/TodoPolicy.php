@@ -39,9 +39,9 @@ class TodoPolicy
      * @param Project $project
      * @return bool
      */
-    public function update(User $user, Todo $todo, Project $project)
+    public function update(User $user, Todo $todo, Project $project = null)
     {
-        return $this->delete($user, $todo, $project);
+        return $this->delete($user, $todo, $todo->Project ?? $project);
     }
 
     /**

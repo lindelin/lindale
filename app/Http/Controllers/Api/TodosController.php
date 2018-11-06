@@ -32,6 +32,27 @@ class TodosController extends Controller
     }
 
     /**
+     * Color 変更API
+     * @param Request $request
+     * @param Todo $todo
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function changeColor(Request $request, Todo $todo)
+    {
+        $this->authorize('update', [$todo]);
+
+        $this->validate($request, [
+            'color_id' => 'required|integer',
+        ]);
+
+        $todo->color_id = $request->input('color_id');
+        $todo->update();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
+    }
+
+    /**
      * 削除API
      * @param Todo $todo
      * @return \Illuminate\Http\JsonResponse
