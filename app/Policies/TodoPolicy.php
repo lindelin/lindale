@@ -16,15 +16,15 @@ class TodoPolicy
      * 删除To-do的授权策略.
      *
      * @param User $user
-     * @param To-do $to-do
+     * @param Todo $todo
      * @param Project $project
      * @return bool
      */
-    public function delete(User $user, Todo $todo, Project $project)
+    public function delete(User $user, Todo $todo, Project $project = null)
     {
         if ($this->UserPolicy($user, $todo)) {
             return true;
-        } elseif ($this->ProjectPolicy($todo, $project)) {
+        } elseif ($this->ProjectPolicy($todo, $todo->Project ?? $project)) {
             return true;
         } else {
             return false;

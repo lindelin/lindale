@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\MyTodoCollection;
+use App\Todo\Todo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -28,5 +29,20 @@ class TodosController extends Controller
             ->orderBy('status_id', 'desc')
             ->latest('updated_at')
             ->paginate(50));
+    }
+
+    /**
+     * 削除API
+     * @param Todo $todo
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function destroy(Todo $todo)
+    {
+        $this->authorize('delete', [$todo]);
+
+        $todo->delete();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.delete-succeed')], 200);
     }
 }
