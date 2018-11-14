@@ -26,6 +26,7 @@ Route::post('/tasks/{task}/activities', 'TaskActivitiesController@store');
 
 Route::get('/todos', 'TodosController@myTodoCollection');
 Route::put('/todos/{todo}/change-color', 'TodosController@changeColor');
+Route::put('/todos/{todo}/finished', 'TodosController@updateToFinished');
 Route::delete('/todos/{todo}', 'TodosController@destroy');
 
 Route::prefix('/settings')->group(function () {

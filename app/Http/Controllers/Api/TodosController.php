@@ -53,6 +53,21 @@ class TodosController extends Controller
     }
 
     /**
+     * 完了API
+     * @param Todo $todo
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function updateToFinished(Todo $todo)
+    {
+        $this->authorize('update', [$todo]);
+        $todo->status_id = config('todo.status.finished');
+        $todo->update();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
+    }
+
+    /**
      * 削除API
      * @param Todo $todo
      * @return \Illuminate\Http\JsonResponse
