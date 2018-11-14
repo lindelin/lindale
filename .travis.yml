@@ -11,10 +11,13 @@ dist: trusty
 addons:
    chrome: stable
 
+before_install:
+   - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+
 install:
    - cp .env.travis .env
    - composer self-update
-   - php -d memory_limit=-1 /usr/bin/composer install
+   - composer install
 
 before_script:
   - mysql -e 'create database lindale;'
