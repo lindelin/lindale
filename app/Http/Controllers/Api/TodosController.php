@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Exceptions\Task\TodoUpdateApiException;
+use App\Exceptions\Todo\TodoUpdateApiException;
 use App\Http\Resources\MyTodoCollection;
 use App\Todo\Todo;
 use Illuminate\Http\Request;
