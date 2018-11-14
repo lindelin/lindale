@@ -1,15 +1,9 @@
 language: php
 
 php:
-  - 7.1
   - 7.2
 
 sudo: required
-
-dist: trusty
-
-addons:
-   chrome: stable
 
 before_install:
    - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
