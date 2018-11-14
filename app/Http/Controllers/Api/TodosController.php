@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Exceptions\Task\TodoUpdateApiException;
 use App\Http\Resources\MyTodoCollection;
 use App\Todo\Todo;
 use Illuminate\Http\Request;
@@ -57,10 +58,16 @@ class TodosController extends Controller
      * @param Todo $todo
      * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws TodoUpdateApiException
      */
     public function updateToFinished(Todo $todo)
     {
         $this->authorize('update', [$todo]);
+
+        if ($todo->status_id == config('todo.status.finished')) {
+            TodoUpdateApiException::hasFinished();
+        }
+
         $todo->status_id = config('todo.status.finished');
         $todo->update();
 

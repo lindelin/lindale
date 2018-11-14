@@ -35,5 +35,6 @@ return [
     'created-todo'  => '1 new TODO by :Name :',
     'updated-todo'  => '1 TODO Updated by :Name :',
     'deleted-todo'  => '1 TODO Deleted by :Name :',
+    'has-finished-todo'  => 'Already completed',
 
 ];
