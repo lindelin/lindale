@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exceptions\Task;
+namespace App\Exceptions\Todo;
 
 class TodoUpdateApiException extends \Exception
 {
