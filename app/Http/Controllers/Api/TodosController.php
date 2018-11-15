@@ -41,7 +41,7 @@ class TodosController extends Controller
     public function editResource()
     {
         return response()->json([
-            'status' => Status::collection(TodoStatus::all())
+            'statuses' => Status::collection(TodoStatus::all())
         ], 200);
     }
 
