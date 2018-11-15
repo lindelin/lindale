@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Exceptions\Todo\TodoUpdateApiException;
 use App\Http\Resources\MyTodoCollection;
+use App\Http\Resources\Todo\Status;
 use App\Todo\Todo;
+use App\Todo\TodoStatus;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -30,6 +32,17 @@ class TodosController extends Controller
             ->orderBy('status_id', 'desc')
             ->latest('updated_at')
             ->paginate(50));
+    }
+
+    /**
+     * 編集資源
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function editResource()
+    {
+        return response()->json([
+            'status' => Status::collection(TodoStatus::all())
+        ], 200);
     }
 
     /**

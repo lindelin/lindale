@@ -25,6 +25,7 @@ Route::post('/tasks/{task}/sub-task', 'SubTaskController@store');
 Route::post('/tasks/{task}/activities', 'TaskActivitiesController@store');
 
 Route::get('/todos', 'TodosController@myTodoCollection');
+Route::get('/todos/edit-resource', 'TodosController@editResource');
 Route::put('/todos/{todo}/change-color', 'TodosController@changeColor');
 Route::put('/todos/{todo}/finished', 'TodosController@updateToFinished');
 Route::delete('/todos/{todo}', 'TodosController@destroy');
