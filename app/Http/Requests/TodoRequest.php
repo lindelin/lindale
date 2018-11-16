@@ -27,7 +27,7 @@ class TodoRequest extends FormRequest
             'content' => 'required|max:100',
         ];
 
-        if ($this->getMethod() == 'PATCH') {
+        if ($this->getMethod() == 'PATCH' or $this->getMethod() == 'PUT') {
             return [];
         } else {
             return $create;

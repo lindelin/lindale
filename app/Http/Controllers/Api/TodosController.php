@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Contracts\Repositories\TodoRepositoryContract;
 use App\Exceptions\Todo\TodoUpdateApiException;
+use App\Http\Requests\TodoRequest;
 use App\Http\Resources\MyTodoCollection;
 use App\Http\Resources\Todo\Status;
 use App\Todo\Todo;
@@ -12,6 +14,24 @@ use App\Http\Controllers\Controller;
 
 class TodosController extends Controller
 {
+    /**
+     * To-do资源库.
+     * @var TodoRepositoryContract
+     */
+    protected $todoRepository;
+
+    /**
+     * 构造器
+     * 通过DI注入资源库.
+     *
+     * TodoController constructor.
+     * @param TodoRepositoryContract $todoRepository
+     */
+    public function __construct(TodoRepositoryContract $todoRepository)
+    {
+        $this->todoRepository = $todoRepository;
+    }
+
     /**
      * My Todos
      * @param Request $request
@@ -83,6 +103,27 @@ class TodosController extends Controller
 
         $todo->status_id = config('todo.status.finished');
         $todo->update();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
+    }
+
+    /**
+     * 更新API
+     * @param TodoRequest $request
+     * @param Todo $todo
+     * @return \Illuminate\Http\JsonResponse
+     * @throws TodoUpdateApiException
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function update(TodoRequest $request, Todo $todo)
+    {
+        $this->authorize('update', [$todo]);
+
+        if ($todo->status_id == config('todo.status.finished')) {
+            TodoUpdateApiException::hasFinished();
+        }
+
+        $this->todoRepository->updateTodo($request, $todo)->update();
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
     }
