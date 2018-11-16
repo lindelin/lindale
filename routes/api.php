@@ -28,6 +28,7 @@ Route::get('/todos', 'TodosController@myTodoCollection');
 Route::get('/todos/edit-resource', 'TodosController@editResource');
 Route::put('/todos/{todo}/change-color', 'TodosController@changeColor');
 Route::put('/todos/{todo}/finished', 'TodosController@updateToFinished');
+Route::put('/todos/{todo}', 'TodosController@update');
 Route::delete('/todos/{todo}', 'TodosController@destroy');
 
 Route::prefix('/settings')->group(function () {
