@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Exceptions\Task\TaskUpdateApiException;
 use App\Http\Resources\MyTaskCollection;
 use App\Http\Resources\TaskResource;
+use App\Http\Resources\UserResource;
 use App\Task\Task;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -60,6 +61,29 @@ class TasksController extends Controller
             ]);
 
         return new TaskResource($task);
+    }
+
+    /**
+     * 編集資源
+     * @param Task $task
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function editResource(Task $task)
+    {
+        $this->authorize('show', [$task]);
+        $project = $task->Project;
+        $users = $project->Users;
+        if ($project->ProjectLeader) {
+            $users->push($project->ProjectLeader);
+        }
+        if ($project->SubLeader) {
+            $users->push($project->SubLeader);
+        }
+
+        return response()->json([
+            'users' => new UserResource($users)
+        ], 200);
     }
 
     /**

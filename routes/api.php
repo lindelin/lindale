@@ -19,6 +19,7 @@ Route::get('/profile', 'ProfileController@resources');
 
 Route::get('/tasks', 'TasksController@myTaskCollection');
 Route::put('/tasks/{task}/complete', 'TasksController@completeTask');
+Route::get('/tasks/{task}/edit-resource', 'TasksController@editResource');
 Route::get('/tasks/{task}', 'TasksController@taskResource');
 Route::delete('/tasks/{task}', 'TasksController@destroy');
 Route::post('/tasks/{task}/sub-task', 'SubTaskController@store');
