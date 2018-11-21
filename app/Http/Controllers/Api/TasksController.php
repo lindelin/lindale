@@ -74,15 +74,17 @@ class TasksController extends Controller
         $this->authorize('show', [$task]);
         $project = $task->Project;
         $users = $project->Users;
+
         if ($project->ProjectLeader) {
             $users->push($project->ProjectLeader);
         }
+
         if ($project->SubLeader) {
             $users->push($project->SubLeader);
         }
 
         return response()->json([
-            'users' => new UserResource($users)
+            'users' => UserResource::collection($users)
         ], 200);
     }
 
