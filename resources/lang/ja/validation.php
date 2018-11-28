@@ -129,6 +129,7 @@ return [
         'new-password'          => '新しいパスワード',
         'new_password'          => '新しいパスワード',
         'project-pass'          => 'プロジェクトパスワード',
+        'contents.*'            => '内容',
     ],
 
 ];
