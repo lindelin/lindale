@@ -71,7 +71,7 @@ class SubTaskController extends Controller
             TaskUpdateApiException::canNotEdit();
         }
 
-        $this->validate($request, ['contents' => 'required']);
+        $this->validate($request, ['contents.*' => 'required']);
 
         $this->taskRepository->createSubTask($request, $task);
 
