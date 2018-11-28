@@ -52,7 +52,7 @@ class TaskRequest extends FormRequest
             'task_id' => 'nullable|integer',
         ];
 
-        if ($this->getMethod() == 'PATCH') {
+        if ($this->getMethod() == 'PATCH' or $this->getMethod() == 'PUT') {
             return $update;
         } else {
             return $create;
