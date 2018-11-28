@@ -154,7 +154,7 @@ class TasksController extends Controller
     {
         $this->authorize('show', [$task]);
 
-        if ($task->is_finish === config('task.finished') and (int)$request->input('is_finish') === config('task.finished')) {
+        if ($task->is_finish === config('task.finished')) {
             TaskUpdateApiException::canNotEdit();
         }
 
