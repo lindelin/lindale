@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Contracts\Repositories\TaskRepositoryContract;
 use App\Exceptions\Task\TaskUpdateApiException;
+use App\Http\Requests\TaskRequest;
 use App\Http\Resources\MyTaskCollection;
 use App\Http\Resources\TaskResource;
 use App\Http\Resources\UserResource;
@@ -12,6 +14,24 @@ use App\Http\Controllers\Controller;
 
 class TasksController extends Controller
 {
+    /**
+     * 任务资源库.
+     * @var TaskRepositoryContract
+     */
+    protected $taskRepository;
+
+    /**
+     * 构造器
+     * 注入资源.
+     *
+     * TaskGroupController constructor.
+     * @param TaskRepositoryContract $taskRepository
+     */
+    public function __construct(TaskRepositoryContract $taskRepository)
+    {
+        $this->taskRepository = $taskRepository;
+    }
+
     /**
      * My Tasks
      * @param Request $request
@@ -118,6 +138,27 @@ class TasksController extends Controller
 
         $task->is_finish = $request->input('is_finish');
         $task->update();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
+    }
+
+    /**
+     * 更新API
+     * @param TaskRequest $request
+     * @param Task $task
+     * @return \Illuminate\Http\JsonResponse
+     * @throws TaskUpdateApiException
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function update(TaskRequest $request, Task $task)
+    {
+        $this->authorize('show', [$task]);
+
+        if ($task->is_finish === config('task.finished') and (int)$request->input('is_finish') === config('task.finished')) {
+            TaskUpdateApiException::canNotEdit();
+        }
+
+        $this->taskRepository->UpdateTask($request, $task)->update();
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
     }
