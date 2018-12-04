@@ -16,7 +16,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="panel panel-warning">
                         <div class="panel-body">
-                            <h2>{{ number_format($project->daysAchievement()) }}<br><small>DAYS</small></h2>
+                            <h2>{{ $project->daysAchievement() }}<br><small>DAYS</small></h2>
                         </div>
                     </div>
                 </div>

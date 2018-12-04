@@ -14,7 +14,7 @@ trait Achievable
     public function daysAchievement()
     {
         if ($this->start_at) {
-            return $this->start_at->diffInDays(Carbon::now());
+            return number_format($this->start_at->diffInDays(Carbon::now()));
         } else {
             return '--';
         }
