@@ -51,6 +51,7 @@ class TopResource extends Resource
             ->elementLabel(trans('progress.count'))
             ->responsive(true)
             ->lastByDay(7, true)
-            ->view('vendor.consoletvs.charts.highcharts.multi.areaspline');
+            ->view('vendor.consoletvs.charts.highcharts.multi.areaspline')
+            ->render();
     }
 }
