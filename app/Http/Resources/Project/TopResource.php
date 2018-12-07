@@ -29,7 +29,7 @@ class TopResource extends Resource
                 'task' => Calculator::ProjectTaskProgressCompute($this->resource),
                 'todo' => Calculator::ProjectTodoProgressCompute($this->resource),
             ],
-            'milestone' => Milestone::collection($this->TaskGroups),
+            'milestones' => Milestone::collection($this->TaskGroups),
             'activity' => view()->make('layouts.webview')->with('contents', $this->createActivityChart($this->resource))->render(),
         ];
     }
