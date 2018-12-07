@@ -33,9 +33,12 @@ class ProjectsController extends Controller
      * Top 資源
      * @param Project $project
      * @return TopResource
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function topResources(Project $project)
     {
+        $this->authorize('is_member', [$project]);
+
         $project->load([
             'TaskGroups' => function ($query) {
                 $query->latest()->limit(10);
