@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\Project\TopResource;
 use App\Http\Resources\ProjectCollection;
 use App\Project\Project;
 use App\Http\Controllers\Controller;
@@ -26,5 +27,21 @@ class ProjectsController extends Controller
     public function favorites(Request $request)
     {
         return new ProjectCollection($request->user()->favorites);
+    }
+
+    /**
+     * Top 資源
+     * @param Project $project
+     * @return TopResource
+     */
+    public function topResources(Project $project)
+    {
+        $project->load([
+            'TaskGroups' => function ($query) {
+                $query->latest()->limit(10);
+            }
+        ]);
+
+        return new TopResource($project);
     }
 }
