@@ -17,8 +17,10 @@ class Milestone extends Resource
     {
         return [
             'title' => $this->title,
+            'color' => $this->color_id,
             'type' => trans($this->resource->Type->name).'#'.$this->id,
-            'progress' => Calculator::TaskGroupProgressCompute($this->resource)
+            'type_color' => $this->resource->Type->color_id,
+            'progress' => Calculator::TaskGroupProgressCompute($this->resource),
         ];
     }
 }
