@@ -20,7 +20,7 @@ class ProjectResource extends Resource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'content' => $this->webView($this->content),
+            'content' => $this->content,
             'start_at' => (string)$this->start_at,
             'end_at' => (string)$this->end_at,
             'image' => $this->image(),
