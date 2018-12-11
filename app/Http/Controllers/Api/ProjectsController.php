@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\Project\TopResource;
 use App\Http\Resources\ProjectCollection;
+use App\Http\Resources\TaskGroup;
 use App\Project\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -46,5 +47,19 @@ class ProjectsController extends Controller
         ]);
 
         return new TopResource($project);
+    }
+
+    /**
+     * Task Groups Api
+     * @param Project $project
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function taskGroups(Project $project)
+    {
+        $this->authorize('is_member', [$project]);
+
+        return TaskGroup::collection($project->TaskGroups()
+            ->orderBy('status_id', 'asc')->latest()->paginate(10));
     }
 }
