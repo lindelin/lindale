@@ -22,7 +22,7 @@ class TaskGroup extends Resource
             'title' => $this->title,
             'information' => $this->information,
             'progress' => Calculator::TaskGroupProgressCompute($this->resource),
-            'status' => Counter::GroupTaskCount($this->resource).'　'.trans('header.tasks').'（'.Counter::GroupTaskFinishCount($this->resource).' - '.trans('task.finish').' ,'.Counter::GroupTaskUnfinishedCount($this->resource).' - '.trans('task.unfinished').'）',
+            'status' => Counter::GroupTaskCount($this->resource).'　'.trans('header.tasks').'（'.Counter::GroupTaskFinishCount($this->resource).' - '.trans('task.finish').', '.Counter::GroupTaskUnfinishedCount($this->resource).' - '.trans('task.unfinished').'）',
             'type' => trans($this->resource->Type->name).'#'.$this->id,
             'type_color' => $this->resource->Type->color_id,
             'status_id' => $this->status_id,
