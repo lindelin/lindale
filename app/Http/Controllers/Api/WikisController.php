@@ -20,6 +20,6 @@ class WikisController extends Controller
     {
         $this->authorize('is_member', [$project]);
 
-        return WikiTypeResource::collection(WikiType::whereProjectId($project->id)->orWhereProjectId(null)->get());
+        return WikiTypeResource::collection(WikiType::whereProjectId($project->id)->orWhere('project_id', null)->get());
     }
 }
