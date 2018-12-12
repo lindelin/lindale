@@ -60,6 +60,6 @@ class ProjectsController extends Controller
         $this->authorize('is_member', [$project]);
 
         return TaskGroup::collection($project->TaskGroups()
-            ->orderBy('status_id', 'asc')->latest()->paginate(5));
+            ->orderBy('status_id', 'asc')->latest()->paginate(10));
     }
 }
