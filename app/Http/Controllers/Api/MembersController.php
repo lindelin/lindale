@@ -28,7 +28,7 @@ class MembersController extends Controller
 
         return response()->json([
             'pl' => new UserResource($project->ProjectLeader),
-            'sl' => new UserResource($project->SubLeader),
+            'sl' => $project->SubLeader ? new UserResource($project->SubLeader) : null,
             'members' => UserResource::collection($project->Users)
         ], 200);
     }
