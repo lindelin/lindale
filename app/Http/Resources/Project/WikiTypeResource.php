@@ -14,6 +14,9 @@ class WikiTypeResource extends Resource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => trans($this->name),
+        ];
     }
 }
