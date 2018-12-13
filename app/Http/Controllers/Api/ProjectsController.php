@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Resources\Project\TopResource;
 use App\Http\Resources\ProjectCollection;
 use App\Http\Resources\TaskGroup;
+use App\Http\Resources\TodoResource;
 use App\Project\Project;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -61,5 +62,30 @@ class ProjectsController extends Controller
 
         return TaskGroup::collection($project->TaskGroups()
             ->orderBy('status_id', 'asc')->latest()->paginate(10));
+    }
+
+    /**
+     * To-do Api
+     * @param Project $project
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function todos(Project $project)
+    {
+        $this->authorize('is_member', [$project]);
+
+        return TodoResource::collection($project->Todos()
+            ->with([
+                'Initiator',
+                'Type',
+                'Status',
+                'Project',
+                'TodoList',
+                'User',
+            ])
+            ->where('type_id', config('todo.public'))
+            ->orderBy('status_id', 'desc')
+            ->latest('updated_at')
+            ->paginate(20));
     }
 }
