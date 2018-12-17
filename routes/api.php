@@ -12,7 +12,6 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/apple-app-site-association', 'ServiceController@appleAppSiteAssociation');
 
 Route::get('/projects', 'ProjectsController@resources');
 Route::get('/projects/favorites', 'ProjectsController@favorites');
