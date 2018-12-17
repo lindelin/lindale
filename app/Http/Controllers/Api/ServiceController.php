@@ -31,7 +31,7 @@ class ServiceController extends Controller
      */
     public function storeDeviceToken(Request $request)
     {
-        $this->authorize($request, [
+        $this->validate($request, [
             'device_token' => 'required'
         ]);
 
