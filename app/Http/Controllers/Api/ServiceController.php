@@ -19,6 +19,6 @@ class ServiceController extends Controller
                     '58MDHAE78Q.org.lindelin.lindale-ios',
                 ]
             ]
-        ], 200);
+        ], 200)->header('Content-Disposition', 'attachment');
     }
 }
