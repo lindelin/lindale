@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Events\User\UserCreated;
+use App\Models\User\DeviceToken;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -209,6 +210,17 @@ class User extends Authenticatable
     public function Tasks()
     {
         return $this->hasMany('App\Task\Task', 'user_id', 'id');
+    }
+
+    /**
+     * Device Tokens
+     * 一对多.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function deviceTokens()
+    {
+        return $this->hasMany(DeviceToken::class, 'user_id', 'id');
     }
 
     /*

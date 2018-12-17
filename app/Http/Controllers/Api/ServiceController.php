@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\User\DeviceToken;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -20,5 +21,24 @@ class ServiceController extends Controller
                 ]
             ]
         ], 200);
+    }
+
+    /**
+     * Device Token 保存 API
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function storeDeviceToken(Request $request)
+    {
+        $this->authorize($request, [
+            'device_token' => 'required'
+        ]);
+
+        $request->user()
+            ->deviceTokens()
+            ->save(new DeviceToken(['device_token' => $request->input('device_token')]));
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.save-succeed')], 200);
     }
 }

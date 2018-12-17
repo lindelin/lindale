@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::post('/device-token', 'ServiceController@storeDeviceToken');
 Route::get('/projects', 'ProjectsController@resources');
 Route::get('/projects/favorites', 'ProjectsController@favorites');
 Route::get('/projects/{project}/top', 'ProjectsController@topResources');
