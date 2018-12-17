@@ -16,7 +16,7 @@ class ServiceController extends Controller
         return response()->json([
             'webcredentials' => [
                 'apps' => [
-                    '58MDHAE78Q.org.lindelin.lindale-ios',
+                    'QDZ72V563C.org.lindelin.lindale-ios',
                 ]
             ]
         ], 200)->header('Content-Disposition', 'attachment');
