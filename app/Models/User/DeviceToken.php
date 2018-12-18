@@ -4,7 +4,7 @@ namespace App\Models\User;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DeviceToken extends Model
+class Device extends Model
 {
     /**
      * The attributes that should be cast to native types.

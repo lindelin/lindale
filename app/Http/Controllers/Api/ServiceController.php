@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\User\DeviceToken;
+use App\Models\User\Device;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -38,7 +38,7 @@ class ServiceController extends Controller
             'revoked' => 'required',
         ]);
 
-        DeviceToken::updateOrCreate(['token' => $request->input('token')], [
+        Device::updateOrCreate(['token' => $request->input('token')], [
             'user_id' => $request->user()->id,
             'name' => $request->input('name'),
             'type' => $request->input('name'),
