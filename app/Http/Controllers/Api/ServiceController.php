@@ -41,8 +41,8 @@ class ServiceController extends Controller
         Device::updateOrCreate(['token' => $request->input('token')], [
             'user_id' => $request->user()->id,
             'name' => $request->input('name'),
-            'type' => $request->input('name'),
-            'revoked' => $request->input('name'),
+            'type' => $request->input('type'),
+            'revoked' => $request->input('revoked'),
         ]);
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.save-succeed')], 200);
