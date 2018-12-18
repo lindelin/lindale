@@ -35,9 +35,9 @@ class ServiceController extends Controller
             'device_token' => 'required'
         ]);
 
-        $request->user()
-            ->deviceTokens()
-            ->save(new DeviceToken(['device_token' => $request->input('device_token')]));
+        DeviceToken::updateOrCreate(['device_token' => $request->input('device_token')], [
+            'user_id' => $request->user()->id
+        ]);
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.save-succeed')], 200);
     }
