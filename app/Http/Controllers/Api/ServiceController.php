@@ -38,7 +38,7 @@ class ServiceController extends Controller
             'revoked' => 'required',
         ]);
 
-        DeviceToken::updateOrCreate(['token' => $request->input('device_token')], [
+        DeviceToken::updateOrCreate(['token' => $request->input('token')], [
             'user_id' => $request->user()->id,
             'name' => $request->input('name'),
             'type' => $request->input('name'),
