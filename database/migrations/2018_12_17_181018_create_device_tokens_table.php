@@ -13,10 +13,12 @@ class CreateDeviceTokensTable extends Migration
      */
     public function up()
     {
-        Schema::create('device_tokens', function (Blueprint $table) {
+        Schema::create('devices', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->string('device_token');
+            $table->string('token');
+            $table->string('name');
+            $table->string('type');
             $table->boolean('revoked')->default(false);
             $table->timestamps();
         });

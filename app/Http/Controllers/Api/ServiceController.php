@@ -32,11 +32,17 @@ class ServiceController extends Controller
     public function storeDeviceToken(Request $request)
     {
         $this->validate($request, [
-            'device_token' => 'required'
+            'token' => 'required',
+            'name' => 'required',
+            'type' => 'required',
+            'revoked' => 'required',
         ]);
 
-        DeviceToken::updateOrCreate(['device_token' => $request->input('device_token')], [
-            'user_id' => $request->user()->id
+        DeviceToken::updateOrCreate(['token' => $request->input('device_token')], [
+            'user_id' => $request->user()->id,
+            'name' => $request->input('name'),
+            'type' => $request->input('name'),
+            'revoked' => $request->input('name'),
         ]);
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.save-succeed')], 200);

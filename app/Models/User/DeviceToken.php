@@ -21,7 +21,10 @@ class DeviceToken extends Model
      * @var array
      */
     protected $fillable = [
-        'device_token',
+        'token',
+        'name',
+        'type',
         'user_id',
+        "revoked",
     ];
 }
