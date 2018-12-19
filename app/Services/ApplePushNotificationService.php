@@ -33,6 +33,12 @@ class ApplePushNotificationService
     protected $title, $subtitle;
 
     /**
+     * category
+     * @var
+     */
+    protected $category;
+
+    /**
      * ApplePushNotificationService constructor.
      * @param $http
      */
@@ -89,6 +95,17 @@ class ApplePushNotificationService
     }
 
     /**
+     * category 設定
+     * @param string $category
+     * @return $this
+     */
+    public function category(string $category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+
+    /**
      * 送信
      */
     public function send()
@@ -107,6 +124,7 @@ class ApplePushNotificationService
                         'body' => $this->messages,
                         'subtitle' => $this->subtitle,
                         'sound' => 'default',
+                        'click_action' => $this->category,
                     ]
                 ],
             ]);
