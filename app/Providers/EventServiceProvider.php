@@ -30,6 +30,7 @@ class EventServiceProvider extends ServiceProvider
         //お知らせ
         'App\Events\Project\NoticeEvent' => [
             'App\Listeners\Project\Notification\SendNotice',
+            'App\Listeners\Project\Notification\PushNotice',
         ],
 
         //To-do事件
