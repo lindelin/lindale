@@ -18,13 +18,15 @@ class TaskHasCreatedPushNotify implements ShouldQueue
      */
     public function handle(TaskCreated $event)
     {
-        $users = User::where('id', $event->user->id)
-            ->orWhere('id', $event->task->User->id)
-            ->orWhere('id', $event->task->Project->ProjectLeader->id)
+        $users = User::where('id', $event->user->id ?? 0)
+            ->orWhere('id', $event->task->User->id ?? 0)
+            ->orWhere('id', $event->task->Project->ProjectLeader->id ?? 0)
+            ->orWhere('id', $event->task->Project->SubLeader->id ?? 0)
             ->get();
 
         FCM::to($users)
-            ->title(trans('task.created-task', ['name' => $event->user->name]))
+            ->title($event->task->Project->title)
+            ->subtitle(trans('task.created-task', ['name' => $event->user->name]))
             ->messages(trans($event->task->Type->name).'：'.$event->task->title)
             ->send();
     }

@@ -9,10 +9,28 @@ use Illuminate\Support\Collection;
 
 class ApplePushNotificationService
 {
+    /**
+     * Http.
+     * @var Client
+     */
     protected $http;
+    /**
+     * 通知の本文.
+     * @var
+     */
     protected $messages;
+
+    /**
+     * ユーザ.
+     * @var
+     */
     protected $users;
-    protected $title;
+
+    /**
+     * タイトル
+     * @var
+     */
+    protected $title, $subtitle;
 
     /**
      * ApplePushNotificationService constructor.
@@ -23,6 +41,11 @@ class ApplePushNotificationService
         $this->http = new Client();
     }
 
+    /**
+     * user 設定
+     * @param Collection $users
+     * @return $this
+     */
     public function to(Collection $users)
     {
         $users->load([
@@ -32,18 +55,42 @@ class ApplePushNotificationService
         return $this;
     }
 
+    /**
+     * 本文設定
+     * @param string $messages
+     * @return $this
+     */
     public function messages(string $messages)
     {
         $this->messages = $messages;
         return $this;
     }
 
+    /**
+     * タイトル設定
+     * @param string $title
+     * @return $this
+     */
     public function title(string $title)
     {
         $this->title = $title;
         return $this;
     }
 
+    /**
+     * サブタイトル設定
+     * @param string $subtitle
+     * @return $this
+     */
+    public function subtitle(string $subtitle)
+    {
+        $this->subtitle = $subtitle;
+        return $this;
+    }
+
+    /**
+     * 送信
+     */
     public function send()
     {
         foreach (Device::tokens($this->users)->chunk(1000) as $chunk) {
@@ -57,8 +104,9 @@ class ApplePushNotificationService
                     'registration_ids' => $chunk->toArray(),
                     'notification' => [
                         'title' => $this->title,
-                        'text' => $this->messages,
-                        'sound' => 'default'
+                        'body' => $this->messages,
+                        'subtitle' => $this->subtitle,
+                        'sound' => 'default',
                     ]
                 ],
             ]);
