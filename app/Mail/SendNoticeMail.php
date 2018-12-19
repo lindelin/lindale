@@ -38,7 +38,9 @@ class SendNoticeMail extends Mailable implements ShouldQueue
         \App::setLocale($this->locale);
 
         return $this->subject('【'.trans($this->notice->Type->name).'】'.$this->notice->title)
-            ->cc(collect([$this->notice->Project->ProjectLeader, $this->notice->Project->SubLeader]))
+            ->cc(collect([$this->notice->Project->ProjectLeader])->when($this->notice->Project->SubLeader, function ($collection) {
+                $collection->push($this->notice->Project->SubLeader);
+            }))
             ->markdown('emails.notification.send-notice-mail')
             ->with(['notice' => $this->notice]);
     }

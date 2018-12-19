@@ -29,7 +29,9 @@ class PushNotice implements ShouldQueue
 
         $users = $event->notice->Project->Users
             ->push($event->notice->Project->ProjectLeader)
-            ->push($event->notice->Project->SubLeader ?? null)
+            ->when($event->notice->Project->SubLeader, function ($collection) use ($event) {
+                $collection->push($event->notice->Project->SubLeader);
+            })
         ;
 
         FCM::to($users)
