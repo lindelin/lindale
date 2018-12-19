@@ -193,7 +193,7 @@ if (! function_exists('push_task_event_notification')) {
             ->title($event->task->Project->title)
             ->subtitle(trans($key, ['name' => $event->user->name]))
             ->messages(trans($event->task->Type->name).'：'.$event->task->title)
-            ->category($key)
+            ->category('TASK_EVENT')
             ->send();
     }
 }
@@ -225,7 +225,7 @@ if (! function_exists('push_todo_event_notification')) {
             ->title($event->todo->Project->title ?? 'Private')
             ->subtitle(trans($key, ['name' => $event->user->name]))
             ->messages('TODO：'.$event->todo->content)
-            ->category($key)
+            ->category('TODO_EVENT')
             ->send();
     }
 }
