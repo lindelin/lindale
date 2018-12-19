@@ -6,7 +6,7 @@ use App\Events\Task\TaskDeleted;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class TaskHasDeletedPushNotify implements ShouldQueue
+class TaskHasDeletedPushNotify
 {
     /**
      * Handle the event.
