@@ -9,16 +9,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class TaskHasDeletedPushNotify
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
      * Handle the event.
      *
      * @param  TaskDeleted  $event
@@ -26,6 +16,6 @@ class TaskHasDeletedPushNotify
      */
     public function handle(TaskDeleted $event)
     {
-        //
+        push_task_event_notification($event, 'task.deleted-task');
     }
 }

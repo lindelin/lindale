@@ -18,26 +18,6 @@ class TaskHasCreatedPushNotify implements ShouldQueue
      */
     public function handle(TaskCreated $event)
     {
-        $event->task->load([
-            'Project' => function ($query) {
-                $query->with(['ProjectLeader', 'SubLeader']);
-            },
-            'User',
-            'Type',
-        ]);
-
-        app()->setLocale(project_config($event->task->Project, config('config.project.lang')));
-
-        $users = User::where('id', $event->user->id ?? 0)
-            ->orWhere('id', $event->task->User->id ?? 0)
-            ->orWhere('id', $event->task->Project->ProjectLeader->id ?? 0)
-            ->orWhere('id', $event->task->Project->SubLeader->id ?? 0)
-            ->get();
-
-        FCM::to($users)
-            ->title($event->task->Project->title)
-            ->subtitle(trans('task.created-task', ['name' => $event->user->name]))
-            ->messages(trans($event->task->Type->name).'：'.$event->task->title)
-            ->send();
+        push_task_event_notification($event, 'task.created-task');
     }
 }

@@ -251,4 +251,16 @@ class User extends Authenticatable
     {
         return user_config(self::find($this->id), config('config.user.key.slack'));
     }
+
+    /**
+     * event persona
+     * @param $query
+     */
+    public function scopeTaskEventPersona($query, $event)
+    {
+        $query->where('id', $event->user->id ?? 0)
+            ->orWhere('id', $event->task->User->id ?? 0)
+            ->orWhere('id', $event->task->Project->ProjectLeader->id ?? 0)
+            ->orWhere('id', $event->task->Project->SubLeader->id ?? 0);
+    }
 }

@@ -9,16 +9,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class TaskHasUpdatedPushNotify
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
      * Handle the event.
      *
      * @param  TaskUpdated  $event
@@ -26,6 +16,6 @@ class TaskHasUpdatedPushNotify
      */
     public function handle(TaskUpdated $event)
     {
-        //
+        push_task_event_notification($event, 'task.updated-task');
     }
 }

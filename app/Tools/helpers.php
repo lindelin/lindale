@@ -169,3 +169,30 @@ if (! function_exists('calculator')) {
         return app('calculator');
     }
 }
+
+if (! function_exists('push_task_event_notification')) {
+    /**
+     * 進捗 calculator
+     * @return \App\Tools\Analytics\Calculator|Calculator|\Illuminate\Foundation\Application|mixed
+     */
+    function push_task_event_notification($event, $key)
+    {
+        $event->task->load([
+            'Project' => function ($query) {
+                $query->with(['ProjectLeader', 'SubLeader']);
+            },
+            'User',
+            'Type',
+        ]);
+
+        app()->setLocale(project_config($event->task->Project, config('config.project.lang')));
+
+        $users = \App\User::taskEventPersona($event)->get();
+
+        \App\Tools\Facades\FCM::to($users)
+            ->title($event->task->Project->title)
+            ->subtitle(trans($key, ['name' => $event->user->name]))
+            ->messages(trans($event->task->Type->name).'：'.$event->task->title)
+            ->send();
+    }
+}
