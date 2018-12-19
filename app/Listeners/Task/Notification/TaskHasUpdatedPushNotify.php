@@ -6,7 +6,7 @@ use App\Events\Task\TaskUpdated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class TaskHasUpdatedPushNotify
+class TaskHasUpdatedPushNotify implements ShouldQueue
 {
     /**
      * Handle the event.
