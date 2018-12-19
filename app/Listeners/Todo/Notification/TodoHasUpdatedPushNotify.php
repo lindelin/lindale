@@ -6,18 +6,8 @@ use App\Events\Todo\TodoUpdated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class TodoHasUpdatedPushNotify
+class TodoHasUpdatedPushNotify implements ShouldQueue
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     /**
      * Handle the event.
      *
@@ -26,6 +16,6 @@ class TodoHasUpdatedPushNotify
      */
     public function handle(TodoUpdated $event)
     {
-        //
+        push_todo_event_notification($event, 'todo.updated-todo');
     }
 }

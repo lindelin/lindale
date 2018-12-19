@@ -9,16 +9,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class TodoHasDeletedPushNotify
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
      * Handle the event.
      *
      * @param  TodoDeleted  $event
@@ -26,6 +16,6 @@ class TodoHasDeletedPushNotify
      */
     public function handle(TodoDeleted $event)
     {
-        //
+        push_todo_event_notification($event, 'todo.deleted-todo');
     }
 }

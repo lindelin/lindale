@@ -263,4 +263,16 @@ class User extends Authenticatable
             ->orWhere('id', $event->task->Project->ProjectLeader->id ?? 0)
             ->orWhere('id', $event->task->Project->SubLeader->id ?? 0);
     }
+
+    /**
+     * event persona
+     * @param $query
+     */
+    public function scopeTodoEventPersona($query, $event)
+    {
+        $query->where('id', $event->user->id ?? 0)
+            ->orWhere('id', $event->todo->User->id ?? 0)
+            ->orWhere('id', $event->todo->Project->ProjectLeader->id ?? 0)
+            ->orWhere('id', $event->todo->Project->SubLeader->id ?? 0);
+    }
 }

@@ -196,3 +196,34 @@ if (! function_exists('push_task_event_notification')) {
             ->send();
     }
 }
+
+if (! function_exists('push_todo_event_notification')) {
+    /**
+     * 進捗 calculator
+     * @param $event
+     * @param $key
+     * @return \App\Tools\Analytics\Calculator|Calculator|\Illuminate\Foundation\Application|mixed
+     */
+    function push_todo_event_notification($event, $key)
+    {
+        $event->todo->load([
+            'Project' => function ($query) {
+                $query->with(['ProjectLeader', 'SubLeader']);
+            },
+            'User'
+        ]);
+
+        app()->setLocale($event->todo->Project ?
+            project_config($event->todo->Project, config('config.project.lang')) :
+            user_config($event->todo->User, config('config.user.lang'))
+        );
+
+        $users = \App\User::todoEventPersona($event)->get();
+
+        \App\Tools\Facades\FCM::to($users)
+            ->title($event->todo->Project->title ?? 'Private')
+            ->subtitle(trans($key, ['name' => $event->user->name]))
+            ->messages('TODO：'.$event->todo->content)
+            ->send();
+    }
+}
