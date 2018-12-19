@@ -58,6 +58,7 @@ class ApplePushNotificationService
                     'notification' => [
                         'title' => $this->title,
                         'text' => $this->messages,
+                        'sound' => 'default'
                     ]
                 ],
             ]);
