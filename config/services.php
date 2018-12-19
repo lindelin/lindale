@@ -35,4 +35,11 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'firebase' => [
+        'fcm' => [
+            'key' => env('FIREBASE_FCM_KEY'),
+            'url' => env('FIREBASE_FCM_URL', 'https://fcm.googleapis.com/fcm/send')
+        ],
+    ],
+
 ];

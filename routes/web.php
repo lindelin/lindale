@@ -344,3 +344,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 | 测试路由
 |
 */
+
+//Route::get('test', function () {
+//    $users = \App\User::with(['devices'])->whereHas('devices')->get();
+//    dd(\App\Models\User\Device::tokens($users));
+//});

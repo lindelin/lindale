@@ -3,6 +3,7 @@
 namespace App\Models\User;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
 
 class Device extends Model
 {
@@ -27,4 +28,23 @@ class Device extends Model
         'user_id',
         "revoked",
     ];
+
+    /**
+     * 有効
+     * @param $query
+     */
+    public function scopeValid($query)
+    {
+        $query->where('revoked', false);
+    }
+
+    /**
+     * Device Tokens 取得
+     * @param Collection $users
+     * @return Collection $users
+     */
+    public static function tokens(Collection $users): Collection
+    {
+        return static::whereIn('user_id', $users->pluck('id')->toArray())->get()->pluck('token');
+    }
 }

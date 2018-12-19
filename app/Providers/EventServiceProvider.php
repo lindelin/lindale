@@ -35,29 +35,36 @@ class EventServiceProvider extends ServiceProvider
         //To-do事件
         'App\Events\Todo\TodoCreated' => [
             'App\Listeners\Todo\Notification\TodoHasCreatedNotify',
+            'App\Listeners\Todo\Notification\TodoHasCreatedPushNotify',
         ],
         'App\Events\Todo\TodoUpdated' => [
             'App\Listeners\Todo\Notification\TodoHasUpdatedNotify',
+            'App\Listeners\Todo\Notification\TodoHasUpdatedPushNotify',
         ],
         'App\Events\Todo\TodoDeleted' => [
             'App\Listeners\Todo\Notification\TodoHasDeletedNotify',
+            'App\Listeners\Todo\Notification\TodoHasDeletedPushNotify',
         ],
 
         //任务事件
         'App\Events\Task\TaskCreated' => [
             'App\Listeners\Task\Notification\TaskHasCreatedNotify',
+            'App\Listeners\Task\Notification\TaskHasCreatedPushNotify',
         ],
         'App\Events\Task\TaskUpdated' => [
             'App\Listeners\Task\Notification\TaskHasUpdatedNotify',
+            'App\Listeners\Task\Notification\TaskHasUpdatedPushNotify',
             'App\Listeners\Task\FinishedTaskListener',
         ],
         'App\Events\Task\TaskDeleted' => [
             'App\Listeners\Task\Notification\TaskHasDeletedNotify',
+            'App\Listeners\Task\Notification\TaskHasDeletedPushNotify',
         ],
 
         //任务动态事件
         'App\Events\Task\TaskActivity\TaskActivityCreated' => [
             'App\Listeners\Task\Notification\TaskActivityHasCreatedNotify',
+            'App\Listeners\Task\Notification\TaskActivityHasCreatedPushNotify',
         ],
 
         //用户事件
