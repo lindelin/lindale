@@ -127,6 +127,7 @@ class ApplePushNotificationService
                         'click_action' => $this->category,
                         'mutable_content' => true,
                         'task' => 1,
+                        'aaa' => "fdghdfgh",
                     ]
                 ],
             ]);
