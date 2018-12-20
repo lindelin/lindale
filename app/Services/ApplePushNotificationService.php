@@ -36,7 +36,7 @@ class ApplePushNotificationService
      * category
      * @var
      */
-    protected $category;
+    protected $category, $object;
 
     /**
      * ApplePushNotificationService constructor.
@@ -106,6 +106,17 @@ class ApplePushNotificationService
     }
 
     /**
+     * オブジェクト設定
+     * @param $object
+     * @return $this
+     */
+    public function object($object)
+    {
+        $this->object = $object;
+        return $this;
+    }
+
+    /**
      * 送信
      */
     public function send()
@@ -126,8 +137,7 @@ class ApplePushNotificationService
                         'sound' => 'default',
                         'click_action' => $this->category,
                         'mutable_content' => true,
-                        'task' => 1,
-                        'aaa' => "fdghdfgh",
+                        'object' => $this->object,
                     ]
                 ],
             ]);
