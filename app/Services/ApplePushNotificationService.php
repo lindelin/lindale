@@ -125,6 +125,8 @@ class ApplePushNotificationService
                         'subtitle' => $this->subtitle,
                         'sound' => 'default',
                         'click_action' => $this->category,
+                        'mutable_content' => true,
+                        'task' => 1,
                     ]
                 ],
             ]);
