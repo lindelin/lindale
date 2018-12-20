@@ -36,7 +36,7 @@ class ApplePushNotificationService
      * category
      * @var
      */
-    protected $category;
+    protected $category, $object, $image;
 
     /**
      * ApplePushNotificationService constructor.
@@ -106,6 +106,28 @@ class ApplePushNotificationService
     }
 
     /**
+     * オブジェクト設定
+     * @param $object
+     * @return $this
+     */
+    public function object($object)
+    {
+        $this->object = $object;
+        return $this;
+    }
+
+    /**
+     * イメージ設定
+     * @param string $url
+     * @return $this
+     */
+    public function image(string $url)
+    {
+        $this->image = $url;
+        return $this;
+    }
+
+    /**
      * 送信
      */
     public function send()
@@ -125,7 +147,9 @@ class ApplePushNotificationService
                         'subtitle' => $this->subtitle,
                         'sound' => 'default',
                         'click_action' => $this->category,
-                        'title_loc_key' => '123',
+                        'mutable_content' => true,
+                        'image' => $this->image,
+                        'object' => $this->object,
                     ]
                 ],
             ]);

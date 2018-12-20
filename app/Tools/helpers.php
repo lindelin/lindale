@@ -194,6 +194,8 @@ if (! function_exists('push_task_event_notification')) {
             ->subtitle(trans($key, ['name' => $event->user->name]))
             ->messages(trans($event->task->Type->name).'：'.$event->task->title)
             ->category('TASK_EVENT')
+            ->object(new \App\Http\Resources\Task($event->task))
+            ->image($event->user->photo())
             ->send();
     }
 }
@@ -226,6 +228,8 @@ if (! function_exists('push_todo_event_notification')) {
             ->subtitle(trans($key, ['name' => $event->user->name]))
             ->messages('TODO：'.$event->todo->content)
             ->category('TODO_EVENT')
+            ->object(new \App\Http\Resources\TodoResource($event->todo))
+            ->image($event->user->photo())
             ->send();
     }
 }

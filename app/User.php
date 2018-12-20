@@ -10,6 +10,8 @@ use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use File;
+use Colorable;
 
 /**
  * App\User.
@@ -274,5 +276,14 @@ class User extends Authenticatable
             ->orWhere('id', $event->todo->User->id ?? 0)
             ->orWhere('id', $event->todo->Project->ProjectLeader->id ?? 0)
             ->orWhere('id', $event->todo->Project->SubLeader->id ?? 0);
+    }
+
+    public function photo()
+    {
+        if ($this->photo != '' and File::exists(public_path('storage/'.$this->photo))) {
+            return asset('storage/'.$this->photo);
+        } else {
+            return asset(Colorable::lindaleProfileImg($this->email));
+        }
     }
 }
