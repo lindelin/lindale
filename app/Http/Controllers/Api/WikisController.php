@@ -34,7 +34,7 @@ class WikisController extends Controller
     {
         $this->authorize('is_member', [$project]);
 
-        return WikiResource::collection($project->Wikis()->whereTypeId($type->id)->with([
+        return WikiResource::collection($project->Wikis()->typeFilter($type)->with([
             'User',
         ])->get());
     }

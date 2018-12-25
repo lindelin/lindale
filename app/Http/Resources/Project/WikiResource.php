@@ -4,6 +4,7 @@ namespace App\Http\Resources\Project;
 
 use App\Http\Resources\UserResource;
 use Illuminate\Http\Resources\Json\Resource;
+use File;
 
 class WikiResource extends Resource
 {
