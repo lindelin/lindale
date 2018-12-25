@@ -53,6 +53,11 @@ class Wiki extends Model
         return $this->hasOne('App\Wiki\WikiType', 'id', 'type_id');
     }
 
+    /**
+     * Typeフィルター
+     * @param $query
+     * @param WikiType $type
+     */
     public function scopeTypeFilter($query, WikiType $type)
     {
 
