@@ -39,6 +39,8 @@ Route::put('/todos/{todo}/finished', 'TodosController@updateToFinished');
 Route::put('/todos/{todo}', 'TodosController@update');
 Route::delete('/todos/{todo}', 'TodosController@destroy');
 
+Route::put('wikis/{wiki}', 'WikisController@update');
+
 Route::prefix('/settings')->group(function () {
     Route::get('/locale', 'SettingsController@locale');
     Route::put('/locale', 'SettingsController@updateLocale');
