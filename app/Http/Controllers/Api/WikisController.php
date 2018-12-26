@@ -59,6 +59,16 @@ class WikisController extends Controller
     }
 
     /**
+     * Wiki 1件取得
+     * @param Wiki $wiki
+     * @return WikiResource
+     */
+    public function show(Wiki $wiki)
+    {
+        return new WikiResource($wiki);
+    }
+
+    /**
      * @param WikiRequest $request
      * @param Wiki $wiki
      * @return \Illuminate\Http\JsonResponse
