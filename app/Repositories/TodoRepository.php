@@ -198,7 +198,7 @@ class TodoRepository implements TodoRepositoryContract
      */
     public function projectUsers(Todo $todo)
     {
-        $users = [];
+        $users = null;
         $project = $todo->Project;
 
         if ($project) {

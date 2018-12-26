@@ -64,7 +64,7 @@ class TodosController extends Controller
         $users = $this->todoRepository->projectUsers($todo);
         return response()->json([
             'statuses' => Status::collection(TodoStatus::all()),
-            'users' =>  $users ? UserResource::collection($users) : null
+            'users' =>  $users ? UserResource::collection($users) : []
         ], 200);
     }
 
