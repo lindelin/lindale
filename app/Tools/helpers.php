@@ -185,7 +185,9 @@ if (! function_exists('push_task_event_notification')) {
             'Type',
         ]);
 
-        app()->setLocale(project_config($event->task->Project, config('config.project.lang')));
+        $locale = project_config($event->task->Project, config('config.project.lang'));
+        app()->setLocale($locale);
+        \Carbon\Carbon::setLocale($locale);
 
         $users = \App\User::taskEventPersona($event)->get();
 
@@ -216,10 +218,11 @@ if (! function_exists('push_todo_event_notification')) {
             'User'
         ]);
 
-        app()->setLocale($event->todo->Project ?
+        $locale = $event->todo->Project ?
             project_config($event->todo->Project, config('config.project.lang')) :
-            user_config($event->todo->User, config('config.user.lang'))
-        );
+            user_config($event->todo->User, config('config.user.lang'));
+        app()->setLocale($locale);
+        \Carbon\Carbon::setLocale($locale);
 
         $users = \App\User::todoEventPersona($event)->get();
 
