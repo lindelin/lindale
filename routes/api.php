@@ -19,6 +19,7 @@ Route::get('/projects/{project}/top', 'ProjectsController@topResources');
 Route::get('/projects/{project}/tasks/groups', 'ProjectsController@taskGroups');
 Route::get('/projects/{project}/todos/', 'ProjectsController@todos');
 Route::get('/projects/{project}/wikis/types', 'WikisController@wikiTypes');
+Route::get('/projects/{project}/wikis/types/{wikiType}', 'WikisController@wikisByType');
 Route::get('/projects/{project}/members', 'MembersController@members');
 Route::get('/profile', 'ProfileController@resources');
 
