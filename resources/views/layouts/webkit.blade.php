@@ -11,6 +11,12 @@
             }
         </style>
     @endif
+    <style>
+        body {
+            padding-bottom: 0 !important;
+            padding-top: 0 !important;
+        }
+    </style>
 </head>
 <body>
 
