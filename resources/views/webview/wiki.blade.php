@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.webkit')
 
 @section('title')
     {{ $wiki->title }}
