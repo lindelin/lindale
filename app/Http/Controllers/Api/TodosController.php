@@ -7,6 +7,7 @@ use App\Exceptions\Todo\TodoUpdateApiException;
 use App\Http\Requests\TodoRequest;
 use App\Http\Resources\MyTodoCollection;
 use App\Http\Resources\Todo\Status;
+use App\Http\Resources\UserResource;
 use App\Todo\Todo;
 use App\Todo\TodoStatus;
 use Illuminate\Http\Request;
@@ -58,10 +59,12 @@ class TodosController extends Controller
      * 編集資源
      * @return \Illuminate\Http\JsonResponse
      */
-    public function editResource()
+    public function editResource(Todo $todo)
     {
+        $users = $this->todoRepository->projectUsers($todo);
         return response()->json([
-            'statuses' => Status::collection(TodoStatus::all())
+            'statuses' => Status::collection(TodoStatus::all()),
+            'users' =>  $users ? UserResource::collection($users) : null
         ], 200);
     }
 
