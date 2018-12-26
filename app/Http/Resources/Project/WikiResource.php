@@ -20,7 +20,8 @@ class WikiResource extends Resource
             'id' => $this->id,
             'title' => $this->title,
             'content' => $this->content ?
-                view()->make('layouts.webview')->with('contents', markdown($this->content))->render() : null,
+                view()->make('webview.wiki')->with('wiki', $this->resource)->render() : null,
+            'original_content' => $this->content,
             'image' => $this->image(),
             'user' => new UserResource($this->User),
             'project' => $this->project_id,

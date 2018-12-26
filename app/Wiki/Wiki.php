@@ -2,6 +2,7 @@
 
 namespace App\Wiki;
 
+use App\Project\Project;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -51,6 +52,15 @@ class Wiki extends Model
     public function Type()
     {
         return $this->hasOne('App\Wiki\WikiType', 'id', 'type_id');
+    }
+
+    /**
+     * Project
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function project()
+    {
+        return $this->hasOne(Project::class, 'id', 'project_id');
     }
 
     /**
