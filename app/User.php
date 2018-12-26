@@ -4,7 +4,6 @@ namespace App;
 
 use App\Events\User\UserCreated;
 use App\Models\User\Device;
-use App\Models\User\DeviceToken;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -278,12 +277,16 @@ class User extends Authenticatable
             ->orWhere('id', $event->todo->Project->SubLeader->id ?? 0);
     }
 
-    public function photo()
+    /**
+     * Photo Path
+     * @return string
+     */
+    public function photoPath()
     {
         if ($this->photo != '' and File::exists(public_path('storage/'.$this->photo))) {
             return asset('storage/'.$this->photo);
-        } else {
-            return asset(Colorable::lindaleProfileImg($this->email));
         }
+
+        return asset(Colorable::lindaleProfileImg($this->email));
     }
 }

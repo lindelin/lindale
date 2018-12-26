@@ -54,9 +54,6 @@ class ApplePushNotificationService
      */
     public function to(Collection $users)
     {
-        $users->load([
-            'devices'
-        ]);
         $this->users = $users;
         return $this;
     }

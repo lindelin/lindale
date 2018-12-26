@@ -185,9 +185,11 @@ if (! function_exists('push_task_event_notification')) {
             'Type',
         ]);
 
-        app()->setLocale(project_config($event->task->Project, config('config.project.lang')));
+        $locale = project_config($event->task->Project, config('config.project.lang'));
+        app()->setLocale($locale);
+        \Carbon\Carbon::setLocale($locale);
 
-        $users = \App\User::taskEventPersona($event)->get();
+        $users = \App\User::taskEventPersona($event)->with(['devices'])->get();
 
         \App\Tools\Facades\FCM::to($users)
             ->title($event->task->Project->title)
@@ -195,7 +197,7 @@ if (! function_exists('push_task_event_notification')) {
             ->messages(trans($event->task->Type->name).'：'.$event->task->title)
             ->category('TASK_EVENT')
             ->object(new \App\Http\Resources\Task($event->task))
-            ->image($event->user->photo())
+            ->image($event->user->photoPath())
             ->send();
     }
 }
@@ -216,12 +218,13 @@ if (! function_exists('push_todo_event_notification')) {
             'User'
         ]);
 
-        app()->setLocale($event->todo->Project ?
+        $locale = $event->todo->Project ?
             project_config($event->todo->Project, config('config.project.lang')) :
-            user_config($event->todo->User, config('config.user.lang'))
-        );
+            user_config($event->todo->User, config('config.user.lang'));
+        app()->setLocale($locale);
+        \Carbon\Carbon::setLocale($locale);
 
-        $users = \App\User::todoEventPersona($event)->get();
+        $users = \App\User::todoEventPersona($event)->with(['devices'])->get();
 
         \App\Tools\Facades\FCM::to($users)
             ->title($event->todo->Project->title ?? 'Private')
@@ -229,7 +232,7 @@ if (! function_exists('push_todo_event_notification')) {
             ->messages('TODO：'.$event->todo->content)
             ->category('TODO_EVENT')
             ->object(new \App\Http\Resources\TodoResource($event->todo))
-            ->image($event->user->photo())
+            ->image($event->user->photoPath())
             ->send();
     }
 }
