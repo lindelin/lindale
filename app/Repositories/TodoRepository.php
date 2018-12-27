@@ -190,4 +190,29 @@ class TodoRepository implements TodoRepositoryContract
 
         return $projects;
     }
+
+    /**
+     * Todo からプロジェクトのユーザを取得
+     * @param Todo $todo
+     * @return mixed
+     */
+    public function projectUsers(Todo $todo)
+    {
+        $users = null;
+        $project = $todo->Project;
+
+        if ($project) {
+            $users = $project->Users;
+
+            if ($project->ProjectLeader) {
+                $users->push($project->ProjectLeader);
+            }
+
+            if ($project->SubLeader) {
+                $users->push($project->SubLeader);
+            }
+        }
+
+        return $users;
+    }
 }
