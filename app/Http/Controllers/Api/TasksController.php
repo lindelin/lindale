@@ -9,6 +9,7 @@ use App\Http\Resources\MyTaskCollection;
 use App\Http\Resources\TaskResource;
 use App\Http\Resources\UserResource;
 use App\Task\Task;
+use App\Task\TaskGroup;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -40,6 +41,32 @@ class TasksController extends Controller
     public function myTaskCollection(Request $request)
     {
         return new MyTaskCollection($request->user()->Tasks()
+            ->with([
+                'Type',
+                'Status',
+                'Group',
+                'Priority',
+                'Project',
+                'Initiator',
+                'User',
+            ])
+            ->orderBy('is_finish', 'asc')
+            ->latest()
+            ->orderBy('priority_id', 'desc')
+            ->paginate(30));
+    }
+
+    /**
+     * Group's Tasks
+     * @param TaskGroup $taskGroup
+     * @return MyTaskCollection
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function groupTaskCollection(TaskGroup $taskGroup)
+    {
+        $this->authorize('is_member', [$taskGroup->Project]);
+
+        return new MyTaskCollection($taskGroup->Tasks()
             ->with([
                 'Type',
                 'Status',
