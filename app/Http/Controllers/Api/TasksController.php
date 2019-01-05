@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Contracts\Repositories\TaskRepositoryContract;
 use App\Exceptions\Task\TaskUpdateApiException;
+use App\Http\Requests\TaskGroupRequest;
 use App\Http\Requests\TaskRequest;
 use App\Http\Resources\MyTaskCollection;
 use App\Http\Resources\TaskResource;
@@ -208,5 +209,21 @@ class TasksController extends Controller
         $task->delete();
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.delete-succeed')], 200);
+    }
+
+    /**
+     * チケットグループ更新
+     * @param TaskGroupRequest $request
+     * @param TaskGroup $group
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function updateGroup(TaskGroupRequest $request, TaskGroup $group)
+    {
+        $this->authorize('is_member', [$group->Project]);
+
+        $this->taskRepository->UpdateGroup($request, $group)->update();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
     }
 }

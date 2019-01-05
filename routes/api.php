@@ -25,6 +25,7 @@ Route::get('/profile', 'ProfileController@resources');
 
 Route::get('/tasks', 'TasksController@myTaskCollection');
 Route::get('/tasks/group/{taskGroup}', 'TasksController@groupTaskCollection');
+Route::put('/tasks/group/{taskGroup}', 'TasksController@updateGroup');
 Route::put('/tasks/{task}/complete', 'TasksController@completeTask');
 Route::get('/tasks/{task}/edit-resource', 'TasksController@editResource');
 Route::get('/tasks/{task}', 'TasksController@taskResource');
