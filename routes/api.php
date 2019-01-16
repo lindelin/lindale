@@ -31,6 +31,8 @@ Route::prefix('/projects')->group(function () {
 // Tasks
 Route::prefix('/tasks')->group(function () {
     Route::get('/', 'TasksController@myTaskCollection');
+    Route::get('group/{taskGroup}', 'TasksController@groupTaskCollection');
+    Route::put('group/{taskGroup}', 'TasksController@updateGroup');
     Route::put('{task}/complete', 'TasksController@completeTask');
     Route::get('{task}/edit-resource', 'TasksController@editResource');
     Route::get('{task}', 'TasksController@taskResource');

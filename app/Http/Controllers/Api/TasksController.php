@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Contracts\Repositories\TaskRepositoryContract;
 use App\Exceptions\Task\TaskUpdateApiException;
+use App\Http\Requests\TaskGroupRequest;
 use App\Http\Requests\TaskRequest;
 use App\Http\Resources\MyTaskCollection;
 use App\Http\Resources\TaskResource;
 use App\Http\Resources\UserResource;
 use App\Task\Task;
+use App\Task\TaskGroup;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -40,6 +42,32 @@ class TasksController extends Controller
     public function myTaskCollection(Request $request)
     {
         return new MyTaskCollection($request->user()->Tasks()
+            ->with([
+                'Type',
+                'Status',
+                'Group',
+                'Priority',
+                'Project',
+                'Initiator',
+                'User',
+            ])
+            ->orderBy('is_finish', 'asc')
+            ->latest()
+            ->orderBy('priority_id', 'desc')
+            ->paginate(30));
+    }
+
+    /**
+     * Group's Tasks
+     * @param TaskGroup $taskGroup
+     * @return MyTaskCollection
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function groupTaskCollection(TaskGroup $taskGroup)
+    {
+        $this->authorize('is_member', [$taskGroup->Project]);
+
+        return new MyTaskCollection($taskGroup->Tasks()
             ->with([
                 'Type',
                 'Status',
@@ -181,5 +209,21 @@ class TasksController extends Controller
         $task->delete();
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.delete-succeed')], 200);
+    }
+
+    /**
+     * チケットグループ更新
+     * @param TaskGroupRequest $request
+     * @param TaskGroup $group
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function updateGroup(TaskGroupRequest $request, TaskGroup $group)
+    {
+        $this->authorize('is_member', [$group->Project]);
+
+        $this->taskRepository->UpdateGroup($request, $group)->update();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
     }
 }
