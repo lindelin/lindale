@@ -115,7 +115,7 @@ class TodoRepository implements TodoRepositoryContract
             $todo->user_id = $request->user()->id;
         }
 
-        $todo->color_id = $request->input('color_id', config('color.default'));
+        $todo->color_id = $request->input('color_id', 1);
         $todo->status_id = config('todo.status.underway');
         $todo->initiator_id = $request->user()->id;
 
