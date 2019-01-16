@@ -25,6 +25,7 @@ class TodoRequest extends FormRequest
     {
         $create = [
             'content' => 'required|max:100',
+            'color_id' => 'null|max:100',
         ];
 
         if ($this->getMethod() == 'PATCH' or $this->getMethod() == 'PUT') {
