@@ -8,6 +8,7 @@ use App\Http\Requests\TodoRequest;
 use App\Http\Resources\MyTodoCollection;
 use App\Http\Resources\Todo\Status;
 use App\Http\Resources\UserResource;
+use App\Project\Project;
 use App\Todo\Todo;
 use App\Todo\TodoStatus;
 use Illuminate\Http\Request;
@@ -108,6 +109,22 @@ class TodosController extends Controller
         $todo->update();
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
+    }
+
+    /**
+     * To-do list 追加 API
+     * @param Project $project
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function storeList(Project $project, Request $request)
+    {
+        $this->validate($request, ['type_name' => 'required']);
+        $this->authorize('is_member', [$project]);
+        $this->todoRepository->createTodoList($request, $project)->save();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.add-succeed')], 200);
     }
 
     /**

@@ -13,35 +13,44 @@ use Illuminate\Http\Request;
 |
 */
 Route::post('/device-token', 'ServiceController@storeDeviceToken');
-Route::get('/projects', 'ProjectsController@resources');
-Route::get('/projects/favorites', 'ProjectsController@favorites');
-Route::get('/projects/{project}/top', 'ProjectsController@topResources');
-Route::get('/projects/{project}/tasks/groups', 'ProjectsController@taskGroups');
-Route::get('/projects/{project}/todos/', 'ProjectsController@todos');
-Route::get('/projects/{project}/wikis/types', 'WikisController@wikiTypes');
-Route::get('/projects/{project}/wikis/types/{wikiType}', 'WikisController@wikisByType');
-Route::get('/projects/{project}/members', 'MembersController@members');
 Route::get('/profile', 'ProfileController@resources');
 
-Route::get('/tasks', 'TasksController@myTaskCollection');
-Route::put('/tasks/{task}/complete', 'TasksController@completeTask');
-Route::get('/tasks/{task}/edit-resource', 'TasksController@editResource');
-Route::get('/tasks/{task}', 'TasksController@taskResource');
-Route::put('/tasks/{task}', 'TasksController@update');
-Route::delete('/tasks/{task}', 'TasksController@destroy');
-Route::post('/tasks/{task}/sub-task', 'SubTaskController@store');
-Route::post('/tasks/{task}/activities', 'TaskActivitiesController@store');
+// Projects
+Route::prefix('/projects')->group(function () {
+    Route::get('/', 'ProjectsController@resources');
+    Route::get('favorites', 'ProjectsController@favorites');
+    Route::get('{project}/top', 'ProjectsController@topResources');
+    Route::get('{project}/tasks/groups', 'ProjectsController@taskGroups');
+    Route::get('{project}/todos/', 'ProjectsController@todos');
+    Route::get('{project}/wikis/types', 'WikisController@wikiTypes');
+    Route::get('{project}/wikis/types/{wikiType}', 'WikisController@wikisByType');
+    Route::get('{project}/members', 'MembersController@members');
+    Route::post('{project}/todo-list', 'TodosController@storeList');
+});
 
-Route::get('/todos', 'TodosController@myTodoCollection');
-Route::get('/todos/{todo}/edit-resource', 'TodosController@editResource');
-Route::put('/todos/{todo}/change-color', 'TodosController@changeColor');
-Route::put('/todos/{todo}/finished', 'TodosController@updateToFinished');
-Route::put('/todos/{todo}', 'TodosController@update');
-Route::delete('/todos/{todo}', 'TodosController@destroy');
+// Tasks
+Route::prefix('/tasks')->group(function () {
+    Route::get('/', 'TasksController@myTaskCollection');
+    Route::put('{task}/complete', 'TasksController@completeTask');
+    Route::get('{task}/edit-resource', 'TasksController@editResource');
+    Route::get('{task}', 'TasksController@taskResource');
+    Route::put('{task}', 'TasksController@update');
+    Route::delete('{task}', 'TasksController@destroy');
+    Route::post('{task}/sub-task', 'SubTaskController@store');
+    Route::post('{task}/activities', 'TaskActivitiesController@store');
+});
 
-Route::get('wikis/{wiki}', 'WikisController@show');
-Route::put('wikis/{wiki}', 'WikisController@update');
+// To-dos
+Route::prefix('/todos')->group(function () {
+    Route::get('/', 'TodosController@myTodoCollection');
+    Route::get('{todo}/edit-resource', 'TodosController@editResource');
+    Route::put('{todo}/change-color', 'TodosController@changeColor');
+    Route::put('{todo}/finished', 'TodosController@updateToFinished');
+    Route::put('{todo}', 'TodosController@update');
+    Route::delete('{todo}', 'TodosController@destroy');
+});
 
+// Settings
 Route::prefix('/settings')->group(function () {
     Route::get('/locale', 'SettingsController@locale');
     Route::put('/locale', 'SettingsController@updateLocale');
@@ -50,6 +59,9 @@ Route::prefix('/settings')->group(function () {
     Route::put('/notification', 'SettingsController@updateNotification');
     Route::put('/profile', 'SettingsController@updateProfile');
 });
+
+Route::get('wikis/{wiki}', 'WikisController@show');
+Route::put('wikis/{wiki}', 'WikisController@update');
 
 Route::put('/sub-tasks/{subTask}', 'SubTaskController@update');
 Route::delete('/sub-tasks/{subTask}', 'SubTaskController@destroy');
