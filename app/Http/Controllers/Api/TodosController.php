@@ -144,6 +144,24 @@ class TodosController extends Controller
     }
 
     /**
+     * To-do 追加API
+     * @param Project $project
+     * @param TodoRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function store(Project $project, TodoRequest $request)
+    {
+        $todo = $this->todoRepository->createTodo($request, $project);
+
+        $this->authorize('create', [$todo, $project]);
+
+        $todo->save();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.save-succeed')], 200);
+    }
+
+    /**
      * 削除API
      * @param Todo $todo
      * @return \Illuminate\Http\JsonResponse

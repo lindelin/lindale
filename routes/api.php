@@ -22,6 +22,7 @@ Route::prefix('/projects')->group(function () {
     Route::get('{project}/top', 'ProjectsController@topResources');
     Route::get('{project}/tasks/groups', 'ProjectsController@taskGroups');
     Route::get('{project}/todos/', 'ProjectsController@todos');
+    Route::post('{project}/todos/', 'TodosController@store');
     Route::get('{project}/wikis/types', 'WikisController@wikiTypes');
     Route::get('{project}/wikis/types/{wikiType}', 'WikisController@wikisByType');
     Route::get('{project}/members', 'MembersController@members');
