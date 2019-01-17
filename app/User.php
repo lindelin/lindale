@@ -259,10 +259,16 @@ class User extends Authenticatable
      */
     public function scopeTaskEventPersona($query, $event)
     {
-        $query->where('id', $event->user->id ?? 0)
-            ->orWhere('id', $event->task->User->id ?? 0)
-            ->orWhere('id', $event->task->Project->ProjectLeader->id ?? 0)
-            ->orWhere('id', $event->task->Project->SubLeader->id ?? 0);
+        $query->whereIn('id', [
+            $event->user->id ?? 0,
+            $event->task->User->id ?? 0,
+            $event->task->Project->ProjectLeader->id ?? 0,
+            $event->task->Project->SubLeader->id ?? 0,
+        ]);
+
+//        $query->whereNotIn('id', [
+//            $event->user->id ?? 0,
+//        ]);
     }
 
     /**
@@ -271,10 +277,16 @@ class User extends Authenticatable
      */
     public function scopeTodoEventPersona($query, $event)
     {
-        $query->where('id', $event->user->id ?? 0)
-            ->orWhere('id', $event->todo->User->id ?? 0)
-            ->orWhere('id', $event->todo->Project->ProjectLeader->id ?? 0)
-            ->orWhere('id', $event->todo->Project->SubLeader->id ?? 0);
+        $query->whereIn('id', [
+            $event->user->id ?? 0,
+            $event->todo->User->id ?? 0,
+            $event->todo->Project->ProjectLeader->id ?? 0,
+            $event->todo->Project->SubLeader->id ?? 0,
+        ]);
+
+//        $query->whereNotIn('id', [
+//            $event->user->id ?? 0,
+//        ]);
     }
 
     /**
