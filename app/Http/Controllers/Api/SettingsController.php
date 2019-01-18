@@ -151,6 +151,7 @@ class SettingsController extends Controller
                 Storage::delete('public/'.$user->photo);
             }
             $user->photo = $path;
+            $user->update();
 
             return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
         } else {
