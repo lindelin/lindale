@@ -44,7 +44,7 @@ class UserRequest extends FormRequest
             'qq' => 'nullable|max:16',
         ];
 
-        if ($this->getMethod() == 'PATCH') {
+        if ($this->getMethod() == 'PATCH' or $this->getMethod() == 'PUT') {
             return $update;
         } else {
             return $create;
