@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Contracts\Repositories\UserRepositoryContract;
-use App\Http\Requests\UserRequest;
 use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Hash;
+use Storage;
 
 class SettingsController extends Controller
 {
@@ -19,22 +18,14 @@ class SettingsController extends Controller
     protected $configSystem;
 
     /**
-     * 用户资源库.
-     * @var UserRepositoryContract
-     */
-    protected $userRepository;
-
-    /**
      * 构造器.
      *
      * LocaleController constructor.
      * @param UserConfigSystemContract $configSystem
-     * @param UserRepositoryContract $userRepository
      */
-    public function __construct(UserConfigSystemContract $configSystem, UserRepositoryContract $userRepository)
+    public function __construct(UserConfigSystemContract $configSystem)
     {
         $this->configSystem = $configSystem;
-        $this->userRepository = $userRepository;
     }
 
     /**
@@ -125,13 +116,45 @@ class SettingsController extends Controller
     /**
      * プロフィール更新
      *
-     * @param UserRequest $request
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function updateProfile(UserRequest $request)
+    public function updateProfile(Request $request)
     {
-        $this->userRepository->updateUser($request, $request->user())->update();
+        $this->validate($request, [
+            'name' => 'required',
+            'content' => 'required',
+            'company' => 'required',
+        ]);
+
+        $user = $request->user();
+
+        $user->name = $request->input('name');
+        $user->content = $request->input('content');
+        $user->company = $request->input('company');
+        $user->update();
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
+    }
+
+    /**
+     * 写真アップロード API
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function uploadProfilePhoto(Request $request)
+    {
+        $user = $request->user();
+        if ($request->file('photo')) {
+            $path = $request->file('photo')->store('photo/'.$user->id, 'public');
+            if ($user->photo != '') {
+                Storage::delete('public/'.$user->photo);
+            }
+            $user->photo = $path;
+
+            return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
+        } else {
+            return response()->json(['status' => 'NG', 'messages' => trans('errors.update-failed')], 200);
+        }
     }
 }

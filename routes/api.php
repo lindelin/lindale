@@ -60,7 +60,8 @@ Route::prefix('/settings')->group(function () {
     Route::put('/password', 'SettingsController@resetPassword');
     Route::get('/notification', 'SettingsController@notification');
     Route::put('/notification', 'SettingsController@updateNotification');
-    Route::post('/profile', 'SettingsController@updateProfile');
+    Route::put('/profile', 'SettingsController@updateProfile');
+    Route::post('/profile/upload', 'SettingsController@uploadProfilePhoto');
 });
 
 Route::get('wikis/{wiki}', 'WikisController@show');
