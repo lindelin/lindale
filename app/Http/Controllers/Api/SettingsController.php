@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Contracts\Repositories\UserRepositoryContract;
+use App\Http\Requests\UserRequest;
 use App\System\Contracts\ConfigSystem\UserConfigSystemContract;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,14 +19,22 @@ class SettingsController extends Controller
     protected $configSystem;
 
     /**
+     * 用户资源库.
+     * @var UserRepositoryContract
+     */
+    protected $userRepository;
+
+    /**
      * 构造器.
      *
      * LocaleController constructor.
      * @param UserConfigSystemContract $configSystem
+     * @param UserRepositoryContract $userRepository
      */
-    public function __construct(UserConfigSystemContract $configSystem)
+    public function __construct(UserConfigSystemContract $configSystem, UserRepositoryContract $userRepository)
     {
         $this->configSystem = $configSystem;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -115,23 +125,12 @@ class SettingsController extends Controller
     /**
      * プロフィール更新
      *
-     * @param Request $request
+     * @param UserRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function updateProfile(Request $request)
+    public function updateProfile(UserRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'content' => 'required',
-            'company' => 'required',
-        ]);
-
-        $user = $request->user();
-
-        $user->name = $request->input('name');
-        $user->content = $request->input('content');
-        $user->company = $request->input('company');
-        $user->update();
+        $this->userRepository->updateUser($request, $request->user())->update();
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
     }
