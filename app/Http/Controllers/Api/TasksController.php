@@ -9,6 +9,7 @@ use App\Http\Requests\TaskRequest;
 use App\Http\Resources\MyTaskCollection;
 use App\Http\Resources\TaskResource;
 use App\Http\Resources\UserResource;
+use App\Project\Project;
 use App\Task\Task;
 use App\Task\TaskGroup;
 use Illuminate\Http\Request;
@@ -133,6 +134,21 @@ class TasksController extends Controller
 
         return response()->json([
             'users' => UserResource::collection($users)
+        ], 200);
+    }
+
+    /**
+     * Task Group Edit Resource Api
+     * @param Project $project
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function groupEditResource(Project $project)
+    {
+        $this->authorize('is_member', [$project]);
+
+        return response()->json([
+            'types' => $project->TaskTypes,
         ], 200);
     }
 
