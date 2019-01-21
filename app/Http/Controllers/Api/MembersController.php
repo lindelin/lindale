@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\ProfileResource;
 use App\Http\Resources\UserResource;
 use App\Project\Project;
 use App\User;
@@ -20,16 +21,30 @@ class MembersController extends Controller
     {
         $this->authorize('is_member', [$project]);
 
+        $subQuery = function ($query) {
+            $query->withCount([
+                'Todos as unfinished_todo_count' => function ($query) {
+                    $query->where('status_id', '<>', config('todo.status.finished'));
+                },
+                'Tasks as unfinished_task_count' => function ($query) {
+                    $query->where('is_finish', config('task.unfinished'));
+                },
+                'MyProjects as my_projects',
+                'MySlProjects as sl_projects',
+                'Projects as projects',
+            ]);
+        };
+
         $project->load([
-            'ProjectLeader',
-            'SubLeader',
-            'Users'
+            'ProjectLeader' => $subQuery,
+            'SubLeader' => $subQuery,
+            'Users' => $subQuery
         ]);
 
         return response()->json([
-            'pl' => new UserResource($project->ProjectLeader),
-            'sl' => $project->SubLeader ? new UserResource($project->SubLeader) : null,
-            'members' => UserResource::collection($project->Users)
+            'pl' => new ProfileResource($project->ProjectLeader),
+            'sl' => $project->SubLeader ? new ProfileResource($project->SubLeader) : null,
+            'members' => ProfileResource::collection($project->Users)
         ], 200);
     }
 }
