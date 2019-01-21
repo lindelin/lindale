@@ -9,6 +9,12 @@
             }
         </style>
     @endif
+    <style>
+        body {
+            padding-bottom: 20px !important;
+            padding-top: 20px !important;
+        }
+    </style>
 </head>
 <body>
 <div class="container" id="app">
