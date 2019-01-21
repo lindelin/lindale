@@ -11,7 +11,7 @@
     @endif
     <style>
         body {
-            padding-bottom: 20px !important;
+            padding-bottom: 0 !important;
             padding-top: 20px !important;
         }
     </style>
