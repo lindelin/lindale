@@ -8,6 +8,7 @@ use App\Http\Requests\TaskGroupRequest;
 use App\Http\Requests\TaskRequest;
 use App\Http\Resources\MyTaskCollection;
 use App\Http\Resources\TaskResource;
+use App\Http\Resources\TaskType;
 use App\Http\Resources\UserResource;
 use App\Project\Project;
 use App\Task\Task;
@@ -148,7 +149,7 @@ class TasksController extends Controller
         $this->authorize('is_member', [$project]);
 
         return response()->json([
-            'types' => $project->TaskTypes,
+            'types' => TaskType::collection($project->TaskTypes),
         ], 200);
     }
 
