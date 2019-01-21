@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             @if($wiki->image)
-                <a href="#" class="thumbnail">
+                <a href="{{ asset('storage/'.$wiki->image) }}" class="thumbnail">
                     <img src="{{ asset('storage/'.$wiki->image) }}">
                 </a>
             @endif
