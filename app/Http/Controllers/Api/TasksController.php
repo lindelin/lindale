@@ -229,7 +229,7 @@ class TasksController extends Controller
     }
 
     /**
-     * チケットグループ更新
+     * チケットグループ 更新
      * @param TaskGroupRequest $request
      * @param TaskGroup $group
      * @return \Illuminate\Http\JsonResponse
@@ -242,5 +242,21 @@ class TasksController extends Controller
         $this->taskRepository->UpdateGroup($request, $group)->update();
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
+    }
+
+    /**
+     * チケットグループ 作成
+     * @param Project $project
+     * @param TaskGroupRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function storeGroup(Project $project, TaskGroupRequest $request)
+    {
+        $this->authorize('is_member', [$project]);
+
+        $this->taskRepository->CreateGroup($request, $project)->save();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.save-succeed')], 200);
     }
 }
