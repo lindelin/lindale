@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\LanguageResource;
 use App\Models\User\Device;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -46,5 +47,10 @@ class ServiceController extends Controller
         ]);
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.save-succeed')], 200);
+    }
+
+    public function langSync(Request $request)
+    {
+        return new LanguageResource($request->user());
     }
 }
