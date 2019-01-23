@@ -33,6 +33,7 @@ class LanguageResource extends Resource
             'type' => trans('type'),
             'user' => trans('user'),
             'wiki' => trans('wiki'),
+            'config' => trans('config'),
         ];
     }
 }
