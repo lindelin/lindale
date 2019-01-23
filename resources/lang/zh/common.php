@@ -28,5 +28,5 @@ return [
     'year' => '年',
     'duration' => '期间',
     'choose-file' => '选择文件',
-
+    'take-photo' => '拍摄照片',
 ];
