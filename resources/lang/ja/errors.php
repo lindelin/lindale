@@ -31,4 +31,5 @@ return [
     'send-slack-failed' => 'Slack メッセージ送信失敗です。WebHook を確認してください。',
     'send-slack-failed-message' => 'あなたのプロジェクトから新しいメッセージが届きました。',
 
+    'not-photo' => '画像を指定してください。',
 ];
