@@ -29,7 +29,10 @@ class TodoRequest extends FormRequest
 
         if ($this->getMethod() == 'PATCH' or $this->getMethod() == 'PUT') {
             return [
-                'list_id' => 'nullable|integer'
+                'list_id' => 'nullable|integer',
+                'user_id' => 'nullable|integer',
+                'color_id' => 'nullable|integer',
+                'status_id' => 'nullable|integer',
             ];
         } else {
             return $create;
