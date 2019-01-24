@@ -134,7 +134,7 @@ class TodoRepository implements TodoRepositoryContract
         $input = $request->all(['content', 'details', 'user_id', 'color_id', 'list_id', 'status_id']);
 
         foreach ($input as $key => $value) {
-            if ($value == '') {
+            if ($value === '') {
                 continue;
             }
             $todo->$key = $value;
