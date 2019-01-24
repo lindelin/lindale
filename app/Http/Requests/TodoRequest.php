@@ -33,6 +33,8 @@ class TodoRequest extends FormRequest
                 'user_id' => 'nullable|integer',
                 'color_id' => 'nullable|integer',
                 'status_id' => 'nullable|integer',
+                'content' => 'nullable|string',
+                'details' => 'nullable|string',
             ];
         } else {
             return $create;
