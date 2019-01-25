@@ -147,7 +147,7 @@ class TasksController extends Controller
             'users' => UserResource::collection($users),
             'groups' => TaskGroupResource::collection($project->TaskGroups),
             'types' => TaskType::collection($project->TaskTypes),
-            'open_types' => TaskType::collection($project->openTaskTypes),
+            'open_types' => TaskType::collection($project->openTaskTypes()->get()),
         ], 200);
     }
 
