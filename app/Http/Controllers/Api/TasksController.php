@@ -130,7 +130,6 @@ class TasksController extends Controller
             "SubLeader",
             "TaskGroups",
             "TaskTypes",
-            "openTaskTypes",
         ]);
 
         $users = $project->Users;
