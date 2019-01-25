@@ -128,9 +128,7 @@ class TasksController extends Controller
             "Users",
             "ProjectLeader",
             "SubLeader",
-            "TaskGroups" => function ($query) {
-                $query->where('status_id', '<>', TaskGroup::CLOSE)->latest();
-            },
+            "TaskGroups",
         ]);
 
         $users = $project->Users;
