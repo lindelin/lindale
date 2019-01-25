@@ -220,6 +220,22 @@ class TasksController extends Controller
     }
 
     /**
+     * 更新API
+     * @param TaskRequest $request
+     * @param Project $project
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function store(TaskRequest $request, Project $project)
+    {
+        $this->authorize('is_member', [$project]);
+
+        $this->taskRepository->CreateTask($request, $project)->save();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.save-succeed')], 200);
+    }
+
+    /**
      * チケット削除
      * @param Task $task
      * @return \Illuminate\Http\JsonResponse

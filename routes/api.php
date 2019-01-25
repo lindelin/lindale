@@ -25,6 +25,7 @@ Route::prefix('/projects')->group(function () {
     Route::post('{project}/tasks/groups', 'TasksController@storeGroup');
     Route::get('{project}/tasks/edit-resource', 'TasksController@editResource');
     Route::get('{project}/tasks/groups/edit-resource', 'TasksController@groupEditResource');
+    Route::post('{project}/tasks', 'TasksController@store');
     Route::get('{project}/todos/', 'ProjectsController@todos');
     Route::post('{project}/todos/', 'TodosController@store');
     Route::post('{project}/wikis', 'WikisController@store');
