@@ -69,6 +69,7 @@ class WikisController extends Controller
     }
 
     /**
+     * Wiki 更新　API
      * @param WikiRequest $request
      * @param Wiki $wiki
      * @return \Illuminate\Http\JsonResponse
@@ -81,5 +82,21 @@ class WikisController extends Controller
         $this->wikiRepository->updateWiki($request, $wiki->project, $wiki)->update();
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
+    }
+
+    /**
+     * Wiki 作成　API
+     * @param WikiRequest $request
+     * @param Project $project
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function store(WikiRequest $request, Project $project)
+    {
+        $this->authorize('is_member', [$project]);
+
+        $this->wikiRepository->createWiki($request, $project)->save();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.save-succeed')], 200);
     }
 }
