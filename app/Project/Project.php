@@ -5,6 +5,7 @@ namespace App\Project;
 use App\Events\Project\ProjectCreated;
 use App\Events\Project\ProjectDeleted;
 use App\Events\Project\ProjectUpdated;
+use App\Task\TaskGroup;
 use App\Tools\Analytics\Achievable;
 use Config;
 use Illuminate\Database\Eloquent\Model;
@@ -235,6 +236,19 @@ class Project extends Model
     public function TaskTypes()
     {
         return $this->hasMany('App\Task\TaskType', 'project_id', 'id');
+    }
+
+    /**
+     * 一个项目可以定义多个任务类型
+     * 一对多.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function openTaskTypes()
+    {
+        return $this->hasMany('App\Task\TaskType', 'project_id', 'id')
+            ->where('status_id', '<>', TaskGroup::CLOSE)
+            ->latest();
     }
 
     /**

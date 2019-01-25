@@ -130,6 +130,7 @@ class TasksController extends Controller
             "SubLeader",
             "TaskGroups",
             "TaskTypes",
+            "openTaskTypes",
         ]);
 
         $users = $project->Users;
@@ -146,6 +147,7 @@ class TasksController extends Controller
             'users' => UserResource::collection($users),
             'groups' => TaskGroupResource::collection($project->TaskGroups),
             'types' => TaskType::collection($project->TaskTypes),
+            'open_types' => TaskType::collection($project->openTaskTypes),
         ], 200);
     }
 
