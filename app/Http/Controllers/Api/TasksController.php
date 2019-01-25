@@ -146,11 +146,11 @@ class TasksController extends Controller
         return response()->json([
             'users' => UserResource::collection($users),
             'groups' => TaskGroupResource::collection($project->TaskGroups),
-            'types' => TaskType::collection($project->TaskTypes),
-            'open_types' => TaskType::collection($project->TaskTypes()
+            'open_groups' => TaskGroupResource::collection($project->TaskGroups()
                 ->where('status_id', '<>', TaskGroup::CLOSE)
                 ->latest()
                 ->get()),
+            'types' => TaskType::collection($project->TaskTypes),
         ], 200);
     }
 
