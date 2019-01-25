@@ -29,6 +29,7 @@ class TaskResource extends Resource
             'user' => $this->User ? new UserResource($this->User) : null,
             'color' => $this->color_id,
             'type' => trans($this->Type->name),
+            'type_id' => $this->Type->id,
             'status' => $this->is_finish ? trans('task.finish') : $this->Status->name(),
             'sub_task_status' => Counter::SubTaskCount($this->resource).'　'.
                 trans('task.sub-task').'（'.Counter::FinishedSubTasks($this->resource).' - '.

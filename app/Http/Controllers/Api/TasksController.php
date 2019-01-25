@@ -129,6 +129,7 @@ class TasksController extends Controller
             "ProjectLeader",
             "SubLeader",
             "TaskGroups",
+            "TaskTypes",
         ]);
 
         $users = $project->Users;
@@ -144,6 +145,7 @@ class TasksController extends Controller
         return response()->json([
             'users' => UserResource::collection($users),
             'groups' => TaskGroupResource::collection($project->TaskGroups),
+            'types' => TaskType::collection($project->TaskTypes),
         ], 200);
     }
 
