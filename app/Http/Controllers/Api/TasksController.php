@@ -124,6 +124,15 @@ class TasksController extends Controller
     {
         $this->authorize('is_member', [$project]);
 
+        $project->load([
+            "Users",
+            "ProjectLeader",
+            "SubLeader",
+            "TaskGroups" => function ($query) {
+                $query->where('status_id', '<>', TaskGroup::CLOSE)->latest();
+            },
+        ]);
+
         $users = $project->Users;
 
         if ($project->ProjectLeader) {
