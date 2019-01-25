@@ -17,6 +17,7 @@ class TaskResource extends Resource
     {
         return [
             'project' => $this->Project->title,
+            'project_id' => $this->Project->id,
             'id' => $this->id,
             'initiator' => $this->Initiator  ? new UserResource($this->Initiator) : null,
             'title' => $this->title,
@@ -34,6 +35,7 @@ class TaskResource extends Resource
                 trans('task.finish').' ，'.Counter::UnfinishedSubTasks($this->resource).' - '.
                 trans('task.unfinished').'）',
             'group' => $this->Group ? $this->Group->title : null,
+            'group_id' => $this->Group ? $this->Group->id : null,
             'priority' => $this->Priority->name(),
             'is_finish' => $this->is_finish,
             'updated_at' => $this->updated_at->diffForHumans(),

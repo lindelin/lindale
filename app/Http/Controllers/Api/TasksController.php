@@ -13,6 +13,7 @@ use App\Http\Resources\UserResource;
 use App\Project\Project;
 use App\Task\Task;
 use App\Task\TaskGroup;
+use App\Http\Resources\TaskGroup as TaskGroupResource;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -115,14 +116,14 @@ class TasksController extends Controller
 
     /**
      * 編集資源
-     * @param Task $task
+     * @param Project $project
      * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function editResource(Task $task)
+    public function editResource(Project $project)
     {
-        $this->authorize('show', [$task]);
-        $project = $task->Project;
+        $this->authorize('is_member', [$project]);
+
         $users = $project->Users;
 
         if ($project->ProjectLeader) {
@@ -134,7 +135,8 @@ class TasksController extends Controller
         }
 
         return response()->json([
-            'users' => UserResource::collection($users)
+            'users' => UserResource::collection($users),
+            'groups' => TaskGroupResource::collection($project->TaskGroups),
         ], 200);
     }
 

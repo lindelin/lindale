@@ -23,6 +23,7 @@ Route::prefix('/projects')->group(function () {
     Route::get('{project}/top', 'ProjectsController@topResources');
     Route::get('{project}/tasks/groups', 'ProjectsController@taskGroups');
     Route::post('{project}/tasks/groups', 'TasksController@storeGroup');
+    Route::get('{project}/tasks/edit-resource', 'TasksController@editResource');
     Route::get('{project}/tasks/groups/edit-resource', 'TasksController@groupEditResource');
     Route::get('{project}/todos/', 'ProjectsController@todos');
     Route::post('{project}/todos/', 'TodosController@store');
@@ -40,7 +41,6 @@ Route::prefix('/tasks')->group(function () {
     Route::get('group/{taskGroup}', 'TasksController@groupTaskCollection');
     Route::put('group/{taskGroup}', 'TasksController@updateGroup');
     Route::put('{task}/complete', 'TasksController@completeTask');
-    Route::get('{task}/edit-resource', 'TasksController@editResource');
     Route::get('{task}', 'TasksController@taskResource');
     Route::put('{task}', 'TasksController@update');
     Route::delete('{task}', 'TasksController@destroy');
