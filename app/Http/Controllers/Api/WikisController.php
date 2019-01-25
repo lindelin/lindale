@@ -10,6 +10,7 @@ use App\Project\Project;
 use App\Wiki\Wiki;
 use App\Wiki\WikiType;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class WikisController extends Controller
 {
@@ -96,6 +97,26 @@ class WikisController extends Controller
         $this->authorize('is_member', [$project]);
 
         $this->wikiRepository->createWiki($request, $project)->save();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.save-succeed')], 200);
+    }
+
+    /**
+     * WikiType 作成　API
+     * @param Request $request
+     * @param Project $project
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     */
+    public function storeType(Request $request, Project $project)
+    {
+        $this->authorize('is_member', [$project]);
+
+        $this->validate($request, [
+            'type_name' => 'required|string',
+        ]);
+
+        $this->wikiRepository->createWikiType($request, $project)->save();
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.save-succeed')], 200);
     }
