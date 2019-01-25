@@ -239,19 +239,6 @@ class Project extends Model
     }
 
     /**
-     * 一个项目可以定义多个任务类型
-     * 一对多.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function openTaskTypes()
-    {
-        return $this->hasMany('App\Task\TaskType', 'project_id', 'id')
-            ->where('status_id', '<>', TaskGroup::CLOSE)
-            ->latest();
-    }
-
-    /**
      * 一个项目可以定义多个任务状态
      * 一对多.
      *
