@@ -21,7 +21,7 @@ class ServiceController extends Controller
                     'QDZ72V563C.org.lindelin.lindale-ios',
                 ]
             ]
-        ], 200);
+        ], 200)->header('Content-Type', 'application/json');
     }
 
     /**
