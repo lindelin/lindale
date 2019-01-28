@@ -17,7 +17,8 @@ class ServiceController extends Controller
     public function appleAppSiteAssociation()
     {
         return Storage::download('apple-app-site-association', 'apple-app-site-association', [
-            'Content-Type' => 'application/json'
+            'Content-Type' => 'application/json',
+            'Content-Disposition' => 'attachment; filename="apple-app-site-association"'
         ]);
 //        return response()->json([
 //            'webcredentials' => [
