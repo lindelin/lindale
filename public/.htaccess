@@ -20,4 +20,8 @@
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 </IfModule>
 
+<Files apple-app-site-association>
+    Header set Content-Type "application/json"
+</Files>
+
 php_value upload_max_filesize "8M"
