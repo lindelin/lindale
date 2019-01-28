@@ -6,6 +6,7 @@ use App\Http\Resources\LanguageResource;
 use App\Models\User\Device;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Storage;
 
 class ServiceController extends Controller
 {
@@ -15,13 +16,14 @@ class ServiceController extends Controller
      */
     public function appleAppSiteAssociation()
     {
-        return response()->json([
-            'webcredentials' => [
-                'apps' => [
-                    'QDZ72V563C.org.lindelin.lindale-ios',
-                ]
-            ]
-        ], 200);
+        return Storage::download('apple-app-site-association');
+//        return response()->json([
+//            'webcredentials' => [
+//                'apps' => [
+//                    'QDZ72V563C.org.lindelin.lindale-ios',
+//                ]
+//            ]
+//        ], 200);
     }
 
     /**
