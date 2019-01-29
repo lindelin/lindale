@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\ApplePushNotificationService;
 use App\Tools\Analytics\GraphTool;
 use App\Tools\Html\IconTool;
 use App\Policies\AdminPolicy;
@@ -50,6 +51,10 @@ class ToolServiceProvider extends ServiceProvider
 
         $this->app->singleton('graphTool', function () {
             return $this->app->make(GraphTool::class);
+        });
+
+        $this->app->singleton('fcm', function () {
+            return $this->app->make(ApplePushNotificationService::class);
         });
     }
 }

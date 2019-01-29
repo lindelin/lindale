@@ -28,5 +28,5 @@ return [
     'year' => 'Year',
     'duration' => 'Duration',
     'choose-file' => 'Choose File',
-
+    'take-photo' => 'Task photo',
 ];

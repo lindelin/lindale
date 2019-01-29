@@ -1,34 +1,28 @@
 language: php
 
 php:
-  - 7.0
-  - 7.1
+  - 7.2
 
 sudo: required
 
-dist: trusty
-
-addons:
-   chrome: stable
+before_install:
+   - composer self-update
 
 install:
+   - phpenv config-add travis.php.ini
+   - php -ini | grep memory_limit
    - cp .env.travis .env
-   - composer self-update
-   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+   - composer install -o
 
 before_script:
   - mysql -e 'create database lindale;'
   - php artisan key:generate
   - php artisan migrate
   - php artisan db:seed
-  - php artisan passport:install
-  #- google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-  #- php artisan serve &
 
 
 script:
   - ./vendor/bin/phpunit
-  #- php artisan dusk
 
 notifications:
     slack: lindelin:S2LWtcR8bjfvtUKN8R0bHrra

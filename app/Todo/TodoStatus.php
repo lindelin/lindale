@@ -27,5 +27,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TodoStatus extends Model
 {
-    //
+    /**
+     * 表示名
+     * @return array|\Illuminate\Contracts\Translation\Translator|null|string
+     */
+    public function name()
+    {
+        return trans($this->name);
+    }
 }

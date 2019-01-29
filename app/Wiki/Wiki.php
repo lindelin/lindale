@@ -2,6 +2,7 @@
 
 namespace App\Wiki;
 
+use App\Project\Project;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -51,5 +52,28 @@ class Wiki extends Model
     public function Type()
     {
         return $this->hasOne('App\Wiki\WikiType', 'id', 'type_id');
+    }
+
+    /**
+     * Project
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function project()
+    {
+        return $this->hasOne(Project::class, 'id', 'project_id');
+    }
+
+    /**
+     * Typeフィルター
+     * @param $query
+     * @param WikiType $type
+     */
+    public function scopeTypeFilter($query, WikiType $type)
+    {
+        if ($type->id === 1) {
+            $query->where('type_id', $type->id)->orWhere('type_id', 0);
+        } else {
+            $query->where('type_id', $type->id);
+        }
     }
 }

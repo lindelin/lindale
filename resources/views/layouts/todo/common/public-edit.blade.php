@@ -101,7 +101,7 @@
                                     </label>
                                     <div>
                                         <select class="selectpicker form-control" data-live-search="true" name="list_id">
-                                            <option value="">{{ trans('project.none') }}</option>
+                                            <option value="0">{{ trans('project.none') }}</option>
                                             @foreach($lists as $list)
                                                 <option value="{{ $list->id }}" @if($todo->list_id === $list->id) selected @endif>{{ $list->title }}</option>
                                             @endforeach

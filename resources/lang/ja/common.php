@@ -28,5 +28,5 @@ return [
     'year' => '年',
     'duration' => '期間',
     'choose-file' => 'ファイルを選択',
-
+    'take-photo' => '写真を撮る',
 ];

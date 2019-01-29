@@ -31,4 +31,6 @@ return [
     'send-slack-failed' => 'Sending Slack message failed, please check if WebHook is correct.',
     'send-slack-failed-message' => 'You have a new message for your project.',
 
+    'not-photo' => 'The profile photo must be an image.'
+
 ];

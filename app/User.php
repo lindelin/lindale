@@ -3,11 +3,14 @@
 namespace App;
 
 use App\Events\User\UserCreated;
+use App\Models\User\Device;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use File;
+use Colorable;
 
 /**
  * App\User.
@@ -211,6 +214,17 @@ class User extends Authenticatable
         return $this->hasMany('App\Task\Task', 'user_id', 'id');
     }
 
+    /**
+     * Device Tokens
+     * 一对多.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function devices()
+    {
+        return $this->hasMany(Device::class, 'user_id', 'id');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | Other 其他
@@ -237,5 +251,52 @@ class User extends Authenticatable
     public function routeNotificationForSlack()
     {
         return user_config(self::find($this->id), config('config.user.key.slack'));
+    }
+
+    /**
+     * event persona
+     * @param $query
+     */
+    public function scopeTaskEventPersona($query, $event)
+    {
+        $query->whereIn('id', [
+            $event->task->User->id ?? 0,
+            $event->task->Project->ProjectLeader->id ?? 0,
+            $event->task->Project->SubLeader->id ?? 0,
+        ]);
+
+        $query->whereNotIn('id', [
+            $event->user->id ?? 0,
+        ]);
+    }
+
+    /**
+     * event persona
+     * @param $query
+     */
+    public function scopeTodoEventPersona($query, $event)
+    {
+        $query->whereIn('id', [
+            $event->todo->User->id ?? 0,
+            $event->todo->Project->ProjectLeader->id ?? 0,
+            $event->todo->Project->SubLeader->id ?? 0,
+        ]);
+
+        $query->whereNotIn('id', [
+            $event->user->id ?? 0,
+        ]);
+    }
+
+    /**
+     * Photo Path
+     * @return string
+     */
+    public function photoPath()
+    {
+        if ($this->photo != '' and File::exists(public_path('storage/'.$this->photo))) {
+            return asset('storage/'.$this->photo);
+        }
+
+        return asset(Colorable::lindaleProfileImg($this->email));
     }
 }

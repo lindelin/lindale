@@ -46,4 +46,11 @@ interface TodoRepositoryContract
      * @return mixed
      */
     public function createTodoList($request, Project $project = null, User $user = null);
+
+    /**
+     * Todo からプロジェクトのユーザを取得
+     * @param Todo $todo
+     * @return mixed
+     */
+    public function projectUsers(Todo $todo);
 }

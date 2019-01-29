@@ -5,6 +5,7 @@ namespace App\Project;
 use App\Events\Project\ProjectCreated;
 use App\Events\Project\ProjectDeleted;
 use App\Events\Project\ProjectUpdated;
+use App\Task\TaskGroup;
 use App\Tools\Analytics\Achievable;
 use Config;
 use Illuminate\Database\Eloquent\Model;

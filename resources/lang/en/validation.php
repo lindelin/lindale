@@ -127,7 +127,9 @@ return [
         'image'                 => 'Image',
         'type_name'             => 'Name',
         'new-password'          => 'New Password',
+        'new_password'          => 'New Password',
         'project-pass'          => 'Project Password',
+        'contents.*'            => 'Contents',
     ],
 
 ];

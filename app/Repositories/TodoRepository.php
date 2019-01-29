@@ -98,7 +98,7 @@ class TodoRepository implements TodoRepositoryContract
     {
         $todo = new Todo();
 
-        $input = $request->all(['content', 'details', 'user_id', 'color_id', 'list_id', 'type_id', 'project_id']);
+        $input = $request->all(['content', 'details', 'user_id', 'list_id', 'type_id', 'project_id']);
 
         foreach ($input as $key => $value) {
             if ($value == '') {
@@ -115,6 +115,7 @@ class TodoRepository implements TodoRepositoryContract
             $todo->user_id = $request->user()->id;
         }
 
+        $todo->color_id = $request->input('color_id') ?? config('color.default');
         $todo->status_id = config('todo.status.underway');
         $todo->initiator_id = $request->user()->id;
 
@@ -133,7 +134,7 @@ class TodoRepository implements TodoRepositoryContract
         $input = $request->all(['content', 'details', 'user_id', 'color_id', 'list_id', 'status_id']);
 
         foreach ($input as $key => $value) {
-            if ($value == '') {
+            if ($value === null) {
                 continue;
             }
             $todo->$key = $value;
@@ -189,5 +190,30 @@ class TodoRepository implements TodoRepositoryContract
         }
 
         return $projects;
+    }
+
+    /**
+     * Todo からプロジェクトのユーザを取得
+     * @param Todo $todo
+     * @return mixed
+     */
+    public function projectUsers(Todo $todo)
+    {
+        $users = null;
+        $project = $todo->Project;
+
+        if ($project) {
+            $users = $project->Users;
+
+            if ($project->ProjectLeader) {
+                $users->push($project->ProjectLeader);
+            }
+
+            if ($project->SubLeader) {
+                $users->push($project->SubLeader);
+            }
+        }
+
+        return $users;
     }
 }

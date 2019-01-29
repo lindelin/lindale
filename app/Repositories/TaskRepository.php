@@ -349,16 +349,7 @@ class TaskRepository implements TaskRepositoryContract
     public function CreateTaskActivity($request, Task $task)
     {
         $activity = new TaskActivity();
-
-        $input = $request->all(['content', 'is_finish']);
-
-        foreach ($input as $key => $value) {
-            if ($value == '') {
-                continue;
-            }
-            $activity->$key = $value;
-        }
-
+        $activity->content = $request->input('content');
         $activity->task_id = $task->id;
         $activity->user_id = $request->user()->id;
 

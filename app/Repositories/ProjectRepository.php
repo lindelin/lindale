@@ -144,9 +144,6 @@ class ProjectRepository implements ProjectRepositoryContract
         }
 
         foreach ($input as $key => $value) {
-            if ($value == '') {
-                continue;
-            }
             $project->$key = $value;
         }
 

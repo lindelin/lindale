@@ -34,7 +34,14 @@ class TaskGroupRequest extends FormRequest
 
         $delete = [];
 
-        $update = [];
+        $update = [
+            'title' => 'required|max:100',
+            'start_at' => 'nullable|date|date_format:Y-m-d',
+            'end_at' => 'nullable|date|after:start_at|date_format:Y-m-d',
+            'type_id' => 'required|integer',
+            'status_id' => 'required|integer',
+            'color_id' => 'required|integer',
+        ];
 
         if ($this->getMethod() == 'DELETE') {
             return $delete;

@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('root');;
+Route::get('/', 'HomeController@index')->name('root');
+// Route::get('/apple-app-site-association', 'Api\ServiceController@appleAppSiteAssociation');
 Route::get('/lang/{lang}', 'HomeController@lang')->name('lang');
 
 /*

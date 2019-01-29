@@ -36,4 +36,6 @@ return [
     'send-slack-failed' => '发送 Slack 消息失败，请检查 WebHook 是否正确。',
     'send-slack-failed-message' => '您的项目有一条新消息。',
 
+    'not-photo' => '必须是图片。',
+
 ];

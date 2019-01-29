@@ -147,7 +147,9 @@ return [
         'image'                 => '图片',
         'type_name'             => '名称',
         'new-password'          => '新密码',
+        'new_password'          => '新密码',
         'project-pass'          => '项目密码',
+        'contents.*'            => '内容',
     ],
 
 ];

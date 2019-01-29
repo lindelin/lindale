@@ -35,5 +35,6 @@ return [
     'created-todo'  => ':Name さんは新しい TODO を作成しました：',
     'updated-todo'  => ':Name さんは TODO を更新しました：',
     'deleted-todo'  => ':Name さんは TODO を削除しました：',
+    'has-finished-todo'  => 'すでに完了しました。',
 
 ];
