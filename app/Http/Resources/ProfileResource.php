@@ -76,5 +76,4 @@ class ProfileResource extends Resource
             ->view('vendor.consoletvs.charts.highcharts.multi.areaspline')
             ->render();
     }
-
 }
