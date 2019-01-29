@@ -75,5 +75,3 @@ Route::put('wikis/{wiki}', 'WikisController@update');
 
 Route::put('/sub-tasks/{subTask}', 'SubTaskController@update');
 Route::delete('/sub-tasks/{subTask}', 'SubTaskController@destroy');
-
-

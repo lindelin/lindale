@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-
 use App\Models\User\Device;
 use GuzzleHttp\Client;
 use Illuminate\Support\Collection;
@@ -30,13 +29,16 @@ class ApplePushNotificationService
      * タイトル
      * @var
      */
-    protected $title, $subtitle;
+    protected $title;
+    protected $subtitle;
 
     /**
      * category
      * @var
      */
-    protected $category, $object, $image;
+    protected $category;
+    protected $object;
+    protected $image;
 
     /**
      * ApplePushNotificationService constructor.
@@ -130,7 +132,6 @@ class ApplePushNotificationService
     public function send()
     {
         foreach (Device::tokens($this->users)->chunk(1000) as $chunk) {
-
             $response = $this->http->post(config('services.firebase.fcm.url'), [
                 'headers' => [
                     'Authorization' => 'key=' . config('services.firebase.fcm.key'),

@@ -70,7 +70,6 @@ class Wiki extends Model
      */
     public function scopeTypeFilter($query, WikiType $type)
     {
-
         if ($type->id === 1) {
             $query->where('type_id', $type->id)->orWhere('type_id', 0);
         } else {
