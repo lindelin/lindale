@@ -7,10 +7,12 @@ sudo: required
 
 before_install:
    - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+   - composer self-update
 
 install:
+   - phpenv config-add travis.php.ini
+   - php -ini | grep memory_limit
    - cp .env.travis .env
-   - composer self-update
    - composer install
 
 before_script:
