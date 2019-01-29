@@ -6,7 +6,7 @@ php:
 sudo: required
 
 before_install:
-   - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+   - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 install:
    - cp .env.travis .env
