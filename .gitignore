@@ -16,3 +16,4 @@ composer.lock
 /.idea
 _ide_helper.php
 .phpstorm.meta.php
+.phpunit.result.cache

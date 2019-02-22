@@ -60,17 +60,17 @@
                         <p>The Project Manager For Everyone.</p>
 
                         <nav class="menu">
-                            <a href="/" class="nav-title "><h1>Lindalë</h1></a>
+                            <a href="/" class="nav-title"><h1>Lindalë</h1></a>
 
-                            <a class="nav-link" href="http://www.lindelin.org/projects/lindale">About</a>
+                            <a class="nav-link" href="https://www.lindelin.org">About</a>
 
-                            <a class="nav-link" href="http://www.lindelin.org/projects/lindale">Document</a>
-
-                            <a class="nav-link" href="http://www.lindelin.org">News</a>
+                            <a class="nav-link" href="https://github.com/lindelin/lindale/issues">Issues</a>
 
                             <a class="nav-link" href="https://github.com/lindelin/lindale">GitHub</a>
 
-                            <a class="nav-link" href="http://www.lindelin.org">Blog</a>
+                            <a class="nav-link" href="https://github.com/lindelin/lindale-ios">iOS App</a>
+
+                            <a class="nav-link" href="https://jp.lindelin.org/privacy/">Privacy Policy</a>
 
                             <div class="nav-border"></div>
 

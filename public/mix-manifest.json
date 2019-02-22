@@ -1,7 +1,18 @@
 {
-  "/js/app.js": "/js/app.js",
-  "/../resources/assets/css/lib.css": "/../resources/assets/css/lib.css",
-  "/css/main.css": "/css/main.css",
-  "/css/welcome.css": "/css/welcome.css",
-  "/js/lib.js": "/js/lib.js"
+    "/js/app.js": "/js/app.js",
+    "/../resources/assets/css/lib.css": "/../resources/assets/css/lib.css",
+    "/resources/assets/css/font-awesome.css": "/resources/assets/css/font-awesome.css",
+    "/resources/assets/css/bootstrap-select.css": "/resources/assets/css/bootstrap-select.css",
+    "/resources/assets/js/bootstrap-select.js": "/resources/assets/js/bootstrap-select.js",
+    "/resources/assets/css/bootstrap-markdown.css": "/resources/assets/css/bootstrap-markdown.css",
+    "/resources/assets/js/bootstrap-markdown.js": "/resources/assets/js/bootstrap-markdown.js",
+    "/resources/assets/js/marked.js": "/resources/assets/js/marked.js",
+    "/resources/assets/css/bootstrap-datetimepicker.css": "/resources/assets/css/bootstrap-datetimepicker.css",
+    "/resources/assets/js/bootstrap-datetimepicker.js": "/resources/assets/js/bootstrap-datetimepicker.js",
+    "/resources/assets/js/moment.js": "/resources/assets/js/moment.js",
+    "/resources/assets/js/locales.js": "/resources/assets/js/locales.js",
+    "/resources/assets/js/jquery.js": "/resources/assets/js/jquery.js",
+    "/css/main.css": "/css/main.css",
+    "/js/lib.js": "/js/lib.js",
+    "/css/welcome.css": "/css/welcome.css"
 }
