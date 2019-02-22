@@ -58,7 +58,7 @@ return [
             'url' => env('SYSTEM_NOTIFICATION_SLACK'),
             'username' => 'Lindalë Log',
             'emoji' => ':boom:',
-            'level' => 'critical',
+            'level' => 'debug',
         ],
 
         'papertrail' => [
