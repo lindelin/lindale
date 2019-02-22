@@ -30,14 +30,11 @@ class LindaleUpdate extends Command
 
         if ($this->confirm('Do you want to update the system?')) {
             try {
-                $this->comment(PHP_EOL.'<info>Step 1/3: Caching configs...</info>');
+                $this->comment(PHP_EOL.'<info>Step 1/2: Caching configs...</info>');
                 Artisan::call('config:cache');
 
-                $this->comment(PHP_EOL.'<info>Step 2/3: Caching routes...</info>');
+                $this->comment(PHP_EOL.'<info>Step 2/2: Caching routes...</info>');
                 Artisan::call('route:cache');
-
-                $this->comment(PHP_EOL.'<info>Step 3/3: Optimizing...</info>');
-                Artisan::call('optimize');
 
                 $this->comment(PHP_EOL.'Successfully updated. <info>✔</info>');
             } catch (\Exception $e) {

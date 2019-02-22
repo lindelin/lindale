@@ -63,15 +63,15 @@
                         <nav class="menu">
                             <a href="/" class="nav-title "><h1>Lindalë</h1></a>
 
-                            <a class="nav-link" href="http://www.lindelin.org/projects/lindale">About</a>
+                            <a class="nav-link" href="https://www.lindelin.org" target="_blank">About</a>
 
-                            <a class="nav-link" href="http://www.lindelin.org/projects/lindale">Document</a>
+                            <a class="nav-link" href="https://github.com/lindelin/lindale/issues" target="_blank">Issues</a>
 
-                            <a class="nav-link" href="http://www.lindelin.org">News</a>
+                            <a class="nav-link" href="https://github.com/lindelin/lindale" target="_blank">GitHub</a>
 
-                            <a class="nav-link" href="https://github.com/lindelin/lindale">GitHub</a>
+                            <a class="nav-link" href="https://github.com/lindelin/lindale-ios" target="_blank">iOS App</a>
 
-                            <a class="nav-link" href="http://www.lindelin.org">Blog</a>
+                            <a class="nav-link" href="https://jp.lindelin.org/privacy/" target="_blank">Privacy Policy</a>
 
                             <div class="nav-border"></div>
 

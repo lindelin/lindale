@@ -15,7 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Lindalë'),
     'title' => 'Lindalë - The Project Manager For Everyone.',
-    'version' => 'v2.0.1',
+    'version' => 'v2.1.0',
 
     /*
     |--------------------------------------------------------------------------
@@ -55,6 +55,8 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
+
+    'asset_url' => env('ASSET_URL', null),
 
     /*
     |--------------------------------------------------------------------------
@@ -114,22 +116,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Logging Configuration
+    | Faker Locale
     |--------------------------------------------------------------------------
     |
-    | Here you may configure the log settings for your application. Out of
-    | the box, Laravel uses the Monolog PHP logging library. This gives
-    | you a variety of powerful log handlers / formatters to utilize.
-    |
-    | Available Settings: "single", "daily", "syslog", "errorlog"
+    | This locale will be used by the Faker PHP library when generating fake
+    | data for your database seeds. For example, this will be used to get
+    | localized telephone numbers, street address information and more.
     |
     */
 
-    'log' => env('APP_LOG', 'daily'),
-
-    'log_max_files' => 30,
-
-    'log_level' => env('APP_LOG_LEVEL', 'debug'),
+    'faker_locale' => 'en_US',
 
     /*
     |--------------------------------------------------------------------------
@@ -181,7 +177,7 @@ return [
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Lindelea\Support\Aws\Elb\ServiceProvider::class,
+        //Lindelea\Support\Aws\Elb\ServiceProvider::class,
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
 
         /*
