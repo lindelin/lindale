@@ -43,7 +43,7 @@ class TaskActivityHasCreated extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['Slack'];
+        return ['slack'];
     }
 
     /**
