@@ -175,6 +175,7 @@ class TasksController extends Controller
      * @return \Illuminate\Http\JsonResponse
      * @throws TaskUpdateApiException
      * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function completeTask(Request $request, Task $task)
     {
@@ -197,6 +198,7 @@ class TasksController extends Controller
         }
 
         $task->is_finish = $request->input('is_finish');
+        $task->color_id = config('color.success');
         $task->update();
 
         return response()->json(['status' => 'OK', 'messages' => trans('errors.update-succeed')], 200);
