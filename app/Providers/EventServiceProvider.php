@@ -17,6 +17,7 @@ class EventServiceProvider extends ServiceProvider
         //项目事件
         'App\Events\Project\ProjectCreated' => [
             'App\Listeners\Project\MakeProjectDirectory',
+            'App\Listeners\Project\CreateDefaultData',
             'App\Listeners\Project\Notification\ProjectHasCreatedNotify',
         ],
         'App\Events\Project\ProjectUpdated' => [
