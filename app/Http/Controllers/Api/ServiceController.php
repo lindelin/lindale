@@ -66,12 +66,12 @@ class ServiceController extends Controller
      */
     public function logout(Request $request)
     {
-        $request->user()->token()->revoke();
-
         $request->user()->devices()
             ->where('name', $request->input('device_name', ''))
             ->where('type', $request->input('device_type', ''))
             ->update(['revoked' => true]);
+
+        $request->user()->token()->revoke();
 
         return response()->json(['status' => 'OK', 'messages' => ''], 200);
     }
