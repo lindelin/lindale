@@ -28,7 +28,7 @@ class ServiceController extends Controller
      * Device Token 保存 API
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function storeDeviceToken(Request $request)
     {
@@ -49,8 +49,30 @@ class ServiceController extends Controller
         return response()->json(['status' => 'OK', 'messages' => trans('errors.save-succeed')], 200);
     }
 
+    /**
+     * 言語データ同期
+     * @param Request $request
+     * @return LanguageResource
+     */
     public function langSync(Request $request)
     {
         return new LanguageResource($request->user());
+    }
+
+    /**
+     * Logout Api
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout(Request $request)
+    {
+        $request->user()->token()->revoke();
+
+        $request->user()->devices()
+            ->where('name', $request->input('device_name', ''))
+            ->where('type', $request->input('device_type', ''))
+            ->update(['revoked' => true]);
+
+        return response()->json(['status' => 'OK', 'messages' => ''], 200);
     }
 }
