@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 Route::post('/device-token', 'ServiceController@storeDeviceToken');
 Route::get('/profile', 'ProfileController@resources');
 Route::get('/lang', 'ServiceController@langSync');
-Route::get('/logout', 'ServiceController@logout');
+Route::post('/logout', 'ServiceController@logout');
 
 // Projects
 Route::prefix('/projects')->group(function () {
