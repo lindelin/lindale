@@ -24,9 +24,16 @@ class ProfileController extends Controller
                 'Tasks as unfinished_task_count' => function ($query) {
                     $query->where('is_finish', config('task.unfinished'));
                 },
-                'MyProjects as my_projects',
-                'MySlProjects as sl_projects',
-                'Projects as projects',
+                'MyProjects as my_project_count',
+                'MySlProjects as sl_project_count',
+                'Projects as project_count',
+            ])->with([
+                'Projects' => function ($query) {
+                    $query->with(['ProjectLeader', 'SubLeader']);
+                },
+                'favorites' => function ($query) {
+                    $query->with(['ProjectLeader', 'SubLeader']);
+                },
             ])->first()
         );
     }

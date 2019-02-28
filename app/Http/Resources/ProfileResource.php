@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Project\Project;
 use App\User;
 use Illuminate\Http\Resources\Json\Resource;
 use File;
@@ -30,7 +31,7 @@ class ProfileResource extends Resource
             'created_at' => $this->created_at->format('Y/m/d h:i:s'),
             'updated_at' => $this->updated_at->format('Y/m/d h:i:s'),
             'status' => [
-                'project_count' => (int)$this->my_projects + $this->sl_projects + $this->projects,
+                'project_count' => (int)$this->my_project_count + $this->sl_project_count + $this->project_count,
                 'unfinished_task_count' => (int)$this->unfinished_task_count,
                 'unfinished_todo_count' => (int)$this->unfinished_todo_count,
             ],
@@ -38,6 +39,14 @@ class ProfileResource extends Resource
                 'total' => Calculator::UserProgress($this->resource),
                 'task' => Calculator::UserTaskProgressCompute($this->resource),
                 'todo' => Calculator::UserTodoProgressCompute($this->resource),
+            ],
+            'projects' => [
+                'favorites' => new ProjectCollection($this->favorites),
+                'management' => new ProjectCollection(Project::where('user_id', $this->id)
+                    ->orWhere('sl_id', $this->id)
+                    ->latest()
+                    ->get()),
+                'normal' => new ProjectCollection($this->Projects),
             ],
             'activity' => view()->make('layouts.webview')->with('contents', $this->createActivityChart($request->user()))->render(),
         ];
