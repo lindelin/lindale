@@ -2,16 +2,32 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\ProjectRequest;
 use App\Http\Resources\Project\TopResource;
 use App\Http\Resources\ProjectCollection;
 use App\Http\Resources\TaskGroup;
 use App\Http\Resources\TodoResource;
 use App\Project\Project;
 use App\Http\Controllers\Controller;
+use App\Repositories\ProjectRepository;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
+    /**
+     * @var ProjectRepository
+     */
+    public $projectRepository;
+
+    /**
+     * ProjectsController constructor.
+     * @param ProjectRepository $projectRepository
+     */
+    public function __construct(ProjectRepository $projectRepository)
+    {
+        $this->projectRepository = $projectRepository;
+    }
+
     /**
      * プロジェクト一覧資源
      * @return ProjectCollection
@@ -87,5 +103,17 @@ class ProjectsController extends Controller
             ->orderBy('status_id', 'desc')
             ->latest('updated_at')
             ->paginate(20));
+    }
+
+    /**
+     * プロジェクト作成　API
+     * @param ProjectRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store(ProjectRequest $request)
+    {
+        $this->projectRepository->CreateProject($request)->save();
+
+        return response()->json(['status' => 'OK', 'messages' => trans('errors.save-succeed')], 200);
     }
 }

@@ -20,6 +20,7 @@ Route::post('/logout', 'ServiceController@logout');
 // Projects
 Route::prefix('/projects')->group(function () {
     Route::get('/', 'ProjectsController@resources');
+    Route::post('/', 'ProjectsController@store');
     Route::get('favorites', 'ProjectsController@favorites');
     Route::get('{project}/top', 'ProjectsController@topResources');
     Route::get('{project}/tasks/groups', 'ProjectsController@taskGroups');
