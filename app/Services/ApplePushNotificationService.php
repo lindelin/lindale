@@ -154,7 +154,7 @@ class ApplePushNotificationService
 
             info('Send push notification', json_decode($response->getBody(), true));
 
-            info(var_dump($chunk->combine(json_decode($response->getBody())->results)));
+            info('sfgsdfg', $chunk->combine(json_decode($response->getBody())->results)->toArray());
         }
     }
 }
