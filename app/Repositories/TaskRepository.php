@@ -269,6 +269,8 @@ class TaskRepository implements TaskRepositoryContract
             $task->$key = $value;
         }
 
+        $task->user_id = $request->input('user_id', null);
+
         return $task;
     }
 
