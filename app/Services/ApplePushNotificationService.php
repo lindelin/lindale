@@ -153,6 +153,14 @@ class ApplePushNotificationService
             ]);
 
             info('Send push notification', json_decode($response->getBody(), true));
+
+            foreach ($chunk->combine(json_decode($response->getBody())->results) as $token => $result) {
+                foreach ($result as $key => $value) {
+                    if ($key === 'error') {
+                        Device::where('token', $token)->delete();
+                    }
+                }
+            }
         }
     }
 }
