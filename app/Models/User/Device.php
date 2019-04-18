@@ -45,6 +45,9 @@ class Device extends Model
      */
     public static function tokens(Collection $users): Collection
     {
-        return static::whereIn('user_id', $users->pluck('id')->toArray())->get()->pluck('token');
+        return static::whereIn('user_id', $users->pluck('id')->toArray())
+            ->where('revoked', false)
+            ->get()
+            ->pluck('token');
     }
 }
