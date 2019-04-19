@@ -344,3 +344,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 | 测试路由
 |
 */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

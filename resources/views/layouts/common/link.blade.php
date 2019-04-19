@@ -6,11 +6,8 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 {{-- cdn js--}}
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-{{-- Charts CDN --}}
-{!! Charts::assets() !!}
 {{-- css --}}
 <link href="{{ asset('/css/main.css') }}" rel="stylesheet" type="text/css">
-<link href="/vendor/swatkins/gantt/css/gantt.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="{{ asset('dhtmlxGantt/codebase/dhtmlxgantt.css') }}" type="text/css" media="screen" title="no title" charset="utf-8">
 {{-- js --}}
 <script src="{{ asset('js/lib.js') }}" type="text/javascript" charset="utf-8"></script>
