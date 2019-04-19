@@ -170,16 +170,6 @@ return [
          * Package Service Providers...
          */
 
-        Laravel\Passport\PassportServiceProvider::class,
-        Laravel\Tinker\TinkerServiceProvider::class,
-        Spatie\Backup\BackupServiceProvider::class,
-        ConsoleTVs\Charts\ChartsServiceProvider::class,
-        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
-        //Lindelea\Support\Aws\Elb\ServiceProvider::class,
-        Fideloper\Proxy\TrustedProxyServiceProvider::class,
-
         /*
          * Application Service Providers...
          */
