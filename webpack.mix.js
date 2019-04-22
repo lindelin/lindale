@@ -12,9 +12,14 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js');
+mix.sass('resources/assets/sass/style.scss', 'public/css', { implementation: require('node-sass') }).options({
+    processCssUrls: false
+}).sourceMaps().version();
 
 // Welcome CSS
 mix.styles([
     'resources/assets/css/welcome.css',
     'resources/assets/css/normalize.css',
 ], 'public/css/welcome.css');
+
+mix.browserSync('lindale.test');

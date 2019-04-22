@@ -112,7 +112,7 @@
         &.purchase-button {
           background-color: #d209fa;
           @include filter-gradient(#d209fa, #4f81d4, horizontal);
-          @include background-image(linear-gradient(left, #d209fa 1%, #4f81d4 100%));
+          @include background-image(linear-gradient(to left, #d209fa 1%, #4f81d4 100%));
           color: $white;
           border: none;
           line-height: 1;

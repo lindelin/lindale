@@ -5,31 +5,30 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin Free Bootstrap-4 Admin Dashboard Template</title>
+    <title>Star Admin Free Bootstrap Admin Dashboard Template</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.addons.css">
+    <link rel="stylesheet" href="vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
     <!-- endinject -->
     <!-- plugin css for this page -->
-    <link rel="stylesheet" href="../../vendors/icheck/skins/all.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/style.css') }}">
     <!-- endinject -->
-    <link rel="shortcut icon" href="../../images/favicon.png" />
+    <link rel="shortcut icon" href="images/favicon.png" />
 </head>
 
 <body>
 <div class="container-scroller">
-    <!-- partial:../../partials/_navbar.html -->
+    <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-            <a class="navbar-brand brand-logo" href="../../index.html">
-                <img src="../../images/logo.svg" alt="logo" />
+            <a class="navbar-brand brand-logo" href="index.html">
+                <img src="images/logo.svg" alt="logo" />
             </a>
-            <a class="navbar-brand brand-logo-mini" href="../../index.html">
-                <img src="../../images/logo-mini.svg" alt="logo" />
+            <a class="navbar-brand brand-logo-mini" href="index.html">
+                <img src="images/logo-mini.svg" alt="logo" />
             </a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -63,7 +62,7 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item preview-item">
                             <div class="preview-thumbnail">
-                                <img src="../../images/faces/face4.jpg" alt="image" class="profile-pic">
+                                <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
                             </div>
                             <div class="preview-item-content flex-grow">
                                 <h6 class="preview-subject ellipsis font-weight-medium text-dark">David Grey
@@ -77,7 +76,7 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item preview-item">
                             <div class="preview-thumbnail">
-                                <img src="../../images/faces/face2.jpg" alt="image" class="profile-pic">
+                                <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
                             </div>
                             <div class="preview-item-content flex-grow">
                                 <h6 class="preview-subject ellipsis font-weight-medium text-dark">Tim Cook
@@ -91,7 +90,7 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item preview-item">
                             <div class="preview-thumbnail">
-                                <img src="../../images/faces/face3.jpg" alt="image" class="profile-pic">
+                                <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
                             </div>
                             <div class="preview-item-content flex-grow">
                                 <h6 class="preview-subject ellipsis font-weight-medium text-dark"> Johnson
@@ -162,7 +161,7 @@
                 <li class="nav-item dropdown d-none d-xl-inline-block">
                     <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                         <span class="profile-text">Hello, Richard V.Welsh !</span>
-                        <img class="img-xs rounded-circle" src="../../images/faces/face1.jpg" alt="Profile image">
+                        <img class="img-xs rounded-circle" src="images/faces/face1.jpg" alt="Profile image">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                         <a class="dropdown-item p-0">
@@ -194,20 +193,20 @@
                 </li>
             </ul>
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-                <span class="icon-menu"></span>
+                <span class="mdi mdi-menu"></span>
             </button>
         </div>
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-        <!-- partial:../../partials/_sidebar.html -->
+        <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
                 <li class="nav-item nav-profile">
                     <div class="nav-link">
                         <div class="user-wrapper">
                             <div class="profile-image">
-                                <img src="../../images/faces/face1.jpg" alt="profile image">
+                                <img src="images/faces/face1.jpg" alt="profile image">
                             </div>
                             <div class="text-wrapper">
                                 <p class="profile-name">Richard V.Welsh</p>
@@ -223,7 +222,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../index.html">
+                    <a class="nav-link" href="index.html">
                         <i class="menu-icon mdi mdi-television"></i>
                         <span class="menu-title">Dashboard</span>
                     </a>
@@ -237,34 +236,34 @@
                     <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item">
-                                <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a>
+                                <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a>
+                                <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../pages/forms/basic_elements.html">
+                    <a class="nav-link" href="pages/forms/basic_elements.html">
                         <i class="menu-icon mdi mdi-backup-restore"></i>
                         <span class="menu-title">Form elements</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../pages/charts/chartjs.html">
+                    <a class="nav-link" href="pages/charts/chartjs.html">
                         <i class="menu-icon mdi mdi-chart-line"></i>
                         <span class="menu-title">Charts</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../pages/tables/basic-table.html">
+                    <a class="nav-link" href="pages/tables/basic-table.html">
                         <i class="menu-icon mdi mdi-table"></i>
                         <span class="menu-title">Tables</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../pages/icons/font-awesome.html">
+                    <a class="nav-link" href="pages/icons/font-awesome.html">
                         <i class="menu-icon mdi mdi-sticker"></i>
                         <span class="menu-title">Icons</span>
                     </a>
@@ -278,19 +277,19 @@
                     <div class="collapse" id="auth">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item">
-                                <a class="nav-link" href="../../pages/samples/blank-page.html"> Blank Page </a>
+                                <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../../pages/samples/login.html"> Login </a>
+                                <a class="nav-link" href="pages/samples/login.html"> Login </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../../pages/samples/register.html"> Register </a>
+                                <a class="nav-link" href="pages/samples/register.html"> Register </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../../pages/samples/error-404.html"> 404 </a>
+                                <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../../pages/samples/error-500.html"> 500 </a>
+                                <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
                             </li>
                         </ul>
                     </div>
@@ -300,528 +299,577 @@
         <!-- partial -->
         <div class="main-panel">
             <div class="content-wrapper">
+                <div class="row purchace-popup">
+                    <div class="col-12">
+              <span class="d-block d-md-flex align-items-center">
+                <p>Like what you see? Check out our premium version for more.</p>
+                <a class="btn ml-auto download-button d-none d-md-block" href="https://github.com/BootstrapDash/StarAdmin-Free-Bootstrap-Admin-Template" target="_blank">Download Free Version</a>
+                <a class="btn purchase-button mt-4 mt-md-0" href="https://www.bootstrapdash.com/product/star-admin-pro/" target="_blank">Upgrade To Pro</a>
+                <i class="mdi mdi-close popup-dismiss d-none d-md-block"></i>
+              </span>
+                    </div>
+                </div>
                 <div class="row">
-                    <div class="col-md-6 d-flex align-items-stretch grid-margin">
-                        <div class="row flex-grow">
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Default form</h4>
-                                        <p class="card-description">
-                                            Basic form layout
-                                        </p>
-                                        <form class="forms-sample">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Email address</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                                            </div>
-                                            <button type="submit" class="btn btn-success mr-2">Submit</button>
-                                            <button class="btn btn-light">Cancel</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Horizontal Form</h4>
-                                        <p class="card-description">
-                                            Horizontal form layout
-                                        </p>
-                                        <form class="forms-sample">
-                                            <div class="form-group row">
-                                                <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Email</label>
-                                                <div class="col-sm-9">
-                                                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Enter email">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Password</label>
-                                                <div class="col-sm-9">
-                                                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="btn btn-success mr-2">Submit</button>
-                                            <button class="btn btn-light">Cancel</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 grid-margin stretch-card">
-                        <div class="card">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
                             <div class="card-body">
-                                <h4 class="card-title">Basic form</h4>
-                                <p class="card-description">
-                                    Basic form elements
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <i class="mdi mdi-cube text-danger icon-lg"></i>
+                                    </div>
+                                    <div class="float-right">
+                                        <p class="mb-0 text-right">Total Revenue</p>
+                                        <div class="fluid-container">
+                                            <h3 class="font-weight-medium text-right mb-0">$65,650</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-muted mt-3 mb-0">
+                                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> 65% lower growth
                                 </p>
-                                <form class="forms-sample">
-                                    <div class="form-group">
-                                        <label for="exampleInputName1">Name</label>
-                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail3">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword4">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>File upload</label>
-                                        <input type="file" name="img[]" class="file-upload-default">
-                                        <div class="input-group col-xs-12">
-                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                                            <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-info" type="button">Upload</button>
-                        </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputCity1">City</label>
-                                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleTextarea1">Textarea</label>
-                                        <textarea class="form-control" id="exampleTextarea1" rows="2"></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-success mr-2">Submit</button>
-                                    <button class="btn btn-light">Cancel</button>
-                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5 d-flex align-items-stretch">
-                        <div class="row flex-grow">
-                            <div class="col-12 grid-margin">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Basic input groups</h4>
-                                        <p class="card-description">
-                                            Basic bootstrap input groups
-                                        </p>
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">@</span>
-                                                </div>
-                                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">$</span>
-                                                </div>
-                                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text">.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">$</span>
-                                                </div>
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">0.00</span>
-                                                </div>
-                                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h4 class="card-title">Colored input groups</h4>
-                                        <p class="card-description">
-                                            Input groups with colors
-                                        </p>
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend bg-info">
-                            <span class="input-group-text bg-transparent">
-                              <i class="mdi mdi-shield-outline text-white"></i>
-                            </span>
-                                                </div>
-                                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="colored-addon1">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend bg-primary border-primary">
-                            <span class="input-group-text bg-transparent">
-                              <i class="mdi mdi mdi-menu text-white"></i>
-                            </span>
-                                                </div>
-                                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="colored-addon2">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="colored-addon3">
-                                                <div class="input-group-append bg-primary border-primary">
-                            <span class="input-group-text bg-transparent">
-                              <i class="mdi mdi-menu text-white"></i>
-                            </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend bg-primary border-primary">
-                                                    <span class="input-group-text bg-transparent text-white">$</span>
-                                                </div>
-                                                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                                                <div class="input-group-append bg-primary border-primary">
-                                                    <span class="input-group-text bg-transparent text-white">.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-7 grid-margin stretch-card">
-                        <div class="card">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
                             <div class="card-body">
-                                <h4 class="card-title">Input size</h4>
-                                <p class="card-description">
-                                    This is the default bootstrap form layout
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <i class="mdi mdi-receipt text-warning icon-lg"></i>
+                                    </div>
+                                    <div class="float-right">
+                                        <p class="mb-0 text-right">Orders</p>
+                                        <div class="fluid-container">
+                                            <h3 class="font-weight-medium text-right mb-0">3455</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-muted mt-3 mb-0">
+                                    <i class="mdi mdi-bookmark-outline mr-1" aria-hidden="true"></i> Product-wise sales
                                 </p>
-                                <div class="form-group">
-                                    <label>Large input</label>
-                                    <input type="text" class="form-control form-control-lg" placeholder="Username" aria-label="Username">
-                                </div>
-                                <div class="form-group">
-                                    <label>Default input</label>
-                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-                                </div>
-                                <div class="form-group">
-                                    <label>Small input</label>
-                                    <input type="text" class="form-control form-control-sm" placeholder="Username" aria-label="Username">
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">Selectize</h4>
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect1">Large select</label>
-                                    <select class="form-control form-control-lg" id="exampleFormControlSelect1">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect2">Default select</label>
-                                    <select class="form-control" id="exampleFormControlSelect2">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleFormControlSelect3">Small select</label>
-                                    <select class="form-control form-control-sm" id="exampleFormControlSelect3">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 grid-margin stretch-card">
-                        <div class="card">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
                             <div class="card-body">
-                                <h4 class="card-title">Checkbox Controls</h4>
-                                <p class="card-description">Checkbox and radio controls</p>
-                                <form class="forms-sample">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input"> Default
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" checked> Checked
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" disabled> Disabled
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" disabled checked> Disabled checked
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="form-radio">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="" checked> Option one
-                                                    </label>
-                                                </div>
-                                                <div class="form-radio">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2"> Option two
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="form-radio disabled">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="optionsRadios2" id="optionsRadios3" value="option3" disabled> Option three is disabled
-                                                    </label>
-                                                </div>
-                                                <div class="form-radio disabled">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="optionsRadio2" id="optionsRadios4" value="option4" disabled checked> Option four is selected and disabled
-                                                    </label>
-                                                </div>
-                                            </div>
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <i class="mdi mdi-poll-box text-success icon-lg"></i>
+                                    </div>
+                                    <div class="float-right">
+                                        <p class="mb-0 text-right">Sales</p>
+                                        <div class="fluid-container">
+                                            <h3 class="font-weight-medium text-right mb-0">5693</h3>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
+                                <p class="text-muted mt-3 mb-0">
+                                    <i class="mdi mdi-calendar mr-1" aria-hidden="true"></i> Weekly Sales
+                                </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 grid-margin stretch-card">
-                        <div class="card">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
+                        <div class="card card-statistics">
                             <div class="card-body">
-                                <h4 class="card-title">Checkbox Flat Controls</h4>
-                                <p class="card-description">Checkbox and radio controls with flat design</p>
-                                <form class="forms-sample">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="form-check form-check-flat">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input"> Default
-                                                    </label>
-                                                </div>
-                                                <div class="form-check form-check-flat">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" checked> Checked
-                                                    </label>
-                                                </div>
-                                                <div class="form-check form-check-flat">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" disabled> Disabled
-                                                    </label>
-                                                </div>
-                                                <div class="form-check form-check-flat">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" disabled checked> Disabled checked
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <div class="form-radio form-radio-flat">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="flatRadios1" id="flatRadios1" value="" checked> Option one
-                                                    </label>
-                                                </div>
-                                                <div class="form-radio form-radio-flat">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="flatRadios2" id="flatRadios2" value="option2"> Option two
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="form-radio form-radio-flat disabled">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="flatRadios3" id="flatRadios3" value="option3" disabled> Option three is disabled
-                                                    </label>
-                                                </div>
-                                                <div class="form-radio form-radio-flat disabled">
-                                                    <label class="form-check-label">
-                                                        <input type="radio" class="form-check-input" name="flatRadios4" id="flatRadios4" value="option4" disabled checked> Option four is selected and disabled
-                                                    </label>
-                                                </div>
-                                            </div>
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <i class="mdi mdi-account-location text-info icon-lg"></i>
+                                    </div>
+                                    <div class="float-right">
+                                        <p class="mb-0 text-right">Employees</p>
+                                        <div class="fluid-container">
+                                            <h3 class="font-weight-medium text-right mb-0">246</h3>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
+                                <p class="text-muted mt-3 mb-0">
+                                    <i class="mdi mdi-reload mr-1" aria-hidden="true"></i> Product-wise sales
+                                </p>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-7 grid-margin stretch-card">
+                        <!--weather card-->
+                        <div class="card card-weather">
+                            <div class="card-body">
+                                <div class="weather-date-location">
+                                    <h3>Monday</h3>
+                                    <p class="text-gray">
+                                        <span class="weather-date">25 October, 2016</span>
+                                        <span class="weather-location">London, UK</span>
+                                    </p>
+                                </div>
+                                <div class="weather-data d-flex">
+                                    <div class="mr-auto">
+                                        <h4 class="display-3">21
+                                            <span class="symbol">&deg;</span>C</h4>
+                                        <p>
+                                            Mostly Cloudy
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="d-flex weakly-weather">
+                                    <div class="weakly-weather-item">
+                                        <p class="mb-0">
+                                            Sun
+                                        </p>
+                                        <i class="mdi mdi-weather-cloudy"></i>
+                                        <p class="mb-0">
+                                            30°
+                                        </p>
+                                    </div>
+                                    <div class="weakly-weather-item">
+                                        <p class="mb-1">
+                                            Mon
+                                        </p>
+                                        <i class="mdi mdi-weather-hail"></i>
+                                        <p class="mb-0">
+                                            31°
+                                        </p>
+                                    </div>
+                                    <div class="weakly-weather-item">
+                                        <p class="mb-1">
+                                            Tue
+                                        </p>
+                                        <i class="mdi mdi-weather-partlycloudy"></i>
+                                        <p class="mb-0">
+                                            28°
+                                        </p>
+                                    </div>
+                                    <div class="weakly-weather-item">
+                                        <p class="mb-1">
+                                            Wed
+                                        </p>
+                                        <i class="mdi mdi-weather-pouring"></i>
+                                        <p class="mb-0">
+                                            30°
+                                        </p>
+                                    </div>
+                                    <div class="weakly-weather-item">
+                                        <p class="mb-1">
+                                            Thu
+                                        </p>
+                                        <i class="mdi mdi-weather-pouring"></i>
+                                        <p class="mb-0">
+                                            29°
+                                        </p>
+                                    </div>
+                                    <div class="weakly-weather-item">
+                                        <p class="mb-1">
+                                            Fri
+                                        </p>
+                                        <i class="mdi mdi-weather-snowy-rainy"></i>
+                                        <p class="mb-0">
+                                            31°
+                                        </p>
+                                    </div>
+                                    <div class="weakly-weather-item">
+                                        <p class="mb-1">
+                                            Sat
+                                        </p>
+                                        <i class="mdi mdi-weather-snowy"></i>
+                                        <p class="mb-0">
+                                            32°
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--weather card ends-->
+                    </div>
+                    <div class="col-lg-5 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title text-primary mb-5">Performance History</h2>
+                                <div class="wrapper d-flex justify-content-between">
+                                    <div class="side-left">
+                                        <p class="mb-2">The best performance</p>
+                                        <p class="display-3 mb-4 font-weight-light">+45.2%</p>
+                                    </div>
+                                    <div class="side-right">
+                                        <small class="text-muted">2017</small>
+                                    </div>
+                                </div>
+                                <div class="wrapper d-flex justify-content-between">
+                                    <div class="side-left">
+                                        <p class="mb-2">Worst performance</p>
+                                        <p class="display-3 mb-5 font-weight-light">-35.3%</p>
+                                    </div>
+                                    <div class="side-right">
+                                        <small class="text-muted">2015</small>
+                                    </div>
+                                </div>
+                                <div class="wrapper">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">Sales</p>
+                                        <p class="mb-2 text-primary">88%</p>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 88%" aria-valuenow="88"
+                                             aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div class="wrapper mt-4">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="mb-2">Visits</p>
+                                        <p class="mb-2 text-success">56%</p>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 56%" aria-valuenow="56"
+                                             aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row d-none d-sm-flex mb-4">
+                                    <div class="col-4">
+                                        <h5 class="text-primary">Unique Visitors</h5>
+                                        <p>34657</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="text-primary">Bounce Rate</h5>
+                                        <p>45673</p>
+                                    </div>
+                                    <div class="col-4">
+                                        <h5 class="text-primary">Active session</h5>
+                                        <p>45673</p>
+                                    </div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="dashboard-area-chart" height="80"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Orders</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>
+                                                #
+                                            </th>
+                                            <th>
+                                                First name
+                                            </th>
+                                            <th>
+                                                Progress
+                                            </th>
+                                            <th>
+                                                Amount
+                                            </th>
+                                            <th>
+                                                Sales
+                                            </th>
+                                            <th>
+                                                Deadline
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="font-weight-medium">
+                                                1
+                                            </td>
+                                            <td>
+                                                Herman Beck
+                                            </td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-success progress-bar-striped" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                $ 77.99
+                                            </td>
+                                            <td class="text-danger"> 53.64%
+                                                <i class="mdi mdi-arrow-down"></i>
+                                            </td>
+                                            <td>
+                                                May 15, 2015
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-medium">
+                                                2
+                                            </td>
+                                            <td>
+                                                Messsy Adam
+                                            </td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                $245.30
+                                            </td>
+                                            <td class="text-success"> 24.56%
+                                                <i class="mdi mdi-arrow-up"></i>
+                                            </td>
+                                            <td>
+                                                July 1, 2015
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-medium">
+                                                3
+                                            </td>
+                                            <td>
+                                                John Richards
+                                            </td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                $138.00
+                                            </td>
+                                            <td class="text-danger"> 28.76%
+                                                <i class="mdi mdi-arrow-down"></i>
+                                            </td>
+                                            <td>
+                                                Apr 12, 2015
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-medium">
+                                                4
+                                            </td>
+                                            <td>
+                                                Peter Meggik
+                                            </td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-primary progress-bar-striped" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                $ 77.99
+                                            </td>
+                                            <td class="text-danger"> 53.45%
+                                                <i class="mdi mdi-arrow-down"></i>
+                                            </td>
+                                            <td>
+                                                May 15, 2015
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-medium">
+                                                5
+                                            </td>
+                                            <td>
+                                                Edward
+                                            </td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-danger progress-bar-striped" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                $ 160.25
+                                            </td>
+                                            <td class="text-success"> 18.32%
+                                                <i class="mdi mdi-arrow-up"></i>
+                                            </td>
+                                            <td>
+                                                May 03, 2015
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-weight-medium">
+                                                6
+                                            </td>
+                                            <td>
+                                                Henry Tom
+                                            </td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-warning progress-bar-striped" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                $ 150.00
+                                            </td>
+                                            <td class="text-danger"> 24.67%
+                                                <i class="mdi mdi-arrow-down"></i>
+                                            </td>
+                                            <td>
+                                                June 16, 2015
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Horizontal Two column</h4>
-                                <form class="form-sample">
-                                    <p class="card-description">
-                                        Personal info
-                                    </p>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">First Name</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" />
+                                <h5 class="card-title mb-4">Manage Tickets</h5>
+                                <div class="fluid-container">
+                                    <div class="row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3">
+                                        <div class="col-md-1">
+                                            <img class="img-sm rounded-circle mb-4 mb-md-0" src="images/faces/face1.jpg" alt="profile image">
+                                        </div>
+                                        <div class="ticket-details col-md-9">
+                                            <div class="d-flex">
+                                                <p class="text-dark font-weight-semibold mr-2 mb-0 no-wrap">James :</p>
+                                                <p class="text-primary mr-1 mb-0">[#23047]</p>
+                                                <p class="mb-0 ellipsis">Donec rutrum congue leo eget malesuada.</p>
+                                            </div>
+                                            <p class="text-gray ellipsis mb-2">Donec rutrum congue leo eget malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim
+                                                vivamus.
+                                            </p>
+                                            <div class="row text-gray d-md-flex d-none">
+                                                <div class="col-4 d-flex">
+                                                    <small class="mb-0 mr-2 text-muted text-muted">Last responded :</small>
+                                                    <small class="Last-responded mr-2 mb-0 text-muted text-muted">3 hours ago</small>
+                                                </div>
+                                                <div class="col-4 d-flex">
+                                                    <small class="mb-0 mr-2 text-muted text-muted">Due in :</small>
+                                                    <small class="Last-responded mr-2 mb-0 text-muted text-muted">2 Days</small>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Last Name</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Gender</label>
-                                                <div class="col-sm-9">
-                                                    <select class="form-control">
-                                                        <option>Male</option>
-                                                        <option>Female</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Date of Birth</label>
-                                                <div class="col-sm-9">
-                                                    <input class="form-control" placeholder="dd/mm/yyyy" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Category</label>
-                                                <div class="col-sm-9">
-                                                    <select class="form-control">
-                                                        <option>Category1</option>
-                                                        <option>Category2</option>
-                                                        <option>Category3</option>
-                                                        <option>Category4</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Membership</label>
-                                                <div class="col-sm-4">
-                                                    <div class="form-radio">
-                                                        <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked> Free
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-5">
-                                                    <div class="form-radio">
-                                                        <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> Professional
-                                                        </label>
-                                                    </div>
+                                        <div class="ticket-actions col-md-2">
+                                            <div class="btn-group dropdown">
+                                                <button type="button" class="btn btn-success dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Manage
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-reply fa-fw"></i>Quick reply</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-history fa-fw"></i>Another action</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-check text-success fa-fw"></i>Resolve Issue</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-times text-danger fa-fw"></i>Close Issue</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <p class="card-description">
-                                        Address
-                                    </p>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Address 1</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" />
+                                    <div class="row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3">
+                                        <div class="col-md-1">
+                                            <img class="img-sm rounded-circle mb-4 mb-md-0" src="images/faces/face2.jpg" alt="profile image">
+                                        </div>
+                                        <div class="ticket-details col-md-9">
+                                            <div class="d-flex">
+                                                <p class="text-dark font-weight-semibold mr-2 mb-0 no-wrap">Stella :</p>
+                                                <p class="text-primary mr-1 mb-0">[#23135]</p>
+                                                <p class="mb-0 ellipsis">Curabitur aliquet quam id dui posuere blandit.</p>
+                                            </div>
+                                            <p class="text-gray ellipsis mb-2">Pellentesque in ipsum id orci porta dapibus. Sed porttitor lectus nibh. Curabitur non nulla sit amet
+                                                nisl.
+                                            </p>
+                                            <div class="row text-gray d-md-flex d-none">
+                                                <div class="col-4 d-flex">
+                                                    <small class="mb-0 mr-2 text-muted">Last responded :</small>
+                                                    <small class="Last-responded mr-2 mb-0 text-muted">3 hours ago</small>
+                                                </div>
+                                                <div class="col-4 d-flex">
+                                                    <small class="mb-0 mr-2 text-muted">Due in :</small>
+                                                    <small class="Last-responded mr-2 mb-0 text-muted">2 Days</small>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">State</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Address 2</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Postcode</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">City</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Country</label>
-                                                <div class="col-sm-9">
-                                                    <select class="form-control">
-                                                        <option>America</option>
-                                                        <option>Italy</option>
-                                                        <option>Russia</option>
-                                                        <option>Britain</option>
-                                                    </select>
+                                        <div class="ticket-actions col-md-2">
+                                            <div class="btn-group dropdown">
+                                                <button type="button" class="btn btn-success dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Manage
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-reply fa-fw"></i>Quick reply</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-history fa-fw"></i>Another action</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-check text-success fa-fw"></i>Resolve Issue</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-times text-danger fa-fw"></i>Close Issue</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="row ticket-card mt-3">
+                                        <div class="col-md-1">
+                                            <img class="img-sm rounded-circle mb-4 mb-md-0" src="images/faces/face3.jpg" alt="profile image">
+                                        </div>
+                                        <div class="ticket-details col-md-9">
+                                            <div class="d-flex">
+                                                <p class="text-dark font-weight-semibold mr-2 mb-0 no-wrap">John Doe :</p>
+                                                <p class="text-primary mr-1 mb-0">[#23246]</p>
+                                                <p class="mb-0 ellipsis">Mauris blandit aliquet elit, eget tincidunt nibh pulvinar.</p>
+                                            </div>
+                                            <p class="text-gray ellipsis mb-2">Nulla quis lorem ut libero malesuada feugiat. Proin eget tortor risus. Lorem ipsum dolor sit amet.</p>
+                                            <div class="row text-gray d-md-flex d-none">
+                                                <div class="col-4 d-flex">
+                                                    <small class="mb-0 mr-2 text-muted">Last responded :</small>
+                                                    <small class="Last-responded mr-2 mb-0 text-muted">3 hours ago</small>
+                                                </div>
+                                                <div class="col-4 d-flex">
+                                                    <small class="mb-0 mr-2 text-muted">Due in :</small>
+                                                    <small class="Last-responded mr-2 mb-0 text-muted">2 Days</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="ticket-actions col-md-2">
+                                            <div class="btn-group dropdown">
+                                                <button type="button" class="btn btn-success dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Manage
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-reply fa-fw"></i>Quick reply</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-history fa-fw"></i>Another action</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-check text-success fa-fw"></i>Resolve Issue</a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="fa fa-times text-danger fa-fw"></i>Close Issue</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- content-wrapper ends -->
-            <!-- partial:../../partials/_footer.html -->
+            <!-- partial:partials/_footer.html -->
             <footer class="footer">
                 <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
@@ -838,17 +886,19 @@
     <!-- page-body-wrapper ends -->
 </div>
 <!-- container-scroller -->
+
 <!-- plugins:js -->
-<script src="../../vendors/js/vendor.bundle.base.js"></script>
-<script src="../../vendors/js/vendor.bundle.addons.js"></script>
+<script src="vendors/js/vendor.bundle.base.js"></script>
+<script src="vendors/js/vendor.bundle.addons.js"></script>
 <!-- endinject -->
 <!-- Plugin js for this page-->
 <!-- End plugin js for this page-->
 <!-- inject:js -->
-<script src="../../js/off-canvas.js"></script>
-<script src="../../js/misc.js"></script>
+<script src="js/off-canvas.js"></script>
+<script src="js/misc.js"></script>
 <!-- endinject -->
 <!-- Custom js for this page-->
+<script src="js/dashboard.js"></script>
 <!-- End custom js for this page-->
 </body>
 
