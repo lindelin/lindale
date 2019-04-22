@@ -19,21 +19,11 @@
 				.input-group {
 					height: 44px;
 					.form-control {
+						height: auto !important;
 						border: 1px solid darken($border-color, 5%);
-						border-right: none;
-						@include border-radius(6px 0 0 6px);
+						@include border-radius(6px 6px 6px 6px);
 						&:focus {
-							border-right: none;
 							border-color: darken($border-color, 5%);
-						}
-					}
-					.input-group-append {
-						border-left: none;
-						.input-group-text {
-							@include border-radius(0 6px 6px 0);
-							border-left: none;
-							border-color: darken($border-color, 5%);
-							color: #b6b6b6;
 						}
 					}
 				}
@@ -208,5 +198,8 @@
 				}
 			}
 		}
+	}
+	.row.w-100 {
+		margin: 0;
 	}
 }

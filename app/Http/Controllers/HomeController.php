@@ -2,27 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Config;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * 歓迎画面.
      *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
-        return view('home');
+        return view('welcome');
+    }
+
+    /**
+     * 言語変更スイッチ
+     *
+     * @param Request $request
+     * @param $locale
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function lang(Request $request, $locale)
+    {
+        if (Auth::guest()) {
+            if (in_array($locale, config('app.available_locales'))) {
+                $request->session()->put('lang_guest', $locale);
+            }
+        } else {
+            if (in_array($locale, config('app.available_locales'))) {
+                $request->session()->put('lang', $locale);
+            }
+        }
+
+        return redirect()->back();
     }
 }
