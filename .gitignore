@@ -17,3 +17,4 @@ composer.lock
 _ide_helper.php
 .phpstorm.meta.php
 .phpunit.result.cache
+/resources/assets/sass/style.scss
