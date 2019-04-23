@@ -25,6 +25,7 @@ class SetPasswordController extends Controller
      * パスワード設定
      * @param Request $request
      * @return mixed
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function setPassword(Request $request)
     {
@@ -39,9 +40,9 @@ class SetPasswordController extends Controller
             $user->save();
             auth()->login($user);
             $token->delete();
-            return redirect()->to(route('home'));
+            return redirect()->route('home');
         } else {
-            return redirect()->back()->withErrors('設定できません。管理者まで連略してください。');
+            abort(404);
         }
     }
 

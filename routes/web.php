@@ -10,10 +10,40 @@
 | 欢迎界面路由
 |
 */
-
-Route::get('/', 'HomeController@index')->name('root');
+Route::get('/', 'WelcomeController@index')->name('root');
 // Route::get('/apple-app-site-association', 'Api\ServiceController@appleAppSiteAssociation');
-Route::get('/lang/{lang}', 'HomeController@lang')->name('lang');
+Route::get('/lang/{lang}', 'WelcomeController@lang')->name('lang');
+
+/*
+|--------------------------------------------------------------------------
+| Logging In/Out Routes
+|--------------------------------------------------------------------------
+|
+| ログイン関連ルート
+|
+| 认证路由
+|
+*/
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout');
+Route::get('auth/token/{token}', 'Auth\SetPasswordController@showSetForm')->name('password.set');
+
+/*
+|--------------------------------------------------------------------------
+| Password Routes
+|--------------------------------------------------------------------------
+|
+| パスワード関連ルート
+|
+| 密码重置
+|
+*/
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+Route::post('password/set', 'Auth\SetPasswordController@setPassword')->name('password.update');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 /*
 |--------------------------------------------------------------------------
@@ -300,39 +330,6 @@ Route::group(['middleware' => ['auth', 'AdminAuth'], 'namespace' => 'Admin', 'pr
     Route::delete('user/{user}', 'UserController@destroy');
     Route::get('logs', 'LogController@index');
 });
-
-/*
-|--------------------------------------------------------------------------
-| Logging In/Out Routes
-|--------------------------------------------------------------------------
-|
-| ログイン関連ルート
-|
-| 认证路由
-|
-*/
-
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::post('login', 'Auth\LoginController@login');
-Route::post('logout', 'Auth\LoginController@logout');
-Route::get('auth/token/{token}', 'Auth\SetPasswordController@showSetForm')->name('password.set');
-
-/*
-|--------------------------------------------------------------------------
-| Password Routes
-|--------------------------------------------------------------------------
-|
-| パスワード関連ルート
-|
-| 密码重置
-|
-*/
-
-Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
-Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
-Route::post('password/set', 'Auth\SetPasswordController@setPassword')->name('password.update');
-Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 /*
 |--------------------------------------------------------------------------
