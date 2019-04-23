@@ -1,6 +1,5 @@
 @extends('layouts.auth-master')
 
-
 @section('panel-title')
     {{ trans('auth.reset') }}
 @endsection
