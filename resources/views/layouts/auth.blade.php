@@ -9,6 +9,7 @@
 </head>
 <body>
 <div id="app">
+    <alert :messages="{{ json_encode($errors->all()) }}" type="alert-danger"></alert>
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
             <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
