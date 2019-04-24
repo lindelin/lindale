@@ -21663,6 +21663,10 @@ html {
   }
 }
 
+.main-panel.home-panel {
+  width: 100% !important;
+}
+
 .content-wrapper {
   background: #f2f8f9;
   padding: 1.5rem 1.7rem;

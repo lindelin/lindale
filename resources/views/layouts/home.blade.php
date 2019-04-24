@@ -14,7 +14,8 @@
         <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
                 <a class="navbar-brand brand-logo" href="../../index.html">
-                    <img src="../../images/logo.svg" alt="logo" />
+                    <img src="{{ asset('img/logo.png') }}" alt="logo" height="100%"/>
+                    <span>Lindalë</span>
                 </a>
                 <a class="navbar-brand brand-logo-mini" href="../../index.html">
                     <img src="../../images/logo-mini.svg" alt="logo" />
@@ -186,29 +187,13 @@
                 </button>
             </div>
         </nav>
-        <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-            <!-- partial:../../partials/_sidebar.html -->
-            <!-- partial -->
-            <div class="main-panel">
+            <div class="main-panel home-panel">
                 <div class="content-wrapper">
                 </div>
-                <!-- content-wrapper ends -->
-                <!-- partial:../../partials/_footer.html -->
-                <footer class="footer">
-                    <div class="container-fluid clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
-              <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
-                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
-              <i class="mdi mdi-heart text-danger"></i>
-            </span>
-                    </div>
-                </footer>
-                <!-- partial -->
+                @include('common.footer')
             </div>
-            <!-- main-panel ends -->
         </div>
-
     </div>
 </div>
 @include('common.js_links')
