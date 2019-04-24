@@ -32,9 +32,8 @@
           color: lighten(color(gray-dark), 10%);
         }
         img {
-          width: calc(#{$sidebar-width-lg} - 130px);
           max-width: 100%;
-          height: 28px;
+          height: 40px;
           margin: auto;
           vertical-align: middle;
         }
@@ -42,9 +41,8 @@
       .brand-logo-mini {
         display: none;
         img {
-          width: calc(#{$sidebar-width-icon} - 50px);
           max-width: 100%;
-          height: 28px;
+          height: 40px;
           margin: auto;
         }
       }

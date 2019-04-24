@@ -14,7 +14,7 @@ const mix = require('laravel-mix');
 mix.js('resources/assets/js/app.js', 'public/js');
 mix.sass('resources/assets/sass/style.scss', 'public/css', { implementation: require('node-sass') }).options({
     processCssUrls: false
-}).sourceMaps().version();
+}).version();
 
 // Welcome CSS
 mix.styles([

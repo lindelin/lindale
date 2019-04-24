@@ -79,7 +79,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     //项目
-    Route::resource('project', 'ProjectController', ['except' => ['show']]);
+    Route::resource('projects', 'ProjectController', ['except' => ['show']]);
     Route::patch('project/transfer/{project}', 'ProjectController@transfer')->name('project.transfer');
     Route::get('project/{project}', 'ProjectController@show')->middleware('ProjectAuth')->name('project.show');
     Route::get('/unfinished/project', 'ProjectController@unfinished')->name('project.unfinished');
