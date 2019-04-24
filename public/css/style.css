@@ -21208,6 +21208,7 @@ input:focus {
 }
 
 .navbar.default-layout .navbar-brand-wrapper .navbar-brand span {
+  font-size: 21px;
   margin-left: 8px;
   color: #1268cc;
   background: -webkit-linear-gradient(0deg, #1268cc, #09b4f7);
@@ -21270,7 +21271,7 @@ input:focus {
 
 .navbar.default-layout .navbar-menu-wrapper .navbar-nav .nav-item .nav-link {
   color: inherit;
-  font-size: 16px;
+  font-size: 12px;
   vertical-align: middle;
 }
 
@@ -21331,7 +21332,7 @@ input:focus {
 
 .navbar.default-layout .navbar-menu-wrapper .navbar-nav.header-links .nav-item .nav-link {
   height: 63px;
-  font-size: 16px;
+  font-size: 12px;
   padding: 16px 25px;
   display: flex;
   align-items: center;

@@ -88,7 +88,7 @@ $rtl-sidebar-submenu-padding: 0 3.45rem 0 0;
 ///////// NAVBAR ////////
 $navbar-height: 63px;
 $navbar-light-color: #202339;
-$navbar-font-size: 16px;
+$navbar-font-size: $sidebar-menu-font-size;
 $navbar-icon-font-size: 1.25rem;
 ///////// NAVBAR ////////
 ///////// BUTTONS ////////
