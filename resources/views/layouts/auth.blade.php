@@ -3,19 +3,20 @@
 <head>
     @include('common.meta')
     @include('common.favicon')
-    @include('common.asset-link')
+    @include('common.asset_links')
     <title>@yield('title', config('app.name', 'Lindalë'))</title>
     @yield('head')
 </head>
 <body>
 <div id="app">
-    <alert :messages="{{ json_encode($errors->all()) }}" type="alert-danger"></alert>
+    @include('common.system_notification')
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
             @yield('content')
         </div>
     </div>
 </div>
-<script src="{{ mix('js/app.js') }}"></script>
+@include('common.js_links')
+@yield('js')
 </body>
 </html>

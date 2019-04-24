@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('title')
-    {{ trans('auth.login') }} | {{ config('app.name') }}
+    {{ trans('auth.reset') }} | {{ config('app.name') }}
 @endsection
 
 @section('content')
