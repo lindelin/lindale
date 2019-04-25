@@ -22,6 +22,7 @@
         </div>
     </div>
 </div>
+@include('common.lang_support')
 @include('common.js_links')
 @yield('js')
 </body>

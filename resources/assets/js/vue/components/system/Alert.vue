@@ -15,7 +15,20 @@
 
 <script>
     export default {
-        props: ['messages', 'type', 'title']
+        props: {
+            messages: {
+                type: Array,
+                default: []
+            },
+            type: {
+                type: String,
+                default: null
+            },
+            title: {
+                type: String,
+                default: null
+            }
+        }
     }
 </script>
 

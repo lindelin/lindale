@@ -183,6 +183,7 @@ return [
         App\Providers\ToolServiceProvider::class,
         App\Providers\ConfigSystemServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
 
     ],
 

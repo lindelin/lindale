@@ -20,6 +20,6 @@
 <script>
     export default {
         name: "StatusCard",
-        props: ['icon', 'title', 'status'],
+        props: ['icon', 'title', 'status']
     }
 </script>
