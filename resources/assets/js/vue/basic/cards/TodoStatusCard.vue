@@ -1,14 +1,14 @@
 <template>
-    <status-card icon='<i class="mdi mdi-folder-multiple-outline text-info icon-lg"></i>'
-                 title="Projects"
+    <status-card icon='<i class="mdi mdi-check-all text-danger icon-lg"></i>'
+                 title="TODOs"
                  :status="status">
         <div class="wrapper">
             <div class="d-flex justify-content-between">
                 <p class="mb-2">Completed</p>
-                <p class="mb-2 text-info">{{ progress }}%</p>
+                <p class="mb-2 text-danger">{{ progress }}%</p>
             </div>
             <div class="progress">
-                <div class="progress-bar bg-info progress-bar-striped progress-bar-animated"
+                <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated"
                      role="progressbar"
                      :style="{width: progress + '%'}"
                      :aria-valuenow="progress"
@@ -22,7 +22,7 @@
 <script>
     import StatusCard from "../common/StatusCard";
     export default {
-        name: "ProjectStatusCard",
+        name: "TodoStatusCard",
         components: {StatusCard},
         props: ['status', 'progress']
     }

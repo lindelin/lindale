@@ -11235,6 +11235,9 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _basic_cards_ProjectStatusCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../basic/cards/ProjectStatusCard */ "./resources/assets/js/vue/basic/cards/ProjectStatusCard.vue");
+/* harmony import */ var _cards_StarStatusCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../cards/StarStatusCard */ "./resources/assets/js/vue/basic/cards/StarStatusCard.vue");
+/* harmony import */ var _cards_TaskStatusCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../cards/TaskStatusCard */ "./resources/assets/js/vue/basic/cards/TaskStatusCard.vue");
+/* harmony import */ var _cards_TodoStatusCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../cards/TodoStatusCard */ "./resources/assets/js/vue/basic/cards/TodoStatusCard.vue");
 //
 //
 //
@@ -11253,9 +11256,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserStatusBlock",
   components: {
+    TodoStatusCard: _cards_TodoStatusCard__WEBPACK_IMPORTED_MODULE_3__["default"],
+    TaskStatusCard: _cards_TaskStatusCard__WEBPACK_IMPORTED_MODULE_2__["default"],
+    StarStatusCard: _cards_StarStatusCard__WEBPACK_IMPORTED_MODULE_1__["default"],
     ProjectStatusCard: _basic_cards_ProjectStatusCard__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
@@ -11296,6 +11305,119 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ProjectStatusCard",
+  components: {
+    StatusCard: _common_StatusCard__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: ['status', 'progress']
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/cards/StarStatusCard.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/vue/basic/cards/StarStatusCard.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _common_StatusCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/StatusCard */ "./resources/assets/js/vue/basic/common/StatusCard.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "StarStatusCard",
+  components: {
+    StatusCard: _common_StatusCard__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: ['status']
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/cards/TaskStatusCard.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/vue/basic/cards/TaskStatusCard.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _common_StatusCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/StatusCard */ "./resources/assets/js/vue/basic/common/StatusCard.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "TaskStatusCard",
+  components: {
+    StatusCard: _common_StatusCard__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: ['status', 'progress']
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/cards/TodoStatusCard.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/vue/basic/cards/TodoStatusCard.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _common_StatusCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/StatusCard */ "./resources/assets/js/vue/basic/common/StatusCard.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "TodoStatusCard",
   components: {
     StatusCard: _common_StatusCard__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -47911,7 +48033,7 @@ var render = function() {
         staticClass:
           "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card"
       },
-      [_c("project-status-card", { attrs: { status: "100", progress: "60" } })],
+      [_c("task-status-card", { attrs: { status: "246", progress: "75" } })],
       1
     ),
     _vm._v(" "),
@@ -47921,7 +48043,7 @@ var render = function() {
         staticClass:
           "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card"
       },
-      [_c("project-status-card", { attrs: { status: "100", progress: "60" } })],
+      [_c("todo-status-card", { attrs: { status: "125", progress: "30" } })],
       1
     ),
     _vm._v(" "),
@@ -47931,7 +48053,7 @@ var render = function() {
         staticClass:
           "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card"
       },
-      [_c("project-status-card", { attrs: { status: "100", progress: "60" } })],
+      [_c("star-status-card", { attrs: { status: "1020" } })],
       1
     )
   ])
@@ -47971,9 +48093,9 @@ var render = function() {
     [
       _c("div", { staticClass: "wrapper" }, [
         _c("div", { staticClass: "d-flex justify-content-between" }, [
-          _c("p", { staticClass: "mb-2" }, [_vm._v("Progress")]),
+          _c("p", { staticClass: "mb-2" }, [_vm._v("Completed")]),
           _vm._v(" "),
-          _c("p", { staticClass: "mb-2 text-primary" }, [
+          _c("p", { staticClass: "mb-2 text-info" }, [
             _vm._v(_vm._s(_vm.progress) + "%")
           ])
         ]),
@@ -47981,7 +48103,163 @@ var render = function() {
         _c("div", { staticClass: "progress" }, [
           _c("div", {
             staticClass:
-              "progress-bar bg-primary progress-bar-striped progress-bar-animated",
+              "progress-bar bg-info progress-bar-striped progress-bar-animated",
+            style: { width: _vm.progress + "%" },
+            attrs: {
+              role: "progressbar",
+              "aria-valuenow": _vm.progress,
+              "aria-valuemin": "0",
+              "aria-valuemax": "100"
+            }
+          })
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/cards/StarStatusCard.vue?vue&type=template&id=6dc0f57c&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/vue/basic/cards/StarStatusCard.vue?vue&type=template&id=6dc0f57c& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "status-card",
+    {
+      attrs: {
+        icon: '<i class="mdi mdi-star text-success icon-lg"></i>',
+        title: "Stars",
+        status: _vm.status
+      }
+    },
+    [
+      _c("i", {
+        staticClass: "mdi mdi-reload mr-1",
+        attrs: { "aria-hidden": "true" }
+      }),
+      _vm._v(" Product-wise sales\n")
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/cards/TaskStatusCard.vue?vue&type=template&id=c60de122&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/vue/basic/cards/TaskStatusCard.vue?vue&type=template&id=c60de122& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "status-card",
+    {
+      attrs: {
+        icon: '<i class="mdi mdi-file-tree text-warning icon-lg"></i>',
+        title: "Tasks",
+        status: _vm.status
+      }
+    },
+    [
+      _c("div", { staticClass: "wrapper" }, [
+        _c("div", { staticClass: "d-flex justify-content-between" }, [
+          _c("p", { staticClass: "mb-2" }, [_vm._v("Completed")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "mb-2 text-warning" }, [
+            _vm._v(_vm._s(_vm.progress) + "%")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "progress" }, [
+          _c("div", {
+            staticClass:
+              "progress-bar bg-warning progress-bar-striped progress-bar-animated",
+            style: { width: _vm.progress + "%" },
+            attrs: {
+              role: "progressbar",
+              "aria-valuenow": _vm.progress,
+              "aria-valuemin": "0",
+              "aria-valuemax": "100"
+            }
+          })
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/cards/TodoStatusCard.vue?vue&type=template&id=3624dc70&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/vue/basic/cards/TodoStatusCard.vue?vue&type=template&id=3624dc70& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "status-card",
+    {
+      attrs: {
+        icon: '<i class="mdi mdi-check-all text-danger icon-lg"></i>',
+        title: "TODOs",
+        status: _vm.status
+      }
+    },
+    [
+      _c("div", { staticClass: "wrapper" }, [
+        _c("div", { staticClass: "d-flex justify-content-between" }, [
+          _c("p", { staticClass: "mb-2" }, [_vm._v("Completed")]),
+          _vm._v(" "),
+          _c("p", { staticClass: "mb-2 text-danger" }, [
+            _vm._v(_vm._s(_vm.progress) + "%")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "progress" }, [
+          _c("div", {
+            staticClass:
+              "progress-bar bg-danger progress-bar-striped progress-bar-animated",
             style: { width: _vm.progress + "%" },
             attrs: {
               role: "progressbar",
@@ -60689,6 +60967,213 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectStatusCard_vue_vue_type_template_id_5d427a63___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProjectStatusCard_vue_vue_type_template_id_5d427a63___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/cards/StarStatusCard.vue":
+/*!****************************************************************!*\
+  !*** ./resources/assets/js/vue/basic/cards/StarStatusCard.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _StarStatusCard_vue_vue_type_template_id_6dc0f57c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StarStatusCard.vue?vue&type=template&id=6dc0f57c& */ "./resources/assets/js/vue/basic/cards/StarStatusCard.vue?vue&type=template&id=6dc0f57c&");
+/* harmony import */ var _StarStatusCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StarStatusCard.vue?vue&type=script&lang=js& */ "./resources/assets/js/vue/basic/cards/StarStatusCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _StarStatusCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _StarStatusCard_vue_vue_type_template_id_6dc0f57c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _StarStatusCard_vue_vue_type_template_id_6dc0f57c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/vue/basic/cards/StarStatusCard.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/cards/StarStatusCard.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/assets/js/vue/basic/cards/StarStatusCard.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StarStatusCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./StarStatusCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/cards/StarStatusCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StarStatusCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/cards/StarStatusCard.vue?vue&type=template&id=6dc0f57c&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/assets/js/vue/basic/cards/StarStatusCard.vue?vue&type=template&id=6dc0f57c& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StarStatusCard_vue_vue_type_template_id_6dc0f57c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./StarStatusCard.vue?vue&type=template&id=6dc0f57c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/cards/StarStatusCard.vue?vue&type=template&id=6dc0f57c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StarStatusCard_vue_vue_type_template_id_6dc0f57c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StarStatusCard_vue_vue_type_template_id_6dc0f57c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/cards/TaskStatusCard.vue":
+/*!****************************************************************!*\
+  !*** ./resources/assets/js/vue/basic/cards/TaskStatusCard.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TaskStatusCard_vue_vue_type_template_id_c60de122___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TaskStatusCard.vue?vue&type=template&id=c60de122& */ "./resources/assets/js/vue/basic/cards/TaskStatusCard.vue?vue&type=template&id=c60de122&");
+/* harmony import */ var _TaskStatusCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TaskStatusCard.vue?vue&type=script&lang=js& */ "./resources/assets/js/vue/basic/cards/TaskStatusCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TaskStatusCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TaskStatusCard_vue_vue_type_template_id_c60de122___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TaskStatusCard_vue_vue_type_template_id_c60de122___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/vue/basic/cards/TaskStatusCard.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/cards/TaskStatusCard.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/assets/js/vue/basic/cards/TaskStatusCard.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskStatusCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./TaskStatusCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/cards/TaskStatusCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskStatusCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/cards/TaskStatusCard.vue?vue&type=template&id=c60de122&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/assets/js/vue/basic/cards/TaskStatusCard.vue?vue&type=template&id=c60de122& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskStatusCard_vue_vue_type_template_id_c60de122___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./TaskStatusCard.vue?vue&type=template&id=c60de122& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/cards/TaskStatusCard.vue?vue&type=template&id=c60de122&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskStatusCard_vue_vue_type_template_id_c60de122___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TaskStatusCard_vue_vue_type_template_id_c60de122___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/cards/TodoStatusCard.vue":
+/*!****************************************************************!*\
+  !*** ./resources/assets/js/vue/basic/cards/TodoStatusCard.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TodoStatusCard_vue_vue_type_template_id_3624dc70___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TodoStatusCard.vue?vue&type=template&id=3624dc70& */ "./resources/assets/js/vue/basic/cards/TodoStatusCard.vue?vue&type=template&id=3624dc70&");
+/* harmony import */ var _TodoStatusCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TodoStatusCard.vue?vue&type=script&lang=js& */ "./resources/assets/js/vue/basic/cards/TodoStatusCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TodoStatusCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TodoStatusCard_vue_vue_type_template_id_3624dc70___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TodoStatusCard_vue_vue_type_template_id_3624dc70___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/vue/basic/cards/TodoStatusCard.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/cards/TodoStatusCard.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/assets/js/vue/basic/cards/TodoStatusCard.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TodoStatusCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./TodoStatusCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/cards/TodoStatusCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TodoStatusCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/cards/TodoStatusCard.vue?vue&type=template&id=3624dc70&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/assets/js/vue/basic/cards/TodoStatusCard.vue?vue&type=template&id=3624dc70& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TodoStatusCard_vue_vue_type_template_id_3624dc70___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./TodoStatusCard.vue?vue&type=template&id=3624dc70& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/cards/TodoStatusCard.vue?vue&type=template&id=3624dc70&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TodoStatusCard_vue_vue_type_template_id_3624dc70___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TodoStatusCard_vue_vue_type_template_id_3624dc70___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
