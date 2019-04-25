@@ -10,25 +10,33 @@
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center">
         <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
-            <li class="nav-item">
+            <li class="nav-item {{ (request()->route()->getName() == 'home') ? 'active' : '' }}">
+                <a href="{{ route('home') }}" class="nav-link">
+                    <i class="mdi mdi-view-dashboard"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li class="nav-item {{ (request()->route()->getName() == 'projects.index') ? 'active' : '' }}">
                 <a href="{{ route('projects.index') }}" class="nav-link">
                     <i class="mdi mdi-folder-multiple-outline"></i>
                     Projects
                 </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a href="#" class="nav-link">
-                    <i class="mdi mdi-file-tree"></i>Tasks
+                    <i class="mdi mdi-file-tree"></i>
+                    Tasks
                 </a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">
-                    <i class="mdi mdi-check-all"></i>TODOs
+                    <i class="mdi mdi-check-all"></i>
+                    TODOs
                 </a>
             </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item dropdown">
+            {{--<li class="nav-item dropdown">
                 <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                     <i class="mdi mdi-file-document-box"></i>
                     <span class="count">7</span>
@@ -137,7 +145,7 @@
                         </div>
                     </a>
                 </div>
-            </li>
+            </li>--}}
             <li class="nav-item dropdown d-none d-lg-block">
                 <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                     <span class="profile-text">{{ auth()->user()->name }}</span>
@@ -157,23 +165,54 @@
                             </div>
                         </div>
                     </a>
-                    <a class="dropdown-item mt-2">
-                        Manage Accounts
-                    </a>
                     <a class="dropdown-item">
                         Change Password
                     </a>
                     <a class="dropdown-item">
                         Check Inbox
                     </a>
-                    <a class="dropdown-item">
-                        Sign Out
+                    <a href="{{ url('/logout') }}" class="dropdown-item">
+                        <i class="mdi mdi-logout"></i>
+                        {{ trans('auth.logout') }}
                     </a>
                 </div>
             </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-            <span class="mdi mdi-menu"></span>
-        </button>
+        <div>
+            <a class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" id="MenuDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                <span class="mdi mdi-menu"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right dropdownAnimation" aria-labelledby="MenuDropdown">
+                <a class="dropdown-item p-0">
+                    <div class="d-flex border-bottom">
+                        <div class="py-3 px-4 d-flex align-items-center justify-content-center">
+                            <i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
+                        </div>
+                        <div class="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right">
+                            <i class="mdi mdi-account-outline mr-0 text-gray"></i>
+                        </div>
+                        <div class="py-3 px-4 d-flex align-items-center justify-content-center">
+                            <i class="mdi mdi-alarm-check mr-0 text-gray"></i>
+                        </div>
+                    </div>
+                </a>
+                <a href="{{ route('home') }}" class="dropdown-item mt-2">
+                    <i class="mdi mdi-view-dashboard"></i>
+                    Dashboard
+                </a>
+                <a class="dropdown-item mt-2">
+                    Manage Accounts
+                </a>
+                <a class="dropdown-item">
+                    Change Password
+                </a>
+                <a class="dropdown-item">
+                    Check Inbox
+                </a>
+                <a class="dropdown-item">
+                    Sign Out
+                </a>
+            </div>
+        </div>
     </div>
 </nav>

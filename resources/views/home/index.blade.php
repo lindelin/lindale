@@ -5,4 +5,5 @@
 @endsection
 
 @section('content')
+    <home-dashboard-status-bar></home-dashboard-status-bar>
 @endsection
