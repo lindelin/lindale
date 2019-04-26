@@ -11321,7 +11321,8 @@ __webpack_require__.r(__webpack_exports__);
     TaskStatusCard: _cards_TaskStatusCard__WEBPACK_IMPORTED_MODULE_2__["default"],
     StarStatusCard: _cards_StarStatusCard__WEBPACK_IMPORTED_MODULE_1__["default"],
     ProjectStatusCard: _basic_cards_ProjectStatusCard__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  },
+  props: ['status', 'progress']
 });
 
 /***/ }),
@@ -11355,7 +11356,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     FavoriteProjectCard: _cards_FavoriteProjectCard__WEBPACK_IMPORTED_MODULE_1__["default"],
     UserTodayCard: _cards_UserTodayCard__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  },
+  props: ['favoriteProjects']
 });
 
 /***/ }),
@@ -11875,9 +11877,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _basic_blocks_UserStatusBlock__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../basic/blocks/UserStatusBlock */ "./resources/assets/js/vue/basic/blocks/UserStatusBlock.vue");
-/* harmony import */ var _basic_charts_UserActivityChart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../basic/charts/UserActivityChart */ "./resources/assets/js/vue/basic/charts/UserActivityChart.vue");
-/* harmony import */ var _basic_blocks_UserActivityBlock__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../basic/blocks/UserActivityBlock */ "./resources/assets/js/vue/basic/blocks/UserActivityBlock.vue");
-/* harmony import */ var _basic_blocks_UserTodayAndFavoriteProjectBlock__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../basic/blocks/UserTodayAndFavoriteProjectBlock */ "./resources/assets/js/vue/basic/blocks/UserTodayAndFavoriteProjectBlock.vue");
+/* harmony import */ var _basic_blocks_UserActivityBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../basic/blocks/UserActivityBlock */ "./resources/assets/js/vue/basic/blocks/UserActivityBlock.vue");
+/* harmony import */ var _basic_blocks_UserTodayAndFavoriteProjectBlock__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../basic/blocks/UserTodayAndFavoriteProjectBlock */ "./resources/assets/js/vue/basic/blocks/UserTodayAndFavoriteProjectBlock.vue");
 //
 //
 //
@@ -11886,17 +11887,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "HomeDashboard",
   components: {
-    UserTodayAndFavoriteProjectBlock: _basic_blocks_UserTodayAndFavoriteProjectBlock__WEBPACK_IMPORTED_MODULE_3__["default"],
-    UserActivityBlock: _basic_blocks_UserActivityBlock__WEBPACK_IMPORTED_MODULE_2__["default"],
-    UserActivityChart: _basic_charts_UserActivityChart__WEBPACK_IMPORTED_MODULE_1__["default"],
+    UserTodayAndFavoriteProjectBlock: _basic_blocks_UserTodayAndFavoriteProjectBlock__WEBPACK_IMPORTED_MODULE_2__["default"],
+    UserActivityBlock: _basic_blocks_UserActivityBlock__WEBPACK_IMPORTED_MODULE_1__["default"],
     UserStatusBlock: _basic_blocks_UserStatusBlock__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      profile: null
+    };
+  },
+  created: function created() {
+    this.loadData();
+  },
+  methods: {
+    loadData: function loadData() {
+      var _this = this;
+
+      axios.get('/api/profile').then(function (response) {
+        console.log(response);
+        _this.profile = response.data;
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -81035,7 +81054,14 @@ var render = function() {
         staticClass:
           "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card"
       },
-      [_c("project-status-card", { attrs: { status: "100", progress: "60" } })],
+      [
+        _c("project-status-card", {
+          attrs: {
+            status: _vm.status.project_count,
+            progress: _vm.progress.total
+          }
+        })
+      ],
       1
     ),
     _vm._v(" "),
@@ -81045,7 +81071,14 @@ var render = function() {
         staticClass:
           "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card"
       },
-      [_c("task-status-card", { attrs: { status: "246", progress: "75" } })],
+      [
+        _c("task-status-card", {
+          attrs: {
+            status: _vm.status.unfinished_task_count,
+            progress: _vm.progress.task
+          }
+        })
+      ],
       1
     ),
     _vm._v(" "),
@@ -81055,7 +81088,14 @@ var render = function() {
         staticClass:
           "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card"
       },
-      [_c("todo-status-card", { attrs: { status: "125", progress: "30" } })],
+      [
+        _c("todo-status-card", {
+          attrs: {
+            status: _vm.status.unfinished_todo_count,
+            progress: _vm.progress.todo
+          }
+        })
+      ],
       1
     ),
     _vm._v(" "),
@@ -81065,7 +81105,7 @@ var render = function() {
         staticClass:
           "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card"
       },
-      [_c("star-status-card", { attrs: { status: "1020" } })],
+      [_c("star-status-card", { attrs: { status: "--" } })],
       1
     )
   ])
@@ -81103,7 +81143,11 @@ var render = function() {
     _c(
       "div",
       { staticClass: "col-lg-4 grid-margin stretch-card" },
-      [_c("favorite-project-card")],
+      [
+        _c("favorite-project-card", {
+          attrs: { projects: _vm.favoriteProjects }
+        })
+      ],
       1
     )
   ])
@@ -81709,17 +81753,26 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("user-status-block"),
-      _vm._v(" "),
-      _c("user-today-and-favorite-project-block"),
-      _vm._v(" "),
-      _c("user-activity-block")
-    ],
-    1
-  )
+  return _vm.profile
+    ? _c(
+        "div",
+        [
+          _c("user-status-block", {
+            attrs: {
+              status: _vm.profile.status,
+              progress: _vm.profile.progress
+            }
+          }),
+          _vm._v(" "),
+          _c("user-today-and-favorite-project-block", {
+            attrs: { "favorite-projects": _vm.profile.projects.favorites }
+          }),
+          _vm._v(" "),
+          _c("user-activity-block")
+        ],
+        1
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -94041,7 +94094,6 @@ Vue.prototype.trans = new lang_js__WEBPACK_IMPORTED_MODULE_0___default.a({
 
 var files = __webpack_require__("./resources/assets/js/vue/components sync recursive \\.vue$/");
 
-console.log(files);
 files.keys().map(function (key) {
   return Vue.component(key.split('/').pop().split('.')[0], files(key).default);
 }); //Vue.component('example-component', require('./components/ExampleComponent.vue').default);

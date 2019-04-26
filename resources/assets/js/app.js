@@ -30,7 +30,6 @@ Vue.prototype.trans = new Lang({ messages, locale: default_locale, fallback: fal
  */
 
 const files = require.context('./vue/components', true, /\.vue$/i);
-console.log(files);
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);

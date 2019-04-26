@@ -4,7 +4,7 @@
            <user-today-card></user-today-card>
         </div>
         <div class="col-lg-4 grid-margin stretch-card">
-            <favorite-project-card></favorite-project-card>
+            <favorite-project-card :projects="favoriteProjects"></favorite-project-card>
         </div>
     </div>
 </template>
@@ -14,6 +14,7 @@
     import FavoriteProjectCard from "../cards/FavoriteProjectCard";
     export default {
         name: "UserTodayAndFavoriteProjectBlock",
-        components: {FavoriteProjectCard, UserTodayCard}
+        components: {FavoriteProjectCard, UserTodayCard},
+        props: ['favoriteProjects']
     }
 </script>

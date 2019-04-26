@@ -47,8 +47,7 @@ class ProfileResource extends Resource
                     ->latest()
                     ->get()),
                 'normal' => new ProjectCollection($this->Projects),
-            ],
-            'activity' => view()->make('layouts.webview')->with('contents', $this->createActivityChart($request->user()))->render(),
+            ]
         ];
     }
 
