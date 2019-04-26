@@ -4,7 +4,7 @@
                  :status="status">
         <div class="wrapper">
             <div class="d-flex justify-content-between">
-                <p class="mb-2">Completed</p>
+                <p class="mb-2">Task Progress</p>
                 <p class="mb-2 text-warning">{{ progress }}%</p>
             </div>
             <div class="progress">

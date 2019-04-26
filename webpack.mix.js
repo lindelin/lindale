@@ -22,12 +22,12 @@ mix.styles([
     'resources/assets/css/normalize.css',
 ], 'public/css/welcome.css');
 
-mix.browserSync({
-    host: 'lindale.test',
-    proxy: {
-        target: "http://lindale.test",
-        ws: true
-    },
-    browser: "google chrome",
-    reloadOnRestart: true
-});
+// mix.browserSync({
+//     host: 'lindale.test',
+//     proxy: {
+//         target: "http://lindale.test",
+//         ws: true
+//     },
+//     browser: "google chrome",
+//     reloadOnRestart: true
+// });
