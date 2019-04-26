@@ -7,23 +7,17 @@
                 <p class="mb-2">Total Progress</p>
                 <p class="mb-2 text-info">{{ progress }}%</p>
             </div>
-            <div class="progress">
-                <div class="progress-bar bg-info progress-bar-striped progress-bar-animated"
-                     role="progressbar"
-                     :style="{width: progress + '%'}"
-                     :aria-valuenow="progress"
-                     aria-valuemin="0"
-                     aria-valuemax="100"></div>
-            </div>
+            <progress-bar :progress="progress" color="bg-info"></progress-bar>
         </div>
     </status-card>
 </template>
 
 <script>
     import StatusCard from "../common/StatusCard";
+    import ProgressBar from "../common/ProgressBar";
     export default {
         name: "ProjectStatusCard",
-        components: {StatusCard},
+        components: {ProgressBar, StatusCard},
         props: ['status', 'progress']
     }
 </script>

@@ -7,23 +7,17 @@
                 <p class="mb-2">Task Progress</p>
                 <p class="mb-2 text-warning">{{ progress }}%</p>
             </div>
-            <div class="progress">
-                <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated"
-                     role="progressbar"
-                     :style="{width: progress + '%'}"
-                     :aria-valuenow="progress"
-                     aria-valuemin="0"
-                     aria-valuemax="100"></div>
-            </div>
+            <progress-bar :progress="progress" color="bg-warning"></progress-bar>
         </div>
     </status-card>
 </template>
 
 <script>
     import StatusCard from "../common/StatusCard";
+    import ProgressBar from "../common/ProgressBar";
     export default {
         name: "TaskStatusCard",
-        components: {StatusCard},
+        components: {ProgressBar, StatusCard},
         props: ['status', 'progress']
     }
 </script>
