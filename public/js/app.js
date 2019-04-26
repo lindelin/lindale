@@ -11369,6 +11369,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _common_ProgressBar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/ProgressBar */ "./resources/assets/js/vue/basic/common/ProgressBar.vue");
 //
 //
 //
@@ -11388,27 +11389,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "FavoriteProjectCard"
+  name: "FavoriteProjectCard",
+  components: {
+    ProgressBar: _common_ProgressBar__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    projects: {
+      type: Array,
+      require: false,
+      default: []
+    }
+  }
 });
 
 /***/ }),
@@ -11937,14 +11930,17 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     messages: {
       type: Array,
+      require: false,
       default: []
     },
     type: {
       type: String,
+      require: false,
       default: null
     },
     title: {
       type: String,
+      require: false,
       default: null
     }
   }
@@ -81134,100 +81130,59 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
-    _c("div", { staticClass: "card-body" }, [
-      _c("h2", { staticClass: "card-title text-primary mb-5" }, [
-        _vm._v(_vm._s(_vm.trans.get("project.favorite")))
-      ]),
+  return _c(
+    "div",
+    { staticClass: "card" },
+    [
+      _vm._l(_vm.projects, function(project) {
+        return _vm.projects.length > 0
+          ? _c("div", { staticClass: "card-body" }, [
+              _c("h2", { staticClass: "card-title text-primary mb-5" }, [
+                _vm._v(_vm._s(_vm.trans.get("project.favorite")))
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "wrapper" },
+                [
+                  _c("div", { staticClass: "d-flex justify-content-between" }, [
+                    _c("a", { attrs: { href: "#" } }, [
+                      _c("h4", { staticClass: "mb-2" }, [
+                        _vm._v(_vm._s(project.title))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "mb-2 text-primary" }, [
+                      _vm._v(_vm._s(project.progress) + "%")
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("progress-bar", {
+                    attrs: { progress: project.progress, color: "bg-info" }
+                  })
+                ],
+                1
+              )
+            ])
+          : _vm._e()
+      }),
       _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _vm._m(2)
-    ])
-  ])
+      _vm.projects.length === 0
+        ? _c("div", { staticClass: "card-body" }, [
+            _c("h2", { staticClass: "card-title text-primary mb-5" }, [
+              _vm._v(_vm._s(_vm.trans.get("project.favorite")))
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "card-description" }, [
+              _vm._v(_vm._s(_vm.trans.get("project.none-favorite")))
+            ])
+          ])
+        : _vm._e()
+    ],
+    2
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "wrapper" }, [
-      _c("div", { staticClass: "d-flex justify-content-between" }, [
-        _c("h4", { staticClass: "mb-2" }, [_vm._v("Sales")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "mb-2 text-primary" }, [_vm._v("88%")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "progress" }, [
-        _c("div", {
-          staticClass:
-            "progress-bar bg-info progress-bar-striped progress-bar-animated",
-          staticStyle: { width: "88%" },
-          attrs: {
-            role: "progressbar",
-            "aria-valuenow": "88",
-            "aria-valuemin": "0",
-            "aria-valuemax": "100"
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "wrapper mt-4" }, [
-      _c("div", { staticClass: "d-flex justify-content-between" }, [
-        _c("h4", { staticClass: "mb-2" }, [_vm._v("Sales")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "mb-2 text-primary" }, [_vm._v("88%")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "progress" }, [
-        _c("div", {
-          staticClass:
-            "progress-bar bg-primary progress-bar-striped progress-bar-animated",
-          staticStyle: { width: "88%" },
-          attrs: {
-            role: "progressbar",
-            "aria-valuenow": "88",
-            "aria-valuemin": "0",
-            "aria-valuemax": "100"
-          }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "wrapper mt-4" }, [
-      _c("div", { staticClass: "d-flex justify-content-between" }, [
-        _c("h4", { staticClass: "mb-2" }, [_vm._v("Sales")]),
-        _vm._v(" "),
-        _c("p", { staticClass: "mb-2 text-primary" }, [_vm._v("88%")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "progress" }, [
-        _c("div", {
-          staticClass:
-            "progress-bar bg-primary progress-bar-striped progress-bar-animated",
-          staticStyle: { width: "88%" },
-          attrs: {
-            role: "progressbar",
-            "aria-valuenow": "88",
-            "aria-valuemin": "0",
-            "aria-valuemax": "100"
-          }
-        })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
