@@ -11674,7 +11674,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       options: {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
         scales: {
           yAxes: [{
             display: false
@@ -80990,7 +80990,7 @@ var render = function() {
             { staticClass: "chart-container" },
             [
               _c("user-activity-chart", {
-                attrs: { datasets: _vm.datasets, height: 80 }
+                attrs: { datasets: _vm.datasets, height: 240 }
               })
             ],
             1

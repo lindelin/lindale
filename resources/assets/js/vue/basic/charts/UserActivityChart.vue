@@ -7,7 +7,7 @@
             return {
                 options: {
                     responsive: true,
-                    maintainAspectRatio: true,
+                    maintainAspectRatio: false,
                     scales: {
                         yAxes: [{
                             display: false
