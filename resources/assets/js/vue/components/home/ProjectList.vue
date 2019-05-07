@@ -12,10 +12,7 @@
                 </div>
             </div>
         </div>
-        <transition :name="projectListChangeAnimationName"
-                    mode="out-in"
-                    appear
-                    appear-class="fade">
+        <transition :name="projectListChangeAnimationName" mode="out-in">
             <div class="row" v-if="isMainTab" :key="isMainTab">
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card" v-for="project in profile.projects.management">
                     <project-card :url="'projects/' + project.id"

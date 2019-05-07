@@ -12073,9 +12073,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ProjectList",
@@ -82150,9 +82147,7 @@ var render = function() {
             {
               attrs: {
                 name: _vm.projectListChangeAnimationName,
-                mode: "out-in",
-                appear: "",
-                "appear-class": "fade"
+                mode: "out-in"
               }
             },
             [
