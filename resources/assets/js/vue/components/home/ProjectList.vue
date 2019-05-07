@@ -14,6 +14,9 @@
         </div>
         <transition :name="projectListChangeAnimationName" mode="out-in">
             <div class="row" v-if="isMainTab" :key="isMainTab">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card">
+                    <create-project-block></create-project-block>
+                </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card" v-for="project in profile.projects.management">
                     <project-card :url="'projects/' + project.id"
                                   :img="project.image"
@@ -25,6 +28,9 @@
                 </div>
             </div>
             <div class="row" v-else :key="isMainTab">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card">
+                    <create-project-block></create-project-block>
+                </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card" v-for="project in profile.projects.normal">
                     <project-card :url="'projects/' + project.id"
                                   :img="project.image"
@@ -41,9 +47,10 @@
 
 <script>
     import ProjectCard from "../../basic/cards/ProjectCard";
+    import CreateProjectBlock from "../../basic/blocks/CreateProjectBlock";
     export default {
         name: "ProjectList",
-        components: {ProjectCard},
+        components: {CreateProjectBlock, ProjectCard},
         data: function () {
             return {
                 profile: null,

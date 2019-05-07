@@ -11,6 +11,25 @@
     }
   }
 
+  .card-img-plus {
+    height: 100%;
+    width: auto;
+    margin-left: 40%;
+    margin-right: 40%;
+  }
+
+  &.card-plus {
+    border-left: 2px solid $brand-color;
+    border-right: 2px solid $brand-color-sub;
+    &:before, &:after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: $brand-color-gradient;
+    }
+  }
+
   &.card-outline-success {
     border: 1px solid theme-color("success");
   }

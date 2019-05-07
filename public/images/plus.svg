@@ -1,0 +1,10 @@
+<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14"
+     role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <defs>
+        <linearGradient id="g0">
+            <stop offset="0.2" stop-color="#1268cc"/>
+            <stop offset="0.8" stop-color="#09b4f7"/>
+        </linearGradient>
+    </defs>
+    <path fill="url('#g0')" d="M461,249H265V53c0-4.418-3.582-8-8-8c-4.418,0-8,3.582-8,8v196H53c-4.418,0-8,3.582-8,8c0,4.418,3.582,8,8,8h196v196c0,4.418,3.582,8,8,8c4.418,0,8-3.582,8-8V265h196c4.418,0,8-3.582,8-8C469,252.582,465.418,249,461,249z"/>
+</svg>

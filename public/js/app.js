@@ -11225,6 +11225,51 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "CreateProjectBlock",
+  methods: {
+    openForm: function openForm() {
+      $('#createProjectForm').modal('show');
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/blocks/UserActivityBlock.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/vue/basic/blocks/UserActivityBlock.vue?vue&type=script&lang=js& ***!
@@ -12032,6 +12077,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _basic_cards_ProjectCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../basic/cards/ProjectCard */ "./resources/assets/js/vue/basic/cards/ProjectCard.vue");
+/* harmony import */ var _basic_blocks_CreateProjectBlock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../basic/blocks/CreateProjectBlock */ "./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12074,9 +12126,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ProjectList",
   components: {
+    CreateProjectBlock: _basic_blocks_CreateProjectBlock__WEBPACK_IMPORTED_MODULE_1__["default"],
     ProjectCard: _basic_cards_ProjectCard__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
@@ -81155,6 +81209,121 @@ var reactiveProp = {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue?vue&type=template&id=73412126&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue?vue&type=template&id=73412126& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "card card-statistics mx-auto card-plus",
+      on: { click: _vm.openForm }
+    },
+    [
+      _c("img", {
+        staticClass: "card-img-plus",
+        attrs: { src: "/images/plus.svg", alt: "plus" }
+      }),
+      _vm._v(" "),
+      _vm._m(0)
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "createProjectForm",
+          tabindex: "-1",
+          role: "dialog",
+          "aria-labelledby": "exampleModalLongTitle",
+          "aria-hidden": "true"
+        }
+      },
+      [
+        _c(
+          "div",
+          { staticClass: "modal-dialog modal-xl", attrs: { role: "document" } },
+          [
+            _c("div", { staticClass: "modal-content" }, [
+              _c("div", { staticClass: "modal-header" }, [
+                _c(
+                  "h5",
+                  {
+                    staticClass: "modal-title",
+                    attrs: { id: "exampleModalLongTitle" }
+                  },
+                  [_vm._v("Modal title")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "close",
+                    attrs: {
+                      type: "button",
+                      "data-dismiss": "modal",
+                      "aria-label": "Close"
+                    }
+                  },
+                  [
+                    _c("span", { attrs: { "aria-hidden": "true" } }, [
+                      _vm._v("×")
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-body" }, [
+                _vm._v("\n                    ...\n                ")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-secondary",
+                    attrs: { type: "button", "data-dismiss": "modal" }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "button" } },
+                  [_vm._v("Save changes")]
+                )
+              ])
+            ])
+          ]
+        )
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/blocks/UserActivityBlock.vue?vue&type=template&id=7a54d734&scoped=true&":
 /*!*********************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/vue/basic/blocks/UserActivityBlock.vue?vue&type=template&id=7a54d734&scoped=true& ***!
@@ -82155,58 +82324,84 @@ var render = function() {
                 ? _c(
                     "div",
                     { key: _vm.isMainTab, staticClass: "row" },
-                    _vm._l(_vm.profile.projects.management, function(project) {
-                      return _c(
+                    [
+                      _c(
                         "div",
                         {
                           staticClass:
                             "col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card"
                         },
-                        [
-                          _c("project-card", {
-                            attrs: {
-                              url: "projects/" + project.id,
-                              img: project.image,
-                              name: project.title,
-                              type: project.type,
-                              status: project.status,
-                              progress: project.progress,
-                              "updated-at": project.updated_at
-                            }
-                          })
-                        ],
+                        [_c("create-project-block")],
                         1
-                      )
-                    }),
-                    0
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.profile.projects.management, function(
+                        project
+                      ) {
+                        return _c(
+                          "div",
+                          {
+                            staticClass:
+                              "col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card"
+                          },
+                          [
+                            _c("project-card", {
+                              attrs: {
+                                url: "projects/" + project.id,
+                                img: project.image,
+                                name: project.title,
+                                type: project.type,
+                                status: project.status,
+                                progress: project.progress,
+                                "updated-at": project.updated_at
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      })
+                    ],
+                    2
                   )
                 : _c(
                     "div",
                     { key: _vm.isMainTab, staticClass: "row" },
-                    _vm._l(_vm.profile.projects.normal, function(project) {
-                      return _c(
+                    [
+                      _c(
                         "div",
                         {
                           staticClass:
                             "col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card"
                         },
-                        [
-                          _c("project-card", {
-                            attrs: {
-                              url: "projects/" + project.id,
-                              img: project.image,
-                              name: project.title,
-                              type: project.type,
-                              status: project.status,
-                              progress: project.progress,
-                              "updated-at": project.updated_at
-                            }
-                          })
-                        ],
+                        [_c("create-project-block")],
                         1
-                      )
-                    }),
-                    0
+                      ),
+                      _vm._v(" "),
+                      _vm._l(_vm.profile.projects.normal, function(project) {
+                        return _c(
+                          "div",
+                          {
+                            staticClass:
+                              "col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card"
+                          },
+                          [
+                            _c("project-card", {
+                              attrs: {
+                                url: "projects/" + project.id,
+                                img: project.image,
+                                name: project.title,
+                                type: project.type,
+                                status: project.status,
+                                progress: project.progress,
+                                "updated-at": project.updated_at
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      })
+                    ],
+                    2
                   )
             ]
           )
@@ -94628,6 +94823,75 @@ __webpack_require__.r(__webpack_exports__);
 
 _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faGlobeAmericas"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowAltCircleLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSignInAlt"]);
 Vue.component('icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"]);
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CreateProjectBlock_vue_vue_type_template_id_73412126___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreateProjectBlock.vue?vue&type=template&id=73412126& */ "./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue?vue&type=template&id=73412126&");
+/* harmony import */ var _CreateProjectBlock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreateProjectBlock.vue?vue&type=script&lang=js& */ "./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CreateProjectBlock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CreateProjectBlock_vue_vue_type_template_id_73412126___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CreateProjectBlock_vue_vue_type_template_id_73412126___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************!*\
+  !*** ./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateProjectBlock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./CreateProjectBlock.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateProjectBlock_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue?vue&type=template&id=73412126&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue?vue&type=template&id=73412126& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateProjectBlock_vue_vue_type_template_id_73412126___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./CreateProjectBlock.vue?vue&type=template&id=73412126& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/blocks/CreateProjectBlock.vue?vue&type=template&id=73412126&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateProjectBlock_vue_vue_type_template_id_73412126___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreateProjectBlock_vue_vue_type_template_id_73412126___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

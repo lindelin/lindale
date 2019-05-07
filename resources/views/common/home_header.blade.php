@@ -16,7 +16,7 @@
                     Dashboard
                 </a>
             </li>
-            <li class="nav-item {{ (request()->route()->getName() == 'projects.index') ? 'active' : '' }}">
+            <li class="nav-item {{ (request()->route()->getName() == 'projects') ? 'active' : '' }}">
                 <a href="{{ route('projects') }}" class="nav-link">
                     <i class="mdi mdi-folder-multiple-outline"></i>
                     Projects
