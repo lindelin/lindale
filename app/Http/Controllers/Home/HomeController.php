@@ -29,14 +29,23 @@ class HomeController extends Controller
     }
 
     /**
-     * 个人主页.
+     * Dashboard.
      *
-     * @param Request $request
      * @return mixed
      */
-    public function index(Request $request)
+    public function index()
     {
-        return view('home.index')->with('mode', 'home');
+        return view('home.index');
+    }
+
+    /**
+     * Projects.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function projects()
+    {
+        return view('home.projects');
     }
 
     /**

@@ -59,11 +59,13 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
     //Home
     Route::get('home', 'HomeController@index')->name('home');
-    Route::get('home/project', 'HomeController@project')->name('my.project');
-    Route::post('home/favorites', 'HomeController@addFavorites')->name('add.favorites');
-    Route::post('home/favorites/remove', 'HomeController@removeFavorites')->name('remove.favorites');
+    Route::get('projects', 'HomeController@projects')->name('projects');
+
+//    Route::get('home/project', 'HomeController@project')->name('my.project');
+//    Route::post('home/favorites', 'HomeController@addFavorites')->name('add.favorites');
+//    Route::post('home/favorites/remove', 'HomeController@removeFavorites')->name('remove.favorites');
     //Profile
-    Route::get('profile/{user}', 'ProfileController@show')->name('profile');
+    //Route::get('profile/{user}', 'ProfileController@show')->name('profile');
 });
 
 /*
@@ -79,7 +81,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
 
 Route::group(['middleware' => 'auth', 'namespace' => 'Project'], function () {
     //项目
-    Route::resource('projects', 'ProjectController', ['except' => ['show']]);
+    //Route::resource('projects', 'ProjectController', ['except' => ['show']]);
     Route::patch('project/transfer/{project}', 'ProjectController@transfer')->name('project.transfer');
     Route::get('project/{project}', 'ProjectController@show')->middleware('ProjectAuth')->name('project.show');
     Route::get('/unfinished/project', 'ProjectController@unfinished')->name('project.unfinished');

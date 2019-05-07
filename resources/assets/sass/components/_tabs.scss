@@ -1,0 +1,18 @@
+.tab-button-group {
+  &.btn-group {
+    .btn {
+      border-top: 1px solid $brand-color;
+      border-bottom: 1px solid $brand-color;
+      border-left: 1px solid $brand-color;
+      color: $brand-color;
+
+      &.btn-primary {
+        color: $white;
+        background-color: $brand-color;
+      }
+    }
+    .btn:last-child {
+      border-right: 1px solid $brand-color;
+    }
+  }
+}

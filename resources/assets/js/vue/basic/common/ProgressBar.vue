@@ -13,6 +13,17 @@
 <script>
     export default {
         name: "ProgressBar",
-        props: ['progress', 'color']
+        props: {
+            progress: {
+                type: Number,
+                require  : false,
+                default: 0
+            },
+            color: {
+                type: String,
+                require  : false,
+                default: 'bg-primary'
+            }
+        }
     }
 </script>

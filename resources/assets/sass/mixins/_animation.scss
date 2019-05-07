@@ -68,3 +68,27 @@
 .fadeInUp {
   animation-name: fadeInUp;
 }
+
+/* Slide Fade */
+.slide-fade-left-enter-active, .slide-fade-right-enter-active {
+  transition: all .4s ease;
+}
+.slide-fade-left-leave-active, .slide-fade-right-leave-active {
+  transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-left-enter, .slide-fade-right-leave-to {
+  transform: translateX(-30px);
+  opacity: 0;
+}
+.slide-fade-left-leave-to, .slide-fade-right-enter {
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+/* Fade */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}

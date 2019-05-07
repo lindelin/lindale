@@ -20659,6 +20659,36 @@ a.text-dark:hover, a.text-dark:focus {
           animation-name: fadeInUp;
 }
 
+/* Slide Fade */
+.slide-fade-left-enter-active, .slide-fade-right-enter-active {
+  transition: all .4s ease;
+}
+
+.slide-fade-left-leave-active, .slide-fade-right-leave-active {
+  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-left-enter, .slide-fade-right-leave-to {
+  -webkit-transform: translateX(-30px);
+          transform: translateX(-30px);
+  opacity: 0;
+}
+
+.slide-fade-left-leave-to, .slide-fade-right-enter {
+  -webkit-transform: translateX(30px);
+          transform: translateX(30px);
+  opacity: 0;
+}
+
+/* Fade */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
 /* Miscellaneous Mixins */
 .new-accounts ul.chats li.chat-persons a div.user p.u-name, .new-accounts ul.chats li.chat-persons a div.user p.u-designation {
   text-overflow: ellipsis;
@@ -24249,6 +24279,22 @@ ul li {
 .table.table-bordered thead tr th {
   border-left: none;
   border-right: none;
+}
+
+.tab-button-group.btn-group .btn {
+  border-top: 1px solid #1268cc;
+  border-bottom: 1px solid #1268cc;
+  border-left: 1px solid #1268cc;
+  color: #1268cc;
+}
+
+.tab-button-group.btn-group .btn.btn-primary {
+  color: #ffffff;
+  background-color: #1268cc;
+}
+
+.tab-button-group.btn-group .btn:last-child {
+  border-right: 1px solid #1268cc;
 }
 
 /*-------------------------------------------------------------------*/
