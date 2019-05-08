@@ -1,1 +1,0 @@
-@if($selected == "achievement" or $selected == "budget" or $selected == "config" or $selected == "top" or $selected == "member" or $selected == "concept" or $selected == "bbs") active @endif

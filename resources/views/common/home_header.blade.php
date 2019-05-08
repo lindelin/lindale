@@ -13,7 +13,7 @@
             <li class="nav-item {{ (request()->route()->getName() == 'home') ? 'active' : '' }}">
                 <a href="{{ route('home') }}" class="nav-link">
                     <i class="mdi mdi-view-dashboard"></i>
-                    Dashboard
+                    Home
                 </a>
             </li>
             <li class="nav-item {{ (request()->route()->getName() == 'projects') ? 'active' : '' }}">
@@ -22,8 +22,8 @@
                     Projects
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
+            <li class="nav-item {{ (request()->route()->getName() == 'tasks') ? 'active' : '' }}">
+                <a href="{{ route('tasks') }}" class="nav-link">
                     <i class="mdi mdi-file-tree"></i>
                     Tasks
                 </a>

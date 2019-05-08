@@ -1,1 +1,0 @@
-{{ $project->type_id }}#{{ sprintf("%05d", $project->id) }}

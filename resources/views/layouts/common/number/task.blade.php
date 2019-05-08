@@ -1,1 +1,0 @@
-{{ $task->Project->title }}： #{{ sprintf("%07d", $task->id) }}
