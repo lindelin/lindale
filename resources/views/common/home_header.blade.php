@@ -196,11 +196,19 @@
                         </div>
                     </div>
                 </a>
-                <a href="{{ route('home') }}" class="dropdown-item mt-2">
+                <a href="{{ route('home') }}" class="dropdown-item mt-2" @click="showLoader">
                     <i class="mdi mdi-view-dashboard"></i>
                     Dashboard
                 </a>
-                <a class="dropdown-item mt-2">
+                <a href="{{ route('projects') }}" class="dropdown-item" @click="showLoader">
+                    <i class="mdi mdi-folder-multiple-outline"></i>
+                    Projects
+                </a>
+                <a href="{{ route('tasks') }}" class="dropdown-item" @click="showLoader">
+                    <i class="mdi mdi-file-tree"></i>
+                    Tasks
+                </a>
+                {{--<a class="dropdown-item mt-2">
                     Manage Accounts
                 </a>
                 <a class="dropdown-item">
@@ -208,9 +216,11 @@
                 </a>
                 <a class="dropdown-item">
                     Check Inbox
-                </a>
-                <a class="dropdown-item">
-                    Sign Out
+                </a>--}}
+                <div class="dropdown-divider"></div>
+                <a href="{{ url('/logout') }}" class="dropdown-item">
+                    <i class="mdi mdi-logout"></i>
+                    {{ trans('auth.logout') }}
                 </a>
             </div>
         </div>
