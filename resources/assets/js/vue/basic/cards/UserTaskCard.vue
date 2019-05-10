@@ -3,14 +3,17 @@
         <div class="card-body">
             <div class="row ticket-card pb-2 pb-3 ">
                 <div class="col-md-1">
-                    <img class="img-sm rounded-circle mb-4 mb-md-0" :src="task.initiator.photo" :alt="task.initiator.name">
+                    <img class="img-sm rounded-circle mb-4 mb-md-0"
+                         :src="task.initiator.photo"
+                         :alt="task.initiator.name">
                 </div>
                 <div class="col-md-11">
                     <div class="row ticket-card mb-4">
                         <div class="ticket-details col-md-10">
                             <div class="d-flex">
                                 <h4 class="text-dark font-weight-semibold mr-2 mb-0 no-wrap">{{ task.initiator.name }} :</h4>
-                                <h4 class="text-primary mr-1 mb-0  d-none d-sm-block">[{{ task.type }}#{{ task.id }}]</h4>
+                                <h4 class="mr-1 mb-0  d-none d-sm-block"
+                                    :class="textColor(task.color)">[{{ task.type }}#{{ task.id }}]</h4>
                                 <h4 class="mb-0 ellipsis">{{ task.title }}</h4>
                             </div>
                             <h5 class="text-gray ellipsis mb-2">
@@ -19,7 +22,12 @@
                         </div>
                         <div class="ticket-actions col-md-2 d-none d-sm-block" align="right">
                             <div class="btn-group dropdown">
-                                <button type="button" class="btn btn-success dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button type="button"
+                                        class="btn dropdown-toggle"
+                                        :class="btnColor(task.color)"
+                                        data-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false">
                                     {{ task.status }}
                                 </button>
                                 <div class="dropdown-menu">
@@ -87,9 +95,9 @@
                     <div class="wrapper">
                         <div class="d-flex justify-content-between">
                             <p class="mb-2">{{ task.sub_task_status }}</p>
-                            <p class="mb-2" :class="progressStatusTextColor">{{ task.progress }}%</p>
+                            <p class="mb-2" :class="textColor(task.color)">{{ task.progress }}%</p>
                         </div>
-                        <progress-bar :progress="task.progress" :color="progressStatusColor"></progress-bar>
+                        <progress-bar :progress="task.progress" :color="bgColor(task.color)"></progress-bar>
                     </div>
                 </div>
             </div>
@@ -99,61 +107,15 @@
 
 <script>
     import ProgressBar from "../common/ProgressBar";
+    import Colors from "../common/Colors";
     export default {
+        mixins: [Colors],
         name: "UserTaskCard",
         components: {ProgressBar},
         props: ['task'],
         methods: {
             showDetail: function (url) {
                 window.open(url, '_blank');
-            }
-        },
-        computed: {
-            progressStatusColor: function () {
-                if (this.task.progress === 100) {
-                    return 'bg-success'
-                }
-
-                if (this.task.progress < 20) {
-                    return 'bg-danger'
-                }
-
-                if (this.task.progress < 40) {
-                    return 'bg-warning'
-                }
-
-                if (this.task.progress < 60) {
-                    return 'bg-info'
-                }
-
-                if (this.task.progress < 80) {
-                    return 'bg-primary'
-                }
-
-                return 'bg-primary'
-            },
-            progressStatusTextColor: function () {
-                if (this.task.progress === 100) {
-                    return 'text-success'
-                }
-
-                if (this.task.progress < 20) {
-                    return 'text-danger'
-                }
-
-                if (this.task.progress < 40) {
-                    return 'text-warning'
-                }
-
-                if (this.task.progress < 60) {
-                    return 'text-info'
-                }
-
-                if (this.task.progress < 80) {
-                    return 'text-primary'
-                }
-
-                return 'text-primary'
             }
         }
     }

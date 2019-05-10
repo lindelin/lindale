@@ -11696,6 +11696,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_ProgressBar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/ProgressBar */ "./resources/assets/js/vue/basic/common/ProgressBar.vue");
+/* harmony import */ var _common_Colors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/Colors */ "./resources/assets/js/vue/basic/common/Colors.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -11796,7 +11805,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  mixins: [_common_Colors__WEBPACK_IMPORTED_MODULE_1__["default"]],
   name: "UserTaskCard",
   components: {
     ProgressBar: _common_ProgressBar__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -11805,54 +11816,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     showDetail: function showDetail(url) {
       window.open(url, '_blank');
-    }
-  },
-  computed: {
-    progressStatusColor: function progressStatusColor() {
-      if (this.task.progress === 100) {
-        return 'bg-success';
-      }
-
-      if (this.task.progress < 20) {
-        return 'bg-danger';
-      }
-
-      if (this.task.progress < 40) {
-        return 'bg-warning';
-      }
-
-      if (this.task.progress < 60) {
-        return 'bg-info';
-      }
-
-      if (this.task.progress < 80) {
-        return 'bg-primary';
-      }
-
-      return 'bg-primary';
-    },
-    progressStatusTextColor: function progressStatusTextColor() {
-      if (this.task.progress === 100) {
-        return 'text-success';
-      }
-
-      if (this.task.progress < 20) {
-        return 'text-danger';
-      }
-
-      if (this.task.progress < 40) {
-        return 'text-warning';
-      }
-
-      if (this.task.progress < 60) {
-        return 'text-info';
-      }
-
-      if (this.task.progress < 80) {
-        return 'text-primary';
-      }
-
-      return 'text-primary';
     }
   }
 });
@@ -12051,6 +12014,127 @@ __webpack_require__.r(__webpack_exports__);
         this.renderLineChart();
       },
       deep: true
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/common/Colors.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/vue/basic/common/Colors.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "Colors",
+  methods: {
+    bgColor: function bgColor() {
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+      switch (id) {
+        case 1:
+          return 'bg-primary';
+
+        case 2:
+          return 'bg-primary';
+
+        case 3:
+          return 'bg-success';
+
+        case 4:
+          return 'bg-info';
+
+        case 5:
+          return 'bg-warning';
+
+        case 6:
+          return 'bg-danger';
+
+        default:
+          return 'bg-primary';
+      }
+    },
+    textColor: function textColor() {
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+      switch (id) {
+        case 1:
+          return 'text-dark';
+
+        case 2:
+          return 'text-primary';
+
+        case 3:
+          return 'text-success';
+
+        case 4:
+          return 'text-info';
+
+        case 5:
+          return 'text-warning';
+
+        case 6:
+          return 'text-danger';
+
+        default:
+          return 'text-primary';
+      }
+    },
+    btnColor: function btnColor() {
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+      switch (id) {
+        case 1:
+          return 'btn-dark';
+
+        case 2:
+          return 'btn-primary';
+
+        case 3:
+          return 'btn-success';
+
+        case 4:
+          return 'btn-info';
+
+        case 5:
+          return 'btn-warning';
+
+        case 6:
+          return 'btn-danger';
+
+        default:
+          return 'btn-primary';
+      }
+    },
+    btnOutlineColor: function btnOutlineColor() {
+      var id = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+
+      switch (id) {
+        case 1:
+          return 'btn-outline-secondary';
+
+        case 2:
+          return 'btn-outline-primary';
+
+        case 3:
+          return 'btn-outline-success';
+
+        case 4:
+          return 'btn-outline-info';
+
+        case 5:
+          return 'btn-outline-warning';
+
+        case 6:
+          return 'btn-outline-danger';
+
+        default:
+          return 'btn-outline-primary';
+      }
     }
   }
 });
@@ -82007,7 +82091,10 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "h4",
-                  { staticClass: "text-primary mr-1 mb-0  d-none d-sm-block" },
+                  {
+                    staticClass: "mr-1 mb-0  d-none d-sm-block",
+                    class: _vm.textColor(_vm.task.color)
+                  },
                   [
                     _vm._v(
                       "[" +
@@ -82044,7 +82131,8 @@ var render = function() {
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-success dropdown-toggle btn-sm",
+                      staticClass: "btn dropdown-toggle",
+                      class: _vm.btnColor(_vm.task.color),
                       attrs: {
                         type: "button",
                         "data-toggle": "dropdown",
@@ -82186,7 +82274,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "p",
-                  { staticClass: "mb-2", class: _vm.progressStatusTextColor },
+                  { staticClass: "mb-2", class: _vm.textColor(_vm.task.color) },
                   [_vm._v(_vm._s(_vm.task.progress) + "%")]
                 )
               ]),
@@ -82194,7 +82282,7 @@ var render = function() {
               _c("progress-bar", {
                 attrs: {
                   progress: _vm.task.progress,
-                  color: _vm.progressStatusColor
+                  color: _vm.bgColor(_vm.task.color)
                 }
               })
             ],
@@ -96098,6 +96186,56 @@ component.options.__file = "resources/assets/js/vue/basic/charts/UserActivityCha
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserActivityChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserActivityChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/charts/UserActivityChart.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserActivityChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/common/Colors.vue":
+/*!*********************************************************!*\
+  !*** ./resources/assets/js/vue/basic/common/Colors.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Colors_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Colors.vue?vue&type=script&lang=js& */ "./resources/assets/js/vue/basic/common/Colors.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  _Colors_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/vue/basic/common/Colors.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/vue/basic/common/Colors.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/assets/js/vue/basic/common/Colors.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Colors_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Colors.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/vue/basic/common/Colors.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Colors_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
