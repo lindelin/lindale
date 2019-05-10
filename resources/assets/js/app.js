@@ -49,8 +49,5 @@ const app = new Vue({
         showLoader: function () {
             this.$refs.loader.show();
         }
-    },
-    beforeDestroy: function () {
-        this.$refs.loader.show();
     }
 });

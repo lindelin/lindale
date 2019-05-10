@@ -1,6 +1,6 @@
 <template>
     <transition name="fade">
-        <div class="loader" v-if="show">
+        <div class="loader" v-if="on">
             <img src="/images/loader.svg">
         </div>
     </transition>
@@ -11,15 +11,15 @@
         name: "Loader",
         data: function () {
             return {
-                show: true
+                on: true
             }
         },
         methods: {
             hide: function () {
-                this.show = false;
+                this.on = false;
             },
             show: function () {
-                this.show = true;
+                this.on = true;
             }
         }
     }

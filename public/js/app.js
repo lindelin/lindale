@@ -12469,9 +12469,6 @@ __webpack_require__.r(__webpack_exports__);
   updated: function updated() {
     this.$root.hideLoader();
   },
-  beforeDestroy: function beforeDestroy() {
-    this.$root.showLoader();
-  },
   methods: {
     loadData: function loadData() {
       var _this = this;
@@ -12554,15 +12551,15 @@ __webpack_require__.r(__webpack_exports__);
   name: "Loader",
   data: function data() {
     return {
-      show: true
+      on: true
     };
   },
   methods: {
     hide: function hide() {
-      this.show = false;
+      this.on = false;
     },
     show: function show() {
-      this.show = true;
+      this.on = true;
     }
   }
 });
@@ -83066,7 +83063,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("transition", { attrs: { name: "fade" } }, [
-    _vm.show
+    _vm.on
       ? _c("div", { staticClass: "loader" }, [
           _c("img", { attrs: { src: "/images/loader.svg" } })
         ])
@@ -95340,9 +95337,6 @@ var app = new Vue({
     showLoader: function showLoader() {
       this.$refs.loader.show();
     }
-  },
-  beforeDestroy: function beforeDestroy() {
-    this.$refs.loader.show();
   }
 });
 
