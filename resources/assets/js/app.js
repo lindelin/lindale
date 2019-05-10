@@ -45,6 +45,9 @@ const app = new Vue({
     methods: {
         hideLoader: function () {
             this.$refs.loader.hide();
+        },
+        showLoader: function () {
+            this.$refs.loader.show();
         }
     },
     beforeDestroy: function () {

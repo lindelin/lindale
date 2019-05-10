@@ -22,6 +22,9 @@
         updated: function () {
             this.$root.hideLoader();
         },
+        beforeDestroy: function () {
+            this.$root.showLoader();
+        },
         methods: {
             loadData: function () {
                 axios.get('/api/tasks')

@@ -12469,6 +12469,9 @@ __webpack_require__.r(__webpack_exports__);
   updated: function updated() {
     this.$root.hideLoader();
   },
+  beforeDestroy: function beforeDestroy() {
+    this.$root.showLoader();
+  },
   methods: {
     loadData: function loadData() {
       var _this = this;
@@ -95333,6 +95336,9 @@ var app = new Vue({
   methods: {
     hideLoader: function hideLoader() {
       this.$refs.loader.hide();
+    },
+    showLoader: function showLoader() {
+      this.$refs.loader.show();
     }
   },
   beforeDestroy: function beforeDestroy() {

@@ -11,19 +11,19 @@
     <div class="navbar-menu-wrapper d-flex align-items-center">
         <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
             <li class="nav-item {{ (request()->route()->getName() == 'home') ? 'active' : '' }}">
-                <a href="{{ route('home') }}" class="nav-link">
+                <a href="{{ route('home') }}" class="nav-link" @click="showLoader">
                     <i class="mdi mdi-view-dashboard"></i>
                     Home
                 </a>
             </li>
             <li class="nav-item {{ (request()->route()->getName() == 'projects') ? 'active' : '' }}">
-                <a href="{{ route('projects') }}" class="nav-link">
+                <a href="{{ route('projects') }}" class="nav-link" @click="showLoader">
                     <i class="mdi mdi-folder-multiple-outline"></i>
                     Projects
                 </a>
             </li>
             <li class="nav-item {{ (request()->route()->getName() == 'tasks') ? 'active' : '' }}">
-                <a href="{{ route('tasks') }}" class="nav-link">
+                <a href="{{ route('tasks') }}" class="nav-link" @click="showLoader">
                     <i class="mdi mdi-file-tree"></i>
                     Tasks
                 </a>
