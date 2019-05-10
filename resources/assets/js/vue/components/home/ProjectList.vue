@@ -60,6 +60,9 @@
         created: function () {
             this.loadData();
         },
+        updated: function () {
+            this.$root.hideLoader();
+        },
         methods: {
             loadData: function () {
                 axios.get('/api/profile')

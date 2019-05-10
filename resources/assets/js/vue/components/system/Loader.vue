@@ -1,7 +1,9 @@
 <template>
-    <div class="loader" v-if="">
-        <img src="/images/loader.svg">
-    </div>
+    <transition name="fade">
+        <div class="loader" v-if="show">
+            <img src="/images/loader.svg">
+        </div>
+    </transition>
 </template>
 
 <script>
@@ -13,7 +15,12 @@
             }
         },
         methods: {
-
+            hide: function () {
+                this.show = false;
+            },
+            show: function () {
+                this.show = true;
+            }
         }
     }
 </script>

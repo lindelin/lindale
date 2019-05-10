@@ -10,6 +10,7 @@
 <body>
 <div id="app">
     @include('common.system_notification')
+    <loader ref="loader"></loader>
     <div class="container-scroller">
         @include('common.home_header')
         <div class="container-fluid page-body-wrapper">
