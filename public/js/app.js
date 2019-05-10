@@ -11817,6 +11817,11 @@ __webpack_require__.r(__webpack_exports__);
     showDetail: function showDetail(url) {
       window.open(url, '_blank');
     }
+  },
+  computed: {
+    statusIcon: function statusIcon() {
+      return this.task.is_finish ? 'check' : 'circle-notch';
+    }
   }
 });
 
@@ -12460,7 +12465,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/api/tasks').then(function (response) {
-        console.log(response);
         _this.tasks = response.data.data;
       }).catch(function (error) {
         console.log(error);
@@ -82063,235 +82067,261 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
-    _c("div", { staticClass: "card-body" }, [
-      _c("div", { staticClass: "row ticket-card pb-2 pb-3 " }, [
-        _c("div", { staticClass: "col-md-1" }, [
-          _c("img", {
-            staticClass: "img-sm rounded-circle mb-4 mb-md-0",
-            attrs: {
-              src: _vm.task.initiator.photo,
-              alt: _vm.task.initiator.name
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-md-11" }, [
-          _c("div", { staticClass: "row ticket-card mb-4" }, [
-            _c("div", { staticClass: "ticket-details col-md-10" }, [
-              _c("div", { staticClass: "d-flex" }, [
-                _c(
-                  "h4",
-                  {
-                    staticClass:
-                      "text-dark font-weight-semibold mr-2 mb-0 no-wrap"
-                  },
-                  [_vm._v(_vm._s(_vm.task.initiator.name) + " :")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "h4",
-                  {
-                    staticClass: "mr-1 mb-0  d-none d-sm-block",
-                    class: _vm.textColor(_vm.task.color)
-                  },
-                  [
-                    _vm._v(
-                      "[" +
-                        _vm._s(_vm.task.type) +
-                        "#" +
-                        _vm._s(_vm.task.id) +
-                        "]"
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("h4", { staticClass: "mb-0 ellipsis" }, [
-                  _vm._v(_vm._s(_vm.task.title))
-                ])
-              ]),
-              _vm._v(" "),
-              _c("h5", { staticClass: "text-gray ellipsis mb-2" }, [
-                _vm._v(
-                  "\n                            " +
-                    _vm._s(_vm.task.project_name) +
-                    "\n                        "
-                )
-              ])
+  return _vm.task
+    ? _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-body" }, [
+          _c("div", { staticClass: "row ticket-card pb-2 pb-3 " }, [
+            _c("div", { staticClass: "col-md-1" }, [
+              _c("img", {
+                staticClass: "img-sm rounded-circle mb-4 mb-md-0",
+                attrs: {
+                  src: _vm.task.initiator
+                    ? _vm.task.initiator.photo
+                    : "/images/faces-clipart/pic-1.png",
+                  alt: _vm.task.initiator ? _vm.task.initiator.name : "None"
+                }
+              })
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "ticket-actions col-md-2 d-none d-sm-block",
-                attrs: { align: "right" }
-              },
-              [
-                _c("div", { staticClass: "btn-group dropdown" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn dropdown-toggle",
-                      class: _vm.btnColor(_vm.task.color),
-                      attrs: {
-                        type: "button",
-                        "data-toggle": "dropdown",
-                        "aria-haspopup": "true",
-                        "aria-expanded": "false"
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                                " +
-                          _vm._s(_vm.task.status) +
-                          "\n                            "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm._m(0)
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row text-gray d-md-flex d-none mb-3" }, [
-            _c("div", { staticClass: "col-12" }, [
-              _c("div", { staticClass: "table-responsive" }, [
-                _c("table", { staticClass: "table table-bordered" }, [
-                  _c("tr", { staticClass: "text-gray" }, [
-                    _c("th", [
-                      _vm._v(
-                        "\n                                        " +
-                          _vm._s(_vm.trans.get("task.group")) +
-                          "\n                                    "
-                      )
-                    ]),
+            _c("div", { staticClass: "col-md-11" }, [
+              _c("div", { staticClass: "row ticket-card mb-4" }, [
+                _c("div", { staticClass: "ticket-details col-md-9" }, [
+                  _c("div", { staticClass: "d-flex" }, [
+                    _c(
+                      "h4",
+                      {
+                        staticClass:
+                          "text-dark font-weight-semibold mr-2 mb-0 no-wrap"
+                      },
+                      [
+                        _vm._v(
+                          _vm._s(
+                            _vm.task.initiator
+                              ? _vm.task.initiator.name
+                              : "None"
+                          ) + " :"
+                        )
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("th", [
-                      _vm._v(
-                        "\n                                        " +
-                          _vm._s(_vm.trans.get("task.priority")) +
-                          "\n                                    "
-                      )
-                    ]),
+                    _c(
+                      "h4",
+                      {
+                        staticClass: "mr-1 mb-0  d-none d-sm-block",
+                        class: _vm.textColor(_vm.task.color)
+                      },
+                      [
+                        _vm._v(
+                          "[" +
+                            _vm._s(_vm.task.type) +
+                            "#" +
+                            _vm._s(_vm.task.id) +
+                            "]"
+                        )
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("th", [
-                      _vm._v(
-                        "\n                                        " +
-                          _vm._s(_vm.trans.get("task.start_at")) +
-                          "\n                                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("th", [
-                      _vm._v(
-                        "\n                                        " +
-                          _vm._s(_vm.trans.get("task.end_at")) +
-                          "\n                                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("th", [
-                      _vm._v(
-                        "\n                                        " +
-                          _vm._s(_vm.trans.get("task.cost")) +
-                          "\n                                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("th", [
-                      _vm._v(
-                        "\n                                        " +
-                          _vm._s(_vm.trans.get("task.user")) +
-                          "\n                                    "
-                      )
+                    _c("h4", { staticClass: "mb-0 ellipsis" }, [
+                      _vm._v(_vm._s(_vm.task.title))
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("tr", [
-                    _c("td", [
-                      _vm._v(
-                        "\n                                        " +
-                          _vm._s(_vm.task.group) +
-                          "\n                                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "font-weight-medium" }, [
-                      _vm._v(
-                        "\n                                        " +
-                          _vm._s(_vm.task.priority) +
-                          "\n                                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                                        " +
-                          _vm._s(_vm.task.start_at) +
-                          "\n                                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "text-danger" }, [
-                      _vm._v(
-                        "\n                                        " +
-                          _vm._s(_vm.task.end_at) +
-                          "\n                                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                                        " +
-                          _vm._s(_vm.task.cost) +
-                          " 時間\n                                    "
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", [
-                      _vm._v(
-                        "\n                                        " +
-                          _vm._s(_vm.task.user.name) +
-                          "\n                                    "
-                      )
-                    ])
+                  _c("h5", { staticClass: "text-gray ellipsis mb-2" }, [
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(_vm.task.project_name) +
+                        "\n                        "
+                    )
                   ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "wrapper" },
-            [
-              _c("div", { staticClass: "d-flex justify-content-between" }, [
-                _c("p", { staticClass: "mb-2" }, [
-                  _vm._v(_vm._s(_vm.task.sub_task_status))
                 ]),
                 _vm._v(" "),
                 _c(
-                  "p",
-                  { staticClass: "mb-2", class: _vm.textColor(_vm.task.color) },
-                  [_vm._v(_vm._s(_vm.task.progress) + "%")]
+                  "div",
+                  {
+                    staticClass: "ticket-actions col-md-3 d-none d-sm-block",
+                    attrs: { align: "right" }
+                  },
+                  [
+                    _c("div", { staticClass: "btn-group dropdown" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn dropdown-toggle",
+                          class: _vm.btnColor(_vm.task.color),
+                          attrs: {
+                            type: "button",
+                            "data-toggle": "dropdown",
+                            "aria-haspopup": "true",
+                            "aria-expanded": "false"
+                          }
+                        },
+                        [
+                          _c("icon", {
+                            attrs: {
+                              icon: _vm.statusIcon,
+                              spin: !_vm.task.is_finish
+                            }
+                          }),
+                          _vm._v(
+                            "　" +
+                              _vm._s(_vm.task.status) +
+                              "\n                            "
+                          )
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
+                      _vm._m(0)
+                    ])
+                  ]
                 )
               ]),
               _vm._v(" "),
-              _c("progress-bar", {
-                attrs: {
-                  progress: _vm.task.progress,
-                  color: _vm.bgColor(_vm.task.color)
-                }
-              })
-            ],
-            1
-          )
+              _c(
+                "div",
+                { staticClass: "row text-gray d-md-flex d-none mb-3" },
+                [
+                  _c("div", { staticClass: "col-12" }, [
+                    _c("div", { staticClass: "table-responsive" }, [
+                      _c("table", { staticClass: "table table-bordered" }, [
+                        _c("tr", { staticClass: "text-gray" }, [
+                          _c("th", [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.trans.get("task.group")) +
+                                "\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("th", [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.trans.get("task.priority")) +
+                                "\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("th", [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.trans.get("task.start_at")) +
+                                "\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("th", [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.trans.get("task.end_at")) +
+                                "\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("th", [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.trans.get("task.cost")) +
+                                "\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("th", [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.trans.get("task.user")) +
+                                "\n                                    "
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.task.group) +
+                                "\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "font-weight-medium" }, [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.task.priority) +
+                                "\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-success" }, [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.task.start_at) +
+                                "\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-danger" }, [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.task.end_at) +
+                                "\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.task.cost) +
+                                " 時間\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(
+                              "\n                                        " +
+                                _vm._s(_vm.task.user.name) +
+                                "\n                                    "
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "wrapper" },
+                [
+                  _c("div", { staticClass: "d-flex justify-content-between" }, [
+                    _c("p", { staticClass: "mb-2" }, [
+                      _vm._v(_vm._s(_vm.task.sub_task_status))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "mb-2",
+                        class: _vm.textColor(_vm.task.color)
+                      },
+                      [_vm._v(_vm._s(_vm.task.progress) + "%")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("progress-bar", {
+                    attrs: {
+                      progress: _vm.task.progress,
+                      color: _vm.bgColor(_vm.task.color)
+                    }
+                  })
+                ],
+                1
+              )
+            ])
+          ])
         ])
       ])
-    ])
-  ])
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {
@@ -95306,7 +95336,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faGlobeAmericas"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowAltCircleLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSignInAlt"]);
+
+
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faGlobeAmericas"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faArrowAltCircleLeft"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faSignInAlt"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCircleNotch"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCheck"]);
 Vue.component('icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"]);
 
 /***/ }),

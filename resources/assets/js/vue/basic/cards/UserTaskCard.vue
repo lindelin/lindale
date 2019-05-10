@@ -1,17 +1,17 @@
 <template>
-    <div class="card">
+    <div class="card" v-if="task">
         <div class="card-body">
             <div class="row ticket-card pb-2 pb-3 ">
                 <div class="col-md-1">
                     <img class="img-sm rounded-circle mb-4 mb-md-0"
-                         :src="task.initiator.photo"
-                         :alt="task.initiator.name">
+                         :src="task.initiator ? task.initiator.photo : '/images/faces-clipart/pic-1.png'"
+                         :alt="task.initiator ? task.initiator.name : 'None'">
                 </div>
                 <div class="col-md-11">
                     <div class="row ticket-card mb-4">
-                        <div class="ticket-details col-md-10">
+                        <div class="ticket-details col-md-9">
                             <div class="d-flex">
-                                <h4 class="text-dark font-weight-semibold mr-2 mb-0 no-wrap">{{ task.initiator.name }} :</h4>
+                                <h4 class="text-dark font-weight-semibold mr-2 mb-0 no-wrap">{{ task.initiator ? task.initiator.name : 'None' }} :</h4>
                                 <h4 class="mr-1 mb-0  d-none d-sm-block"
                                     :class="textColor(task.color)">[{{ task.type }}#{{ task.id }}]</h4>
                                 <h4 class="mb-0 ellipsis">{{ task.title }}</h4>
@@ -20,7 +20,7 @@
                                 {{ task.project_name }}
                             </h5>
                         </div>
-                        <div class="ticket-actions col-md-2 d-none d-sm-block" align="right">
+                        <div class="ticket-actions col-md-3 d-none d-sm-block" align="right">
                             <div class="btn-group dropdown">
                                 <button type="button"
                                         class="btn dropdown-toggle"
@@ -28,7 +28,7 @@
                                         data-toggle="dropdown"
                                         aria-haspopup="true"
                                         aria-expanded="false">
-                                    {{ task.status }}
+                                    <icon :icon="statusIcon" :spin="!task.is_finish"></icon>　{{ task.status }}
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#">
@@ -75,7 +75,7 @@
                                         <td class="font-weight-medium">
                                             {{ task.priority }}
                                         </td>
-                                        <td>
+                                        <td class="text-success">
                                             {{ task.start_at }}
                                         </td>
                                         <td class="text-danger">
@@ -116,6 +116,11 @@
         methods: {
             showDetail: function (url) {
                 window.open(url, '_blank');
+            }
+        },
+        computed: {
+            statusIcon: function () {
+                return this.task.is_finish ? 'check' : 'circle-notch'
             }
         }
     }

@@ -8,9 +8,9 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'evaluation' => '成果评价',
-    'no-evaluation' => '没有可以评价的成果',
-    'reviewer' => '评价人',
+    'evaluation' => '评分',
+    'no-evaluation' => '没有可以打分的成果',
+    'reviewer' => '打分人',
     'star-count' => '个',
     'hour' => '小时',
     'estimated' => '预计工数',

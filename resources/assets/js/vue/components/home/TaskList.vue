@@ -23,7 +23,6 @@
             loadData: function () {
                 axios.get('/api/tasks')
                     .then(response => {
-                        console.log(response);
                         this.tasks = response.data.data;
                     })
                     .catch(error => {
