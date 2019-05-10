@@ -81565,7 +81565,7 @@ var render = function() {
             { staticClass: "chart-container" },
             [
               _c("user-activity-chart", {
-                attrs: { datasets: _vm.datasets, height: 240 }
+                attrs: { datasets: _vm.datasets, height: 320 }
               })
             ],
             1

@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="chart-container">
-                        <user-activity-chart :datasets="datasets" :height="240"></user-activity-chart>
+                        <user-activity-chart :datasets="datasets" :height="320"></user-activity-chart>
                     </div>
                 </div>
             </div>
