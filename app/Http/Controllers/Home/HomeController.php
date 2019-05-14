@@ -46,4 +46,13 @@ class HomeController extends Controller
     {
         return view('home.todos');
     }
+
+    /**
+     * Settings.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function settings()
+    {
+        return view('home.settings');
+    }
 }
