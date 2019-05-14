@@ -28,8 +28,8 @@
                     Tasks
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
+            <li class="nav-item {{ (request()->route()->getName() == 'todos') ? 'active' : '' }}">
+                <a href="{{ route('todos') }}" class="nav-link" @click="showLoader">
                     <i class="mdi mdi-check-all"></i>
                     TODOs
                 </a>

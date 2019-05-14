@@ -61,6 +61,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Home'], function () {
     Route::get('home', 'HomeController@index')->name('home');
     Route::get('projects', 'HomeController@projects')->name('projects');
     Route::get('tasks', 'HomeController@tasks')->name('tasks');
+    Route::get('todos', 'HomeController@todos')->name('todos');
 });
 
 /*

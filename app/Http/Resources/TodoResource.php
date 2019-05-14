@@ -27,6 +27,7 @@ class TodoResource extends Resource
             'user' => $this->User ? new UserResource($this->User) : null,
             'project_name' => $this->Project->title,
             'updated_at' => $this->updated_at->diffForHumans(),
+            'completed' => $this->status_id === config('todo.status.finished') ? true : false,
         ];
     }
 }

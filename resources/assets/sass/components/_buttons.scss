@@ -156,6 +156,10 @@
       border-color: darken(theme-color(light),3%);
     }
   }
+
+  &.todo-actions {
+    height: 100%;
+  }
 }
 
 .btn-toolbar {

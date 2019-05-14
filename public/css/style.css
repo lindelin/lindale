@@ -22595,6 +22595,10 @@ pre {
   border-color: #eaeeef;
 }
 
+.btn-group.todo-actions {
+  height: 100%;
+}
+
 /*social buttons*/
 .btn-twitter {
   background: #1da1f2;

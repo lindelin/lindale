@@ -37,4 +37,13 @@ class HomeController extends Controller
     {
         return view('home.tasks');
     }
+
+    /**
+     * Todos.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function todos()
+    {
+        return view('home.todos');
+    }
 }
