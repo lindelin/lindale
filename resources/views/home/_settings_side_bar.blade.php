@@ -1,4 +1,4 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
+<nav class="sidebar sidebar-offcanvas" :class="{ active: sidebar }" id="sidebar" data-sidebar="true">
     <ul class="nav">
         <li class="nav-item">
             <div class="nav-link">

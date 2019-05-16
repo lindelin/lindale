@@ -42,12 +42,23 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 const app = new Vue({
     el: '#app',
+    data: {
+        sidebar: false
+    },
     methods: {
         hideLoader: function () {
             this.$refs.loader.hide();
         },
         showLoader: function () {
             this.$refs.loader.show();
+        },
+        menuButtonHasClicked: function () {
+            this.sidebar = !this.sidebar;
+        }
+    },
+    computed: {
+        hasSidebar: function() {
+            return $('#sidebar').data('sidebar') ? true : false;
         }
     }
 });

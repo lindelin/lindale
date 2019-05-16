@@ -95997,12 +95997,23 @@ files.keys().map(function (key) {
 
 var app = new Vue({
   el: '#app',
+  data: {
+    sidebar: false
+  },
   methods: {
     hideLoader: function hideLoader() {
       this.$refs.loader.hide();
     },
     showLoader: function showLoader() {
       this.$refs.loader.show();
+    },
+    menuButtonHasClicked: function menuButtonHasClicked() {
+      this.sidebar = !this.sidebar;
+    }
+  },
+  computed: {
+    hasSidebar: function hasSidebar() {
+      return $('#sidebar').data('sidebar') ? true : false;
     }
   }
 });

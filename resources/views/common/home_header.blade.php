@@ -178,8 +178,11 @@
         </ul>
         <div>
             <a class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" id="MenuDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                <span class="mdi mdi-menu"></span>
+                <img class="img-xs rounded-circle" src="{{ auth()->user()->photoPath() }}" alt="{{ auth()->user()->name }}">
             </a>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" v-if="hasSidebar" @click="menuButtonHasClicked">
+                <span class="mdi mdi-menu"></span>
+            </button>
             <div class="dropdown-menu dropdown-menu-right dropdownAnimation" aria-labelledby="MenuDropdown">
                 <a class="dropdown-item p-0">
                     <div class="d-flex border-bottom">
