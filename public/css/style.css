@@ -7768,7 +7768,7 @@ a.close.disabled {
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: #f2f8f9;
+  background-color: #ffffff;
   background-clip: padding-box;
   border: 1px solid #f2f2f2;
   border-radius: 0.3rem;
@@ -8681,7 +8681,7 @@ button.bg-dark:focus {
   display: table-cell !important;
 }
 
-.d-flex, .loader-demo-box, .nav .nav-item.dropdown .navbar-dropdown .dropdown-item,
+.d-flex, .page-header, .loader-demo-box, .nav .nav-item.dropdown .navbar-dropdown .dropdown-item,
 .navbar-nav .nav-item.dropdown .navbar-dropdown .dropdown-item, .new-accounts ul.chats li.chat-persons a, .new-accounts ul.chats li.chat-persons a div.user {
   display: flex !important;
 }
@@ -8959,7 +8959,7 @@ button.bg-dark:focus {
   justify-content: center !important;
 }
 
-.justify-content-between {
+.justify-content-between, .page-header {
   justify-content: space-between !important;
 }
 
@@ -8975,7 +8975,7 @@ button.bg-dark:focus {
   align-items: flex-end !important;
 }
 
-.align-items-center, .loader-demo-box, .nav .nav-item.dropdown .navbar-dropdown .dropdown-item,
+.align-items-center, .page-header, .loader-demo-box, .nav .nav-item.dropdown .navbar-dropdown .dropdown-item,
 .navbar-nav .nav-item.dropdown .navbar-dropdown .dropdown-item, .new-accounts ul.chats li.chat-persons a {
   align-items: center !important;
 }
@@ -21734,6 +21734,36 @@ html {
 pre {
   padding: 15px;
   font-size: 14px;
+}
+
+.page-header {
+  margin: 0 0 1.5rem 0;
+}
+
+.page-header .breadcrumb {
+  border: 0;
+  margin-bottom: 0;
+}
+
+.page-title {
+  color: #000;
+  font-size: 1.125rem;
+  margin-bottom: 0;
+}
+
+.page-title .page-title-icon {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  text-align: center;
+  background: linear-gradient(120deg, #00e4d0, #5983e8);
+  box-shadow: 0px 3px 8.3px 0.7px rgba(54, 60, 255, 0.35);
+}
+
+.page-title .page-title-icon i {
+  font-size: .9375rem;
+  line-height: 36px;
 }
 
 /* Footer */

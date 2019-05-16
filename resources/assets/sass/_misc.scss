@@ -72,3 +72,32 @@ pre {
   padding: 15px;
   font-size: 14px;
 }
+
+.page-header {
+  @extend .d-flex;
+  @extend .justify-content-between;
+  @extend .align-items-center;
+  margin: 0 0 1.5rem 0;
+  .breadcrumb {
+    border: 0;
+    margin-bottom: 0;
+  }
+}
+.page-title {
+  color: $black;
+  font-size: 1.125rem;
+  margin-bottom: 0;
+  .page-title-icon {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    text-align: center;
+    background: $blue-teal-gradient;
+    box-shadow: 0px 3px 8.3px 0.7px rgba(54, 60, 255, 0.35);
+    i {
+      font-size: .9375rem;
+      line-height: 36px;
+    }
+  }
+}

@@ -148,8 +148,8 @@
             </li>--}}
             <li class="nav-item dropdown d-none d-lg-block">
                 <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                    <span class="profile-text">{{ auth()->user()->name }}</span>
                     <img class="img-xs rounded-circle" src="{{ auth()->user()->photoPath() }}" alt="{{ auth()->user()->name }}">
+                    <span class="profile-text ml-2">{{ auth()->user()->name }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                     <div class="dropdown-item p-0">
@@ -174,6 +174,11 @@
                         {{ trans('auth.logout') }}
                     </a>
                 </div>
+            </li>
+            <li class="nav-item d-none d-lg-block full-screen-link">
+                <a class="nav-link" @click="fullScreen">
+                    <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+                </a>
             </li>
         </ul>
         <div>

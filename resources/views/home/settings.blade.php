@@ -5,5 +5,6 @@
 @endsection
 
 @section('content')
+
     <profile-settings></profile-settings>
 @endsection

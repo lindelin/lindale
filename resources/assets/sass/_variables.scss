@@ -2,6 +2,7 @@
 $brand-color: #1268cc;
 $brand-color-sub: #09b4f7;
 $brand-color-gradient: -webkit-linear-gradient(0deg, #1268cc, #09b4f7);
+$brand-color-gradient-sub: -webkit-linear-gradient(0deg, #09b4f7, #1268cc);
 $blue: #00aeef;
 $indigo: #6610f2;
 $purple: #ab8ce4;
@@ -171,7 +172,7 @@ $modal-inner-padding: 15px;
 $modal-dialog-margin: 10px;
 $modal-dialog-margin-y-sm-up: 30px;
 $modal-title-line-height: $line-height-base;
-$modal-content-bg: $content-bg;
+$modal-content-bg: #ffffff;
 $modal-content-box-shadow-xs: 0 3px 9px rgba($black, .5);
 $modal-content-box-shadow-sm-up: 0 5px 15px rgba($black, .5);
 $modal-backdrop-bg: $black;
