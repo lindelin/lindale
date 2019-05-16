@@ -2,7 +2,7 @@
     <ul class="nav">
         <li class="nav-item">
             <div class="nav-link">
-                <span class="menu-title text-gray">{{ trans('user.settings') }}</span>
+                <span class="menu-title text-gray font-weight-bold">{{ trans('user.settings') }}</span>
             </div>
         </li>
         <li class="nav-item">
@@ -31,7 +31,7 @@
         </li>
         <li class="nav-item">
             <div class="nav-link">
-                <span class="menu-title text-gray">{{ trans('config.developer-config') }}</span>
+                <span class="menu-title text-gray font-weight-bold">{{ trans('config.developer-config') }}</span>
             </div>
         </li>
         <li class="nav-item">

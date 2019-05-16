@@ -152,26 +152,24 @@
                     <img class="img-xs rounded-circle" src="{{ auth()->user()->photoPath() }}" alt="{{ auth()->user()->name }}">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-                    <a class="dropdown-item p-0">
+                    <div class="dropdown-item p-0">
                         <div class="d-flex border-bottom">
-                            <div class="py-3 px-4 d-flex align-items-center justify-content-center">
-                                <i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
-                            </div>
                             <div class="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right">
                                 <i class="mdi mdi-account-outline mr-0 text-gray"></i>
                             </div>
                             <div class="py-3 px-4 d-flex align-items-center justify-content-center">
-                                <i class="mdi mdi-alarm-check mr-0 text-gray"></i>
+                                <i class="mdi mdi-chart-gantt mr-0 text-gray"></i>
+                            </div>
+                            <div class="py-3 px-4 d-flex align-items-center justify-content-center">
+                                <a href="{{ route('settings') }}" @click="showLoader"><i class="mdi mdi-settings mr-0 text-gray"></i></a>
                             </div>
                         </div>
+                    </div>
+                    <a class="dropdown-item" @click="showLoader">
+                        <i class="mdi mdi-lock"></i>
+                        {{ trans('user.account') }}
                     </a>
-                    <a class="dropdown-item">
-                        Change Password
-                    </a>
-                    <a class="dropdown-item">
-                        Check Inbox
-                    </a>
-                    <a href="{{ url('/logout') }}" class="dropdown-item">
+                    <a href="{{ url('/logout') }}" class="dropdown-item" @click="showLoader">
                         <i class="mdi mdi-logout"></i>
                         {{ trans('auth.logout') }}
                     </a>
@@ -218,7 +216,7 @@
                     Check Inbox
                 </a>--}}
                 <div class="dropdown-divider"></div>
-                <a href="{{ url('/logout') }}" class="dropdown-item">
+                <a href="{{ url('/logout') }}" class="dropdown-item" @click="showLoader">
                     <i class="mdi mdi-logout"></i>
                     {{ trans('auth.logout') }}
                 </a>
