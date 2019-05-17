@@ -12,3 +12,37 @@
     left:calc(50% - 300px/2);
   }
 }
+
+.indicator-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  .indicator-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: lightgray;
+    opacity: 0.5;
+    z-index: 9998;
+  }
+  .indicator {
+    z-index: 9999;
+    position: fixed;
+    display: inline-block;
+    background-color: white;
+    padding: 20px 50px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}

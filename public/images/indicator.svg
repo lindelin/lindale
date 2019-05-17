@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%">
+
+    <!-- Text using the #pattern in defs as the fill -->
+    <text x="50%" text-anchor="middle" y="50%" dy="0.4em" fill="url(#pattern)" font-family="sonos-logoregular" font-size="32vh">■■■■■</text>
+
+    <defs>
+        <!-- Da gradient -->
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0">
+            <stop offset="0%" style="stop-color:#6610f2;"/>
+            <stop offset="20%" style="stop-color:#ab8ce4;"/>
+            <stop offset="40%" style="stop-color:#E91E63;"/>
+            <stop offset="60%" style="stop-color:#ffd500;"/>
+            <stop offset="80%" style="stop-color:#57c7d4;"/>
+            <stop offset="100%" style="stop-color:#1268cc;"/>
+        </linearGradient>
+
+        <!-- Stitch 2 gradients together for seamless animation  -->
+        <pattern id="pattern" x="0" y="0" width="300%" height="100%" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="150%" height="100%" fill="url(#gradient)">
+                <animate attributeType="XML"
+                         attributeName="x"
+                         from="0" to="150%"
+                         dur="2s"
+                         repeatCount="indefinite"/>
+            </rect>
+            <rect x="-150%" y="0" width="150%" height="100%" fill="url(#gradient)">
+                <animate attributeType="XML"
+                         attributeName="x"
+                         from="-150%" to="0"
+                         dur="2s"
+                         repeatCount="indefinite"/>
+            </rect>
+        </pattern>
+    </defs>
+</svg>
