@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Home;
+namespace App\Http\Controllers\Web;
 
 use App\Contracts\Repositories\ProjectRepositoryContract;
 use App\Project\Project;
@@ -52,8 +52,11 @@ class HomeController extends Controller
      * @param string $section
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function settings($section = 'profile')
+    public function settings($section = 'profile-settings')
     {
+        if (! in_array($section, config('blocks.settings'))) {
+            abort(404);
+        }
         return view('home.settings', compact('section'));
     }
 }

@@ -12,7 +12,7 @@
     @include('common.system_notification')
     <loader ref="loader"></loader>
     <div class="container-scroller">
-        @include('common.home_header')
+        @include('home._header')
         <div class="container-fluid page-body-wrapper">
             <div class="main-panel home-panel">
                 <div class="content-wrapper">

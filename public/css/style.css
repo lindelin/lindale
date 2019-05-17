@@ -13323,7 +13323,7 @@ button.bg-dark:focus {
   margin-bottom: 0 !important;
 }
 
-.ml-0,
+.ml-0, .rtl .navbar.default-layout .navbar-menu-wrapper .search-field,
 .mx-0 {
   margin-left: 0 !important;
 }
@@ -13409,7 +13409,7 @@ button.bg-dark:focus {
   margin-top: 1.5rem !important;
 }
 
-.mr-4,
+.mr-4, .rtl .navbar.default-layout .navbar-menu-wrapper .search-field,
 .mx-4 {
   margin-right: 1.5rem !important;
 }
@@ -24909,6 +24909,45 @@ input:focus {
 
 .navbar.default-layout .navbar-menu-wrapper .navbar-text {
   font-size: 13px;
+}
+
+.navbar.default-layout .navbar-menu-wrapper .search-field .input-group input {
+  font-size: 13px;
+  padding: .5rem;
+}
+
+.navbar.default-layout .navbar-menu-wrapper .search-field .input-group input:-ms-input-placeholder {
+  font-size: 12px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar.default-layout .navbar-menu-wrapper .search-field .input-group input:-moz-placeholder {
+  font-size: 12px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar.default-layout .navbar-menu-wrapper .search-field .input-group input::-moz-placeholder {
+  font-size: 12px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar.default-layout .navbar-menu-wrapper .search-field .input-group input::-webkit-input-placeholder {
+  font-size: 12px;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar.default-layout .navbar-menu-wrapper .search-field .input-group i {
+  font-size: 17px;
+  margin-right: 0;
+  color: #ffffff;
+}
+
+.navbar.default-layout .navbar-menu-wrapper .search-field .input-group .input-group-text {
+  background: transparent;
 }
 
 .navbar.default-layout .navbar-menu-wrapper .navbar-nav {

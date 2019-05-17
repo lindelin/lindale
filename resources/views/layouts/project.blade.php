@@ -13,9 +13,9 @@
     <loader ref="loader"></loader>
     <indicator ref="indicator"></indicator>
     <div class="container-scroller">
-        @include('home._header')
+        @include('project._header')
         <div class="container-fluid page-body-wrapper">
-            @include('home._settings_side_bar')
+            @include('project._side_bar')
             <div class="main-panel">
                 <div class="content-wrapper">
                     @yield('content')

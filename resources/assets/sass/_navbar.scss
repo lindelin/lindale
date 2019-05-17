@@ -80,6 +80,31 @@
       .navbar-text {
         font-size: $default-font-size;
       }
+      .search-field {
+        .input-group {
+          input {
+            font-size: $default-font-size;
+            padding: .5rem;
+            @include input-placeholder {
+              font-size: $navbar-font-size;
+              color: $white;
+              font-family: $type-2;
+            }
+          }
+          i {
+            font-size: 17px;
+            margin-right: 0;
+            color: $white;
+          }
+          .input-group-text {
+            background: transparent;
+          }
+        }
+        .rtl & {
+          @extend .ml-0;
+          @extend .mr-4;
+        }
+      }
       .navbar-nav {
         flex-direction: row;
         align-items: center;

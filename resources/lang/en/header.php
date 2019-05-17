@@ -13,7 +13,7 @@ return [
     'zh'          => '中文',
     'ja'          => '日本語',
     'en'          => 'English',
-    'top'         => 'Top',
+    'top'         => 'Dashboard',
     'info'        => 'Overview',
     'progress'    => 'Progress',
     'tasks'       => 'Tasks',

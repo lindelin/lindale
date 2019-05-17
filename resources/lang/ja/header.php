@@ -13,7 +13,7 @@ return [
     'zh'          => '中文',
     'ja'          => '日本語',
     'en'          => 'English',
-    'top'         => 'トップ',
+    'top'         => 'ダッシュボード',
     'info'        => '概要',
     'progress'    => '進捗',
     'tasks'       => 'チケット',

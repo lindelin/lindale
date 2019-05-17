@@ -8,8 +8,10 @@ use App\Events\Project\ProjectUpdated;
 use App\Task\TaskGroup;
 use App\Tools\Analytics\Achievable;
 use Config;
+use Colorable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\File;
 
 /**
  * App\Project\Project.
@@ -300,5 +302,18 @@ class Project extends Model
     public function latestTodo($count)
     {
         return $this->Todos()->latest()->take($count)->get();
+    }
+
+    /**
+     * 画像
+     * @return string
+     */
+    public function image()
+    {
+        if ($this->image != '' and File::exists(public_path('storage/'.$this->image))) {
+            return asset('storage/'.$this->image);
+        } else {
+            return asset(Colorable::lindaleImage());
+        }
     }
 }

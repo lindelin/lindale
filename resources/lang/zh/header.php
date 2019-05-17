@@ -13,7 +13,7 @@ return [
     'zh'          => '中文',
     'ja'          => '日本語',
     'en'          => 'English',
-    'top'         => '首页',
+    'top'         => '数据面板',
     'info'        => '概要',
     'progress'    => '进度',
     'tasks'       => '任务',
