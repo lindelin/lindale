@@ -186,7 +186,14 @@
                 <img class="img-xs rounded-circle" src="{{ auth()->user()->photoPath() }}" alt="{{ auth()->user()->name }}">
             </a>
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" v-if="hasSidebar" @click="menuButtonHasClicked">
-                <span class="mdi mdi-menu"></span>
+                <transition name="custom-classes-transition"
+                            enter-active-class="animated zoomIn"
+                            leave-active-class="animated zoomOut"
+                            mode="out-in"
+                            :duration="300">
+                    <span class="mdi mdi-close" v-if="sidebar" :key="sidebar"></span>
+                    <span class="mdi mdi-menu" v-else :key="sidebar"></span>
+                </transition>
             </button>
             <div class="dropdown-menu dropdown-menu-right dropdownAnimation" aria-labelledby="MenuDropdown">
                 <a class="dropdown-item p-0">
