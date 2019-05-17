@@ -11579,22 +11579,6 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   /*
    * The component's data.
@@ -82672,27 +82656,90 @@ var render = function() {
                     ])
                   : _vm._e(),
                 _vm._v(" "),
-                _vm._l(_vm.tokens, function(token) {
+                _vm._l(_vm.tokens, function(token, index) {
                   return _c(
                     "div",
                     {
-                      staticClass:
-                        "row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3"
+                      staticClass: "row ticket-card mt-3 pb-2 pb-3 mb-3",
+                      class: {
+                        "border-bottom": index !== _vm.tokens.length - 1
+                      }
                     },
                     [
-                      _c("div", { staticClass: "ticket-details col-md-10" }, [
+                      _vm._m(0, true),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ticket-details col-md-9" }, [
                         _c("div", { staticClass: "d-flex" }, [
                           _c(
-                            "p",
+                            "h4",
                             {
                               staticClass:
-                                "text-dark font-weight-semibold mb-0 no-wrap"
+                                "text-dark font-weight-semibold mb-2 no-wrap"
                             },
-                            [_vm._v(_vm._s(token.name))]
+                            [
+                              _vm._v(
+                                "\n                                        " +
+                                  _vm._s(token.name) +
+                                  "\n                                        "
+                              ),
+                              token.revoked
+                                ? _c(
+                                    "span",
+                                    { staticClass: "badge badge-danger ml-1" },
+                                    [_vm._v("Invalid")]
+                                  )
+                                : _c(
+                                    "span",
+                                    { staticClass: "badge badge-success ml-1" },
+                                    [_vm._v("Valid")]
+                                  )
+                            ]
                           )
                         ]),
                         _vm._v(" "),
-                        _vm._m(0, true)
+                        _c(
+                          "div",
+                          { staticClass: "row text-gray d-md-flex d-none" },
+                          [
+                            _c("div", { staticClass: "col-4 d-flex" }, [
+                              _c(
+                                "small",
+                                {
+                                  staticClass: "mb-0 mr-2 text-muted text-muted"
+                                },
+                                [_vm._v("Created at :")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "small",
+                                {
+                                  staticClass:
+                                    "Last-responded mr-2 mb-0 text-muted text-muted"
+                                },
+                                [_vm._v(_vm._s(token.created_at))]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-4 d-flex" }, [
+                              _c(
+                                "small",
+                                {
+                                  staticClass: "mb-0 mr-2 text-muted text-muted"
+                                },
+                                [_vm._v("Expires at :")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "small",
+                                {
+                                  staticClass:
+                                    "Last-responded mr-2 mb-0 text-muted text-muted"
+                                },
+                                [_vm._v(_vm._s(token.expires_at))]
+                              )
+                            ])
+                          ]
+                        )
                       ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "ticket-actions col-md-2" }, [
@@ -82716,56 +82763,7 @@ var render = function() {
                       ])
                     ]
                   )
-                }),
-                _vm._v(" "),
-                _vm.tokens.length > 0
-                  ? _c("table", { staticClass: "table table-striped mb-0" }, [
-                      _vm._m(1),
-                      _vm._v(" "),
-                      _c(
-                        "tbody",
-                        _vm._l(_vm.tokens, function(token) {
-                          return _c("tr", [
-                            _c(
-                              "td",
-                              { staticStyle: { "vertical-align": "middle" } },
-                              [
-                                _vm._v(
-                                  "\n                                    " +
-                                    _vm._s(token.name) +
-                                    "\n                                "
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "td",
-                              { staticStyle: { "vertical-align": "middle" } },
-                              [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass: "action-link text-danger",
-                                    on: {
-                                      click: function($event) {
-                                        return _vm.revoke(token)
-                                      }
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                        Delete\n                                    "
-                                    )
-                                  ]
-                                )
-                              ]
-                            )
-                          ])
-                        }),
-                        0
-                      )
-                    ])
-                  : _vm._e()
+                })
               ],
               2
             )
@@ -82783,12 +82781,12 @@ var render = function() {
       [
         _c("div", { staticClass: "modal-dialog" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(2),
+            _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
               _vm.form.errors.length > 0
                 ? _c("div", { staticClass: "alert alert-danger" }, [
-                    _vm._m(3),
+                    _vm._m(2),
                     _vm._v(" "),
                     _c("br"),
                     _vm._v(" "),
@@ -82935,7 +82933,7 @@ var render = function() {
       [
         _c("div", { staticClass: "modal-dialog" }, [
           _c("div", { staticClass: "modal-content" }, [
-            _vm._m(4),
+            _vm._m(3),
             _vm._v(" "),
             _c("div", { staticClass: "modal-body" }, [
               _c("p", [
@@ -82951,7 +82949,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(5)
+            _vm._m(4)
           ])
         ])
       ]
@@ -82963,38 +82961,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row text-gray d-md-flex d-none" }, [
-      _c("div", { staticClass: "col-4 d-flex" }, [
-        _c("small", { staticClass: "mb-0 mr-2 text-muted text-muted" }, [
-          _vm._v("Last responded :")
-        ]),
-        _vm._v(" "),
-        _c(
-          "small",
-          { staticClass: "Last-responded mr-2 mb-0 text-muted text-muted" },
-          [_vm._v("3 hours ago")]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-4 d-flex" }, [
-        _c("small", { staticClass: "mb-0 mr-2 text-muted text-muted" }, [
-          _vm._v("Due in :")
-        ]),
-        _vm._v(" "),
-        _c(
-          "small",
-          { staticClass: "Last-responded mr-2 mb-0 text-muted text-muted" },
-          [_vm._v("2 Days")]
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [_c("th", [_vm._v("Name")]), _vm._v(" "), _c("th")])
+    return _c("div", { staticClass: "col-md-1" }, [
+      _c("i", { staticClass: "menu-icon mdi mdi-key mdi-24px" })
     ])
   },
   function() {

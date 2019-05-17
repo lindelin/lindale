@@ -24,19 +24,27 @@
                             </p>
 
                             <!-- Personal Access Tokens -->
-                            <div class="row ticket-card mt-3 pb-2 border-bottom pb-3 mb-3" v-for="token in tokens">
-                                <div class="ticket-details col-md-10">
+                            <div class="row ticket-card mt-3 pb-2 pb-3 mb-3"
+                                 v-for="(token, index) in tokens" :class="{'border-bottom': index !== tokens.length - 1}">
+                                <div class="col-md-1">
+                                    <i class="menu-icon mdi mdi-key mdi-24px"></i>
+                                </div>
+                                <div class="ticket-details col-md-9">
                                     <div class="d-flex">
-                                        <p class="text-dark font-weight-semibold mb-0 no-wrap">{{ token.name }}</p>
+                                        <h4 class="text-dark font-weight-semibold mb-2 no-wrap">
+                                            {{ token.name }}
+                                            <span class="badge badge-danger ml-1" v-if="token.revoked">Invalid</span>
+                                            <span class="badge badge-success ml-1" v-else>Valid</span>
+                                        </h4>
                                     </div>
                                     <div class="row text-gray d-md-flex d-none">
                                         <div class="col-4 d-flex">
-                                            <small class="mb-0 mr-2 text-muted text-muted">Last responded :</small>
-                                            <small class="Last-responded mr-2 mb-0 text-muted text-muted">3 hours ago</small>
+                                            <small class="mb-0 mr-2 text-muted text-muted">Created at :</small>
+                                            <small class="Last-responded mr-2 mb-0 text-muted text-muted">{{ token.created_at }}</small>
                                         </div>
                                         <div class="col-4 d-flex">
-                                            <small class="mb-0 mr-2 text-muted text-muted">Due in :</small>
-                                            <small class="Last-responded mr-2 mb-0 text-muted text-muted">2 Days</small>
+                                            <small class="mb-0 mr-2 text-muted text-muted">Expires at :</small>
+                                            <small class="Last-responded mr-2 mb-0 text-muted text-muted">{{ token.expires_at }}</small>
                                         </div>
                                     </div>
                                 </div>
@@ -46,30 +54,6 @@
                                     </button>
                                 </div>
                             </div>
-                            <table class="table table-striped mb-0" v-if="tokens.length > 0">
-                                <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
-
-                                <tbody>
-                                <tr v-for="token in tokens">
-                                    <!-- Client Name -->
-                                    <td style="vertical-align: middle;">
-                                        {{ token.name }}
-                                    </td>
-
-                                    <!-- Delete Button -->
-                                    <td style="vertical-align: middle;">
-                                        <a class="action-link text-danger" @click="revoke(token)">
-                                            Delete
-                                        </a>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
