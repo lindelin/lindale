@@ -13013,8 +13013,10 @@ __webpack_require__.r(__webpack_exports__);
     ProfileSettingsBlock: _basic_blocks_settings_ProfileSettingsBlock__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   created: function created() {
+    var section = $('meta[name="section"]').attr('content');
     this.$root.hideLoader();
-    this.$root.sidebarActive = 'profile-settings';
+    this.$root.sidebarActive = section;
+    history.replaceState('', '', '/settings/' + section);
   },
   computed: {
     active: function active() {
@@ -97698,6 +97700,7 @@ var app = new Vue({
     selectedSidebarItem: function selectedSidebarItem(item) {
       this.sidebar = false;
       this.sidebarActive = item;
+      history.replaceState('', '', '/settings/' + item);
     }
   },
   computed: {

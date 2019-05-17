@@ -91,6 +91,7 @@ const app = new Vue({
         selectedSidebarItem: function (item) {
             this.sidebar = false;
             this.sidebarActive = item;
+            history.replaceState('','','/settings/' + item);
         }
     },
     computed: {

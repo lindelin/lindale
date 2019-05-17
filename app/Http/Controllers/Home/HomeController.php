@@ -49,10 +49,11 @@ class HomeController extends Controller
 
     /**
      * Settings.
+     * @param string $section
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function settings()
+    public function settings($section = 'profile')
     {
-        return view('home.settings');
+        return view('home.settings', compact('section'));
     }
 }

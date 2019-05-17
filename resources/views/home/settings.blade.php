@@ -4,7 +4,10 @@
     {{ trans('header.settings') }} - {{ config('app.title') }}
 @endsection
 
-@section('content')
+@section('head')
+    <meta name="section" content="{{ $section }}">
+@stop
 
+@section('content')
     <profile-settings></profile-settings>
 @endsection

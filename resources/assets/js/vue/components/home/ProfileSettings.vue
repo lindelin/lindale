@@ -28,8 +28,10 @@
             AuthorizedClientsSettingsBlock,
             NotificationSettingsBlock, LocationSettingsBlock, AccountSettingsBlock, ProfileSettingsBlock},
         created: function () {
+            let section = $('meta[name="section"]').attr('content');
             this.$root.hideLoader();
-            this.$root.sidebarActive = 'profile-settings';
+            this.$root.sidebarActive = section;
+            history.replaceState('','','/settings/' + section);
         },
         computed: {
             active: function () {
