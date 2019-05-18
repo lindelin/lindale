@@ -11367,7 +11367,12 @@ __webpack_require__.r(__webpack_exports__);
     StarStatusCard: _cards_StarStatusCard__WEBPACK_IMPORTED_MODULE_1__["default"],
     ProjectStatusCard: _basic_cards_ProjectStatusCard__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ['status', 'progress']
+  props: ['status', 'progress'],
+  methods: {
+    viewDetail: function viewDetail(path) {
+      window.location.href = path;
+    }
+  }
 });
 
 /***/ }),
@@ -82569,7 +82574,12 @@ var render = function() {
       "div",
       {
         staticClass:
-          "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card"
+          "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card",
+        on: {
+          click: function($event) {
+            return _vm.viewDetail("/projects")
+          }
+        }
       },
       [
         _c("project-status-card", {
@@ -82586,7 +82596,12 @@ var render = function() {
       "div",
       {
         staticClass:
-          "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card"
+          "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card",
+        on: {
+          click: function($event) {
+            return _vm.viewDetail("/tasks")
+          }
+        }
       },
       [
         _c("task-status-card", {
@@ -82603,7 +82618,12 @@ var render = function() {
       "div",
       {
         staticClass:
-          "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card"
+          "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card",
+        on: {
+          click: function($event) {
+            return _vm.viewDetail("/todos")
+          }
+        }
       },
       [
         _c("todo-status-card", {
@@ -100455,8 +100475,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/lindale/resources/assets/js/app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/lindale/resources/assets/sass/style.scss */"./resources/assets/sass/style.scss");
+__webpack_require__(/*! /home/vagrant/code/resources/assets/js/app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/code/resources/assets/sass/style.scss */"./resources/assets/sass/style.scss");
 
 
 /***/ })
