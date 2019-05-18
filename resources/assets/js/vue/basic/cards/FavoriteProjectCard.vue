@@ -4,7 +4,7 @@
             <h2 class="card-title text-primary mb-5">{{ trans.get('project.favorite') }}</h2>
             <div class="wrapper" v-for="project in projects">
                 <div class="d-flex justify-content-between">
-                    <a href="#"><h4 class="mb-2" :class="progressStatusTextColor(project.progress)">{{ project.title }}</h4></a>
+                    <a :href="'/projects/' + project.id"><h4 class="mb-2" :class="progressStatusTextColor(project.progress)">{{ project.title }}</h4></a>
                     <p class="mb-2" :class="progressStatusTextColor(project.progress)">{{ project.progress }}%</p>
                 </div>
                 <progress-bar :progress="project.progress" :color="progressStatusColor(project.progress)"></progress-bar>

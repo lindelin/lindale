@@ -83656,7 +83656,7 @@ var render = function() {
                 { staticClass: "wrapper" },
                 [
                   _c("div", { staticClass: "d-flex justify-content-between" }, [
-                    _c("a", { attrs: { href: "#" } }, [
+                    _c("a", { attrs: { href: "/projects/" + project.id } }, [
                       _c(
                         "h4",
                         {
