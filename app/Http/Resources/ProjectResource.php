@@ -32,7 +32,7 @@ class ProjectResource extends Resource
             'todo_status' => Counter::ProjectTodoFinishedCount($this->resource).'/'.Counter::ProjectTodoCount($this->resource),
             'progress' => $this->progress,
             'created_at' => $this->created_at->format('Y/m/d h:i:s'),
-            'updated_at' => $this->updated_at->format('Y/m/d h:i:s'),
+            'updated_at' => $this->updated_at->diffForHumans(),
         ];
     }
 
