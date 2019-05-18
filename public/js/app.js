@@ -12006,6 +12006,50 @@ __webpack_require__.r(__webpack_exports__);
       require: false,
       default: []
     }
+  },
+  computed: {
+    progressStatusColor: function progressStatusColor() {
+      return function (progress) {
+        if (progress < 20) {
+          return 'bg-danger';
+        }
+
+        if (progress < 40) {
+          return 'bg-warning';
+        }
+
+        if (progress < 60) {
+          return 'bg-info';
+        }
+
+        if (progress < 80) {
+          return 'bg-primary';
+        }
+
+        return 'bg-primary';
+      };
+    },
+    progressStatusTextColor: function progressStatusTextColor() {
+      return function (progress) {
+        if (progress < 20) {
+          return 'text-danger';
+        }
+
+        if (progress < 40) {
+          return 'text-warning';
+        }
+
+        if (progress < 60) {
+          return 'text-info';
+        }
+
+        if (progress < 80) {
+          return 'text-primary';
+        }
+
+        return 'text-primary';
+      };
+    }
   }
 });
 
@@ -83596,57 +83640,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "card" },
-    [
-      _vm._l(_vm.projects, function(project) {
-        return _vm.projects.length > 0
-          ? _c("div", { staticClass: "card-body" }, [
-              _c("h2", { staticClass: "card-title text-primary mb-5" }, [
-                _vm._v(_vm._s(_vm.trans.get("project.favorite")))
-              ]),
-              _vm._v(" "),
-              _c(
+  return _c("div", { staticClass: "card" }, [
+    _vm.projects.length > 0
+      ? _c(
+          "div",
+          { staticClass: "card-body" },
+          [
+            _c("h2", { staticClass: "card-title text-primary mb-5" }, [
+              _vm._v(_vm._s(_vm.trans.get("project.favorite")))
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.projects, function(project) {
+              return _c(
                 "div",
                 { staticClass: "wrapper" },
                 [
                   _c("div", { staticClass: "d-flex justify-content-between" }, [
                     _c("a", { attrs: { href: "#" } }, [
-                      _c("h4", { staticClass: "mb-2" }, [
-                        _vm._v(_vm._s(project.title))
-                      ])
+                      _c(
+                        "h4",
+                        {
+                          staticClass: "mb-2",
+                          class: _vm.progressStatusTextColor(project.progress)
+                        },
+                        [_vm._v(_vm._s(project.title))]
+                      )
                     ]),
                     _vm._v(" "),
-                    _c("p", { staticClass: "mb-2 text-primary" }, [
-                      _vm._v(_vm._s(project.progress) + "%")
-                    ])
+                    _c(
+                      "p",
+                      {
+                        staticClass: "mb-2",
+                        class: _vm.progressStatusTextColor(project.progress)
+                      },
+                      [_vm._v(_vm._s(project.progress) + "%")]
+                    )
                   ]),
                   _vm._v(" "),
                   _c("progress-bar", {
-                    attrs: { progress: project.progress, color: "bg-info" }
+                    attrs: {
+                      progress: project.progress,
+                      color: _vm.progressStatusColor(project.progress)
+                    }
                   })
                 ],
                 1
               )
-            ])
-          : _vm._e()
-      }),
-      _vm._v(" "),
-      _vm.projects.length === 0
-        ? _c("div", { staticClass: "card-body" }, [
-            _c("h2", { staticClass: "card-title text-primary mb-5" }, [
-              _vm._v(_vm._s(_vm.trans.get("project.favorite")))
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-description" }, [
-              _vm._v(_vm._s(_vm.trans.get("project.none-favorite")))
-            ])
+            })
+          ],
+          2
+        )
+      : _c("div", { staticClass: "card-body" }, [
+          _c("h2", { staticClass: "card-title text-dark mb-5" }, [
+            _vm._v(_vm._s(_vm.trans.get("project.favorite")))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-description" }, [
+            _vm._v(_vm._s(_vm.trans.get("project.none-favorite")))
           ])
-        : _vm._e()
-    ],
-    2
-  )
+        ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
