@@ -5,17 +5,46 @@
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{ trans.get('project.create-project') }}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <form>
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="row mb-3">
+                                        <div class="form-group col-12">
+                                            <v-input id="projectTitle"
+                                                     type="text"
+                                                     :label="trans.get('project.title')"
+                                                     v-model="projectTitle"></v-input>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="form-group col-12">
+                                            <v-markdown-editor id="projectContent"
+                                                               :label="trans.get('project.content')"
+                                                               v-model="projectContent"></v-markdown-editor>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <div class="row mb-3">
+                                        <div class="form-group col-12">
+                                            <v-input id="projectType"
+                                                     type="text"
+                                                     :label="trans.get('project.type')"></v-input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ trans.get('project.cancel') }}</button>
+                        <button type="button" class="btn btn-primary">{{ trans.get('project.submit') }}</button>
                     </div>
                 </div>
             </div>
@@ -24,8 +53,17 @@
 </template>
 
 <script>
+    import VInput from "../forms/VInput";
+    import VMarkdownEditor from "../forms/VMarkdownEditor";
     export default {
         name: "CreateProjectBlock",
+        components: {VMarkdownEditor, VInput},
+        data: function () {
+            return {
+                projectTitle: null,
+                projectContent: null
+            }
+        },
         methods: {
             openForm: function () {
                 $('#createProjectForm').modal('show')

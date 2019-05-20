@@ -41,6 +41,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.6",
     "animate.css": "^3.7.0",
     "vue-chartjs": "^3.4.2",
-    "vue-flash-message": "^0.7.2"
+    "vue-flash-message": "^0.7.2",
+    "vue-simplemde": "^0.5.1"
   }
 }
