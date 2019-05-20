@@ -11367,7 +11367,12 @@ __webpack_require__.r(__webpack_exports__);
     StarStatusCard: _cards_StarStatusCard__WEBPACK_IMPORTED_MODULE_1__["default"],
     ProjectStatusCard: _basic_cards_ProjectStatusCard__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  props: ['status', 'progress']
+  props: ['status', 'progress'],
+  methods: {
+    viewDetail: function viewDetail(path) {
+      window.location.href = path;
+    }
+  }
 });
 
 /***/ }),
@@ -12000,6 +12005,50 @@ __webpack_require__.r(__webpack_exports__);
       type: Array,
       require: false,
       default: []
+    }
+  },
+  computed: {
+    progressStatusColor: function progressStatusColor() {
+      return function (progress) {
+        if (progress < 20) {
+          return 'bg-danger';
+        }
+
+        if (progress < 40) {
+          return 'bg-warning';
+        }
+
+        if (progress < 60) {
+          return 'bg-info';
+        }
+
+        if (progress < 80) {
+          return 'bg-primary';
+        }
+
+        return 'bg-primary';
+      };
+    },
+    progressStatusTextColor: function progressStatusTextColor() {
+      return function (progress) {
+        if (progress < 20) {
+          return 'text-danger';
+        }
+
+        if (progress < 40) {
+          return 'text-warning';
+        }
+
+        if (progress < 60) {
+          return 'text-info';
+        }
+
+        if (progress < 80) {
+          return 'text-primary';
+        }
+
+        return 'text-primary';
+      };
     }
   }
 });
@@ -82569,7 +82618,12 @@ var render = function() {
       "div",
       {
         staticClass:
-          "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card"
+          "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card",
+        on: {
+          click: function($event) {
+            return _vm.viewDetail("/projects")
+          }
+        }
       },
       [
         _c("project-status-card", {
@@ -82586,7 +82640,12 @@ var render = function() {
       "div",
       {
         staticClass:
-          "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card"
+          "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card",
+        on: {
+          click: function($event) {
+            return _vm.viewDetail("/tasks")
+          }
+        }
       },
       [
         _c("task-status-card", {
@@ -82603,7 +82662,12 @@ var render = function() {
       "div",
       {
         staticClass:
-          "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card"
+          "col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card",
+        on: {
+          click: function($event) {
+            return _vm.viewDetail("/todos")
+          }
+        }
       },
       [
         _c("todo-status-card", {
@@ -83576,57 +83640,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "card" },
-    [
-      _vm._l(_vm.projects, function(project) {
-        return _vm.projects.length > 0
-          ? _c("div", { staticClass: "card-body" }, [
-              _c("h2", { staticClass: "card-title text-primary mb-5" }, [
-                _vm._v(_vm._s(_vm.trans.get("project.favorite")))
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "wrapper" },
-                [
-                  _c("div", { staticClass: "d-flex justify-content-between" }, [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("h4", { staticClass: "mb-2" }, [
-                        _vm._v(_vm._s(project.title))
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "mb-2 text-primary" }, [
-                      _vm._v(_vm._s(project.progress) + "%")
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("progress-bar", {
-                    attrs: { progress: project.progress, color: "bg-info" }
-                  })
-                ],
-                1
-              )
-            ])
-          : _vm._e()
-      }),
-      _vm._v(" "),
-      _vm.projects.length === 0
-        ? _c("div", { staticClass: "card-body" }, [
+  return _c("div", { staticClass: "card" }, [
+    _vm.projects.length > 0
+      ? _c(
+          "div",
+          { staticClass: "card-body" },
+          [
             _c("h2", { staticClass: "card-title text-primary mb-5" }, [
               _vm._v(_vm._s(_vm.trans.get("project.favorite")))
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "card-description" }, [
-              _vm._v(_vm._s(_vm.trans.get("project.none-favorite")))
-            ])
+            _vm._l(_vm.projects, function(project) {
+              return _c(
+                "div",
+                { staticClass: "wrapper" },
+                [
+                  _c("div", { staticClass: "d-flex justify-content-between" }, [
+                    _c("a", { attrs: { href: "/projects/" + project.id } }, [
+                      _c(
+                        "h4",
+                        {
+                          staticClass: "mb-2",
+                          class: _vm.progressStatusTextColor(project.progress)
+                        },
+                        [_vm._v(_vm._s(project.title))]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        staticClass: "mb-2",
+                        class: _vm.progressStatusTextColor(project.progress)
+                      },
+                      [_vm._v(_vm._s(project.progress) + "%")]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("progress-bar", {
+                    attrs: {
+                      progress: project.progress,
+                      color: _vm.progressStatusColor(project.progress)
+                    }
+                  })
+                ],
+                1
+              )
+            })
+          ],
+          2
+        )
+      : _c("div", { staticClass: "card-body" }, [
+          _c("h2", { staticClass: "card-title text-dark mb-5" }, [
+            _vm._v(_vm._s(_vm.trans.get("project.favorite")))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-description" }, [
+            _vm._v(_vm._s(_vm.trans.get("project.none-favorite")))
           ])
-        : _vm._e()
-    ],
-    2
-  )
+        ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -100455,8 +100528,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/lindale/resources/assets/js/app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/lindale/resources/assets/sass/style.scss */"./resources/assets/sass/style.scss");
+__webpack_require__(/*! /home/vagrant/code/resources/assets/js/app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/code/resources/assets/sass/style.scss */"./resources/assets/sass/style.scss");
 
 
 /***/ })
