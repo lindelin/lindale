@@ -19,24 +19,26 @@
                                             <v-input id="projectTitle"
                                                      type="text"
                                                      :label="trans.get('project.title')"
-                                                     v-model="projectTitle"></v-input>
+                                                     v-model="titleInput"></v-input>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="form-group col-12">
                                             <v-markdown-editor id="projectContent"
                                                                :label="trans.get('project.content')"
-                                                               v-model="projectContent"></v-markdown-editor>
+                                                               v-model="contentInput"></v-markdown-editor>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="form-group col-lg-6">
                                             <v-datepicker id="startDate"
-                                                          :label="trans.get('project.start_at')"></v-datepicker>
+                                                          :label="trans.get('project.start_at')"
+                                                          v-model="startAtInput"></v-datepicker>
                                         </div>
                                         <div class="form-group col-lg-6">
                                             <v-datepicker id="endDate"
-                                                          :label="trans.get('project.end_at')"></v-datepicker>
+                                                          :label="trans.get('project.end_at')"
+                                                          v-model="startAtInput"></v-datepicker>
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +47,8 @@
                                         <div class="form-group col-12">
                                             <v-input id="projectType"
                                                      type="text"
-                                                     :label="trans.get('project.type')"></v-input>
+                                                     :label="trans.get('project.type')"
+                                                     v-model="typeInput"></v-input>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -62,14 +65,16 @@
                                         <div class="form-group col-12">
                                             <v-input id="projectType"
                                                      type="password"
-                                                     :label="trans.get('project.password')"></v-input>
+                                                     :label="trans.get('project.password')"
+                                                     v-model="passwordInput"></v-input>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="form-group col-12">
                                             <v-input id="projectType"
                                                      type="password"
-                                                     :label="trans.get('project.password_confirmation')"></v-input>
+                                                     :label="trans.get('project.password_confirmation')"
+                                                     v-model="passwordConfirmationInput"></v-input>
                                         </div>
                                     </div>
                                 </div>
@@ -96,8 +101,13 @@
         components: {croppa: Croppa.component, VDatepicker, VMarkdownEditor, VInput},
         data: function () {
             return {
-                projectTitle: null,
-                projectContent: null,
+                titleInput: null,
+                contentInput: null,
+                typeInput: null,
+                passwordInput: null,
+                passwordConfirmationInput: null,
+                startAtInput: new Date(),
+                endAtInput: new Date(),
                 imagePicker: {}
             }
         },
