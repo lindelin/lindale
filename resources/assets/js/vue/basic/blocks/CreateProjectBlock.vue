@@ -48,6 +48,30 @@
                                                      :label="trans.get('project.type')"></v-input>
                                         </div>
                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="form-group col-12">
+                                            <label>{{ trans.get('project.add-image') }}</label>
+                                            <br>
+                                            <croppa v-model="imagePicker"
+                                                    :prevent-white-space="true"
+                                                    :reverse-scroll-to-zoom="true"
+                                                    :placeholder="trans.get('common.choose-file')"></croppa>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="form-group col-12">
+                                            <v-input id="projectType"
+                                                     type="password"
+                                                     :label="trans.get('project.password')"></v-input>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="form-group col-12">
+                                            <v-input id="projectType"
+                                                     type="password"
+                                                     :label="trans.get('project.password_confirmation')"></v-input>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -66,13 +90,15 @@
     import VInput from "../forms/VInput";
     import VMarkdownEditor from "../forms/VMarkdownEditor";
     import VDatepicker from "../forms/VDatepicker";
+    import Croppa from 'vue-croppa'
     export default {
         name: "CreateProjectBlock",
-        components: {VDatepicker, VMarkdownEditor, VInput},
+        components: {croppa: Croppa.component, VDatepicker, VMarkdownEditor, VInput},
         data: function () {
             return {
                 projectTitle: null,
-                projectContent: null
+                projectContent: null,
+                imagePicker: {}
             }
         },
         methods: {
