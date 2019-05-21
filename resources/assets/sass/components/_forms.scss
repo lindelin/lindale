@@ -56,4 +56,21 @@ select {
   .file-upload-info {
     background: transparent;
   }
+
+  .v-calendar {
+    width: 100% !important;
+    .input-field {
+      min-width: 100% !important;
+      svg.datepicker {
+        fill: $brand-color !important;
+      }
+    }
+    .calendar {
+      .days {
+        .day.selectedDate {
+          background: $brand-color !important;
+        }
+      }
+    }
+  }
 }

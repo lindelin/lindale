@@ -2,7 +2,7 @@
     <div>
         <label :for="id">{{ label }}</label>
         <markdown-editor v-bind:value="value"
-                         v-on:input="$emit('input', $event)">
+                         v-on:input="$emit('input', $event)"
                          :id="id"
                          ref="markdownEditor"></markdown-editor>
         <div class="invalid-feedback" v-for="error in errors">

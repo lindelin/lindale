@@ -29,6 +29,16 @@
                                                                v-model="projectContent"></v-markdown-editor>
                                         </div>
                                     </div>
+                                    <div class="row mb-3">
+                                        <div class="form-group col-lg-6">
+                                            <v-datepicker id="startDate"
+                                                          :label="trans.get('project.start_at')"></v-datepicker>
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <v-datepicker id="endDate"
+                                                          :label="trans.get('project.end_at')"></v-datepicker>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="row mb-3">
@@ -55,9 +65,10 @@
 <script>
     import VInput from "../forms/VInput";
     import VMarkdownEditor from "../forms/VMarkdownEditor";
+    import VDatepicker from "../forms/VDatepicker";
     export default {
         name: "CreateProjectBlock",
-        components: {VMarkdownEditor, VInput},
+        components: {VDatepicker, VMarkdownEditor, VInput},
         data: function () {
             return {
                 projectTitle: null,

@@ -33,6 +33,7 @@
     "sass-loader": "^7.1.0",
     "simple-line-icons": "2.4.1",
     "vue": "^2.6.10",
+    "vue-datepicker-ui": "^0.1.2",
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
@@ -41,7 +42,9 @@
     "@fortawesome/vue-fontawesome": "^0.1.6",
     "animate.css": "^3.7.0",
     "vue-chartjs": "^3.4.2",
+    "vue-datepicker-ui": "^0.1.2",
     "vue-flash-message": "^0.7.2",
+    "vue-mj-daterangepicker": "^0.1.5",
     "vue-simplemde": "^0.5.1"
   }
 }

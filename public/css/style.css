@@ -27449,6 +27449,22 @@ select.form-control {
   background: transparent;
 }
 
+.form-group .v-calendar {
+  width: 100% !important;
+}
+
+.form-group .v-calendar .input-field {
+  min-width: 100% !important;
+}
+
+.form-group .v-calendar .input-field svg.datepicker {
+  fill: #1268cc !important;
+}
+
+.form-group .v-calendar .calendar .days .day.selectedDate {
+  background: #1268cc !important;
+}
+
 /* Icons */
 .icons-list {
   border-left: 1px solid #f2f2f2;
