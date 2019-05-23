@@ -29,6 +29,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected $namespace = 'App\Http\Controllers';
     protected $apiNamespace = 'App\Http\Controllers\Api';
+    protected $apiV1Namespace = 'App\Http\Controllers\Api\V1';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -37,8 +38,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
 
         Route::model('user', User::class);
@@ -54,28 +53,6 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('taskActivity', TaskActivity::class);
         Route::model('notice', Notice::class);
         Route::model('evaluation', Evaluation::class);
-
-        // ngrok.io Hack
-        $scheme = "";
-        $host = "";
-        $baseInfo = parse_url(config("app.url"));
-        $baseHost = $baseInfo["host"];
-        $baseScheme = $baseInfo["scheme"];
-
-        if (isset($_SERVER["HTTP_X_ORIGINAL_HOST"])) {
-            $scheme = isset($_SERVER["HTTP_X_FORWARDED_PROTO"]) ? $_SERVER["HTTP_X_FORWARDED_PROTO"] : $baseScheme;
-            $host = isset($_SERVER["HTTP_X_ORIGINAL_HOST"]) ? $_SERVER["HTTP_X_ORIGINAL_HOST"] : "";
-        } elseif (isset($_SERVER["HTTP_REFERER"])) {
-            $info = parse_url($_SERVER["HTTP_REFERER"]);
-            $host = $info["host"];
-            $scheme = $info["scheme"];
-        }
-
-        if ($host != "" && $host != $baseHost && preg_match("#ngrok\.io#", $host)) {
-            $scheme ?: $baseScheme;
-            \URL::forceRootUrl("{$scheme}://{$host}");
-        }
-        // End ngrok.io Hack
     }
 
     /**
@@ -89,7 +66,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapApiRoutes();
 
-        //
+        $this->mapApiVersionOneRoutes();
     }
 
     /**
@@ -119,5 +96,20 @@ class RouteServiceProvider extends ServiceProvider
             ->middleware('api')
             ->namespace($this->apiNamespace)
             ->group(base_path('routes/api.php'));
+    }
+
+    /**
+     * Define the "api v1" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapApiVersionOneRoutes()
+    {
+        Route::prefix('api/v1')
+            ->middleware('api')
+            ->namespace($this->apiV1Namespace)
+            ->group(base_path('routes/api-v1.php'));
     }
 }

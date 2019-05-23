@@ -25780,6 +25780,12 @@ pre {
   overflow: hidden;
 }
 
+.ellipsis .ellipsis-text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .no-wrap {
   white-space: nowrap;
 }

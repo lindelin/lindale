@@ -10,8 +10,11 @@
     import UserStatusBlock from "../../basic/blocks/UserStatusBlock";
     import UserActivityBlock from "../../basic/blocks/UserActivityBlock";
     import UserTodayAndFavoriteProjectBlock from "../../basic/blocks/UserTodayAndFavoriteProjectBlock";
+    import Router from "../../basic/system/Router";
+    import ErrorHandler from "../../basic/system/ErrorHandler";
     export default {
         name: "HomeDashboard",
+        mixins: [Router, ErrorHandler],
         components: {UserTodayAndFavoriteProjectBlock, UserActivityBlock, UserStatusBlock},
         data: function () {
             return {
@@ -26,13 +29,12 @@
         },
         methods: {
             loadData: function () {
-                axios.get('/api/profile')
+                axios.get(this.route.profile)
                     .then(response => {
-                        console.log(response);
                         this.profile = response.data;
                     })
                     .catch(error => {
-                        console.log(error);
+                        this.handleErrorStatusCodes(error);
                     });
             }
         }

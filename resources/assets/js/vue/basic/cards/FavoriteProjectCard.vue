@@ -2,12 +2,23 @@
     <div class="card">
         <div class="card-body" v-if="projects.length > 0">
             <h2 class="card-title text-primary mb-5">{{ trans.get('project.favorite') }}</h2>
-            <div class="wrapper" v-for="project in projects">
-                <div class="d-flex justify-content-between">
-                    <a :href="'/projects/' + project.id"><h4 class="mb-2" :class="progressStatusTextColor(project.progress)">{{ project.title }}</h4></a>
-                    <p class="mb-2" :class="progressStatusTextColor(project.progress)">{{ project.progress }}%</p>
+            <div class="row mb-3" v-for="project in projects">
+                <div class="col-2">
+                    <img :src="project.image" :alt="project.title" class="img-sm rounded-circle mb-4 mb-md-0">
                 </div>
-                <progress-bar :progress="project.progress" :color="progressStatusColor(project.progress)"></progress-bar>
+                <div class="col-10">
+                    <div class="wrapper">
+                        <div class="d-flex justify-content-between">
+                            <a :href="'/projects/' + project.id" class="ellipsis">
+                                <h4 class="mb-2 ellipsis-text" :class="progressStatusTextColor(project.progress)">
+                                    {{ project.title }}
+                                </h4>
+                            </a>
+                            <p class="mb-2" :class="progressStatusTextColor(project.progress)">{{ project.progress }}%</p>
+                        </div>
+                        <progress-bar :progress="project.progress" :color="progressStatusColor(project.progress)"></progress-bar>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="card-body" v-else>

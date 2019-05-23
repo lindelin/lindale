@@ -48,8 +48,11 @@
 <script>
     import ProjectCard from "../../basic/cards/ProjectCard";
     import CreateProjectBlock from "../../basic/blocks/CreateProjectBlock";
+    import Router from "../../basic/system/Router";
+    import ErrorHandler from "../../basic/system/ErrorHandler";
     export default {
         name: "ProjectList",
+        mixins: [Router, ErrorHandler],
         components: {CreateProjectBlock, ProjectCard},
         data: function () {
             return {
@@ -65,13 +68,12 @@
         },
         methods: {
             loadData: function () {
-                axios.get('/api/profile')
+                axios.get(this.route.profile)
                     .then(response => {
-                        console.log(response);
                         this.profile = response.data;
                     })
                     .catch(error => {
-                        console.log(error);
+                        this.handleErrorStatusCodes(error);
                     });
             },
             tabChange: function (tab) {

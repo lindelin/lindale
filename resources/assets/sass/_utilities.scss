@@ -153,6 +153,11 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  .ellipsis-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }
 
 .no-wrap {
