@@ -107,7 +107,6 @@ class ProjectRepository implements ProjectRepositoryContract
 
         if ($request->file('image')) {
             $path = $request->file('image')->store('projects/tmp', 'public');
-            Image::make(storage_path().'/app/public/'.$path)->resize(600, 600)->save(storage_path().'/app/public/'.$path);
             $project->image = $path;
         }
 

@@ -5,7 +5,7 @@
                          v-on:input="$emit('input', $event)"
                          :id="id"
                          ref="markdownEditor"></markdown-editor>
-        <div class="invalid-feedback" v-for="error in errors">
+        <div class="invalid-feedback" v-for="error in errors" style="display: block">
             {{ error }}
         </div>
     </div>
@@ -29,8 +29,9 @@
                 default: null
             },
             value: {
+                type: String,
                 require: false,
-                default: null
+                default: ''
             },
             errors: {
                 type: Array,

@@ -33,8 +33,8 @@
                 default: null
             },
             value: {
-                require  : true,
-                default: null
+                require: true,
+                default: ''
             },
             errors: {
                 type: Array,

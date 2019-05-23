@@ -17,7 +17,7 @@ return [
     'group-info'   => 'グループ説明',
     'info'           => '説明',
     'start_at'     => '開始日',
-    'end_at'       => '期日',
+    'end_at'       => '期限日',
     'type'         => '作業区分',
     'status'       => 'ステータス',
     'color'        => 'カラー',

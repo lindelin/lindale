@@ -53,12 +53,6 @@ const app = new Vue({
         showLoader: function () {
             this.$refs.loader.show();
         },
-        hideIndicator: function () {
-            this.$refs.indicator.hide();
-        },
-        showIndicator: function (message) {
-            this.$refs.indicator.show(message);
-        },
         menuButtonHasClicked: function () {
             this.sidebar = !this.sidebar;
         },

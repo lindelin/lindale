@@ -38,4 +38,18 @@ return [
 
     'not-photo' => '必须是图片。',
 
+    'input-invalid' => '输入错误',
+    'input-invalid-message' => '您的输入有一项或多项错误。',
+
+    'auth-error' => '认证失败',
+    'session-error' => '会话已过期，请重新登陆',
+
+    'authorization-error' => '授权失败',
+    'authorization-message' => '您没有权限访问此内容。',
+
+    'wait' => '正在加载中，请稍等片刻',
+
+    'system-error' => '系统错误',
+    'system-error-message' => '错误编号： :code',
+
 ];

@@ -8,7 +8,7 @@
                          :lang="trans.getLocale()"
                          position="top"
                          firstDayOfWeek="sunday"></vue-date-picker>
-        <div class="invalid-feedback" v-for="error in errors">
+        <div class="invalid-feedback" v-for="error in errors" style="display: block">
             {{ error }}
         </div>
     </div>

@@ -32,4 +32,15 @@ return [
     'send-slack-failed-message' => 'あなたのプロジェクトから新しいメッセージが届きました。',
 
     'not-photo' => '画像を指定してください。',
+
+    'input-invalid' => '入力エラー',
+    'input-invalid-message' => '入力に1つ以上のエラーがあります。',
+
+    'authorization-error' => '権限エラー',
+    'authorization-message' => 'このコンテンツにアクセスする権限がありません。',
+
+    'wait' => 'しばらくお待ちください',
+
+    'system-error' => 'システムエラー',
+    'system-error-message' => 'エラーコード： :code',
 ];
