@@ -26,7 +26,7 @@
                 }
             },
             setDelay: function (index, prePage) {
-                return (index　%　prePage) * 150;
+                return (index　%　prePage) * 100;
             }
         }
     }
