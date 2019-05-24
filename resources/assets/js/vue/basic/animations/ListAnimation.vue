@@ -21,7 +21,9 @@
             },
             afterEnter(dom) {
                 dom.classList.remove('list-enter-to', 'list-enter-active');
-                this.$emit('animation', false);
+                if (dom.dataset.last) {
+                    this.$emit('animation', false);
+                }
             },
             setDelay: function (index, prePage) {
                 return (index　%　prePage) * 150;

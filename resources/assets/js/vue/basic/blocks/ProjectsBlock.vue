@@ -13,6 +13,7 @@
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card"
              v-for="(project, index) in projects"
              :key="project.id"
+             :data-last="index === (projects.length - 1)"
              :data-delay="setDelay(index, prePage)">
             <project-card :url="project.url"
                           :img="project.image"

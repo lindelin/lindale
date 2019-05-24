@@ -1,10 +1,22 @@
 <template>
     <div>
-        <div class="row">
-            <div class="col-md-12 grid-margin stretch-card" v-for="todo in todos" @click="openTodoDetailModal(todo)">
+        <transition-group
+                name="list"
+                tag="div"
+                class="row"
+                v-bind:css="false"
+                v-on:before-enter="beforeEnter"
+                v-on:enter="enter"
+                v-on:after-enter="afterEnter">
+            <div class="col-md-12 grid-margin stretch-card"
+                 v-for="(todo, index) in todos"
+                 :key="todo.id"
+                 :data-delay="setDelay(index, prePage)"
+                 :data-last="index === (todos.length - 1)"
+                 @click="openTodoDetailModal(todo)">
                 <user-todo-card :todo="todo"></user-todo-card>
             </div>
-        </div>
+        </transition-group>
         <div class="modal fade" id="todoDetailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content" v-if="detail">
@@ -78,19 +90,26 @@
                 </div>
             </div>
         </div>
+        <scroll-loader :loader-method="loadMoreData" :loader-enable="loaderEnable" loader-color="#09b4f7"></scroll-loader>
     </div>
 </template>
 
 <script>
     import UserTodoCard from "../../basic/cards/UserTodoCard";
     import Colors from "../../basic/common/Colors";
+    import ListAnimation from "../../basic/animations/ListAnimation";
+    import Router from "../../basic/system/Router";
+    import ErrorHandler from "../../basic/system/ErrorHandler";
     export default {
-        mixins: [Colors],
+        mixins: [Colors, ListAnimation, Router, ErrorHandler],
         name: "TodoList",
         components: {UserTodoCard},
         data: function () {
             return {
                 todos: [],
+                nextTodos: null,
+                prePage: null,
+                loaderEnable: false,
                 detail: null
             }
         },
@@ -100,19 +119,48 @@
         updated: function () {
             this.$root.hideLoader();
         },
+        mounted: function () {
+            this.$on('animation', this.afterAnimation)
+        },
         methods: {
             loadData: function () {
-                axios.get('/api/todos')
+                axios.get(this.route.todos)
                     .then(response => {
                         this.todos = response.data.data;
+                        this.nextTodos = response.data.links.next;
+                        this.prePage = response.data.meta.per_page;
+                        this.loaderEnable = this.canLoadMore
                     })
                     .catch(error => {
-                        console.log(error);
+                        this.handleErrorStatusCodes(error);
                     });
+            },
+            loadMoreData: function () {
+                if (this.canLoadMore) {
+                    this.showSyncIndicator();
+                    this.loaderEnable = false;
+                    axios.get(this.nextTodos)
+                        .then(response => {
+                            this.todos = this.todos.concat(response.data.data);
+                            this.nextTodos = response.data.links.next;
+                            this.loaderEnable = this.canLoadMore
+                        })
+                        .catch(error => {
+                            this.handleErrorStatusCodes(error);
+                        });
+                }
             },
             openTodoDetailModal: function (todo) {
                 this.detail = todo;
                 $('#todoDetailModal').modal('show');
+            },
+            afterAnimation: function () {
+                this.hideIndicator();
+            }
+        },
+        computed: {
+            canLoadMore: function () {
+                return this.nextTodos !== null;
             }
         }
     }

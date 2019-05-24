@@ -11,6 +11,7 @@
             <div class="col-md-12 grid-margin stretch-card"
                  v-for="(task, index) in tasks"
                  :key="task.id"
+                 :data-last="index === (tasks.length - 1)"
                  :data-delay="setDelay(index, prePage)">
                 <user-task-card :task="task"></user-task-card>
             </div>
