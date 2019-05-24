@@ -18,17 +18,17 @@
         props: {
             messages: {
                 type: Array,
-                require  : false,
+                require: false,
                 default: []
             },
             type: {
                 type: String,
-                require  : false,
+                require: false,
                 default: null
             },
             title: {
                 type: String,
-                require  : false,
+                require: false,
                 default: null
             }
         }

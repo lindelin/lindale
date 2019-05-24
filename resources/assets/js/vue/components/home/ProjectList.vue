@@ -15,12 +15,16 @@
         <transition :name="projectListChangeAnimationName" mode="out-in">
             <div class="row" v-if="isMainTab" :key="isMainTab">
                 <div class="col-12">
-                    <projects-block :projects="managedProjects" @animation="afterAnimation"></projects-block>
+                    <projects-block :projects="managedProjects"
+                                    :pre-page="managedProjectPrePage"
+                                    @animation="afterAnimation"></projects-block>
                 </div>
             </div>
             <div class="row" v-else :key="isMainTab">
                 <div class="col-12">
-                    <projects-block :projects="joinedProjects" @animation="afterAnimation"></projects-block>
+                    <projects-block :projects="joinedProjects"
+                                    :pre-page="joinedProjectPrePage"
+                                    @animation="afterAnimation"></projects-block>
                 </div>
             </div>
         </transition>
@@ -42,6 +46,8 @@
                 joinedProjects: [],
                 nextManagedProjects: null,
                 nextJoinedProjects: null,
+                managedProjectPrePage: null,
+                joinedProjectPrePage: null,
                 isMainTab: true,
                 loaderEnable: false
             }
@@ -59,6 +65,7 @@
                     .then(response => {
                         this.managedProjects = response.data.data;
                         this.nextManagedProjects = response.data.links.next;
+                        this.managedProjectPrePage = response.data.meta.per_page;
                         this.loaderEnable = this.loadMore;
                     })
                     .catch(error => {
@@ -70,6 +77,7 @@
                     .then(response => {
                         this.joinedProjects = response.data.data;
                         this.nextJoinedProjects = response.data.links.next;
+                        this.joinedProjectPrePage = response.data.meta.per_page;
                         this.loaderEnable = this.loadMore;
                     })
                     .catch(error => {

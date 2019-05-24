@@ -13,7 +13,7 @@
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card"
              v-for="(project, index) in projects"
              :key="project.id"
-             :data-delay="index * 50">
+             :data-delay="setDelay(index, prePage)">
             <project-card :url="project.url"
                           :img="project.image"
                           :name="project.title"
@@ -36,8 +36,13 @@
         props: {
             projects: {
                 type: Array,
-                require  : false,
+                require: false,
                 default: () => ([])
+            },
+            prePage: {
+                type: Number,
+                require: false,
+                default: 1
             }
         }
     }

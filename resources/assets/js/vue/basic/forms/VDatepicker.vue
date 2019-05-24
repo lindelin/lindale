@@ -22,11 +22,11 @@
         props: {
             id: {
                 type: String,
-                require  : false,
+                require: false,
                 default: null
             },
             label: {
-                require  : true,
+                require: true,
                 default: null
             },
             value: {
@@ -35,7 +35,7 @@
             },
             errors: {
                 type: Array,
-                require  : false,
+                require: false,
                 default: () => ([])
             }
         }
