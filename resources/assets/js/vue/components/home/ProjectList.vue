@@ -1,5 +1,5 @@
 <template>
-    <div v-if="profile">
+    <div>
         <div class="row">
             <div class="col-md-12 grid-margin" align="center">
                 <div class="tab-button-group btn-group" role="group" aria-label="Basic example">
@@ -14,75 +14,107 @@
         </div>
         <transition :name="projectListChangeAnimationName" mode="out-in">
             <div class="row" v-if="isMainTab" :key="isMainTab">
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card">
-                    <create-project-block></create-project-block>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card" v-for="project in profile.projects.management">
-                    <project-card :url="'projects/' + project.id"
-                                  :img="project.image"
-                                  :name="project.title"
-                                  :type="project.type"
-                                  :status="project.status"
-                                  :progress="project.progress"
-                                  :updated-at="project.updated_at"></project-card>
+                <div class="col-12">
+                    <projects-block :projects="managedProjects" @animation="afterAnimation"></projects-block>
                 </div>
             </div>
             <div class="row" v-else :key="isMainTab">
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card">
-                    <create-project-block></create-project-block>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 grid-margin stretch-card" v-for="project in profile.projects.normal">
-                    <project-card :url="'projects/' + project.id"
-                                  :img="project.image"
-                                  :name="project.title"
-                                  :type="project.type"
-                                  :status="project.status"
-                                  :progress="project.progress"
-                                  :updated-at="project.updated_at"></project-card>
+                <div class="col-12">
+                    <projects-block :projects="joinedProjects" @animation="afterAnimation"></projects-block>
                 </div>
             </div>
         </transition>
+        <scroll-loader :loader-method="loadMoreData" :loader-enable="loaderEnable" loader-color="#09b4f7"></scroll-loader>
     </div>
 </template>
 
 <script>
-    import ProjectCard from "../../basic/cards/ProjectCard";
-    import CreateProjectBlock from "../../basic/blocks/CreateProjectBlock";
     import Router from "../../basic/system/Router";
     import ErrorHandler from "../../basic/system/ErrorHandler";
+    import ProjectsBlock from "../../basic/blocks/ProjectsBlock";
     export default {
         name: "ProjectList",
         mixins: [Router, ErrorHandler],
-        components: {CreateProjectBlock, ProjectCard},
+        components: {ProjectsBlock},
         data: function () {
             return {
-                profile: null,
-                isMainTab: true
+                managedProjects: [],
+                joinedProjects: [],
+                nextManagedProjects: null,
+                nextJoinedProjects: null,
+                isMainTab: true,
+                loaderEnable: false
             }
         },
         created: function () {
             this.loadData();
+            this.loadJoinedProjects();
         },
         updated: function () {
             this.$root.hideLoader();
         },
         methods: {
             loadData: function () {
-                axios.get(this.route.profile)
+                axios.get(this.route.projects.managed)
                     .then(response => {
-                        this.profile = response.data;
+                        this.managedProjects = response.data.data;
+                        this.nextManagedProjects = response.data.links.next;
+                        this.loaderEnable = this.loadMore;
                     })
                     .catch(error => {
                         this.handleErrorStatusCodes(error);
                     });
             },
+            loadJoinedProjects: function () {
+                axios.get(this.route.projects.managed)
+                    .then(response => {
+                        this.joinedProjects = response.data.data;
+                        this.nextJoinedProjects = response.data.links.next;
+                        this.loaderEnable = this.loadMore;
+                    })
+                    .catch(error => {
+                        this.handleErrorStatusCodes(error);
+                    });
+            },
+            loadMoreData: function () {
+                if (this.loadMore) {
+                    this.showSyncIndicator();
+                    this.loaderEnable = false;
+                    let url = this.isMainTab ? this.nextManagedProjects : this.nextJoinedProjects
+                    axios.get(url)
+                        .then(response => {
+                            if (this.isMainTab) {
+                                this.managedProjects = this.managedProjects.concat(response.data.data);
+                                this.nextManagedProjects = response.data.links.next;
+                            } else {
+                                this.joinedProjects = this.joinedProjects.concat(response.data.data);
+                                this.nextJoinedProjects = response.data.links.next;
+                            }
+                            this.loaderEnable = this.loadMore;
+                        })
+                        .catch(error => {
+                            this.handleErrorStatusCodes(error);
+                        });
+                }
+            },
             tabChange: function (tab) {
-                this.isMainTab = tab
+                this.isMainTab = tab;
+                this.loaderEnable = this.loadMore;
+            },
+            afterAnimation: function () {
+                this.hideIndicator();
             }
         },
         computed: {
             projectListChangeAnimationName: function () {
                 return this.isMainTab ? 'slide-fade-left' : 'slide-fade-right'
+            },
+            loadMore: function () {
+                if (this.isMainTab) {
+                    return this.nextManagedProjects !== null;
+                } else {
+                    return this.nextJoinedProjects !== null;
+                }
             }
         }
     }

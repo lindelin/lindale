@@ -24476,6 +24476,32 @@ a.text-dark:hover, a.text-dark:focus {
   opacity: 0;
 }
 
+.list-enter-active, .list-leave-active {
+  transition: all .5s;
+}
+
+.list-enter, .list-leave-to {
+  opacity: 0;
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+}
+
+.list-complete-item {
+  transition: all 1s;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.list-complete-enter, .list-complete-leave-to {
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
+}
+
+.list-complete-leave-active {
+  position: absolute;
+}
+
 /* Miscellaneous Mixins */
 .new-accounts ul.chats li.chat-persons a div.user p.u-name, .new-accounts ul.chats li.chat-persons a div.user p.u-designation {
   text-overflow: ellipsis;
@@ -28467,7 +28493,7 @@ ul li {
   }
 }
 
-.loader {
+.page-loader {
   position: fixed;
   z-index: 10000000;
   width: 100%;
@@ -28475,7 +28501,7 @@ ul li {
   background-color: #ffffff;
 }
 
-.loader img {
+.page-loader img {
   position: fixed;
   height: 100px;
   width: 300px;

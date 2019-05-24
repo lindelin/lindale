@@ -1,6 +1,6 @@
 <template>
     <transition name="fade">
-        <div class="loader" v-if="on">
+        <div class="page-loader" v-if="on">
             <img src="/images/loader.svg">
         </div>
     </transition>

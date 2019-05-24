@@ -10,6 +10,7 @@
                     tasks: '/api/tasks',
                     todos: '/api/todos',
                     projects: {
+                        managed: '/api/v1/projects/managed',
                         store: '/api/projects'
                     }
                 }

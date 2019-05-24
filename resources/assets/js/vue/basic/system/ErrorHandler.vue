@@ -58,6 +58,16 @@
                     allowEscapeKey: false
                 })
             },
+            showSyncIndicator: function () {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    onBeforeOpen: () => {
+                        Swal.showLoading();
+                    }
+                })
+            },
             hideIndicator: function () {
                 Swal.close();
             },
@@ -97,6 +107,9 @@
             },
             notify: function (message, type = 'info') {
                 this.notification.fire({
+                    onBeforeOpen: () => {
+                        Swal.showLoading();
+                    },
                     type: type,
                     title: message
                 })

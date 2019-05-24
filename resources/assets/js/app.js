@@ -10,16 +10,8 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 require('./icons');
+require('./lang');
 
-/**
- *  多言語設定
- */
-
-import Lang from 'lang.js';
-const default_locale = window.default_language;
-const fallback_locale = window.fallback_locale;
-const messages = window.messages;
-Vue.prototype.trans = new Lang({ messages, locale: default_locale, fallback: fallback_locale });
 
 /**
  * The following block of code may be used to automatically register your
@@ -31,8 +23,8 @@ Vue.prototype.trans = new Lang({ messages, locale: default_locale, fallback: fal
 
 const files = require.context('./vue/components', true, /\.vue$/i);
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+require('./register');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
