@@ -66,6 +66,8 @@
                     onBeforeOpen: () => {
                         Swal.showLoading();
                     }
+                }).then((result) => {
+                    Swal.getContainer().remove();
                 })
             },
             hideIndicator: function () {
@@ -112,7 +114,9 @@
                     },
                     type: type,
                     title: message
-                })
+                }).then((result) => {
+                    this.notification.getContainer().remove();
+                });
             }
         }
     }

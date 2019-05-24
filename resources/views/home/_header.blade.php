@@ -176,7 +176,7 @@
                 </div>
             </li>
             <li class="nav-item d-none d-lg-block full-screen-link">
-                <a class="nav-link" @click="fullScreen">
+                <a href="javascript:void(0);" class="nav-link" @click="fullScreen">
                     <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
                 </a>
             </li>

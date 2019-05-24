@@ -52,6 +52,7 @@
         },
         updated: function () {
             this.$root.hideLoader();
+            this.notify('通知')
         },
         methods: {
             loadData: function () {
