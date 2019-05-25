@@ -34,7 +34,7 @@ class ProjectController extends Controller
     public function joinedResources(Request $request)
     {
         $projects = $request->user()
-            ->Projects()
+            ->projects()
             ->with([
             'pl',
             'sl',

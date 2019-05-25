@@ -3,6 +3,8 @@
 namespace App;
 
 use App\Events\User\UserCreated;
+use App\Models\Relations\BelongsToMany\BelongsToProjects;
+use App\Models\Relations\BelongsToMany\BelongsToUsers;
 use App\Models\User\Device;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Passport\HasApiTokens;
@@ -74,7 +76,7 @@ use Colorable;
  */
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable, SoftDeletes;
+    use HasApiTokens, Notifiable, SoftDeletes, BelongsToProjects;
 
     /**
      * The attributes that are mass assignable.
@@ -129,17 +131,6 @@ class User extends Authenticatable
     | ManyHasMany 一对多
     |--------------------------------------------------------------------------
     */
-
-    /**
-     * 多个用户拥有多个项目
-     * 多对多.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function Projects()
-    {
-        return $this->belongsToMany('App\Project\Project')->withPivot('is_admin')->withTimestamps();
-    }
 
     /**
      * 多个用户拥有多个项目
