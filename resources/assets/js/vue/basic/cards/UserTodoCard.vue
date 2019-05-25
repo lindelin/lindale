@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-md-11">
                     <div class="row ticket-card">
-                        <div class="ticket-details col-md-9">
+                        <div class="ticket-details col-md-9" @click="openDetail">
                             <div class="d-flex">
                                 <h4 class="font-weight-semibold mr-2 mb-0 no-wrap">TODO :</h4>
                                 <h4 class="mr-1 mb-0 d-none d-sm-block"
@@ -59,6 +59,9 @@
         name: "UserTodoCard",
         props: ['todo'],
         methods: {
+            openDetail: function () {
+                this.$parent.$emit('open-detail', this.todo)
+            }
         },
         computed: {
             statusIcon: function () {

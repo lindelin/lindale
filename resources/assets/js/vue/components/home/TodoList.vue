@@ -7,13 +7,13 @@
                 v-bind:css="false"
                 v-on:before-enter="beforeEnter"
                 v-on:enter="enter"
-                v-on:after-enter="afterEnter">
+                v-on:after-enter="afterEnter"
+                v-on:open-detail="openTodoDetailModal">
             <div class="col-md-12 grid-margin stretch-card"
                  v-for="(todo, index) in todos"
                  :key="todo.id"
                  :data-delay="setDelay(index, prePage)"
-                 :data-last="index === (todos.length - 1)"
-                 @click="openTodoDetailModal(todo)">
+                 :data-last="index === (todos.length - 1)">
                 <user-todo-card :todo="todo"></user-todo-card>
             </div>
         </transition-group>
@@ -150,8 +150,8 @@
                         });
                 }
             },
-            openTodoDetailModal: function (todo) {
-                this.detail = todo;
+            openTodoDetailModal: function (event) {
+                this.detail = event;
                 $('#todoDetailModal').modal('show');
             },
             afterAnimation: function () {
