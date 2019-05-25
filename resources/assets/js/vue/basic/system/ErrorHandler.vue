@@ -108,10 +108,8 @@
                     this.trans.get('errors.system-error-message', { code: code }));
             },
             notify: function (message, type = 'info') {
+                Swal.hideLoading();
                 this.notification.fire({
-                    onBeforeOpen: () => {
-                        Swal.showLoading();
-                    },
                     type: type,
                     title: message
                 }).then((result) => {

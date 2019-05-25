@@ -8,6 +8,7 @@
                 v-on:before-enter="beforeEnter"
                 v-on:enter="enter"
                 v-on:after-enter="afterEnter"
+                v-on:has-changed="loadData"
                 v-on:open-detail="openTodoDetailModal">
             <div class="col-md-12 grid-margin stretch-card"
                  v-for="(todo, index) in todos"

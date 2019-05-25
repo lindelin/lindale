@@ -61,8 +61,9 @@
 <script>
     import Colors from "../common/Colors";
     import Router from "../system/Router";
+    import ErrorHandler from "../system/ErrorHandler";
     export default {
-        mixins: [Colors, Router],
+        mixins: [Colors, Router, ErrorHandler],
         name: "UserTodoCard",
         props: ['todo'],
         methods: {
@@ -70,15 +71,20 @@
                 this.$parent.$emit('open-detail', this.todo)
             },
             changeStatus: function (statusId) {
+                this.showSyncIndicator();
                 axios.put(this.route.todo.update(this.todo.id), {
                     status_id: statusId
                 })
-                    .then(function (response) {
-                        console.log(response);
+                    .then((response) => {
+                        this.notify(response.data.messages, 'success');
+                        this.todoHasChanged();
                     })
-                    .catch(function (error) {
-                        console.log(error);
+                    .catch((error) => {
+                        this.handleErrorStatusCodes(error);
                     });
+            },
+            todoHasChanged: function () {
+                this.$parent.$emit('has-changed')
             }
         },
         computed: {

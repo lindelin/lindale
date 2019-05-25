@@ -24502,6 +24502,12 @@ a.text-dark:hover, a.text-dark:focus {
   position: absolute;
 }
 
+.flip-list-move {
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+
 /* Miscellaneous Mixins */
 .new-accounts ul.chats li.chat-persons a div.user p.u-name, .new-accounts ul.chats li.chat-persons a div.user p.u-designation {
   text-overflow: ellipsis;
