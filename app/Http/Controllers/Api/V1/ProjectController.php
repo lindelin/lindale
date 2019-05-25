@@ -30,4 +30,21 @@ class ProjectController extends Controller
 
         return ProjectResource::collection($projects);
     }
+
+    public function joinedResources(Request $request)
+    {
+        $projects = $request->user()
+            ->Projects()
+            ->with([
+            'pl',
+            'sl',
+            'todos',
+            'tasks',
+        ])
+            ->orderBy('progress', 'asc')
+            ->latest()
+            ->paginate(8);
+
+        return ProjectResource::collection($projects);
+    }
 }
