@@ -13,6 +13,11 @@
                         managed: '/api/v1/projects/managed',
                         joined: '/api/v1/projects/joined',
                         store: '/api/projects'
+                    },
+                    todo: {
+                        update: function (id) {
+                            return '/api/todos/' + id
+                        }
                     }
                 }
             }

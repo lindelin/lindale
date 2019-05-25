@@ -140,7 +140,9 @@ class TodoRepository implements TodoRepositoryContract
             $todo->$key = $value;
         }
 
-        $todo->user_id = $request->input('user_id', null);
+        if ($request->input('user_id', null) !== null) {
+            $todo->user_id = $request->input('user_id') == 0 ? null : $request->input('user_id');
+        }
 
         return $todo;
     }

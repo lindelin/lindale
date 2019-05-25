@@ -65,3 +65,11 @@
     @include card-inverse-variant(rgba(theme-color($color), .2), theme-color-level($color, 1), theme-color-level($color, 3));
   }
 }
+
+.ticket-card {
+  .ticket-details {
+    &.clickable {
+      cursor: pointer;
+    }
+  }
+}

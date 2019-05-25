@@ -8,7 +8,7 @@
                 </div>
                 <div class="col-md-11">
                     <div class="row ticket-card">
-                        <div class="ticket-details col-md-9" @click="openDetail">
+                        <div class="ticket-details clickable col-md-9" @click="openDetail">
                             <div class="d-flex">
                                 <h4 class="font-weight-semibold mr-2 mb-0 no-wrap">TODO :</h4>
                                 <h4 class="mr-1 mb-0 d-none d-sm-block"
@@ -33,15 +33,21 @@
                                     {{ todo.status }}
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-reply fa-fw"></i>Quick reply</a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-history fa-fw"></i>Another action</a>
+                                    <a class="dropdown-item" href="javascript:void(0);" @click="changeStatus(4)">
+                                        <i class="fa fa-reply fa-fw"></i>{{ trans.get('status.undetermined') }}
+                                    </a>
+                                    <a class="dropdown-item" href="javascript:void(0);" @click="changeStatus(2)">
+                                        <i class="fa fa-reply fa-fw"></i>{{ trans.get('status.finish') }}
+                                    </a>
+                                    <a class="dropdown-item" href="javascript:void(0);" @click="changeStatus(3)">
+                                        <i class="fa fa-reply fa-fw"></i>{{ trans.get('status.underway') }}
+                                    </a>
+                                    <a class="dropdown-item" href="javascript:void(0);" @click="changeStatus(1)">
+                                        <i class="fa fa-reply fa-fw"></i>{{ trans.get('status.wait') }}
+                                    </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">
-                                        <i class="fa fa-check text-success fa-fw"></i>Resolve Issue</a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-times text-danger fa-fw"></i>Close Issue</a>
+                                        <i class="fa fa-check text-success fa-fw"></i>担当者変更</a>
                                 </div>
                             </div>
                         </div>
@@ -54,13 +60,25 @@
 
 <script>
     import Colors from "../common/Colors";
+    import Router from "../system/Router";
     export default {
-        mixins: [Colors],
+        mixins: [Colors, Router],
         name: "UserTodoCard",
         props: ['todo'],
         methods: {
             openDetail: function () {
                 this.$parent.$emit('open-detail', this.todo)
+            },
+            changeStatus: function (statusId) {
+                axios.put(this.route.todo.update(this.todo.id), {
+                    status_id: statusId
+                })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             }
         },
         computed: {
