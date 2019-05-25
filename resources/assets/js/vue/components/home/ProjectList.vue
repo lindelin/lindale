@@ -73,7 +73,7 @@
                     });
             },
             loadJoinedProjects: function () {
-                axios.get(this.route.projects.managed)
+                axios.get(this.route.projects.joined)
                     .then(response => {
                         this.joinedProjects = response.data.data;
                         this.nextJoinedProjects = response.data.links.next;
