@@ -73,6 +73,20 @@
                     default:
                         return 'btn-outline-primary';
                 }
+            },
+            todoAction: function (id) {
+                switch (id) {
+                    case 1:
+                        return 'spinner';
+                    case 2:
+                        return 'check';
+                    case 3:
+                        return 'circle-notch';
+                    case 4:
+                        return 'star';
+                    default:
+                        return '';
+                }
             }
         }
     }

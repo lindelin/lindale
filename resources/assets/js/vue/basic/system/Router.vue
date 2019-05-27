@@ -17,6 +17,9 @@
                     todo: {
                         update: function (id) {
                             return '/api/todos/' + id
+                        },
+                        editResources: function (id) {
+                            return '/api/todos/' + id + '/edit-resource'
                         }
                     }
                 }

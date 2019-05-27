@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-1 d-flex align-items-center"
                      :class="textColor(todo.color)">
-                    <icon :icon="statusIcon" size="2x" :spin="!todo.completed"></icon>
+                    <icon :icon="todoAction(todo.action)" size="2x" :spin="!todo.completed"></icon>
                 </div>
                 <div class="col-md-11">
                     <div class="row ticket-card">
@@ -46,7 +46,7 @@
                                         <i class="fa fa-reply fa-fw"></i>{{ trans.get('status.wait') }}
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="javascript:void(0);" @click="changUser">
                                         <i class="fa fa-check text-success fa-fw"></i>担当者変更</a>
                                 </div>
                             </div>
@@ -62,6 +62,7 @@
     import Colors from "../common/Colors";
     import Router from "../system/Router";
     import ErrorHandler from "../system/ErrorHandler";
+    import Swal from 'sweetalert2'
     export default {
         mixins: [Colors, Router, ErrorHandler],
         name: "UserTodoCard",
@@ -85,11 +86,42 @@
             },
             todoHasChanged: function () {
                 this.$parent.$emit('has-changed')
-            }
-        },
-        computed: {
-            statusIcon: function () {
-                return this.todo.completed ? 'check' : 'circle-notch'
+            },
+            changUser: function () {
+                this.showIndicator();
+                axios.get(this.route.todo.editResources(this.todo.id))
+                    .then(async (response) => {
+                        let inputOptions = {};
+                        await response.data.users.forEach((user) => {
+                            inputOptions[user.id] = user.name
+                        });
+                        const {value: user} = await Swal.fire({
+                            title: this.trans.get('todo.user'),
+                            input: 'select',
+                            inputOptions: inputOptions,
+                            inputPlaceholder: this.trans.get('todo.user'),
+                            showCancelButton: true,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+
+                        if (user) {
+                            this.showIndicator();
+                            axios.put(this.route.todo.update(this.todo.id), {
+                                user_id: user
+                            })
+                                .then((response) => {
+                                    this.showSuccessPopup(response.data.messages);
+                                    this.todoHasChanged();
+                                })
+                                .catch((error) => {
+                                    this.handleErrorStatusCodes(error);
+                                });
+                        }
+                    })
+                    .catch((error) => {
+                        this.handleErrorStatusCodes(error);
+                    });
             }
         }
     }

@@ -4,6 +4,7 @@
         methods: {
             //添加移除 class 类名，监听 transitionend 事件。
             beforeEnter(dom) {
+                this.showSyncIndicator();
                 dom.classList.add('list-enter', 'list-enter-active');
             },
             enter(dom,done) {
