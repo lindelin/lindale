@@ -1,6 +1,8 @@
 <script>
+    import ErrorHandler from "../system/ErrorHandler";
     export default {
         name: "ListAnimation",
+        mixins: [ErrorHandler],
         methods: {
             //添加移除 class 类名，监听 transitionend 事件。
             beforeEnter(dom) {
@@ -24,6 +26,7 @@
                 dom.classList.remove('list-enter-to', 'list-enter-active');
                 if (dom.dataset.last) {
                     this.$emit('animation', false);
+                    this.hideIndicator();
                 }
             },
             setDelay: function (index, prePage) {
