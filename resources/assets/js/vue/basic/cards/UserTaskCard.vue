@@ -31,11 +31,17 @@
                                     <icon :icon="statusIcon" :spin="!task.is_finish"></icon>　{{ task.status }}
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fa fa-reply fa-fw"></i>Quick reply</a>
+                                    <a class="dropdown-item" href="#" v-if="task.is_finish">
+                                        <icon icon="circle-notch" :spin="true"></icon>　
+                                        {{ trans.get('task.underway') }}
+                                    </a>
+                                    <a class="dropdown-item" href="#" v-else>
+                                        <icon icon="check"></icon>　
+                                        {{ trans.get('task.finish') }}
+                                    </a>
+                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">
                                         <i class="fa fa-history fa-fw"></i>Another action</a>
-                                    <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">
                                         <i class="fa fa-check text-success fa-fw"></i>Resolve Issue</a>
                                     <a class="dropdown-item" href="#">
