@@ -13,7 +13,7 @@
     "axios": "^0.18",
     "bootstrap-markdown": "^2.10.0",
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-select": "^1.12.1",
+    "bootstrap-select": "^1.13.6",
     "cross-env": "^5.1",
     "eonasdan-bootstrap-datetimepicker": "^4.17.42",
     "font-awesome": "^4.7.0",
